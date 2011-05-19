@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* IE 8 & Below CSS Document */
+
+
+/* Add Space Header Banner */
+#header-banner {
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+/* Add Space Above Footer Blocks */
+#footer-blocks {
+	margin-top: 0px;
+	padding-top: 35px;
+	margin-bottom: 15px;
+}
+
+/* Add Space Above Footer Menu */
+#footer-menu {
+	margin-top: 20px !important;
+	margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+/* Testing 
+#footer-menu div div div ul.menu li.leaf a {color: red;}
+*/
+#block-search-form input.form-submit {line-height: 2;}

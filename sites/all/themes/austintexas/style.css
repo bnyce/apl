@@ -72,6 +72,10 @@ body {
     margin:0px;
 }
 
+.pane-events {
+	background: none repeat scroll 0 0 #EDEADB;
+}
+
 .pane-events h2 {
 	color:#dadbdd !important;
 	background: url("images/title_blue_bkg.jpg") no-repeat scroll left 0;

@@ -85,7 +85,8 @@ body {
 }
 
 .pane-events ul {
-	margin-left: -10px;
+	margin-left: -20px;
+    margin-top: -10px;
 }
 
 .pane-events ul li {

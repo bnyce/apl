@@ -98,6 +98,7 @@ body {
 	font-size: 12px;
 	list-style: none;
 	background: url("images/icons/line_spacer.jpg") no-repeat scroll -25px 18px transparent;
+	height: 20px;
 }
 
 .pane-events li a {

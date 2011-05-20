@@ -74,6 +74,7 @@ body {
 
 .pane-events h2 {
 	color:#dadbdd !important;
+	background-image: url("images/icons/title_blue_bkg.jpg") no-repeat scroll left 0;
 }
 
 

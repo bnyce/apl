@@ -12,7 +12,6 @@ ul.footer-list {padding: 0; margin: 0;}
 	ul.footer-list li {list-style: none; margin: 0; padding: 0;}
 	ul.footer-list li a {color: #fff; text-decoration: none;font-size: 12px;}
 	ul.footer-list li a:hover {text-decoration: underline;}
-	ul.footer-list {margin: 0;}
 
 /* FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS */
 li#cwu-mobileapps {height: 16px; background: url(images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}

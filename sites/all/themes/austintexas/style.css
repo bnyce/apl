@@ -84,7 +84,6 @@ body {
 }
 
 .pane-events li{
-	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left center transparent;
 	font-family: Arial;
 	font-size: 12px;
 }
@@ -92,7 +91,7 @@ body {
 .pane-events li a{
 	background: url("images/icons/cuved_arrow.jpg") no-repeat scroll left center transparent;
 	text-decoration: none;
-	color:#a85708;
+	color:#737b82;
 }
 
 .pane-events li a:hover{

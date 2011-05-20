@@ -167,7 +167,7 @@ margin: 0;
 	background: url("images/sub_menu_right.png") no-repeat scroll right center #626c76;
 }
 
-#submenubar ul{
+#submenubar ul.nice-menu {
 	border-radius: 10px;
 	background: url("images/sub_menu_left.png") no-repeat scroll left center;
 }

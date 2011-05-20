@@ -108,6 +108,18 @@ body {
 	padding-left: 16px;
 }
 
+.pane-events .more-link a {
+ 	background: url("images/icons/curved_arrow") no-repeat scroll left 0 transparent;
+    color: #A85708;
+    font-family: Univers Bold;
+    font-size: 13px;
+    padding-left: 12px;
+    text-decoration: none;
+	padding-left: 16px;
+	text-align: left !important;
+
+}
+
 .pane-events li a:hover{
 	text-decoration: underline;
 }

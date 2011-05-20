@@ -154,6 +154,18 @@ body {
     padding-right: 20px;
 }
 
+.select_box {
+	width: 220px;
+}
+
+.box_options {
+	text-transform: uppercase;
+}
+
+#form select {
+	width: 220px;
+}
+
 
 #wrapper {
 	width: 960px;

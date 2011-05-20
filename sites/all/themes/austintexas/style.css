@@ -83,6 +83,23 @@ body {
     padding-left: 15px;
 }
 
+.pane-events li{
+	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left center transparent;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.pane-events li a{
+	background: url("images/icons/cuved_arrow.jpg") no-repeat scroll left center transparent;
+	text-decoration: none;
+	color:#a85708;
+}
+
+.pane-events li a:hover{
+	text-decoration: underline;
+}
+
+
 .view-dom-id-1 {
 	padding-left: 15px;
 }

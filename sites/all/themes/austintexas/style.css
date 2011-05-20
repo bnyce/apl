@@ -107,8 +107,11 @@ body {
 	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
 	padding-left: 16px;
 }
-
-.pane-events #more-link a {
+.pane-events .more-link {
+	text-align: left !important;
+}
+	
+.pane-events .more-link a {
  	background: url("images/icons/curved_arrow") no-repeat scroll left 0 transparent;
     color: #A85708;
     font-family: Univers Bold;
@@ -116,7 +119,6 @@ body {
     padding-left: 12px;
     text-decoration: none;
 	padding-left: 16px;
-	text-align: left !important;
 
 }
 

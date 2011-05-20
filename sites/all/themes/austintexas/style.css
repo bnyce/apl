@@ -83,6 +83,11 @@ body {
     padding-left: 15px;
 	line-height: 32px;
 }
+
+.pane-events ul {
+	margin-left: -10px;
+}
+
 .pane-events ul li {
 	margin: 0 0 0.65em 1.7em !important;
 }
@@ -91,6 +96,7 @@ body {
 	font-family: Arial;
 	font-size: 12px;
 	list-style: none;
+	padding-left: 16px;
 }
 
 .pane-events li a {

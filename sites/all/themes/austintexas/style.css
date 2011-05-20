@@ -81,6 +81,7 @@ body {
 	background: url("images/title_blue_bkg.jpg") no-repeat scroll left 0;
 	font-weight: normal;
     padding-left: 15px;
+	line-height: 32px;
 }
 
 .pane-events li{

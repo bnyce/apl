@@ -36,7 +36,6 @@ body {
 	margin-bottom: -9px;
 }
 
-
 .views-field-title a {
 	color: #a85708;
 	text-decoration: none;
@@ -48,6 +47,15 @@ body {
 
 .views-field-title a:hover {
 	text-decoration: underline;
+}
+
+.pane-7 {
+	color: #a85708;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: Univers Bold;
+	padding-left: 12px;
+	background: url(images/flip_page.jpg) no-repeat left;
 }
 
 .field-content p {

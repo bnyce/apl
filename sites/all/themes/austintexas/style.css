@@ -20,20 +20,38 @@ body {
 	margin-top: 15px;
 }
 
+#squeeze p {
+    font-family: "arial";
+    font-size: 12px;
+}
+
 #squeeze h2 {
     font-family: "Univers Light";
     font-size: 20px;
     text-transform: uppercase;
 }
 .views-field {
-	width:400px;
+	width:360px;
+	margin-bottom: -9px;
 }
+
 
 .views-field-title a {
 	color: #a85708;
 	text-decoration: none;
 	font-size: 13px;
 	font-family: Univers Bold;
+	padding-left: 12px;
+	background: url(images/star.jpg) no-repeat left;
+}
+
+.field-content p {
+	padding-left: 12px;
+}
+
+#mini-panel-front_page_top_panels {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 

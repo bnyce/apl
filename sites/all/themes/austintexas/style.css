@@ -162,7 +162,7 @@ body {
 	text-transform: uppercase;
 }
 
-#form select {
+form select {
 	width: 220px;
 }
 

@@ -87,10 +87,10 @@ body {
 .pane-events li{
 	font-family: Arial;
 	font-size: 12px;
+	list-style-image: url("images/icons/curved_arrow.jpg") no-repeat scroll left center transparent;
 }
 
 .pane-events li a{
-	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left center transparent;
 	text-decoration: none;
 	color:#737b82;
 }

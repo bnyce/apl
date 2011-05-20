@@ -75,9 +75,17 @@ body {
 .pane-events h2 {
 	color:#dadbdd !important;
 	background: url("images/title_blue_bkg.jpg") no-repeat scroll left 0;
+	font-weight: normal;
+    padding-left: 15px;
 }
 
+.view-dom-id-1 {
+	padding-left: 15px;
+}
 
+#block-panels-mini-front-page-top-panels .center-column {
+	width: 209px;
+}
 
 .view-header p { 
 	color:#a85708;

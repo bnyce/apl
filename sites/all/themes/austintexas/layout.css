@@ -21,3 +21,12 @@ ul.footer-list {padding: 0; margin: 0;}
 	ul.footer-list li {list-style: none; margin: 0; padding: 0;}
 	ul.footer-list li a {color: #fff; text-decoration: none;font-size: 12px;}
 	ul.footer-list li a:hover {text-decoration: underline;}
+
+
+	/* CONNECT WITH US - ICON DECLARATIONS */
+	li#cwu-mobileapps {height: 32px; background: url(images/icons/icon_mobile_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
+	li#cwu-multimedia {height: 32px; background: url(images/icons/icon_multimedia_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
+	li#cwu-twitter {height: 32px; background: url(images/icons/icon_twitter_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
+	li#cwu-facebook {height: 32px; background: url(images/icons/icon_facebook_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
+	li#cwu-youtube {height: 32px; background: url(images/icons/icon_youtube_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
+	li#cwu-rss {height: 32px; background: url(images/icons/icon_rss_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}

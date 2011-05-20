@@ -138,6 +138,11 @@ body {
 	text-decoration: none;
 	text-transform: uppercase;
 }
+
+#footer-menu ul li a:hover {
+	text-decoration: underline;
+}
+
 div.round-corners {
 	background: #fff;
 }

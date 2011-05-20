@@ -31,7 +31,7 @@ body {
     text-transform: uppercase;
 	color: #636463;
 }
-.views-field {
+.pane-views-feed-view-block-1 .views-field {
 	width:360px;
 	margin-bottom: -9px;
 }
@@ -83,6 +83,9 @@ body {
 	padding-left: 15px;
 }
 
+.panels-flexible-region-1-center {
+	width: 209px;
+}
 
 .view-header p { 
 	color:#a85708;

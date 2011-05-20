@@ -72,6 +72,16 @@ body {
     margin:0px;
 }
 
+.pane-events h2 {
+	color:#dadbdd;
+}
+
+.view-header { 
+	color:#a85708;
+	font-weight: bold;
+	font-size: 16px;
+}
+
 .field-content p {
 	padding-left: 12px;
 }

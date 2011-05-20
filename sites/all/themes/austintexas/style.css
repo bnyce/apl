@@ -97,7 +97,7 @@ body {
 	font-family: Arial;
 	font-size: 12px;
 	list-style: none;
-	background: url("images/icons/line_spacer.jpg") no-repeat scroll 0 0 transparent;
+	background: url("images/icons/line_spacer.jpg") no-repeat scroll -25px 18px transparent;
 }
 
 .pane-events li a {

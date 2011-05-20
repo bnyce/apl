@@ -24,7 +24,7 @@ ul.footer-list {padding: 0; margin: 0;}
 
 
 	/* CONNECT WITH US - ICON DECLARATIONS */
-	li#cwu-mobileapps {height: 32px; background: url(images/icons/icon_mobile_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
+	li#cwu-mobileapps {height: 16px; background: url(images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 3px 0;}
 	li#cwu-multimedia {height: 32px; background: url(images/icons/icon_multimedia_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
 	li#cwu-twitter {height: 32px; background: url(images/icons/icon_twitter_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}
 	li#cwu-facebook {height: 32px; background: url(images/icons/icon_facebook_32.png) 0 0 no-repeat; text-indent: 38px; line-height: 32px;margin: 5px 0;}

@@ -106,6 +106,7 @@ body {
 	color:#737b82;
 	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
 	padding-left: 16px;
+	font-weight: bold;
 }
 .pane-events .more-link {
     margin: -10px 0 0;
@@ -121,7 +122,6 @@ body {
     padding-left: 12px;
     text-decoration: none;
 	padding-left: 16px;
-	font-weight: bold;
 
 }
 

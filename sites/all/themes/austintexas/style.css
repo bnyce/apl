@@ -112,6 +112,7 @@ body {
     margin: -10px 0 0;
 	text-align: left !important;
 	padding-top: 2px;
+	padding-bottom: 2px;
 }
 	
 .pane-events .more-link a {

@@ -90,12 +90,13 @@ body {
 .pane-events li {
 	font-family: Arial;
 	font-size: 12px;
-	list-style-image: url("images/icons/curved_arrow.jpg");
+	list-style: none;
 }
 
 .pane-events li a {
 	text-decoration: none;
 	color:#737b82;
+	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
 }
 
 .pane-events li a:hover{

@@ -163,6 +163,7 @@ form select {
 	height: 25px;
     margin-bottom: 4px;
 	border: none;
+	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
 }
 
 #wrapper {

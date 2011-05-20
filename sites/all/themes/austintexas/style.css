@@ -79,7 +79,7 @@ body {
 .view-header p { 
 	color:#a85708;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 16px !important;
 }
 
 .field-content p {

@@ -1,4 +1,6 @@
-        $(document).ready(function() {
+        (function ($) {
+		
+		$(document).ready(function() {
 
             $(".dropdown dt a").click(function() {
                 $(".dropdown dd ul").toggle();
@@ -68,3 +70,5 @@
             });
 		   
         });
+		
+		})(jQuery);

@@ -90,11 +90,11 @@ margin: 0;
 }
 
 /*Main Navigation Styles */
-#block-system-main-menu li.menu-198 {
+#block-system-main-menu li.menu-877 {
 	background: url("images/main_menu_bkg_01.jpg") no-repeat #a85708;
 }
 
-#block-system-main-menu li.menu-198.active {
+#block-system-main-menu li.menu-877.active {
 	background: url("images/main_menu_active_01.jpg") no-repeat #a85708;
 }
 

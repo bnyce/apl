@@ -79,7 +79,7 @@
 		  <div id="above-content"><?php print render($page['above_content']); ?></div>
 		  
 		  
-		  <div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container">
+		  <div id="content_box_top" class="round-corners two-tone"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container">
 		  	
 		  	          
 

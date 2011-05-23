@@ -1,3 +1,14 @@
+/* ROUNDED CORNERS - TWO-TONE LAYOUT */
+div.round-corners.two-tone { background: #fff; }
+div.round-corners.two-tone .tl { background: url(images/tl_dark.jpg) no-repeat top left; }
+div.round-corners.two-tone .tr {	background: url(images/tr_dark.jpg) no-repeat top right; }
+div.round-corners.two-tone .bl { background: url(images/bl_dark.jpg) no-repeat bottom left; }
+div.round-corners.two-tone .br {	background: url(images/br.jpg) no-repeat bottom right; }
+
+
+
+
+
 /* FOOTER COLUMNS - ROUNDED CORNERS */
 div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}
 div.round-corners-footer .content-container { padding: 10px; }

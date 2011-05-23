@@ -21,7 +21,7 @@
 }
 
 
-#submenubar li.first {
+#submenubar li.first.menuparent {
 	margin-left: 35px;
 }
 

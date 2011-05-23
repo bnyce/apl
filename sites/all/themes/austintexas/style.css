@@ -1,11 +1,22 @@
 @font-face {
-	font-family: Univers Light;
-	src: url('/sites/default/files/fonts/UniversLTStd-LightCn.otf');
+	font-family:"Univers Light";
+	src: url( /sites/default/files/fonts/UniversLTStd-LightCn.otf ); /* IE */  
+	src: local("Univers Light"), url( /sites/default/files/fonts/UniversLTStd-LightCn.otf ) format("eot"); /* non-IE */  
 }
+
+/* THEN use like you would any other font */  
+	.universlight { font-family:"Univers Light";  
+}  
+
 @font-face {
-	font-family: Univers Bold;
-	src: url('/sites/default/files/fonts/UniversLTStd-BoldCn.otf');
+	font-family:"Univers Bold";
+	src: url( /sites/default/files/fonts/UniversLTStd-BoldCn.otf ); /* IE */  
+	src: local("Univers Bold"), url( /sites/default/files/fonts/UniversLTStd-BoldCn.otf ) format("eot"); /* non-IE */  
 }
+
+/* THEN use like you would any other font */  
+	.universbold { font-family:"Univers Bold";  
+}  
 
 body {
 	background: url(images/bkg.jpg);

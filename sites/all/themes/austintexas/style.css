@@ -1,14 +1,3 @@
-@font-face {
-	font-family:"Univers Light";
-	src: url( /sites/default/files/fonts/universltstdlightcn.eot ); /* IE */  
-	src: local("Univers Light"), url( '/sites/default/files/fonts/universltstdlightcn.ttf' ) format('opentype'); /* non-IE */  
-}
-
-@font-face {
-	font-family:"Univers Bold";
-	src: url( /sites/default/files/fonts/universltstdboldcn.eot ); /* IE */  
-	src: local("Univers Bold"), url( '/sites/default/files/fonts/universltstdboldcn.ttf' ) format('opentype'); /* non-IE */  
-}
 
 body {
 	background: url(images/bkg.jpg);

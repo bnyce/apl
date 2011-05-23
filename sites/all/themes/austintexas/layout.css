@@ -20,3 +20,7 @@ li#cwu-twitter {height: 16px; background: url(images/icons/icon_twitter_16.png) 
 li#cwu-facebook {height: 16px; background: url(images/icons/icon_facebook_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
 li#cwu-youtube {height: 16px; background: url(images/icons/icon_youtube_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
 li#cwu-rss {height: 16px; background: url(images/icons/icon_rss_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+
+p#tweet {font-weight: normal; font-size: 12px;}
+	p#tweet a {color: #ddd;}
+	p#tweet-time {font-size: 10px; font-weight: normal;}

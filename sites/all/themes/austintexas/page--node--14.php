@@ -107,9 +107,9 @@
 		  </div></div></div></div></div></div>
 		  
 		  
-		  <div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print  ?></div></div></div></div></div></div>
+		  <div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"> <!--  --></div></div></div></div></div></div>
           
-            <?php print render($page['content']); ?> 
+            <?php #print render($page['content']); ?> 
           
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 

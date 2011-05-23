@@ -22,7 +22,8 @@
 
 .pane-views-feed-view-block-1 .views-field {
 	width:360px;
-	padding-bottom: 16px;
+	line-height: 10px;
+	padding-bottom: 12px;
 }
 
 #submenubar li.first.menuparent {

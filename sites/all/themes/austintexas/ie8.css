@@ -11,6 +11,7 @@
 /* Add Space Above Footer Blocks */
 #footer-blocks {
 	margin-top: 0px;
+	padding-top: 35px;
 	margin-bottom: 15px;
 }
 

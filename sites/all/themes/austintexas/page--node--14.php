@@ -81,10 +81,28 @@
 		  
 		  <div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container">
 		  	
-		  	          <div class="breadcrumb"><?php print $breadcrumb; ?></div>
+		  	          
 
 		  	
-		  	<?php print render($page['content_left_sidebar']); render($page['content_main_blocks']); render($page['content_right_sidebar']);?>
+		  	<div id="left-sidebar">
+		  	<?php print render($page['content_left_sidebar']); ?>
+		  	</div>
+		  	
+		  	
+		  	
+		  	<div id="content-main-blocks">
+		  		<div class="breadcrumb"><?php print $breadcrumb; ?></div>
+		  		<?php render($page['content_main_blocks']); ?>
+		  	</div>
+		  	
+		  	
+		  	
+		  	<div id="right-sidebar">
+		  		<?php render($page['content_right_sidebar']);?>
+		  	</div>
+		  	
+		  	
+		  	
 		  </div></div></div></div></div></div>
 		  
 		  

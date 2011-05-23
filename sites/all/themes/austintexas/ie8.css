@@ -20,6 +20,10 @@
 	margin-bottom: 0px;
 }
 
+#mini-panel-front_page_top_panels {
+	padding-top: 15px;
+}
+
 .pane-views-feed-view-block-1 .views-field {
 	width:360px;
 	line-height: 10px;

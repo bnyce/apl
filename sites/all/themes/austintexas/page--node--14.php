@@ -63,7 +63,7 @@
       </div> <!-- /#header -->
 
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
-          <?php print $breadcrumb; ?>
+          <div class="breadcrumb"><?php print $breadcrumb; ?></div>
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <a id="main-content"></a>
           <?php if ($tabs): ?><div id="tabs-wrapper" class="clearfix"><?php endif; ?>
@@ -78,8 +78,14 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 		  <div id="above-content"><?php print render($page['above_content']); ?></div>
-		  <div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_left_sidebar']); ?></div></div></div></div></div></div>
-		  <div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_main_blocks']); ?></div></div></div></div></div></div>
+		  
+		  
+		  <div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container">
+		  	<?php print render($page['content_left_sidebar']); render($page['content_main_blocks']); render($page['content_right_sidebar']);?>
+		  </div></div></div></div></div></div>
+		  
+		  
+		  <div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print  ?></div></div></div></div></div></div>
           
             <?php print render($page['content']); ?> 
           

@@ -85,12 +85,14 @@
 
 		  	
 		  	<div id="left-sidebar">
-		  	<?php print render($page['content_left_sidebar']); ?>
+		  		left
+		  		<?php print render($page['content_left_sidebar']); ?>
 		  	</div>
 		  	
 		  	
 		  	
 		  	<div id="content-main-blocks">
+		  		main
 		  		<div class="breadcrumb"><?php print $breadcrumb; ?></div>
 		  		<?php render($page['content_main_blocks']); ?>
 		  	</div>
@@ -98,6 +100,7 @@
 		  	
 		  	
 		  	<div id="right-sidebar">
+		  		right
 		  		<?php render($page['content_right_sidebar']);?>
 		  	</div>
 		  	

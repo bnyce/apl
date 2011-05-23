@@ -85,6 +85,7 @@
 
 		  	
 		  	<div id="left-sidebar">
+		  		test
 		  		<?php print render($page['content_left_sidebar']); ?>
 		  	</div>
 		  	

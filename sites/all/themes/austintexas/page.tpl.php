@@ -63,7 +63,6 @@
       </div> <!-- /#header -->
 
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
-          <?php print $breadcrumb; ?>
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <a id="main-content"></a>
           <?php if ($tabs): ?><div id="tabs-wrapper" class="clearfix"><?php endif; ?>

@@ -353,9 +353,9 @@ div.round-corners .br {
         .dropdown dd { position:relative; margin:auto; }
         .dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown a:hover { color:#5d4617;}
-		.dropdown dt span {background: url(austingo/sites/all/themes/austintexas/images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+		.dropdown dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
         .dropdown dt a:hover, .dropdown dt a:focus { color:#5d4617; border: 1px solid #5d4617;}
-        .dropdown dt a {background: url(austingo/sites/all/themes/austintexas/images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
                           left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
@@ -368,9 +368,9 @@ div.round-corners .br {
         .dropdown2 dd { position:relative; margin: auto; }
         .dropdown2 a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown2 a:hover { color:#5d4617;}
-		.dropdown2 dt span {background: url(austingo/sites/all/themes/austintexas/images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+		.dropdown2 dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
         .dropdown2 dt a:hover, .dropdown2 dt a:focus { color:#5d4617; border: 1px solid #5d4617;}
-        .dropdown2 dt a {background: url(austingo/sites/all/themes/austintexas/images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown2 dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown2 dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown2 dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
                           left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
@@ -383,9 +383,9 @@ div.round-corners .br {
         .dropdown3 dd { position:relative; margin:auto; }
         .dropdown3 a, .dropdown3 a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown3 a:hover { color:#5d4617;}
-		.dropdown3 dt span {background: url(austingo/sites/all/themes/austintexas/images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+		.dropdown3 dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
         .dropdown3 dt a:hover, .dropdown3 dt a:focus { color:#5d4617; border: 1px solid #5d4617;}
-        .dropdown3 dt a {background: url(austingo/sites/all/themes/austintexas/images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown3 dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown3 dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown3 dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
                           left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}

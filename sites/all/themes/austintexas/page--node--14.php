@@ -93,6 +93,7 @@
 		  	<div id="content-main-blocks">
 		  		<div class="breadcrumb"><?php print $breadcrumb; ?></div>
 		  		<?php render($page['content_main_blocks']); ?>
+		  		<?php print render($page['content']); ?> 
 		  	</div>
 		  	
 		  	

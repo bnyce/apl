@@ -63,7 +63,6 @@
       </div> <!-- /#header -->
 
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
-          <div class="breadcrumb"><?php print $breadcrumb; ?></div>
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <a id="main-content"></a>
           <?php if ($tabs): ?><div id="tabs-wrapper" class="clearfix"><?php endif; ?>
@@ -81,6 +80,10 @@
 		  
 		  
 		  <div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container">
+		  	
+		  	          <div class="breadcrumb"><?php print $breadcrumb; ?></div>
+
+		  	
 		  	<?php print render($page['content_left_sidebar']); render($page['content_main_blocks']); render($page['content_right_sidebar']);?>
 		  </div></div></div></div></div></div>
 		  

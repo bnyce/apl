@@ -1,19 +1,20 @@
+
 @font-face {
  font-family: Univers Light;
- src: url("universltstdlightcn.eot") /* EOT file for IE */
+ src: url("/sites/default/files/fonts/universltstdlightcn.eot") /* EOT file for IE */
 }
 @font-face {
  font-family: Univers Light;
- src: url("universltstdlightcn.ttf") /* TTF file for CSS3 browsers */
+ src: url("/sites/default/files/fonts/universltstdlightcn.ttf") /* TTF file for CSS3 browsers */
 }
 
 @font-face {
  font-family: Univers Bold;
- src: url("universltstdboldcn.eot") /* EOT file for IE */
+ src: url("/sites/default/files/fonts/universltstdboldcn.eot") /* EOT file for IE */
 }
 @font-face {
  font-family: Univers Bold;
- src: url("universltstdboldcn.ttf") /* TTF file for CSS3 browsers */
+ src: url("/sites/default/files/fonts/universltstdboldcn.ttf") /* TTF file for CSS3 browsers */
 }
 
 body {

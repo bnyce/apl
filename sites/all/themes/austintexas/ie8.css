@@ -20,6 +20,10 @@
 	margin-bottom: 0px;
 }
 
+.pane-views-feed-view-block-1 .views-field {
+	width:360px;
+	line-height: 16px;
+}
 
 #submenubar li.first.menuparent {
 	margin-left: 35px;

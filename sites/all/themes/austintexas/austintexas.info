@@ -10,6 +10,8 @@ stylesheets[all][] = style.css
 stylesheets[all][] = layout.css
 stylesheets[all][] = navigation.css
 
+scripts[] = drop_down.js
+
 settings[garland_width] = fluid
 
 regions[topmenu]           = Top Menu

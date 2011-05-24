@@ -217,12 +217,11 @@
 		  	
 			</div><!-- /right -->
 		  	
-		  	
+		  <hr class="clear" />
 		  
 		  </div><!-- /portal-columns -->
 		  
 		  
-		  <hr class="clear" />
 		  
 		  
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->

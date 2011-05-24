@@ -1,10 +1,10 @@
-/* ROUNDED CORNERS - TWO-TONE LAYOUT */
-div.round-corners.two-tone { background: #fff; }
-div.round-corners.two-tone .tl { background: url(images/tl_dark.jpg) no-repeat top left; }
-div.round-corners.two-tone .tr {	background: url(images/tr_dark.jpg) no-repeat top right; }
-div.round-corners.two-tone .bl { background: url(images/bl_dark.jpg) no-repeat bottom left; }
-div.round-corners.two-tone .br {	background: url(images/br.jpg) no-repeat bottom right; }
+/* ROUNDED CORNERS - PORTAL LAYOUT */
 
+div.port-col-left {float: left; background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left;}
+	div.port-col-left-top {background: #5b595a url(images/tl_dark.jpg) no-repeat top left; height: 33px;}
+	
+div.port-col-right {float: right; background: #fff url(images/br.jpg) no-repeat bottom right;}
+	div.port-col-left-top {background: #767f89 url(images/tr_dark.jpg) no-repeat top right;height: 33px;}
 
 
 

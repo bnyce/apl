@@ -9,6 +9,7 @@ stylesheets-conditional[lt IE 8][all][] = ie8.css
 stylesheets[all][] = style.css
 stylesheets[all][] = layout.css
 stylesheets[all][] = navigation.css
+stylesheets[all][] = slides.css
 
 scripts[] = js/drop_down.js
 scripts[] = js/jquery.cycle.all.min.js

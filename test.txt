@@ -1,2 +1,2 @@
 This is a svn test file.
-Test 6 - apache user
+Test 7 - apache user

@@ -4,7 +4,7 @@ div.port-col-left {float: left; background: #f0eee2 url(images/bl_dark.jpg) no-r
 	div.port-col-left-top {background: #5b595a url(images/tl_dark.jpg) no-repeat top left; height: 33px;}
 	
 div.port-col-right {float: right; background: #fff url(images/br.jpg) no-repeat bottom right;}
-	div.port-col-left-top {background: #767f89 url(images/tr_dark.jpg) no-repeat top right;height: 33px;}
+	div.port-col-right-top {background: #767f89 url(images/tr_dark.jpg) no-repeat top right;height: 33px;}
 
 hr.clear {clear: both; visibility: hidden;}
 

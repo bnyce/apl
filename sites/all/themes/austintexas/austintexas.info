@@ -12,8 +12,8 @@ stylesheets[all][] = layout.css
 stylesheets[all][] = navigation.css
 
 scripts[] = js/drop_down.js
-scripts[] = js/jquery.cycle.all.min.js
-scripts[] = js/jquery.easing.1.3.js
+scripts[] = js/jquery.cycle.js
+scripts[] = js/jquery.easing.js
 scripts[] = js/utility.js
 
 settings[garland_width] = fluid

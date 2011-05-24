@@ -79,39 +79,151 @@
 		  <div id="above-content"><?php print render($page['above_content']); ?></div>
 		  
 		  
-		  <div id="content_box_top" class="round-corners two-tone"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container">
+		  
+		  <div class="portal-columns">
+		  
+		  
+		  
+		  
+		  	<div class="port-col-left">
 		  	
-		  	          
-
-		  	
-		  	<div id="left-sidebar">
+		  		
+		  		<div class="port-col-left-top">
+		  			<h5>Household</h5>
+		  		</div>
+		  		
 		  		<?php print render($page['content_left_sidebar']); ?>
-		  	</div>
+
+		  		<p>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>
+		  		content
+		  		<br>		  		
+		  		</p>
+		  		
+		  		
+		  	
+			</div><!-- /left -->
 		  	
 		  	
+
+
+
+		  	<div class="port-col-right">
 		  	
-		  	<div id="content-main-blocks">
-		  		<div class="breadcrumb"><?php print $breadcrumb; ?></div>
-		  		<?php render($page['content_main_blocks']); ?>
-		  		<?php print render($page['content']); ?> 
-		  	</div>
+		  		
+		  		<div class="port-col-right-top">
+		  			<div class="breadcrumb"><?php print $breadcrumb; ?></div>
+		  		</div>
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		<div class="port-main-content"> 
+		  		
+			  		<?php render($page['content_main_blocks']); ?>
+			  		<?php print render($page['content']); ?> 
+
+			  		<p>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>		  		
+			  		</p>
+
+		  		</div>
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		<div class="port-right-sidebar">
+			  		<?php render($page['content_right_sidebar']);?>
+
+
+
+			  		<p>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>
+			  		content
+			  		<br>		  		
+			  		</p>
+		  		</div>
+		  		
+		  		
+		  	
+			</div><!-- /right -->
 		  	
 		  	
-		  	
-		  	<div id="right-sidebar">
-		  		<?php render($page['content_right_sidebar']);?>
-		  	</div>
-		  	
-		  	
-		  	
-		  </div></div></div></div></div></div>
+		  
+		  </div><!-- /portal-columns -->
 		  
 		  
-		  <div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"> <!--  --></div></div></div></div></div></div>
-          
-            <?php #print render($page['content']); ?> 
-          
-      </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
+		  
+
 
     </div> <!-- /#container -->
   </div> <!-- /#wrapper -->

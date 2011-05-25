@@ -13,6 +13,9 @@ a.active  {}
 a:active,
 a:focus {}
 
+ul.nice-menu-down .menuparent a {
+	color:#dcc366;
+}
 
 #block-system-main-menu {
 height: auto;

@@ -218,7 +218,6 @@
 		  	
 			</div><!-- /right -->
 		  	
-		  <hr class="clear" />
 		  
 		  </div><!-- /portal-columns -->
 		  

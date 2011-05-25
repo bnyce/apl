@@ -94,32 +94,6 @@
 		  		
 		  		<?php print render($page['content_left_sidebar']); ?>
 
-		  		<p>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>		  		
-		  		</p>
 		  		
 		  		
 		  	
@@ -146,32 +120,6 @@
 			  		<?php render($page['content_main_blocks']); ?>
 			  		<?php print render($page['content']); ?> 
 
-			  		<p>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>		  		
-			  		</p>
 
 		  		</div>
 		  		
@@ -185,32 +133,6 @@
 
 
 
-			  		<p>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>		  		
-			  		</p>
 		  		</div>
 		  		
 		  		<hr class="clear" />

@@ -6,7 +6,7 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 		div.port-col-left-top {background: #5b595a url(images/tl_dark.jpg) no-repeat top left; height: 33px;}
 		div.port-col-left-top h5 {text-align:center;text-transform: uppercase; font-weight: normal; line-height: 33px; color: #ddd;padding: 0; margin: 0; letter-spacing: 1px;}
 		
-	div.port-col-right {float: right; background: #fff url(images/br.jpg) no-repeat bottom right; width: 760px;}
+	div.port-col-right {float: right; width: 760px;}
 		div.port-col-right-top {background: #767f89 url(images/tr_dark.jpg) no-repeat top right;height: 33px;}
 			div.port-col-right-top .breadcrumb {height: 33px;padding: 0 15px;}
 			div.port-col-right-top .breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;}

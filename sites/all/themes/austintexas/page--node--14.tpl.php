@@ -213,6 +213,7 @@
 			  		</p>
 		  		</div>
 		  		
+		  		<hr class="clear" />
 		  		
 		  	
 			</div><!-- /right -->

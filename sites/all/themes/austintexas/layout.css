@@ -1,6 +1,8 @@
 /* ROUNDED CORNERS - PORTAL LAYOUT */
 
-div.port-col-left {float: left; background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left; width: 200px;}
+div.portal-columns {background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left;}
+
+div.port-col-left {float: left; width: 200px;}
 	div.port-col-left-top {background: #5b595a url(images/tl_dark.jpg) no-repeat top left; height: 33px;}
 	
 div.port-col-right {float: right; background: #fff url(images/br.jpg) no-repeat bottom right; width: 760px;}

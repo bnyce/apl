@@ -13,7 +13,7 @@ a.active  {}
 a:active,
 a:focus {}
 
-ul.nice-menu-down .menuparent a {
+ul.nice-menu-down .menuparent a.active {
 	color:#dcc366;
 }
 

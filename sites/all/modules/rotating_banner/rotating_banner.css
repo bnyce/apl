@@ -103,7 +103,7 @@
   position: absolute;
 }
 
-.rb-link {color: #e5e0c5;}
+.rb-link, .rb-textbox a {color: #e5e0c5;}
 
 
 .controls {

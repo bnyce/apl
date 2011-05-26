@@ -1,0 +1,48 @@
+
+
+.rb-link, .rb-textbox a {color: #e5e0c5;}
+
+
+.controls {
+  text-align: center;
+}
+
+.controls.none {
+  display: none;
+}
+
+.controls a {
+  display: inline-block;
+  font-weight: bold;
+  margin: 2px;
+  padding: 5px;
+  line-height: 10px;
+}
+
+.controls.buttons a {
+  background: #CCC;
+  color: transparent;
+  font-size: 0;
+  height: 0;
+  text-indent: -2000px;
+  width: 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.controls.buttons a.activeSlide {
+  background: #000;
+}
+
+.controls.numbers a {
+  color: #CCC;
+}
+
+.controls.numbers a.activeSlide {
+  color: #000;
+}
+
+.static-wrapper {
+  overflow: hidden;
+}

@@ -117,19 +117,19 @@
 			break;
 			
 			case 'nice-menu-2':
-			$('#main-menu-links .menu-572').attr('class', 'menu-572 active');
+			$('.rb-textbox-wrapper').css('background', '#b36918');
 			break;
 
 			case 'nice-menu-3':
-			$('#main-menu-links .menu-573').attr('class', 'active');
+			$('.rb-textbox-wrapper').css('background', '#785d3d');
 			break;
 
 			case 'nice-menu-4':
-			$('#main-menu-links .menu-574').attr('class', 'active');
+			$('.rb-textbox-wrapper').css('background', '#804f48');
 			break;
 
 			case 'nice-menu-5':
-			$('#main-menu-links .menu-575').attr('class', 'active');
+			$('.rb-textbox-wrapper').css('background', '#747828');
 			break;
 		
 		}

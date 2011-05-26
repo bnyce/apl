@@ -18,7 +18,30 @@
   color: inherit;
 }
 
+.rotating-banner .rb-slides {
+  /* border: 1px dashed #aaa; */
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
 
+.rb-textbox-wrapper {
+  white-space: nowrap;
+  background: #767f89;
+  padding: 10px 10px 5px 10px;
+}
+
+.jCycleActivated-processed .rb-slide.tallest {
+  display: block !important;
+  position: relative !important;
+}
+
+.rb-slide {
+  display: none;
+  line-height: 0;
+  opacity: 0;
+}
 /* Hide all slides except the first one to avoid seeing both together before cycle inits */
 .rb-slide.rb-first-slide {
   display: block;
@@ -125,6 +148,3 @@
   color: #000;
 }
 
-.static-wrapper {
-  overflow: hidden;
-}

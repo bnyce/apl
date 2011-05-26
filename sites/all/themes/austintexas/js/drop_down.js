@@ -106,39 +106,7 @@
 		
 		
 
-		
-		//caption background colors
-		/*
-		var secondary_menu_id = $('#submenubar .content ul').attr('id');
 
-		switch(secondary_menu_id)
-		{
-		
-			case 'nice-menu-1':
-			$('.rb-textbox-wrapper').css('background', '#767f89');
-			break;
-			
-			case 'nice-menu-2':
-			$('.rb-textbox-wrapper').css('background', '#b36918');
-			break;
-
-			case 'nice-menu-3':
-			$('.rb-textbox-wrapper').css('background', '#785d3d');
-			break;
-
-			case 'nice-menu-4':
-			$('.rb-textbox-wrapper').css('background', '#804f48');
-			break;
-
-			case 'nice-menu-5':
-			$('.rb-textbox-wrapper').css('background', '#747828');
-			break;
-			
-			default:
-			$('.rb-textbox-wrapper').css('background', '#747828');
-		
-		}
-		*/
 		
 		   
         });

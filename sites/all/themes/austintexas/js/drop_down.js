@@ -106,6 +106,8 @@
 		
 		
 
+		
+		//caption background colors
 
 		var secondary_menu_id = $('#submenubar .content ul').attr('id');
 

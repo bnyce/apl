@@ -87,7 +87,7 @@
 			break;
 			
 			case 'nice-menu-2':
-			$('#main-menu-links .menu-572').attr('class', 'active');
+			$('#main-menu-links .menu-572').attr('class', 'menu-572 active');
 			break;
 
 			case 'nice-menu-3':

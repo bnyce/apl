@@ -1,0 +1,70 @@
+<?php
+// $Id: cck_phone.install,v 1.1 2010/07/08 11:20:27 ckng Exp $
+
+/**
+ * @file
+ * Defines phone number fields for CCK.
+ * Installation file
+ */
+
+ 
+/**
+* Implementation of hook_install().
+*/
+function cck_phone_install() {
+  _cck_phone_update_country_code_list();
+  drupal_set_message(st('Phone number module installed successfully.'));
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function cck_phone_uninstall() {
+  variable_del('cck_phone_custom_cc');
+}
+
+/**
+ * Implementation of hook_enable().
+ */
+function cck_phone_enable() {
+  // TODO: Migration path for phone.module to cck_phone
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function cck_phone_disable() {
+
+}
+
+/**
+ * Update list of country codes phone validation.
+ */
+function cck_phone_update_7000() {
+  _cck_phone_update_country_code_list();
+}
+
+/**
+ * Store country code phone validation.
+ *
+ * This function should be called only at hook_update_N()
+ * when new country phone library is added.
+ */
+function _cck_phone_update_country_code_list() {
+  // This function is too expensive to call at hook_init() and 
+  // should be called only if there's a new country code added.
+  
+  // Load custom country codes phone number includes
+  $path = drupal_get_path('module', 'cck_phone') .'/includes';
+  // Scan include phone numbers directory
+  $files = file_scan_directory($path, '/^phone\..*\.inc$/');
+
+  $countrycodes = array();
+  foreach ($files as $file) {
+    list ($dummy, $countrycode) = explode('.', $file->name);
+    // Faster using array key
+    $countrycodes[$countrycode] = $countrycode;
+  }
+  // Save the list of country codes phone validation
+  variable_set('cck_phone_custom_cc', $countrycodes);
+}

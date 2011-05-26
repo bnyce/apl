@@ -1,0 +1,18 @@
+; $Id: cck_phone.info,v 1.1 2010/07/08 11:20:27 ckng Exp $
+name = Phone number
+description = Defines a field type for phone number.
+package = CCK
+core = 7.x
+files[] = cck_phone.module
+files[] = theme/phone-field-view.tpl.php
+files[] = includes/cck_phone_countrycodes.inc
+files[] = includes/phone.ca.inc
+files[] = includes/phone.gb.inc
+files[] = includes/phone.my.inc
+files[] = includes/phone.ph.inc
+files[] = includes/phone.us.inc
+files[] = tests/cck_phone.crud.test
+files[] = tests/cck_phone.crud_input.test
+files[] = tests/phone.gb.test
+files[] = tests/phone.my.test
+files[] = tests/phone.us.test

@@ -1,0 +1,621 @@
+<?php
+// $Id: cck_phone.module,v 1.3 2010/07/12 09:54:52 ckng Exp $
+
+/**
+ * @file
+ * Defines a field type for phone numbers.
+ * Provide some verifications on the phone numbers
+ */
+
+define('CCK_PHONE_PHONE_MIN_LENGTH', 4);   // Is there a phone number less than 4 digits?
+define('CCK_PHONE_PHONE_MAX_LENGTH', 15);  // International standard 15 digits
+define('CCK_PHONE_EXTENSION_MAX_LENGTH', 6);
+define('CCK_PHONE_TEXTFIELD_MAX_LENGTH', 60);
+
+/**
+ * Implements hook_menu().
+ */
+function cck_phone_menu() {
+  $items['cck-phone/autocomplete/%'] = array(
+    'page callback'    => 'cck_phone_autocomplete',
+    'access callback'  => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Menu callback; Retrieve a JSON object containing autocomplete suggestions 
+ * for existing field content.
+ */
+function cck_phone_autocomplete($string = '') {
+  $matches = array();
+  if ($string) {
+    $field_name  = arg(2);
+    $column_name = arg(3);
+    $column      = $field_name . '_value';
+    $field_table = 'field_data_' . $field_name;
+    $result = db_select($field_table)->fields($field_table, array($column))->condition($column, db_like($string) . '%', 'LIKE')->range(0, 10)->execute();
+    foreach ($result as $field) {
+      $matches[$field->{$column}] = check_plain($field->{$column});
+    }
+  }
+  drupal_json_output($matches);
+}
+
+/**
+ * Implementation of hook_field_info().
+ */
+function cck_phone_field_info() {
+  return array(
+    'phone_number' => array(
+      'label'       => t('Phone number'),
+      'description' => t('Defines a field type for phone numbers.'),
+      'settings' => array(
+        'textfield_size'    => CCK_PHONE_TEXTFIELD_MAX_LENGTH,
+      ),
+      'instance_settings' => array(
+        'default_country'   => NULL,
+        'all_country_codes' => TRUE,
+        'phone_subaddress'  => TRUE,
+        'phone_extra'       => TRUE,
+        'phone_rel'         => FALSE,
+        'phone_as_link'     => TRUE,       
+      ),
+      'default_widget'    => 'phone_textfield',
+      'default_formatter' => 'phone_formatter',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_settings_form().
+ */
+function cck_phone_field_settings_form($field, $instance) {
+  $form     = array();
+  $defaults = field_info_field_settings($field['type']);
+  $settings = array_merge($defaults, $field['settings']);
+  $form['textfield_size'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Size of textfield'),
+    '#default_value' => $settings['textfield_size'],
+    '#description'   => t('Enter phone number textfield\'s width.'),
+  );  
+  return $form;
+}
+
+/**
+ * Implements hook_field_instance_settings_form().
+ */
+function cck_phone_field_instance_settings_form($field, $instance) {
+  drupal_add_css(drupal_get_path('module', 'cck_phone') . '/css/cck_phone.css');
+  drupal_add_js(drupal_get_path('module', 'cck_phone') . '/js/cck_phone.manage_field.js');
+  $form       = array();
+  $defaults   = field_info_instance_settings($field['type']);
+  $settings   = array_merge($defaults, $instance['settings']);
+  $cc_options = _cck_phone_cc_options(TRUE);
+  $form['default_country'] = array(
+    '#type'          => 'select',
+    '#title'         => t('Default country code'),
+    '#default_value' => $settings['default_country'],
+    '#options'       => $cc_options,
+    '#weight'        => 1,
+  );
+  $form['all_country_codes'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Show all country codes.'),
+    '#default_value' => $settings['all_country_codes'],
+    '#description'   => t('Uncheck this to select the country to be displayed.'),
+    '#weight'        => 1.1,
+  );
+  // Country codes settings
+  $form['country_codes'] = array(    
+    '#type'        => 'fieldset',
+    '#title'       => 'Country selection',
+    '#attributes'  => array('class' => array('cck-phone-settings')),
+    '#collapsible' => TRUE,
+    '#collapsed'   => TRUE,    
+    '#weight'      => 2,
+    '#description'   => t('Country marks with * has custom country code settings and/or validation.'),
+  );
+  $form['country_codes']['country_selection'] = array(
+    '#type'          => 'checkboxes',
+    '#title'         => t('Select country codes to be included'),    
+    '#default_value' => isset($instance['settings']['country_codes']['country_selection']) && !empty($instance['settings']['country_codes']['country_selection']) ? $instance['settings']['country_codes']['country_selection'] : array($instance['settings']['default_country'] => $instance['settings']['default_country']),
+    '#options'       => $cc_options,    
+  );
+  $form['phone_subaddress'] = array(
+    '#type'          => 'checkbox',
+    '#default_value' => $settings['phone_subaddress'],    
+    '#title'         => t('Add extension number, ISDN subaddress, fax\'s T33 subaddress or modem\'s parameters/recommended parameters (!ref)', array('!ref' => l('URLs for Telephone Calls', 'http://tools.ietf.org/html/rfc2806'))),
+    '#weight'        => 3,
+  );
+  $form['phone_extra'] = array(
+    '#type'          => 'checkbox',
+    '#default_value' => $settings['phone_extra'],    
+    '#title'         => t('Add extra phone number\'s description'),
+    '#weight'        => 3,
+  );
+  $form['phone_rel'] = array(
+    '#type'          => 'checkbox',
+    '#default_value' => $settings['phone_rel'],    
+    '#title'         => t('Add manually the relation value placed at rel="[relation value]" of anchor tag'),
+    '#weight'        => 3,
+  );
+  // We don't need to detect if the device is mobile. RDFA FOAF states:
+  // A phone, specified using fully qualified tel: URI scheme 
+  // (http://xmlns.com/foaf/spec/#term_phone)
+  $form['phone_as_link'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Display phone number as link. !foaf: A phone, specified using fully qualified tel: URI scheme', array('!foaf' => l('RDFA FOAF', 'http://xmlns.com/foaf/spec/#term_phone'))),
+    '#default_value' => $settings['phone_as_link'],
+    '#weight'        => 3,
+  );
+  return $form;
+}
+
+/**
+ * Implements hook_field_schema().
+ */
+function cck_phone_field_schema($field) {
+  return array(
+    'columns' => array(
+      'country' => array(
+        'type'        => 'varchar',
+        'length'      => 2,
+        'not null'    => TRUE,
+        'description' => t('ISO 3166 2-character country code.'),
+      ),
+      'int_code' => array(
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'description' => t('International country calling code.'),
+      ),
+      'value' => array(
+        'type'        => 'varchar',
+        'length'      => CCK_PHONE_PHONE_MAX_LENGTH,
+        'not null'    => TRUE,
+        'description' => t('Sanitized phone number with area code.'),
+      ),
+      'subaddress_type' => array(
+        'type'        => 'varchar',
+        'length'      => 8,
+        'not null'    => FALSE,
+        'description' => t('Subaddress type: telephone/fax\'s extension number (ext), ISDN subaddress (isub), fax\'s T33 subaddress (tsub), modem\'s parameters (type)/recommended parameters (rec). Reference: http://tools.ietf.org/html/rfc2806.'),
+      ),
+      'subaddress_value' => array(
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => FALSE,
+        'description' => t('Subaddress value for telephone/fax\'s extension number (ext), ISDN subaddress (isub), fax\'s T33 subaddress (tsub), modem\'s parameters (type)/recommended parameters (rec). Reference: http://tools.ietf.org/html/rfc2806.'),
+      ),
+      'extra' => array(
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => FALSE,
+        'description' => t('Extra phone number\'s description.'),
+      ),
+      'type' => array(
+        'type'        => 'varchar',
+        'length'      => 16,
+        'not null'    => TRUE,
+        'description' => t('hCard microformat property indicating the nature of the phone (voice, home, msg, work, pref, fax, cell, video, pager, bbs, modem, car, isdn, pcs).'),
+      ),
+      'rel_val' => array(
+        'type'        => 'varchar',
+        'length'      => 32,
+        'not null'    => FALSE,
+        'description' => t('The relation value placed at rel="[rel_value]" of anchor tag (in support for RDFA). If empty, it will have a default of "foaf:phone".'),
+      ),
+      'hidden' => array(
+        'type'        => 'char',
+        'default'     => 0,
+        'not null'    => FALSE,
+        'description' => t('Boolean indicating weather the type is hidden or not.'),
+      ),
+    ),
+    'indexes' => array(
+      'value_index' => array('value'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_validate().
+ */
+function cck_phone_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+  $field_name = $field['field_name'];
+  foreach ($items as $delta => $item) {
+    $phone_value = check_plain(preg_replace('/[^0-9]/', '', $item['value']));
+    if (!empty($phone_value)) {
+      $subaddress_value = check_plain($item['subaddress_value']);
+      // Lenient checking, as long as it doesn't have invalid phone number characters
+      $regex = '/^
+        [+\s.()-]*  # optional separator
+        (?:         # }
+          \d        # } 4-15 digits number
+          [\s.()-]* # } each followed by optional separator
+        ){'. CCK_PHONE_PHONE_MIN_LENGTH .','. CCK_PHONE_PHONE_MAX_LENGTH .'} # }
+      $/x';
+      // Generic number validation
+      if (!preg_match($regex, $phone_value)) {
+        $errors[$field_name][$langcode][$delta][] = array(
+          'error'   => 'value',
+          'message' => t('Phone number must be numeric and %min_length to %max_length length.', array('%min_length' => CCK_PHONE_PHONE_MIN_LENGTH, '%max_length' => CCK_PHONE_PHONE_MAX_LENGTH)),
+        );
+      }
+      else {
+        $code = $item['country'];
+        // Custom country level validation
+        $validate_function = $code . '_validate_number';
+        $has_cc = module_load_include('inc', 'cck_phone', 'includes/phone.' . $code) && function_exists($validate_function);
+        if ($has_cc) {
+          if (!$validate_function($phone_value, '', $error_message)) {
+            $errors[$field_name][$langcode][$delta][] = array(
+              'error'   => 'value',
+              'message' => $error_message,
+            );
+          }
+        }
+      }
+      if (!empty($subaddress_value)) {
+        $subaddress_error = FALSE;
+        $subaddress_type  = $item['type'];
+        switch ($subaddress_type) {
+          case 'Voice':
+          case 'Home':
+          case 'Msg':
+          case 'Work':
+          case 'Pref':
+          case 'Cell':
+          case 'Video':
+          case 'Pager':
+          case 'Car':
+          case 'PCS':
+          case 'BBS':
+            if ($item['subaddress_type'] != 'ext') {
+              $subaddress_error = TRUE;
+            }
+            break;
+          case 'Fax':
+            if ($item['subaddress_type'] != 'ext' && $item['subaddress_type'] != 'isub' && $item['subaddress_type'] != 'tsub') {
+              $subaddress_error = TRUE;
+            }
+            break;
+          case 'Modem':
+            if ($item['subaddress_type'] != 'type' && $item['subaddress_type'] != 'rec') {
+              $subaddress_error = TRUE;
+            }
+            break;
+          case 'ISDN':
+            if ($item['subaddress_type'] != 'isub') {
+              $subaddress_error = TRUE;
+            }
+            break;
+        }
+        if ($subaddress_error) {
+          $errors[$field_name][$langcode][$delta][] = array(
+            'error'   => 'subaddress_type',
+            'message' => t('Subaddress type is not valid with %type phone type.', array('%type' => $item['type'])),
+          );
+        }
+        if ($item['subaddress_type'] != 'ext') {
+          $subaddress_value = preg_replace('/[^0-9]/', '', $subaddress_value);
+          if (drupal_strlen($subaddress_value) > CCK_PHONE_EXTENSION_MAX_LENGTH) {
+            $errors[$field_name][$langcode][$delta][] = array(
+              'error'   => 'subaddress_value',
+              'message' => t('Extension number should not exceed %max.', array('%max' => CCK_PHONE_EXTENSION_MAX_LENGTH)),
+            );
+          }
+          elseif ($has_cc) {
+            if (!$validate_function('', $subaddress_value, $error_message, $subaddress_type)) {
+              $errors[$field_name][$langcode][$delta][] = array(
+                'error'   => 'value',
+                'message' => $error_message,
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_error().
+ */
+function cck_phone_field_widget_error($element, $error, $form, &$form_state) {
+  $element['#parents'][] = $error['error'];
+  form_error($element, $error['message'], $form, $form_state);
+}
+
+/**
+ * Implements hook_field_presave().
+ */
+function cck_phone_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  module_load_include('inc', 'cck_phone', 'includes/cck_phone_countrycodes');
+  $list = cck_phone_countrycodes();
+  foreach ($items as $delta => $item) {
+    $code  = $item['country'];
+    $value = check_plain(preg_replace('/[^0-9]/', '', $item['value']));
+    $rel   = check_plain($item['rel_val']);
+    $sanitize_number_function = $code . '_sanitize_number';
+    if (function_exists($sanitize_number_function)) {
+      $sanitize_number_function($value);
+    }    
+    $items[$delta]['value']    = $value;
+    $items[$delta]['int_code'] = (int) preg_replace('/^\+/', '', $list[$code]['code']);
+    $items[$delta]['subaddress_value'] = check_plain($items[$delta]['subaddress_value']);
+    $items[$delta]['extra']   = t($items[$delta]['extra']);
+    $items[$delta]['type']    = t($items[$delta]['type']);
+    $items[$delta]['rel_val'] = empty($rel) ? 'foaf:phone' : $rel;    
+    $items[$delta]['hidden']  = (bool) $items[$delta]['hidden'];
+  }
+}
+
+/**
+ * Implements hook_field_is_empty().
+ */
+function cck_phone_field_is_empty($item, $field) {
+  return empty($item['value']);
+}
+
+/**************************************************************************
+ * Field Type API: Widget
+ *
+ * The widget is the form element used to receive input from the user
+ * when the field is being populated.
+ **************************************************************************/
+/**
+ * Implement hook_field_widget_info().
+ */
+function cck_phone_field_widget_info() {
+  return array(
+    'phone_textfield' => array(
+      'label'       => t('Textfield'),
+      'field types' => array('phone_number'),
+    ),
+    'phone_autocomplete' => array(
+      'label'       => t('Autocomplete'),
+      'field types' => array('phone_number'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function cck_phone_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $field_name  = $field['field_name'];
+  $elements = array();
+  // Microformats hCard tel types (http://microformats.org/wiki/hcard)
+  $type = array(
+    'Voice' => t('Voice number'),
+    'Home'  => t('Home'),
+    'Work'  => t('Work'),
+    'Fax'   => t('Fax'),
+    'Pref'  => t('Preferred number'),
+    'Pager' => t('Pager'),
+    'Msg'   => t('Telephone with answering machine'),
+    'Video' => t('Video conferencing system'),
+    'BBS'   => t('Bulletin board system'),
+    'ISDN'  => t('ISDN'),
+    'Modem' => t('Modem'),
+    'Car'   => t('Car phone number'),
+    'PCS'   => t('Personal communication services number'),
+  );
+  $elements['phone_field'] = $element;
+  $elements['phone_field']['#type'] = 'item';  
+  $elements['phone_field']['value'] = array(
+    '#type'           => 'textfield',
+    '#size'           => $field['settings']['textfield_size'] ? $field['settings']['textfield_size'] : CCK_PHONE_TEXTFIELD_MAX_LENGTH,
+    '#maxlength'      => CCK_PHONE_PHONE_MAX_LENGTH,
+    '#default_value'  => isset($items[$delta]['value']) ? $items[$delta]['value'] : '',
+    '#parents'        => array($field_name, $langcode, $delta, 'value'),
+  );
+  if ($instance['widget']['type'] == 'phone_autocomplete') {
+    $elements['phone_field']['value']['#autocomplete_path'] = 'cck-phone/autocomplete/' . $field_name;
+  }
+  $elements['phone_field']['phone_advance'] = array(
+    '#type'        => 'fieldset',
+    '#title'       => t('Phone number options'),
+    '#collapsible' => TRUE,
+    '#collapsed'   => TRUE,
+  );
+  $elements['phone_field']['phone_advance']['country'] = array(
+    '#type'           => 'select',
+    '#title'          => t('Country code'),
+    '#default_value'  => isset($items[$delta]['country']) ? $items[$delta]['country'] : $instance['settings']['default_country'],
+    '#parents'        => array($field_name, $langcode, $delta, 'country'),
+  );
+  if ($instance['settings']['all_country_codes']) {
+    $elements['phone_field']['phone_advance']['country']['#options'] = _cck_phone_cc_options();
+  }
+  else {
+    $elements['phone_field']['phone_advance']['country']['#options'] = _cck_phone_cc_options(FALSE, $instance['settings']['country_codes']['country_selection']);
+  }
+  $elements['phone_field']['phone_advance']['type'] = array(
+    '#type'          => 'select',
+    '#options'       => $type,
+    '#title'         => t('Select phone type'),
+    '#default_value' => isset($items[$delta]['type']) ? $items[$delta]['type'] : 'Voice',
+    '#parents'       => array($field_name, $langcode, $delta, 'type'),
+  );
+  $elements['phone_field']['phone_advance']['hidden'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Hide phone type'),
+    '#default_value' => isset($items[$delta]['hidden']) && $items[$delta]['hidden'],
+    '#parents'       => array($field_name, $langcode, $delta, 'hidden'),
+  );  
+  if ($instance['settings']['phone_subaddress']) {
+    $subaddress = array(
+      'ext'  => t('Extension number'),
+      'isub' => t('ISDN subaddress'),
+      'tsub' => t('T33 subaddress'),
+      'type' => t('Modem parameters'),
+      'rec'  => t('Modem recommended parameters'),
+    );
+    $elements['phone_field']['phone_advance']['subaddress'] = array(
+      '#type'        => 'item',
+      '#title'       => t('Subaddress'),
+      '#description' => t('Select subaddress type from the selectbox and enter its value in the textfield.'),      
+    );
+    $elements['phone_field']['phone_advance']['subaddress']['subaddress_type'] = array(
+      '#type'           => 'select',
+      '#title'          => t('Subaddress type'),
+      '#options'        => $subaddress,
+      '#default_value'  => isset($items[$delta]['subaddress_type']) ? $items[$delta]['subaddress_type'] : 'ext',
+      '#parents'        => array($field_name, $langcode, $delta, 'subaddress_type'),
+      '#suffix'         => '&nbsp;',
+      '#theme_wrappers' => array(),
+    );
+    $elements['phone_field']['phone_advance']['subaddress']['subaddress_value'] = array(
+      '#type'           => 'textfield',
+      '#title'          => t('Subaddress'),
+      '#size'           => 20,
+      '#maxlength'      => 128,
+      '#default_value'  => isset($items[$delta]['subaddress_value']) ? $items[$delta]['subaddress_value'] : '',
+      '#parents'        => array($field_name, $langcode, $delta, 'subaddress_value'),
+      '#theme_wrappers' => array(),
+    );
+  }
+  if ($instance['settings']['phone_extra']) {
+    $elements['phone_field']['phone_advance']['extra'] = array(
+      '#type'           => 'textfield',
+      '#title'          => t('Annotation'),
+      '#size'           => 60,
+      '#maxlength'      => 255,
+      '#default_value'  => isset($items[$delta]['extra']) ? $items[$delta]['extra'] : '',
+      '#parents'        => array($field_name, $langcode, $delta, 'extra'),
+      '#description'    => t($field['columns']['extra']['description']),
+    );
+  }
+  if ($instance['settings']['phone_rel']) {
+    $elements['phone_field']['phone_advance']['rel_val'] = array(
+      '#type'           => 'textfield',
+      '#title'          => t('Relation value'),
+      '#size'           => 60,
+      '#maxlength'      => 255,
+      '#default_value'  => isset($items[$delta]['rel_val']) ? $items[$delta]['rel_val'] : '',
+      '#parents'        => array($field_name, $langcode, $delta, 'rel_val'),
+      '#description'    => t($field['columns']['rel_val']['description']),
+    );
+  }
+  return $elements;
+}
+
+/***********************************************************************
+ *  Field Type API: Formatter
+ *
+ *  These are the api hooks that present formatted (themed) output to the
+ *  user.
+ **********************************************************************/
+/**
+ *Implementation of hook_field_formatter_info().
+ */
+function cck_phone_field_formatter_info() {
+    return array(
+    'phone_formatter' => array(
+      'label'       => t('Phone number'),
+      'field types' => array('phone_number'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function cck_phone_field_formatter_view($object_type, $object, $field, $instance, $langcode, $items, $display) {
+  $element    = array();
+  $type_class = array('type');
+  foreach ($items as $delta => $item) {
+    $code      = $item['country'];
+    $int_code  = $item['int_code'];
+    $tel_value = '+' . $item['int_code'] . $item['value'];
+    $formatter_default_function = $code . '_formatter_default';
+    module_load_include('inc', 'cck_phone', 'includes/phone.' . $code);
+    if (function_exists($formatter_default_function)) {
+      $format = $formatter_default_function($item['value']);
+    }
+    else {
+      $format = $item['value'];
+    }
+    $details = array(
+      'value'      => $format,
+      'int_code'   => $int_code,
+      'tel_value'  => $tel_value,
+      'subaddress_type'  => $item['subaddress_type'],
+      'subaddress_value' => $item['subaddress_value'],
+      'type'       => $item['type'],
+      'extra'      => $item['extra'],
+      'value_attr' => array('class' => array('value'), 'rel' => array($item['rel_val'])),
+      'type_attr'  => array('class' => $item['hidden'] ? $type_class[] = 'element-invisible' : $type_class),
+    );
+    $element[$delta]['#markup'] = theme('phone_field_view', array('phone' => $details));
+  }
+  return $element;
+}
+
+/**
+ * Implementation of hook_theme()
+ */
+function cck_phone_theme($existing, $type, $theme, $path) {
+  return array(
+    'phone_field_view' => array(
+      'render element' => 'phone',
+      'template' 	     => 'phone-field-view',
+      'path'           => drupal_get_path('module', 'cck_phone') . '/theme',
+    ),
+  );
+}
+
+/**
+ * Generate an array of country codes, for use in select or checkboxes form.
+ *
+ * @param boolean $show_custom
+ *   Mark item with '*' to indicate the country code has include file.
+ * @param array $country_selection
+ *   Limit the list to the countries listed in this array.
+ * @return string
+ */
+function _cck_phone_cc_options($show_custom = FALSE, $country_selection = array()) {
+  // Load country codes
+  module_load_include('inc', 'cck_phone', 'includes/cck_phone_countrycodes');
+  
+  $options = array();
+  if ($show_custom) {
+    $custom_cc = _cck_phone_custom_cc();
+  }
+  
+  $list = cck_phone_countrycodes();
+  foreach ($list as $cc => $value) {
+    $cc_name = $value['country'] .' ('. $value['code'] .')';
+
+    // Faster using array key instead of in_array
+    if ($show_custom && isset($custom_cc[$cc])) {
+      $cc_name .= ' *';
+    }
+
+    if (!empty($country_selection) && $country_selection[$cc] === 0) {
+      continue;
+    }
+    $options[$cc] = check_plain($cc_name);
+  }
+
+  return $options;
+}
+
+/**
+ * Get list of country codes that has custom includes.
+ *
+ * @return
+ *   Array of country codes abbreviation or FALSE if none exist.
+ */
+function _cck_phone_custom_cc() {
+  $cc = &drupal_static(__FUNCTION__);
+  if (!isset($cc)) {
+    $cc = variable_get('cck_phone_custom_cc', FALSE);
+  }
+  return $cc;
+}

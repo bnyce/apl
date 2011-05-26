@@ -118,7 +118,7 @@
 		  		<div class="port-main-content"> 
 		  		
 			  		<?php render($page['content_main_blocks']); ?>
-			  		<?php print render($page['content']); ?> 
+			  		<?php print render($page['content']); ?>
 
 
 		  		</div>

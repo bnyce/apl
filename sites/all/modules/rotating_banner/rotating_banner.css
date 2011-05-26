@@ -29,6 +29,8 @@
 .rb-textbox-wrapper {
   white-space: nowrap;
   background: #000;
+  padding: 10px;
+  margin-right: 0;
 }
 
 .jCycleActivated-processed .rb-slide.tallest {

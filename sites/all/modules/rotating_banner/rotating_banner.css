@@ -147,3 +147,7 @@
 .controls.numbers a.activeSlide {
   color: #000;
 }
+
+.static-wrapper {
+  overflow: hidden;
+}

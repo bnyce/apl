@@ -108,7 +108,7 @@
 
 		
 		//caption background colors
-
+		/*
 		var secondary_menu_id = $('#submenubar .content ul').attr('id');
 
 		switch(secondary_menu_id)
@@ -133,9 +133,12 @@
 			case 'nice-menu-5':
 			$('.rb-textbox-wrapper').css('background', '#747828');
 			break;
+			
+			default:
+			$('.rb-textbox-wrapper').css('background', '#747828');
 		
 		}
-		
+		*/
 		
 		   
         });

@@ -1,4 +1,4 @@
-/* ROUNDED CORNERS -- PORTAL LAYOUT */
+/* ROUNDED CORNERS -- TWO- and THREE-COLUMN LAYOUT */
 
 div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bottom #FFFFFF; font-family: Arial, sans-serif; float: left;}
 		
@@ -17,6 +17,9 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 	hr.clear {clear: both; visibility: hidden;}
 
 
+#submenubar {
+	margin-bottom: -10px;
+}
 
 /* FOOTER COLUMNS - ROUNDED CORNERS */
 div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}

@@ -89,7 +89,7 @@
 		  	
 		  		
 		  		<div class="port-col-left-top">
-		  			<h5>Household</h5>
+		  			<h5><?php print $title; ?></h5>
 		  		</div>
 		  		
 		  		<?php print render($page['content_left_sidebar']); ?>

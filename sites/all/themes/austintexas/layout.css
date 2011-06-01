@@ -39,13 +39,13 @@ div.single-column {background: #767f89 url("images/tl_blue.jpg") no-repeat scrol
 }
 
 
-views-field-field-news-desc {}
+.views-row {margin-bottom: 1em;}
+
 
 
 .views-field-title a {
 	color: #a85708;
 	text-decoration: none;
-	
 	font-family: Univers Bold;
 	padding-left: 12px;
 	background: url(images/star.jpg) no-repeat left;
@@ -54,6 +54,8 @@ views-field-field-news-desc {}
 .views-field-title a:hover {
 	text-decoration: underline;
 }
+
+views-field-field-news-desc {padding-left: 12px;font-family: Arial, sans-serif;}
 
 
 

@@ -33,11 +33,11 @@
 
 
 .rb-textbox-wrapper {
+	background: transparent url(../../themes/austintexas/images/rbanner_txtbg.png) 0 0 repeat;
   white-space: nowrap;
 }
 
-.rb-textbox {background: transparent url(../../themes/austintexas/images/rbanner_txtbg.png) 0 0 repeat;
-width: 948px;margin-left: -10px; color: #fff;}
+.rb-textbox {width: 948px;margin-left: -10px; color: #fff;}
 
 
 

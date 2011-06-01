@@ -87,11 +87,15 @@
 		  
 		  	<div class="port-col-left">
 		  	
-		  		
 		  		<div class="port-col-left-top">
-		  			<h5><?php print $title; ?></h5>
+		  		   <h5>
+		  		      <?php  
+                     $tmp_activeTrail = menu_get_active_trail();
+                     print $tmp_activeTrail[2]['link_title'];
+  		  			   ?>
+  		  			</h5>
 		  		</div>
-		  		
+		  					  		
 		  		<?php print render($page['content_left_sidebar']); ?>
 
 		  		

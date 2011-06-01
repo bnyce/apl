@@ -20,11 +20,11 @@
 
 .rotating-banner .rb-slides {
   /* border: 1px dashed #aaa; */
-  xheight: auto;
-  xoverflow: hidden;
-  xposition: relative;
-  xwidth: auto;
-  display: none;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+
 }
 
 .rb-textbox-wrapper {

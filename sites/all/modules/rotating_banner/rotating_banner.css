@@ -123,7 +123,7 @@
     right: 0;
     text-align: center;
     font-family: Arial, sans-serif;
-    z-index: 10;
+    z-index: 100;
 }
 
 .controls.none {

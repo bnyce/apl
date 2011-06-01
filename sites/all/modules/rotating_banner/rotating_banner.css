@@ -27,7 +27,7 @@
 
 }
 
-.rb-textbox {background: #000;}
+.rb-textbox {background: #000;margin-right: -15px; color: #fff;}
 
 
 .rb-textbox-wrapper {

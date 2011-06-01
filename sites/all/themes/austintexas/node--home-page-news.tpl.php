@@ -3,7 +3,10 @@
 
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <h2><?php print $title_attributes; ?>
+	    <a href="
+             <?php if (content_format('field_news_link', $field_news_link[0])) print content_format('field_news_link', $field_news_link[0]); 
+                     else print $node_url; ?>">
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 

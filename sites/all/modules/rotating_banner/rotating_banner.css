@@ -165,6 +165,9 @@
 }
 
 
+.controls a.prev {background: transparent url(../../themes/austintexas/images/rbanner_prev.png) 0 0 no-repeat; display: block; width: 30px; height: 30px; text-indent: -9999px;float: left;}
+.controls a.next {background: transparent url(../../themes/austintexas/images/rbanner_next.png) 0 0 no-repeat; display: block; width: 30px; height: 30px; text-indent: -9999px;float: right;}
+
 .static-wrapper {
   overflow: hidden;
 }

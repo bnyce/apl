@@ -8,6 +8,9 @@
 .rb-link {
   display: block;
   padding-left: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .rotating-banner .rb-link:hover,
@@ -34,7 +37,7 @@
 }
 
 .rb-textbox {background: transparent url(../../themes/austintexas/images/rbanner_txtbg.png) 0 0 repeat;
-width: 960px;margin-left: -15px; color: #fff;padding-left: 4px;}
+width: 960px;margin-left: -10px; color: #fff;padding-left: 4px;}
 
 
 

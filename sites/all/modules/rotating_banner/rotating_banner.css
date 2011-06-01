@@ -164,6 +164,10 @@
   color: #000;
 }
 
+
+.controls .prev {background: transparent url(../../themes/austintexas/images/rbanner_prev.png) 0 0 repeat; display: block; width: 30px; height: 30px; text-indent: -9999px;}
+.controls .next {background: transparent url(../../themes/austintexas/images/rbanner_next.png) 0 0 repeat; display: block; width: 30px; height: 30px; text-indent: -9999px;}
+
 .static-wrapper {
   overflow: hidden;
 }

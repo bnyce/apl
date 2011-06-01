@@ -8,8 +8,8 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 		
 	div.port-col-right {float: right; width: 760px;}
 		div.port-col-right-top {background: #767f89 url(images/tr_dark.jpg) no-repeat top right;height: 33px;}
-			div.port-col-right-top .breadcrumb {height: 33px;padding: 0 15px;}
-			div.port-col-right-top .breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;font-size: 15px;}
+			div.port-col-right-top .breadcrumb {height: 33px;padding: 0 15px;font-size: 15px;}
+			div.port-col-right-top .breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;}
 			
 		div.port-main-content {float: left;}
 		div.port-right-sidebar {float: right; width: 200px;}

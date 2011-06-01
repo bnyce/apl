@@ -27,7 +27,7 @@
 
 }
 
-.rb-textbox {background: #000;width: 960px;margin-right: -15px; color: #fff;}
+.rb-textbox {background: #000;width: 960px;margin-right: -15px; color: #fff;padding-right: 5px;}
 
 
 .rb-textbox-wrapper {

@@ -35,13 +35,17 @@ div.single-column {background: #767f89 url("images/tl_blue.jpg") no-repeat scrol
 /* VIEWS-FIELD & VIEWS-FIELD-TITLE */
 .views-field {
 	width:360px;
-	line-height: 8px;
+	font-size: 13px;
 }
+
+
+views-field-field-news-desc {}
+
 
 .views-field-title a {
 	color: #a85708;
 	text-decoration: none;
-	font-size: 13px;
+	
 	font-family: Univers Bold;
 	padding-left: 12px;
 	background: url(images/star.jpg) no-repeat left;

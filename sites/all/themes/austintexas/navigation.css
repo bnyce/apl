@@ -218,7 +218,7 @@ margin: 0;
 }
 
 #block-menu-menu-brand-bar li {
-    background: url(images/nav_spacer.jpg) right center no-repeat;
+    background: url(images/nav_spacer.jpg) right 5px no-repeat;
     display: inline-block;
     height: 28px;
     list-style-type: none;

@@ -27,7 +27,10 @@ div.single-column {background: #767f89 url("images/tl_blue.jpg") no-repeat scrol
 	div.single-column .large-col {width: 75%;background: #fff url("images/bl.jpg") no-repeat scroll left bottom;}
 	div.single-column .small-col {width: 25%;background: #fff url("images/br.jpg") no-repeat scroll right bottom;}
 
-	
+
+
+
+
 
 
 
@@ -61,6 +64,13 @@ views-field-field-news-desc {padding-left: 12px;font-family: Arial, sans-serif;}
 
 
 
+
+
+
+
+
+
+
 /*Video page*/
 div#mini-panel-video_page .panels-flexible-region {
   padding:10px 0 0 50px;
@@ -70,6 +80,12 @@ div#mini-panel-video_page .panels-flexible-region {
 
 
 div#mini-panel-video_page p {width:450px;}
+
+
+
+
+
+
 
 
 

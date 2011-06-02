@@ -59,16 +59,19 @@ div.single-column {background: #767f89 url("images/tl_blue.jpg") no-repeat scrol
 
 views-field-field-news-desc {padding-left: 12px;font-family: Arial, sans-serif;}
 
+
+
 /*Video page*/
 div#mini-panel-video_page .panels-flexible-region {
   padding:10px 0 0 50px;
   border:1px groove grey;
   width:500px;
-  background: #ddd;
+  margin: 0 auto;
+  
 }
 
 
-div#mini-panel-video_page p {}
+div#mini-panel-video_page p {width:400;}
 
 
 

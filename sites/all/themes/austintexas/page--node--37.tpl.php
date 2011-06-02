@@ -126,7 +126,6 @@
 
 		  		</div>
 		  		
-		  		<hr class="clear" />
 		  		
 		  	
 					  	

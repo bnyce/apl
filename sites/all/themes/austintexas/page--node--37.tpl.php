@@ -87,7 +87,7 @@
 		  	
 
 					<div class="breadcrumb-left">
-		  			<div class="breadcrumb"><?php print $breadcrumb; ?></div>
+		  				<?php print $breadcrumb; ?>
 		  			</div>
 		  			
 		  		

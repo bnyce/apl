@@ -64,14 +64,13 @@ views-field-field-news-desc {padding-left: 12px;font-family: Arial, sans-serif;}
 /*Video page*/
 div#mini-panel-video_page .panels-flexible-region {
   padding:10px 0 0 50px;
-  border:1px groove grey;
-  width:500px;
+  width:450px;
   margin: 0 auto;
   
 }
 
 
-div#mini-panel-video_page p {width:400;}
+div#mini-panel-video_page p {width:400px;}
 
 
 

@@ -120,14 +120,6 @@
 		  		
 		  		
 		  		
-		  		<div class="small-col">
-			  		<?php render($page['content_right_sidebar']);?>
-
-
-
-		  		</div>
-		  		
-		  		
 		  	
 					  	
 		  

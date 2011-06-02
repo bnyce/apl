@@ -80,60 +80,34 @@
 		  
 		  
 		  
-		  <div class="portal-columns">
+		  <div class="single-column">
 		  
 		  
-		  
-		  
-		  	<div class="port-col-left">
-		  	
 		  		
-		  		<div class="port-col-left-top">
+
+		  	
+
+
+		  			<div class="breadcrumb"><?php print $breadcrumb; ?></div>
+		  		
+		  		
 		  			<h5>
 		  		      <?php  
                      $tmp_activeTrail = menu_get_active_trail();
                      print $tmp_activeTrail[2]['link_title'];
   		  			   ?>
 		  			</h5>
-		  		</div>
-		  		
-		  		<?php print render($page['content_left_sidebar']); ?>
-
-			  		<p>
-			  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			  		</p>
-		  		
-		  	
-			</div><!-- /left -->
-		  	
-		  	
-
-
-
-		  	<div class="port-col-right">
-		  	
-		  		
-		  		<div class="port-col-right-top">
-		  			<div class="breadcrumb"><?php print $breadcrumb; ?></div>
-		  		</div>
 		  		
 		  		
 		  		
-		  		
-		  		
-		  		
-		  		<div class="port-main-content"> 
+		  		<div class="large-col"> 
 		  		
 			  		<?php render($page['content_main_blocks']); ?>
-			  		<?php print render($page['content']); ?>
+			  		<?php print render($page['content']); ?> 
 			  		
-			  		<p>two-column test page</p>
 			  		
-			  		<p>
-			  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			  		</p>
-
-
+			  		<p>single column test</p>
+			  		
 			  		<p>
 			  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			  		</p>
@@ -146,14 +120,19 @@
 		  		
 		  		
 		  		
+		  		<div class="small-col">
+			  		<?php render($page['content_right_sidebar']);?>
+
+
+
+		  		</div>
 		  		
 		  		<hr class="clear" />
 		  		
 		  	
-			</div><!-- /right -->
-		  	
+					  	
 		  
-		  </div><!-- /portal-columns -->
+		  </div><!-- /single-columns -->
 		  
 		  
 		  

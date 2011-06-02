@@ -22,7 +22,7 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 /* ROUNDED CORNERS -- MEDIA CENTER LAYOUT */
 div.single-column {background: #fff; float: left;}
 	
-	div,single-column .breadcrumb-left {background: #767f89 url("images/tl_blue.jpg") no-repeat scroll left top; line-height: 33px;}
+	div.single-column .breadcrumb-left {background: #767f89 url("images/tl_blue.jpg") no-repeat scroll left top; line-height: 33px;}
 
 	div.single-column .breadcrumb {height: 33px;padding: 0 15px;background: #767f89 url("images/tr_blue.jpg") no-repeat scroll right top;margin-left: 15px; line-height: 33px;}
 

@@ -4,10 +4,6 @@
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <a id="main-content"></a>
           <?php if ($tabs): ?><div id="tabs-wrapper" class="clearfix"><?php endif; ?>
-		  <?php if ($field_news_caption1): ?><?php print render($field_news_caption1); ?><?php endif; ?>
-		  <?php if ($field_news_caption2): ?><?php print render($field_news_caption2); ?><?php endif; ?>
-		  <?php if ($field_address1): ?><?php print render($field_address1); ?><?php endif; ?>
-		  <?php if ($field_address2): ?><?php print render($field_address2); ?><?php endif; ?>
           <?php print render($title_prefix); ?>
           <?php if ($title): ?>
            <!-- <h1<?php print $tabs ? ' class="with-tabs"' : '' ?>><?php print $title ?></h1> -->

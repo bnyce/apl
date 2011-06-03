@@ -39,7 +39,7 @@
 		  <?php if ($field_address1): ?><?php print render($content['$field_address1']); ?><?php endif; ?>
 		  <?php if ($field_address2): ?><?php print render($content['$field_address2']); ?><?php endif; ?></h2>
 		  		
-		  			<h5><?php print $title; ?></h5>
+		  		
 			  		<?php print render($page['content']); ?> 
 			  		
 			  		

@@ -58,5 +58,3 @@
 		  
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
-    </div> <!-- /#container -->
-  </div> <!-- /#wrapper -->

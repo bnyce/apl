@@ -14,7 +14,7 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 	hr.clear {clear: both; visibility: hidden;}
 
 /* ROUNDED CORNERS -- MEDIA CENTER LAYOUT */
-div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left bottom; float: left;}
+div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left bottom;}
 	
 	div.single-column .breadcrumb-left {background: #767f89 url("images/tl_blue.jpg") no-repeat scroll left top; line-height: 33px;}
 

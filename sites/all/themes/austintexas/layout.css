@@ -86,6 +86,11 @@ div#mini-panel-video_page .panels-flexible-region {
 div#mini-panel-video_page p {width:450px;}
 
 
+.panel-pane pane-custom pane-2{
+  padding:0 0 0 100px;
+}
+      
+
 
 
 

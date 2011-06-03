@@ -103,7 +103,7 @@
 			  		
 			  		<?php print render($page['content']); ?> 
 			  		
-			  		vvv
+			  	
 		  		</div>
 		  		
 		  		

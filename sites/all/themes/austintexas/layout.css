@@ -1,5 +1,4 @@
 /* ROUNDED CORNERS -- TWO- and THREE-COLUMN LAYOUT */
-
 div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bottom #FFFFFF; font-family: Arial, sans-serif; float: left;}
 		
 	div.port-col-left {background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left;  float: left; width: 200px;}
@@ -14,9 +13,6 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 
 	hr.clear {clear: both; visibility: hidden;}
 
-
-
-
 /* ROUNDED CORNERS -- MEDIA CENTER LAYOUT */
 div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left bottom; float: left;}
 	
@@ -27,30 +23,19 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 	div.single-column .large-col {background: #fff url("images/br.jpg") no-repeat scroll right bottom;margin-left: 10px; padding: 10px 10px 10px 0;}
 	div.single-column .small-col {width: 25%;}
 
-
-
 /* BREADCRUMBS */
-
-.breadcrumb {height: 33px;padding: 0 15px;font-size: 15px;}
+.breadcrumb {height: 33px;padding: 0 15px;font-size: 15px;color: #FFFFFF;}
 .breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;}
-
-
-
-
 
 /* VIEWS-FIELD & VIEWS-FIELD-TITLE */
 #squeeze h2 a {color:#636463;text-decoration: none;}
-
 
 .views-field {
 	width:360px;
 	font-size: 13px;
 }
 
-
 .views-row {margin-bottom: 1em;}
-
-
 
 .views-field-title a {
 	color: #a85708;
@@ -66,22 +51,12 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 
 views-field-field-news-desc {padding-left: 12px;font-family: Arial, sans-serif;}
 
-
-
-
-
-
-
-
-
-
 /* Video page */
 div#mini-panel-video_page .panels-flexible-region {
   padding:10px 0 0 50px;
   width:450px;
   margin: 0 auto;
 }
-
 
 div#mini-panel-video_page p {width:450px;}
 
@@ -114,3 +89,22 @@ li#cwu-rss {height: 16px; background: url(images/icons/icon_rss_16.png) 0 0 no-r
 p#tweet {font-weight: normal; font-size: 12px;}
 	p#tweet a {color: #ddd;}
 	p#tweet-time {font-size: 10px; font-weight: normal;}
+	
+/* left col navigation for template node-17 */
+.port-col-left-navigation a {
+  background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
+  color: #737B82;
+  font-weight: bold;
+  padding-left: 16px;
+  text-decoration: none;	
+}
+
+.port-col-left-navigation li {
+  font-size: 12px;
+  padding-bottom: 6px;  
+  list-style: none outside none;
+}
+
+.port-col-left-navigation ul {
+  padding-left: 15px;
+}

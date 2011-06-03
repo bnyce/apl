@@ -101,7 +101,7 @@
 		  		
 		  			<h5><?php print $title; ?></h5>
 		  		
-		  		vvv
+		  		
 		  		
 		  		<div class="large-col"> 
 		  		

@@ -89,6 +89,8 @@
 					<div class="breadcrumb-left">
 		  				<?php print $breadcrumb; ?>
 		  			</div><h2>
+				<?php render($content['field_news_caption1']); ?>
+	
 		  <?php print render($field_news_caption1); ?>
 		  <?php print render($field_news_caption2); ?>
 		  <?php print render($field_address1); ?>

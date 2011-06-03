@@ -7,7 +7,7 @@
 		<div id="toplinks">  <div class="region region-toplinks">
     <div class="block block-menu contextual-links-region clearfix" id="block-menu-menu-action-navigation">
   <div class="content">
-    <ul class="menu"><li class="first leaf icon-payment"><a title="" href="/">Pay Online</a></li>
+    <ul class="menu"><li class="first leaf icon-payment"><a title="" href="/">Make A Payment</a></li>
 <li class="leaf icon-services"><a title="" href="/">Services</a></li>
 <li class="leaf icon-calendar"><a title="" href="/">Calendar</a></li>
 <li class="leaf icon-media"><a title="" href="/">Media Center</a></li>
@@ -58,7 +58,7 @@
       </div>
     <?php endif; ?>
         <div id="submenubar"><?php print render($page['submenubar']); ?></div>
-		<div id="header-banner"><?php print render($page['header_banner']); ?></div>
+		<div id="header-banner" class="br"><?php print render($page['header_banner']); ?></div>
         <div id="search" class="br"><?php print render($page['search']); ?></div>
       </div> <!-- /#header -->
 
@@ -76,12 +76,46 @@
           <?php print $messages; ?>
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-		  <?php if ($page['above_content']): ?><div id="above-content"><?php print render($page['above_content']); ?></div><?php endif; ?>
-		  <?php if ($page['content_box_top']): ?><div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_box_top']); ?></div></div></div></div></div></div><?php endif; ?>
-		  <?php if ($page['content_box_middle']): ?><div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_box_middle']); ?></div></div></div></div></div></div><?php endif; ?>
-          
-            <?php print render($page['content']); ?> 
-          
+		  <div id="above-content"><?php print render($page['above_content']); ?></div>
+		  
+		  
+		  
+		  <div class="single-column">
+		  
+		  		
+
+		  	
+
+					<div class="breadcrumb-left">
+		  				<?php print $breadcrumb; ?>
+		  			</div>
+		  			
+		  		
+		  			<h5><?php print $title; ?></h5>
+		  		
+		  		
+		  		
+		  		<div class="large-col"> 
+		  		
+			  		
+			  		<?php print render($page['content']); ?> 
+			  		
+			  		
+		  		</div>
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		
+		  	
+					  	
+		  
+		  </div><!-- /single-columns -->
+		  
+		  
+		  
+		  
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
     </div> <!-- /#container -->

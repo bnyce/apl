@@ -91,12 +91,7 @@
 		  			</div>
 		  			
 		  		
-		  			<h5>
-		  		      <?php  
-                     $tmp_activeTrail = menu_get_active_trail();
-                     print $tmp_activeTrail[2]['link_title'];
-  		  			   ?>
-		  			</h5>
+		  			<h5><?php print $title; ?></h5>
 		  		
 		  		
 		  		

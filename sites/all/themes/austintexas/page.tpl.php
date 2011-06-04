@@ -90,7 +90,7 @@
 		  				<?php print $breadcrumb; ?>
 		  			</div>
 
-		  			<h5><?php print $title; ?></h5>
+		  		<!--	<h5><?php print $title; ?></h5> -->
 		  		
 		  		
 		  		

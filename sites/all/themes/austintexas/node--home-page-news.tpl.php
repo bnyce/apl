@@ -3,7 +3,7 @@
 		  		
 <div>
   Printing before static content
-  <?php print $node->field_news_caption1[0]['view'];  ?>  
+  <?php print $node->field_news_caption1[0]['value'];  ?>  
   Printing after static content
   <div class="content">
     <?php render($content); ?>

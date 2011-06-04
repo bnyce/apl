@@ -10,7 +10,7 @@
 	       <?php print render($content['field_address1']);  ?>  
 	 	   <?php print render($content['field_address2']);  ?>  
 		   <?php print render($content['title']);  ?> 
-		   <?php print render($content['field_body']);  ?>  
+		   <?php print render($content['body']);  ?>  
         </div>
 	</div>
 </div><!-- /single-columns -->

@@ -1,19 +1,4 @@
-
-		  
-		  
 		  <div class="single-column">
-		  
-		  		
-
-		  	
-
-					<div class="breadcrumb-left">
-		  				<?php print $variables['breadcrumb']; ?>
-		  			</div>
-
-		  		
-		  		
-		  		
 		  		<div class="large-col"> 
 		  		
 <div>
@@ -24,19 +9,7 @@
     <?php render($content); ?>
   </div>
 </div>
-
-			  		
-			  		
 		  		</div>
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		
-		  	
-					  	
-		  
 		  </div><!-- /single-columns -->
 		  
 

@@ -9,6 +9,7 @@
 		   <?php print render($content['field_news_caption2']);  ?>  
 	       <?php print render($content['field_address1']);  ?>  
 	 	   <?php print render($content['field_address2']);  ?>  
+		   <?php print render($content['title]);  ?> 
 		   <?php print render($content['field_body']);  ?>  
         </div>
 	</div>

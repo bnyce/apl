@@ -17,7 +17,7 @@
 		  		<div class="large-col"> 
 		  		
 <div>
-  <h2><?php print $title; ?></h2>
+  <h2><?php print $field_news_caption1; ?></h2>
   <div class="content">
     <?php render($content); ?>
   </div>

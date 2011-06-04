@@ -6,9 +6,11 @@
 				hide($content);
 			?>
            <?php print render($content['field_news_caption1']);  ?>  
-		   <?php print render($content['field_news_caption2']);  ?>  
+		   <?php print render($content['field_news_caption2']);  ?> 
+           <br/>		   
 	       <?php print render($content['field_address1']);  ?>  
 	 	   <?php print render($content['field_address2']);  ?>  
+		   </br>
 		   <?php print render($title);  ?> 
 		   <?php print render($content['body']);  ?>  
         </div>

@@ -8,7 +8,7 @@
 		  	
 
 					<div class="breadcrumb-left">
-		  				<?php print $breadcrumb; ?>
+		  				<?php print $variables['breadcrumb']; ?>
 		  			</div>
 
 		  		

@@ -7,7 +7,7 @@
 		<div id="toplinks">  <div class="region region-toplinks">
     <div class="block block-menu contextual-links-region clearfix" id="block-menu-menu-action-navigation">
   <div class="content">
-    <ul class="menu"><li class="first leaf icon-payment"><a title="" href="/">Make A Payment</a></li>
+    <ul class="menu"><li class="first leaf icon-payment"><a title="" href="/">Pay Online</a></li>
 <li class="leaf icon-services"><a title="" href="/">Services</a></li>
 <li class="leaf icon-calendar"><a title="" href="/">Calendar</a></li>
 <li class="leaf icon-media"><a title="" href="/">Media Center</a></li>

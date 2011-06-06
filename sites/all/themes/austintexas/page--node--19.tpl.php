@@ -10,7 +10,7 @@
   
   <div class="content">
 
-	<?php print render($page['search']); ?>
+	<div id="top-search"><?php print render($page['search']); ?></div>
 
     <ul class="menu">
     	<li class="first leaf icon-payment"><a title="" href="/">Make A Payment</a></li>

@@ -241,38 +241,39 @@ margin: 0;
 	font-family: Arial;
 }
 
-#block-menu-menu-action-navigation li {
-    display: inline-block;
-    font-family: "Arial";
-    height: 28px;
-    list-style-type: none;
-    margin-right: 9px;
-    text-align: center;
+#block-nice-menus-4 li {
+  display: inline-block;
+  font-family: "Arial";
+  height: 28px;
+  list-style-type: none;
+  margin-right: 9px;
+  text-align: center;
 	font-size: 13px;
-	padding-left: 24px;
+	padding: 0 0 0 24px;
+  border: none;
 
 }
-#block-menu-menu-action-navigation li.icon-payment {
+#block-nice-menus-4 li.menu-532 {
 	background: url(images/icons/icon-payment.png) 0 center no-repeat;
 	line-height: 30px;
 }
-#block-menu-menu-action-navigation li.icon-services {
+#block-nice-menus-4 li.menu-533 {
 	background: url(images/icons/icon-services.png) 0 center no-repeat;
 	line-height: 30px;
 }
-#block-menu-menu-action-navigation li.icon-calendar {
+#block-nice-menus-4 li.menu-534 {
 	background: url(images/icons/icon-calendar.png) 0 center no-repeat;
 	line-height: 30px;
 }
-#block-menu-menu-action-navigation li.icon-media {
+#block-nice-menus-4 li.menu-535 {
 	background: url(images/icons/icon-media.png) 0 center no-repeat;
 	line-height: 30px;
 }
-#block-menu-menu-action-navigation li.icon-contact {
+#block-nice-menus-4 li.menu-536 {
 	background: url(images/icons/icon-contact.png) 0 center no-repeat;
 	line-height: 30px;
 }
-#block-menu-menu-action-navigation li.icon-311 {
+#block-nice-menus-4 li.menu-537 {
 	background: url(images/icons/icon-311.png) 0 center no-repeat;
 	line-height: 30px;
 }

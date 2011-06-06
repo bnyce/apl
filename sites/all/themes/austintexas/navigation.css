@@ -328,7 +328,6 @@ Contact Us - menu-536
 
 .menu li.collapsed {}
 .menu li.expanded  {}
-.menu li.leaf      {}
 
 .menu li a:link,
 .menu li a:visited {}
@@ -345,7 +344,7 @@ Contact Us - menu-536
   padding: 0; /* extra class can equal a standard class */
 }
 
-li.expanded, li.collapsed, li.leaf {
+li.expanded, li.collapsed {
 	padding: 0px;
 }
 

@@ -1,5 +1,7 @@
 /* TOP-SEARCH */
 
+#top-search {padding: 0;}
+
 #top-search #search-block-form {background: transparent;}
 
 #top-search #block-search-form {
@@ -9,8 +11,8 @@
 }
 
 #top-search #block-search-form input.form-text {
-	width: 520px;
-	height: 25px;
+	width: 420px;
+	height: 15px;
 	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
 	padding: 3px;
 	padding-left: 25px;

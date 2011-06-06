@@ -6,17 +6,32 @@
       <div id="header">
 		<div id="toplinks">  <div class="region region-toplinks">
     <div class="block block-menu contextual-links-region clearfix" id="block-menu-menu-action-navigation">
+  
+  
   <div class="content">
-    <ul class="menu"><li class="first leaf icon-payment"><a title="" href="/">Make A Payment</a></li>
-<li class="leaf icon-services"><a title="" href="/">Services</a></li>
-<li class="leaf icon-calendar"><a title="" href="/">Calendar</a></li>
-<li class="leaf icon-media"><a title="" href="/">Media Center</a></li>
-<li class="leaf icon-contact"><a title="" href="/">Contact Us</a></li>
-<li class="last leaf icon-311"><a title="" href="/">311</a></li>
-</ul>  </div>
+
+	<?php print $topsearch; ?>
+
+    <ul class="menu">
+    	<li class="first leaf icon-payment"><a title="" href="/">Make A Payment</a></li>
+		<li class="leaf icon-services"><a title="" href="/">Services</a></li>
+		<li class="leaf icon-calendar"><a title="" href="/">Calendar</a></li>
+		<li class="leaf icon-media"><a title="" href="/">Media Center</a></li>
+		<li class="leaf icon-contact"><a title="" href="/">Contact Us</a></li>
+		<li class="last leaf icon-311"><a title="" href="/">311</a></li>
+	</ul>
+
+
+
+  </div>
 </div>
   </div>
 </div>
+
+
+
+
+
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
           <?php if ($title): ?>

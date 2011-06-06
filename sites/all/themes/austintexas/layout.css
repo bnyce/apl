@@ -110,3 +110,11 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .port-col-left-navigation ul {
   padding-left: 15px;
 }
+
+div.back_button{
+	float: right;
+}
+
+div.back_button input:hover{
+		cursor: pointer;
+}

@@ -11,7 +11,9 @@
 	 	   <b><?php print render($content['field_address2']);  ?> </b>
 		   <hr />
 		   <h3 align="center"><?php print render($title);  ?> </h3>
-		   <?php print render($content['body']);  ?>  
+		   <?php print render($content['body']);  ?>
+		   <div class="back_button"><input type="button" name="Back" value="Back" onclick="javascript:history.back();"></div>
+		   <div style="clear:both;"></div>  
         </div>
 	</div>
 </div><!-- /single-columns -->

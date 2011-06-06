@@ -92,6 +92,7 @@
 		  		      <?php  
                      $tmp_activeTrail = menu_get_active_trail();
                      print $tmp_activeTrail[2]['link_title'];
+                     print_r($tmp_activeTrail);
   		  			   ?>
   		  			</h5>
 		  		</div>
@@ -111,7 +112,8 @@
             foreach ($tmp_treeData as $key => $tmpValue){ 
               print '<li><a href="' . url($tmpValue['link']['href']) . '" >' . $tmpValue['link']['link_title'] . '</a></li>';  
             }            
-            print "</ul>";        
+            print "</ul>"; 
+            print_r(menu_get_menus(FALSE));       
             unset($tmp_treeData);
             unset($tmpValue);  
 					?>

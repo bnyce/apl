@@ -18,6 +18,7 @@ scripts[] = js/utility.js
 settings[garland_width] = fluid
 
 regions[topmenu]           = Top Menu
+regions[topsearch]          = Top Search
 regions[toplinks]          = Top Links
 regions[menubar]           = Menu Bar
 regions[submenubar]           = Sub Menu Bar

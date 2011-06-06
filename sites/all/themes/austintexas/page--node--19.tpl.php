@@ -55,7 +55,11 @@
     <?php endif; ?>
         <div id="submenubar"><?php print render($page['submenubar']); ?></div>
 		<div id="header-banner" class="br"><?php print render($page['header_banner']); ?></div>
-        <div id="search" class="br"><?php print render($page['search']); ?></div>
+		
+		
+        <!-- <div id="search" class="br"><?php print render($page['search']); ?></div> -->
+        
+        
       </div> <!-- /#header -->
 
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">

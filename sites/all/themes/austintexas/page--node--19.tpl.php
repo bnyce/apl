@@ -4,6 +4,12 @@
   <div id="wrapper">
     <div id="container" class="clearfix">
       <div id="header">
+      
+      
+      	<div id="top-search"><?php print render($page['search']); ?></div>
+
+      
+      
 		<div id="toplinks">  
 			<?php print render($page['toplinks']); ?>
 		</div>

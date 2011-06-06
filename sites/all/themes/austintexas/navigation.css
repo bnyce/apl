@@ -276,7 +276,14 @@ margin: 0;
 	background: url(images/icons/icon-311.png) 0 center no-repeat;
 	line-height: 30px;
 }
-
+/* START - Top Menu - Action Navigation 
+Pay Online - menu-532
+Services - menu-533
+Calendar - menu-534
+Media Center - menu-535
+Contact Us - menu-536
+311 - menu-537
+*/
 #block-nice-menus-4 li {
   display: inline-block;
   font-family: "Arial";
@@ -287,8 +294,10 @@ margin: 0;
 	font-size: 13px;
 	padding: 0 0 0 24px;
   border: none;
-
 }
+
+#block-nice-menus-4 li a{ padding: 0;}
+
 #block-nice-menus-4 li.menu-532 {
 	background: url(images/icons/icon-payment.png) 0 center no-repeat;
 	line-height: 30px;
@@ -313,7 +322,7 @@ margin: 0;
 	background: url(images/icons/icon-311.png) 0 center no-repeat;
 	line-height: 30px;
 }
-
+/* END - Top Menu - Action Navigation */
 
 .menu li {}
 

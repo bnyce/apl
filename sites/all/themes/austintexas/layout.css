@@ -127,12 +127,7 @@ input.back_button:hover{
 	cursor: pointer;
 }
 
-
-
-
-
-
-
+h1#branding { margin: 0; }
 
 /* FOOTER COLUMNS - ROUNDED CORNERS */
 div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}

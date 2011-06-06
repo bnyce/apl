@@ -5,9 +5,8 @@
     <div id="container" class="clearfix">
       <div id="header">
 		<div id="toplinks">  
-		<?php print render($page['toplinks']); ?>
-		
-</div>
+			<?php print render($page['toplinks']); ?>
+		</div>
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
           <?php if ($title): ?>

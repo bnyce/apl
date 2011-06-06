@@ -1,3 +1,36 @@
+/* TOP-SEARCH */
+
+#top-search #search-block-form {background: transparent;}
+
+#top-search #block-search-form {
+	width: 558px;
+	margin: 0 auto 20px auto;
+	border: none;
+}
+
+#top-search #block-search-form input.form-text {
+	width: 520px;
+	height: 25px;
+	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
+	padding: 3px;
+	padding-left: 25px;
+	margin: 0;
+}
+
+#block-search-form input.form-submit {
+	background: url(images/btn_search.jpg) no-repeat;
+	width: 105px;
+	height: 25px;
+	line-height: 0;
+	margin-left: -4px;
+	color: transparent;
+	border: none;
+	text-indent: -9999px;
+}
+
+
+
+
 /* ROUNDED CORNERS -- TWO- and THREE-COLUMN LAYOUT */
 div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bottom #FFFFFF; font-family: Arial, sans-serif; float: left;}
 		
@@ -64,33 +97,6 @@ div#mini-panel-video_page .pane-7 a {background: none;padding:0px}
 
 
 
-
-/* FOOTER COLUMNS - ROUNDED CORNERS */
-div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}
-div.round-corners-footer .content-container { padding: 10px; }
-div.round-corners-footer .tl-footer { background: url(images/tl_footer.jpg) no-repeat top left; }
-div.round-corners-footer .tr-footer { background: url(images/tr_footer.jpg) no-repeat top right; }
-div.round-corners-footer .bl-footer { background: url(images/bl_footer.jpg) no-repeat bottom left; }
-div.round-corners-footer .br-footer { background: url(images/br_footer.jpg) no-repeat bottom right; }
-
-/* FOOTER COLUMNS - LISTS */
-div.round-corners-footer .content-container p {font-weight: bold; font-size: 14px; color: #fff;margin: 2px 0;}
-ul.footer-list {padding: 0; margin: 0;}
-	ul.footer-list li {list-style: none; margin: 0; padding: 0;}
-	ul.footer-list li a {color: #fff; text-decoration: none;font-size: 12px;}
-	ul.footer-list li a:hover {text-decoration: underline;}
-
-/* FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS */
-li#cwu-mobileapps {height: 16px; background: url(images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-multimedia {height: 16px; background: url(images/icons/icon_multimedia_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-twitter {height: 16px; background: url(images/icons/icon_twitter_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-facebook {height: 16px; background: url(images/icons/icon_facebook_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-youtube {height: 16px; background: url(images/icons/icon_youtube_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-rss {height: 16px; background: url(images/icons/icon_rss_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-
-p#tweet {font-weight: normal; font-size: 12px;}
-	p#tweet a {color: #ddd;}
-	p#tweet-time {font-size: 10px; font-weight: normal;}
 	
 /* left col navigation for template node-17 */
 .port-col-left-navigation a {
@@ -118,3 +124,37 @@ input.back_button{
 input.back_button:hover{
 	cursor: pointer;
 }
+
+
+
+
+
+
+
+
+/* FOOTER COLUMNS - ROUNDED CORNERS */
+div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}
+div.round-corners-footer .content-container { padding: 10px; }
+div.round-corners-footer .tl-footer { background: url(images/tl_footer.jpg) no-repeat top left; }
+div.round-corners-footer .tr-footer { background: url(images/tr_footer.jpg) no-repeat top right; }
+div.round-corners-footer .bl-footer { background: url(images/bl_footer.jpg) no-repeat bottom left; }
+div.round-corners-footer .br-footer { background: url(images/br_footer.jpg) no-repeat bottom right; }
+
+/* FOOTER COLUMNS - LISTS */
+div.round-corners-footer .content-container p {font-weight: bold; font-size: 14px; color: #fff;margin: 2px 0;}
+ul.footer-list {padding: 0; margin: 0;}
+	ul.footer-list li {list-style: none; margin: 0; padding: 0;}
+	ul.footer-list li a {color: #fff; text-decoration: none;font-size: 12px;}
+	ul.footer-list li a:hover {text-decoration: underline;}
+
+/* FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS */
+li#cwu-mobileapps {height: 16px; background: url(images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-multimedia {height: 16px; background: url(images/icons/icon_multimedia_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-twitter {height: 16px; background: url(images/icons/icon_twitter_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-facebook {height: 16px; background: url(images/icons/icon_facebook_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-youtube {height: 16px; background: url(images/icons/icon_youtube_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-rss {height: 16px; background: url(images/icons/icon_rss_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+
+p#tweet {font-weight: normal; font-size: 12px;}
+	p#tweet a {color: #ddd;}
+	p#tweet-time {font-size: 10px; font-weight: normal;}

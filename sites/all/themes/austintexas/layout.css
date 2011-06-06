@@ -111,10 +111,10 @@ p#tweet {font-weight: normal; font-size: 12px;}
   padding-left: 15px;
 }
 
-div.back_button{
+input.back_button{
 	float: right;
 }
 
-div.back_button input:hover{
-		cursor: pointer;
+input.back_button:hover{
+	cursor: pointer;
 }

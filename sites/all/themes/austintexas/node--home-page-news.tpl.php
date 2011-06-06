@@ -12,7 +12,7 @@
 		   <hr />
 		   <h3 align="center"><?php print render($title);  ?> </h3>
 		   <?php print render($content['body']);  ?>
-		   <div class="back_button"><input type="button" name="Back" value="Back" onclick="javascript:history.back();"></div>
+		   <input class="back_button" type="button" name="Back" value="Back" onclick="javascript:history.back();">
 		   <div style="clear:both;"></div>  
         </div>
 	</div>

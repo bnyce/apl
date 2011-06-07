@@ -146,3 +146,11 @@
 	}
  });
 })(jQuery);
+
+
+
+
+
+$(document).ready(function(){
+	$('#ctools-jump-menu select').customStyle();
+});

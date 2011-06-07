@@ -169,9 +169,12 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .views-field-field-council-place {
     display: inline-block;
 	float: left;
-	padding-right: 2px;
+	
 }
 
+.views-label-field-council-place{
+	padding-right: 2px;
+}
 .views-field-field-council-place .field-content, .views-label-field-council-place {
 	float: left;
 }

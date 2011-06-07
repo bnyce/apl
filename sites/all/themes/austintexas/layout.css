@@ -196,6 +196,10 @@ p#tweet {font-weight: normal; font-size: 12px;}
     width: 209px;
 }
 
+#mayor_bio {
+    margin-left: 90px;
+}
+
 .mayor {
 	background: url("images/mayor_bio_bkg.jpg") no-repeat scroll 0 0 transparent;
     height: 108px;

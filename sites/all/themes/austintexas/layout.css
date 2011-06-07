@@ -82,22 +82,6 @@ ul.star-list a {color: #a85708;text-decoration: none;}
 	font-size: 13px;
 }
 
-.views-row {margin-bottom: 1em;}
-
-.views-field-title a {
-	color: #a85708;
-	text-decoration: none;
-	font-family: Univers Bold;
-	padding-left: 12px;
-	background: url(images/star.jpg) no-repeat left;
-}
-
-.views-field-title a:hover {
-	text-decoration: underline;
-}
-
-views-field-field-news-desc {padding-left: 12px;font-family: Arial, sans-serif;}
-
 /* Video page */
 div#mini-panel-video_page .panels-flexible-region {
   padding:10px 0 0 50px;
@@ -107,7 +91,7 @@ div#mini-panel-video_page .panels-flexible-region {
 
 div#mini-panel-video_page p {width:450px;}
 
-div#mini-panel-video_page .pane-7 a {background: none;padding:0px}
+div#mini-panel-video_page .pane-7 a {background: none;padding:0px;}
 
 
 

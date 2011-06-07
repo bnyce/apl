@@ -156,6 +156,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .views-field-field-last-name, .views-field-field-first-name {    
     display: inline-block;
     font-size: 14px;
+	font-weight: bold;
 }
 
 .views-field-field-last-name a, .views-field-field-first-name a {    
@@ -176,6 +177,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 .views-label-field-council-place{
 	padding-right: 2px;
+	font-size: 10px;
 }
 .views-field-field-council-place .field-content, .views-label-field-council-place {
 	float: left;

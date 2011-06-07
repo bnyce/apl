@@ -173,6 +173,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .views-field-field-council-place {
     display: inline-block;
 	float: left;
+	font-size: 11px;
 }
 
 .views-label-field-council-place{

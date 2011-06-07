@@ -154,9 +154,13 @@ p#tweet {font-weight: normal; font-size: 12px;}
 	
 /* BIO VIEW - GOVERNMENT BIO PAGE */
 .views-field-field-last-name, .views-field-field-first-name {    
-    color: #A85708;
     display: inline-block;
     font-size: 14px;
+}
+
+.views-field-field-last-name a, .views-field-field-first-name a {    
+    text-decoration: none;
+	color: #A85708;
 }
 
 .views-field-field-image {

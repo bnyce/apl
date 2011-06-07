@@ -220,10 +220,12 @@ p#tweet {font-weight: normal; font-size: 12px;}
 	position: absolute;
     text-align: center;
     width: 200px;
+}
+
+#gov_bio_title h2{
 	font-size: 20px;
 	margin-top: 30px;
 }
-
 
 .view-display-id-block_1 tbody {
 	height: 225px;

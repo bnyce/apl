@@ -176,9 +176,15 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .views-label-field-council-place{
+	display: inline-block;
 	padding-right: 2px;
-	font-size: 10px;
+	font-size: 11px;
 }
+
+.views-label-field-council-place .field-content {
+	font-size: 11px;
+}
+
 .views-field-field-council-place .field-content, .views-label-field-council-place {
 	float: left;
 }

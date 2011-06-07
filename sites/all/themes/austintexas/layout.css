@@ -172,7 +172,6 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .views-field-field-last-name, .views-field-field-first-name {    
     color: #A85708;
     display: inline-block;
-    float: left;
     font-size: 14px;
     padding-right: 3px;
 }

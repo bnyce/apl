@@ -161,7 +161,6 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .views-field-field-image {
-    border: 1px solid #A85708;
     float: left;
     margin-right: 15px;
 }
@@ -192,6 +191,6 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .views-field-field-image img {
-	margin-bottom: -3px;
+	border: 1px solid #A85708;
 	padding: 0;
 }

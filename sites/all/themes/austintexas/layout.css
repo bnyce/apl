@@ -168,6 +168,11 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 .views-field-field-council-place {
     display: inline-block;
+	float: left;
+}
+
+.views-field-field-council-place .field-content {
+	float: left;
 }
 
 .views-label-field-council-place {

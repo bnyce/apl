@@ -196,6 +196,14 @@ p#tweet {font-weight: normal; font-size: 12px;}
     width: 209px;
 }
 
+.mayor {
+	background: url("images/mayor_bio_bkg.jpg") no-repeat scroll 0 0 transparent;
+    height: 108px;
+    padding-left: 10px;
+    width: 474px;
+}
+
+
 .view-display-id-block_1 tbody {
 	height: 225px;
 }

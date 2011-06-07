@@ -216,6 +216,12 @@ p#tweet {font-weight: normal; font-size: 12px;}
     width: 430px;
 }
 
+#gov_bio_title {
+	position: absolute;
+    text-align: center;
+    width: 200px;
+}
+
 
 .view-display-id-block_1 tbody {
 	height: 225px;

@@ -206,14 +206,14 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 #mayor_bio {
-    margin-left: 90px;
+    margin-left: 221px;
 }
 
 .mayor {
 	background: url("images/mayor_bio_bkg.jpg") no-repeat scroll 0 0 transparent;
-    height: 108px;
+    height: 110px;
     padding-left: 10px;
-    width: 474px;
+    width: 436px;
 }
 
 

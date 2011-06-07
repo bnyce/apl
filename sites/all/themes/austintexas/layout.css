@@ -194,3 +194,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .views-field-title-1 a{
 	color: none;
 }
+
+.bio {
+	width: 200px;
+}

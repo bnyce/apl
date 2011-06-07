@@ -362,7 +362,7 @@ div.round-corners .br {
         .dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown a:hover { color:#5d4617;}
 		.dropdown dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
-        .dropdown dt a:hover, .dropdown dt a:focus { color:#5d4617; border: 1px solid #5d4617;text-decoration: none;}
+        .dropdown dt a:hover, .dropdown dt a:focus { color:#5d4617; text-decoration: none;}
         .dropdown dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;

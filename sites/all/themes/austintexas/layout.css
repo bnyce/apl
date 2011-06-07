@@ -181,3 +181,8 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .bio {
 	width: 200px;
 }
+
+.views-field-field-image img {
+	margin: 0;
+	padding: 0;
+}

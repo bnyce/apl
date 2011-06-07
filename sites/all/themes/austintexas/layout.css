@@ -64,10 +64,13 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 
 
 
-/* LISTS */
-ul.item-list {list-style: none;}
-ul.item-list li {background: url(images/star.jpg) left top no-repeat;text-indent: 15px;}
+
+
+/* ICON-LISTS */
+ul.star-list {list-style-image: url(images/star.jpg);}
+ul.item-list li {}
 ul.item-list a {color: #a85708;text-decoration: none;}
+
 
 
 

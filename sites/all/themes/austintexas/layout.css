@@ -164,3 +164,30 @@ li#cwu-rss {height: 16px; background: url(images/icons/icon_rss_16.png) 0 0 no-r
 p#tweet {font-weight: normal; font-size: 12px;}
 	p#tweet a {color: #ddd;}
 	p#tweet-time {font-size: 10px; font-weight: normal;}
+	
+/* BIO VIEW - GOVERNMENT BIO PAGE */
+.views-field-field-last-name, .views-field-field-first-name {    
+    color: #A85708;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    padding-right: 3px;
+}
+
+.views-field-field-image {
+    border: 1px solid #A85708;
+    float: left;
+    margin-right: 15px;
+}
+
+.views-field-field-council-place {
+    display: inline-block;
+}
+
+.views-label-field-council-place {
+    display: inline-block;
+}
+
+.views-field-title-1 a{
+	color: none;
+}

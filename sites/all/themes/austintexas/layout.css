@@ -62,6 +62,15 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 .breadcrumb {height: 33px;padding: 0 15px;font-size: 15px;color: #FFFFFF;}
 .breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;}
 
+
+
+/* LISTS */
+ul.item-list {list-style: none;}
+ul.item-list li {background: url(images/star.jpg) left center no-repeat;}
+ul.item-list a {color: #a85708;text-decoration: none;}
+
+
+
 /* VIEWS-FIELD & VIEWS-FIELD-TITLE */
 #squeeze h2 a {color:#636463;text-decoration: none;}
 

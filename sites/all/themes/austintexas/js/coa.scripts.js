@@ -1,3 +1,5 @@
+alert('test');
+
 (function($){
  $.fn.extend({
  
@@ -32,7 +34,6 @@ $(document).ready(function() {
 
 
 $('select#edit-jump').customStyle();
-alert('test');
 
 
 		

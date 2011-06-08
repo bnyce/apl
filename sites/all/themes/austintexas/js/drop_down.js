@@ -106,3 +106,15 @@
 		}
 
 
+
+
+
+
+	//online services select lists
+	$('.select-arrow select').customStyle();
+
+		   
+        });
+		
+		})(jQuery);
+		

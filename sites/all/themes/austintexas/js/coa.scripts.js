@@ -32,6 +32,7 @@ $(document).ready(function() {
 
 
 $('select#edit-jump').customStyle();
+alert('test');
 
 
 		

@@ -496,7 +496,7 @@ function theme_rotating_banner($variables) {
       $first_slide = TRUE;
     }
 
-//    $file = file_load($slide->fid);
+    $file = file_load($slide->fid);
 //    if ($file) {
 //      $size = getimagesize($file->uri);
 //      if ($size[0] < $smallest || $smallest == NULL) {

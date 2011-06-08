@@ -211,48 +211,48 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 /* #BIO VIEW - GOVERNMENT BIO PAGE
 ================================================== */
-.views-field-field-last-name, .views-field-field-first-name {    
+.bio .views-field-field-last-name, .views-field-field-first-name {    
     display: inline-block;
     font-size: 14px;
 	font-weight: bold;
 	margin-top: 18px;
 }
 
-.views-field-field-last-name a, .views-field-field-first-name a {    
+.bio .views-field-field-last-name a, .views-field-field-first-name a {    
     text-decoration: none;
 	color: #A85708;
 }
 
-.views-field-field-image {
+.bio .views-field-field-image {
     float: left;
     margin-right: 15px;
 }
 
-.views-field-field-council-place {
+.bio .views-field-field-council-place {
     display: inline-block;
 	float: left;
 	font-size: 11px;
 }
 
-.views-label-field-council-place{
+.bio .views-label-field-council-place{
 	display: inline-block;
 	padding-right: 2px;
 	font-size: 11px;
 }
 
-.views-label-field-council-place .field-content {
+.bio .views-label-field-council-place .field-content {
 	font-size: 11px;
 }
 
-.views-field-field-council-place .field-content, .views-label-field-council-place {
+.bio .views-field-field-council-place .field-content, .views-label-field-council-place {
 	float: left;
 }
 
-.views-label-field-council-place {
+.bio .views-label-field-council-place {
     display: inline-block;
 }
 
-.views-field-title-1 a{
+.bio .views-field-title-1 a{
 	color: none;
 }
 
@@ -267,29 +267,29 @@ p#tweet {font-weight: normal; font-size: 12px;}
     margin-left: 221px;
 }
 
-.mayor {
+.bio .mayor {
 	background: url("images/mayor_bio_bkg.jpg") no-repeat scroll 0 0 transparent;
     height: 109px;
     padding-left: 10px;
     width: 430px;
 }
 
-#gov_bio_title {
+.bio #gov_bio_title {
 	position: absolute;
     text-align: center;
     width: 200px;
 }
 
-#gov_bio_title h2{
+.bio #gov_bio_title h2{
 	font-size: 18px !important;
 	margin-top: 30px;
 }
 
-.view-display-id-block_1 tbody {
+.bio .view-display-id-block_1 tbody {
 	height: 225px;
 }
 
-.views-field-field-image img {
+.bio .views-field-field-image img {
 	border: 1px solid #A85708;
 	padding: 0;
 }

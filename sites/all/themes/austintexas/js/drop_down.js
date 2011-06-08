@@ -109,7 +109,7 @@
 
 
 
-	//online services select lists
+	//online services select lists with parent class of .select-arrow
 	$('.select-arrow select').customStyle();
 
 		   

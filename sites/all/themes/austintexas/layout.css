@@ -95,10 +95,10 @@ ul.star-list {list-style-image: url(images/star.jpg);padding:  0 0 0 15px;}
 ul.star-list li {margin-bottom: 1em;}
 ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
-/* would like to figure out a way to add different classes to the different more-links 
-.more-link {background: url(images/star.jpg) left center no-repeat; font-size: 12px; text-align: left; text-indent: 15px;}
-.more-link a
-*/
+
+/* would like to figure out a way to add different classes to the different more-links */
+view-res-home-news .more-link {background: url(images/star.jpg) left center no-repeat; font-size: 12px; text-align: left; text-indent: 15px;}
+view-res-home-news .more-link a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 
 /* #VIEWS-FIELD & VIEWS-FIELD-TITLE

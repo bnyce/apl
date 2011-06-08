@@ -111,7 +111,7 @@
 
 
 	//online services select lists
-	$('select.form-select').customStyle();
+	$('.select-arrow select').customStyle();
 
 		   
         });

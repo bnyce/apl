@@ -264,11 +264,14 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .views-field-field-bio-quote {
-	height: auto;
-    margin-left: 210px;
-    padding: 5px;
+	color: #7D4E3D;
+    font-size: 17px;
+    height: auto;
+    margin-left: 200px;
+    padding-top: 0;
     position: absolute;
-    width: 200px;
+    text-align: center;
+    width: 218px;
 }	
 
 #mayor_bio {

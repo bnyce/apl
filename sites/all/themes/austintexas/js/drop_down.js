@@ -112,7 +112,6 @@
 
 	//online services select lists
 	$('.select-arrow select').customStyle();
-	alert('test');
 
 		   
         });

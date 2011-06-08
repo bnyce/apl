@@ -211,48 +211,48 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 /* #BIO VIEW - GOVERNMENT BIO PAGE
 ================================================== */
-.bio .views-field-field-last-name, .views-field-field-first-name {    
+.views-field-field-last-name, .views-field-field-first-name {    
     display: inline-block;
     font-size: 14px;
 	font-weight: bold;
 	margin-top: 18px;
 }
 
-.bio .views-field-field-last-name a, .views-field-field-first-name a {    
+.views-field-field-last-name a, .views-field-field-first-name a {    
     text-decoration: none;
 	color: #A85708;
 }
 
-.bio .views-field-field-image {
+.views-field-field-image {
     float: left;
     margin-right: 15px;
 }
 
-.bio .views-field-field-council-place {
+.views-field-field-council-place {
     display: inline-block;
 	float: left;
 	font-size: 11px;
 }
 
-.bio .views-label-field-council-place{
+.views-label-field-council-place{
 	display: inline-block;
 	padding-right: 2px;
 	font-size: 11px;
 }
 
-.bio .views-label-field-council-place .field-content {
+.views-label-field-council-place .field-content {
 	font-size: 11px;
 }
 
-.bio .views-field-field-council-place .field-content, .views-label-field-council-place {
+.views-field-field-council-place .field-content, .views-label-field-council-place {
 	float: left;
 }
 
-.bio .views-label-field-council-place {
+.views-label-field-council-place {
     display: inline-block;
 }
 
-.bio .views-field-title-1 a{
+.views-field-title-1 a{
 	color: none;
 }
 
@@ -267,25 +267,25 @@ p#tweet {font-weight: normal; font-size: 12px;}
     margin-left: 221px;
 }
 
-.bio .mayor {
+.mayor {
 	background: url("images/mayor_bio_bkg.jpg") no-repeat scroll 0 0 transparent;
     height: 109px;
     padding-left: 10px;
     width: 430px;
 }
 
-.bio #gov_bio_title {
+#gov_bio_title {
 	position: absolute;
     text-align: center;
     width: 200px;
 }
 
-.bio #gov_bio_title h2{
+#gov_bio_title h2{
 	font-size: 18px !important;
 	margin-top: 30px;
 }
 
-.bio .view-display-id-block_1 tbody {
+.view-display-id-block_1 tbody {
 	height: 225px;
 }
 

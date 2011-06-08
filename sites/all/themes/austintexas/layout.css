@@ -6,6 +6,7 @@
 	#BREADCRUMBS
 	#ICON-LISTS
 	#VIEWS-FIELD & VIEWS-FIELD-TITLE
+	##ONLINE SERVICES SELECT LIST
 	#Video page
 	#left col navigation for template node-17
 	#FOOTER COLUMNS - ROUNDED CORNERS
@@ -86,19 +87,18 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 .breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;}
 
 
-.customStyleSelectBox {background: url("images/icons/drop_arrow.jpg") no-repeat scroll right center transparent;}
-span.customStyleSelectBox { font-size:11px; background-color: #f5f0de; color:#7c7c7c; padding:5px 7px; border:1px solid #e7dab0; -moz-border-radius: 5px; -webkit-border-radius: 5px;border-radius: 5px 5px; }
-span.customStyleSelectBox.changed { background-color: #f0dea4; }
-.customStyleSelectBoxInner { background:url(canvas-list-nav-item-arrow-.gif) no-repeat center right; }
+
+
 /* #ICON-LISTS
 ================================================== */
 ul.star-list {list-style-image: url(images/star.jpg);padding:  0 0 0 15px;}
 ul.star-list li {margin-bottom: 1em;}
 ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
-.more-link {background: url(images/star.jpg) left center no-repeat;}
-
-
+/* would like to figure out a way to add different classes to the different more-links 
+.more-link {background: url(images/star.jpg) left center no-repeat; font-size: 12px; text-align: left; text-indent: 15px;}
+.more-link a
+*/
 
 
 /* #VIEWS-FIELD & VIEWS-FIELD-TITLE
@@ -109,6 +109,20 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 	/* width:360px; */
 	font-size: 13px;
 }
+
+
+/* #ONLINE SERVICES SELECT LIST
+================================================== */
+span.customStyleSelectBox {
+	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
+	color: #816C5B;
+    font-size: 12px;
+    height: 15px;
+    padding: 3px;
+}
+.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 3px; }
+option {background:#EBE8DA; border:1px solid #DCD6B3; color:#816C5B;}
+
 
 
 /* #Video page

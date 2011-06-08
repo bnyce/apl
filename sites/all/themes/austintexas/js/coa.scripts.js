@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 
 
-$('#edit-jump').customStyle();
+$('form select').customStyle();
 
 
 		

@@ -87,8 +87,9 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 
 
 .customStyleSelectBox {background: url("images/icons/drop_arrow.jpg") no-repeat scroll right center transparent;}
-
-
+span.customStyleSelectBox { font-size:11px; background-color: #f5f0de; color:#7c7c7c; padding:5px 7px; border:1px solid #e7dab0; -moz-border-radius: 5px; -webkit-border-radius: 5px;border-radius: 5px 5px; }
+span.customStyleSelectBox.changed { background-color: #f0dea4; }
+.customStyleSelectBoxInner { background:url(canvas-list-nav-item-arrow-.gif) no-repeat center right; }
 /* #ICON-LISTS
 ================================================== */
 ul.star-list {list-style-image: url(images/star.jpg);padding:  0 0 0 15px;}

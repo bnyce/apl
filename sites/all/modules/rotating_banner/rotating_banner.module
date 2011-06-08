@@ -504,10 +504,10 @@ function theme_rotating_banner($variables) {
       }
 
       // Determine if the slide has the smallest w/h ratio
-      if (($size[0]/$size[1]) < $ratio || $ratio == NULL) {
-        $ratio = $size[0]/$size[1];
-        $ratioPointer = $k;
-      }
+ //     if (($size[0]/$size[1]) < $ratio || $ratio == NULL) {
+ //       $ratio = $size[0]/$size[1];
+ //       $ratioPointer = $k;
+ //     }
     }
     
     $link = $slide->link;

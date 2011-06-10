@@ -352,3 +352,12 @@ p#tweet {font-weight: normal; font-size: 12px;}
     font-size: 20px;
     text-transform: uppercase;
 }
+
+.dev-list ul {
+	padding: 0px;
+}
+
+.dev-list ul li {
+	padding: 0px;
+	margin-left: 15px;
+}

@@ -180,7 +180,7 @@ h1#branding { margin: 0; }
 
 /* #PROMO TILES
 ================================================== */
-.promo-tile {margin-bottom: 20px;}
+.promo-tile {margin: 10px 15px 20px;}
 	/* top */
 	.promo-tile .views-field-field-text {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
 		.promo-tile .views-field-field-text a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}

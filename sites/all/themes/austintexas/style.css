@@ -98,6 +98,7 @@ body {
 
 .pane-events {
 	background: url("images/tan_bottom_bkg.jpg") no-repeat scroll 0 bottom #EDEADB;
+	width: 209px;
 }
 
 .pane-events h2 {

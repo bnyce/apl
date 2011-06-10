@@ -342,10 +342,13 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .dev-list {
 	float: left;
 	width: 150px;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 .dev-list h3 a{
 	text-decoration: none;
 	color:#A85708;
+	font-family: "Univers Light";
+    font-size: 20px;
+    text-transform: uppercase;
 }

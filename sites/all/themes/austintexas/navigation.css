@@ -79,6 +79,27 @@ margin: 0;
 	float:left;
 }
 
+
+ul.nice-menu-1 li:hover {
+	background: #494747;
+}
+
+ul.nice-menu-2 li:hover {
+	background: #c8792c;
+}
+
+ul.nice-menu-10 li:hover {
+	background: #876743;
+}
+
+ul.nice-menu-11 li:hover {
+	background: #8f5550;
+}
+
+ul.nice-menu-12 li:hover {
+	background: #7c7f2d;
+}
+
 /* Menu li styles */
 #block-system-main-menu li{
 	border-radius: 10px;

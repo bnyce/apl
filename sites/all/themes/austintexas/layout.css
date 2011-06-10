@@ -337,6 +337,10 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 }
 
+.views-field-field-bio-quote:before {content: "\""; font-family: Georgia, serif !important; font-size: 3em; display: block; float: left;margin-top: -10px;color: #ccc;}
+.views-field-field-bio-quote:after {content: "\""; font-family: Georgia, serif !important; font-size: 3em; display: block; float: right;margin-top: -10px;color: #ccc;}
+
+
 /*DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
 ================================================== */
 

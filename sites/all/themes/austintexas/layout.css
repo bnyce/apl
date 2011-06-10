@@ -175,6 +175,16 @@ h1#branding { margin: 0; }
 
 
 
+
+
+/* #PROMO TILES
+================================================== */
+.promo-tile .views-field-field-text {background: url(images/promo_tile_top.gif) 0 0 no-repeat;}
+
+.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat;}
+
+
+
 /* #FOOTER COLUMNS - ROUNDED CORNERS
 ================================================== */
 div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}

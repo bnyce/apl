@@ -12,7 +12,8 @@
 	#FOOTER COLUMNS - ROUNDED CORNERS
 	#FOOTER COLUMNS - LISTS
 	#FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS
-	#BIO VIEW - GOVERNMENT BIO PAGE */
+	#BIO VIEW - GOVERNMENT BIO PAGE 
+	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST */
 
 
 
@@ -333,4 +334,11 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .list ul {
 	list-style: disc;
 
+}
+
+/*DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
+================================================== */
+
+.dev-list {
+	float: left;
 }

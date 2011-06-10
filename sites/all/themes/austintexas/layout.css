@@ -370,3 +370,8 @@ p#tweet {font-weight: normal; font-size: 12px;}
     padding-left: 12px;
     text-decoration: none;
 }
+
+.video_link {
+    margin-right: 20px;
+	float:left;
+}

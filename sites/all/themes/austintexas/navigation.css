@@ -80,23 +80,23 @@ margin: 0;
 }
 
 
-ul.nice-menu-1 li:hover {
-	background: #494747;
+#nice-menu-1 li:hover {
+	background: #494747 !important;
 }
 
-ul.nice-menu-2 li:hover {
+#nice-menu-2 li:hover {
 	background: #c8792c;
 }
 
-ul.nice-menu-10 li:hover {
-	background: #876743;
+#nice-menu-10 li:hover {
+	background: #876743 !important;
 }
 
-ul.nice-menu-11 li:hover {
+#nice-menu-11 li:hover {
 	background: #8f5550;
 }
 
-ul.nice-menu-12 li:hover {
+#nice-menu-12 li:hover {
 	background: #7c7f2d;
 }
 

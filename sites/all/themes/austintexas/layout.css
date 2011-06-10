@@ -361,3 +361,12 @@ p#tweet {font-weight: normal; font-size: 12px;}
 	padding: 0px;
 	margin-left: 15px;
 }
+
+.video_link a {
+    background: url("images/icons/flip_page.jpg") no-repeat scroll left 0 transparent;
+    color: #A85708;
+    font-family: Univers Bold;
+    font-size: 13px;
+    padding-left: 12px;
+    text-decoration: none;
+}

@@ -81,7 +81,11 @@ margin: 0;
 
 
 #nice-menu-1 li:hover {
-	background: #494747 !important;
+	background: #494747;
+}
+
+#nice-menu-2 ul{
+	background: #A85708;
 }
 
 #nice-menu-2 li:hover {
@@ -89,7 +93,7 @@ margin: 0;
 }
 
 #nice-menu-10 li:hover {
-	background: #876743 !important;
+	background: #876743;
 }
 
 #nice-menu-11 li:hover {

@@ -343,7 +343,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 	float: left;
 }
 
-.dev-list h3 {
+.dev-list h3 a{
 	text-decoration: none;
 	color:#A85708;
 }

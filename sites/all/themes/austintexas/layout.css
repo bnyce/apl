@@ -98,7 +98,7 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 
 /* more-links */
-.news-list .more-link {background: url(images/star.jpg) left center no-repeat; font-size: 12px; text-align: left; text-indent: 15px;}
+.news-list .more-link {font-size: 12px; text-align: left; text-indent: 15px;}
 .news-list .more-link a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 

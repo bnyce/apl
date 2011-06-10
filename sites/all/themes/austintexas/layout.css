@@ -181,7 +181,7 @@ h1#branding { margin: 0; }
 ================================================== */
 .promo-tile .views-field-field-text {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center;}
 
-.promo-tile .views-field-title-1 span.field-content {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat;}
+.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; height: 32px; line-height: 32px; text-align: right;}
 
 
 

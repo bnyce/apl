@@ -126,7 +126,7 @@
 		  		
 		  		
 		  		
-		  		
+		  		<?php print render($page['content_right_sidebar']); ?>
 		  		
 		  		
 		  		<div class="port-main-content"> 

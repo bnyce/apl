@@ -126,7 +126,7 @@
 		  		
 		  		
 		  		
-		  		<?php print render($page['content_right_sidebar']); ?>
+		  	
 		  		
 		  		
 		  		<div class="port-main-content"> 
@@ -141,12 +141,13 @@
 		  		
 		  		
 		  		
-		  		
+		  			
 		  		
 		  		
 		  		
 		  		<hr class="clear" />
 		  		
+				<?php print render($page['content_right_sidebar']); ?>
 		  	
 			</div><!-- /right -->
 		  	

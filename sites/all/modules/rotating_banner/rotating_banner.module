@@ -497,18 +497,18 @@ function theme_rotating_banner($variables) {
     }
 
     $file = file_load($slide->fid);
-//    if ($file) {
-//      $size = getimagesize($file->uri);
-//      if ($size[0] < $smallest || $smallest == NULL) {
-//        $smallest = $size[0];
-//      }
+    if ($file) {
+      $size = getimagesize($file->uri);
+      if ($size[0] < $smallest || $smallest == NULL) {
+        $smallest = $size[0];
+      }
 
       // Determine if the slide has the smallest w/h ratio
- //     if (($size[0]/$size[1]) < $ratio || $ratio == NULL) {
- //       $ratio = $size[0]/$size[1];
- //       $ratioPointer = $k;
- //     }
- //   }
+      if (($size[0]/$size[1]) < $ratio || $ratio == NULL) {
+        $ratio = $size[0]/$size[1];
+        $ratioPointer = $k;
+      }
+    }
     
     $link = $slide->link;
 

@@ -1,5 +1,6 @@
 /* Table of Content
 ==================================================
+	#TYPOGRAPHY
 	#TOP-SEARCH
 	#ROUNDED CORNERS - TWO- and THREE-COLUMN LAYOUT
 	#ROUNDED CORNERS - MEDIA CENTER LAYOUT
@@ -16,6 +17,12 @@
 	#BIO VIEW - GOVERNMENT BIO PAGE 
 	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST */
 
+
+
+
+/* #TYPOGRAPHY 
+================================================== */
+p, ul {font-size: 13px; line-height: 24px;}
 
 
 
@@ -341,7 +348,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .views-field-field-bio-quote:after {content: "\""; font-family: Georgia, serif !important; font-size: 3em; display: block; float: right;margin-top: -10px;color: #ccc;}
 
 
-/*DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
+/* #DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
 ================================================== */
 
 .dev-list {

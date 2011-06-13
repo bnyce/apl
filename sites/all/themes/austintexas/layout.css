@@ -23,6 +23,7 @@
 /* #TYPOGRAPHY 
 ================================================== */
 p, ul {font-size: 13px; line-height: 24px;}
+p a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 
 

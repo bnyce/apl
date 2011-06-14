@@ -24,3 +24,8 @@
 	}
  });
 })(jQuery);
+
+$('.calendar').fullCalendar({
+    disableDragging = true;
+})
+

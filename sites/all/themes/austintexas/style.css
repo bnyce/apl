@@ -1,0 +1,405 @@
+@font-face {
+    font-family: 'Univers Light';
+    src: url('/sites/default/files/fonts/universltstd-lightcn-webfont.eot');
+    src: url('/sites/default/files/fonts/universltstd-lightcn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/sites/default/files/fonts/universltstd-lightcn-webfont.woff') format('woff'),
+         url('/sites/default/files/fonts/universltstd-lightcn-webfont.ttf') format('truetype'),
+         url('/sites/default/files/fonts/universltstd-lightcn-webfont.svg#UniversLTStd47LightCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Univers Bold';
+    src: url('/sites/default/files/fonts/universltstd-boldcn-webfont.eot');
+    src: url('/sites/default/files/fonts/universltstd-boldcn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/sites/default/files/fonts/universltstd-boldcn-webfont.woff') format('woff'),
+         url('/sites/default/files/fonts/universltstd-boldcn-webfont.ttf') format('truetype'),
+         url('/sites/default/files/fonts/universltstd-boldcn-webfont.svg#UniversLTStd67BoldCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.region-content-left-sidebar {
+	padding: 10px;
+}
+
+.port-col-left .dropdown dt a, .port-col-left .dropdown2 dt a, .port-col-left .dropdown3 dt a  {
+	width: 180px !important;
+}
+
+body {
+	background: url(images/bkg.jpg);
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.clearfix {
+	background-color: transparent;
+}
+.br {
+	margin-top: 15px;
+}
+
+#squeeze p {
+    font-family: "arial";
+    font-size: 12px;
+}
+
+#squeeze h2 {
+    font-family: "Univers Light";
+    font-size: 20px;
+    text-transform: uppercase;
+	color: #636463;
+}
+.pane-views-feed-view-block-1 .views-field {
+	width:360px;
+	line-height: 8px;
+}
+
+.pane-views-feed-view-block-1 .views-field-title a {
+	color: #a85708;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: Univers Bold;
+	padding-left: 12px;
+	background: url(images/star.jpg) no-repeat left;
+}
+
+.pane-views-feed-view-block-1 .views-field-title a:hover {
+	text-decoration: underline;
+}
+
+.pane-6 a {
+	color: #a85708;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: Univers Bold;
+	padding-left: 12px;
+	background: url("images/icons/flip_page.jpg") no-repeat scroll left 0 transparent;
+}
+
+.pane-7 a {
+	color: #a85708;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: Univers Bold;
+	padding-left: 12px;
+	background: url("images/icons/arrow.jpg") no-repeat scroll left center transparent;
+}
+
+.panels-flexible-region-3-promo_1-inside p {
+    padding:0px;
+    margin:0px;
+}
+
+.pane-events {
+	background: url("images/tan_bottom_bkg.jpg") no-repeat scroll 0 bottom #EDEADB;
+	width: 209px;
+}
+
+.pane-events h2 {
+	color:#dadbdd !important;
+	background: url("images/title_blue_bkg.jpg") no-repeat scroll left 0;
+	font-weight: normal;
+    padding-left: 15px;
+	line-height: 32px;
+}
+
+.pane-events ul {
+	margin-left: -20px;
+    margin-top: -10px;
+}
+
+.pane-events ul li {
+	margin: 0 0 0.65em 1.7em !important;
+}
+
+.pane-events li {
+	font-family: Arial;
+	font-size: 12px;
+	list-style: none;
+	background: url("images/icons/line_spacer.jpg") no-repeat scroll -25px 18px transparent;
+	height: 20px;
+}
+
+.pane-events li a {
+	text-decoration: none;
+	color:#737b82;
+	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
+	padding-left: 16px;
+	font-family: Univers Bold;
+}
+.pane-events .more-link {
+    margin: -10px 0 0;
+	text-align: left !important;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+	
+.pane-events .more-link a {
+ 	background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
+    color: #A85708;
+    font-family: Univers Bold;
+    font-size: 13px;
+    padding-left: 12px;
+    text-decoration: none;
+	padding-left: 16px;
+
+}
+
+.pane-events li a:hover{
+	text-decoration: underline;
+}
+
+
+.events .view-display-id-block {
+	padding-left: 15px;
+}
+
+.panels-flexible-region-1-center {
+	width: 209px;
+}
+
+.view-header p { 
+	color:#a85708;
+	font-weight: bold;
+	font-size: 16px !important;
+}
+
+.field-content p {
+	padding-left: 12px;
+}
+
+#mini-panel-front_page_top_panels {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+form select {
+	width: 220px;
+	height: 25px;
+    margin-bottom: 4px;
+	border: none;
+	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
+	text-transform: capitalize;
+	color:#595959;
+	padding-left: 5px;
+    padding-top: 5px;
+	font-size: 10px;
+}
+
+
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+#topmenu ul {
+	height: 30px;
+	width: 960px;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin: 0 auto;
+	padding-left: 0px;
+}
+#topmenu li {
+	float:left;
+}
+
+
+#toplinks {
+	float: right;
+	margin-top: 15px;
+}
+
+#toplinks ul {
+	float: left;
+	margin: 0px;
+}
+
+#toplinks li {
+	float: left;
+}
+
+#toplinks a {
+ color: #636463;
+}
+
+#block-menu-menu-action-navigation a {
+	text-decoration: none;
+
+}
+#header-banner img {
+	border-radius: 8px;
+}
+
+#center {
+	width: 960px;
+}
+
+#footer {
+	background: url(images/footer_bg.jpg) repeat-x #5b5b5b;
+	height: 275px;
+    margin: 0;
+    padding: 20px 10px;
+}
+#footer-menu {
+	width: 960px;
+	margin: auto;
+	background: url(images/footer_menu_left.jpg) no-repeat left #5F5F5F;
+}
+#footer-menu ul {
+	background: url(images/footer_menu_right.jpg) no-repeat right;
+	height: 21px;
+	padding: 7px 0 0 40px;
+	margin: 0;
+}
+#footer-menu ul li {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0px 10px;
+	border-left: 1px solid #ccc;
+	line-height: 14px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+#footer-menu ul li:first-child {
+	border: none;
+}
+#footer-menu ul li a {
+	color: #ccc;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#footer-menu ul li a:hover {
+	text-decoration: underline;
+}
+
+div.round-corners {
+	background: #fff;
+}
+div.round-corners .content-container {
+	padding: 10px;
+}
+div.round-corners .tl {
+	background: url(images/tl.jpg) no-repeat top left;
+}
+div.round-corners .tr {
+	background: url(images/tr.jpg) no-repeat top right;
+}
+div.round-corners .bl {
+	background: url(images/bl.jpg) no-repeat bottom left;
+}
+div.round-corners .br {
+	background: url(images/br.jpg) no-repeat bottom right;
+}
+
+#content_box_top, #content_box_middle, #content_box_bottom {
+	margin-top: 15px;
+}
+#search-block-form {
+	background: #fff;
+}
+
+#block-search-form {
+	width: 658px;
+	margin: 0 auto;
+	border: solid #fff;
+	border-width: 6px;
+	border-radius: 8px;
+}
+#block-search-form input.form-text {
+	width: 520px;
+	height: 25px;
+	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
+	padding: 3px;
+	padding-left: 25px;
+	margin: 0;
+}
+
+#block-search-form input.form-submit {
+	background: url(images/btn_search.jpg) no-repeat;
+	width: 105px;
+	height: 35px;
+	line-height: 0;
+	margin-left: -4px;
+	color: transparent;
+	border: none;
+	text-indent: -9999px;
+}
+
+#footer-blocks {
+	width: 960px;
+	margin: 0 auto;
+	padding-top: 40px;
+}
+
+#footer-blocks .panel-pane {
+	float: left;
+	margin-left: 10px;
+}
+#footer-blocks #block-panels-mini-footer-panels, #footer-blocks #block-block-2 {
+	float: left;
+}
+#footer-blocks #block-panels-mini-footer-panels {
+	width: 780px;
+}
+
+/* Dropdown Services Form */
+
+.dropdown, .dropdown2, .dropdown3 { font-family:Arial, Helvetica, Sans-Serif; font-size:0.75em; color:#000;}
+        .desc { color:#6b6b6b;}
+        .desc a {color:#0092dd;}
+        
+		<!-- Dropdown 1 -->
+        .dropdown dd, .dropdown dt, .dropdown ul { margin:0px; padding:0px;}
+        .dropdown dd { position:relative; margin:auto; }
+        .dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
+        .dropdown a:hover { color:#5d4617;}
+		.dropdown dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+        .dropdown dt a:hover, .dropdown dt a:focus { color:#5d4617; text-decoration: none;}
+        .dropdown dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown dt a span {cursor:pointer; display:block; padding:5px;}
+        .dropdown dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
+                          left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
+        .dropdown span.value { display:none;}
+        .dropdown dd ul li a { padding:5px; display:block;}
+        .dropdown dd ul li a:hover { background-color:#d0c9af;}
+		
+		<!-- Dropdown 2 -->
+        .dropdown2 dd, .dropdown2 dt, .dropdown2 ul { margin:0px; padding:0px; }
+        .dropdown2 dd { position:relative; margin: auto; }
+        .dropdown2 a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
+        .dropdown2 a:hover { color:#5d4617;}
+		.dropdown2 dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+        .dropdown2 dt a:hover, .dropdown2 dt a:focus { color:#5d4617; }
+        .dropdown2 dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown2 dt a span {cursor:pointer; display:block; padding:5px;}
+        .dropdown2 dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
+                          left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
+        .dropdown2 span.value { display:none;}
+        .dropdown2 dd ul li a { padding:5px; display:block;}
+        .dropdown2 dd ul li a:hover { background-color:#d0c9af;}
+        
+        <!-- Dropdown 3 -->
+        .dropdown3 dd, .dropdown3 dt, .dropdown3 ul { margin:0px; padding:0px; }
+        .dropdown3 dd { position:relative; margin:auto; }
+        .dropdown3 a, .dropdown3 a:visited { color:#816c5b; text-decoration:none; outline:none;}
+        .dropdown3 a:hover { color:#5d4617;}
+		.dropdown3 dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+        .dropdown3 dt a:hover, .dropdown3 dt a:focus { color:#5d4617; }
+        .dropdown3 dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown3 dt a span {cursor:pointer; display:block; padding:5px;}
+        .dropdown3 dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
+                          left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
+        .dropdown3 span.value { display:none;}
+        .dropdown3 dd ul li a { padding:5px; display:block;}
+        .dropdown3 dd ul li a:hover { background-color:#d0c9af;}
+		
+/* End Drop Down Forms CSS */

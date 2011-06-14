@@ -41,7 +41,7 @@
 	border: none;
 }
 
-#top-search #search-block-form input.form-text {
+#top-search #search-block-form input[search_block_form] {
 	width: 420px
 	height: 15px;
 	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;

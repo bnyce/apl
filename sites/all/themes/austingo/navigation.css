@@ -79,6 +79,27 @@ margin: 0;
 	float:left;
 }
 
+
+#nice-menu-1 li:hover {
+	background: #494747;
+}
+
+#nice-menu-2 li:hover {
+	background: #c8792c;
+}
+
+#nice-menu-10 li:hover {
+	background: #876743;
+}
+
+#nice-menu-11 li:hover {
+	background: #8f5550;
+}
+
+#nice-menu-12 li:hover {
+	background: #7c7f2d;
+}
+
 /* Menu li styles */
 #block-system-main-menu li{
 	border-radius: 10px;
@@ -328,7 +349,6 @@ Contact Us - menu-536
 
 .menu li.collapsed {}
 .menu li.expanded  {}
-.menu li.leaf      {}
 
 .menu li a:link,
 .menu li a:visited {}
@@ -345,7 +365,7 @@ Contact Us - menu-536
   padding: 0; /* extra class can equal a standard class */
 }
 
-li.expanded, li.collapsed, li.leaf {
+li.expanded, li.collapsed {
 	padding: 0px;
 }
 

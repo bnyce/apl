@@ -40,13 +40,13 @@
 	border: none;
 }
 
-#top-search #search-block-form #edit-search-block-form--2 {
+#top-search #search-block-form #edit-search-block-form--2, #block-search-form input.form-text {
 	width: 420px
 	height: 15px;
 	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
 	padding: 3px;
 	padding-left: 25px;
-	margin: 0;
+	margin: 0 0 -5px;
 }
 
 #top-search #block-search-form input.form-submit {

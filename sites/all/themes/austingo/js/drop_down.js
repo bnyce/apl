@@ -70,8 +70,9 @@
             });
 		
 		
-		
-		
+
+
+
 		
 		//set active class for main menu items
 		
@@ -103,12 +104,16 @@
 			break;
 		
 		}
-		
-		
 
 
-		
+
+
+
+	//online services select lists with parent class of .select-arrow
+	$('.select-arrow select').customStyle();
+
 		   
         });
 		
 		})(jQuery);
+		

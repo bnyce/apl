@@ -40,7 +40,7 @@
 	border: none;
 }
 
-#top-search #search-block-form input#edit-search-block-form--2 {
+#top-search #search-block-form #edit-search-block-form--2 {
 	width: 420px
 	height: 15px;
 	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;

@@ -3,7 +3,7 @@
 	#TYPOGRAPHY
 	#TOP-SEARCH
 	#ROUNDED CORNERS - TWO- and THREE-COLUMN LAYOUT
-	#ROUNDED CORNERS - MEDIA CENTER LAYOUT
+	#ROUNDED CORNERS - LAYOUT
 	#BREADCRUMBS
 	#ICON-LISTS
 	#VIEWS-FIELD & VIEWS-FIELD-TITLE
@@ -82,7 +82,7 @@ div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bott
 
 	hr.clear {clear: both; visibility: hidden;}
 
-/* #ROUNDED CORNERS -- MEDIA CENTER LAYOUT
+/* #ROUNDED CORNERS -- LAYOUT
 ================================================== */
 
 div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left bottom;}

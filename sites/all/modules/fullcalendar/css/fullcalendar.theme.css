@@ -70,3 +70,7 @@ table.fc-header {
 html.js .fullcalendar-content {
   display: none;
 }
+
+div.region-content-right-sidebar > div.content {
+  width:100%;
+}

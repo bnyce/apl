@@ -15,7 +15,9 @@
 	#FOOTER COLUMNS - LISTS
 	#FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS
 	#BIO VIEW - GOVERNMENT BIO PAGE 
-	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST */
+	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
+	#FULL CALENDAR
+	*/
 
 
 
@@ -391,3 +393,11 @@ p#tweet {font-weight: normal; font-size: 12px;}
     margin-right: 20px;
 	float:left;
 }
+
+
+
+
+
+/* #FULL CALENDAR 
+================================================== */
+.fc-content {clear: none;}

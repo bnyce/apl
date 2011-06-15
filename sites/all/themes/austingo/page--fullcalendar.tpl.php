@@ -68,10 +68,10 @@
         <div id="above-content"><?php print render($page['above_content']); ?></div>
         <div class="single-column">
           <div class="breadcrumb-left"><?php print $breadcrumb; ?></div>
+          <div class="small-col">
+            <?php print render($page['content_right_sidebar']);?>
+          </div><!-- / small-col -->
           <div class="large-col">
-            <div class="small-col">
-              <?php print render($page['content_right_sidebar']);?>
-            </div><!-- / small-col -->
             <?php print render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>
           </div><!-- / large-col -->

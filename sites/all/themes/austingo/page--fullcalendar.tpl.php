@@ -71,7 +71,7 @@
         
         
         <div class="single-column">
-          <div class="breadcrumb"><?php print $breadcrumb; ?></div>
+          <div class="breadcrumb-left"><?php print $breadcrumb; ?></div>
           <div class="large-col">
             <?php render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>

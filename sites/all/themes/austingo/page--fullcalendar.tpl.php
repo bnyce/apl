@@ -67,9 +67,9 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
         <div id="above-content"><?php print render($page['above_content']); ?></div>
-        
-        
-        
+
+
+
         <div class="single-column">
           <div class="breadcrumb-left"><?php print $breadcrumb; ?></div>
           <div class="large-col">
@@ -81,10 +81,10 @@
           </div>
           <hr class="clear" />
         </div><!-- /single-columns -->
-        
-        
-        
-        
+
+
+
+
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
     </div> <!-- /#container -->
   </div> <!-- /#wrapper -->
@@ -94,4 +94,5 @@
     <div id="footer-blocks"><?php print render($page['footer']); ?></div>
     <div style="clear: both;"></div>
     <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
+    <!-- fullcalendar template -->
   </div>

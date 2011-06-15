@@ -87,5 +87,5 @@
     <div id="footer-blocks"><?php print render($page['footer']); ?></div>
     <div style="clear: both;"></div>
     <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
-    <div id="fullcalendar_templ"></div>
+    <!--  fullcalendar template  -->
   </div>

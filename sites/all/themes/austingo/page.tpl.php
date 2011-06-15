@@ -4,9 +4,9 @@
   <div id="wrapper">
     <div id="container" class="clearfix">
       <div id="header">
-		<div id="toplinks">  
+		<div id="toplinks">
 		<?php print render($page['toplinks']); ?>
-		
+
 </div>
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
@@ -68,44 +68,44 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 		  <div id="above-content"><?php print render($page['above_content']); ?></div>
-		  
-		  
-		  
-		  <div class="single-column">
-		  
-		  		
 
-		  	
+
+
+		  <div class="single-column">
+
+
+
+
 
 					<div class="breadcrumb-left">
 		  				<?php print $breadcrumb; ?>
 		  			</div>
 
 		  		<!--	<h5><?php print $title; ?></h5> -->
-		  		
-		  		
-		  		
-		  		<div class="large-col"> 
-		  		
-			  		
-			  		<?php print render($page['content']); ?> 
-			  		
-			  		
+
+
+
+		  		<div class="large-col">
+
+
+			  		<?php print render($page['content']); ?>
+
+
 		  		</div>
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		
-		  	
-					  	
-		  
+
+
+
+
+
+
+
+
+
 		  </div><!-- /single-columns -->
-		  
-		  
-		  
-		  
+
+
+
+
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
     </div> <!-- /#container -->
@@ -116,4 +116,5 @@
   <div id="footer-blocks"><?php print render($page['footer']); ?></div>
   <div style="clear: both;"></div>
   <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
+  <!--  page.tpl template -->
   </div>

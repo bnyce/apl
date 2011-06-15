@@ -75,11 +75,16 @@
           <div class="large-col">
             <?php render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>
-          </div>
-          <div class="small-col">
-          <p>testing the right column.</p>
-            <?php render($page['content_right_sidebar']);?>
-          </div>
+            
+            
+            	          <div class="small-col">
+				          <p>testing the right column.</p>
+				            <?php render($page['content_right_sidebar']);?>
+				          </div><!-- / small-col -->
+
+            
+            
+          </div><!-- / large-col -->
          
         </div><!-- /single-columns -->
 

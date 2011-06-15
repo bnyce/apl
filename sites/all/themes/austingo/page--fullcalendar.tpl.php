@@ -77,9 +77,10 @@
             <?php print render($page['content']); ?>
           </div>
           <div class="small-col">
+          <p>testing the right column.</p>
             <?php render($page['content_right_sidebar']);?>
           </div>
-          <hr class="clear" />
+         
         </div><!-- /single-columns -->
 
 

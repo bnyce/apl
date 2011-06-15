@@ -51,7 +51,6 @@
     <div id="header-banner" class="br"><?php print render($page['header_banner']); ?></div>
         <div id="search" class="br"><?php print render($page['search']); ?></div>
       </div> <!-- /#header -->
-
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <a id="main-content"></a>
@@ -67,33 +66,17 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
         <div id="above-content"><?php print render($page['above_content']); ?></div>
-
-
-
         <div class="single-column">
           <div class="breadcrumb-left"><?php print $breadcrumb; ?></div>
           <div class="large-col">
-
-            	          <div class="small-col">
-				          <p>testing the right column.</p>
-				            <?php print render($page['content_right_sidebar']);?>
-				          </div><!-- / small-col -->
-
-
+            <div class="small-col">
+              <p>testing the right column.</p>
+              <?php print render($page['content_right_sidebar']);?>
+            </div><!-- / small-col -->
             <?php print render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>
-
-
-
-
-
           </div><!-- / large-col -->
-
         </div><!-- /single-columns -->
-
-
-
-
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
     </div> <!-- /#container -->
   </div> <!-- /#wrapper -->
@@ -103,5 +86,5 @@
     <div id="footer-blocks"><?php print render($page['footer']); ?></div>
     <div style="clear: both;"></div>
     <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
-    <!-- /fullcalendar template -->
+    <!-- /##fullcalendar template -->
   </div>

@@ -76,19 +76,19 @@
 
             	          <div class="small-col">
 				          <p>testing the right column.</p>
-				            <?php render($page['content_right_sidebar']);?>
+				            <?php print render($page['content_right_sidebar']);?>
 				          </div><!-- / small-col -->
 
 
-            <?php render($page['content_main_blocks']); ?>
+            <?php print render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>
-            
-            
 
-            
-            
+
+
+
+
           </div><!-- / large-col -->
-         
+
         </div><!-- /single-columns -->
 
 
@@ -103,5 +103,5 @@
     <div id="footer-blocks"><?php print render($page['footer']); ?></div>
     <div style="clear: both;"></div>
     <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
-    <!-- fullcalendar template -->
+    <!-- /fullcalendar template -->
   </div>

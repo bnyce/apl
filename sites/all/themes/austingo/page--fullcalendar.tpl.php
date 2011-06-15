@@ -70,7 +70,6 @@
           <div class="breadcrumb-left"><?php print $breadcrumb; ?></div>
           <div class="large-col">
             <div class="small-col">
-              <p>testing the right column.</p>
               <?php print render($page['content_right_sidebar']);?>
             </div><!-- / small-col -->
             <?php print render($page['content_main_blocks']); ?>

@@ -79,9 +79,9 @@
 		  <?php if ($page['above_content']): ?><div id="above-content"><?php print render($page['above_content']); ?></div><?php endif; ?>
 		  <?php if ($page['content_box_top']): ?><div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_box_top']); ?></div></div></div></div></div></div><?php endif; ?>
 		  <?php if ($page['content_box_middle']): ?><div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_box_middle']); ?></div></div></div></div></div></div><?php endif; ?>
-          
-            <?php print render($page['content']); ?> 
-          
+
+            <?php print render($page['content']); ?>
+
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
     </div> <!-- /#container -->
@@ -92,4 +92,5 @@
   <div id="footer-blocks"><?php print render($page['footer']); ?></div>
   <div style="clear: both;"></div>
   <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
+  <!-- page--front.tpl -->
   </div>

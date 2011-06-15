@@ -119,7 +119,7 @@
 		  		
 		  		
 		  		<div class="port-right-sidebar">
-			  		<?php render($page['content_right_sidebar']);?>
+			  		<?php print render($page['content_right_sidebar']);?>
 
 
 

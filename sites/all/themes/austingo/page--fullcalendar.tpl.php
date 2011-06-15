@@ -73,7 +73,7 @@
             <?php render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>
           </div>
-          <div class="small-col">
+          <div class="port-right-sidebar">
             <?php render($page['content_right_sidebar']);?>
           </div>
           <hr class="clear" />

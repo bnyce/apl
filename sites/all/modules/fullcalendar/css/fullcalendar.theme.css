@@ -71,6 +71,6 @@ html.js .fullcalendar-content {
   display: none;
 }
 
-div.region-content-right-sidebar div.content {
+div.region-content-right-sidebar .content {
   width:100%;
 }

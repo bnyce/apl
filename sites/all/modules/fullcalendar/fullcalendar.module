@@ -149,10 +149,9 @@ function fullcalendar_update($action, $eid) {
         // $entity->{$field}[$langcode][$index]['value2'] = date('Y-m-d H:i:s', strtotime($old_end . ' ' . $day_delta . ' days ' . $minute_delta . ' minutes'));
         $entity->{$field}[$langcode][$index]['value'] = date('Y-m-d\TH:i:s', strtotime($old_start . ' ' . $day_delta . ' days ' . $minute_delta . ' minutes'));
         $entity->{$field}[$langcode][$index]['value2'] = date('Y-m-d\TH:i:s', strtotime($old_end . ' ' . $day_delta . ' days ' . $minute_delta . ' minutes'));
-         break
         break;
       case 'resize':
-        // $entity->{$field}[$langcode][$index]['value2'] = date('Y-m-d H:i:s', strtotime($old_end . ' ' . $day_delta . ' days ' . $minute_delta . ' minutes'));
+        $entity->{$field}[$langcode][$index]['value2'] = date('Y-m-d H:i:s', strtotime($old_end . ' ' . $day_delta . ' days ' . $minute_delta . ' minutes'));
         $entity->{$field}[$langcode][$index]['value2'] = date('Y-m-d\TH:i:s', strtotime($old_end . ' ' . $day_delta . ' days ' . $minute_delta . ' minutes'));
         break;
     }

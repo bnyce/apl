@@ -1,38 +1,27 @@
-/**
- * @file
- * CSS targeted specifically for Internet Explorer 7 (and earlier) for Windows.
- *
- * Any CSS in this file will apply to all versions of IE before IE 8. You can
- * target specific versions of IE by using conditional comments. See your
- * sub-theme's .info file for an easy way to use them.
- */
+@charset "utf-8";
+/* IE 7 & Below CSS Document */
 
 
-/*
- * Tabs
- */
-
-ul.primary li a,
-ul.primary li a .tab,
-ul.secondary li a,
-ul.secondary li a .tab {
-  cursor: pointer;
+/* Add Space Header Banner */
+#header-banner {
+	margin-top: 15px;
+	margin-bottom: 20px;
 }
 
-/*
- * Drupal nodes
- */
-
-.node-unpublished>* {
-  position: relative; /* Otherwise these elements will appear below the "Unpublished" text. */
+/* Add Space Above Footer Blocks */
+#footer-blocks {
+	margin-top: 50px;
+	padding-top: 35px;
+	padding-bottom: 15px;
 }
 
-/*
- * Drupal admin tables
- */
-tr.even th,
-tr.even td,
-tr.odd th,
-tr.odd td {
-  border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
+/* Add Space Above Footer Menu */
+#footer-menu {
+	margin-top: 20px !important;
+	margin-bottom: 0px;
+}
+
+
+#footer-blocks {
+
 }

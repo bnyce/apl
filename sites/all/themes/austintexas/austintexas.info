@@ -1,6 +1,6 @@
 name        = Austin Texas
 description = Austin Texas sub-themes.
-screenshot  = austin-internals/screenshot.png
+screenshot  = austintexas-internals/screenshot.png
 
 core        = 7.x
 engine      = phptemplate

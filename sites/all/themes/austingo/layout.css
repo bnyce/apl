@@ -90,9 +90,10 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 	div.single-column .breadcrumb-left {background: #767f89 url("images/tl_blue.jpg") no-repeat scroll left top; line-height: 33px;}
 
 	div.single-column .breadcrumb {height: 33px;padding: 0 15px;background: #767f89 url("images/tr_blue.jpg") no-repeat scroll right top;margin-left: 15px; line-height: 33px;}
-
-	div.single-column .large-col {background: #fff url("images/br.jpg") no-repeat scroll right bottom;margin-left: 10px; padding: 10px 10px 10px 0;}
-		div.single-column .large-col .content {width: 75%;}
+	
+	div.single-column .br {background: #fff url("images/br.jpg") no-repeat scroll right bottom;margin-left: 10px; padding: 10px 10px 10px 0;}
+	div.single-column .large-col {width: 75%;}
+		div.single-column .large-col .content {}
 	div.single-column .small-col {width: 23%; float: right;}
 
 

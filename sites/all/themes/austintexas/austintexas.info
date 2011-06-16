@@ -10,6 +10,7 @@ stylesheets-conditional[lt IE 8][all][] = austintexas-internals/css/ie8.css
 stylesheets[all][] = austintexas-internals/css/style.css
 stylesheets[all][] = austintexas-internals/css/layout.css
 stylesheets[all][] = austintexas-internals/css/navigation.css
+stylesheets[all][] = austintexas-internals/css/slides.css
 
 scripts[] = austintexas-internals/js/drop_down.js
 scripts[] = austintexas-internals/js/jquery.cycle.js

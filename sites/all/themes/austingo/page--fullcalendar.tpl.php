@@ -66,8 +66,12 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
         <div id="above-content"><?php print render($page['above_content']); ?></div>
+        
+        
         <div class="single-column">
           <div class="breadcrumb-left"><?php print $breadcrumb; ?></div>
+			
+		  <div class="br">	
           <div class="small-col">
             <?php print render($page['content_right_sidebar']);?>
           </div><!-- / small-col -->
@@ -75,7 +79,11 @@
             <?php print render($page['content_main_blocks']); ?>
             <?php print render($page['content']); ?>
           </div><!-- / large-col -->
+          </div><!-- / br -->
         </div><!-- /single-columns -->
+      
+      
+      
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
     </div> <!-- /#container -->
   </div> <!-- /#wrapper -->

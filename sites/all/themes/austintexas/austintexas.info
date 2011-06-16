@@ -6,7 +6,6 @@ core        = 7.x
 engine      = phptemplate
 
 
-
 regions[topmenu]		= Top Menu
 regions[topsearch]		= Top Search
 regions[toplinks]		= Top Links

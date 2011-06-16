@@ -8,9 +8,9 @@ base theme  = zen
 ; Current Style Sheets.
 stylesheets-conditional[lt IE 7][all][] = css/ie7.css
 stylesheets-conditional[lt IE 8][all][] = css/ie8.css
-stylesheets[all][] = css/style.css
-stylesheets[all][] = css/layout.css
-stylesheets[all][] = css/navigation.css
+stylesheets[all][]			= css/style.css
+stylesheets[all][] 			= css/layout.css
+stylesheets[all][] 			= css/navigation.css
 
 ; New Style Sheets.
 stylesheets[all][]        = css/html-reset.css

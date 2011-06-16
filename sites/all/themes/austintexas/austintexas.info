@@ -1,11 +1,12 @@
-name = Austin Texas
-description = Custom Theme
-version = VERSION
-core = 7.x
-base theme = garland
+name        = Austin Texas
+description = Austin Texas sub-themes.
+screenshot  = austin-internals/screenshot.png
 
-stylesheets-conditional[lt IE 7][all][] = ie7.css
-stylesheets-conditional[lt IE 8][all][] = ie8.css
+core        = 7.x
+engine      = phptemplate
+
+stylesheets-conditional[lt IE 7][all][] = css/ie7.css
+stylesheets-conditional[lt IE 8][all][] = css/ie8.css
 stylesheets[all][] = style.css
 stylesheets[all][] = layout.css
 stylesheets[all][] = navigation.css
@@ -16,16 +17,14 @@ scripts[] = js/jquery.easing.js
 scripts[] = js/utility.js
 scripts[] = js/coa.scripts.js
 
-settings[garland_width] = fluid
-
-regions[topmenu]           = Top Menu
-regions[topsearch]          = Top Search
-regions[toplinks]          = Top Links
-regions[menubar]           = Menu Bar
-regions[submenubar]           = Sub Menu Bar
-regions[header_banner]     = Header Banner
-regions[search] 		    = Search
-regions[highlighted]       = Highlighted
+regions[topmenu]		= Top Menu
+regions[topsearch]		= Top Search
+regions[toplinks]		= Top Links
+regions[menubar]		= Menu Bar
+regions[submenubar]		= Sub Menu Bar
+regions[header_banner]	= Header Banner
+regions[search]			= Search
+regions[highlighted]	= Highlighted
 regions[above_content]     = Above Content
 regions[content_box_top]     = Content Box Top
 regions[content_box_middle]  = Content Box Middle
@@ -35,3 +34,20 @@ regions[content_right_sidebar]     = Right Sidebar
 regions[content]           = Main Content
 regions[footer]            = Footer
 regions[footer_menu]       = Footer Menu
+
+settings[austintexas_breadcrumb]           = yes
+settings[austintexas_breadcrumb_separator] = ' › '
+settings[austintexas_breadcrumb_home]      = 1
+settings[austintexas_breadcrumb_trailing]  = 1
+settings[austintexas_breadcrumb_title]     = 0
+settings[austintexas_layout]               = austintexas-columns-liquid
+settings[austintexas_jump_link_target]     = main-menu
+settings[austintexas_rebuild_registry]     = 0
+settings[austintexas_wireframes]           = 0
+
+; Information added by drupal.org packaging script on 2011-04-25
+version = "7.x-3.1"
+core = "7.x"
+project = "austintexas"
+datestamp = "1303759317"
+

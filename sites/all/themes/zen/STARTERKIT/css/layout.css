@@ -1,0 +1,402 @@
+/* Table of Content
+==================================================
+	#TYPOGRAPHY
+	#TOP-SEARCH
+	#ROUNDED CORNERS - TWO- and THREE-COLUMN LAYOUT
+	#ROUNDED CORNERS - MEDIA CENTER LAYOUT
+	#BREADCRUMBS
+	#ICON-LISTS
+	#VIEWS-FIELD & VIEWS-FIELD-TITLE
+	##ONLINE SERVICES SELECT LIST
+	#Video page
+	#left col navigation for template node-17
+	#PROMO TILES
+	#FOOTER COLUMNS - ROUNDED CORNERS
+	#FOOTER COLUMNS - LISTS
+	#FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS
+	#BIO VIEW - GOVERNMENT BIO PAGE 
+	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
+	#FULL CALENDAR
+	*/
+
+
+
+
+/* #TYPOGRAPHY 
+================================================== */
+#center p, #center ul, #center ol {font-size: 13px; line-height: 24px;}
+#center p a, #center li a {color: #a85708;text-decoration: none; font-weight: bold;}
+#center p a:hover, #center li a:hover {text-decoration: underline;}
+
+
+
+/* #TOP-SEARCH 
+================================================== */
+#top-search {padding: 0; float: right; margin: 5px -20px -30px 5px;}
+
+#top-search #search-block-form {background: transparent;}
+
+#top-search #block-search-form {
+	width: 558px;
+	margin: 0 auto 20px auto;
+	border: none;
+}
+
+#top-search #search-block-form #edit-search-block-form--2, #block-search-form input.form-text {
+	width: 420px
+	height: 15px;
+	background: url(.../images/search_icon.jpg) no-repeat left center #E5E5E5;
+	padding: 3px;
+	padding-left: 25px;
+	margin: 0 0 -5px;
+}
+
+#top-search #block-search-form input.form-submit {
+	background: url(.../images/btn_search_top.jpg) no-repeat;
+	width: 105px;
+	height: 25px;
+	line-height: 0;
+	margin-left: -4px;
+	color: transparent;
+	border: none;
+	text-indent: -9999px;
+}
+
+
+
+/* #ROUNDED CORNERS -- TWO- and THREE-COLUMN LAYOUT
+================================================== */
+
+div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bottom #FFFFFF; font-family: Arial, sans-serif; float: left;}
+		
+	div.port-col-left {background: #f0eee2 url(.../images/bl_dark.jpg) no-repeat bottom left;  float: left; width: 200px;}
+		div.port-col-left-top {background: #5b595a url(.../images/tl_dark.jpg) no-repeat top left; height: 33px;}
+		div.port-col-left-top h5 {text-align:center;text-transform: uppercase; font-weight: normal; line-height: 33px; color: #ddd;padding: 0; margin: 0; letter-spacing: 1px;}
+		
+	div.port-col-right {float: right; width: 760px;}
+		div.port-col-right-top {background: #767f89 url(.../images/tr_dark.jpg) no-repeat top right;height: 33px;}
+			
+		div.port-main-content {float: left;}
+		div.port-right-sidebar {float: right; width: 200px;}
+
+	hr.clear {clear: both; visibility: hidden;}
+
+/* #ROUNDED CORNERS -- MEDIA CENTER LAYOUT
+================================================== */
+
+div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left bottom;}
+	
+	div.single-column .breadcrumb-left {background: #767f89 url("images/tl_blue.jpg") no-repeat scroll left top; line-height: 33px;}
+
+	div.single-column .breadcrumb {height: 33px;padding: 0 15px;background: #767f89 url("images/tr_blue.jpg") no-repeat scroll right top;margin-left: 15px; line-height: 33px;}
+
+	div.single-column .large-col {background: #fff url("images/br.jpg") no-repeat scroll right bottom;margin-left: 10px; padding: 10px 10px 10px 0;}
+		div.single-column .large-col .content {width: 75%;}
+	div.single-column .small-col {width: 23%; float: right;}
+
+
+/* #BREADCRUMBS
+================================================== */
+.breadcrumb {height: 33px;padding: 0 15px;font-size: 15px;color: #FFFFFF;}
+.breadcrumb a {line-height: 33px; color: #fff; text-decoration: underline;}
+
+
+
+
+/* #ICON-LISTS
+================================================== */
+ul.star-list {list-style-image: url(.../images/star.jpg);padding:  0 0 0 15px;}
+ul.star-list li {margin-bottom: 1em; line-height: normal;}
+ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
+
+
+/* more-links */
+.news-list .more-link {font-size: 12px; text-align: left; text-indent: 15px;}
+.news-list .more-link a {color: #a85708;text-decoration: none; font-weight: bold;}
+
+
+/* #VIEWS-FIELD & VIEWS-FIELD-TITLE
+================================================== */
+#squeeze h2 a {color:#636463;text-decoration: none;}
+
+.views-field {
+	/* width:360px; */
+	font-size: 13px;
+}
+
+.news-list .more-link {font-size: 12px;text-align: left;text-align: left;text-indent: 15px;}
+.news-list .more-link a {color: #a85708;text-decoration: none; font-weight: bold;}
+
+
+/* #ONLINE SERVICES SELECT LIST
+================================================== */
+span.customStyleSelectBox {
+	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
+	color: #816C5B;
+    font-size: 12px;
+    height: 15px;
+    padding: 3px;
+}
+.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 3px; }
+option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
+
+
+
+/* #Video page
+================================================== */
+
+div#mini-panel-video_page .panels-flexible-region {
+  padding:10px 0 0 50px;
+  width:450px;
+  margin: 0 auto;
+}
+
+div#mini-panel-video_page p {width:450px;}
+
+div#mini-panel-video_page .pane-7 a {background: none;padding:0px;}
+
+
+	
+/* #left col navigation for template node-17
+================================================== */
+.port-col-left-navigation a {
+  background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
+  color: #737B82;
+  font-weight: bold;
+  padding-left: 16px;
+  text-decoration: none;	
+}
+
+.port-col-left-navigation li {
+  font-size: 12px;
+  padding-bottom: 6px;  
+  list-style: none outside none;
+}
+
+.port-col-left-navigation ul {
+  padding-left: 15px;
+}
+
+input.back_button{
+	float: right;
+}
+
+input.back_button:hover{
+	cursor: pointer;
+}
+
+h1#branding { margin: 0; }
+
+
+
+
+
+/* #PROMO TILES
+================================================== */
+.promo-tile {margin: 10px 15px 20px;}
+	/* top */
+	.promo-tile .views-field-field-text {background: url(.../images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
+		.promo-tile .views-field-field-text a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
+	/* bottom */
+	.promo-tile .views-field-title-1 {background: url(.../images/promo_tile_bottom.gif) 0 0 no-repeat; margin-top: 41px; text-align: right; width: 207px; padding: 2px;}
+		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
+
+
+
+/* #FOOTER COLUMNS - ROUNDED CORNERS
+================================================== */
+div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}
+div.round-corners-footer .content-container { padding: 10px; }
+div.round-corners-footer .tl-footer { background: url(.../images/tl_footer.jpg) no-repeat top left; }
+div.round-corners-footer .tr-footer { background: url(.../images/tr_footer.jpg) no-repeat top right; }
+div.round-corners-footer .bl-footer { background: url(.../images/bl_footer.jpg) no-repeat bottom left; }
+div.round-corners-footer .br-footer { background: url(.../images/br_footer.jpg) no-repeat bottom right; }
+
+
+
+/* #FOOTER COLUMNS - LISTS
+================================================== */
+div.round-corners-footer .content-container p {font-weight: bold; font-size: 14px; color: #fff;margin: 2px 0;}
+ul.footer-list {padding: 0; margin: 0;}
+	ul.footer-list li {list-style: none; margin: 0; padding: 0;}
+	ul.footer-list li a {color: #fff; text-decoration: none;font-size: 12px;}
+	ul.footer-list li a:hover {text-decoration: underline;}
+
+
+
+/* #FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS
+================================================== */
+
+li#cwu-mobileapps {height: 16px; background: url(.../images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-multimedia {height: 16px; background: url(.../images/icons/icon_multimedia_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-twitter {height: 16px; background: url(.../images/icons/icon_twitter_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-facebook {height: 16px; background: url(.../images/icons/icon_facebook_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-youtube {height: 16px; background: url(.../images/icons/icon_youtube_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-rss {height: 16px; background: url(.../images/icons/icon_rss_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+
+p#tweet {font-weight: normal; font-size: 12px;}
+	p#tweet a {color: #ddd;}
+	p#tweet-time {font-size: 10px; font-weight: normal;}
+	
+
+
+/* #BIO VIEW - GOVERNMENT BIO PAGE
+================================================== */
+.views-field-field-last-name, .views-field-field-first-name {    
+    display: inline-block;
+    font-size: 14px;
+	font-weight: bold;
+	margin-top: 18px;
+}
+
+.views-field-field-last-name a, .views-field-field-first-name a {    
+    text-decoration: none;
+	color: #A85708;
+}
+
+.views-field-field-image {
+    float: left;
+    margin-right: 15px;
+}
+
+.views-field-field-council-place {
+    display: inline-block;
+	float: left;
+	font-size: 11px;
+}
+
+.views-label-field-council-place{
+	display: inline-block;
+	padding-right: 2px;
+	font-size: 11px;
+}
+
+.views-label-field-council-place .field-content {
+	font-size: 11px;
+}
+
+.views-field-field-council-place .field-content, .views-label-field-council-place {
+	float: left;
+}
+
+.views-label-field-council-place {
+    display: inline-block;
+}
+
+.views-field-title-1 a{
+	color: none;
+}
+
+.bio {
+	background: url("images/bio_bkg.jpg") no-repeat scroll 0 0 transparent;
+    height: 107px;
+    padding-left: 10px;
+    width: 209px;
+}
+
+.views-field-field-bio-quote {
+	color: #7D4E3D;
+    font-size: 17px;
+    height: auto;
+    margin-left: 197px;
+    padding-top: 0;
+    position: absolute;
+    text-align: center;
+    width: 218px;
+}	
+
+#mayor_bio {
+    margin-left: 221px;
+}
+
+.mayor {
+	background: url("images/mayor_bio_bkg.jpg") no-repeat scroll 0 0 transparent;
+    height: 109px;
+    padding-left: 10px;
+    width: 430px;
+}
+
+#gov_bio_title {
+	position: absolute;
+    text-align: center;
+    width: 200px;
+}
+
+#gov_bio_title h2{
+	font-size: 18px !important;
+	margin-top: 30px;
+}
+
+.view-display-id-block_1 tbody {
+	height: 225px;
+}
+
+.bio img {
+	border: 1px solid #A85708;
+	padding: 0;
+}
+
+/* CITY MANAGER LIST */
+
+.list a {
+	font-size: 14px;
+	text-decoration: none;
+	color:#A85708;
+}
+
+.list ul {
+	list-style: disc;
+
+}
+
+.views-field-field-bio-quote:before {content: "\""; font-family: Georgia, serif !important; font-size: 3em; display: block; float: left;margin-top: -10px;color: #ccc;}
+.views-field-field-bio-quote:after {content: "\""; font-family: Georgia, serif !important; font-size: 3em; display: block; float: right;margin-top: -10px;color: #ccc;}
+
+
+/* #DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
+================================================== */
+
+.dev-list {
+	float: left;
+	width: 150px;
+	padding-left: 15px;
+}
+
+.dev-list h3 a{
+	text-decoration: none;
+	color:#A85708;
+	font-family: "Univers Light";
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.dev-list ul {
+	padding: 0px;
+}
+
+.dev-list ul li {
+	padding: 0px;
+	margin-left: 15px;
+}
+
+.video_link a {
+    background: url("images/icons/flip_page.jpg") no-repeat scroll left 0 transparent;
+    color: #A85708;
+    font-family: Univers Bold;
+    font-size: 13px;
+    padding-left: 12px;
+    text-decoration: none;
+}
+
+.video_link {
+    margin-right: 20px;
+	float:left;
+}
+
+
+
+
+
+/* #FULL CALENDAR 
+================================================== */
+.fc-content {clear: none;}

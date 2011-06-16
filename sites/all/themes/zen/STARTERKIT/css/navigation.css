@@ -239,7 +239,7 @@ margin: 0;
 }
 
 #block-menu-menu-brand-bar li {
-    background: url(.../images/nav_spacer.jpg) right 5px no-repeat;
+    background: url(../images/nav_spacer.jpg) right 5px no-repeat;
     display: inline-block;
     height: 28px;
     list-style-type: none;
@@ -274,27 +274,27 @@ margin: 0;
 
 }
 #block-menu-menu-action-navigation li.icon-payment {
-	background: url(.../images/icons/icon-payment.png) 0 center no-repeat;
+	background: url(../images/icons/icon-payment.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-menu-menu-action-navigation li.icon-services {
-	background: url(.../images/icons/icon-services.png) 0 center no-repeat;
+	background: url(../images/icons/icon-services.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-menu-menu-action-navigation li.icon-calendar {
-	background: url(.../images/icons/icon-calendar.png) 0 center no-repeat;
+	background: url(../images/icons/icon-calendar.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-menu-menu-action-navigation li.icon-media {
-	background: url(.../images/icons/icon-media.png) 0 center no-repeat;
+	background: url(../images/icons/icon-media.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-menu-menu-action-navigation li.icon-contact {
-	background: url(.../images/icons/icon-contact.png) 0 center no-repeat;
+	background: url(../images/icons/icon-contact.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-menu-menu-action-navigation li.icon-311 {
-	background: url(.../images/icons/icon-311.png) 0 center no-repeat;
+	background: url(../images/icons/icon-311.png) 0 center no-repeat;
 	line-height: 30px;
 }
 /* START - Top Menu - Action Navigation 
@@ -320,27 +320,27 @@ Contact Us - menu-536
 #block-nice-menus-4 li a{ padding: 0;}
 
 #block-nice-menus-4 li.menu-532 {
-	background: url(.../images/icons/icon-payment.png) 0 center no-repeat;
+	background: url(../images/icons/icon-payment.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-nice-menus-4 li.menu-533 {
-	background: url(.../images/icons/icon-services.png) 0 center no-repeat;
+	background: url(../images/icons/icon-services.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-nice-menus-4 li.menu-534 {
-	background: url(.../images/icons/icon-calendar.png) 0 center no-repeat;
+	background: url(../images/icons/icon-calendar.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-nice-menus-4 li.menu-535 {
-	background: url(.../images/icons/icon-media.png) 0 center no-repeat;
+	background: url(../images/icons/icon-media.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-nice-menus-4 li.menu-536 {
-	background: url(.../images/icons/icon-contact.png) 0 center no-repeat;
+	background: url(../images/icons/icon-contact.png) 0 center no-repeat;
 	line-height: 30px;
 }
 #block-nice-menus-4 li.menu-537 {
-	background: url(.../images/icons/icon-311.png) 0 center no-repeat;
+	background: url(../images/icons/icon-311.png) 0 center no-repeat;
 	line-height: 30px;
 }
 /* END - Top Menu - Action Navigation */

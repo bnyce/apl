@@ -45,14 +45,14 @@
 #top-search #search-block-form #edit-search-block-form--2, #block-search-form input.form-text {
 	width: 420px
 	height: 15px;
-	background: url(../images/search_icon.jpg) no-repeat left center #E5E5E5;
+	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
 	padding: 3px;
 	padding-left: 25px;
 	margin: 0 0 -5px;
 }
 
 #top-search #block-search-form input.form-submit {
-	background: url(../images/btn_search_top.jpg) no-repeat;
+	background: url(images/btn_search_top.jpg) no-repeat;
 	width: 105px;
 	height: 25px;
 	line-height: 0;
@@ -69,12 +69,12 @@
 
 div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bottom #FFFFFF; font-family: Arial, sans-serif; float: left;}
 		
-	div.port-col-left {background: #f0eee2 url(../images/bl_dark.jpg) no-repeat bottom left;  float: left; width: 200px;}
-		div.port-col-left-top {background: #5b595a url(../images/tl_dark.jpg) no-repeat top left; height: 33px;}
+	div.port-col-left {background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left;  float: left; width: 200px;}
+		div.port-col-left-top {background: #5b595a url(images/tl_dark.jpg) no-repeat top left; height: 33px;}
 		div.port-col-left-top h5 {text-align:center;text-transform: uppercase; font-weight: normal; line-height: 33px; color: #ddd;padding: 0; margin: 0; letter-spacing: 1px;}
 		
 	div.port-col-right {float: right; width: 760px;}
-		div.port-col-right-top {background: #767f89 url(../images/tr_dark.jpg) no-repeat top right;height: 33px;}
+		div.port-col-right-top {background: #767f89 url(images/tr_dark.jpg) no-repeat top right;height: 33px;}
 			
 		div.port-main-content {float: left;}
 		div.port-right-sidebar {float: right; width: 200px;}
@@ -105,7 +105,7 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 
 /* #ICON-LISTS
 ================================================== */
-ul.star-list {list-style-image: url(../images/star.jpg);padding:  0 0 0 15px;}
+ul.star-list {list-style-image: url(images/star.jpg);padding:  0 0 0 15px;}
 ul.star-list li {margin-bottom: 1em; line-height: normal;}
 ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
@@ -195,10 +195,10 @@ h1#branding { margin: 0; }
 ================================================== */
 .promo-tile {margin: 10px 15px 20px;}
 	/* top */
-	.promo-tile .views-field-field-text {background: url(../images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
+	.promo-tile .views-field-field-text {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
 		.promo-tile .views-field-field-text a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
 	/* bottom */
-	.promo-tile .views-field-title-1 {background: url(../images/promo_tile_bottom.gif) 0 0 no-repeat; margin-top: 41px; text-align: right; width: 207px; padding: 2px;}
+	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; margin-top: 41px; text-align: right; width: 207px; padding: 2px;}
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
 
 
@@ -207,10 +207,10 @@ h1#branding { margin: 0; }
 ================================================== */
 div.round-corners-footer {font-family: Arial, sans-serif; font-weight: normal; background: #5f5f5f; width: 180px;}
 div.round-corners-footer .content-container { padding: 10px; }
-div.round-corners-footer .tl-footer { background: url(../images/tl_footer.jpg) no-repeat top left; }
-div.round-corners-footer .tr-footer { background: url(../images/tr_footer.jpg) no-repeat top right; }
-div.round-corners-footer .bl-footer { background: url(../images/bl_footer.jpg) no-repeat bottom left; }
-div.round-corners-footer .br-footer { background: url(../images/br_footer.jpg) no-repeat bottom right; }
+div.round-corners-footer .tl-footer { background: url(images/tl_footer.jpg) no-repeat top left; }
+div.round-corners-footer .tr-footer { background: url(images/tr_footer.jpg) no-repeat top right; }
+div.round-corners-footer .bl-footer { background: url(images/bl_footer.jpg) no-repeat bottom left; }
+div.round-corners-footer .br-footer { background: url(images/br_footer.jpg) no-repeat bottom right; }
 
 
 
@@ -227,12 +227,12 @@ ul.footer-list {padding: 0; margin: 0;}
 /* #FOOTER COLUMN 'CONNECT WITH US' - ICON DECLARATIONS
 ================================================== */
 
-li#cwu-mobileapps {height: 16px; background: url(../images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-multimedia {height: 16px; background: url(../images/icons/icon_multimedia_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-twitter {height: 16px; background: url(../images/icons/icon_twitter_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-facebook {height: 16px; background: url(../images/icons/icon_facebook_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-youtube {height: 16px; background: url(../images/icons/icon_youtube_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
-li#cwu-rss {height: 16px; background: url(../images/icons/icon_rss_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-mobileapps {height: 16px; background: url(images/icons/icon_mobile_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-multimedia {height: 16px; background: url(images/icons/icon_multimedia_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-twitter {height: 16px; background: url(images/icons/icon_twitter_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-facebook {height: 16px; background: url(images/icons/icon_facebook_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-youtube {height: 16px; background: url(images/icons/icon_youtube_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
+li#cwu-rss {height: 16px; background: url(images/icons/icon_rss_16.png) 0 0 no-repeat; text-indent: 20px; line-height: 16px;margin: 5px 0;}
 
 p#tweet {font-weight: normal; font-size: 12px;}
 	p#tweet a {color: #ddd;}

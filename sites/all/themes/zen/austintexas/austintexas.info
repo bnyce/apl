@@ -12,29 +12,12 @@ stylesheets[all][]			= css/style.css
 stylesheets[all][] 			= css/layout.css
 stylesheets[all][] 			= css/navigation.css
 
-; New Style Sheets.
-stylesheets[all][]        = css/html-reset.css
-stylesheets[all][]        = css/wireframes.css
-stylesheets[all][]        = css/layout-fixed.css
-stylesheets[all][]        = css/page-backgrounds.css
-stylesheets[all][]        = css/tabs.css
-stylesheets[all][]        = css/pages.css
-stylesheets[all][]        = css/blocks.css
-stylesheets[all][]        = css/navigation.css
-stylesheets[all][]        = css/views-styles.css
-stylesheets[all][]        = css/nodes.css
-stylesheets[all][]        = css/comments.css
-stylesheets[all][]        = css/forms.css
-stylesheets[all][]        = css/fields.css
-stylesheets[print][]      = css/print.css
-
 scripts[] = js/drop_down.js
 scripts[] = js/jquery.cycle.js
 scripts[] = js/jquery.easing.js
 scripts[] = js/utility.js
 scripts[] = js/coa.scripts.js
 
-settings[garland_width] = fluid
 
 regions[topmenu]           = Top Menu
 regions[topsearch]          = Top Search

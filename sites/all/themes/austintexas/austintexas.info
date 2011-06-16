@@ -5,17 +5,7 @@ screenshot  = austin-internals/screenshot.png
 core        = 7.x
 engine      = phptemplate
 
-stylesheets-conditional[lt IE 7][all][] = austin-internals/css/ie7.css
-stylesheets-conditional[lt IE 8][all][] = austin-internals/css/ie8.css
-stylesheets[all][] = austin-internals/css/style.css
-stylesheets[all][] = austin-internals/css/layout.css
-stylesheets[all][] = austin-internals/css/navigation.css
 
-scripts[] = austin-internals/css/js/drop_down.js
-scripts[] = austin-internals/css/js/jquery.cycle.js
-scripts[] = austin-internals/css/js/jquery.easing.js
-scripts[] = austin-internals/css/js/utility.js
-scripts[] = austin-internals/css/js/coa.scripts.js
 
 regions[topmenu]		= Top Menu
 regions[topsearch]		= Top Search

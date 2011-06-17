@@ -94,5 +94,4 @@
     <div style="clear: both;"></div>
     <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
     <!-- /##fullcalendar template -->
-    <?php print "--->";print_r($node); ?>
   </div>

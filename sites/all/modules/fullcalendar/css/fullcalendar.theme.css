@@ -74,3 +74,7 @@ html.js .fullcalendar-content {
 div.small-col {
   padding: 10px 10px 10px 0;
 }
+
+.large-col #block-system-main {
+  display:none;
+}

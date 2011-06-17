@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Univers Light';
     src: url('/sites/default/files/fonts/universltstd-lightcn-webfont.eot');
@@ -32,7 +31,7 @@
 }
 
 body {
-	background: url(images/bkg.jpg);
+	background: url(.../images/bkg.jpg);
 	margin: 0;
 	padding: 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -67,7 +66,7 @@ body {
 	font-size: 13px;
 	font-family: Univers Bold;
 	padding-left: 12px;
-	background: url(images/star.jpg) no-repeat left;
+	background: url(.../images/star.jpg) no-repeat left;
 }
 
 .pane-views-feed-view-block-1 .views-field-title a:hover {
@@ -242,7 +241,7 @@ form select {
 }
 
 #footer {
-	background: url(images/footer_bg.jpg) repeat-x #5b5b5b;
+	background: url(.../images/footer_bg.jpg) repeat-x #5b5b5b;
 	height: 275px;
     margin: 0;
     padding: 20px 10px;
@@ -250,10 +249,10 @@ form select {
 #footer-menu {
 	width: 960px;
 	margin: auto;
-	background: url(images/footer_menu_left.jpg) no-repeat left #5F5F5F;
+	background: url(.../images/footer_menu_left.jpg) no-repeat left #5F5F5F;
 }
 #footer-menu ul {
-	background: url(images/footer_menu_right.jpg) no-repeat right;
+	background: url(.../images/footer_menu_right.jpg) no-repeat right;
 	height: 21px;
 	padding: 7px 0 0 40px;
 	margin: 0;
@@ -289,16 +288,16 @@ div.round-corners .content-container {
 	padding: 10px;
 }
 div.round-corners .tl {
-	background: url(images/tl.jpg) no-repeat top left;
+	background: url(.../images/tl.jpg) no-repeat top left;
 }
 div.round-corners .tr {
-	background: url(images/tr.jpg) no-repeat top right;
+	background: url(.../images/tr.jpg) no-repeat top right;
 }
 div.round-corners .bl {
-	background: url(images/bl.jpg) no-repeat bottom left;
+	background: url(.../images/bl.jpg) no-repeat bottom left;
 }
 div.round-corners .br {
-	background: url(images/br.jpg) no-repeat bottom right;
+	background: url(.../images/br.jpg) no-repeat bottom right;
 }
 
 #content_box_top, #content_box_middle, #content_box_bottom {
@@ -318,14 +317,14 @@ div.round-corners .br {
 #block-search-form input.form-text {
 	width: 520px;
 	height: 25px;
-	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
+	background: url(.../images/search_icon.jpg) no-repeat left center #E5E5E5;
 	padding: 3px;
 	padding-left: 25px;
 	margin: 0;
 }
 
 #block-search-form input.form-submit {
-	background: url(images/btn_search.jpg) no-repeat;
+	background: url(.../images/btn_search.jpg) no-repeat;
 	width: 105px;
 	height: 35px;
 	line-height: 0;
@@ -363,9 +362,9 @@ div.round-corners .br {
         .dropdown dd { position:relative; margin:auto; }
         .dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown a:hover { color:#5d4617;}
-		.dropdown dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+		.dropdown dt span {background: url(.../images/icons/drop_arrow.jpg) no-repeat scroll right center;}
         .dropdown dt a:hover, .dropdown dt a:focus { color:#5d4617; text-decoration: none;}
-        .dropdown dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown dt a {background: url(.../images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
                           left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
@@ -378,9 +377,9 @@ div.round-corners .br {
         .dropdown2 dd { position:relative; margin: auto; }
         .dropdown2 a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown2 a:hover { color:#5d4617;}
-		.dropdown2 dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+		.dropdown2 dt span {background: url(.../images/icons/drop_arrow.jpg) no-repeat scroll right center;}
         .dropdown2 dt a:hover, .dropdown2 dt a:focus { color:#5d4617; }
-        .dropdown2 dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown2 dt a {background: url(.../images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown2 dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown2 dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
                           left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}
@@ -393,9 +392,9 @@ div.round-corners .br {
         .dropdown3 dd { position:relative; margin:auto; }
         .dropdown3 a, .dropdown3 a:visited { color:#816c5b; text-decoration:none; outline:none;}
         .dropdown3 a:hover { color:#5d4617;}
-		.dropdown3 dt span {background: url(images/icons/drop_arrow.jpg) no-repeat scroll right center;}
+		.dropdown3 dt span {background: url(.../images/icons/drop_arrow.jpg) no-repeat scroll right center;}
         .dropdown3 dt a:hover, .dropdown3 dt a:focus { color:#5d4617; }
-        .dropdown3 dt a {background: url(images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
+        .dropdown3 dt a {background: url(.../images/icons/form_select_bkg.jpg) no-repeat; display:block; line-height: 16px; width:200px; text-transform: uppercase; font-size:10px;}
         .dropdown3 dt a span {cursor:pointer; display:block; padding:5px;}
         .dropdown3 dd ul { background:#EBE8DA none repeat scroll 0 0; border:1px solid #DCD6B3; color:#C5C0B0; display:none;
                           left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:200px; list-style:none;}

@@ -415,12 +415,13 @@ div.round-corners .br {
         background: url("images/icons/arrow.jpg")no-repeat 0;
 }
 .view-topic-items span a {
-font-family: "arial";
-font-weight: bold;
+	font-family: "arial";
+	font-weight: bold;
     font-size: 12px;
     color: #636463;
     text-decoration: none;
     margin-left: 12px;
+	line-height: 20px;
 }
 
 .view-topic-items .more-link a {

@@ -450,3 +450,14 @@ div.round-corners .br {
     line-height: 16px !important;
 }
 /* End Portal Items-Sticky View */
+
+/* Portal Items-Promoted View */
+#block-views-topic-promoted-block h2 {   
+    color: #636463 !important;
+    font-family: "Univers Light" !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    text-transform: none !important;
+}
+/* End Portal Items-Promoted View */
+

@@ -403,3 +403,31 @@ div.round-corners .br {
         .dropdown3 dd ul li a:hover { background-color:#d0c9af;}
 		
 /* End Drop Down Forms CSS */
+
+/* Portal Items-List View */
+.view-topic-items h3 {
+    color: #636463;
+    font-size: 18px;
+    font-family: "Univers Light";
+    margin: 0;
+}
+.view-topic-items span {
+        background: url("images/icons/arrow.jpg")no-repeat 0;
+}
+.view-topic-items span a {
+    font-size: 14px;
+    color: #636463;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.view-topic-items .more-link a {
+    color: #A85708 !important;
+    float: left;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left:12px;
+    background: url("images/icons/arrow.jpg")no-repeat 0;
+    font-size: 14px;
+}
+/* End Portal Items-List View */

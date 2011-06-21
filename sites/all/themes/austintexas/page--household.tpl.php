@@ -4,18 +4,9 @@
   <div id="wrapper">
     <div id="container" class="clearfix">
       <div id="header">
-		<div id="toplinks">  <div class="region region-toplinks">
-    <div class="block block-menu contextual-links-region clearfix" id="block-menu-menu-action-navigation">
-  <div class="content">
-    <ul class="menu"><li class="first leaf icon-payment"><a title="" href="/">Make A Payment</a></li>
-<li class="leaf icon-services"><a title="" href="/">Services</a></li>
-<li class="leaf icon-calendar"><a title="" href="/">Calendar</a></li>
-<li class="leaf icon-media"><a title="" href="/">Media Center</a></li>
-<li class="leaf icon-contact"><a title="" href="/">Contact Us</a></li>
-<li class="last leaf icon-311"><a title="" href="/">311</a></li>
-</ul>  </div>
-</div>
-  </div>
+		<div id="toplinks">
+		<?php print render($page['toplinks']); ?>
+
 </div>
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
@@ -77,95 +68,44 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 		  <div id="above-content"><?php print render($page['above_content']); ?></div>
-		  
-		  
-		  
-		  <div class="portal-columns">
-		  
-		  
-		  
-		  
-		  	<div class="port-col-left">
-		  	
-		  		<div class="port-col-left-top">
-		  		   <h5>
-		  		      <?php  
-                     $tmp_activeTrail = menu_get_active_trail();
-                     print $tmp_activeTrail[2]['link_title'];
-  		  			   ?>
-  		  			</h5>
-		  		</div>
-		  		<div class="port-col-left-navigation">
-		  	    <?php // get the list of lvl 2 nodes and parse thru until it equals the same name as the lvl2 breadcrumb name 
-            $tmp_treeData = menu_build_tree('menu-resident-second-tier', array('expanded' => array(0), 'min_depth' => 1));
-            foreach ($tmp_treeData as $tmpValue){
-              if (strtolower(trim($tmp_activeTrail[2]['link_title'])) == strtolower(trim($tmpValue['link']['link_title']))){
-                $tmp_mlid = $tmpValue['link']['mlid'];
-                break;
-              } 
-            }                        
-            unset($tmp_treeData);       
-            unset($tmpValue);
-            $tmp_treeData = menu_build_tree('menu-resident-second-tier', array('expanded' => array( $tmp_mlid ), 'min_depth' => 2));
-            print "<ul>";            
-            foreach ($tmp_treeData as $key => $tmpValue){ 
-              print '<li><a href="' . url($tmpValue['link']['href']) . '" >' . $tmpValue['link']['link_title'] . '</a></li>';  
-            }            
-            print "</ul>";  
-            unset($tmp_treeData);
-            unset($tmpValue);  
-					?>
-		  		</div>			  		
-		  		<?php print render($page['content_left_sidebar']); ?>
-
-		  		
-		  		
-		  	
-			</div><!-- /left -->
-		  	
-		  	
 
 
 
-		  	<div class="port-col-right">
-		  	
-		  		
-		  		<div class="port-col-right-top">
-		  			<div class="breadcrumb"><?php print $breadcrumb; ?></div>
-		  		</div>
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		<div class="port-main-content"> 
-		  		
-			  		<?php render($page['content_main_blocks']); ?>
+		  <div class="single-column">
+
+
+
+
+
+					<div class="breadcrumb-left">
+		  				<?php print $breadcrumb; ?>
+		  			</div>
+
+		  		<!--	<h5><?php print $title; ?></h5> -->
+
+
+
+		  		<div class="large-col">
+
+
 			  		<?php print render($page['content']); ?>
-			  		
-			  		
 
 
 		  		</div>
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		
-		  		<hr class="clear" />
-		  		
-		  	
-			</div><!-- /right -->
-		  	
-		  
-		  </div><!-- /portal-columns -->
-		  
-		  
-		  
-		  
+
+
+
+
+
+
+
+
+
+		  </div><!-- /single-columns -->
+
+
+
+
       </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
     </div> <!-- /#container -->
@@ -176,4 +116,5 @@
   <div id="footer-blocks"><?php print render($page['footer']); ?></div>
   <div style="clear: both;"></div>
   <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
+  <!--  page.tpl template -->
   </div>

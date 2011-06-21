@@ -87,39 +87,37 @@
 		  
 		  	<div class="port-col-left">
 		  	
-		  		
 		  		<div class="port-col-left-top">
-		  			<h5>Household</h5>
+		  		   <h5>
+		  		      <?php  
+                     $tmp_activeTrail = menu_get_active_trail();
+                     print $tmp_activeTrail[2]['link_title'];
+  		  			   ?>
+  		  			</h5>
 		  		</div>
-		  		
+		  		<div class="port-col-left-navigation">
+		  	    <?php // get the list of lvl 2 nodes and parse thru until it equals the same name as the lvl2 breadcrumb name 
+            $tmp_treeData = menu_build_tree('menu-resident-second-tier', array('expanded' => array(0), 'min_depth' => 1));
+            foreach ($tmp_treeData as $tmpValue){
+              if (strtolower(trim($tmp_activeTrail[2]['link_title'])) == strtolower(trim($tmpValue['link']['link_title']))){
+                $tmp_mlid = $tmpValue['link']['mlid'];
+                break;
+              } 
+            }                        
+            unset($tmp_treeData);       
+            unset($tmpValue);
+            $tmp_treeData = menu_build_tree('menu-resident-second-tier', array('expanded' => array( $tmp_mlid ), 'min_depth' => 2));
+            print "<ul>";            
+            foreach ($tmp_treeData as $key => $tmpValue){ 
+              print '<li><a href="' . url($tmpValue['link']['href']) . '" >' . $tmpValue['link']['link_title'] . '</a></li>';  
+            }            
+            print "</ul>";  
+            unset($tmp_treeData);
+            unset($tmpValue);  
+					?>
+		  		</div>			  		
 		  		<?php print render($page['content_left_sidebar']); ?>
 
-		  		<p>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>
-		  		content
-		  		<br>		  		
-		  		</p>
 		  		
 		  		
 		  	
@@ -144,34 +142,10 @@
 		  		<div class="port-main-content"> 
 		  		
 			  		<?php render($page['content_main_blocks']); ?>
-			  		<?php print render($page['content']); ?> 
+			  		<?php print render($page['content']); ?>
+			  		
+			  		
 
-			  		<p>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>		  		
-			  		</p>
 
 		  		</div>
 		  		
@@ -180,50 +154,19 @@
 		  		
 		  		
 		  		
-		  		<div class="port-right-sidebar">
-			  		<?php render($page['content_right_sidebar']);?>
-
-
-
-			  		<p>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>
-			  		content
-			  		<br>		  		
-			  		</p>
-		  		</div>
 		  		
+		  		<hr class="clear" />
 		  		
 		  	
 			</div><!-- /right -->
-		  	
 		  	
 		  
 		  </div><!-- /portal-columns -->
 		  
 		  
 		  
-
+		  
+      </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
     </div> <!-- /#container -->
   </div> <!-- /#wrapper -->

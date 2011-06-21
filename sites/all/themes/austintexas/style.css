@@ -437,6 +437,9 @@ div.round-corners .br {
 /* End Portal Items-List View */
 
 /* Portal Items-Sticky View */
+.topic-sticky {
+padding-top:15px;
+}
 .view-topic-sticky h2 {
     color: #636463 !important;
     font-family: "Univers Light" !important;

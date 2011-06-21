@@ -399,3 +399,14 @@ p#tweet {font-weight: normal; font-size: 12px;}
 /* #FULL CALENDAR 
 ================================================== */
 .fc-content {clear: none;}
+
+
+/* #Panel Layout
+================================================== */
+.panel-width {
+    width: 970px;
+}
+
+.panel-center {
+    width: 500px;
+}

@@ -69,7 +69,7 @@
 
 div.portal-columns {background: url("images/br.jpg") no-repeat scroll right bottom #FFFFFF; font-family: Arial, sans-serif; float: left;}
 		
-	div.port-col-left {background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left;  float: left; width: 200px;}
+	div.port-col-left {background: #f0eee2 url(images/bl_dark.jpg) no-repeat bottom left;  float: left; width: 200px; padding-left: 15px;}
 		div.port-col-left-top {background: #5b595a url(images/tl_dark.jpg) no-repeat top left; height: 33px;}
 		div.port-col-left-top h5 {text-align:center;text-transform: uppercase; font-weight: normal; line-height: 33px; color: #ddd;padding: 0; margin: 0; letter-spacing: 1px;}
 		

@@ -452,7 +452,7 @@ div.round-corners .br {
 /* End Portal Items-Sticky View */
 
 /* Portal Items-Promoted View */
-#block-views-topic-promoted-block h2 {   
+.pane-topic-promoted h2 {   
     color: #636463 !important;
     font-family: "Univers Light" !important;
     font-size: 18px !important;

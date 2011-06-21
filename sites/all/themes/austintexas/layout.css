@@ -408,5 +408,6 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .panel-center {
-    width: 500px;
+    padding: 15px;
+    width: 474px;
 }

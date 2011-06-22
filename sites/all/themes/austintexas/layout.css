@@ -408,8 +408,13 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .panel-center {
+    background: none repeat scroll 0 0 #FFFFFF;
     padding: 15px;
-    width: 474px;
+    width: 475px;
+}
+
+.large-col {
+	background: #F0EEE2;
 }
 
 .topic-items-pane {

@@ -465,3 +465,18 @@ padding-top:15px;
 }
 /* End Portal Items-Promoted View */
 
+/* Portal Video Items View */
+.view-dom-id-15 {
+    background: url("images/promo_tile_top_tan.gif") no-repeat scroll center top transparent;
+}
+.view-dom-id-15 tbody {
+    background: url("images/promo_tile_bottom.gif") no-repeat scroll center bottom #F0E9DC;
+}
+.pane-mini-videos {
+    margin-left: 15px;
+    width: 207px;
+}
+
+.view-dom-id-15 th {
+    padding: none;
+}

@@ -449,7 +449,7 @@ padding-top:15px;
     text-decoration: none;
     text-transform: none !important;
 }
-.view-topic-sticky .views-field-body {
+.view-topic-sticky .views-field-body p, .views-field-body  {
     color: #636463 !important;
     line-height: 16px !important;
 }

@@ -477,7 +477,7 @@ padding-top:15px;
     width: 207px;
 }
 
-.view-dom-id-15 th, tr.even, tr.odd {
+.view-dom-id-15 th, tr.even, tr.odd, tbody {
     background: none repeat scroll 0 0 transparent;
     border: medium none;
 }

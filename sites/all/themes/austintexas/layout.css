@@ -451,7 +451,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 .topic-improve h3{
     background: url("images/icons/topic-improve.jpg")no-repeat 0;
-    padding-left: 22px;
+    padding-left: 25px;
 }
 
 .topic-money h3{
@@ -461,5 +461,5 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 .topic-pets h3{
     background: url("images/icons/topic-pets.jpg")no-repeat 0;
-    padding-left: 22px;
+    padding-left: 30px;
 }

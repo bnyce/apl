@@ -415,3 +415,46 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .topic-items-pane {
 	margin-bottom: 30px;
 }
+
+/* #Topic Panel Icons
+================================================== */
+
+.topic-housing h3{
+    background: url("images/icons/topic-house.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-energy h3{
+    background: url("images/icons/topic-energy.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-water h3{
+    background: url("images/icons/topic-water.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-garbage h3{
+    background: url("images/icons/topic-garbage.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-tax h3{
+    background: url("images/icons/topic-tax.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-garden h3{
+    background: url("images/icons/topic-gardening.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-money h3{
+    background: url("images/icons/topic-money.jpg")no-repeat 0;
+    padding-left: 22px;
+}
+
+.topic-pets h3{
+    background: url("images/icons/topic-pets.jpg")no-repeat 0;
+    padding-left: 22px;
+}

@@ -440,15 +440,16 @@ div.round-corners .br {
 .topic-sticky {
 padding-top:15px;
 }
-.view-topic-sticky h2 {
+.view-topic-sticky .field-content a {
     color: #636463 !important;
     font-family: "Univers Light" !important;
     font-size: 18px !important;
+    font-weight: bold;
     margin: 0 !important;
+    text-decoration: none;
     text-transform: none !important;
 }
-
-.view-topic-sticky .field-items p {
+.view-topic-sticky .views-field-body {
     color: #636463 !important;
     line-height: 16px !important;
 }

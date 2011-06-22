@@ -411,3 +411,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
     padding: 15px;
     width: 474px;
 }
+
+.topic-items-pane {
+	margin-bottom: 30px;
+}

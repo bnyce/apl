@@ -438,6 +438,10 @@ div.round-corners .br {
     padding-bottom: 1px;
 
 }
+
+.view-topic-items .view-footer p {
+    margin: 0px;
+}
 /* End Portal Items-List View */
 
 /* Portal Items-Sticky View */

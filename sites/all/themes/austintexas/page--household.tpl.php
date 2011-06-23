@@ -78,7 +78,7 @@
 
 
 					<div class="breadcrumb-left">
-		  				<?php print $breadcrumb; ?>
+		  				<?php print render($page['breadcrumbs']); ?>
 		  			</div>
 
 		  		<!--	<h5><?php print $title; ?></h5> -->

@@ -71,37 +71,68 @@
 
 
 
-		  <div class="single-column">
+		  <div class="portal-columns">
+		  
+		  
+		  
+		  
+		  	<div class="port-col-left">
+		  	
+		  		
+		  		<div class="port-col-left-top">
+		  			<h5><?php print $title; ?></h5>
+		  		</div>
+		  		
+		  		<?php print render($page['content_left_sidebar']); ?>
+
+		  		
+		  		
+		  	
+			</div><!-- /left -->
+		  	
+		  	
 
 
 
-
-
-					<div class="breadcrumb-left">
-		  				<?php print $breadcrumb; ?>
-		  			</div>
-
-		  		<!--	<h5><?php print $title; ?></h5> -->
-
-
-
-		  		<div class="large-col">
-
-
-			  		<?php print render($page['content']); ?>
+		  	<div class="port-col-right">
+		  	
+		  		
+		  		<div class="port-col-right-top">
+		  			<div class="breadcrumb"><?php print $breadcrumb; ?></div>
+		  		</div>
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		<div class="port-main-content"> 
+		  		
+			  		<?php render($page['content_main_blocks']); ?>
+			  		<?php print render($page['content']); ?> 
 
 
 		  		</div>
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		
+		  		<div class="port-right-sidebar">
+			  		<?php print render($page['content_right_sidebar']);?>
 
 
 
-
-
-
-
-
-
-		  </div><!-- /single-columns -->
+		  		</div>
+		  		
+		  		<hr class="clear" />
+		  		
+		  	
+			</div><!-- /right -->
+		  	
+		  
+		  </div><!-- /portal-columns -->
 
 
 

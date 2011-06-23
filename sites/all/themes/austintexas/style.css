@@ -480,10 +480,25 @@ padding-top:15px;
 .view-dom-id-15 tbody {
     background: url("images/promo_tile_bottom.gif") no-repeat scroll center bottom #F0E9DC;
 }
+.view-dom-id-15  {
+    color: #636463 !important;
+    font-family: "Univers Light" !important;
+    font-size: 18px !important;
+    font-weight: bold;
+    margin: 0 !important;
+    text-decoration: none;
+    text-transform: none !important;
+}
+.view-dom-id-15 img {
+    margin: 8px;
+}
+
 .pane-mini-videos {
     margin-left: 15px;
     width: 207px;
+    margin: 15px;
 }
+
 
 .view-dom-id-15 th, tr.even, tr.odd, tbody {
     background: none repeat scroll 0 0 transparent;

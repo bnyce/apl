@@ -75,7 +75,7 @@
 		  
 		  
 		  
-		  
+<!-- 	  
 		  	<div class="port-col-left">
 		  	
 		  		
@@ -86,12 +86,12 @@
 		  		<?php print render($page['content_left_sidebar']); ?>
 
 		  		
+		  	
 		  		
 		  	
-			</div><!-- /left -->
+			</div>
 		  	
-		  	
-
+ -->
 
 
 		  	<div class="port-col-right">

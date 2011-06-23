@@ -424,7 +424,7 @@ div.round-corners .br {
 	line-height: 20px;
 }
 
-.view-topic-items .more-link a {
+.view-topic-items .more-link a, .view-topic-items .view-footer a {
     color: #A85708 !important;
     float: left;
     font-family: "arial";
@@ -433,6 +433,10 @@ div.round-corners .br {
     padding-left:12px;
     background: url("images/icons/arrow.jpg")no-repeat 0;
     font-size: 13px;
+}
+.view-topic-items .view-footer {
+    padding-bottom: 1px;
+
 }
 /* End Portal Items-List View */
 

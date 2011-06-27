@@ -1,0 +1,15 @@
+.DS_Store
+.buildpath
+.project
+.settings
+/backup
+settings.php
+/sites/default/settings.php
+/sites/default/files
+/sites/default/files/css
+/sites/default/files/js
+/sites/default/files/xmlsitemap
+/tmp
+tmp/*
+bu/*
+files/*

@@ -35,10 +35,14 @@ function calendar_update_get_by_category_id($cat_id){
     default:
      $items = '<h1>fall thru</h1>';
   }
+  $viewName = 'fullcalendar';
+  $displayId = 'calendar_day_block';
+  $args = '2011-06-28';
+  $res = views_embed_view($viewName, $displayId, $args);
 // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
   return drupal_json_output(
     array(
-      'products' => $items
+      'products' => $res
     )
   );
   exit;

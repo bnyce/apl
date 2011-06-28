@@ -405,16 +405,38 @@ div.round-corners .br {
 /* End Drop Down Forms CSS */
 
 /* Portal Items-List View */
-.view-topic-items h3 {
-    color: #636463;
+.view-topic-items caption a{
+    color: #636463 !important;
     font-size: 18px;
     font-family: "Univers Light";
     margin: 0;
 }
-.view-topic-items span {
+
+.view-topic-items caption .item-list ul {
+    list-style: none outside none;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left;
+}
+.view-topic-items caption .item-list li{
+    margin: 0 !important;
+}
+
+.view-topic-items table {
+    margin-bottom: 15px;
+}
+.view-topic-items .cols-1 {
+    float:left;
+    width: 220px;
+}
+.view-topic-items thead {
+    display:none;
+}
+
+.view-topic-items tr {
         background: url("images/icons/arrow.jpg")no-repeat 0;
 }
-.view-topic-items span a {
+.view-topic-items td a {
 	font-family: "arial";
 	font-weight: bold;
     font-size: 12px;
@@ -503,4 +525,34 @@ padding-top:15px;
 .view-dom-id-15 th, tr.even, tr.odd, tbody {
     background: none repeat scroll 0 0 transparent;
     border: medium none;
+}
+
+.view-portal-menu table {
+    display: none;
+}
+.view-portal-menu h3 {
+    padding: 0px;
+    margin:0px;
+    height: 20px;
+}
+
+.view-portal-menu ul {
+    padding-left: 0px;
+}
+
+.view-portal-menu a {
+   padding-left: 18px;
+}
+
+
+.view-portal-menu li {
+    background: url("images/icons/curved_arrow.jpg") no-repeat scroll 0;
+    font-family: Arial;
+    font-size: 12px;
+    height: 24px;
+    list-style: none outside none;
+    margin: 0 !important;
+}
+.view-portal-menu {
+    margin-top:12px;
 }

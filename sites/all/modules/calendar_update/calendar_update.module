@@ -4,14 +4,7 @@ function calendar_update_menu() {
 
   $items = array();
 
-  $items['fullcalendar/update'] = array(
-    'title' => 'Calendar Updater',
-    'page callback' => 'calendar_update_get_by_category_id',
-    'access arguments' => array('calendar update'),
-    'type' => MENU_CALLBACK
-  );
-
-    $items['products/get'] = array(
+  $items['calendar/update'] = array(
     'title' => 'Calendar Updater',
     'page callback' => 'calendar_update_get_by_category_id',
     'access arguments' => array('calendar update'),
@@ -28,7 +21,6 @@ function calendar_update_permission() {
     )
   );
   return $perms;
-  //return array('access calendar_update content');
 }
 
 function calendar_update_get_by_category_id($cat_id){
@@ -40,12 +32,13 @@ function calendar_update_get_by_category_id($cat_id){
     case 20:
      $items = '<ul><li>Product 3</li><li>Product 4</li></ul>';
      break;
+    default:
+     $items = '<h1>fall thru</h1>';
   }
 // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
   return drupal_json_output(
     array(
-      //'products' => $items
-      'products' => 'aaron_testing'
+      'products' => $items
     )
   );
   exit;

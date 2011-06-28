@@ -1,0 +1,61 @@
+
+<?php
+function calendar_update_menu() {
+
+  $items = array();
+
+  $items['products/get'] = array(
+    'title' => 'Calendar Updater',
+    'page callback' => 'calendar_update_get_by_category_id',
+    'access arguments' => array('calendar update'),
+    'type' => MENU_CALLBACK
+  );
+
+  return $items;
+}
+
+function calendar_update_permission() {
+  $perms = array(
+    'calendar update' => array(
+      'title' => t('Calendar Update'),
+    )
+  );
+  return $perms;
+  //return array('access calendar_update content');
+}
+
+function calendar_update_get_by_category_id($cat_id){
+  $items = '';
+  switch($cat_id){
+    case 12:
+     $items = '<ul><li>Product 1</li><li>Product 2</li></ul>';
+     break;
+    case 20:
+     $items = '<ul><li>Product 3</li><li>Product 4</li></ul>';
+     break;
+  }
+// create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
+  return drupal_json_output(
+    array(
+      'products' => $items
+    )
+  );
+  exit;
+}
+
+function calendar_update_theme() {
+   return array(
+      'calendar_update_javascript' => array(
+         'arguments' => array(),
+      ),
+   );
+}
+
+function calendar_update_init() {
+  theme('calendar_update_javascript');
+}
+
+function theme_calendar_update_javascript() {
+  drupal_add_js(drupal_get_path('module', 'calendar_update') . '/calendar_update.js');
+}
+

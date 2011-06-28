@@ -4,7 +4,14 @@ function calendar_update_menu() {
 
   $items = array();
 
-  $items['products/get'] = array(
+  $items['fullcalendar/update'] = array(
+    'title' => 'Calendar Updater',
+    'page callback' => 'calendar_update_get_by_category_id',
+    'access arguments' => array('calendar update'),
+    'type' => MENU_CALLBACK
+  );
+
+    $items['products/get'] = array(
     'title' => 'Calendar Updater',
     'page callback' => 'calendar_update_get_by_category_id',
     'access arguments' => array('calendar update'),
@@ -37,7 +44,8 @@ function calendar_update_get_by_category_id($cat_id){
 // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
   return drupal_json_output(
     array(
-      'products' => $items
+      //'products' => $items
+      'products' => 'aaron_testing'
     )
   );
   exit;

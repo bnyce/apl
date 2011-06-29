@@ -405,38 +405,37 @@ div.round-corners .br {
 /* End Drop Down Forms CSS */
 
 /* Portal Items-List View */
-.view-topic-items caption a{
+
+.view-topic-items h3 {
+    margin-bottom: 0px !important;
+}
+
+.view-topic-items h3 a{
     color: #636463 !important;
     font-size: 18px;
     font-family: "Univers Light";
     margin: 0;
 }
 
-.view-topic-items caption .item-list ul {
+.view-topic-items h3 .item-list ul {
     list-style: none outside none;
     margin: 0 !important;
     padding: 0 !important;
     text-align: left;
 }
-.view-topic-items caption .item-list li{
+.view-topic-items h3 .item-list li{
     margin: 0 !important;
 }
 
-.view-topic-items table {
-    margin-bottom: 15px;
-}
-.view-topic-items .cols-1 {
+.view-topic-items .views-limit-grouping-group{
     float:left;
     width: 220px;
 }
-.view-topic-items thead {
-    display:none;
-}
 
-.view-topic-items tr {
+.view-topic-items span {
         background: url("images/icons/arrow.jpg")no-repeat 0 !important;
 }
-.view-topic-items td a {
+.view-topic-items span a {
 	font-family: "arial";
 	font-weight: bold;
     font-size: 12px;

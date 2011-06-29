@@ -39,14 +39,23 @@ function calendar_update_get_by_category_id($cat_id){
   $displayId = 'calendar_day_block';
   $args = '2011-06-28';
   $res = views_embed_view($viewName, $displayId, $args);
+  $memo = createWeekView($args);
 // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
   return drupal_json_output(
     array(
       'products' => $res,
-      'memo' => 'test memo'
+      'memo' => $memo
     )
   );
   exit;
+}
+
+function createWeekView($str_date){
+  if (!$str_date){ $date = date('Y-m-d'); }
+  $yr_num = date("Y", strtotime($str_date));
+  $wk_num = date("W", strtotime($str_date));
+  $sun_target_week = date('m/d/Y', strtotime($yr_num.'W'.$wk_num.'0'));
+  return $sun_target_week;
 }
 
 function calendar_update_theme() {

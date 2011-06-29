@@ -2442,6 +2442,7 @@ function BasicView(element, calendar, viewName) {
 		var cell = dateCell(date);
 		var _element = bodyCells[cell.row*colCnt + cell.col];
 		trigger('dayClick', _element, date, allDay, ev);
+		alert(date);
 	}
 
 

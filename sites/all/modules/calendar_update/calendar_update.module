@@ -42,7 +42,8 @@ function calendar_update_get_by_category_id($cat_id){
 // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
   return drupal_json_output(
     array(
-      'products' => $res
+      'products' => $res,
+      'memo' => 'test memo'
     )
   );
   exit;

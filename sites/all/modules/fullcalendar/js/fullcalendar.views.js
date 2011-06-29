@@ -131,18 +131,17 @@ Drupal.behaviors.fullCalendar = {
       return false;
     });
 
-    $('.fc-view-basicWeek .fc-widget-content, a.calendarEventDay', context).click(function () {
+    $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
       // This function will get exceuted after the ajax request is completed successfully
       var updateProducts = function(data) {
         // The data parameter is a JSON object. The “products” property is the list of products items that was returned from the server response to the ajax request.
-        alert(data.products);
+        alert(data.memo);
         $('.view-display-id-calendar_day_block .view-content').html(data.products);
       }
-      alert('here2');
+      alert($(this).attr('class'));
       $.ajax({
         type: 'POST',
         url: 'calendar/update/20', //this.href, // Which url should be handle the ajax request. This is the url defined in the <a> html tag
-//        success: function(){alert('testing1');}, // The js function that will be called upon success request
         success: updateProducts, // The js function that will be called upon success request
         dataType: 'json', //define the type of data that is going to get back from the server
         data: 'js=1' //Pass a key/value pair

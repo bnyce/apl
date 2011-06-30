@@ -15,3 +15,5 @@ tmp/*
 bu/*
 pvt/*
 files/*
+/themes
+.svn

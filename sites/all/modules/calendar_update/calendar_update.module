@@ -23,24 +23,25 @@ function calendar_update_permission() {
   return $perms;
 }
 
-function calendar_update_get_by_category_id($cat_id){
+function calendar_update_get_by_category_id($str_class, $str_date='novalue', $curr_date){
+  $arr_months = array('Jan'=>'01', 'Feb'=>'02', 'Mar'=>'03', 'Apr'=>'04', 'May'=>'05', 'Jun'=>'06', 'Jul'=>'07', 'Aug'=>'08', 'Sep'=>'09', 'Oct'=>'10', 'Nov'=>'11', 'Dec'=>'12' );
   $items = '';
-  switch($cat_id){
-    case 12:
-     $items = '<ul><li>Product 1</li><li>Product 2</li></ul>';
-     break;
-    case 20:
-     $items = '<ul><li>Product 3</li><li>Product 4</li></ul>';
-     break;
-    default:
-     $items = '<h1>fall thru</h1>';
-  }
+  $str_day = '';
+  // pull day of week from class fc-day1
+  $int_day = preg_match('/fc-day(.?)/', $str_class, $str_dayofwk_matches);
+  // pull calendar year
+  //$int_year = preg_match('/^(.*)\-.*(\d{4})/', $str_date, $str_yr_matches);
+  //pull start of calendar week from weekly header 'Jul 3 - 9 2011'
+  $int_year = preg_match('/^(\w{3}) (\d{1,2}).*(\d{4})$/', urldecode($str_date), $str_yr_matches);
+
   $viewName = 'fullcalendar';
   $displayId = 'calendar_day_block';
-  $args = '2011-06-28';
+  $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
+
   $res = views_embed_view($viewName, $displayId, $args);
-  $memo = createWeekView($args);
-// create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
+  $memo = $str_dayofwk_matches[1] . ' | ' . implode('@@', $str_yr_matches) . ' | ' .$args;
+  //$memo = createWeekView($args);
+  // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $items variable.
   return drupal_json_output(
     array(
       'products' => $res,

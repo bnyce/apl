@@ -13,3 +13,6 @@ settings.php
 tmp/*
 bu/*
 files/*
+/themes
+.svn
+

@@ -411,9 +411,18 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .panel-center {
     background: none repeat scroll 0 0 #FFFFFF;
     padding: 15px;
-    width: 475px;
+    width: 715px;
 }
 
+.panel-center-left-region {
+    float: left;
+    width: 480px;
+}
+
+.panel-center-right-region {
+    float: left;
+    width: 200px;
+}
 .large-col {
 	background: #F0EEE2;
 }

@@ -25,21 +25,39 @@ function calendar_update_permission() {
 
 function calendar_update_get_by_category_id($str_class, $str_date='novalue', $curr_date){
   $arr_months = array('Jan'=>'01', 'Feb'=>'02', 'Mar'=>'03', 'Apr'=>'04', 'May'=>'05', 'Jun'=>'06', 'Jul'=>'07', 'Aug'=>'08', 'Sep'=>'09', 'Oct'=>'10', 'Nov'=>'11', 'Dec'=>'12' );
+  $viewName = 'fullcalendar';
+  $displayId = 'calendar_day_block2';
+  $str_sql_day_view = "SELECT n.nid, n.title, ed.field_event_date_value, ed.field_event_date_value2, td.name, CURDATE()
+						FROM scratch_node n
+						LEFT JOIN scratch_field_data_field_event_date ed ON n.nid=ed.entity_id
+						LEFT JOIN scratch_field_data_field_calendar_department cd ON n.nid=cd.entity_id
+						LEFT JOIN scratch_taxonomy_term_data td ON cd.field_calendar_department_tid=td.tid
+						WHERE n.type = 'calender_events'
+						AND
+						(
+							DATE(ed.field_event_date_value) = :passed_date
+							OR DATE(ed.field_event_date_value2) = :passed_date
+							OR (
+  									DATE(ed.field_event_date_value) <= :passed_date
+ 								AND
+  									DATE(ed.field_event_date_value2) >= :passed_date
+   							   )
+   						)";
   $items = '';
   $str_day = '';
   // pull day of week from class fc-day1
   $int_day = preg_match('/fc-day(.?)/', $str_class, $str_dayofwk_matches);
-  // pull calendar year
-  //$int_year = preg_match('/^(.*)\-.*(\d{4})/', $str_date, $str_yr_matches);
   //pull start of calendar week from weekly header 'Jul 3 - 9 2011'
   $int_year = preg_match('/^(\w{3}) (\d{1,2}).*(\d{4})$/', urldecode($str_date), $str_yr_matches);
-
-  $viewName = 'fullcalendar';
-  $displayId = 'calendar_day_block';
   $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
-
-  $res = views_embed_view($viewName, $displayId, $args);
-  $memo = $str_dayofwk_matches[1] . ' | ' . implode('@@', $str_yr_matches) . ' | ' .$args;
+  $result = db_query($str_sql_day_view, array(':passed_date' => $args));
+  foreach ($result as $record) {
+    $tmp .= $record->nid . ',';
+  }
+  $tmp = trim($tmp, ',');
+  if ($tmp == ''){ $tmp = null; }
+  $res = views_embed_view($viewName, $displayId, $tmp);
+  $memo = '|'. $tmp .'|'. $args;
   //$memo = createWeekView($args);
   // create a JSON object. The object will contain a property named “products” that will be set with the $items variable.
   return drupal_json_output(

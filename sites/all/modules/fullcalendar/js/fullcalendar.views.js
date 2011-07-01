@@ -132,11 +132,15 @@ Drupal.behaviors.fullCalendar = {
     });
 
     $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
+      //on click, remove shading for today and change to clicked day
+      $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
+      $(this).addClass('fc-state-highlight');
       // This function will get exceuted after the ajax request is completed successfully
       var updateProducts = function(data) {
         // The data parameter is a JSON object. The ÒproductsÓ property is the list of products items that was returned from the server response to the ajax request.
-        if(data.memo != '') { alert(data.memo); console.debug(data.memo); }
-        $('.view-display-id-calendar_day_block > div').html(data.products);
+        if(data.memo != '') { console.debug(data.memo); }
+        //$('.view-display-id-calendar_day_block > div').html(data.products);
+        $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
       }
       //alert($(this).attr('class'));
       $.ajax({

@@ -9,8 +9,8 @@
       
 		<div id="toplinks">
 		<?php print render($page['toplinks']); ?>
-
-</div>
+		</div>
+        
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
           <?php if ($title): ?>

@@ -291,7 +291,7 @@ a.fc-event {
 	border-style: solid;
 	border-width: 0;
 	overflow: hidden;
-	white-space: nowrap;
+	/*white-space: nowrap;*/
 	}
 
 .fc-event-time,

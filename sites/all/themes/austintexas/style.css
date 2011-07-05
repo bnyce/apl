@@ -405,24 +405,33 @@ div.round-corners .br {
 /* End Drop Down Forms CSS */
 
 /* Portal Items-List View */
+<<<<<<< HEAD
 
 .view-topic-items h3 {
     margin-bottom: 0px !important;
 }
 
 .view-topic-items h3 a{
+=======
+.view-topic-items caption a{
+>>>>>>> 1156b7492b770ccaa961399715c8fa9736a6bacc
     color: #636463 !important;
     font-size: 18px;
     font-family: "Univers Light";
     margin: 0;
 }
 
+<<<<<<< HEAD
 .view-topic-items h3 .item-list ul {
+=======
+.view-topic-items caption .item-list ul {
+>>>>>>> 1156b7492b770ccaa961399715c8fa9736a6bacc
     list-style: none outside none;
     margin: 0 !important;
     padding: 0 !important;
     text-align: left;
 }
+<<<<<<< HEAD
 .view-topic-items h3 .item-list li{
     margin: 0 !important;
 }
@@ -434,8 +443,27 @@ div.round-corners .br {
 
 .view-topic-items span {
         background: url("images/icons/arrow.jpg")no-repeat 0 !important;
+=======
+.view-topic-items caption .item-list li{
+    margin: 0 !important;
 }
-.view-topic-items span a {
+
+.view-topic-items table {
+    margin-bottom: 15px;
+}
+.view-topic-items .cols-1 {
+    float:left;
+    width: 220px;
+}
+.view-topic-items thead {
+    display:none;
+}
+
+.view-topic-items tr {
+        background: url("images/icons/arrow.jpg")no-repeat 0;
+>>>>>>> 1156b7492b770ccaa961399715c8fa9736a6bacc
+}
+.view-topic-items td a {
 	font-family: "arial";
 	font-weight: bold;
     font-size: 12px;
@@ -526,33 +554,23 @@ padding-top:15px;
     border: medium none;
 }
 
-.view-portal-menu table {
-    display: none;
+.view-portal-menu .view-content {
+    padding-bottom: 120%;
+}
+.view-portal-menu h2 {
+    margin-bottom: 0;
+}
+.view-portal-menu a {
+    color: #636463 !important;
+    padding-left: 18px;
+    font-size: 15px !important;
+    text-decoration: none !important;
 }
 .view-portal-menu h3 {
-    padding: 0px;
-    margin:0px;
-    height: 20px;
-}
-
-.view-portal-menu ul {
-    padding-left: 0px;
-}
-
-.view-portal-menu a {
-color: #636463 !important;
-   padding-left: 18px;
-}
-
-
-.view-portal-menu li {
-    background: url("images/icons/curved_arrow.jpg") no-repeat scroll 0;
+    background: url("images/icons/curved_arrow.jpg") no-repeat scroll 0 50% transparent;
     font-family: Arial;
-    font-size: 12px;
     height: 24px;
     list-style: none outside none;
     margin: 0 !important;
 }
-.view-portal-menu {
-    margin-top:12px;
-}
+

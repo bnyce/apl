@@ -114,7 +114,16 @@ Drupal.behaviors.fullCalendar = {
           return false;
         },
         dayClick: function(date, allDay, jsEvent, view) {
-          console.log(date, allDay, jsEvent, view);
+          console.log(date, allDay, jsEvent, view, this);
+          if (view.name == 'basicWeek') {
+            console.log('BasicWeekView');
+          }
+          if (view.name == 'month') {
+            console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
+            //$('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
+            $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
+            //$('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('select', date);
+          }
         }
       });
     });
@@ -137,17 +146,15 @@ Drupal.behaviors.fullCalendar = {
 
     $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
       //on click, remove shading for today and change to clicked day
-//   $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
+      //   $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
       $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
       $(this).addClass('fc-state-highlight');
       // This function will get exceuted after the ajax request is completed successfully
-      var updateProducts = function(data) {
-        // The data parameter is a JSON object. The ÒproductsÓ property is the list of products items that was returned from the server response to the ajax request.
+      ajaxPost(this);
+/*      var updateProducts = function(data) {
         if(data.memo != '') { console.debug(data.memo); }
-        //$('.view-display-id-calendar_day_block > div').html(data.products);
         $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
       }
-      //alert($(this).attr('class'));
       $.ajax({
         type: 'POST',
         url: 'calendar/update/' + $(this).attr('class') + '/' + $('#block-system-main h2').text(), //this.href, // Which url should be handle the ajax request. This is the url defined in the <a> html tag
@@ -155,8 +162,24 @@ Drupal.behaviors.fullCalendar = {
         dataType: 'json', //define the type of data that is going to get back from the server
         data: 'js=1' //Pass a key/value pair
       });
-      //return false;  // return false so the navigation stops here and not continue to the page in the link
+*/
     });
+
+    var ajaxPost = function(thisObj){
+      var updateProducts = function(data) {
+        // The data parameter is a JSON object. The ÒproductsÓ property is the list of products items that was returned from the server response to the ajax request.
+        if(data.memo != '') { console.debug(data.memo); }
+        //$('.view-display-id-calendar_day_block > div').html(data.products);
+        $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
+      }
+      $.ajax({
+        type: 'POST',
+        url: 'calendar/update/' + $(thisObj).attr('class') + '/' + $('#block-system-main h2').text(), //this.href, // Which url should be handle the ajax request. This is the url defined in the <a> html tag
+        success: updateProducts, // The js function that will be called upon success request
+        dataType: 'json', //define the type of data that is going to get back from the server
+        data: 'js=1' //Pass a key/value pair
+      });
+    }
 
 /*    $('.view-dom-id-fc-2').find('.fullcalendar').fullCalendar({
       dayClick: function(date, allDay, jsEvent, view) {

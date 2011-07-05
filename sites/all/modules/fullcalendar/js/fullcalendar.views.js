@@ -11,6 +11,7 @@ Drupal.behaviors.fullCalendar = {
     // Process each view and its settings.
     $.each(Drupal.settings.fullcalendar, function(index, settings) {
       // Hide the failover display.
+      console.log(settings);
       $(index).find('.fullcalendar-content').hide();
 
        // Add events from Drupal.
@@ -111,6 +112,9 @@ Drupal.behaviors.fullCalendar = {
             'field=' + event.field + '&entity_type=' + event.entity_type + '&index=' + event.index + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&dom_id=' + event.dom_id,
             fullcalendarUpdate);
           return false;
+        },
+        dayClick: function(date, allDay, jsEvent, view) {
+          console.log(date, allDay, jsEvent, view);
         }
       });
     });
@@ -133,6 +137,7 @@ Drupal.behaviors.fullCalendar = {
 
     $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
       //on click, remove shading for today and change to clicked day
+//   $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
       $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
       $(this).addClass('fc-state-highlight');
       // This function will get exceuted after the ajax request is completed successfully
@@ -152,6 +157,24 @@ Drupal.behaviors.fullCalendar = {
       });
       //return false;  // return false so the navigation stops here and not continue to the page in the link
     });
+
+/*    $('.view-dom-id-fc-2').find('.fullcalendar').fullCalendar({
+      dayClick: function(date, allDay, jsEvent, view) {
+        alert(date);
+      }
+    });
+
+    $('.fc-view-month tbody .fc-widget-content', context).click(function () {
+      //on click, remove shading for today and change to clicked day
+      $('.fc-view-month tbody .fc-widget-content').removeClass('fc-state-highlight');
+      $(this).addClass('fc-state-highlight');
+      $mnth_view_year = $('.view-display-id-calendar_month_block .fc-header-center .fc-header-title h2').text();
+      $mnth_view_month = $('.view-display-id-calendar_month_block .fc-header-center .fc-header-title h2').text();
+      $mnth_view_day = $(this).text();
+      console.log($mnth_view_year, $mnth_view_month, $mnth_view_day);
+      $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
+    });
+*/
 
     // Trigger a window resize so that calendar will redraw itself as it loads funny in some browsers occasionally
     $(window).resize();

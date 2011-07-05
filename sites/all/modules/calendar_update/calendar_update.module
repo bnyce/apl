@@ -70,6 +70,7 @@ function calendar_update_get_by_category_id($str_class, $str_date='novalue', $cu
   exit;
 }
 
+/*
 function createWeekView($str_date){
   if (!$str_date){ $date = date('Y-m-d'); }
   $yr_num = date("Y", strtotime($str_date));
@@ -77,6 +78,7 @@ function createWeekView($str_date){
   $sun_target_week = date('m/d/Y', strtotime($yr_num.'W'.$wk_num.'0'));
   return $sun_target_week;
 }
+*/
 
 function calendar_update_theme() {
    return array(
@@ -92,5 +94,6 @@ function calendar_update_init() {
 
 function theme_calendar_update_javascript() {
   drupal_add_js(drupal_get_path('module', 'calendar_update') . '/calendar_update.js');
+  drupal_add_js(drupal_get_path('module', 'fullcalendar') . 'js/fullcalendar.views.js');
 }
 

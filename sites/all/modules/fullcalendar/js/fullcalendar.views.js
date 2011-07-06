@@ -120,9 +120,26 @@ Drupal.behaviors.fullCalendar = {
           }
           if (view.name == 'month') {
             console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
-            //$('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
+            ajaxPostDay(null, date);
             $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
-            //$('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('select', date);
+            // remove highlighting from previously selected day in week view
+            $('.view-display-id-calendar_month_block .fc-widget-content').removeClass('fc-state-highlight');
+            // remove highlighting from previously selected day in week view
+            $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
+            //find which day is selected in month view by class name
+            var classArr = $(this).attr('class').split(' ');
+            var classPageArr = ['fc-sun', 'fc-mon', 'fc-tue', 'fc-wed', 'fc-thu', 'fc-fri', 'fc-sat'];
+            for (i=0;i<classArr.length;i++) {
+              console.log(classArr[i]);
+              var tt = classArr[i];
+              if (jQuery.inArray(classArr[i], classPageArr) > -1){
+                // apply highlighting to selected day from month view to week view.
+                $('.fc-view-basicWeek tbody .' + tt).addClass('fc-state-highlight');
+                break;
+              }
+            }
+            //highlight selected day in month view
+            $(this).addClass('fc-state-highlight');
           }
         }
       });
@@ -146,58 +163,30 @@ Drupal.behaviors.fullCalendar = {
 
     $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
       //on click, remove shading for today and change to clicked day
-      //   $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
       $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
       $(this).addClass('fc-state-highlight');
-      // This function will get exceuted after the ajax request is completed successfully
-      ajaxPost(this);
-/*      var updateProducts = function(data) {
-        if(data.memo != '') { console.debug(data.memo); }
-        $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
-      }
-      $.ajax({
-        type: 'POST',
-        url: 'calendar/update/' + $(this).attr('class') + '/' + $('#block-system-main h2').text(), //this.href, // Which url should be handle the ajax request. This is the url defined in the <a> html tag
-        success: updateProducts, // The js function that will be called upon success request
-        dataType: 'json', //define the type of data that is going to get back from the server
-        data: 'js=1' //Pass a key/value pair
-      });
-*/
+      ajaxPostDay(this);
     });
 
-    var ajaxPost = function(thisObj){
+    var ajaxPostDay = function(thisObj, dateObj){
       var updateProducts = function(data) {
-        // The data parameter is a JSON object. The ÒproductsÓ property is the list of products items that was returned from the server response to the ajax request.
         if(data.memo != '') { console.debug(data.memo); }
-        //$('.view-display-id-calendar_day_block > div').html(data.products);
         $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
+        if ($('#block-system-main').find('div#paramDayDate').length == 0) {
+          $('#block-system-main .fc').after('<div id="paramDayDate">' + data.paramDate + '</div>');
+        }else{
+          $('#paramDayDate').text(data.paramDate);
+        }
       }
+      if(!dateObj) { dateObj = null; }
       $.ajax({
         type: 'POST',
-        url: 'calendar/update/' + $(thisObj).attr('class') + '/' + $('#block-system-main h2').text(), //this.href, // Which url should be handle the ajax request. This is the url defined in the <a> html tag
+        url: 'calendar/update/' + $(thisObj).attr('class') + '/' + $('#block-system-main h2').text() + '/' + dateObj,
         success: updateProducts, // The js function that will be called upon success request
         dataType: 'json', //define the type of data that is going to get back from the server
         data: 'js=1' //Pass a key/value pair
       });
     }
-
-/*    $('.view-dom-id-fc-2').find('.fullcalendar').fullCalendar({
-      dayClick: function(date, allDay, jsEvent, view) {
-        alert(date);
-      }
-    });
-
-    $('.fc-view-month tbody .fc-widget-content', context).click(function () {
-      //on click, remove shading for today and change to clicked day
-      $('.fc-view-month tbody .fc-widget-content').removeClass('fc-state-highlight');
-      $(this).addClass('fc-state-highlight');
-      $mnth_view_year = $('.view-display-id-calendar_month_block .fc-header-center .fc-header-title h2').text();
-      $mnth_view_month = $('.view-display-id-calendar_month_block .fc-header-center .fc-header-title h2').text();
-      $mnth_view_day = $(this).text();
-      console.log($mnth_view_year, $mnth_view_month, $mnth_view_day);
-      $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', '1999', '01', '10');
-    });
-*/
 
     // Trigger a window resize so that calendar will redraw itself as it loads funny in some browsers occasionally
     $(window).resize();

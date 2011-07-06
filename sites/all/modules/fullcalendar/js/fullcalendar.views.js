@@ -173,10 +173,12 @@ Drupal.behaviors.fullCalendar = {
         if(data.memo != '') { console.debug(data.memo); }
         $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
         if ($('#block-system-main').find('div#paramDayDate').length == 0) {
-          $('#block-system-main .fc').after('<div id="paramDayDate">' + data.paramDate + '</div>');
+          $('#block-system-main .view-display-id-fullcalendar_page .fc').after('<div id="paramDayDate">' + data.paramDate + '</div>');
         }else{
           $('#paramDayDate').text(data.paramDate);
         }
+        // TODO: add close tags to close the department blocks
+        //$('#block-views-fullcalendar-calendar-day-block .view-content h3').after('<div id="deptClose">Close</div>');
       }
       if(!dateObj) { dateObj = null; }
       $.ajax({
@@ -188,6 +190,10 @@ Drupal.behaviors.fullCalendar = {
       });
     }
 
+    // click department header to hide that department's events
+    $('#block-views-fullcalendar-calendar-day-block .view-content h3').live('click', function() {
+      $(this).next().fadeToggle('slow','linear');
+    });
     // Trigger a window resize so that calendar will redraw itself as it loads funny in some browsers occasionally
     $(window).resize();
   }

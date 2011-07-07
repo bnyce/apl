@@ -137,9 +137,9 @@ span.customStyleSelectBox {
 	color: #816C5B;
     font-size: 12px;
     height: 15px;
-	padding: 5px 40px 1px 0;
+	padding: 5px 10px 10px 0;
 }
-.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 5px 70px 5px 0; }
+.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 5px 0; }
 option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
 
 

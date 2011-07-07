@@ -152,7 +152,7 @@ form select {
     padding-top: 5px;
     text-transform: capitalize;
     */
-    width: 280px;
+    width: 240px;
 }
 #wrapper {
     margin: 0 auto;
@@ -579,6 +579,11 @@ div.round-corners .br {
 style-2 .views-field-title-1 {
     margin-top: 0 !important;
 }
+
+style-2 .views-field-title-1 {
+    margin-top: 0px !important;
+}
+
 .style-2 {
     background: #f0e9dc;
     width: 207px;

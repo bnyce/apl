@@ -75,10 +75,6 @@ div.small-col {
   padding: 10px 10px 10px 0;
 }
 
-.large-col #block-system-main {
-  /* display:none;  */
-}
-
 .view-display-id-calendar_day_block td,
 .view-display-id-calendar_day_block2 td {
 	width:33%;
@@ -99,4 +95,13 @@ div.small-col {
 .view-display-id-calendar_day_block .field-content > span.date-display-start,
 .view-display-id-calendar_day_block2 .field-content > span.date-display-start {
 	display:block;
+}
+
+#paramDayDate {
+	margin:22px 0 0;
+	font-size: 18px;
+}
+
+#ajaxLoader {
+	margin: 0 0 0 50px;
 }

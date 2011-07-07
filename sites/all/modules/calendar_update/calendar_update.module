@@ -47,30 +47,41 @@ function calendar_update_get_by_category_id($str_class, $str_date='novalue', $cu
   $items = '';
   if ($curr_date == 'null') {
     // pull day of week from class fc-day1
-    $int_day = preg_match('/fc-day(.?)/', $str_class, $str_dayofwk_matches);
+//    $int_day = preg_match('/fc-day(.?)/', $str_class, $str_dayofwk_matches);
     //pull start of calendar week from weekly header 'Jul 3 - 9 2011'
-    $int_year = preg_match('/^(\w{3}) (\d{1,2}).*(\d{4})$/', urldecode($str_date), $str_yr_matches);
-    $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
-    $argsFriendlyMode = date('D, M d, Y', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
+//    $int_year = preg_match('/^(\w{3}) (\d{1,2}).*(\d{4})$/', urldecode($str_date), $str_yr_matches);
+//    $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
+//    $argsFriendlyMode = date('D, M d, Y', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
   }else{
     $dateArr = explode(" ", $curr_date);
     $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$dateArr[1]], $dateArr[2], $dateArr[3]));
     $argsFriendlyMode = date('D, M d, Y', mktime(0, 0, 0, $arr_months[$dateArr[1]], $dateArr[2], $dateArr[3]));
   }
   $result = db_query($str_sql_day_view, array(':passed_date' => $args));
+  $tmp = '';
   foreach ($result as $record) {
     $tmp .= $record->nid . ',';
   }
   $tmp = trim($tmp, ',');
   if ($tmp == ''){ $tmp = null; }
   $res = views_embed_view($viewName, $displayId, $tmp);
-  $memo = '|'. $tmp .'|'. $args .'|'. $curr_date;
+
+  $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+  $path = explode("/", $path);
+  if (count($path) > 1 && $path[1] != "") {
+    $pathParm = $path[1];
+  }else{
+    $pathParm = 'all';
+  }
+
+  $memo = '|'. $tmp .'|'. $args .'|'. $curr_date .'|'. $pathParm;
   // create a JSON object. The object will contain a property named ÒproductsÓ that will be set with the $res variable.
   return drupal_json_output(
     array(
       'products' => $res,
       'memo' => $memo,
       'paramDate' => $argsFriendlyMode
+
     )
   );
   exit;

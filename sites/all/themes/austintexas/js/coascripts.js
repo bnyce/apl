@@ -35,23 +35,23 @@
 
 		//RESIDENT
 		if (/\/resident\//.test(window.location)) {
-	    	$('#main-menu-links .menu-877').attr('class', 'active');
+	    	$('#main-menu-links .menu-877').addClass('active');
 		}
 		//BUSINESS
 		if (/\/business\//.test(window.location)) {
-	    	$('#main-menu-links .menu-572').attr('class', 'active');
+	    	$('#main-menu-links .menu-572').addClass('active');
 		}
 		//DEVELOPMENT
 		if (/\/development\//.test(window.location)) {
-	    	$('#main-menu-links .menu-573').attr('class', 'active');
+	    	$('#main-menu-links .menu-573').addClass('active');
 		}
 		//GOVERNMENT
 		if (/\/government\//.test(window.location)) {
-	    	$('#main-menu-links .menu-574').attr('class', 'active');
+	    	$('#main-menu-links .menu-574').addClass('active');
 		}
 		//ENVIRONMENT
 		if (/\/environmnet\//.test(window.location)) {
-	    	$('#main-menu-links .menu-575').attr('class', 'active');
+	    	$('#main-menu-links .menu-575').addClass('active');
 		}
 
 

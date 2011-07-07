@@ -141,6 +141,7 @@ body {
     padding-right: 20px;
 }
 form select {
+	/* REMOVING STYLES TO TEST OUT SELECT DOWN ARROWS
     background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
     border: medium none;
     color: #595959;
@@ -150,7 +151,8 @@ form select {
     padding-left: 5px;
     padding-top: 5px;
     text-transform: capitalize;
-    width: 180px;
+    */
+    width: 280px;
 }
 #wrapper {
     margin: 0 auto;
@@ -571,3 +573,48 @@ div.round-corners .br {
     list-style: none outside none;
     margin: 0 !important;
 }
+
+
+/* PROMO TILES */
+style-2 .views-field-title-1 {
+    margin-top: 0 !important;
+}
+.style-2 {
+    background: #f0e9dc;
+    width: 207px;
+}
+
+.style-2 .views-field-field-body .field-content {
+    padding:10px 10px 0px 10px;
+}
+
+.style-3 {
+    border-top: 1px solid;
+    margin-bottom: 0 !important;
+    margin-left: 16px;
+    margin-right: 0 !important;
+    margin-top: 10px !important;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 207px;
+}
+.style-3 a {
+    color: #A85708;
+    font-weight: bold;
+    padding-right: 10px;
+    text-decoration: none;
+}
+.style-3 .views-field-field-icon img {
+    float: left;
+    margin-right: 10px;
+}
+.style-3 .views-field-field-text .field-content {
+    margin-top: 2px;
+}
+.style-3 .views-field-title-1 span {
+}
+.style-3 .views-field-title-1 .field-content a {
+    float: right;
+    margin-bottom: 15px;
+}
+

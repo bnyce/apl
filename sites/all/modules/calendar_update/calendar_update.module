@@ -23,7 +23,7 @@ function calendar_update_permission() {
   return $perms;
 }
 
-function calendar_update_get_by_category_id($str_class, $str_date='novalue', $curr_date=null){
+function calendar_update_get_by_category_id($curr_date=null, $pathname=null){
   $arr_months = array('Jan'=>'01', 'Feb'=>'02', 'Mar'=>'03', 'Apr'=>'04', 'May'=>'05', 'Jun'=>'06', 'Jul'=>'07', 'Aug'=>'08', 'Sep'=>'09', 'Oct'=>'10', 'Nov'=>'11', 'Dec'=>'12' );
   $viewName = 'fullcalendar';
   $displayId = 'calendar_day_block2';
@@ -64,15 +64,14 @@ function calendar_update_get_by_category_id($str_class, $str_date='novalue', $cu
   }
   $tmp = trim($tmp, ',');
   if ($tmp == ''){ $tmp = null; }
-  $res = views_embed_view($viewName, $displayId, $tmp);
-
-  $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
-  $path = explode("/", $path);
-  if (count($path) > 1 && $path[1] != "") {
-    $pathParm = $path[1];
+  $pathname = explode("@", $pathname);
+  if (count($pathname) > 1 && $pathname[1] != "") {
+    $pathParm = $pathname[1];
   }else{
     $pathParm = 'all';
   }
+
+  $res = views_embed_view($viewName, $displayId, $tmp, $pathParm );
 
   $memo = '|'. $tmp .'|'. $args .'|'. $curr_date .'|'. $pathParm;
   // create a JSON object. The object will contain a property named “products” that will be set with the $res variable.

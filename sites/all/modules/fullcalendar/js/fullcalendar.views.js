@@ -118,33 +118,19 @@ Drupal.behaviors.fullCalendar = {
           $('#paramDayDate').append('<img id="ajaxLoader" src="/sites/all/themes/austintexas/images/ajax-loader.gif" />');
           if (view.name == 'basicWeek') {
             console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
-            ajaxPostDay(null, date);
+            ajaxPostDay(date);
             $('.view-dom-id-fc-2').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
             // remove highlighting from previously selected day in week view
             $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
-            // remove highlighting from previously selected day in week view
+            // remove highlighting from previously selected day in month view
             $('.view-display-id-calendar_month_block .fc-widget-content').removeClass('fc-state-highlight');
-            //find which day is selected in month view by class name
-            /* TODO:  need to find a way to select/highlight the day in month view, using fc-sun, etc selects all sundays for the month. =(
-             * var classArr = $(this).attr('class').split(' ');
-            var classPageArr = ['fc-sun', 'fc-mon', 'fc-tue', 'fc-wed', 'fc-thu', 'fc-fri', 'fc-sat'];
-            var i=0;
-            for (i=0;i<classArr.length;i++) {
-              console.log(classArr[i]);
-              var tt = classArr[i];
-              if (jQuery.inArray(classArr[i], classPageArr) > -1){
-                // apply highlighting to selected day from month view to month view.
-                $('.view-display-id-calendar_month_block tbody .' + tt).addClass('fc-state-highlight');
-                break;
-              }
-            }
-            */
+            // TODO:  need to find a way to select/highlight the day in month view, using fc-sun, etc selects all sundays for the month. =(
             //highlight selected day in week view
             $(this).addClass('fc-state-highlight');
           }
           if (view.name == 'month') {
             console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
-            ajaxPostDay(null, date);
+            ajaxPostDay(date);
             $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
             // remove highlighting from previously selected day in month view
             $('.view-display-id-calendar_month_block .fc-widget-content').removeClass('fc-state-highlight');
@@ -193,8 +179,8 @@ Drupal.behaviors.fullCalendar = {
       ajaxPostDay(this);
     });
 */
-    var ajaxPostDay = function(thisObj, dateObj){
-      console.log('ajaxpost: ' + thisObj + dateObj );
+    var ajaxPostDay = function(dateObj){
+      console.log('ajaxpost: ' + dateObj );
       var updateProducts = function(data) {
         console.log('success');
         if(data.memo != '') { console.debug(data.memo); }
@@ -204,15 +190,18 @@ Drupal.behaviors.fullCalendar = {
         }else{
           $('#paramDayDate').text(data.paramDate);
         }
-        // TODO: add close tags to close the department blocks
-        //$('#block-views-fullcalendar-calendar-day-block .view-content h3').after('<div id="deptClose">Close</div>');
       }
       if(!dateObj) { dateObj = null; }
+      //trim leading '/' off url
+      var locPathStr = window.location.pathname.replace(/^\/?/, '');
+      // replace any other '/' to @ so it will not think each / is another parameter
+      var locPathStr = locPathStr.replace(/\//, '@');
+      console.log(locPathStr);
       $.ajax({
         type: 'POST',
-        url: '/calendar/update/' + $(thisObj).attr('class') + '/' + $('#block-system-main h2').text() + '/' + dateObj,
+        //url: '/calendar/update/' + $(thisObj).attr('class') + '/' + $('#block-system-main h2').text() + '/' + dateObj,
+        url: '/calendar/update/' + dateObj + '/' + locPathStr,
         success: updateProducts, // The js function that will be called upon success request
-        //success: updateProducts = function(data) { alert(data.memo) },
         dataType: 'json', //define the type of data that is going to get back from the server
         data: 'js=1' //Pass a key/value pair
       });
@@ -222,6 +211,7 @@ Drupal.behaviors.fullCalendar = {
     $('#block-views-fullcalendar-calendar-day-block .view-content h3').live('click', function() {
       $(this).next().fadeToggle('slow','linear');
     });
+
     // Trigger a window resize so that calendar will redraw itself as it loads funny in some browsers occasionally
     $(window).resize();
   }

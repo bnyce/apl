@@ -17,4 +17,35 @@ function austintexas_breadcrumb($variables) {
   }
 }
 
+
+
+
+
+/*function austintexas_search_item($item, $type) {
+  $output = ' <dt class="title"><a href="'. check_url($item['link']) .'">'. check_plain($item['title']) .'</a></dt>';
+  $info = array();
+  if ($item['type']) {
+    $info[] = check_plain($item['type']);
+  }
+  if ($item['user']) {
+    $info[] = $item['user'];
+  }
+  if ($item['date']) {
+    $info[] = format_date($item['date'], 'small');
+  }
+  if (is_array($item['extra'])) {
+    $info = array_merge($info, $item['extra']);
+  }
+  $output .= ' <dd>'. ($item['snippet'] ? '<p>'. $item['snippet'] .'</p>' : '') .'<p class="search-info">'. implode(' - ', $info) .'</p></dd>';
+  return $output;
+}*/
+
+function austintexas_search_item($item, $type) {
+  $output = ' <dt class="title"><a href="'. check_url($item['link']) .'">'. check_plain($item['title']) .'</a></dt>';
+  $output .= ' <dd>'. ($item['snippet'] ? '<p>'. $item['snippet'] .'</p>' : '');
+  return $output;
+}
+
+
+
 ?>

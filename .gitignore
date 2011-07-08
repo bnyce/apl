@@ -17,3 +17,4 @@ pvt/*
 files/*
 /themes
 .svn
+sites/all/modules/drupalforfirebug

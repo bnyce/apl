@@ -43,6 +43,8 @@ OUTPUT;
   $iframe_id = drupal_json_encode($variables['wrapper_id'] .'_iframe');
   $wrapper_id = drupal_json_encode($variables['wrapper_id']);
   $JSObject = 'Drupal.settings.media_youtube[' . $wrapper_id . ']';
+  // YouTube apparently changed their params so it autoplays even if sent as 0.
+  $JSObjectSetAutoplay = $variables['autoplay'] ? "$JSObject.options = { autoplay: {$variables['autoplay']} };" : '';
   $variables['output'] .= <<<OUTPUT
     <script type="text/javascript">
       if (Drupal.settings && Drupal.media_youtube) {
@@ -53,7 +55,7 @@ OUTPUT;
         $JSObject.video_id = "{$variables['video_id']}";
         $JSObject.fullscreen = {$variables['fullscreen']};
         $JSObject.id = $iframe_id;
-        $JSObject.options = { autoplay: {$variables['autoplay']} };
+        $JSObjectSetAutoplay
         Drupal.media_youtube.insertEmbed($wrapper_id);
       }
     </script>

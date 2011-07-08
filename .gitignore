@@ -17,3 +17,5 @@ pvt/*
 files/*
 /themes
 .svn
+Capfile
+config/deploy.rb

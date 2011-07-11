@@ -60,7 +60,8 @@
 	//add arrows to select (online services)
 	$('.select-arrow select').customStyle();
 
-
+	//remove view all links on portal left menu items
+	$('.view-dom-id-4').find('.more-link').css('display', 'none');
 
 	});
 })(jQuery);

@@ -42,8 +42,8 @@
 	border: none;
 }
 
-#top-search #search-block-form #edit-search-block-form--2, #block-search-form input.form-text {
-	width: 420px
+#top-search #search-block-form #edit-search-block-form--2, #top-search #block-search-form input.form-text {
+	width: 420px;
 	height: 15px;
 	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
 	padding: 3px;
@@ -91,7 +91,8 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 	div.single-column .breadcrumb {height: 33px;padding: 0 15px;background: #767f89 url("images/tr_blue.jpg") no-repeat scroll right top;margin-left: 15px; line-height: 33px;}
 	
 	div.single-column .br {background: #fff url("images/br.jpg") no-repeat scroll right bottom;margin-left: 10px; padding: 10px 10px 10px 0;}
-	div.single-column .large-col {width: 75%;}
+	div.single-column .large-col {width: 100%;}
+		.large-col {width: 75%;}
 		div.single-column .large-col .content {}
 	div.single-column .small-col {width: 23%; float: right;}
 
@@ -132,13 +133,13 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 /* #ONLINE SERVICES SELECT LIST
 ================================================== */
 span.customStyleSelectBox {
-	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
+	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 2px transparent;
 	color: #816C5B;
     font-size: 12px;
     height: 15px;
-    padding: 3px;
+	padding: 5px 10px 10px 0;
 }
-.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 3px; }
+.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 165px center transparent; height: 15px; padding: 5px 0; }
 option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
 
 
@@ -410,9 +411,18 @@ p#tweet {font-weight: normal; font-size: 12px;}
 .panel-center {
     background: none repeat scroll 0 0 #FFFFFF;
     padding: 15px;
-    width: 475px;
+    width: 715px;
 }
 
+.panel-center-left-region {
+    float: left;
+    width: 480px;
+}
+
+.panel-center-right-region {
+    float: left;
+    width: 200px;
+}
 .large-col {
 	background: #F0EEE2;
 }

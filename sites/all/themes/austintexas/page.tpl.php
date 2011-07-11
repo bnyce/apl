@@ -4,10 +4,13 @@
   <div id="wrapper">
     <div id="container" class="clearfix">
       <div id="header">
+
+      	<div id="top-search"><?php print render($page['search']); ?></div>
+      
 		<div id="toplinks">
 		<?php print render($page['toplinks']); ?>
-
-</div>
+		</div>
+        
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
           <?php if ($title): ?>
@@ -50,7 +53,7 @@
     <?php endif; ?>
         <div id="submenubar"><?php print render($page['submenubar']); ?></div>
 		<div id="header-banner" class="br"><?php print render($page['header_banner']); ?></div>
-        <div id="search" class="br"><?php print render($page['search']); ?></div>
+        <!-- <div id="search" class="br"><?php print render($page['search']); ?></div>  -->
       </div> <!-- /#header -->
 
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">

@@ -108,4 +108,5 @@ div.small-col {
 
 div.single-column .large-col {
 	width:75% !important;
+	background: none repeat scroll 0 0 #FFFFFF;
 }

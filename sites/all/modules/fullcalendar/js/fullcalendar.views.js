@@ -124,7 +124,7 @@ Drupal.behaviors.fullCalendar = {
             $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
             // remove highlighting from previously selected day in month view
             $('.view-display-id-calendar_month_block .fc-widget-content').removeClass('fc-state-highlight');
-            // TODO:  need to find a way to select/highlight the day in month view, using fc-sun, etc selects all sundays for the month. =(
+            /* TODO:  need to find a way to select/highlight the day in month view, using fc-sun, etc selects all sundays for the month. =( */
             //highlight selected day in week view
             $(this).addClass('fc-state-highlight');
           }

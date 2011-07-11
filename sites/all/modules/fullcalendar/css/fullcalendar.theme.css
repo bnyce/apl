@@ -105,3 +105,7 @@ div.small-col {
 #ajaxLoader {
 	margin: 0 0 0 50px;
 }
+
+div.single-column .large-col {
+	width:74% !important;
+}

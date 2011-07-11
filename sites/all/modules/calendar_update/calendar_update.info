@@ -1,0 +1,6 @@
+name = Calendar Updater
+description = "Update calendar week and day view"
+core = 7.x
+package = Calendar Modules
+version = "1.0"
+files[] = calendar_update.module

@@ -75,6 +75,38 @@ div.small-col {
   padding: 10px 10px 10px 0;
 }
 
-.large-col #block-system-main {
-  display:none;
+.view-display-id-calendar_day_block td,
+.view-display-id-calendar_day_block2 td {
+	width:33%;
+	vertical-align: top;
+}
+
+.view-display-id-calendar_day_block h3,
+.view-display-id-calendar_day_block2 h3 {
+	border-bottom: solid black 1px;
+}
+
+.view-display-id-calendar_day_block p,
+.view-display-id-calendar_day_block2 p {
+	line-height:15px !important;
+	margin:0;
+}
+
+.view-display-id-calendar_day_block .field-content > span.date-display-start,
+.view-display-id-calendar_day_block2 .field-content > span.date-display-start {
+	display:block;
+}
+
+#paramDayDate {
+	margin:22px 0 0;
+	font-size: 18px;
+}
+
+#ajaxLoader {
+	margin: 0 0 0 50px;
+}
+
+div.single-column .large-col {
+	width:75% !important;
+	background: none repeat scroll 0 0 #FFFFFF;
 }

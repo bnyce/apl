@@ -575,7 +575,7 @@ div.round-corners .br {
 }
 
 
-/* PROMO TILES */
+/* Promo Tile Styles */
 style-2 .views-field-title-1 {
     margin-top: 0 !important;
 }
@@ -592,6 +592,7 @@ style-2 .views-field-title-1 {
 .style-2 .views-field-field-body .field-content {
     padding:10px 10px 0px 10px;
 }
+
 
 .style-3 {
     border-top: 1px solid;
@@ -622,4 +623,3 @@ style-2 .views-field-title-1 {
     float: right;
     margin-bottom: 15px;
 }
-

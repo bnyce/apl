@@ -1,0 +1,15 @@
+<?php
+
+function coa_directory_search_form_alter( $form, &$form_state, $form_id ){
+
+    switch($form_id) {
+    
+    case 'views_exposed_form__service_directory_view__page': 
+        $form['#info']['filter-keys']['label'] = t('Our Keyword Search');
+        
+    break;
+
+    }
+}
+
+?>

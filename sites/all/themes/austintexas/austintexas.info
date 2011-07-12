@@ -10,11 +10,7 @@ stylesheets[all][] = style.css
 stylesheets[all][] = layout.css
 stylesheets[all][] = navigation.css
 
-scripts[] = js/drop_down.js
-scripts[] = js/jquery.cycle.js
-scripts[] = js/jquery.easing.js
-scripts[] = js/utility.js
-scripts[] = js/coa.scripts.js
+scripts[] = js/coascripts.js
 
 settings[garland_width] = fluid
 

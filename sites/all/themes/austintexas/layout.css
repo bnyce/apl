@@ -133,32 +133,49 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 /* #ONLINE SERVICES SELECT LIST
 ================================================== */
 span.customStyleSelectBox {
-	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
+	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 2px transparent;
 	color: #816C5B;
     font-size: 12px;
     height: 15px;
-    padding: 3px;
+	padding: 5px 10px 10px 0;
 }
-.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 3px; }
+.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 165px center transparent; height: 15px; padding: 5px 0; }
 option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
 
 
 
-/* #Video page
+/* #Mini Video 
 ================================================== */
 
-div#mini-panel-video_page .panels-flexible-region {
-  padding:10px 0 0 50px;
-  width:450px;
-  margin: 0 auto;
+.mini-video .pane-content {
+    background: none repeat scroll 0 0 #F0E9DC;
+    height: 90px;
+    margin-left: 15px;
+    width: 207px;
+}
+.mini-video .views-field-field-video {
+    float: left;
+    padding: 6px;
+}
+.mini-video .views-field-title a {
+    color: #A85708;
+    font-weight: bold;
+    padding-right: 10px;
+    text-decoration: none;
+}
+.mini-video .views-field-field-video-sum .field-content p {
+    color: #636463;
+    font-family: "arial";
+    font-size: 12px !important;
+    font-weight: bold;
+    line-height: 20px !important;
+    margin-bottom: 0;
+    padding-right: 2px;
+    padding-top: 3px;
+    text-decoration: none;
 }
 
-div#mini-panel-video_page p {width:450px;}
 
-div#mini-panel-video_page .pane-7 a {background: none;padding:0px;}
-
-
-	
 /* #left col navigation for template node-17
 ================================================== */
 .port-col-left-navigation a {
@@ -197,10 +214,10 @@ h1#branding { margin: 0; }
 ================================================== */
 .promo-tile {margin: 10px 15px 20px;}
 	/* top */
-	.promo-tile .views-field-field-text {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
-		.promo-tile .views-field-field-text a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
+	.promo-tile .views-field-title {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
+		.promo-tile .views-field-title a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
 	/* bottom */
-	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; margin-top: 41px; text-align: right; width: 207px; padding: 2px;}
+	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; text-align: right; width: 207px; padding: 2px;}
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
 
 

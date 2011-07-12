@@ -16,12 +16,4 @@
       <?php print $row; ?>
     </div>
   <?php endforeach; ?>
-<?php
-if ($classes['view-dom-id-2']) {
-  print '<div class="more-link">' . l(t('View All'), 
-  $variables['url'], 
-  array('attributes' => array('title' => $variables['title']))) . '</div>';
-}
-print_r($variables);
-?>
 </div>

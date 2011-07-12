@@ -1,8 +1,0 @@
-; $Id:
-name = Directory Search Utility
-description = Enables a override of Search Exposed Filter.
-package = AustinGO
-version = VERSION
-core = 7.x
-
-

@@ -22,6 +22,5 @@ if ($classes['view-dom-id-2']) {
   $variables['url'], 
   array('attributes' => array('title' => $variables['title']))) . '</div>';
 }
-print_r($variables);
 ?>
 </div>

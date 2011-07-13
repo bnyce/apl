@@ -487,7 +487,6 @@ div.round-corners .br {
 .view-topic-items .views-limit-grouping-group {
     float: left;
     width: 220px;
-	margin-bottom: 30px;
 }
 .view-topic-items span {
     background: url("images/icons/arrow.jpg") no-repeat scroll 0 50% transparent !important;
@@ -573,6 +572,10 @@ div.round-corners .br {
     margin: 0 !important;
 }
 
+.view-portal-menu .view-content {
+    padding-bottom: 50px;
+    padding-top: 15px;
+}
 
 /* Promo Tile Styles */
 style-2 .views-field-title-1 {

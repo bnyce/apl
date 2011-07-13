@@ -138,10 +138,10 @@ span.customStyleSelectBox {
     display: inline-block;
     font-size: 12px;
     height: 15px;
-    padding: 5px 10px 10px 8px;
+    padding: 5px 0 10px 8px;
 }
 .customStyleSelectBoxInner {
-    background: url("images/icons/drop_arrow.jpg") no-repeat scroll 165px center transparent;
+    background: url("images/icons/drop_arrow.jpg") no-repeat scroll 145px center transparent;
     height: 15px;
     padding: 5px 0;
 }

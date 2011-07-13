@@ -62,7 +62,7 @@
 
 	//remove view all links on portal left menu items
 	$('.view-dom-id-4').find('.more-link').css('display', 'none');
-	$('.view-dom-id-3').find('.more-link').css('display', 'none');
+	$('.view-dom-id-1').find('.more-link').css('display', 'none');
 
 	});
 })(jQuery);

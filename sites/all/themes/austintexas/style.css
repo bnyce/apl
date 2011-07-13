@@ -487,6 +487,7 @@ div.round-corners .br {
 .view-topic-items .views-limit-grouping-group {
     float: left;
     width: 220px;
+	margin-bottom: 30px;
 }
 .view-topic-items span {
     background: url("images/icons/arrow.jpg") no-repeat scroll 0 50% transparent !important;
@@ -554,9 +555,7 @@ div.round-corners .br {
     text-decoration: none;
     text-transform: none !important;
 }
-.view-portal-menu .view-content {
-    padding-bottom: 120%;
-}
+
 .view-portal-menu h2 {
     margin-bottom: 0;
 }

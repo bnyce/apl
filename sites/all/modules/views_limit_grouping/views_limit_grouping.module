@@ -13,3 +13,28 @@ function views_limit_grouping_views_api() {
     'api' => 3,
   );
 }
+
+/**
+* Display the simple view of rows one after another
+*/
+function template_preprocess_views_limit_grouping(&$vars) {
+  $view     = $vars['view'];
+  $rows     = $vars['rows'];
+
+  $vars['classes'] = array();
+  // Set up striping values.
+  foreach ($rows as $id => $row) {
+    $row_classes = array();
+    $row_classes[] = 'views-row';
+    $row_classes[] = 'views-row-' . ($id + 1);
+    $row_classes[] = 'views-row-' . ($id % 2 ? 'even' : 'odd');
+    if ($id == 0) {
+      $row_classes[] = 'views-row-first';
+    }
+    if ($id == count($rows) -1) {
+      $row_classes[] = 'views-row-last';
+    }
+    // Flatten the classes to a string for each row for the template file.
+    $vars['classes'][$id] = implode(' ', $row_classes);
+  }
+}

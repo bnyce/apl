@@ -17,10 +17,10 @@
     </div>
   <?php endforeach; ?>
 <?php
-if ($classes['view-dom-id-2']) {
-  print '<div class="more-link">' . l(t('View All'), 
-  $variables['url'], 
-  array('attributes' => array('title' => $variables['title']))) . '</div>';
-}
+preg_match('/href="\/(.*)"/', $title, $matches); print '<div class="more-link">' . l(t('View All'),
+  $matches[1],
+  array('attributes' => array('title' => $variables['title']))) . '</div>'; 
+
 ?>
+
 </div>

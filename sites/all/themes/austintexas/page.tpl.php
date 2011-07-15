@@ -6,10 +6,7 @@
       <div id="header">
 
       	<div id="top-search"><?php print render($page['search']); ?></div>
-      
-		<div id="toplinks">
-		<?php print render($page['toplinks']); ?>
-		</div>
+      	<div id="toplinks"><?php print render($page['toplinks']); ?></div>
         
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>

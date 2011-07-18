@@ -625,3 +625,55 @@ style-2 .views-field-title-1 {
     float: right;
     margin-bottom: 15px;
 }
+
+.views-field-field-cat-dept .field-content h2 a {
+    color: #975612 !important;
+}
+
+.views-field-field-dept-tagline .field-content {
+    font-family: "univers light";
+    font-size: 16px;
+    padding-left: 8px;
+    padding-top: 4px;
+}
+
+.views-field-field-dept-tagline {
+    background: none repeat scroll 0 0 #F0EEE2;
+    border-radius: 0 0 10px 10px;
+    height: 25px;
+    margin-top: -3px;
+    width: 708px;
+}
+
+.views-field-field-cat-dept h2 {
+	margin-top:0px;
+}
+
+.views-field-field-cat-dept h2 a {
+	color: #a25409 !important;
+}
+.views-field-field-dept-banner img {
+    border-radius: 10px 10px 0 0;
+}
+.views-field-field-promo-image-vertical img {
+    height: 300px;
+    width: 185px;
+    border-radius: 0px 0px 10px 10px;
+}
+.view-dom-id-9 .views-field-title a {
+    color: #FFFFFF;
+    font-family: "Univers Light";
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.view-dom-id-9 .views-field-title {
+    line-height: 32px;
+    text-align: center;
+    background: #747d87;
+    border-radius: 10px 10px 0px 0px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    width: 185px;
+} 

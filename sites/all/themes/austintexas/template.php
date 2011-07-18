@@ -24,7 +24,7 @@ function austintexas_breadcrumb($variables) {
   //print_r(taxonomy_get_tree(11,239));
   //print_r(taxonomy_term_load(239));
   //print_r(taxonomy_term_save($term));
-}
+//}
 /*
 function austintexas_preprocess_page(&$page) {
   // returns the html markup of the government/departments menu

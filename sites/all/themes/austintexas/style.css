@@ -539,21 +539,6 @@ div.round-corners .br {
     margin: 0 !important;
     text-transform: none !important;
 }
-.view-dom-id-15 {
-    background: url("images/promo_tile_top_tan.gif") no-repeat scroll center top transparent;
-}
-.view-dom-id-15 tbody {
-    background: url("images/promo_tile_bottom.gif") no-repeat scroll center bottom #F0E9DC;
-}
-.view-dom-id-15 {
-    color: #636463 !important;
-    font-family: "Univers Light" !important;
-    font-size: 18px !important;
-    font-weight: bold;
-    margin: 0 !important;
-    text-decoration: none;
-    text-transform: none !important;
-}
 
 .view-portal-menu h2 {
     margin-bottom: 0;
@@ -612,7 +597,7 @@ style-2 .views-field-title-1 {
     padding-right: 10px;
     text-decoration: none;
 }
-.style-3 .views-field-field-icon img {
+.style-3 .views-field-field-icon {
     float: left;
     margin-right: 10px;
 }
@@ -624,6 +609,22 @@ style-2 .views-field-title-1 {
 .style-3 .views-field-title-1 .field-content a {
     float: right;
     margin-bottom: 15px;
+}
+.factoid {
+    border-top: 1px solid;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 10px !important;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 207px;
+}
+
+.factoid .views-field-title {
+    color: #A85708;
+    font-weight: bold;
+    padding-right: 10px;
+    text-decoration: none;
 }
 
 .views-field-field-cat-dept .field-content h2 a {
@@ -653,21 +654,21 @@ style-2 .views-field-title-1 {
 	color: #a25409 !important;
 }
 .views-field-field-dept-banner img {
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 10px 10px;
 }
 .views-field-field-promo-image-vertical img {
     height: 300px;
     width: 185px;
     border-radius: 0px 0px 10px 10px;
 }
-.view-dom-id-9 .views-field-title a {
+.large-promo .views-field-title a {
     color: #FFFFFF;
     font-family: "Univers Light";
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.view-dom-id-9 .views-field-title {
+.large-promo .views-field-title {
     line-height: 32px;
     text-align: center;
     background: #747d87;
@@ -677,3 +678,8 @@ style-2 .views-field-title-1 {
     text-align: center;
     width: 185px;
 } 
+.views-field-field-news-link a {
+    background: url("images/star.jpg") no-repeat scroll 0 50% transparent !important;
+    font-weight: bold;
+    padding-left: 18px;
+}

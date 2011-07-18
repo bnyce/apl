@@ -217,12 +217,12 @@ h1#branding { margin: 0; }
 
 /* #PROMO TILES
 ================================================== */
-.promo-tile {margin: 10px 15px 20px;}
+.promo-tile {margin: 10px 0px 20px;}
 	/* top */
 	.promo-tile .views-field-title {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
 		.promo-tile .views-field-title a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
 	/* bottom */
-	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; text-align: right; width: 207px; padding: 2px;}
+	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; text-align: right; width: 207px; padding: 2px; margin-top: -3px;}
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
 
 
@@ -434,6 +434,15 @@ p#tweet {font-weight: normal; font-size: 12px;}
     background: none repeat scroll 0 0 #FFFFFF;
     padding: 15px;
     width: 715px;
+}
+
+.panel-center a {
+    color: #A85708;
+}
+.panel-center h2 {
+    text-transform: none !important;
+    margin-bottom: 1px;
+	font-size: 1.2em !important;
 }
 
 .panel-center-left-region {

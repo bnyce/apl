@@ -627,6 +627,13 @@ style-2 .views-field-title-1 {
     text-decoration: none;
 }
 
+.factoid .views-field-field-icon {
+	float:left;
+	margin-right: 18px;
+}
+.factoid .views-field-field-factoid {
+    margin-left: 55px;
+}
 .views-field-field-cat-dept .field-content h2 a {
     color: #975612 !important;
 }

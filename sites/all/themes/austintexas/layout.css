@@ -132,7 +132,6 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 /* #ONLINE SERVICES SELECT LIST
 ================================================== */
-/* old version
 span.customStyleSelectBox {
     background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 2px transparent;
     color: #816C5B;
@@ -146,18 +145,6 @@ span.customStyleSelectBox {
     height: 15px;
     padding: 5px 0;
 }
-option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
-*/
-
-span.customStyleSelectBox {
-	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 2px transparent;
-	color: #816C5B;
-    font-size: 12px;
-    height: 15px;
-	padding: 5px 10px 10px 0;
-	width: 180px;
-}
-.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 165px center transparent; height: 15px; padding: 5px 0; }
 option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
 
 
@@ -451,6 +438,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 .panel-center a {
     color: #A85708;
+	font-weight:bold;
 }
 .panel-center h2 {
     text-transform: none !important;

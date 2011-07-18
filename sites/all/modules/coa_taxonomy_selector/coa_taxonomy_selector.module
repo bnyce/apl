@@ -18,6 +18,163 @@ function coa_taxonomy_selector_menu(){
 */
 
 /**
+*
+**/
+
+function coa_taxonomy_selector_filter_taxonomy($array1, $array2) {
+	$result = array_intersect($array1, $array2);
+	return($result);
+}
+
+function coa_taxonomy_selector_get_taxonomy($vid) {
+	$sql = array();
+	/**
+	$result = db_query("SELECT 
+		                t.id, h.parent AS parent FROM {taxonomy_term_data} 
+		                t INNER JOIN {taxonomy_term_hierarchy} 
+		                h ON h.tid = t.tid 
+		                WHERE (t.vid > 0  ) 
+		                ORDER BY t.weight ASC, t.name ASC", 
+	array(':vid' => $vid,)
+	);
+	*/
+
+    //$result = taxonomy_get_tree($vid);
+	
+	$result = array(
+	  				"_none" => '- None -',
+	                 "1" => 'Test Term',
+	                 "2" => '- Test Child',		
+	                );
+	return($result);
+}
+
+function coa_taxonomy_selector_workbench_access(){
+    global $user;
+    // Make sure we prepared the user.
+    if (!isset($user->workbench_access)) {
+      workbench_access_user_load_data($user);
+    }
+    // Prepare the form element.
+    $active = workbench_access_get_active_tree();
+    if (empty($active['active'])) {
+      drupal_set_message(workbench_access_sections_needed_message(), 'warning');
+      return;
+    }
+    $tree = workbench_access_get_user_tree();
+    // Generate options so we can check for access.
+    $options = workbench_access_options($tree, $active['active']);
+     // TODO: multi-select
+     
+    return($options); 
+}
+
+function coa_taxonomy_selector_workbench_access_default(){
+    $default = NULL;
+    if (!empty($form['#node']->workbench_access)) {
+      $default = current(array_keys($form['#node']->workbench_access));
+    }
+    return($default); 
+}
+
+
+
+/**
+* Additional handler for node form submit.
+*/
+function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
+  //clear the section taxonomy fields
+    $form_state['values']['field_page_resident'] = array();
+    $form_state['values']['field_bus_tax'] = array();
+    $form_state['values']['field_dev_tax'] = array();
+	$form_state['values']['field_gov_tax'] = array();
+	$form_state['values']['field_env_tax'] = array();
+  
+  //get the settings for the workbench access section taxonomy
+	$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+	
+  //cycle over each of the selections and copy values to appropriate section taxonomy 
+	foreach ($sections as $section => $key) {
+        $term        = taxonomy_term_load($section);
+        $tid         = $term->tid;
+        $vid         = $term->vid;
+        $description = $term->description;
+        $format      = $term->format;
+        $weight      = $term ->weight;
+        $vocab       = $term->vocabulary_machine_name;
+        $rdf_mapping = $term->rdf_mapping;
+        
+        //$form_state['values']['body']['en']['0']['value'] .= " $vocab : $vid : $section -- ";
+        //dd($term);
+        switch ($vocab) {
+          case "resident_taxonomy":
+            $form_state['values']['field_page_resident']['en'][]['tid'] = $tid;
+            $form_state['values']['field_page_resident']['en'][]['vid'] = $vid;
+            $form_state['values']['field_page_resident']['en'][]['description'] = $description;
+            $form_state['values']['field_page_resident']['en'][]['format'] = $format;
+            $form_state['values']['field_page_resident']['en'][]['weight'] = $weight;
+            $form_state['values']['field_page_resident']['en'][]['vocabulary_machine_name'] = $vocab;
+            $form_state['values']['field_page_resident']['en'][]['rdf_mapping'] = $rdf_mapping;                       
+            break;
+          
+          case "government_taxonomy":
+            $form_state['values']['field_gov_tax']['en'][]['tid'] = $tid;
+            $form_state['values']['field_gov_tax']['en'][]['vid'] = $vid;
+            $form_state['values']['field_gov_tax']['en'][]['description'] = $description;
+            $form_state['values']['field_gov_tax']['en'][]['format'] = $format;
+            $form_state['values']['field_gov_tax']['en'][]['weight'] = $weight;
+            $form_state['values']['field_gov_tax']['en'][]['vocabulary_machine_name'] = $vocab;
+            $form_state['values']['field_gov_tax']['en'][]['rdf_mapping'] = $rdf_mapping; 
+            break;
+            
+          case "development_taxonomy":
+            $form_state['values']['field_dev_tax']['en'][]['tid'] = $tid;
+            $form_state['values']['field_dev_tax']['en'][]['vid'] = $vid;
+            $form_state['values']['field_dev_tax']['en'][]['description'] = $description;
+            $form_state['values']['field_dev_tax']['en'][]['format'] = $format;
+            $form_state['values']['field_dev_tax']['en'][]['weight'] = $weight;
+            $form_state['values']['field_dev_tax']['en'][]['vocabulary_machine_name'] = $vocab;
+            $form_state['values']['field_dev_tax']['en'][]['rdf_mapping'] = $rdf_mapping; 
+            break;
+            
+          case "environment_taxonomy":
+            $form_state['values']['field_env_tax']['en'][]['tid'] = $tid;
+            $form_state['values']['field_env_tax']['en'][]['vid'] = $vid;
+            $form_state['values']['field_env_tax']['en'][]['description'] = $description;
+            $form_state['values']['field_env_tax']['en'][]['format'] = $format;
+            $form_state['values']['field_env_tax']['en'][]['weight'] = $weight;
+            $form_state['values']['field_env_tax']['en'][]['vocabulary_machine_name'] = $vocab;
+            $form_state['values']['field_env_tax']['en'][]['rdf_mapping'] = $rdf_mapping; 
+            break;
+            
+          case "business_taxonomy":
+          case "business_portal":
+            $form_state['values']['field_bus_tax']['en'][]['tid'] = $tid;
+            $form_state['values']['field_bus_tax']['en'][]['vid'] = $vid;
+            $form_state['values']['field_bus_tax']['en'][]['description'] = $description;
+            $form_state['values']['field_bus_tax']['en'][]['format'] = $format;
+            $form_state['values']['field_bus_tax']['en'][]['weight'] = $weight;
+            $form_state['values']['field_bus_tax']['en'][]['vocabulary_machine_name'] = $vocab;
+            $form_state['values']['field_bus_tax']['en'][]['rdf_mapping'] = $rdf_mapping; 
+            break;
+             
+        };
+        
+      };
+    
+}
+
+/**
+* Additional handler for node form build.
+*/
+function coa_taxonomy_selector_node_form_build($form, &$form_state) {
+  // debug
+  //krumo($form_state);
+  //die;
+}
+
+/**
 * Implementation of hook_form_alter().	
 */
 
@@ -28,7 +185,36 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      // This is our form ID.
      case 'page_node_form':
 
-						
+		  
+		  $form['workbench_access']['#title'] = t('Section');
+		  $form['workbench_access']['#description'] = t('Select the editorial section(s) for this content.');
+		  $form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;
+       
+		 /* from workbench_access 1245
+		  * $options = coa_taxonomy_selector_workbench_access(),
+		  * $default = 
+		  * $element
+		  * 
+		  
+		   $form['workbench_access'] = array(
+      				'#type'                   => 'select',
+      				'#title'                  => t('SECTION'),
+      				'#options'                => $options,
+      				'#required'               => TRUE,
+      				'#default_value'          => '$default',
+              		'#description'            => t('Select the editorial section(s) for this content.'),
+		            '#size'                   => 1,
+                    'allow_new_levels'        => 0,
+                    'max_levels'              => 3,
+                    'workbench_access_id'     => $element,
+    			    'workbench_access_scheme' => array(
+                                                 '#type' => 'value',
+                                                 '#value' => $active['access_scheme'],
+                                                 ),
+		            );
+		    
+		       
+		   
 		  $form['select_section'] = array (
 								'#title' => t('Select Section'),
 		         				'#weight' => '0',
@@ -41,8 +227,11 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 												t('Environment'),
 		             							)),
 								);
+
 		  
-		  $form['field_page_resident']['en']['#title'] = 'Resident Section';
+		  $form['field_page_resident']['en']['#title'] = 'My Resident Section';
+		  $form['field_page_resident']['en']['#options'] = 	coa_taxonomy_selector_get_taxonomy("1");
+		  $form['field_page_resident']['#DANGEROUS_SKIP_CHECK'] = TRUE;
 		  $form['field_page_resident']['#states'] = array(
 					      		'visible' => array(
 					        			':input[name="select_section"]' => array('value' => t('Resident')),
@@ -54,25 +243,33 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 							   			':input[name="select_section"]' => array('value' => t('Business')),
 					      		),
 					    );
+		  $form['field_bus_tax']['#DANGEROUS_SKIP_CHECK'] = TRUE;
 
 		  $form['field_dev_tax']['#states'] = array(
 								'visible' => array(
 								         ':input[name="select_section"]' => array('value' => t('Development')),
 								),
 						);
-
+		  $form['field_dev_tax']['#DANGEROUS_SKIP_CHECK'] = TRUE;
+		  
 		  $form['field_gov_tax']['#states'] = array(
 								'visible' => array(
 										 ':input[name="select_section"]' => array('value' => t('Government')),
 									      ),
 						);
-
+		  $form['field_gov_tax']['#DANGEROUS_SKIP_CHECK'] = TRUE;
+		  
 		  $form['field_env_tax']['#states'] = array(
 								'visible' => array(
 										 ':input[name="select_section"]' => array('value' => t('Environment')),
 									      ),
 						   );
-		
+		  $form['field_env_tax']['#DANGEROUS_SKIP_CHECK'] = TRUE;
+		  */			   
+		  array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+						   
       break;
    };
 };
@@ -86,5 +283,34 @@ function coa_taxonomy_selector_callback($key = '') {
 
 	
   return;
+}
+
+/**
+*  This overrides the default workbench_access_options to include the vid of the 
+* 
+*/
+function coa_taxonomy_selector_workbench_access_options($tree, $active) {
+  $used = array();
+  $parent = 0;
+  $base_depth = 0;
+  $options = array();
+  if (empty($tree) || empty($active)) {
+    return $options;
+  }
+  $tree_keys = array_keys($tree);
+  $active_keys = array_flip(array_keys($active));
+  foreach ($tree as $section) {
+    if (in_array($section['access_id'], $used) || !isset($active_keys[$section['access_id']])) {
+      continue;
+    }
+    // Nest the children so the user understands the hierarchy.
+    if ($section['depth'] == 0 || !isset($tree[$section['parent']])) {
+      $parent = $section['name'];
+      $base_depth = $section['depth'];
+    }
+    $options[$section['access_id']] = str_repeat('-', $section['depth'] - $base_depth) . ' ' . $section['name'];
+    $used[] = $section['access_id'];
+  }
+  return $options;
 }
 

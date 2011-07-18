@@ -92,6 +92,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
   
   //get the settings for the workbench access section taxonomy
 	$sections = array();
+	//debug($form_state);
 	$sections = $form_state['values']['workbench_access_id'];
 	
   //cycle over each of the selections and copy values to appropriate section taxonomy 
@@ -99,13 +100,15 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
         $term        = taxonomy_term_load($section);
         $tid         = $term->tid;
         $vid         = $term->vid;
+        $name        = $term->name;
         $description = $term->description;
         $format      = $term->format;
         $weight      = $term ->weight;
         $vocab       = $term->vocabulary_machine_name;
         $rdf_mapping = $term->rdf_mapping;
         
-        //$form_state['values']['body']['en']['0']['value'] .= " $vocab : $vid : $section -- ";
+        
+        $form_state['values']['body']['en']['0']['value'] .= "$vid = $vocab : $tid = $name -- ";
         //dd($term);
         switch ($vocab) {
           case "resident_taxonomy":

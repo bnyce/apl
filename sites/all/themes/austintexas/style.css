@@ -584,7 +584,6 @@ style-2 .views-field-title-1 {
 .style-3 {
     border-top: 1px solid;
     margin-bottom: 0 !important;
-    margin-left: 16px;
     margin-right: 0 !important;
     margin-top: 10px !important;
     padding-bottom: 15px;
@@ -685,7 +684,7 @@ style-2 .views-field-title-1 {
     text-align: center;
     width: 185px;
 } 
-.views-field-field-news-link a {
+.recent-news .views-field-field-news-link a {
     background: url("images/star.jpg") no-repeat scroll 0 50% transparent !important;
     font-weight: bold;
     padding-left: 18px;

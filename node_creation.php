@@ -23,6 +23,7 @@
 	// $node = node_load($nid); // ...where $nid is the node id
 	
 	$node->title    = $file_name;
+      $old_name = $node->title;
 	$node->language = 'en'; // Or e.g. 'en' if locale is enabled (en =English)
 	$node->status = 1;  //Published(1) or not(0)
 	$node->promote = 0; //Prompted to front page
@@ -36,11 +37,16 @@
 
 	// I prefer using pathauto, which would override the below path
 	//$path = 'node_created_on' . date('YmdHis');
-	$path= $nid ;
+      $nid = $node->nid;
+	$path= $nid;
 	$node->path = array('alias' => $path);
 
 	if($node = node_submit($node)) { // Prepare node for saving
     		node_save($node);
     		echo "Node with nid " . $node->nid . " saved!\n";
 	}
+      echo "<br/>";$old_name."</br/>";
+
+      //*********************************node_update******************************
+      
 ?>

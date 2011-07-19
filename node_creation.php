@@ -18,7 +18,7 @@ drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 $bodytext = $buffer1;
 
 $node = new stdClass(); // Create a new node object
-$node->type = "article"; // Or page, or whatever content type you like
+$node->type = "basicpage"; // Or page, or whatever content type you like
 node_object_prepare($node); // Set some default values
 // If you update an existing node instead of creating a new one,
 // comment out the three lines above and uncomment the following:
@@ -45,5 +45,7 @@ if($node = node_submit($node)) { // Prepare node for saving
     node_save($node);
     echo "Node with nid " . $node->nid . " saved!\n";
 }
+echo $node->nid . "\n";
+echo $nid; 
 
 ?>

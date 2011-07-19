@@ -18,7 +18,7 @@ drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 $bodytext = $buffer1;
 
 $node = new stdClass(); // Create a new node object
-$node->type = "article"; // Or page, or whatever content type you like
+$node->type = "Basic page"; // Or page, or whatever content type you like
 node_object_prepare($node); // Set some default values
 // If you update an existing node instead of creating a new one,
 // comment out the three lines above and uncomment the following:
@@ -26,6 +26,10 @@ node_object_prepare($node); // Set some default values
 
 $node->title    = $file_name;
 $node->language = en; // Or e.g. 'en' if locale is enabled
+$node->status = 1;  //Published(1) or not(0)
+$node->promote = 0; //Prompted to front page
+$node->sticky = 0;  //Sticky at top of list
+$node->comment = 1; //Comments on=2, comments off=1
 
 $node->uid = 14; // UID of the author of the node; or use $node->name
 $node->body[$node->language][0]['value']   = $bodytext;

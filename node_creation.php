@@ -23,7 +23,8 @@ $node->body[$node->language][0]['summary'] = text_summary($bodytext);
 $node->body[$node->language][0]['format']  = 'full_html';
 
 // I prefer using pathauto, which would override the below path
-$path = 'node_created_on' . date('YmdHis');
+//$path = 'node_created_on' . date('YmdHis');
+$path=$node->nid ;
 $node->path = array('alias' => $path);
 
 if($node = node_submit($node)) { // Prepare node for saving

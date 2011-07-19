@@ -17,6 +17,9 @@
 	#BIO VIEW - GOVERNMENT BIO PAGE 
 	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
 	#FULL CALENDAR
+	#Panel Layout
+	#Topic Panel Icons
+	#SERVICES (GLOSSARY)
 	*/
 
 
@@ -155,7 +158,6 @@ option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
 .mini-video .pane-content {
     background: none repeat scroll 0 0 #F0E9DC;
     height: 90px;
-    margin-left: 15px;
     width: 207px;
 }
 .mini-video .views-field-field-video {
@@ -510,3 +512,31 @@ p#tweet {font-weight: normal; font-size: 12px;}
     background: url("images/icons/topic-pets.jpg")no-repeat 0;
     padding-left: 30px;
 }
+
+
+
+
+
+/* #SERVICES (GLOSSARY) 
+================================================== */
+.services-table .services-table {padding: 10px;margin:5px 10px 10px 10px;}
+.services-table .services-table a {color: #a85708;text-decoration: none; font-weight: bold;}
+
+.services-table table thead {background:#767f88;}
+.services-table table thead a {color: #fff;text-decoration: none; font-weight: bold; padding: 5px;}
+.services-table table td {padding: 10px;background: #fff;}
+.services-table table a {color: #a85708;text-decoration: none; font-weight: bold; }
+
+
+
+/* #SEND EMAIL FORM
+================================================== */
+span.field-content h2 {font-family: Arial, sans-serif;color: #000;}
+
+#table1 {width: 80%;}
+#table1 td, table, tbody {border: none;}
+#table1 tr {padding: 5px;}
+
+#table1 td {padding: 15px 5px;border-bottom: 1px solid #ddd;color: #666;}
+#table1 input, #table1 textarea {border: 1px solid #ddd; padding: 5px; width: 60%;}
+#table1 input[type="submit"] {border-radius: 15px; width: 100px;background: #a85708; color: #fff;cursor: pointer;}

@@ -17,64 +17,7 @@ function coa_taxonomy_selector_menu(){
 }
 */
 
-/**
 
-function coa_taxonomy_selector_filter_taxonomy($array1, $array2) {
-	$result = array_intersect($array1, $array2);
-	return($result);
-}
-
-function coa_taxonomy_selector_get_taxonomy($vid) {
-	$sql = array();
-	/**
-	$result = db_query("SELECT 
-		                t.id, h.parent AS parent FROM {taxonomy_term_data} 
-		                t INNER JOIN {taxonomy_term_hierarchy} 
-		                h ON h.tid = t.tid 
-		                WHERE (t.vid > 0  ) 
-		                ORDER BY t.weight ASC, t.name ASC", 
-	array(':vid' => $vid,)
-	);
-	
-
-    //$result = taxonomy_get_tree($vid);
-	
-	$result = array(
-	  				"_none" => '- None -',
-	                 "1" => 'Test Term',
-	                 "2" => '- Test Child',		
-	                );
-	return($result);
-}
-
-function coa_taxonomy_selector_workbench_access(){
-    global $user;
-    // Make sure we prepared the user.
-    if (!isset($user->workbench_access)) {
-      workbench_access_user_load_data($user);
-    }
-    // Prepare the form element.
-    $active = workbench_access_get_active_tree();
-    if (empty($active['active'])) {
-      drupal_set_message(workbench_access_sections_needed_message(), 'warning');
-      return;
-    }
-    $tree = workbench_access_get_user_tree();
-    // Generate options so we can check for access.
-    $options = workbench_access_options($tree, $active['active']);
-     // TODO: multi-select
-     
-    return($options); 
-}
-
-function coa_taxonomy_selector_workbench_access_default(){
-    $default = NULL;
-    if (!empty($form['#node']->workbench_access)) {
-      $default = current(array_keys($form['#node']->workbench_access));
-    }
-    return($default); 
-}
-*/
 
 
 /**
@@ -221,7 +164,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  $form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;
 		  		   
-		  array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 						   
@@ -229,44 +172,3 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    };
    // dpm($form, "form");
 };
-
-/**
-* Callback element needs only select the portion of the form to be updated.
-* Since #ajax['callback'] return can be HTML or a renderable array (or an
-* array of commands), we can just return a piece of the form.
-*/
-function coa_taxonomy_selector_callback($key = '') {
-
-	
-  return;
-}
-
-/**
-*  This overrides the default workbench_access_options to include the vid of the 
-* 
-*/
-function coa_taxonomy_selector_workbench_access_options($tree, $active) {
-  $used = array();
-  $parent = 0;
-  $base_depth = 0;
-  $options = array();
-  if (empty($tree) || empty($active)) {
-    return $options;
-  }
-  $tree_keys = array_keys($tree);
-  $active_keys = array_flip(array_keys($active));
-  foreach ($tree as $section) {
-    if (in_array($section['access_id'], $used) || !isset($active_keys[$section['access_id']])) {
-      continue;
-    }
-    // Nest the children so the user understands the hierarchy.
-    if ($section['depth'] == 0 || !isset($tree[$section['parent']])) {
-      $parent = $section['name'];
-      $base_depth = $section['depth'];
-    }
-    $options[$section['access_id']] = str_repeat('-', $section['depth'] - $base_depth) . ' ' . $section['name'];
-    $used[] = $section['access_id'];
-  }
-  return $options;
-}
-

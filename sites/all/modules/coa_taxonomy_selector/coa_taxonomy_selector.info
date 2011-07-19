@@ -1,0 +1,8 @@
+; $Id:
+name = Taxonomy Selector
+description = Enables a single selector field for all of AustinGO's taxonomy.
+package = AustinGO
+version = VERSION
+core = 7.x
+files[] = 
+configure = admin/structure/coa_taxonomy_selector

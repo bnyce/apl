@@ -12,7 +12,7 @@
     					$a=strpos($file,".");
     					$file_name= substr($file,$offset,$a);
 					}
-				}
+				//}
 				define('DRUPAL_ROOT', getcwd());
 				$_SERVER['REMOTE_ADDR'] = "localhost"; // Necessary if running from command line
 				require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
@@ -50,6 +50,7 @@
 						echo "Node with nid " . $node->nid . " saved!\n";
 				}
 				  echo "<br/>";$old_name."</br/>";
+			}
 			}
 			closedir($handle);
      }

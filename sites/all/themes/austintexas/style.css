@@ -141,6 +141,7 @@ body {
     padding-right: 20px;
 }
 form select {
+	/* REMOVING STYLES TO TEST OUT SELECT DOWN ARROWS
     background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
     border: medium none;
     color: #595959;
@@ -150,7 +151,8 @@ form select {
     padding-left: 5px;
     padding-top: 5px;
     text-transform: capitalize;
-    width: 180px;
+    */
+    width: 190px;
 }
 #wrapper {
     margin: 0 auto;
@@ -537,24 +539,7 @@ div.round-corners .br {
     margin: 0 !important;
     text-transform: none !important;
 }
-.view-dom-id-15 {
-    background: url("images/promo_tile_top_tan.gif") no-repeat scroll center top transparent;
-}
-.view-dom-id-15 tbody {
-    background: url("images/promo_tile_bottom.gif") no-repeat scroll center bottom #F0E9DC;
-}
-.view-dom-id-15 {
-    color: #636463 !important;
-    font-family: "Univers Light" !important;
-    font-size: 18px !important;
-    font-weight: bold;
-    margin: 0 !important;
-    text-decoration: none;
-    text-transform: none !important;
-}
-.view-portal-menu .view-content {
-    padding-bottom: 120%;
-}
+
 .view-portal-menu h2 {
     margin-bottom: 0;
 }
@@ -570,4 +555,137 @@ div.round-corners .br {
     height: 24px;
     list-style: none outside none;
     margin: 0 !important;
+}
+
+.view-portal-menu .view-content {
+    padding-bottom: 80px;
+    padding-top: 15px;
+}
+
+/* Promo Tile Styles */
+style-2 .views-field-title-1 {
+    margin-top: 0 !important;
+}
+
+style-2 .views-field-title-1 {
+    margin-top: 0px !important;
+}
+
+.style-2 {
+    background: #f0e9dc;
+    width: 207px;
+}
+
+.style-2 .views-field-field-body .field-content {
+    padding:10px 10px 0px 10px;
+}
+
+
+.style-3 {
+    border-top: 1px solid;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 10px !important;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 207px;
+}
+.style-3 a {
+    color: #A85708;
+    font-weight: bold;
+    padding-right: 10px;
+    text-decoration: none;
+}
+.style-3 .views-field-field-icon {
+    float: left;
+    margin-right: 10px;
+}
+.style-3 .views-field-field-text .field-content {
+    margin-top: 2px;
+}
+.style-3 .views-field-title-1 span {
+}
+.style-3 .views-field-title-1 .field-content a {
+    float: right;
+    margin-bottom: 15px;
+}
+.factoid {
+    border-top: 1px solid;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 10px !important;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 207px;
+}
+
+.factoid .views-field-title {
+    color: #A85708;
+    font-weight: bold;
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+.factoid .views-field-field-icon {
+	float:left;
+	margin-right: 18px;
+}
+.factoid .views-field-field-factoid {
+    margin-left: 55px;
+}
+.views-field-field-cat-dept .field-content h2 a {
+    color: #975612 !important;
+}
+
+.views-field-field-dept-tagline .field-content {
+    font-family: "univers light";
+    font-size: 16px;
+    padding-left: 8px;
+    padding-top: 4px;
+}
+
+.views-field-field-dept-tagline {
+    background: none repeat scroll 0 0 #F0EEE2;
+    border-radius: 0 0 10px 10px;
+    height: 25px;
+    margin-top: -3px;
+    width: 708px;
+}
+
+.views-field-field-cat-dept h2 {
+	margin-top:0px;
+}
+
+.views-field-field-cat-dept h2 a {
+	color: #a25409 !important;
+}
+.views-field-field-dept-banner img {
+    border-radius: 10px 10px 10px 10px;
+}
+.views-field-field-promo-image-vertical img {
+    height: 300px;
+    width: 185px;
+    border-radius: 0px 0px 10px 10px;
+}
+.large-promo .views-field-title a {
+    color: #FFFFFF;
+    font-family: "Univers Light";
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.large-promo .views-field-title {
+    line-height: 32px;
+    text-align: center;
+    background: #747d87;
+    border-radius: 10px 10px 0px 0px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    width: 185px;
+} 
+.recent-news .views-field-field-news-link a {
+    background: url("images/star.jpg") no-repeat scroll 0 50% transparent !important;
+    font-weight: bold;
+    padding-left: 18px;
 }

@@ -1,7 +1,7 @@
 name = FullCalendar
 description = Provides a views style plugin for FullCalendar
 core = 7.x
-package = "Views"
+package = "Calendar Modules"
 configure = admin/config/calendar/fullcalendar
 dependencies[] = views
 dependencies[] = date

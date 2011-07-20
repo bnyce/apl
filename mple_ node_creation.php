@@ -1,6 +1,8 @@
 <?php
 	if ($handle = opendir('C:/Documents and Settings/nandigamS/Desktop/htmlfiles')) {
+		    $x=0;
 		    while (false !== ($file = readdir($handle))) {
+				echo $x++."<br/>";
             	$buffer1="";
 				if ($file != "." && $file != "..") {   //    strip out . and ..
 					$buffer1=file_get_contents("C:/Documents and Settings/nandigamS/Desktop/htmlfiles/$file");        
@@ -38,8 +40,9 @@
 			
 				// I prefer using pathauto, which would override the below path
 				//$path = 'node_created_on' . date('YmdHis');
-				  $nid = $node->nid;
-				$path= $nid;
+				//$nid = $node->nid;
+				//$path= $nid;
+				$path = $file_name;
 				$node->path = array('alias' => $path);
 			
 				if($node = node_submit($node)) { // Prepare node for saving

@@ -11,7 +11,6 @@ Drupal.behaviors.fullCalendar = {
     // Process each view and its settings.
     $.each(Drupal.settings.fullcalendar, function(index, settings) {
       // Hide the failover display.
-      console.log(settings);
       $(index).find('.fullcalendar-content').hide();
 
        // Add events from Drupal.
@@ -114,10 +113,14 @@ Drupal.behaviors.fullCalendar = {
           return false;
         },
         dayClick: function(date, allDay, jsEvent, view) {
-          console.log(date, allDay, jsEvent, view, this);
-          $('#paramDayDate').append('<img id="ajaxLoader" src="/sites/all/themes/austintexas/images/ajax-loader.gif" />');
+          //console.log(date, allDay, jsEvent, view, this);
+            if($('#ajaxLoader').length == 0){
+              //alert($('#ajaxLoader').length);
+              $('#paramDayDate').append('<span id="ajaxLoader"><img src="/sites/all/themes/austintexas/images/ajax-loader.gif" /></span>');
+            }
+
           if (view.name == 'basicWeek') {
-            console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
+            //console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
             ajaxPostDay(date);
             $('.view-dom-id-fc-2').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
             // remove highlighting from previously selected day in week view
@@ -129,7 +132,7 @@ Drupal.behaviors.fullCalendar = {
             $(this).addClass('fc-state-highlight');
           }
           if (view.name == 'month') {
-            console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
+            //console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
             ajaxPostDay(date);
             $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
             // remove highlighting from previously selected day in month view
@@ -141,7 +144,7 @@ Drupal.behaviors.fullCalendar = {
             var classPageArr = ['fc-sun', 'fc-mon', 'fc-tue', 'fc-wed', 'fc-thu', 'fc-fri', 'fc-sat'];
             var i=0;
             for (i=0;i<classArr.length;i++) {
-              console.log(classArr[i]);
+              //console.log(classArr[i]);
               var tt = classArr[i];
               if (jQuery.inArray(classArr[i], classPageArr) > -1){
                 // apply highlighting to selected day from month view to week view.
@@ -171,20 +174,36 @@ Drupal.behaviors.fullCalendar = {
       $(this).parent().slideUp();
       return false;
     });
-/*
-    $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
-      //on click, remove shading for today and change to clicked day
-      $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
-      $(this).addClass('fc-state-highlight');
-      ajaxPostDay(this);
-    });
-*/
+
     var ajaxPostDay = function(dateObj){
       console.log('ajaxpost: ' + dateObj );
       var updateProducts = function(data) {
-        console.log('success');
         if(data.memo != '') { console.debug(data.memo); }
         $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
+        $('.colorbox-load').attr('href', function(ind,attr){return attr + '?width=80%25&height=80%25&iframe=true'});
+        $.urlParam = function(name, url){
+          var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+          if (!results) { return ''; }
+          return results[1] || '';
+        };
+        $('a, area, input', context).filter('.colorbox-load').once('init-colorbox-load-processed').colorbox({
+          transition:"elastic",
+          speed:"350",
+          opacity:"0.85",
+          close:"Close",
+          overlayClose:true,
+          maxWidth:"100%",
+          maxHeight:"100%",
+          innerWidth:function(){
+            return $.urlParam('width', $(this).attr('href'));
+          },
+          innerHeight:function(){
+            return $.urlParam('height', $(this).attr('href'));
+          },
+          iframe:function(){
+            return $.urlParam('iframe', $(this).attr('href'));
+          }
+        });
         if ($('#block-system-main').find('div#paramDayDate').length == 0) {
           $('#block-system-main .view-display-id-fullcalendar_page .fc').after('<div id="paramDayDate">' + data.paramDate + '</div>');
         }else{
@@ -199,7 +218,6 @@ Drupal.behaviors.fullCalendar = {
       console.log(locPathStr);
       $.ajax({
         type: 'POST',
-        //url: '/calendar/update/' + $(thisObj).attr('class') + '/' + $('#block-system-main h2').text() + '/' + dateObj,
         url: '/calendar/update/' + dateObj + '/' + locPathStr,
         success: updateProducts, // The js function that will be called upon success request
         dataType: 'json', //define the type of data that is going to get back from the server
@@ -211,6 +229,8 @@ Drupal.behaviors.fullCalendar = {
     $('#block-views-fullcalendar-calendar-day-block .view-content h3').live('click', function() {
       $(this).next().fadeToggle('slow','linear');
     });
+
+    $('.colorbox-load').once().attr('href', function(ind,attr){return attr + '?width=80%25&height=80%25&iframe=true'}); //'?width=500&height=500&inline=true#block-system-main'
 
     // Trigger a window resize so that calendar will redraw itself as it loads funny in some browsers occasionally
     $(window).resize();

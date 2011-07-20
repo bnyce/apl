@@ -32,7 +32,7 @@
 
 	$node->uid = 14; // UID of the author of the node; or use $node->name
 	$node->body[$node->language][0]['value']   = $bodytext;
-	$node->body[$node->language][0]['summary'] = text_summary($bodytext);
+	//$node->body[$node->language][0]['summary'] = text_summary($bodytext);
 	$node->body[$node->language][0]['format']  = 'full_html';
 
 	// I prefer using pathauto, which would override the below path

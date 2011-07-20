@@ -19,7 +19,6 @@ function coa_taxonomy_selector_menu(){
 
 
 
-
 /**
 * Additional handler for node form submit.
 */
@@ -38,6 +37,14 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
   //cycle over each of the selections and copy values to appropriate section taxonomy 
 	foreach ($sections as $section => $key) {
         $term        = taxonomy_term_load($section);
+        
+	    if (empty($term)) {
+	      // shouldn't get here.
+	      $message = t("ERROR: Invalid taxonomy. Top-level Section Heading selected.");
+	      drupal_set_message($message, 'error', $repeat = FALSE);
+	      break 1;
+	    };
+	    
         $tid         = $term->tid;
         $vid         = $term->vid;
         $name        = $term->name;
@@ -46,9 +53,8 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
         $weight      = $term ->weight;
         $vocab       = $term->vocabulary_machine_name;
         $rdf_mapping = $term->rdf_mapping;
-        
-        
-        $form_state['values']['body']['en']['0']['value'] .= "Section: $section - Vocab: $vid = $vocab : Term: $tid = $name \n ";
+	    
+        //$form_state['values']['body']['en']['0']['value'] .= "Section: $section - Vocab: $vid = $vocab : Term: $tid = $name \n ";
         //dd($term);
         switch ($vocab) {
           case "resident_taxonomy":
@@ -131,11 +137,11 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
 	$form_state['values']['field_gov_tax']['en'] = $gov_tax;
 	$form_state['values']['field_env_tax']['en'] = $env_tax;
 	
-	/*
+	
     $form_values = array();
     $form_values = $form_state['values'];  
-    dpm($form_values, 'form_values');
-    */
+    //dpm($form_values, 'form_values');
+    
 }
 
 
@@ -150,7 +156,8 @@ function coa_taxonomy_selector_node_form_build($form, &$form_state) {
 
 /**
 * Implementation of hook_form_alter().	
-* A case will need to be created for each content type which will be located by the primary site taxonomies.
+* This modifies the default edit form of each moderated content type.
+* A new case will need to be created for each content type that will be located by the primary site taxonomies.
 */
 function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    // a switch is used because you may want to alter more than
@@ -160,15 +167,33 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'page_node_form':
 
 		  
-		  $form['workbench_access']['#title'] = t('Placement');
-		  $form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
-		  $form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;
+		  //$form['workbench_access']['#title'] = t('Placement');
+		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
+		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;
 		  		   
 		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-						   
+		  //dpm($form, "form");				   
       break;
    };
-   // dpm($form, "form");
+   
+};
+
+/**
+* Validate the edit form.
+*/
+function _coa_taxonomy_selector_workbench_access_validate($form, &$form_state) {
+    //get the settings for the workbench access section taxonomy
+	$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+  	
+    foreach ($sections as $section => $key) {
+        $term        = taxonomy_term_load($section);    
+	    if (empty($term)) {
+	      $message = t("You have selected a top-level Section Heading. Please be more specific and select an Editorial Section.");
+	      form_set_error('workbench_access_id', $message);
+ 	      };
+    };
 };

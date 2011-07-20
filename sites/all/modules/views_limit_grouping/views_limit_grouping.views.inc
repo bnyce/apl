@@ -20,6 +20,7 @@ function views_limit_grouping_views_plugins() {
         'uses options' => TRUE,
         'uses grouping' => TRUE,
         'type' => 'normal',
+	'theme file' => 'theme.inc',
       ),
     ),
   );

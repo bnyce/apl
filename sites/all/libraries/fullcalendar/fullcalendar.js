@@ -2008,6 +2008,7 @@ function MonthView(element, calendar) {
 fcViews.basicWeek = BasicWeekView;
 
 function BasicWeekView(element, calendar) {
+
 	var t = this;
 
 

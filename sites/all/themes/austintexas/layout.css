@@ -17,6 +17,9 @@
 	#BIO VIEW - GOVERNMENT BIO PAGE 
 	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
 	#FULL CALENDAR
+	#Panel Layout
+	#Topic Panel Icons
+	#SERVICES (GLOSSARY)
 	*/
 
 
@@ -42,8 +45,8 @@
 	border: none;
 }
 
-#top-search #search-block-form #edit-search-block-form--2, #block-search-form input.form-text {
-	width: 420px
+#top-search #search-block-form #edit-search-block-form--2, #top-search #block-search-form input.form-text {
+	width: 420px;
 	height: 15px;
 	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
 	padding: 3px;
@@ -133,32 +136,53 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 /* #ONLINE SERVICES SELECT LIST
 ================================================== */
 span.customStyleSelectBox {
-	background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 0 transparent;
-	color: #816C5B;
+    background: url("images/icons/form_select_bkg.jpg") no-repeat scroll 0 2px transparent;
+    color: #816C5B;
+    display: inline-block;
     font-size: 12px;
     height: 15px;
-    padding: 3px;
+    padding: 5px 0 10px 8px;
 }
-.customStyleSelectBoxInner { background: url("images/icons/drop_arrow.jpg") no-repeat scroll 180px center transparent; height: 15px; padding: 3px; }
+.customStyleSelectBoxInner {
+    background: url("images/icons/drop_arrow.jpg") no-repeat scroll 153px center transparent;
+    height: 15px;
+    padding: 5px 0;
+}
 option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
 
 
 
-/* #Video page
+/* #Mini Video 
 ================================================== */
 
-div#mini-panel-video_page .panels-flexible-region {
-  padding:10px 0 0 50px;
-  width:450px;
-  margin: 0 auto;
+.mini-video .pane-content {
+    background: none repeat scroll 0 0 #F0E9DC;
+    height: 90px;
+    width: 207px;
+}
+.mini-video .views-field-field-video {
+    float: left;
+    padding: 6px;
+}
+.mini-video .views-field-title a {
+    color: #A85708;
+    font-weight: bold;
+    padding-right: 10px;
+    text-decoration: none;
+}
+.mini-video .views-field-field-video-sum .field-content p {
+    color: #636463;
+    font-family: "arial";
+    font-size: 12px !important;
+    font-weight: bold;
+    line-height: 20px !important;
+    margin-bottom: 0;
+    padding-right: 2px;
+    padding-top: 3px;
+    text-decoration: none;
 }
 
-div#mini-panel-video_page p {width:450px;}
 
-div#mini-panel-video_page .pane-7 a {background: none;padding:0px;}
-
-
-	
 /* #left col navigation for template node-17
 ================================================== */
 .port-col-left-navigation a {
@@ -195,12 +219,12 @@ h1#branding { margin: 0; }
 
 /* #PROMO TILES
 ================================================== */
-.promo-tile {margin: 10px 15px 20px;}
+.promo-tile {margin: 10px 0px 20px;}
 	/* top */
-	.promo-tile .views-field-field-text {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
-		.promo-tile .views-field-field-text a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
+	.promo-tile .views-field-title {background: url(images/promo_tile_top.gif) 0 0 no-repeat;height: 32px; line-height: 32px; text-align: center; width: 207px;}	
+		.promo-tile .views-field-title a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
 	/* bottom */
-	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; margin-top: 41px; text-align: right; width: 207px; padding: 2px;}
+	.promo-tile .views-field-title-1 {background: url(images/promo_tile_bottom.gif) 0 0 no-repeat; text-align: right; width: 207px; padding: 2px; margin-top: -3px;}
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
 
 
@@ -414,6 +438,16 @@ p#tweet {font-weight: normal; font-size: 12px;}
     width: 715px;
 }
 
+.panel-center a {
+    color: #A85708;
+	font-weight:bold;
+}
+.panel-center h2 {
+    text-transform: none !important;
+    margin-bottom: 1px;
+	font-size: 1.2em !important;
+}
+
 .panel-center-left-region {
     float: left;
     width: 480px;
@@ -478,3 +512,31 @@ p#tweet {font-weight: normal; font-size: 12px;}
     background: url("images/icons/topic-pets.jpg")no-repeat 0;
     padding-left: 30px;
 }
+
+
+
+
+
+/* #SERVICES (GLOSSARY) 
+================================================== */
+.services-table .services-table {padding: 10px;margin:5px 10px 10px 10px;}
+.services-table .services-table a {color: #a85708;text-decoration: none; font-weight: bold;}
+
+.services-table table thead {background:#767f88;}
+.services-table table thead a {color: #fff;text-decoration: none; font-weight: bold; padding: 5px;}
+.services-table table td {padding: 10px;background: #fff;}
+.services-table table a {color: #a85708;text-decoration: none; font-weight: bold; }
+
+
+
+/* #SEND EMAIL FORM
+================================================== */
+span.field-content h2 {font-family: Arial, sans-serif;color: #000;}
+
+#table1 {width: 80%;}
+#table1 td, table, tbody {border: none;}
+#table1 tr {padding: 5px;}
+
+#table1 td {padding: 15px 5px;border-bottom: 1px solid #ddd;color: #666;}
+#table1 input, #table1 textarea {border: 1px solid #ddd; padding: 5px; width: 60%;}
+#table1 input[type="submit"] {border-radius: 15px; width: 100px;background: #a85708; color: #fff;cursor: pointer;}

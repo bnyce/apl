@@ -111,6 +111,50 @@ Drupal.behaviors.fullCalendar = {
             'field=' + event.field + '&entity_type=' + event.entity_type + '&index=' + event.index + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&dom_id=' + event.dom_id,
             fullcalendarUpdate);
           return false;
+        },
+        dayClick: function(date, allDay, jsEvent, view) {
+          //console.log(date, allDay, jsEvent, view, this);
+            if($('#ajaxLoader').length == 0){
+              //alert($('#ajaxLoader').length);
+              $('#paramDayDate').append('<span id="ajaxLoader"><img src="/sites/all/themes/austintexas/images/ajax-loader.gif" /></span>');
+            }
+
+          if (view.name == 'basicWeek') {
+            //console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
+            ajaxPostDay(date);
+            $('.view-dom-id-fc-2').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
+            // remove highlighting from previously selected day in week view
+            $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
+            // remove highlighting from previously selected day in month view
+            $('.view-display-id-calendar_month_block .fc-widget-content').removeClass('fc-state-highlight');
+            /* TODO:  need to find a way to select/highlight the day in month view, using fc-sun, etc selects all sundays for the month. =( */
+            //highlight selected day in week view
+            $(this).addClass('fc-state-highlight');
+          }
+          if (view.name == 'month') {
+            //console.log('monthView',date.getFullYear(), date.getMonth(), date.getDate());
+            ajaxPostDay(date);
+            $('.view-dom-id-fc-1').find('.fullcalendar').fullCalendar('gotoDate', date.getFullYear(), date.getMonth(), date.getDate());
+            // remove highlighting from previously selected day in month view
+            $('.view-display-id-calendar_month_block .fc-widget-content').removeClass('fc-state-highlight');
+            // remove highlighting from previously selected day in week view
+            $('.fc-view-basicWeek .fc-widget-content').removeClass('fc-state-highlight');
+            //find which day is selected in month view by class name
+            var classArr = $(this).attr('class').split(' ');
+            var classPageArr = ['fc-sun', 'fc-mon', 'fc-tue', 'fc-wed', 'fc-thu', 'fc-fri', 'fc-sat'];
+            var i=0;
+            for (i=0;i<classArr.length;i++) {
+              //console.log(classArr[i]);
+              var tt = classArr[i];
+              if (jQuery.inArray(classArr[i], classPageArr) > -1){
+                // apply highlighting to selected day from month view to week view.
+                $('.fc-view-basicWeek tbody .' + tt).addClass('fc-state-highlight');
+                break;
+              }
+            }
+            //highlight selected day in month view
+            $(this).addClass('fc-state-highlight');
+          }
         }
       });
     });
@@ -131,23 +175,62 @@ Drupal.behaviors.fullCalendar = {
       return false;
     });
 
-    $('.fc-view-basicWeek .fc-widget-content', context).click(function () {
-      // This function will get exceuted after the ajax request is completed successfully
+    var ajaxPostDay = function(dateObj){
+      console.log('ajaxpost: ' + dateObj );
       var updateProducts = function(data) {
-        // The data parameter is a JSON object. The ÒproductsÓ property is the list of products items that was returned from the server response to the ajax request.
-        alert(data.memo);
-        $('.view-display-id-calendar_day_block > div').html(data.products);
+        if(data.memo != '') { console.debug(data.memo); }
+        $('#block-views-fullcalendar-calendar-day-block .content').html(data.products);
+        $('.colorbox-load').attr('href', function(ind,attr){return attr + '?width=80%25&height=80%25&iframe=true'});
+        $.urlParam = function(name, url){
+          var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+          if (!results) { return ''; }
+          return results[1] || '';
+        };
+        $('a, area, input', context).filter('.colorbox-load').once('init-colorbox-load-processed').colorbox({
+          transition:"elastic",
+          speed:"350",
+          opacity:"0.85",
+          close:"Close",
+          overlayClose:true,
+          maxWidth:"100%",
+          maxHeight:"100%",
+          innerWidth:function(){
+            return $.urlParam('width', $(this).attr('href'));
+          },
+          innerHeight:function(){
+            return $.urlParam('height', $(this).attr('href'));
+          },
+          iframe:function(){
+            return $.urlParam('iframe', $(this).attr('href'));
+          }
+        });
+        if ($('#block-system-main').find('div#paramDayDate').length == 0) {
+          $('#block-system-main .view-display-id-fullcalendar_page .fc').after('<div id="paramDayDate">' + data.paramDate + '</div>');
+        }else{
+          $('#paramDayDate').text(data.paramDate);
+        }
       }
-      alert($(this).attr('class'));
+      if(!dateObj) { dateObj = null; }
+      //trim leading '/' off url
+      var locPathStr = window.location.pathname.replace(/^\/?/, '');
+      // replace any other '/' to @ so it will not think each / is another parameter
+      var locPathStr = locPathStr.replace(/\//, '@');
+      console.log(locPathStr);
       $.ajax({
         type: 'POST',
-        url: 'calendar/update/20', //this.href, // Which url should be handle the ajax request. This is the url defined in the <a> html tag
+        url: '/calendar/update/' + dateObj + '/' + locPathStr,
         success: updateProducts, // The js function that will be called upon success request
         dataType: 'json', //define the type of data that is going to get back from the server
         data: 'js=1' //Pass a key/value pair
       });
-      //return false;  // return false so the navigation stops here and not continue to the page in the link
+    }
+
+    // click department header to hide that department's events
+    $('#block-views-fullcalendar-calendar-day-block .view-content h3').live('click', function() {
+      $(this).next().fadeToggle('slow','linear');
     });
+
+    $('.colorbox-load').once().attr('href', function(ind,attr){return attr + '?width=80%25&height=80%25&iframe=true'}); //'?width=500&height=500&inline=true#block-system-main'
 
     // Trigger a window resize so that calendar will redraw itself as it loads funny in some browsers occasionally
     $(window).resize();

@@ -46,7 +46,7 @@ function coa_fullcalendar_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Contact Information',
-    'weight' => '14',
+    'weight' => '7',
     'children' => array(
       0 => 'field_contact_name',
       1 => 'field_phone',

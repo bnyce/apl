@@ -5,6 +5,8 @@ if(isset($_SERVER['QUERY_STRING'])) {
   $httpReferer = $_SERVER['QUERY_STRING'];
   $qsVars = strpos($httpReferer, 'iframe=true');
   if ($qsVars > 0){
+    print "<style type='text/css' media='all'>@import url('http://localhost:8888/modules/field/theme/field.css');</style>\n";
+    print "<style>.field-name-body{ clear: both;padding: 5px 0;} </style>\n";
     print render($page['content']);
     exit;
   }

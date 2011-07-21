@@ -198,15 +198,15 @@ function coa_directory_views_default_views() {
                       <td><b>*E-mail Address :</b></td>
                        <td><input type=\'email\' name=\'email\' value="<?php if (isset($_POST[\'email\'])){ 
                                                                                                  echo  $_POST[\'email\'];
-                                                                                          }?>">
+                                                                                          }?>"><br/>
                               <?php
                                        if(isset($_POST[\'submit\'])){
                                            if(isset($error_email)){
-                                                echo "Please enter email,It should not be empty"; 
+                                                echo "<div class=\'email_error\'>Please enter email,It should not be empty</div>"; 
                                             }
                                        }
                                   ?>
-                              <br/>Be sure to include your complete e-mail address (including @ symbol).
+                              Be sure to include your complete e-mail address (including @ symbol).
                       </td>
                  </tr>
                 <tr>
@@ -216,7 +216,7 @@ function coa_directory_views_default_views() {
                                  <?php
                                        if(isset($_POST[\'submit\'])){
                                            if(isset($error_subject)){
-                                                echo "Please enter Subject,It should not be empty"; 
+                                                echo "<div class=\'email_error\'>Please enter Subject,It should not be empty</div>"; 
                                             }
                                        }
                                   ?> 
@@ -227,7 +227,7 @@ function coa_directory_views_default_views() {
                   <?php
                         if(isset($_POST[\'submit\'])){
                               if(isset($error_question)){
-                                     echo "Please enter Question"; 
+                                  echo "<div class=\'email_error\'>Please enter Question</div>"; 
                               }
                         }
                    ?>

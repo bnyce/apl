@@ -10,7 +10,19 @@
     					$a=strpos($file,".");
     					$file_name= substr($file,$offset,$a);
 					}
-					define('DRUPAL_ROOT', getcwd());
+					mysql_connect('localhost','root','root')or die("Could not connect: " . mysql_error());
+                    mysql_select_db('drupaldb');
+					$result = mysql_query("select title,nid from scratch_node where title='$file_name'");
+                	while($row = mysql_fetch_array($result)) {
+                    	$Title= $row['title'];
+						if($Title==$file_name){
+							echo "Node Found";
+						}else{
+							echo "Node not Found";
+						}
+						
+                    }
+					/*define('DRUPAL_ROOT', getcwd());
 					$_SERVER['REMOTE_ADDR'] = "localhost"; // Necessary if running from command line
 					require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
 					drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
@@ -46,7 +58,7 @@
 							node_save($node);
 							echo "Node with nid " . $node->nid . " saved!\n";
 					}
-				  	echo "<br/>";$old_name."</br/>";
+				  	echo "<br/>";$old_name."</br/>";*/
 				}//end if
 			}//end while
 			closedir($handle);

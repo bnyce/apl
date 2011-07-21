@@ -1,3 +1,16 @@
+<?php
+// added to catch urls coming from calendar events and show them in an empty template page.
+// all other requests fall thru to normal template.
+if(isset($_SERVER['QUERY_STRING'])) {
+  $httpReferer = $_SERVER['QUERY_STRING'];
+  $qsVars = strpos($httpReferer, 'iframe=true');
+  if ($qsVars > 0){
+    print render($page['content']);
+    exit;
+  }
+}
+?>
+
   <?php print render($page['header']); ?>
 
   <div id="topmenu"><?php print render($page['topmenu']); ?></div>
@@ -7,7 +20,7 @@
 
       	<div id="top-search"><?php print render($page['search']); ?></div>
       	<div id="toplinks"><?php print render($page['toplinks']); ?></div>
-        
+
         <div id="logo-floater">
         <?php if ($logo || $site_title): ?>
           <?php if ($title): ?>
@@ -50,7 +63,6 @@
     <?php endif; ?>
         <div id="submenubar"><?php print render($page['submenubar']); ?></div>
 		<div id="header-banner" class="br"><?php print render($page['header_banner']); ?></div>
-        <!-- <div id="search" class="br"><?php print render($page['search']); ?></div>  -->
       </div> <!-- /#header -->
 
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
@@ -116,5 +128,5 @@
   <div id="footer-blocks"><?php print render($page['footer']); ?></div>
   <div style="clear: both;"></div>
   <div id="footer-menu"><?php print render($page['footer_menu']); ?></div>
-  <!--  page.tpl template -->
+  <!--  page.tpl template 07-19-11 -->
   </div>

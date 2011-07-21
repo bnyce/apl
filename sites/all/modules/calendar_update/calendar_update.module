@@ -27,12 +27,9 @@ function calendar_update_get_by_category_id($curr_date=null, $pathname=null){
   $arr_months = array('Jan'=>'01', 'Feb'=>'02', 'Mar'=>'03', 'Apr'=>'04', 'May'=>'05', 'Jun'=>'06', 'Jul'=>'07', 'Aug'=>'08', 'Sep'=>'09', 'Oct'=>'10', 'Nov'=>'11', 'Dec'=>'12' );
   $viewName = 'fullcalendar';
   $displayId = 'calendar_day_block2';
-  $str_sql_day_view = "SELECT n.nid, n.title, ed.field_event_date_value, ed.field_event_date_value2, td.name, var.value
-						FROM scratch_node n
-						LEFT JOIN scratch_field_data_field_event_date ed ON n.nid=ed.entity_id
-						LEFT JOIN scratch_field_data_field_calendar_department cd ON n.nid=cd.entity_id
-						LEFT JOIN scratch_taxonomy_term_data td ON cd.field_calendar_department_tid=td.tid
-						LEFT JOIN scratch_variable var ON CONCAT('fullcalendar_color_taxo_term_', cd.field_calendar_department_tid)=var.name
+  $str_sql_day_view = "SELECT n.nid, n.title, ed.field_event_date_value, ed.field_event_date_value2
+						FROM {node} n
+						LEFT JOIN {field_data_field_event_date} ed ON n.nid=ed.entity_id
 						WHERE n.type = 'calender_events'
 						AND
 						(
@@ -45,18 +42,18 @@ function calendar_update_get_by_category_id($curr_date=null, $pathname=null){
    							   )
    						)";
   $items = '';
-  if ($curr_date == 'null') {
+//  if ($curr_date == 'null') {
     // pull day of week from class fc-day1
 //    $int_day = preg_match('/fc-day(.?)/', $str_class, $str_dayofwk_matches);
     //pull start of calendar week from weekly header 'Jul 3 - 9 2011'
 //    $int_year = preg_match('/^(\w{3}) (\d{1,2}).*(\d{4})$/', urldecode($str_date), $str_yr_matches);
 //    $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
 //    $argsFriendlyMode = date('D, M d, Y', mktime(0, 0, 0, $arr_months[$str_yr_matches[1]], ($str_yr_matches[2] + $str_dayofwk_matches[1]), $str_yr_matches[3]));
-  }else{
+//  }else{
     $dateArr = explode(" ", $curr_date);
     $args = date('Y-m-d', mktime(0, 0, 0, $arr_months[$dateArr[1]], $dateArr[2], $dateArr[3]));
     $argsFriendlyMode = date('D, M d, Y', mktime(0, 0, 0, $arr_months[$dateArr[1]], $dateArr[2], $dateArr[3]));
-  }
+//  }
   $result = db_query($str_sql_day_view, array(':passed_date' => $args));
   $tmp = '';
   foreach ($result as $record) {
@@ -85,16 +82,6 @@ function calendar_update_get_by_category_id($curr_date=null, $pathname=null){
   );
   exit;
 }
-
-/*
-function createWeekView($str_date){
-  if (!$str_date){ $date = date('Y-m-d'); }
-  $yr_num = date("Y", strtotime($str_date));
-  $wk_num = date("W", strtotime($str_date));
-  $sun_target_week = date('m/d/Y', strtotime($yr_num.'W'.$wk_num.'0'));
-  return $sun_target_week;
-}
-*/
 
 function calendar_update_theme() {
    return array(

@@ -49,7 +49,14 @@ function coa_fullcalendar_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '2',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -77,7 +84,7 @@ function coa_fullcalendar_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '1',
+        'weight' => '2',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -87,7 +94,7 @@ function coa_fullcalendar_field_default_fields() {
   $fields['node-calender_events-field_calendar_department'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_calendar_department',
@@ -109,7 +116,7 @@ function coa_fullcalendar_field_default_fields() {
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'calander_departments',
+            'vocabulary' => 'department',
           ),
         ),
       ),
@@ -123,11 +130,17 @@ function coa_fullcalendar_field_default_fields() {
       'description' => 'Please select a department for this event.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 4,
+          'weight' => '4',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -147,8 +160,158 @@ function coa_fullcalendar_field_default_fields() {
         'active' => 1,
         'module' => 'options',
         'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '3',
+        'type' => 'options_select',
+        'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-calender_events-field_contact_name'
+  $fields['node-calender_events-field_contact_name'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_contact_name',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'calender_events',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '5',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '9',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_contact_name',
+      'label' => 'Contact Name',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '7',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-calender_events-field_email'
+  $fields['node-calender_events-field_email'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_email',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '60',
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'calender_events',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '7',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '10',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_email',
+      'label' => 'Contact Email',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '8',
       ),
     ),
   );
@@ -186,7 +349,21 @@ function coa_fullcalendar_field_default_fields() {
       'description' => 'Event starting date',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_short',
+          'weight' => '0',
+        ),
+        'full' => array(
+          'label' => 'hidden',
           'module' => 'date',
           'settings' => array(
             'format_type' => 'long',
@@ -209,7 +386,7 @@ function coa_fullcalendar_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_event_date',
       'label' => 'Event Date',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'default_format' => 'medium',
         'default_value' => 'now',
@@ -230,8 +407,8 @@ function coa_fullcalendar_field_default_fields() {
           'text_parts' => array(),
           'year_range' => '-1:+3',
         ),
-        'type' => 'date_select',
-        'weight' => '2',
+        'type' => 'date_popup',
+        'weight' => '3',
       ),
     ),
   );
@@ -271,14 +448,24 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 3,
+          'weight' => '3',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -303,69 +490,170 @@ function coa_fullcalendar_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'image',
+        'module' => 'media',
         'settings' => array(
+          'allowed_schemes' => array(
+            0 => 'public',
+            1 => 'private',
+          ),
+          'allowed_types' => array(
+            0 => 'image',
+          ),
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'image_image',
-        'weight' => '4',
+        'type' => 'media_generic',
+        'weight' => '5',
       ),
     ),
   );
 
-  // Exported field: 'taxonomy_term-calander_departments-field_departments'
-  $fields['taxonomy_term-calander_departments-field_departments'] = array(
+  // Exported field: 'node-calender_events-field_phone'
+  $fields['node-calender_events-field_phone'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_departments',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
+      'field_name' => 'field_phone',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
         ),
       ),
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          'council' => 'Council',
-          'parks_and_rec' => 'Parks and Rec',
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
         ),
-        'allowed_values_function' => '',
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '12',
       ),
       'translatable' => '1',
-      'type' => 'list_text',
+      'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'calander_departments',
+      'bundle' => 'calender_events',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'list',
+          'label' => 'hidden',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'list_default',
+          'type' => 'text_default',
+          'weight' => '6',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '11',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
       ),
-      'entity_type' => 'taxonomy_term',
-      'field_name' => 'field_departments',
-      'label' => 'Departments',
+      'entity_type' => 'node',
+      'field_name' => 'field_phone',
+      'label' => 'Contact Phone',
       'required' => 0,
       'settings' => array(
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '2',
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-calender_events-field_special_notice'
+  $fields['node-calender_events-field_special_notice'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_special_notice',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'calender_events',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_special_notice',
+      'label' => 'Special Notice',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '1',
       ),
     ),
   );
@@ -373,11 +661,15 @@ function coa_fullcalendar_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Contact Email');
+  t('Contact Name');
+  t('Contact Phone');
   t('Departments');
   t('Event Date');
   t('Event starting date');
   t('Image');
   t('Please select a department for this event.');
+  t('Special Notice');
 
   return $fields;
 }

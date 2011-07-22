@@ -84,7 +84,7 @@ function coa_fullcalendar_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '1',
+        'weight' => '2',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -94,7 +94,7 @@ function coa_fullcalendar_field_default_fields() {
   $fields['node-calender_events-field_calendar_department'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_calendar_department',
@@ -116,7 +116,7 @@ function coa_fullcalendar_field_default_fields() {
         'allowed_values' => array(
           0 => array(
             'parent' => '0',
-            'vocabulary' => 'calander_departments',
+            'vocabulary' => 'department',
           ),
         ),
       ),
@@ -138,9 +138,8 @@ function coa_fullcalendar_field_default_fields() {
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '4',
         ),
         'teaser' => array(
@@ -159,10 +158,10 @@ function coa_fullcalendar_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
+        'module' => 'hs_taxonomy',
         'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '3',
+        'type' => 'taxonomy_hs',
+        'weight' => '4',
       ),
     ),
   );
@@ -202,18 +201,18 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '5',
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_plain',
-          'weight' => '5',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -277,18 +276,18 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '7',
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_plain',
-          'weight' => '6',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -409,7 +408,7 @@ function coa_fullcalendar_field_default_fields() {
           'year_range' => '-1:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -504,7 +503,7 @@ function coa_fullcalendar_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -544,18 +543,18 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '6',
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_plain',
-          'weight' => '7',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -654,63 +653,7 @@ function coa_fullcalendar_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
-      ),
-    ),
-  );
-
-  // Exported field: 'taxonomy_term-calander_departments-field_departments'
-  $fields['taxonomy_term-calander_departments-field_departments'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_departments',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          'council' => 'Council',
-          'parks_and_rec' => 'Parks and Rec',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '1',
-      'type' => 'list_text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'calander_departments',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'taxonomy_term',
-      'field_name' => 'field_departments',
-      'label' => 'Departments',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );

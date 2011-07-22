@@ -27,12 +27,9 @@ function calendar_update_get_by_category_id($curr_date=null, $pathname=null){
   $arr_months = array('Jan'=>'01', 'Feb'=>'02', 'Mar'=>'03', 'Apr'=>'04', 'May'=>'05', 'Jun'=>'06', 'Jul'=>'07', 'Aug'=>'08', 'Sep'=>'09', 'Oct'=>'10', 'Nov'=>'11', 'Dec'=>'12' );
   $viewName = 'fullcalendar';
   $displayId = 'calendar_day_block2';
-  $str_sql_day_view = "SELECT n.nid, n.title, ed.field_event_date_value, ed.field_event_date_value2, td.name, var.value
+  $str_sql_day_view = "SELECT n.nid, n.title, ed.field_event_date_value, ed.field_event_date_value2
 						FROM {node} n
 						LEFT JOIN {field_data_field_event_date} ed ON n.nid=ed.entity_id
-						LEFT JOIN {field_data_field_calendar_department} cd ON n.nid=cd.entity_id
-						LEFT JOIN {taxonomy_term_data} td ON cd.field_calendar_department_tid=td.tid
-						LEFT JOIN {variable} var ON CONCAT('fullcalendar_color_taxo_term_', cd.field_calendar_department_tid)=var.name
 						WHERE n.type = 'calender_events'
 						AND
 						(

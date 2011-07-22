@@ -12,7 +12,7 @@
 					}
 					mysql_connect('localhost','root','root')or die("Could not connect: " . mysql_error());
                     mysql_select_db('drupaldb');
-					$result = mysql_query("select title,nid from scratch_node where title='$file_name'");
+					$result = mysql_query("select title,nid,created from scratch_node where title='$file_name'");
                 	$row = mysql_fetch_array($result);
                     $Title= $row['title'];
 					//*********************************Node_Update******************************
@@ -20,19 +20,23 @@
 						echo "Node Found<br/>";
 						$file_timestamp=filemtime("C:/Documents and Settings/nandigamS/Desktop/htmlfiles/$file");
 						echo $file_timestamp."Timestamp<br/>";
-						define('DRUPAL_ROOT', getcwd());
-						$_SERVER['REMOTE_ADDR'] = "localhost"; // Necessary if running from command line
-						require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
-						drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
-						$bodytext = $buffer1; // Body part of the html file
-						$nid = $row['nid']; // The node to update
-						$node = node_load($nid); // ...where $nid is the node id
-						//$node->title    = "Let's set a new title for this node HTML import";
-						$node->title = $file_name;
-						$node->body[$node->language][0]['value']   = $bodytext;
-						if($node = node_submit($node)) { // Prepare node for saving
-							node_save($node);
-							echo "Node with nid " . $node->nid . " updated!<br/>";
+						if($row['created']==$file_timestamp){
+							echo "There is no change in timestamp,So no need to update<br/>";
+						}else{
+							define('DRUPAL_ROOT', getcwd());
+							$_SERVER['REMOTE_ADDR'] = "localhost"; // Necessary if running from command line
+							require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+							drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+							$bodytext = $buffer1; // Body part of the html file
+							$nid = $row['nid']; // The node to update
+							$node = node_load($nid); // ...where $nid is the node id
+							//$node->title    = "Let's set a new title for this node HTML import";
+							$node->title = $file_name;
+							$node->body[$node->language][0]['value']   = $bodytext;
+							if($node = node_submit($node)) { // Prepare node for saving
+								node_save($node);
+								echo "Node with nid " . $node->nid . " updated!<br/>";
+							}
 						}
 					//*********************************New_Node_Creation******************************	
 					}elseif(!($Title==$file_name)){
@@ -41,6 +45,7 @@
 						$_SERVER['REMOTE_ADDR'] = "localhost"; // Necessary if running from command line
 						require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
 						drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+						$file_timestamp=filemtime("C:/Documents and Settings/nandigamS/Desktop/htmlfiles/$file");
 						$bodytext = $buffer1; // Body part of the html file
 						$node = new stdClass(); // Create a new node object
 						$node->type = "page"; // or page, or whatever content type you like
@@ -56,8 +61,10 @@
 						$node->comment = 1; //Comments on=2, comments off=1
 						$node->uid = 14; // UID of the author of the node; or use $node->name
 						$node->body[$node->language][0]['value']   = $bodytext;
-						//$node->body[$node->language][0]['summary'] = text_summary($bodytext);
 						$node->body[$node->language][0]['format']  = 'full_html';
+						$node->remote_timestamp = $file_timestamp;
+						echo "Node Timestamp===".$node->remote_timestamp."<br/>";
+											
 						// I prefer using pathauto, which would override the below path
 						//$path = 'node_created_on' . date('YmdHis');
 						//$nid = $node->nid;
@@ -68,7 +75,9 @@
 							node_save($node);
 							echo "Node with nid " . $node->nid . " saved!<br/>";
 						}
-				 }//end elseif
+						@mysql_query("UPDATE scratch_node SET created=$file_timestamp WHERE title='$file_name'")or die(mysql_error());
+						echo "Success...<br/>";
+				}//end elseif
 			}//end if
 		}//end while
 		@mysql_close();

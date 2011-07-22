@@ -64,11 +64,9 @@
 						$node->body[$node->language][0]['format']  = 'full_html';
 						$node->remote_timestamp = $file_timestamp;
 						echo "Node Timestamp===".$node->remote_timestamp."<br/>";
-											
 						// I prefer using pathauto, which would override the below path
 						//$path = 'node_created_on' . date('YmdHis');
 						//$nid = $node->nid;
-						//$path= $nid;
 						$path = $file_name;
 						$node->path = array('alias' => $path);   //alias path
 						if($node = node_submit($node)) { // Prepare node for saving

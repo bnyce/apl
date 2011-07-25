@@ -15,6 +15,8 @@ function coa_fullcalendar_user_default_permissions() {
     'name' => 'calendar update',
     'roles' => array(
       0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
     ),
     'module' => 'calendar_update',
   );

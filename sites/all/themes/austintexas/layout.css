@@ -540,3 +540,15 @@ span.field-content h2 {font-family: Arial, sans-serif;color: #000;}
 #table1 td {padding: 15px 5px;border-bottom: 1px solid #ddd;color: #666;}
 #table1 input, #table1 textarea {border: 1px solid #ddd; padding: 5px; width: 60%;}
 #table1 input[type="submit"] {border-radius: 15px; width: 100px;background: #a85708; color: #fff;cursor: pointer;}
+
+div#tabs-wrapper {}
+ul.tabs {float: right;margin: 0 30px -2px 0;border: none;} ul.tabs li a {border-radius: 8px 8px 0 0; padding: 5px 20px;border: none;} ul.tabs li a.active {    background-color: #A6A7A2;
+    border-radius: 8px 8px 0 0;
+    color: #000000;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 2px;
+    outline: 0 none;
+    padding: 0 14px;
+    text-decoration: none;}

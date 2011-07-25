@@ -10,16 +10,10 @@
 function coa_workbench_roles_and_permissions_user_default_roles() {
   $roles = array();
 
-  // Exported role: administrator
-  $roles['administrator'] = array(
-    'name' => 'administrator',
-    'weight' => '2',
-  );
-
   // Exported role: approver
   $roles['approver'] = array(
     'name' => 'approver',
-    'weight' => '4',
+    'weight' => '5',
   );
 
   // Exported role: author
@@ -31,13 +25,19 @@ function coa_workbench_roles_and_permissions_user_default_roles() {
   // Exported role: dept_admin
   $roles['dept_admin'] = array(
     'name' => 'dept_admin',
-    'weight' => '6',
+    'weight' => '7',
+  );
+
+  // Exported role: developer
+  $roles['developer'] = array(
+    'name' => 'developer',
+    'weight' => '4',
   );
 
   // Exported role: pio
   $roles['pio'] = array(
     'name' => 'pio',
-    'weight' => '5',
+    'weight' => '6',
   );
 
   return $roles;

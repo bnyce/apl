@@ -14,20 +14,10 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
   $permissions['access content'] = array(
     'name' => 'access content',
     'roles' => array(
-      0 => 'anonymous user',
-      1 => 'authenticated user',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: access content overview
-  $permissions['access content overview'] = array(
-    'name' => 'access content overview',
-    'roles' => array(
       0 => 'administrator',
-      1 => 'approver',
-      2 => 'dept_admin',
-      3 => 'pio',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
+      3 => 'author',
     ),
     'module' => 'node',
   );
@@ -40,7 +30,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench',
   );
@@ -53,27 +44,10 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_access',
-  );
-
-  // Exported permission: administer content types
-  $permissions['administer content types'] = array(
-    'name' => 'administer content types',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: administer nodes
-  $permissions['administer nodes'] = array(
-    'name' => 'administer nodes',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: administer workbench
@@ -81,6 +55,7 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'administer workbench',
     'roles' => array(
       0 => 'administrator',
+      1 => 'developer',
     ),
     'module' => 'workbench',
   );
@@ -90,6 +65,7 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'administer workbench access',
     'roles' => array(
       0 => 'administrator',
+      1 => 'developer',
     ),
     'module' => 'workbench_access',
   );
@@ -99,6 +75,7 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'administer workbench moderation',
     'roles' => array(
       0 => 'administrator',
+      1 => 'developer',
     ),
     'module' => 'workbench_moderation',
   );
@@ -121,58 +98,14 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'module' => 'workbench_access',
   );
 
-  // Exported permission: bypass node access
-  $permissions['bypass node access'] = array(
-    'name' => 'bypass node access',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: bypass workbench moderation
   $permissions['bypass workbench moderation'] = array(
     'name' => 'bypass workbench moderation',
     'roles' => array(
       0 => 'administrator',
-      1 => 'pio',
+      1 => 'developer',
     ),
     'module' => 'workbench_moderation',
-  );
-
-  // Exported permission: create page content
-  $permissions['create page content'] = array(
-    'name' => 'create page content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'author',
-      2 => 'dept_admin',
-      3 => 'pio',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete any page content
-  $permissions['delete any page content'] = array(
-    'name' => 'delete any page content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'dept_admin',
-      2 => 'pio',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete own page content
-  $permissions['delete own page content'] = array(
-    'name' => 'delete own page content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'author',
-      2 => 'dept_admin',
-      3 => 'pio',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: delete revisions
@@ -184,27 +117,13 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit any page content
-  $permissions['edit any page content'] = array(
-    'name' => 'edit any page content',
+  // Exported permission: edit own webform submissions
+  $permissions['edit own webform submissions'] = array(
+    'name' => 'edit own webform submissions',
     'roles' => array(
       0 => 'administrator',
-      1 => 'dept_admin',
-      2 => 'pio',
     ),
-    'module' => 'node',
-  );
-
-  // Exported permission: edit own page content
-  $permissions['edit own page content'] = array(
-    'name' => 'edit own page content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'author',
-      2 => 'dept_admin',
-      3 => 'pio',
-    ),
-    'module' => 'node',
+    'module' => 'webform',
   );
 
   // Exported permission: moderate content from Draft to Needs Review
@@ -212,7 +131,11 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'moderate content from Draft to Needs Review',
     'roles' => array(
       0 => 'administrator',
-      1 => 'pio',
+      1 => 'approver',
+      2 => 'author',
+      3 => 'dept_admin',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -222,7 +145,11 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'moderate content from Needs Review to Draft',
     'roles' => array(
       0 => 'administrator',
-      1 => 'pio',
+      1 => 'approver',
+      2 => 'author',
+      3 => 'dept_admin',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -232,7 +159,10 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'moderate content from Needs Review to Published',
     'roles' => array(
       0 => 'administrator',
-      1 => 'pio',
+      1 => 'approver',
+      2 => 'dept_admin',
+      3 => 'developer',
+      4 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -254,7 +184,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'dept_admin',
-      2 => 'pio',
+      2 => 'developer',
+      3 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -267,7 +198,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_media',
   );
@@ -280,7 +212,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -290,8 +223,10 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'use workbench_moderation needs review tab',
     'roles' => array(
       0 => 'administrator',
-      1 => 'dept_admin',
-      2 => 'pio',
+      1 => 'approver',
+      2 => 'dept_admin',
+      3 => 'developer',
+      4 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -303,7 +238,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       0 => 'administrator',
       1 => 'approver',
       2 => 'dept_admin',
-      3 => 'pio',
+      3 => 'developer',
+      4 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -316,7 +252,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -329,7 +266,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_moderation',
   );
@@ -339,11 +277,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'view own unpublished content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'approver',
-      2 => 'authenticated user',
-      3 => 'author',
-      4 => 'dept_admin',
-      5 => 'pio',
+      1 => 'authenticated user',
+      2 => 'author',
     ),
     'module' => 'node',
   );
@@ -356,7 +291,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'node',
   );
@@ -369,7 +305,8 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       1 => 'approver',
       2 => 'author',
       3 => 'dept_admin',
-      4 => 'pio',
+      4 => 'developer',
+      5 => 'pio',
     ),
     'module' => 'workbench_access',
   );
@@ -379,10 +316,6 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'view workbench taxonomy pages',
     'roles' => array(
       0 => 'administrator',
-      1 => 'approver',
-      2 => 'author',
-      3 => 'dept_admin',
-      4 => 'pio',
     ),
     'module' => 'workbench_access',
   );

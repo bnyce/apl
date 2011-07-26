@@ -4,26 +4,14 @@
  * Implementation of hook_menu().
  * Registers a form-based page that you can access at "http://localhost/mypage"
  */
-/*
-function coa_taxonomy_selector_menu(){
-    return array(
-        'mypage' => array(
-            'title' => 'A page to test ajax',
-            'page callback' => 'drupal_get_form',
-            'page arguments' => array('coa_taxonomy_selector_page'),
-            'access arguments' => array('access content'), 
-         )
-     );
-}
-*/
-
-<<<<<<< HEAD
 
 
 /**
 * Additional handler for node form submit.
 */
+
 function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
+  
   //create clear arrays
     $page_resident = array();
     $bus_tax = array();
@@ -141,6 +129,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
 	
     $form_values = array();
     $form_values = $form_state['values'];  
+    dpm($sections, 'sections');		
     dpm($form_values, 'form_values');
     
 }
@@ -160,12 +149,6 @@ function coa_taxonomy_selector_node_form_build($form, &$form_state) {
 * This modifies the default edit form of each moderated content type.
 * A new case will need to be created for each content type that will be located by the primary site taxonomies.
 */
-=======
-/**
-* Implementation of hook_form_alter().	
-*/
-
->>>>>>> dev
 function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    // a switch is used because you may want to alter more than
    // one form and it is easy to add a new case for each form.
@@ -173,17 +156,22 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      // This is our form ID.
      case 'page_node_form':
 
-<<<<<<< HEAD
 		  
 		  //$form['workbench_access']['#title'] = t('Placement');
 		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
-		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;
-		  		   
+		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
 		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+		  $form['field_page_resident']['#type'] = 'hidden';
+		  $form['field_bus_tax']['#type'] = 'hidden';
+		  $form['field_dev_tax']['#type'] = 'hidden';
+		  $form['field_gov_tax']['#type'] = 'hidden';
+		  $form['field_env_tax']['#type'] = 'hidden';
+		  
 		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  //dpm($form, "form");				   
+		  dpm($form, "form");
+		  //dpm($form_state, "form_state");				   
       break;
    };
    
@@ -193,77 +181,22 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 * Validate the edit form.
 */
 function _coa_taxonomy_selector_workbench_access_validate($form, &$form_state) {
+    
     //get the settings for the workbench access section taxonomy
-	$sections = array();
+    
+	//$sections = array();
 	$sections = $form_state['values']['workbench_access_id'];
-  	
-    foreach ($sections as $section => $key) {
-        $term        = taxonomy_term_load($section);    
-	    if (empty($term)) {
-	      $message = t("You have selected a top-level Section Heading. Please be more specific and select an Editorial Section.");
-	      form_set_error('workbench_access_id', $message);
- 	      };
-    };
-};
-=======
-						
-		  $form['select_section'] = array (
-								'#title' => t('Select Section'),
-		         				'#weight' => '0',
-		         				'#type' => 'select',
-		         				'#options' => drupal_map_assoc(array (
-												t('Resident'), 
-												t('Business'), 
-												t('Development'), 
-												t('Government'), 
-												t('Environment'),
-		             							)),
-								);
-		  
-		  $form['field_page_resident']['en']['#title'] = 'Resident Section';
-		  $form['field_page_resident']['#states'] = array(
-					      		'visible' => array(
-					        			':input[name="select_section"]' => array('value' => t('Resident')),
-					      		),
-					    );
-
-		  $form['field_bus_tax']['#states'] = array(
-								'visible' => array(
-							   			':input[name="select_section"]' => array('value' => t('Business')),
-					      		),
-					    );
-
-		  $form['field_dev_tax']['#states'] = array(
-								'visible' => array(
-								         ':input[name="select_section"]' => array('value' => t('Development')),
-								),
-						);
-
-		  $form['field_gov_tax']['#states'] = array(
-								'visible' => array(
-										 ':input[name="select_section"]' => array('value' => t('Government')),
-									      ),
-						);
-
-		  $form['field_env_tax']['#states'] = array(
-								'visible' => array(
-										 ':input[name="select_section"]' => array('value' => t('Environment')),
-									      ),
-						   );
-		
-      break;
-   };
-};
-
-/**
-* Callback element needs only select the portion of the form to be updated.
-* Since #ajax['callback'] return can be HTML or a renderable array (or an
-* array of commands), we can just return a piece of the form.
-*/
-function coa_taxonomy_selector_callback($key = '') {
-
+	if(!is_array($sections)){
+	  $message = t("Configuration Error: Please Workbench Access for multiple selection assignments.");
+  	      form_set_error('workbench_access_id', $message);
+	} else {
 	
-  return;
-}
-
->>>>>>> dev
+      foreach ($sections as $section => $key) {
+          $term        = taxonomy_term_load($section);    
+  	    if (empty($term)) {
+  	      $message = t("You have selected a top-level Section Heading. Please be more specific in selecting an Editorial Section.");
+  	      form_set_error('workbench_access_id', $message);
+   	      };
+      };
+	};
+};

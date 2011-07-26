@@ -85,6 +85,7 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'assign workbench access',
     'roles' => array(
       0 => 'administrator',
+      1 => 'developer',
     ),
     'module' => 'workbench_access',
   );
@@ -113,6 +114,7 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'name' => 'delete revisions',
     'roles' => array(
       0 => 'administrator',
+      1 => 'pio',
     ),
     'module' => 'node',
   );

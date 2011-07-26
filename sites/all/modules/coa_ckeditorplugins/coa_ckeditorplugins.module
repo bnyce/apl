@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the coa_ckeditorPlugins feature.
+ */
+
+include_once('coa_ckeditorplugins.features.inc');

@@ -65,6 +65,12 @@ function workbench_access_settings_form($form, &$form_state) {
     '#default_value' => variable_get('workbench_access_auto_assign', 1),
     '#description' => t('Enable all sections automatically for the active scheme.'),
   );
+  $form['workbench_access_allow_multiple'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Allow multiple section assignments'),
+    '#default_value' => variable_get('workbench_access_allow_multiple', 0),
+    '#description' => t('Let content be assigned to multiple sections.'),
+  );
   $form = system_settings_form($form);
   $form['#validate'][] = 'workbench_access_settings_validate';
   $form['#submit'][] = 'workbench_access_settings_submit';
@@ -504,6 +510,9 @@ function workbench_access_editor_form_validate($form, &$form_state) {
     $account = user_load_by_name($values['add_user']);
     if (empty($account)) {
       form_set_error('add_user', t('The selected user does not exist.'));
+    }
+    elseif (!user_access('access workbench access by role', $account)) {
+      form_set_error('add_user', t('The selected user does not have permission to be added as an editor.'));
     }
   }
 }

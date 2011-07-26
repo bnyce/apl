@@ -10,6 +10,15 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 CKEDITOR.editorConfig = function(config) {
     config.indentClasses = [ 'rteindent1', 'rteindent2', 'rteindent3', 'rteindent4' ];
 
+    //added to make kcfinder work - anw 072511
+    config.filebrowserBrowseUrl = '/sites/all/modules/kcfinder/kcfinder_files/browse.php?type=files';
+    config.filebrowserImageBrowseUrl = '/sites/all/modules/kcfinder/kcfinder_files/browse.php?type=images';
+    config.filebrowserFlashBrowseUrl = '/sites/all/modules/kcfinder/kcfinder_files/browse.php?type=flash';
+    config.filebrowserUploadUrl = '/sites/all/modules/kcfinder/kcfinder_files/upload.php?type=files';
+    config.filebrowserImageUploadUrl = '/sites/all/modules/kcfinder/kcfinder_files/upload.php?type=images';
+    config.filebrowserFlashUploadUrl = '/sites/all/modules/kcfinder/kcfinder_files/upload.php?type=flash';
+    //end - added to make kcfinder work - anw 072511
+
     // [ Left, Center, Right, Justified ]
     config.justifyClasses = [ 'rteleft', 'rtecenter', 'rteright', 'rtejustify' ];
 
@@ -30,7 +39,7 @@ CKEDITOR.editorConfig = function(config) {
 
     /*
    * Append here extra CSS rules that should be applied into the editing area.
-   * Example: 
+   * Example:
    * config.extraCss = 'body {color:#FF0000;}';
    */
     config.extraCss = '';
@@ -73,10 +82,10 @@ CKEDITOR.editorConfig = function(config) {
         CKEDITOR.plugins.addExternal('drupal_path', Drupal.settings.ckeditor_link.module_path + '/plugins/link/');
     }
 // 'MediaEmbed' plugin. To enable it, uncomment lines below and add 'MediaEmbed' button to selected toolbars.
-//config.extraPlugins += (config.extraPlugins ? ',mediaembed' : 'mediaembed' );
-//CKEDITOR.plugins.addExternal('mediaembed', Drupal.settings.ckeditor.module_path + '/plugins/mediaembed/');
+config.extraPlugins += (config.extraPlugins ? ',mediaembed' : 'mediaembed' );
+CKEDITOR.plugins.addExternal('mediaembed', Drupal.settings.ckeditor.module_path + '/plugins/mediaembed/');
 
-// 'IMCE' plugin. If IMCE module is enabled, you may uncomment lines below and add an 'IMCE' button to selected toolbar. 
+// 'IMCE' plugin. If IMCE module is enabled, you may uncomment lines below and add an 'IMCE' button to selected toolbar.
 //config.extraPlugins += (config.extraPlugins ? ',imce' : 'imce' );
 //CKEDITOR.plugins.addExternal('imce', Drupal.settings.ckeditor.module_path + '/plugins/imce/');
 };

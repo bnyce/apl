@@ -146,8 +146,10 @@ abstract class FeedsConfigurable {
    */
   public function getConfig() {
     $defaults = $this->configDefaults();
-    return $this->config + $defaults;
-  }
+    //return $this->config + $defaults;
+	$cnf = $this->config;
+	return (array)$cnf + (array)$defaults;
+ }
 
   /**
    * Return default configuration.

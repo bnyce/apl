@@ -1,3 +1,7 @@
+######################
+# See http://godev.austintexas.gov/wiki/display/austingo/Ignoring+Files+in+GIT+-++.GITIGNORE
+####################
+
 # Compiled source #
 ###################
 *.com
@@ -40,6 +44,7 @@ Thumbs.db
 .settings
 .metadata
 .gitignore
+.svn
 backup/*
 settings.php
 sites/default/*
@@ -47,4 +52,12 @@ tmp/*
 bu/*
 pvt/*
 files/*
-.svn
+config/*
+capfile
+
+# Developer modules    #
+########################
+sites/all/modules/devel/FirePHPCore/
+sites/all/modules/drupalforfirebug/
+sites/all/modules/devel/
+sites/all/modules/devel_themer/ 

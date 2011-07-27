@@ -50,7 +50,7 @@
 	    	$('#main-menu-links .menu-574').addClass('active');
 		}
 		//ENVIRONMENT
-		if (/\/environmnet\//.test(window.location)) {
+		if (/\/environment\//.test(window.location)) {
 	    	$('#main-menu-links .menu-575').addClass('active');
 		}
 

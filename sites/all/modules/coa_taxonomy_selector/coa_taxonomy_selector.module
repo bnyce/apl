@@ -4,23 +4,151 @@
  * Implementation of hook_menu().
  * Registers a form-based page that you can access at "http://localhost/mypage"
  */
-/*
-function coa_taxonomy_selector_menu(){
-    return array(
-        'mypage' => array(
-            'title' => 'A page to test ajax',
-            'page callback' => 'drupal_get_form',
-            'page arguments' => array('coa_taxonomy_selector_page'),
-            'access arguments' => array('access content'), 
-         )
-     );
-}
+
+
+/**
+* Additional handler for node form submit.
 */
+
+function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
+  
+  //create clear arrays
+    $page_resident = array();
+    $bus_tax = array();
+    $dev_tax = array();
+	$gov_tax = array();
+	$env_tax = array();
+  
+  //get the settings for the workbench access section taxonomy
+	$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+	
+  //cycle over each of the selections and copy values to appropriate section taxonomy 
+	foreach ($sections as $section => $key) {
+        $term        = taxonomy_term_load($section);
+        
+	    if (empty($term)) {
+	      // shouldn't get here.
+	      $message = t("ERROR: Invalid taxonomy. Top-level Section Heading selected.");
+	      drupal_set_message($message, 'error', $repeat = FALSE);
+	      break 1;
+	    };
+	    
+        $tid         = $term->tid;
+        $vid         = $term->vid;
+        $name        = $term->name;
+        $description = $term->description;
+        $format      = $term->format;
+        $weight      = $term ->weight;
+        $vocab       = $term->vocabulary_machine_name;
+        $rdf_mapping = $term->rdf_mapping;
+	    
+        //$form_state['values']['body']['en']['0']['value'] .= "Section: $section - Vocab: $vid = $vocab : Term: $tid = $name \n ";
+        //dd($term);
+        switch ($vocab) {
+          case "resident_taxonomy":
+            $page_resident[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+          
+          case "government_taxonomy":
+                 $gov_tax[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+
+            break;
+            
+          case "development_taxonomy":
+                 $dev_tax[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    ); 
+            break;
+            
+          case "environment_taxonomy":
+                 $env_tax[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+									'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+            
+          case "business_taxonomy":
+          case "business_portal":
+                 $bus_tax[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+             
+        };
+        
+        //next section item
+        
+      };
+      
+    // now set the taxonomy values
+    $form_state['values']['field_page_resident']['en'] = $page_resident;
+    $form_state['values']['field_bus_tax']['en'] = $bus_tax;
+    $form_state['values']['field_dev_tax']['en'] = $dev_tax;
+	$form_state['values']['field_gov_tax']['en'] = $gov_tax;
+	$form_state['values']['field_env_tax']['en'] = $env_tax;
+	
+	
+    $form_values = array();
+    $form_values = $form_state['values'];  
+    //dpm($sections, 'sections');		
+    //dpm($form_values, 'form_values');
+    
+}
+
+
+/**
+* Additional handler for node form build.
+*/
+function coa_taxonomy_selector_node_form_build($form, &$form_state) {
+  // debug
+  //krumo($form_state);
+  //die;
+}
 
 /**
 * Implementation of hook_form_alter().	
+* This modifies the default edit form of each moderated content type.
+* A new case will need to be created for each content type that will be located by the primary site taxonomies.
 */
-
 function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    // a switch is used because you may want to alter more than
    // one form and it is easy to add a new case for each form.
@@ -28,63 +156,47 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      // This is our form ID.
      case 'page_node_form':
 
-						
-		  $form['select_section'] = array (
-								'#title' => t('Select Section'),
-		         				'#weight' => '0',
-		         				'#type' => 'select',
-		         				'#options' => drupal_map_assoc(array (
-												t('Resident'), 
-												t('Business'), 
-												t('Development'), 
-												t('Government'), 
-												t('Environment'),
-		             							)),
-								);
 		  
-		  $form['field_page_resident']['en']['#title'] = 'Resident Section';
-		  $form['field_page_resident']['#states'] = array(
-					      		'visible' => array(
-					        			':input[name="select_section"]' => array('value' => t('Resident')),
-					      		),
-					    );
-
-		  $form['field_bus_tax']['#states'] = array(
-								'visible' => array(
-							   			':input[name="select_section"]' => array('value' => t('Business')),
-					      		),
-					    );
-
-		  $form['field_dev_tax']['#states'] = array(
-								'visible' => array(
-								         ':input[name="select_section"]' => array('value' => t('Development')),
-								),
-						);
-
-		  $form['field_gov_tax']['#states'] = array(
-								'visible' => array(
-										 ':input[name="select_section"]' => array('value' => t('Government')),
-									      ),
-						);
-
-		  $form['field_env_tax']['#states'] = array(
-								'visible' => array(
-										 ':input[name="select_section"]' => array('value' => t('Environment')),
-									      ),
-						   );
-		
+		  //$form['workbench_access']['#title'] = t('Placement');
+		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
+		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
+		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+		  $form['field_page_resident']['#type'] = 'hidden';
+		  $form['field_bus_tax']['#type'] = 'hidden';
+		  $form['field_dev_tax']['#type'] = 'hidden';
+		  $form['field_gov_tax']['#type'] = 'hidden';
+		  $form['field_env_tax']['#type'] = 'hidden';
+		  
+		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  //dpm($form, "form");
+		  //dpm($form_state, "form_state");				   
       break;
    };
+   
 };
 
 /**
-* Callback element needs only select the portion of the form to be updated.
-* Since #ajax['callback'] return can be HTML or a renderable array (or an
-* array of commands), we can just return a piece of the form.
+* Validate the edit form.
 */
-function coa_taxonomy_selector_callback($key = '') {
-
+function _coa_taxonomy_selector_workbench_access_validate($form, &$form_state) {
+    
+    //get the settings for the workbench access section taxonomy
+    
+	//$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+	if(!is_array($sections)){
+	  $message = t("Configuration Error: Please Workbench Access for multiple selection assignments.");
+  	      form_set_error('workbench_access_id', $message);
+	} else {
 	
-  return;
-}
-
+      foreach ($sections as $section => $key) {
+          $term        = taxonomy_term_load($section);    
+  	    if (empty($term)) {
+  	      $message = t("You have selected a top-level Section Heading. Please be more specific in selecting an Editorial Section.");
+  	      form_set_error('workbench_access_id', $message);
+   	      };
+      };
+	};
+};

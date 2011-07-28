@@ -114,7 +114,7 @@
                           									$node->promote = 0; //Prompted to front page
                           									$node->sticky = 0;  //Sticky at top of list
                           									$node->comment = 1; //Comments on=2, comments off=1
-                          									$node->uid = 71; // UID of the author of the node; or use $node->name
+                          									$node->uid = 65; // UID of the author of the node; or use $node->name
                           									$node->body[$node->language][0]['value']   = $bodytext;
                           									$node->body[$node->language][0]['format']  = 'full_html';
                           									$node->remote_timestamp = $file_timestamp;

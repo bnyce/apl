@@ -49,8 +49,8 @@ function coa_fullcalendar_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_contact_name',
-      1 => 'field_phone',
-      2 => 'field_email',
+      1 => 'field_email',
+      2 => 'field_phone',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

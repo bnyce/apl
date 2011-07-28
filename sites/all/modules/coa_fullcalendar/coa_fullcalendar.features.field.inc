@@ -49,14 +49,14 @@ function coa_fullcalendar_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '1',
         ),
         'full' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'text_plain',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -84,7 +84,7 @@ function coa_fullcalendar_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '1',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -94,7 +94,7 @@ function coa_fullcalendar_field_default_fields() {
   $fields['node-calender_events-field_calendar_department'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_calendar_department',
@@ -130,17 +130,18 @@ function coa_fullcalendar_field_default_fields() {
       'description' => 'Please select a department for this event.',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '4',
+          'weight' => 4,
         ),
         'full' => array(
-          'label' => 'hidden',
+          'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '4',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -158,10 +159,10 @@ function coa_fullcalendar_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'hs_taxonomy',
+        'module' => 'options',
         'settings' => array(),
-        'type' => 'taxonomy_hs',
-        'weight' => '4',
+        'type' => 'options_select',
+        'weight' => '3',
       ),
     ),
   );
@@ -201,18 +202,17 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => 5,
         ),
         'full' => array(
-          'label' => 'hidden',
-          'module' => 'text',
+          'label' => 'above',
           'settings' => array(),
-          'type' => 'text_plain',
-          'weight' => '9',
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -236,7 +236,7 @@ function coa_fullcalendar_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -276,18 +276,17 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '7',
+          'weight' => 6,
         ),
         'full' => array(
-          'label' => 'hidden',
-          'module' => 'text',
+          'label' => 'above',
           'settings' => array(),
-          'type' => 'text_plain',
-          'weight' => '10',
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -311,7 +310,7 @@ function coa_fullcalendar_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
@@ -349,7 +348,7 @@ function coa_fullcalendar_field_default_fields() {
       'description' => 'Event starting date',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'date',
           'settings' => array(
             'format_type' => 'long',
@@ -363,7 +362,7 @@ function coa_fullcalendar_field_default_fields() {
           'weight' => '0',
         ),
         'full' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'date',
           'settings' => array(
             'format_type' => 'long',
@@ -373,7 +372,7 @@ function coa_fullcalendar_field_default_fields() {
             'multiple_to' => '',
             'show_repeat_rule' => 'show',
           ),
-          'type' => 'date_short',
+          'type' => 'date_default',
           'weight' => '0',
         ),
         'teaser' => array(
@@ -386,7 +385,7 @@ function coa_fullcalendar_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_event_date',
       'label' => 'Event Date',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'default_format' => 'medium',
         'default_value' => 'now',
@@ -408,7 +407,7 @@ function coa_fullcalendar_field_default_fields() {
           'year_range' => '-1:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -448,24 +447,24 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => '3',
+          'weight' => 3,
         ),
         'full' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => '3',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -490,20 +489,13 @@ function coa_fullcalendar_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'media',
+        'module' => 'image',
         'settings' => array(
-          'allowed_schemes' => array(
-            0 => 'public',
-            1 => 'private',
-          ),
-          'allowed_types' => array(
-            0 => 'image',
-          ),
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'media_generic',
-        'weight' => '5',
+        'type' => 'image_image',
+        'weight' => '4',
       ),
     ),
   );
@@ -543,18 +535,17 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '6',
+          'weight' => 7,
         ),
         'full' => array(
-          'label' => 'hidden',
-          'module' => 'text',
+          'label' => 'above',
           'settings' => array(),
-          'type' => 'text_plain',
-          'weight' => '11',
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -578,7 +569,7 @@ function coa_fullcalendar_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '9',
+        'weight' => '10',
       ),
     ),
   );
@@ -618,18 +609,17 @@ function coa_fullcalendar_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => 8,
         ),
         'full' => array(
-          'label' => 'inline',
-          'module' => 'text',
+          'label' => 'above',
           'settings' => array(),
-          'type' => 'text_plain',
-          'weight' => '1',
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -653,7 +643,7 @@ function coa_fullcalendar_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '11',
       ),
     ),
   );

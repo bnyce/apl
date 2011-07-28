@@ -50,7 +50,7 @@
 	    	$('#main-menu-links .menu-574').addClass('active');
 		}
 		//ENVIRONMENT
-		if (/\/environmnet\//.test(window.location)) {
+		if (/\/environment\//.test(window.location)) {
 	    	$('#main-menu-links .menu-575').addClass('active');
 		}
 
@@ -61,7 +61,7 @@
 	$('.select-arrow select').customStyle();
 
 	//remove view all links on portal left menu items
-	$('.view-dom-id-4').find('.more-link').css('display', 'none');
+	$('.hide-view-all').find('.more-link').css('display', 'none');
 
 	});
 })(jQuery);

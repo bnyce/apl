@@ -121,10 +121,10 @@
                           									$returnVal .= "Node Timestamp==".$node->remote_timestamp."<br/>";
                           									// using pathauto, which would override the below path
                           									if($file2=="meetings"){
-														$path = "meetings/".$file_name;
+														$path = "cityclerk/meetings/".$file_name;
 							 							$returnVal .= $path."-------path----<br/>";
 						  							}elseif($file2=="boards"){
-							 							$path = "boards/".$file_name;
+							 							$path = "cityclerk/boards/".$file_name;
 							 							$returnVal .= $path."--------path----<br/>";
 						  							}
                           									//$path = $file_name;

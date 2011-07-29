@@ -104,8 +104,8 @@ function devel_themer_init() {
     }
     drupal_add_css($path . '/devel_themer.css');
     drupal_add_js($path . '/devel_themer.js');
-    drupal_add_js($base_path . 'misc/jquery.form.js');
-    drupal_add_js($base_path . 'misc/ajax.js');
+    drupal_add_js('misc/jquery.form.js');
+    drupal_add_js('misc/ajax.js');
     drupal_add_library('system', 'ui.draggable');
     drupal_add_library('system', 'ui.resizable');
 

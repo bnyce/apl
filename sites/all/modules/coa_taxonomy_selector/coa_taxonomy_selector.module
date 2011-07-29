@@ -5,12 +5,81 @@
  * Registers a form-based page that you can access at "http://localhost/mypage"
  */
 
+/**
+* Implementation of hook_form_alter().	
+* This modifies the default edit form of each moderated content type.
+* A new case will need to be created for each content type that will be located by the primary site taxonomies.
+*/
+function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
+   
+   // a switch is used because you may want to alter more than
+   // one form and it is easy to add a new case for each form.
+   switch ($form_id) {
+     // This is our form ID.
+     case 'page_node_form':
+		  //$form['workbench_access']['#title'] = t('Placement');
+		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
+		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
+		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+		  $form['field_page_resident']['#type'] = 'hidden';
+		  $form['field_bus_tax']['#type'] = 'hidden';
+		  $form['field_dev_tax']['#type'] = 'hidden';
+		  $form['field_gov_tax']['#type'] = 'hidden';
+		  $form['field_env_tax']['#type'] = 'hidden';
+		  
+		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  //dpm($form, "form");
+		  //dpm($form_state, "form_state");				   
+      break;
+      
+     case 'calender_events_node_form':
+     case 'calendar_events_node_form':
+          //$form['field_calendar_department']['#type'] = 'hidden';
+          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  
+		  
+		  dpm($form, "form");
+		  // dpm($form_state, "form_state");		
+     break;
+   };
+   
+};
 
 /**
-* Additional handler for node form submit.
+* Validate the node edit form.
+*/
+function _coa_taxonomy_selector_workbench_access_validate($form, &$form_state) {
+    
+    //get the settings for the workbench access section taxonomy
+    
+	//$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+	if(!is_array($sections)){
+	  $message = t("Configuration Error: Please Workbench Access for multiple selection assignments.");
+  	      form_set_error('workbench_access_id', $message);
+	} else {
+	
+      foreach ($sections as $section => $key) {
+          $term        = taxonomy_term_load($section);    
+  	    if (empty($term)) {
+  	      $message = t("You have selected a top-level Section Heading. Please be more specific in selecting an Editorial Section.");
+  	      form_set_error('workbench_access_id', $message);
+   	      };
+      };
+	};
+};
+
+/**
+* Additional handler for page node form submit.
 */
 
 function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
+  //$form_id = $form->#form_id;
+  $form_id = $form['#form_id'];
   
   //create clear arrays
     $page_resident = array();
@@ -18,6 +87,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
     $dev_tax = array();
 	$gov_tax = array();
 	$env_tax = array();
+	$dept_tax = array();
   
   //get the settings for the workbench access section taxonomy
 	$sections = array();
@@ -46,6 +116,19 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
         //$form_state['values']['body']['en']['0']['value'] .= "Section: $section - Vocab: $vid = $vocab : Term: $tid = $name \n ";
         //dd($term);
         switch ($vocab) {
+          case "departmental":
+            $dep_tax[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+          
           case "resident_taxonomy":
             $page_resident[] = array(
             						'tid'          => $tid,
@@ -120,18 +203,34 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
       };
       
     // now set the taxonomy values
-    $form_state['values']['field_page_resident']['en'] = $page_resident;
-    $form_state['values']['field_bus_tax']['en'] = $bus_tax;
-    $form_state['values']['field_dev_tax']['en'] = $dev_tax;
-	$form_state['values']['field_gov_tax']['en'] = $gov_tax;
-	$form_state['values']['field_env_tax']['en'] = $env_tax;
-	
-	
-    $form_values = array();
-    $form_values = $form_state['values'];  
-    //dpm($sections, 'sections');		
-    //dpm($form_values, 'form_values');
+
     
+    switch ($form_id) {
+      case 'page_node_form':
+            $form_state['values']['field_page_resident']['en'] = $page_resident;
+            $form_state['values']['field_bus_tax']['en'] = $bus_tax;
+            $form_state['values']['field_dev_tax']['en'] = $dev_tax;
+            $form_state['values']['field_gov_tax']['en'] = $gov_tax;
+            $form_state['values']['field_env_tax']['en'] = $env_tax;
+	
+            /*
+			$form_values = array();
+            $form_values = $form_state['values'];  
+            dpm($sections, 'sections');		
+            dpm($form_values, 'form_values');
+        	*/
+      break;
+    
+      case 'calender_events_node_form':
+      case 'calendar_events_node_form':
+            $form_state['values']['field_calendar_department']['en'] = $page_resident;
+            
+            $form_values = array();
+            $form_values = $form_state['values'];  
+            dpm($sections, 'sections');		
+            dpm($form_values, 'form_values');
+      break;  
+    };
 }
 
 
@@ -144,59 +243,4 @@ function coa_taxonomy_selector_node_form_build($form, &$form_state) {
   //die;
 }
 
-/**
-* Implementation of hook_form_alter().	
-* This modifies the default edit form of each moderated content type.
-* A new case will need to be created for each content type that will be located by the primary site taxonomies.
-*/
-function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
-   // a switch is used because you may want to alter more than
-   // one form and it is easy to add a new case for each form.
-   switch ($form_id) {
-     // This is our form ID.
-     case 'page_node_form':
 
-		  
-		  //$form['workbench_access']['#title'] = t('Placement');
-		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
-		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
-		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
-		  $form['field_page_resident']['#type'] = 'hidden';
-		  $form['field_bus_tax']['#type'] = 'hidden';
-		  $form['field_dev_tax']['#type'] = 'hidden';
-		  $form['field_gov_tax']['#type'] = 'hidden';
-		  $form['field_env_tax']['#type'] = 'hidden';
-		  
-		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
-		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  //dpm($form, "form");
-		  //dpm($form_state, "form_state");				   
-      break;
-   };
-   
-};
-
-/**
-* Validate the edit form.
-*/
-function _coa_taxonomy_selector_workbench_access_validate($form, &$form_state) {
-    
-    //get the settings for the workbench access section taxonomy
-    
-	//$sections = array();
-	$sections = $form_state['values']['workbench_access_id'];
-	if(!is_array($sections)){
-	  $message = t("Configuration Error: Please Workbench Access for multiple selection assignments.");
-  	      form_set_error('workbench_access_id', $message);
-	} else {
-	
-      foreach ($sections as $section => $key) {
-          $term        = taxonomy_term_load($section);    
-  	    if (empty($term)) {
-  	      $message = t("You have selected a top-level Section Heading. Please be more specific in selecting an Editorial Section.");
-  	      form_set_error('workbench_access_id', $message);
-   	      };
-      };
-	};
-};

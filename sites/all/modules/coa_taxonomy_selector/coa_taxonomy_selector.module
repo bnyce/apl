@@ -10,6 +10,7 @@
 * This modifies the default edit form of each moderated content type.
 * A new case will need to be created for each content type that will be located by the primary site taxonomies.
 */
+//function coa_taxonomy_selector_workbench_access_node_element_alter(&$element, $form_state, $active){ 
 function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    
    // a switch is used because you may want to alter more than
@@ -17,7 +18,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    switch ($form_id) {
      // This is our form ID.
      case 'page_node_form':
-		  //$form['workbench_access']['#title'] = t('Placement');
+		  $form['workbench_access']['#title'] = t('Placement');
 		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
 		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
@@ -36,14 +37,24 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
       
      case 'calender_events_node_form':
      case 'calendar_events_node_form':
-          //$form['field_calendar_department']['#type'] = 'hidden';
+           
+          $form['workbench_access']['#title'] = t('Workbench Access Placement');
+		  //$form['workbench_access_id']['#title'] = t('Workbench ID Placement');
+		  
+          //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
+		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
+		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
+           //$form['field_calendar_department']['#type'] = 'hidden';
+          
           $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		  
+		  //Why am I unable to view what is in workbench_access?
+		  $wa = array();
+		  $wa = $form['workbench_access'];
 		  dpm($form, "form");
-		  // dpm($form_state, "form_state");		
+		  dpm($wa, "workbench_access");		
      break;
    };
    
@@ -223,8 +234,13 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
     
       case 'calender_events_node_form':
       case 'calendar_events_node_form':
+            // if user selected dept. home change to it's parent.
+        
+        
+        
             $form_state['values']['field_calendar_department']['en'] = $page_resident;
             
+            // report for debug
             $form_values = array();
             $form_values = $form_state['values'];  
             dpm($sections, 'sections');		

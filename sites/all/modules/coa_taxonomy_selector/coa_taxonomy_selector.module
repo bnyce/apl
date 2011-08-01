@@ -18,8 +18,8 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    switch ($form_id) {
      // This is our form ID.
      case 'page_node_form':
-		  $form['workbench_access']['#title'] = t('Placement');
-		  //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
+		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
 		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
 		  $form['field_page_resident']['#type'] = 'hidden';
@@ -31,30 +31,28 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  
 		  //dpm($form, "form");
 		  //dpm($form_state, "form_state");				   
       break;
       
      case 'calender_events_node_form':
      case 'calendar_events_node_form':
-           
-          $form['workbench_access']['#title'] = t('Workbench Access Placement');
-		  //$form['workbench_access_id']['#title'] = t('Workbench ID Placement');
-		  
-          //$form['workbench_access']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
-		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
-		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
-           //$form['field_calendar_department']['#type'] = 'hidden';
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_taxonomy_selector_calandar_options($optionarray);  //filter the option array
+          
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the department sponsoring this content.');
+		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+          $form['field_calendar_department']['#type'] = 'hidden';
           
           $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		  //Why am I unable to view what is in workbench_access?
-		  $wa = array();
-		  $wa = $form['workbench_access'];
-		  dpm($form, "form");
-		  dpm($wa, "workbench_access");		
+		  //dpm($form, "form");
      break;
    };
    
@@ -257,6 +255,58 @@ function coa_taxonomy_selector_node_form_build($form, &$form_state) {
   // debug
   //krumo($form_state);
   //die;
+}
+
+/**
+ * Utility function to filter "home" from workbench select option array.
+ * @param unknown_type $optionarray
+ */
+function _coa_taxonomy_selector_mission_options($optionarray) {
+
+   foreach ($optionarray as $key => $value) {
+     $value = trim($value, '-- Home');   
+     $trimmedoptions[$key] = $value;
+   }; 
+   
+   dpm($optionarray, 'optionarray');
+   dpm($trimmedoptions, 'trimmedoptions');
+   
+   return $trimmedoptions;
+  
+}
+
+/**
+ * Utility function to filter everything except departments from workbench select option array.
+ * @param array $optionarray
+ */
+function _coa_taxonomy_selector_calandar_options($optionarray) {
+    //$newarray = array();
+    // HARD CODED - department vocab is 15.
+    $dept_vid = 15;
+    // get only the first level TIDs
+    $x = taxonomy_get_tree($dept_vid, 0, 1);
+    // format as an option array
+    foreach ($x as $o => $key){
+      $name  = $key->tid;
+      $value = $key->name;
+      $deptarray[$name] = $value;
+    }
+   
+   
+   foreach ($optionarray as $key => $value) {
+     $value = trim($value, '-'); 
+     $value = trim($value);   
+     $trimmedoptions[$key] = $value;
+   }
+    
+   $common = array_intersect($trimmedoptions,$deptarray);
+   /*
+    * dpm($optionarray, 'optionarray');
+    * dpm($trimmedoptions, 'trimmedoptions');
+    * dpm($deptarray, 'deptarray');
+    * dpm($common, 'common');
+  */
+   return $common;
 }
 
 

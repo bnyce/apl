@@ -31,15 +31,11 @@
         			$file_name=explode("_",$file0);
 				$file_name_prefix=substr($file_name[0],0,2);
 				$file_name[0]=substr($file_name[0],2,strlen($file_name[0]));
-        			$seconds=substr($file_name[1],0,2);
-        			$minuts=substr($file_name[1],2,2);
-        			$hours=substr($file_name[1],4,2);
-        			$file_name[1]=$hours.$minuts.$seconds;
         			$time_stamp[]=strtotime($file_name[0].$file_name[1]);
       		}
     		 }
     		$recent_dir= max($time_stamp);
-    		$recent_dir_date=$file_name_prefix.date('Ymd_siH',$recent_dir);
+    		$recent_dir_date=$file_name_prefix.date('Ymd_His',$recent_dir);
     		$new_path=$path.$recent_dir_date;
     		$returnVal .= $new_path."<br/>";
 		closedir($handle);

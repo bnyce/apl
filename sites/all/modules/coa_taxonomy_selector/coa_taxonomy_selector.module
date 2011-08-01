@@ -23,18 +23,18 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
 		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
 
-		  //$form['field_page_resident']['#type'] = 'hidden';
-		  //$form['field_bus_tax']['#type'] = 'hidden';
-		  //$form['field_dev_tax']['#type'] = 'hidden';
-		  //$form['field_gov_tax']['#type'] = 'hidden';
-		  //$form['field_env_tax']['#type'] = 'hidden';
-		  //$form['field_basic_page_department'] = 'hidden';
+		  $form['field_page_resident']['#type'] = 'hidden';
+		  $form['field_bus_tax']['#type'] = 'hidden';
+		  $form['field_dev_tax']['#type'] = 'hidden';
+		  $form['field_gov_tax']['#type'] = 'hidden';
+		  $form['field_env_tax']['#type'] = 'hidden';
+		  $form['field_basic_page_department']['#type'] = 'hidden';
 		  
 		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		  dpm($form, "form");
+		  //dpm($form, "form");
 		  //dpm($form_state, "form_state");				   
       break;
       
@@ -129,16 +129,18 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
         //dd($term);
         switch ($vocab) {
           case "departmental":
-            $dep_tax[] = array(
+          case "department":
+            $dept_tax[] = array(
             						'tid'          => $tid,
 									'vid'          => $vid,
-                                    'name'		   => $name,
+            						'name'		   => $name,
 									'description'  => $description,
 									'format'       => $format,
             						'weight'       => $weight,
             						'vocabulary_machine_name' => $vocab,
             						'rdf_mapping'  => $rdf_mapping,
                                     );
+            
             break;
           
           case "resident_taxonomy":
@@ -219,16 +221,16 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
     
     switch ($form_id) {
       case 'page_node_form':
-            $form_state['values']['field_basic_page_department'] = $dep_tax;
+            // @TODO FIX for some reason the dept taxonomy is not being saved.
+            $form_state['values']['field_basic_page_department']['en'] = $dept_tax;
             $form_state['values']['field_page_resident']['en'] = $page_resident;
             $form_state['values']['field_bus_tax']['en'] = $bus_tax;
             $form_state['values']['field_dev_tax']['en'] = $dev_tax;
             $form_state['values']['field_gov_tax']['en'] = $gov_tax;
             $form_state['values']['field_env_tax']['en'] = $env_tax;
             
-            dpm($form_state, '$form_state');
-            $message = t("WHY.");
-	        drupal_set_message($message, 'warn', $repeat = FALSE);
+            //dpr($dep_tax, 'dep_stage');
+            //dpr($form_state, 'form_state');
         	
       break;
     
@@ -238,9 +240,10 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
             $form_state['values']['field_calendar_department']['en'] = $dep_tax;
             
             // report for debug
-            dpm($form_state, '$form_state');
+            //dpm($form_state, '$form_state');
       break;  
     };
+    // dpm($form_state['values'], 'form_state');
 }
 
 

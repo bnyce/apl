@@ -85,7 +85,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this contact to.');
 		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
-          //$form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['#type'] = 'hidden';
           
           $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';

@@ -56,6 +56,26 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  
 		  //dpm($form, "form");
      break;
+     
+     case 'department_mission_node_form':
+     case 'department_mission__node_form':
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_taxonomy_selector_mission_options($optionarray);  //filter the option array
+          
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program.');
+		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+          $form['field_cat_dept']['#type'] = 'hidden';
+          
+          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  
+		  dpm($form, "form");
+     break;  
+     
    };
    
 };
@@ -258,20 +278,52 @@ function coa_taxonomy_selector_node_form_build($form, &$form_state) {
 
 /**
  * Utility function to filter "home" from workbench select option array.
- * @param unknown_type $optionarray
+ * @param array $optionarray
  */
 function _coa_taxonomy_selector_mission_options($optionarray) {
+    //$newarray = array();
+    // HARD CODED - department vocab is 15.
+    $dept_vid = 15;
+    // get all the levels
+    $x = taxonomy_get_tree($dept_vid, 0);
+    // format tree as an option array
+    foreach ($x as $o => $key){
+      $name  = $key->tid;
+      $value = $key->name;
+      $deptarray[$name] = $value;
+    }
 
-   foreach ($optionarray as $key => $value) {
-     $value = trim($value, '-- Home');   
+   // clean up so that it is in the same format
+   /*
+   foreach ($deptarray as $key => $value) {
+     $value = trim($value, '-'); 
+     $value = trim($value);   
      $trimmedoptions[$key] = $value;
-   }; 
-   
-   dpm($optionarray, 'optionarray');
-   dpm($trimmedoptions, 'trimmedoptions');
-   
-   return $trimmedoptions;
-  
+   }
+   */
+    
+   // campare if the key exists in both arrays, if so, add it to trimmedoptions array
+   // 
+    foreach ($optionarray as $option => $pointer){
+        if(array_key_exists($option, $deptarray)){
+              //the term exists in both arrays
+              $term  = taxonomy_term_load($option);
+              $tid         = $term->tid;
+              $vid         = $term->vid;
+              //$name        = $term->name;
+              $name        = $optionarray[$option];
+              $vocab       = $term->vocabulary_machine_name;
+              $rdf_mapping = $term->rdf_mapping;
+              
+              //if it is NOT home then add it to common array
+              if($name != "-- Home") {
+                  $key  = $tid;
+                  $value = $name;
+                  $common[$key] = $value;
+              };
+        };
+     };
+   return $common ;
 }
 
 /**
@@ -291,7 +343,7 @@ function _coa_taxonomy_selector_calandar_options($optionarray) {
       $deptarray[$name] = $value;
     }
    
-   
+   // clean up so that it is in the same format
    foreach ($optionarray as $key => $value) {
      $value = trim($value, '-'); 
      $value = trim($value);   

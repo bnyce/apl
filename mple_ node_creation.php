@@ -1,21 +1,25 @@
 <?php
-    $path="C:/Documents and Settings/nandigamS/My Documents/cityclerck/";  //Path to get the required folder
+    $path="C:/Documents and Settings/nandigamS/My Documents/cityclerk/";  //Path to get the required folder
+	//$path='\\coacd.org\dfs\CTM\Internet Ops\Webteam\cityclerk';
     if($handle=opendir($path)){
-        $time_stamp="";
+		 $time_stamp="";
          while (false !== ($file0 = readdir($handle))) {
             $recent_dir="";
             if ($file0 != "." && $file0 != "..") {   //    strip out . and .. 
                 echo $file0."<br/>";
 				$file_name=explode("_",$file0);
-                $seconds=substr($file_name[1],0,2);
-                $minuts=substr($file_name[1],2,2);
-                $hours=substr($file_name[1],4,2);
-                $file_name[1]=$hours.$minuts.$seconds;
+				$file_name_prefix=substr($file_name[0],0,2);
+				$file_name[0]=substr($file_name[0],2,strlen($file_name[0]));
+                //$seconds=substr($file_name[1],0,2);
+               // $minuts=substr($file_name[1],2,2);
+               // $hours=substr($file_name[1],4,2);
+                //$file_name[1]=$hours.$minuts.$seconds;
                 $time_stamp[]=strtotime($file_name[0].$file_name[1]);
              }
 		}
 		$recent_dir= max($time_stamp);
-        $recent_dir_date=date('Ymd_siH',$recent_dir);
+        //$recent_dir_date=$file_name_prefix.date('Ymd_siH',$recent_dir);
+		$recent_dir_date=$file_name_prefix.date('Ymd_His',$recent_dir);
         $new_path=$path.$recent_dir_date;
 		echo $new_path."<br/>";
 		closedir($handle);
@@ -31,7 +35,7 @@
                                 echo $file2."   ---Folder_name<br/>";
 								$new_path2=$new_path1.'/'.$file2;
 								echo $new_path2."<br/>";
-								if($file2=="meetings"){ // $file2=="boards" or 
+								if($file2=="boards" or $file2=="meetings"){ // $file2=="boards" or 
 									if($handle3=opendir($new_path2)){	
 				    					while (false !== ($file = readdir($handle3))) {
 											$buffer1="";
@@ -42,7 +46,10 @@
 												mysql_connect('localhost','root','root')or die("Could not connect: " . mysql_error());
                     							mysql_select_db('drupaldb');
 												$result = mysql_query("select title,nid,created from scratch_node where title='$file_name'");
-                								$row = mysql_fetch_array($result);
+                								//print_r($result);
+												//exit;
+												$row = mysql_fetch_array($result);
+												
                     							$Title= $row['title'];
 						//*********************************Node_Update******************************
 												if($Title==$file_name){ // Comparing filename with existing node name
@@ -87,7 +94,7 @@
 													$node->promote = 0; //Prompted to front page
 													$node->sticky = 0;  //Sticky at top of list
 													$node->comment = 1; //Comments on=2, comments off=1
-													$node->uid = 65; // UID of the author of the node; or use $node->name...71(local)
+													$node->uid = 71; // UID of the author of the node; or use $node->name...71,65(dev)
 													$node->body[$node->language][0]['value']   = $bodytext;
 													$node->body[$node->language][0]['format']  = 'full_html';
 													$node->remote_timestamp = $file_timestamp;
@@ -95,7 +102,14 @@
 													// I prefer using pathauto, which would override the below path
 													//$path = 'node_created_on' . date('YmdHis');
 													//$nid = $node->nid;
-													$path = $file_name;
+													if($file2=="meetings"){
+														$path = "meetings/".$file_name;
+														echo $path."path----<br/>";
+													}elseif($file2=="boards"){
+														$path = "boards/".$file_name;
+														echo $path."path----<br/>";
+													}
+													
 													$node->path = array('alias' => $path);   //alias path
 													if($node = node_submit($node)) { // Prepare node for saving
 														node_save($node);

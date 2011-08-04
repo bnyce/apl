@@ -64,6 +64,11 @@
   $('.hide-view-all').find('.more-link').css('display', 'none');
 
   // colorbox - load object to class = '.colorbox-load' items globally
+  $.urlParam = function(name, url){
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+    if (!results) { return ''; }
+    return results[1] || '';
+  };
   $('a, area, input', context).filter('.colorbox-load').once('init-colorbox-load-processed').colorbox({
     transition:"elastic",
     speed:"350",

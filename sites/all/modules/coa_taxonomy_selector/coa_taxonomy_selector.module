@@ -12,7 +12,7 @@
     global $TOP_TAX;
     global $DEBUGGING;
     
-    $DEBUGGING = TRUE;
+    $DEBUGGING = false;
     
     $TOP_TAX =  array('vid' => 5, 'machine_name' => 'home_page_category', 'name' => '== Sections ==');
     $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');

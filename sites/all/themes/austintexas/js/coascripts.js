@@ -69,14 +69,14 @@
     if (!results) { return ''; }
     return results[1] || '';
   };
-  $('a, area, input', context).filter('.colorbox-load').once('init-colorbox-load-processed').colorbox({
+  $('a, area, input').filter('.colorbox-load').once('init-colorbox-load-processed').colorbox({
     transition:"elastic",
     speed:"350",
     opacity:"0.85",
     close:"Close",
     overlayClose:true,
     maxWidth:"100%",
-    maxHeight:"100%"
+    maxHeight:"100%",
     innerWidth:function(){
       return $.urlParam('width', $(this).attr('href'));
     },

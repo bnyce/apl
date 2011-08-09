@@ -1,0 +1,9 @@
+KCFINDER DRUPAL MODULE
+KCFINDER UPDATE INSTRUCTIONS
+
+If you want to use kcfinder files different to those included in this module, please consider the following...
+
+1. the file "core/autoload.php" is modified (line 14 - 'require "/drupal_integration.php";'). Please compare the old and new versions and add the require in a similar location.
+2. the file "core/uploader.php" is modified (line 66 - commented session start). Make sure you DON'T start a new session in uploader.php or you will get Drupal notices.
+3. The file "js/browser/files.js" was modified according to https://sourceforge.net/apps/phpbb/kcfinder/viewtopic.php?f=3&t=16 to return absoute urls for the images.
+3. remember to copy the file "drupal_integration.php" to your new kcfinder folder.

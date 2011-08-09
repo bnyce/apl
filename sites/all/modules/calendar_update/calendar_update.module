@@ -97,6 +97,6 @@ function calendar_update_init() {
 
 function theme_calendar_update_javascript() {
   drupal_add_js(drupal_get_path('module', 'calendar_update') . '/calendar_update.js');
-  drupal_add_js(drupal_get_path('module', 'fullcalendar') . 'js/fullcalendar.views.js');
+  //drupal_add_js(drupal_get_path('module', 'fullcalendar') . 'js/fullcalendar.views.js');
 }
 

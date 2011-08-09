@@ -38,15 +38,13 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'page_node_form':
 		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
-		  //$form['workbench_access']['#DANGEROUS_SKIP_CHECK'] = TRUE;	   
-		  // array_unshift($form['#validate'], 'coa_taxonomy_selector_node_form_build');
-
+		  
 		  $form['field_page_resident']['#type'] = 'hidden';
 		  $form['field_bus_tax']['#type'] = 'hidden';
 		  $form['field_dev_tax']['#type'] = 'hidden';
 		  $form['field_gov_tax']['#type'] = 'hidden';
 		  $form['field_env_tax']['#type'] = 'hidden';
-		  $form['field_basic_page_department']['#type'] = 'hidden';
+		  $form['field_cat_dept']['#type'] = 'hidden';
 		  
 		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
@@ -60,7 +58,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'calendar_events_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_calandar_options($optionarray);  //filter the option array
+          $optionarray = _coa_taxonomy_selector_dept_only_options($optionarray);  //filter the option array
           
        
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department Selection');
@@ -85,7 +83,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'vertical_promo_tiles_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_options($optionarray);  //filter the option array
+          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
           
        
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
@@ -106,7 +104,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'contact_information_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_options($optionarray);  //filter the option array
+          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
           $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
        
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
@@ -126,7 +124,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'department_banner_image_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_options($optionarray);  //filter the option array
+          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
           
        
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
@@ -161,33 +159,8 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
        
      break;
      
-     //aka Home Promo Tile - currently using mission options filter
-     case 'large_promo_node_form':       
-          $optionarray = array();
-          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_options($optionarray);  //filter the option array
-          $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
-       
-          $form['workbench_access']['workbench_access_id']['#title'] = t('Section Selection');
-		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the editorial section to attach this promo to.');
-		  // make taxonomy field hidden and not required
-          $form['field_cat_dept']['#type'] = 'hidden';
-          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
-          $form['field_cat_dept']['en']['#required'] = FALSE;
-          
-
-          $form['field_home_category']['#type'] = 'hidden';
-          $form['field_home_category']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
-          $form['field_home_category']['en']['#required'] = FALSE;
-          
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
-          $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  
-		 if($DEBUGGING)  dpm($form, "form");
-       
-     break;
      
+     case 'large_promo_node_form': // "home promo tile" 
      case 'i_need_to_node_form': 
      case 'link_node_form':
      case 'home_page_news_node_form':
@@ -200,12 +173,12 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
        
 		  // make taxonomy field hidden and not required
-          //$form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['#type'] = 'hidden';
           $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_cat_dept']['en']['#required'] = FALSE;
           
 
-          //$form['field_home_category']['#type'] = 'hidden';
+          $form['field_home_category']['#type'] = 'hidden';
           $form['field_home_category']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_home_category']['en']['#required'] = FALSE;
           
@@ -389,12 +362,11 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
       };
       
     // now set the taxonomy values
-
-    
+    // These are DEPT and FULL taxonomy 
     switch ($form_id) {
       case 'page_node_form':
-            // @TODO FIX for some reason the dept taxonomy is not being saved.
-            $form_state['values']['field_basic_page_department']['en'] = $dept;
+            
+            $form_state['values']['field_cat_dept']['en'] = $dept;
             $form_state['values']['field_page_resident']['en'] = $res;
             $form_state['values']['field_bus_tax']['en'] = $bus;
             $form_state['values']['field_dev_tax']['en'] = $dev;
@@ -406,6 +378,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
         	
       break;
     
+      // These are DEPT only, except Calandar has it's own unique field
       case 'calender_events_node_form':
       case 'calendar_events_node_form':
 
@@ -414,22 +387,17 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
             if($DEBUGGING) dpm($form_state, '$form_state');
       break;  
       
+      // These are DEPT only
       case 'department_mission_node_form':
       case 'department_mission__node_form':
       case 'vertical_promo_tiles_node_form': 
-       
-            $form_state['values']['field_cat_dept']['en'] = $dept;
-
-            if($DEBUGGING) dpm($form_state, '$form_state');
-      
-      break;  
-      
       case 'contact_information_node_form':
       case 'department_banner_image_node_form':
       case 'factoid_node_form':
            $form_state['values']['field_cat_dept']['en'] = $dept; 
       break;  
       
+      // these are DEPT and HOME CATEGORY
       case 'large_promo_node_form':
       case 'i_need_to_node_form':
       case 'link_node_form':
@@ -464,7 +432,7 @@ function coa_taxonomy_selector_node_form_build($form, &$form_state) {
  * Utility function to filter "home" from workbench select option array.  Supports only the $DEPT_TAX
  * @param array $optionarray
  */
-function _coa_taxonomy_selector_dept_only_options($optionarray) {
+function _coa_taxonomy_selector_dept_only_nohome_options($optionarray) {
     
     global $DEPT_TAX;
     // get all the levels
@@ -513,7 +481,7 @@ function _coa_taxonomy_selector_dept_only_options($optionarray) {
  * Utility function to filter everything except departments from workbench select option array.
  * @param array $optionarray
  */
-function _coa_taxonomy_selector_calandar_options($optionarray) {
+function _coa_taxonomy_selector_dept_only_options($optionarray) {
  
     global $DEPT_TAX;
     // get only the first level TIDs of the Deptarment Taxonomy
@@ -544,7 +512,7 @@ function _coa_taxonomy_selector_calandar_options($optionarray) {
 }
 
 /**
- * Utility function to filter everything except departments and vocab names from workbench select option array.
+ * Utility function to filter and show only departments and subsections (no home) and vocab names and thier subsections in the workbench select option array.
  * @param array $optionarray
  */
 function _coa_taxonomy_selector_promo_options($optionarray) {

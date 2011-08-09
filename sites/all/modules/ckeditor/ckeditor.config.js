@@ -84,7 +84,11 @@ CKEDITOR.editorConfig = function(config) {
 // 'MediaEmbed' plugin. To enable it, uncomment lines below and add 'MediaEmbed' button to selected toolbars.
 config.extraPlugins += (config.extraPlugins ? ',mediaembed' : 'mediaembed' );
 CKEDITOR.plugins.addExternal('mediaembed', Drupal.settings.ckeditor.module_path + '/plugins/mediaembed/');
+// coaMedia plugin
+config.extraPlugins += (config.extraPlugins ? ',coamedia' : 'coamedia' );
+CKEDITOR.plugins.addExternal('coamedia', Drupal.settings.ckeditor.module_path + '/plugins/coaMedia/');
 
+console.log(config.extraPlugins);
 // 'IMCE' plugin. If IMCE module is enabled, you may uncomment lines below and add an 'IMCE' button to selected toolbar.
 //config.extraPlugins += (config.extraPlugins ? ',imce' : 'imce' );
 //CKEDITOR.plugins.addExternal('imce', Drupal.settings.ckeditor.module_path + '/plugins/imce/');

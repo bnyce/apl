@@ -1,7 +1,5 @@
 <?php
-
 /**
- * @file
  * Handler to filter for nodes that are not in a queue.
  */
 class nodequeue_handler_filter_in_queue extends views_handler_filter_boolean_operator {

@@ -195,3 +195,4 @@ function nodequeue_views_default_views() {
   }
   return $views;
 }
+

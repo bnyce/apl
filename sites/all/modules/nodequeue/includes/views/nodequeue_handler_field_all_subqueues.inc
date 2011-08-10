@@ -1,7 +1,5 @@
 <?php
-
 /**
- * @file
  * Field handler for all subqueues
  *
  * @ingroup views_field_handlers

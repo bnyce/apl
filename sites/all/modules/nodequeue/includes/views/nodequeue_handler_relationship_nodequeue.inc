@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @file
  * Specialized relationship handler to add nodequeues.
  */
 class nodequeue_handler_relationship_nodequeue extends views_handler_relationship {

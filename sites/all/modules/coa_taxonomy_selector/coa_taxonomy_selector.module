@@ -12,7 +12,7 @@
     global $TOP_TAX;
     global $DEBUGGING;
     
-    $DEBUGGING = FALSE;
+    $DEBUGGING = false;
     
     $TOP_TAX =  array('vid' => 5, 'machine_name' => 'home_page_category', 'name' => '== Sections ==');
     $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');
@@ -36,6 +36,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    switch ($form_id) {
      // This is our form ID.
      case 'page_node_form':
+     case 'link_node_form':
 		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  
@@ -81,6 +82,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'department_mission_node_form':
      case 'department_mission__node_form':
      case 'vertical_promo_tiles_node_form':
+     case 'summary_node_form':  
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
           $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
@@ -162,7 +164,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      
      case 'large_promo_node_form': // "home promo tile" 
      case 'i_need_to_node_form': 
-     case 'link_node_form':
      case 'home_page_news_node_form':
      case 'promotions_node_form':
      case 'services_node_form':
@@ -365,6 +366,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
     // These are DEPT and FULL taxonomy 
     switch ($form_id) {
       case 'page_node_form':
+      case 'link_node_form':
             
             $form_state['values']['field_cat_dept']['en'] = $dept;
             $form_state['values']['field_page_resident']['en'] = $res;
@@ -394,13 +396,13 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
       case 'contact_information_node_form':
       case 'department_banner_image_node_form':
       case 'factoid_node_form':
+      case 'summary_node_form':  
            $form_state['values']['field_cat_dept']['en'] = $dept; 
       break;  
       
       // these are DEPT and HOME CATEGORY
       case 'large_promo_node_form':
       case 'i_need_to_node_form':
-      case 'link_node_form':
       case 'home_page_news_node_form':
       case 'promotions_node_form':
       case 'services_node_form': 

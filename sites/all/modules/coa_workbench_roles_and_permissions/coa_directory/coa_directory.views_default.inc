@@ -443,7 +443,7 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['nid']['hide_empty'] = 0;
   $handler->display->display_options['fields']['nid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nid']['link_to_node'] = 1;
-  /* Field: Content: URL of the Service */
+  /* Field: Content: URL */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -513,6 +513,28 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_phone']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_phone']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_phone']['field_api_classes'] = 0;
+  /* Field: Content: Contact Form */
+  $handler->display->display_options['fields']['field_con_form']['id'] = 'field_con_form';
+  $handler->display->display_options['fields']['field_con_form']['table'] = 'field_data_field_con_form';
+  $handler->display->display_options['fields']['field_con_form']['field'] = 'field_con_form';
+  $handler->display->display_options['fields']['field_con_form']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_con_form']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_con_form']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_con_form']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_con_form']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_con_form']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_con_form']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_con_form']['field_api_classes'] = 0;
   /* Field: Content: Contact */
   $handler->display->display_options['fields']['field_contact']['id'] = 'field_contact';
   $handler->display->display_options['fields']['field_contact']['table'] = 'field_data_field_contact';
@@ -711,6 +733,7 @@ div.view-service-directory-view div.view-header {
     t('[field_link]'),
     t('Body'),
     t('PHONE #'),
+    t('Contact Form'),
     t('CONTACT(click to fill form)'),
     t('directory/[nid]/[field_contact]'),
     t('Email'),

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the coa_directory feature.
+ */
+
+include_once('coa_directory.features.inc');

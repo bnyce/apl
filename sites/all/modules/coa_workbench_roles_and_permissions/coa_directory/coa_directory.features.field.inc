@@ -84,6 +84,83 @@ function coa_directory_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-customer_service_entry-field_con_form'
+  $fields['node-customer_service_entry-field_con_form'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_con_form',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'link',
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '1',
+      'type' => 'link_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'customer_service_entry',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'default',
+          'weight' => 6,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_con_form',
+      'label' => 'Contact Form',
+      'required' => 0,
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => '_top',
+        ),
+        'display' => array(
+          'url_cutoff' => '',
+        ),
+        'enable_tokens' => 1,
+        'title' => 'none',
+        'title_value' => '',
+        'url' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_field',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Exported field: 'node-customer_service_entry-field_contact'
   $fields['node-customer_service_entry-field_contact'] = array(
     'field_config' => array(
@@ -274,7 +351,7 @@ function coa_directory_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_link',
-      'label' => 'URL of the Service',
+      'label' => 'URL',
       'required' => 0,
       'settings' => array(
         'attributes' => array(
@@ -373,10 +450,11 @@ function coa_directory_field_default_fields() {
   // Included for use with string extractors like potx.
   t('(Format xxx-xxx-xxxx)');
   t('Contact');
+  t('Contact Form');
   t('Email');
   t('Phone');
   t('Service Description');
-  t('URL of the Service');
+  t('URL');
 
   return $fields;
 }

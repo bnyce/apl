@@ -539,22 +539,22 @@ function _coa_taxonomy_selector_promo_options($optionarray) {
     $x = (object) array("tid" => $DEPT_TAX['machine_name'], "name" => strtoupper($DEPT_TAX['name']));
     $z =  array($x);
     $dep = array_merge($z, $dep);
-    dpm($dep, 'dep');
+    
     
     $x =  (object) array("tid" => $RES_TAX['machine_name'],  "name" => strtoupper($RES_TAX['name']));
     $z = array($x);
     $res = array_merge($z, $res);
-    dpm($res, 'res');
+    
     
     $x =  (object) array("tid" => $BUS_TAX['machine_name'],  "name" => strtoupper($BUS_TAX['name']));
     $z = array($x);
     $bus = array_merge($z, $bus);
-    dpm($bus, 'bus');
+    
     
     $z =  (object) array("tid" => $DEV_TAX['machine_name'],  "name" => strtoupper($DEV_TAX['name']));
     $z = array($z);
     $dev = array_merge($z, $dev);
-    dpm($dev, 'dev');
+    
     
     $z = (object) array("tid" => $GOV_TAX['machine_name'],  "name" => strtoupper($GOV_TAX['name']));
     $z = array($z);
@@ -566,7 +566,7 @@ function _coa_taxonomy_selector_promo_options($optionarray) {
     
     // merge them all into one array  
     $x = array_merge($dep, $res);
-    dpm($x, 'x');
+    
     
     $x = array_merge($x, $bus);
     $x = array_merge($x, $dev);
@@ -657,7 +657,6 @@ function _coa_taxonomy_selector_dept_and_homepage_options($optionarray) {
 
     // merge them all into one array  
     $x = array_merge($top, $dep);
-    dpm($x, 'x');
             
     // format as an option array
     $mergedarray = array();

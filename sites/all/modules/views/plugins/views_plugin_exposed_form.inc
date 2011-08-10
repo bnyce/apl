@@ -111,14 +111,24 @@ class views_plugin_exposed_form extends views_plugin {
     if (!empty($this->ajax)) {
       $form_state['ajax'] = TRUE;
     }
-
     $form_state['exposed_form_plugin'] = $this;
-    $form = drupal_build_form('views_exposed_form', $form_state);
-    $output = drupal_render($form);
-    if (!empty($form_state['js settings'])) {
+	$form = drupal_build_form('views_exposed_form', $form_state);
+	//Tara & Srilu's code
+	if($form['#id']=='views-exposed-form-service-directory-view-page'){
+	    $action=$form['#action'];
+		if(!$action=='/glossary'){
+			$action='/glossary';
+			$form['#action']=$action;
+		}else{
+			$form['#action']='/glossary';
+			
+		}
+	}
+	//Tara & Srilu's code
+	$output = drupal_render($form);
+	if (!empty($form_state['js settings'])) {
       $this->view->js_settings = $form_state['js settings'];
     }
-
     if (!$this->view->display_handler->displays_exposed() || (!$block && $this->view->display_handler->get_option('exposed_block'))) {
       return "";
     }
@@ -129,17 +139,17 @@ class views_plugin_exposed_form extends views_plugin {
 
   function query() {
     $view = $this->view;
-    $exposed_data = isset($view->exposed_data) ? $view->exposed_data : array();
-    $sort_by = isset($exposed_data['sort_by']) ? $exposed_data['sort_by'] : NULL;
+	$exposed_data = isset($view->exposed_data) ? $view->exposed_data : array();
+	$sort_by = isset($exposed_data['sort_by']) ? $exposed_data['sort_by'] : NULL;
     if (!empty($sort_by)) {
       $handler = $view->sort[$sort_by];
-      if (isset($handler)) {
+	  if (isset($handler)) {
         $view->query->orderby = array();
         if (isset($exposed_data['sort_order']) && in_array($exposed_data['sort_order'], array('ASC', 'DESC'))) {
           $handler->options['order'] = $exposed_data['sort_order'];
-        }
-        $handler->query();
-        foreach ($view->sort as $sort) {
+		}
+		$handler->query();
+		foreach ($view->sort as $sort) {
           if (!$sort->is_exposed()) {
             $sort->query();
           }
@@ -212,6 +222,7 @@ class views_plugin_exposed_form extends views_plugin {
     if (isset($form_state['pager_plugin'])) {
       $form_state['pager_plugin']->exposed_form_validate($form, $form_state);
     }
+	
   }
 
   /**
@@ -225,11 +236,15 @@ class views_plugin_exposed_form extends views_plugin {
   *   Nested array of keys to exclude of insert into
   *   $view->exposed_raw_input
   */
-  function exposed_form_submit(&$form, &$form_state, &$exclude) {
-    if (!empty($form_state['values']['op']) && $form_state['values']['op'] == $this->options['reset_button_label']) {
-      $this->reset_form($form, $form_state);
+  
+function exposed_form_submit(&$form, &$form_state, &$exclude) {
+      if (!empty($form_state['values']['op']) && $form_state['values']['op'] == $this->options['reset_button_label']) {
+      //views-exposed-form-service-directory-view-page
+	 
+	$this->reset_form($form, $form_state);
+	  
     }
-    if (isset($form_state['pager_plugin'])) {
+	    if (isset($form_state['pager_plugin'])) {
       $form_state['pager_plugin']->exposed_form_submit($form, $form_state, $exclude);
       $exclude[] = 'pager_plugin';
     }
@@ -241,3 +256,4 @@ class views_plugin_exposed_form extends views_plugin {
     $form_state['values'] = array();
   }
 }
+

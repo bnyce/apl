@@ -1,0 +1,729 @@
+<?php
+
+/** HARD CODED MODULE GLOBALS
+ * These are the various taxonomies and their vocab id.
+ */
+    global $DEPT_TAX;
+    global $RES_TAX;
+    global $BUS_TAX;
+    global $DEV_TAX;
+    global $GOV_TAX;
+    global $ENV_TAX;
+    global $TOP_TAX;
+    global $DEBUGGING;
+    
+    $DEBUGGING = false;
+    
+    $TOP_TAX =  array('vid' => 5, 'machine_name' => 'home_page_category', 'name' => '== Sections ==');
+    $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');
+    $RES_TAX =  array('vid' => 8, 'machine_name' => 'portal', 'name' => '== Resident ==');
+    $BUS_TAX =  array('vid' => 9, 'machine_name' => 'business_portal', 'name' => '== Business ==');
+    $DEV_TAX =  array('vid' => 11, 'machine_name' => 'government_taxonomy', 'name' => '== Government ==');
+    $GOV_TAX =  array('vid' => 12, 'machine_name' => 'development_taxonomy', 'name' => '== Development ==');
+    $ENV_TAX =  array('vid' => 13, 'machine_name' => 'environment_taxonomy', 'name' => '== Environment ==');
+
+
+/**
+* Implementation of hook_form_alter().	
+* This modifies the default edit form of each moderated content type.
+* A new case will need to be created for each content type that will be located by the primary site taxonomies.
+*/
+//function coa_department_content_workbench_access_node_element_alter(&$element, $form_state, $active){ 
+function coa_department_content_form_alter(&$form, $form_state, $form_id) {
+   global $DEBUGGING;
+   // a switch is used because you may want to alter more than
+   // one form and it is easy to add a new case for each form.
+   switch ($form_id) {
+     // This is our form ID.
+     case 'page_node_form':
+     case 'link_node_form':
+		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
+		  
+		  $form['field_page_resident']['#type'] = 'hidden';
+		  $form['field_bus_tax']['#type'] = 'hidden';
+		  $form['field_dev_tax']['#type'] = 'hidden';
+		  $form['field_gov_tax']['#type'] = 'hidden';
+		  $form['field_env_tax']['#type'] = 'hidden';
+		  $form['field_cat_dept']['#type'] = 'hidden';
+		  
+		  $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+		  $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		  if($DEBUGGING) dpm($form, "form");
+		  				   
+      break;
+      
+     case 'calender_events_node_form':
+     case 'calendar_events_node_form':
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_department_content_dept_only_options($optionarray);  //filter the option array
+          
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the department sponsoring this event.');
+		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+		  // make taxonomy field hidden and not required
+          $form['field_calendar_department']['#type'] = 'hidden';  
+          $form['field_calendar_department']['und']['#required'] = FALSE; // 'und' is LANGUAGE_NONE
+          $form['field_calendar_department']['en']['#required'] = FALSE;
+          
+          $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+          $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		  
+		  if($DEBUGGING) dpm($form, "form");
+		 		  
+     break;
+     
+     case 'department_mission_node_form':
+     case 'department_mission__node_form':
+     case 'vertical_promo_tiles_node_form':
+     case 'summary_node_form':  
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_department_content_dept_only_nohome_options($optionarray);  //filter the option array
+          
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program.');
+		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+		  // make taxonomy field hidden and not required
+          $form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_cat_dept']['en']['#required'] = FALSE;
+          
+          $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+          $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		  if($DEBUGGING)  dpm($form, "form");
+     break;  
+     
+     case 'contact_information_node_form':
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_department_content_dept_only_nohome_options($optionarray);  //filter the option array
+          $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this contact to.');
+		  // make taxonomy field hidden and not required
+          $form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_cat_dept']['en']['#required'] = FALSE;
+          
+          $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+          $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		  if($DEBUGGING)  dpm($form, "form");
+     break;  
+     
+     case 'department_banner_image_node_form':
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_department_content_dept_only_nohome_options($optionarray);  //filter the option array
+          
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this banner image to.');
+		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+		  // make taxonomy field hidden and not required
+          $form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_cat_dept']['en']['#required'] = FALSE;
+          
+          $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+          $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		  if($DEBUGGING)  dpm($form, "form");
+       
+     break;
+     
+     case 'factoid_node_form':       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Section Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the editorial section to attach this factoid to.');
+		  // make taxonomy field hidden and not required
+          $form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_cat_dept']['en']['#required'] = FALSE;
+          
+          $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+          $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		 if($DEBUGGING)  dpm($form, "form");
+       
+     break;
+     
+     
+     case 'large_promo_node_form': // "home promo tile" 
+     case 'i_need_to_node_form': 
+     case 'home_page_news_node_form':
+     case 'promotions_node_form':
+     case 'services_node_form':
+     case 'video_node_form':          
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_department_content_dept_and_homepage_options($optionarray);  //filter the option array
+          $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+       
+		  // make taxonomy field hidden and not required
+          $form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_cat_dept']['en']['#required'] = FALSE;
+          
+
+          $form['field_home_category']['#type'] = 'hidden';
+          $form['field_home_category']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_home_category']['en']['#required'] = FALSE;
+          
+          $form['#validate'] = array('_coa_department_content_workbench_access_validate');
+          $form['#submit'][] = 'coa_department_content_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		 if($DEBUGGING)  dpm($form, "form");
+       
+     break;
+   };
+   
+};
+
+/**
+* Validate the node edit form.
+*/
+function _coa_department_content_workbench_access_validate($form, &$form_state) {
+    
+    //get the settings for the workbench access section taxonomy
+    
+	//$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+	if(!is_array($sections)){
+	  $message = t("Configuration Error: Please Workbench Access for multiple selection assignments.");
+  	      form_set_error('workbench_access_id', $message);
+	} else {
+	
+      foreach ($sections as $section => $key) {
+          $term        = taxonomy_term_load($section);    
+  	    if (empty($term)) {
+  	      $message = t("You have selected a top-level Section Heading. Please be more specific in selecting an Editorial Section.");
+  	      form_set_error('workbench_access_id', $message);
+   	      };
+      };
+	};
+};
+
+/**
+* Additional handler for page node form submit.
+*/
+
+function coa_department_content_node_form_submit($form, &$form_state) {
+  //$form_id = $form->#form_id;
+  $form_id = $form['#form_id'];
+  
+  //create clear local arrays
+    $top = array();
+    $res = array();
+    $bus = array();
+    $dev = array();
+	$gov = array();
+	$env = array();
+	$dept = array();
+  
+  //get the settings for the workbench access section taxonomy
+	$sections = array();
+	$sections = $form_state['values']['workbench_access_id'];
+	
+  //cycle over each of the selections and copy values to appropriate section taxonomy 
+	foreach ($sections as $section => $key) {
+        $term        = taxonomy_term_load($section);
+        
+	    if (empty($term)) {
+	      // shouldn't get here.
+	      $message = t("ERROR: Invalid taxonomy. Top-level Section Heading selected.");
+	      drupal_set_message($message, 'error', $repeat = FALSE);
+	      break 1;
+	    };
+	    
+        $tid         = $term->tid;
+        $vid         = $term->vid;
+        $name        = $term->name;
+        $description = $term->description;
+        $format      = $term->format;
+        $weight      = $term ->weight;
+        $vocab       = $term->vocabulary_machine_name;
+        $rdf_mapping = $term->rdf_mapping;
+	    
+        //$form_state['values']['body']['en']['0']['value'] .= "Section: $section - Vocab: $vid = $vocab : Term: $tid = $name \n ";
+        //dd($term);
+        switch ($vocab) {
+          case "departmental":
+          case "department":
+            $dept[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+            						'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            
+            break;
+          
+          case "resident_taxonomy":
+            $res[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+          
+          case "government_taxonomy":
+                 $gov[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+
+            break;
+            
+          case "development_taxonomy":
+                 $dev[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    ); 
+            break;
+            
+          case "environment_taxonomy":
+                 $env[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+									'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+            
+          case "business_taxonomy":
+          case "business_portal":
+                 $bus[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+            
+            case "home_page_category":
+                 $top[] = array(
+            						'tid'          => $tid,
+									'vid'          => $vid,
+                                    'name'		   => $name,
+									'description'  => $description,
+									'format'       => $format,
+            						'weight'       => $weight,
+            						'vocabulary_machine_name' => $vocab,
+            						'rdf_mapping'  => $rdf_mapping,
+                                    );
+            break;
+        };
+        
+        //next section item
+        
+      };
+      
+    // now set the taxonomy values
+    // These are DEPT and FULL taxonomy 
+    switch ($form_id) {
+      case 'page_node_form':
+      case 'link_node_form':
+            
+            $form_state['values']['field_cat_dept']['en'] = $dept;
+            $form_state['values']['field_page_resident']['en'] = $res;
+            $form_state['values']['field_bus_tax']['en'] = $bus;
+            $form_state['values']['field_dev_tax']['en'] = $dev;
+            $form_state['values']['field_gov_tax']['en'] = $gov;
+            $form_state['values']['field_env_tax']['en'] = $env;
+            
+            if($DEBUGGING) dpr($dep_tax, 'dep_stage');
+            if($DEBUGGING) dpr($form_state, 'form_state');
+        	
+      break;
+    
+      // These are DEPT only, except Calandar has it's own unique field
+      case 'calender_events_node_form':
+      case 'calendar_events_node_form':
+
+            $form_state['values']['field_calendar_department']['en'] = $dept;
+            
+            if($DEBUGGING) dpm($form_state, '$form_state');
+      break;  
+      
+      // These are DEPT only
+      case 'department_mission_node_form':
+      case 'department_mission__node_form':
+      case 'vertical_promo_tiles_node_form': 
+      case 'contact_information_node_form':
+      case 'department_banner_image_node_form':
+      case 'factoid_node_form':
+      case 'summary_node_form':  
+           $form_state['values']['field_cat_dept']['en'] = $dept; 
+      break;  
+      
+      // these are DEPT and HOME CATEGORY
+      case 'large_promo_node_form':
+      case 'i_need_to_node_form':
+      case 'home_page_news_node_form':
+      case 'promotions_node_form':
+      case 'services_node_form': 
+      case 'video_node_form': 
+        
+            $form_state['values']['field_cat_dept']['en'] = $dept;
+            $form_state['values']['field_home_category']['en'] = $top;
+            
+            if($DEBUGGING) dpr($dep_tax, 'dep_stage');
+            if($DEBUGGING) dpr($form_state, 'form_state');
+        	
+      break;
+           
+    };
+    if($DEBUGGING)  dpm($form_state['values'], 'form_state');
+}
+
+
+/**
+* Additional handler for node form build.
+*/
+function coa_department_content_node_form_build($form, &$form_state) {
+  // debug
+  //krumo($form_state);
+  //die;
+}
+
+/**
+ * Utility function to filter "home" from workbench select option array.  Supports only the $DEPT_TAX
+ * @param array $optionarray
+ */
+function _coa_department_content_dept_only_nohome_options($optionarray) {
+    
+    global $DEPT_TAX;
+    // get all the levels
+    $x = taxonomy_get_tree($DEPT_TAX['vid'], 0);
+    // format tree as an option array
+    foreach ($x as $o => $key){
+      $name  = $key->tid;
+      $value = $key->name;
+      $deptarray[$name] = $value;
+    }
+
+   // clean up so that it is in the same format
+   /*
+   foreach ($deptarray as $key => $value) {
+     $value = trim($value, '-'); 
+     $value = trim($value);   
+     $trimmedoptions[$key] = $value;
+   }
+   */
+    
+   // campare if the key exists in both arrays, if so, add it to trimmedoptions array
+   // 
+    foreach ($optionarray as $option => $pointer){
+        if(array_key_exists($option, $deptarray)){
+              //the term exists in both arrays
+              $term  = taxonomy_term_load($option);
+              $tid         = $term->tid;
+              $vid         = $term->vid;
+              //$name        = $term->name;
+              $name        = $optionarray[$option];
+              $vocab       = $term->vocabulary_machine_name;
+              $rdf_mapping = $term->rdf_mapping;
+              
+              //if it is NOT home then add it to common array
+              if($name != "-- Home") {
+                  $key  = $tid;
+                  $value = $name;
+                  $common[$key] = $value;
+              };
+        };
+     };
+   return $common ;
+}
+
+/**
+ * Utility function to filter everything except departments from workbench select option array.
+ * @param array $optionarray
+ */
+function _coa_department_content_dept_only_options($optionarray) {
+ 
+    global $DEPT_TAX;
+    // get only the first level TIDs of the Deptarment Taxonomy
+    $x = taxonomy_get_tree($DEPT_TAX['vid'], 0, 1);
+    // format as an option array
+    foreach ($x as $o => $key){
+      $name  = $key->tid;
+      $value = $key->name;
+      $deptarray[$name] = $value;
+    }
+   
+   // clean up so that it is in the same format
+   foreach ($optionarray as $key => $value) {
+     $value = trim($value, '-'); 
+     $value = trim($value);   
+     $trimmedoptions[$key] = $value;
+   }
+   // filter out all non-deparmental options
+   $common = array_intersect($trimmedoptions,$deptarray);
+  
+   if($DEBUGGING) { 
+    dpm($optionarray, 'optionarray');
+    dpm($trimmedoptions, 'trimmedoptions');
+    dpm($deptarray, 'deptarray');
+    dpm($common, 'common');
+   };
+   return $common;
+}
+
+/**
+ * Utility function to filter and show only departments and subsections (no home) and vocab names and thier subsections in the workbench select option array.
+ * @param array $optionarray
+ */
+function _coa_department_content_promo_options($optionarray) {
+    
+    global $DEPT_TAX;
+    global $RES_TAX;
+    global $BUS_TAX;
+    global $DEV_TAX;
+    global $GOV_TAX;
+    global $ENV_TAX;
+    // first we create an array of all the possible options
+    
+    // Get only the first level TIDs of the taxonomies
+    $dep = taxonomy_get_tree($DEPT_TAX['vid'], 0, 1);
+    $res = taxonomy_get_tree($RES_TAX['vid'], 0, 1);
+    $bus = taxonomy_get_tree($BUS_TAX['vid'], 0, 1);
+    $dev = taxonomy_get_tree($DEV_TAX['vid'], 0, 1);
+    $gov = taxonomy_get_tree($GOV_TAX['vid'], 0, 1);
+    $env = taxonomy_get_tree($ENV_TAX['vid'], 0, 1);
+    
+    // add uppercase headings to each array
+    $x = (object) array("tid" => $DEPT_TAX['machine_name'], "name" => strtoupper($DEPT_TAX['name']));
+    $z =  array($x);
+    $dep = array_merge($z, $dep);
+    
+    
+    $x =  (object) array("tid" => $RES_TAX['machine_name'],  "name" => strtoupper($RES_TAX['name']));
+    $z = array($x);
+    $res = array_merge($z, $res);
+    
+    
+    $x =  (object) array("tid" => $BUS_TAX['machine_name'],  "name" => strtoupper($BUS_TAX['name']));
+    $z = array($x);
+    $bus = array_merge($z, $bus);
+    
+    
+    $z =  (object) array("tid" => $DEV_TAX['machine_name'],  "name" => strtoupper($DEV_TAX['name']));
+    $z = array($z);
+    $dev = array_merge($z, $dev);
+    
+    
+    $z = (object) array("tid" => $GOV_TAX['machine_name'],  "name" => strtoupper($GOV_TAX['name']));
+    $z = array($z);
+    $gov = array_merge($z, $gov);
+    
+    $z = (object) array("tid" => $ENV_TAX['machine_name'],  "name" => strtoupper($ENV_TAX['name']));
+    $z = array($z);
+    $env = array_merge($z, $env);
+    
+    // merge them all into one array  
+    $x = array_merge($dep, $res);
+    
+    
+    $x = array_merge($x, $bus);
+    $x = array_merge($x, $dev);
+    $x = array_merge($x, $gov);
+    $x = array_merge($x, $env);
+            
+    // format as an option array
+    $mergedarray = array();
+    foreach ($x as $o => $key){
+      $name  = $key->tid;
+      $value = $key->name;
+      //$txt = "o = $o, key = $key, name = $name, value = $value";
+      //dvm($txt);
+      $mergedarray[$name] = $value;
+    }
+   
+    if($DEBUGGING) {
+      dpm($optionarray, 'optionarray');
+      dpm($mergedarray, 'mergedarray'); 
+    }
+   // campare if the key exists in both arrays, if so, add it to trimmedoptions array
+   // 
+    foreach ($mergedarray as $option => $pointer){
+        if(array_key_exists($option, $optionarray)){
+              //the term exists in both arrays
+              $term  = taxonomy_term_load($option);              
+              
+              if(!is_null($term)){
+                $tid         = $term->tid;
+                $vid         = $term->vid;
+                //$name        = $term->name;
+                $name        = $optionarray[$option];  // get the formatted (indented) name
+                $vocab       = $term->vocabulary_machine_name;
+                $rdf_mapping = $term->rdf_mapping;
+                
+                $sample = array(
+                		"option" => $option,
+                        "pointer"=> $pointer,
+                        "tid"    => $tid,
+                        "vid"	=> $vid,
+                        "name"	=> $name,
+                        "vocab"	=> $vocab,
+                );
+              } else {
+                $tid = $option->vid;
+                $name = $option->name;
+                $sample = array(
+                		"option" => $option,
+                        "pointer"=> $pointer,
+                        "tid"    => $tid,
+                        "vid"	=> $vid,
+                        "name"	=> $name,
+                        "vocab"	=> $vocab,
+                      );
+              }
+              //if it is NOT home then add it to common array
+              if($name != "-- Home") {
+                  $key  = $tid;
+                  $value = $name;
+                  $common[$key] = $value;
+                  if($DEBUGGING){
+                    dpm($sample, "sample");
+                  }
+              };
+        };
+     };
+   
+   if($DEBUGGING){
+     dpm($common, 'common');
+   }
+   
+   return $common;
+}
+
+/**
+ * Utility function to filter everything except departments and home page category names from workbench select option array.
+ * @param array $optionarray
+ */
+function _coa_department_content_dept_and_homepage_options($optionarray) {
+    
+    global $DEPT_TAX;
+    global $TOP_TAX;
+    // first we create an array of all the possible options
+    
+    // Get only the first level TIDs of the taxonomies
+    $dep = taxonomy_get_tree($DEPT_TAX['vid'], 0, 1);
+    $top = taxonomy_get_tree($TOP_TAX['vid'], 0, 1);
+
+    // merge them all into one array  
+    $x = array_merge($top, $dep);
+            
+    // format as an option array
+    $mergedarray = array();
+    foreach ($x as $o => $key){
+      $name  = $key->tid;
+      $value = $key->name;
+      //$txt = "o = $o, key = $key, name = $name, value = $value";
+      //dvm($txt);
+      $mergedarray[$name] = $value;
+    }
+   
+    if($DEBUGGING) {
+      dpm($optionarray, 'optionarray');
+      dpm($mergedarray, 'mergedarray'); 
+    }
+   // campare if the key exists in both arrays, if so, add it to trimmedoptions array
+   // 
+    foreach ($mergedarray as $option => $pointer){
+        if(array_key_exists($option, $optionarray)){
+              //the term exists in both arrays
+              $term  = taxonomy_term_load($option);              
+              
+              if(!is_null($term)){
+                $tid         = $term->tid;
+                $vid         = $term->vid;
+                //$name        = $term->name;
+                $name        = $optionarray[$option];  // get the formatted (indented) name
+                $vocab       = $term->vocabulary_machine_name;
+                $rdf_mapping = $term->rdf_mapping;
+                
+                $sample = array(
+                		"option" => $option,
+                        "pointer"=> $pointer,
+                        "tid"    => $tid,
+                        "vid"	=> $vid,
+                        "name"	=> $name,
+                        "vocab"	=> $vocab,
+                );
+              } else {
+                $tid = $option->vid;
+                $name = $option->name;
+                $sample = array(
+                		"option" => $option,
+                        "pointer"=> $pointer,
+                        "tid"    => $tid,
+                        "vid"	=> $vid,
+                        "name"	=> $name,
+                        "vocab"	=> $vocab,
+                      );
+              }
+              //if it is NOT home then add it to common array
+              if($name != "-- Home") {
+                  $key  = $tid;
+                  $value = $name;
+                  $common[$key] = $value;
+                  if($DEBUGGING){
+                    dpm($sample, "sample");
+                  }
+              };
+        };
+     };
+   
+   if($DEBUGGING){
+     dpm($common, 'common');
+   }
+   
+   return $common;
+}
+
+

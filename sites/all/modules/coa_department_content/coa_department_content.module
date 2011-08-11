@@ -4,9 +4,9 @@
  * These are the various taxonomies and their vocab id.
  */
     global $DEPT_TAX;
-    global $DEBUGGING;
+    global $DEBUGGING2;
     
-    $DEBUGGING = TRUE;
+    $DEBUGGING2 = TRUE;
     $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');
 
 /**
@@ -29,7 +29,7 @@ function coa_department_content_permission() {
 * A new case will need to be created for each content type that will be located by the primary site taxonomies.
 */
 function coa_department_content_form_alter(&$form, $form_state, $form_id) {
-   global $DEBUGGING;
+   global $DEBUGGING2;
    // a switch is used because you may want to alter more than
    // one form and it is easy to add a new case for each form.
    switch ($form_id) {
@@ -40,48 +40,64 @@ function coa_department_content_form_alter(&$form, $form_state, $form_id) {
      	    $form['field_dept_chars']['#type']    = 'hidden';
      	    $form['field_dept_features']['#type'] = 'hidden';
      	  };
-		  $form['title']['#ajax'] = array(
-		  							'callback' => 'betapp_testajax_callback',
-      								'wrapper' => 'testajaxwrapper',
-      								'method' => 'replace',
-		                          );
-		  $form['workbench_access']['workbench_access_id']['#ajax'] = array(
-		  							'callback' => 'betapp_testajax_callback',
-      								'wrapper' => 'testajaxwrapper',
-      								'method' => 'replace',
-		                          );
-		  $form['#validate'] = array('_coa_department_content_validate');
-		  $form['#submit'][] = 'coa_department_content_node_form_submit';
-		  $form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
 		  
-		  //if($DEBUGGING) dpm($form, "form");
-		  dpm($form, "form");		   
+		  /*
+		  
+		  $form['workbench_access']['workbench_access_id']['#ajax'] = array(
+		                            // 'callback' is a function that will be called when this element changes.
+      								'callback' => 'coa_department_content_update_title_callback',
+		                             // 'wrapper' is the HTML id of the page element that will be replaced.
+      								'wrapper' => 'replace_title_div',
+		                            'method' => 'fade',
+		                          );
+		   
+		  $form['title']         = array(
+    								'#type' => 'textfield',
+    								'#title' => t("Department or Program Name!"),
+		                            '#required' => TRUE,
+		                            '#maxlength' => 255,
+		                            '#weight' => -5,
+		                            '#default_value' => isset($form_state['values']['title']) ? $form_state['values']['title'] : '',                          
+		                            // The prefix/suffix provide the div that we're replacing, named by
+		                            // #ajax['wrapper'] above.
+    								'#prefix' => '<div id="replace_title_div">',
+    								'#suffix' => '</div>',
+		                          );	
+			*/
+		  $form['#validate'][] = '_coa_department_content_validate';
+		  //$form['#submit'][] = 'coa_department_content_node_form_submit';
+		  //$form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
+		  
+		  if($DEBUGGING2) dpm($form, "form");
+		  //dpm($form, "form");		   
       break; 
     };
-    
-   
 };
 
 /**
- * Implementation of hook_states_form 
+ * 
  */
-function coa_department_content_states_form($form, &$form_state) {
-  $form['title'] = array(
-    '#type' => 'radios', 
-    '#options' => drupal_map_assoc(array(t('High School'), t('Undergraduate'), t('Graduate'))), 
-    '#title' => t('What type of student are you?'),
-  );
-  $form['high_school'] = array(
-    '#type' => 'fieldset', 
-    '#title' => t('High School Information'),
-    // This #states rule says that the "high school" fieldset should only
-    // be shown if the "student_type" form element is set to "High School". 
-    '#states' => array(
-      'visible' => array(
-        ':input[name="student_type"]' => array('value' => t('High School')),
-      ),
-    ),
-  );
+function coa_department_content_update_title_callback($form, $form_state){
+		  // An AJAX request calls the form builder function for every change.
+		  // We can change how we build the form based on $form_state.
+		  if (!empty($form_state['values']['workbench_access_id'])) {
+		      $value = $form_state['values']['workbench_access_id'][0];
+		      $form['title']         = array(
+    								'#type' => 'textfield',
+    								'#title' => t("Department or Program Name!!"),
+		                            '#required' => TRUE,
+		                            '#maxlength' => 255,
+		                            '#weight' => -5,
+		                            '#default_value' => 'SAMPLE',
+		                            
+		                            // The prefix/suffix provide the div that we're replacing, named by
+		                            // #ajax['wrapper'] above.
+    								'#prefix' => '<div id="replace_title_div">',
+    								'#suffix' => '</div>',
+		                          );	 
+		        //$form['title']['#default_value'] = $form_state['values']['workbench_access_id'][0];
+		        dpm($value, 'value');
+		  }        
 }
   
 /**
@@ -89,15 +105,15 @@ function coa_department_content_states_form($form, &$form_state) {
 */
 function _coa_department_content_validate($form, &$form_state) {
     
-    //get the settings for the workbench access section taxonomy
+    //get the number of characters
+    $num_char = 6;
+    $num_char2 = 8;
     
-	//$sections = array();
-	$sections = $form_state['values']['workbench_access_id'];
-	if(!is_array($sections)){
-	  $message = t("Configuration Error: Please Workbench Access for multiple selection assignments.");
-  	      form_set_error('workbench_access_id', $message);
-	} else {
-	
+    //$num_char = strlen($form_state['values']['body']['en']);
+    //$num_char2 = strlen($form_state['values']['field_dept_message']['en'][0]);
+    $message = t("Body =  and Message 0 = ");
+  	form_set_error('body', $message);
+   	/*	
       foreach ($sections as $section => $key) {
           $term        = taxonomy_term_load($section);    
   	    if (empty($term)) {
@@ -106,251 +122,16 @@ function _coa_department_content_validate($form, &$form_state) {
    	      };
       };
 	};
+	*/
 };
 
 /**
 * Additional handler for page node form submit.
 */
-
 function coa_department_content_node_form_submit($form, &$form_state) {
   //$form_id = $form->#form_id;
   $form_id = $form['#form_id'];
   
-  //create clear local arrays
-	$dept = array();
-  
-  //get the settings for the workbench access section taxonomy
-	$sections = array();
-	$sections = $form_state['values']['workbench_access_id'];
-	
-  //cycle over each of the selections and copy values to appropriate section taxonomy 
-	foreach ($sections as $section => $key) {
-        $term        = taxonomy_term_load($section);
-        
-	    if (empty($term)) {
-	      // shouldn't get here.
-	      $message = t("ERROR: Invalid taxonomy. Top-level Section Heading selected.");
-	      drupal_set_message($message, 'error', $repeat = FALSE);
-	      break 1;
-	    };
-	    
-        $tid         = $term->tid;
-        $vid         = $term->vid;
-        $name        = $term->name;
-        $description = $term->description;
-        $format      = $term->format;
-        $weight      = $term ->weight;
-        $vocab       = $term->vocabulary_machine_name;
-        $rdf_mapping = $term->rdf_mapping;
-	    
-        //$form_state['values']['body']['en']['0']['value'] .= "Section: $section - Vocab: $vid = $vocab : Term: $tid = $name \n ";
-        //dd($term);
-        switch ($vocab) {
-          case "departmental":
-          case "department":
-            $dept[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-            						'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    );
-            
-            break;
-          
-          case "resident_taxonomy":
-            $res[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-                                    'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    );
-            break;
-          
-          case "government_taxonomy":
-                 $gov[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-                                    'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    );
-
-            break;
-            
-          case "development_taxonomy":
-                 $dev[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-                                    'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    ); 
-            break;
-            
-          case "environment_taxonomy":
-                 $env[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-									'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    );
-            break;
-            
-          case "business_taxonomy":
-          case "business_portal":
-                 $bus[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-                                    'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    );
-            break;
-            
-            case "home_page_category":
-                 $top[] = array(
-            						'tid'          => $tid,
-									'vid'          => $vid,
-                                    'name'		   => $name,
-									'description'  => $description,
-									'format'       => $format,
-            						'weight'       => $weight,
-            						'vocabulary_machine_name' => $vocab,
-            						'rdf_mapping'  => $rdf_mapping,
-                                    );
-            break;
-        };
-        
-        //next section item
-        
-      };
-      
-    // now set the taxonomy values
-    // These are DEPT and FULL taxonomy 
-    switch ($form_id) {
-      case 'page_node_form':
-      case 'link_node_form':
-            
-            $form_state['values']['field_cat_dept']['en'] = $dept;
-            $form_state['values']['field_page_resident']['en'] = $res;
-            $form_state['values']['field_bus_tax']['en'] = $bus;
-            $form_state['values']['field_dev_tax']['en'] = $dev;
-            $form_state['values']['field_gov_tax']['en'] = $gov;
-            $form_state['values']['field_env_tax']['en'] = $env;
-            
-            if($DEBUGGING) dpr($dep_tax, 'dep_stage');
-            if($DEBUGGING) dpr($form_state, 'form_state');
-        	
-      break;
-    
-      // These are DEPT only, except Calandar has it's own unique field
-      case 'calender_events_node_form':
-      case 'calendar_events_node_form':
-
-            $form_state['values']['field_calendar_department']['en'] = $dept;
-            
-            if($DEBUGGING) dpm($form_state, '$form_state');
-      break;  
-      
-      // These are DEPT only
-      case 'department_mission_node_form':
-      case 'department_mission__node_form':
-      case 'vertical_promo_tiles_node_form': 
-      case 'contact_information_node_form':
-      case 'department_banner_image_node_form':
-      case 'factoid_node_form':
-      case 'summary_node_form':  
-           $form_state['values']['field_cat_dept']['en'] = $dept; 
-      break;  
-      
-      // these are DEPT and HOME CATEGORY
-      case 'large_promo_node_form':
-      case 'i_need_to_node_form':
-      case 'home_page_news_node_form':
-      case 'promotions_node_form':
-      case 'services_node_form': 
-      case 'video_node_form': 
-        
-            $form_state['values']['field_cat_dept']['en'] = $dept;
-            $form_state['values']['field_home_category']['en'] = $top;
-            
-            if($DEBUGGING) dpr($dep_tax, 'dep_stage');
-            if($DEBUGGING) dpr($form_state, 'form_state');
-        	
-      break;
-           
-    };
-    if($DEBUGGING)  dpm($form_state['values'], 'form_state');
-}
-
-
-/**
- * Utility function to filter "home" from workbench select option array.  Supports only the $DEPT_TAX
- * @param array $optionarray
- */
-function _coa_department_content_dept_only_nohome_options($optionarray) {
-    
-    global $DEPT_TAX;
-    // get all the levels
-    $x = taxonomy_get_tree($DEPT_TAX['vid'], 0);
-    // format tree as an option array
-    foreach ($x as $o => $key){
-      $name  = $key->tid;
-      $value = $key->name;
-      $deptarray[$name] = $value;
-    }
-
-   // clean up so that it is in the same format
-   /*
-   foreach ($deptarray as $key => $value) {
-     $value = trim($value, '-'); 
-     $value = trim($value);   
-     $trimmedoptions[$key] = $value;
-   }
-   */
-    
-   // campare if the key exists in both arrays, if so, add it to trimmedoptions array
-   // 
-    foreach ($optionarray as $option => $pointer){
-        if(array_key_exists($option, $deptarray)){
-              //the term exists in both arrays
-              $term  = taxonomy_term_load($option);
-              $tid         = $term->tid;
-              $vid         = $term->vid;
-              //$name        = $term->name;
-              $name        = $optionarray[$option];
-              $vocab       = $term->vocabulary_machine_name;
-              $rdf_mapping = $term->rdf_mapping;
-              
-              //if it is NOT home then add it to common array
-              if($name != "-- Home") {
-                  $key  = $tid;
-                  $value = $name;
-                  $common[$key] = $value;
-              };
-        };
-     };
-   return $common ;
+    if($DEBUGGING2)  dpm($form_state['values'], 'form_state');
 }
 

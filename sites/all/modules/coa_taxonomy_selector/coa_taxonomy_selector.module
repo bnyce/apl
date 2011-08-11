@@ -47,7 +47,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['field_env_tax']['#type'] = 'hidden';
 		  $form['field_cat_dept']['#type'] = 'hidden';
 		  
-		  $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+		  $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
@@ -70,7 +70,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['field_calendar_department']['und']['#required'] = FALSE; // 'und' is LANGUAGE_NONE
           $form['field_calendar_department']['en']['#required'] = FALSE;
           
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
@@ -97,7 +97,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_cat_dept']['en']['#required'] = FALSE;
           
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
@@ -117,7 +117,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_cat_dept']['en']['#required'] = FALSE;
           
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
@@ -138,7 +138,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_cat_dept']['en']['#required'] = FALSE;
           
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
@@ -154,7 +154,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_cat_dept']['en']['#required'] = FALSE;
           
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
@@ -184,7 +184,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['field_home_category']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
           $form['field_home_category']['en']['#required'] = FALSE;
           
-          $form['#validate'] = array('_coa_taxonomy_selector_workbench_access_validate');
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  

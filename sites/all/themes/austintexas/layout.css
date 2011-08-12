@@ -29,7 +29,7 @@
 
 /* #TYPOGRAPHY 
 ================================================== */
-#center p, #center ul, #center ol {font-size: 13px;}
+#center p, #center ul, #center ol {font-size: 12px;}
 #center p a, #center li a {color: #a85708;text-decoration: none; font-weight: bold;}
 #center p a:hover, #center li a:hover {text-decoration: underline;}
 
@@ -157,7 +157,7 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 .views-field {
 	/* width:360px; */
-	font-size: 13px;
+	font-size: 12px;
 }
 
 .news-list .more-link {font-size: 12px;text-align: left;text-align: left;text-indent: 15px;}

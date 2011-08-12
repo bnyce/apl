@@ -33,7 +33,7 @@ body {
     font-size: 12px;
 }
 #squeeze h2 {
-    color: #A85708;
+    color: #636463;
     font-family: "Univers Light";
     font-size: 20px;
     text-transform: uppercase;
@@ -94,15 +94,15 @@ body {
 .pane-events li {
     background: url("images/icons/line_spacer.jpg") no-repeat scroll -25px 18px transparent;
     font-family: Arial;
-    font-size: 12px;
     height: 20px;
     list-style: none outside none;
 }
 .pane-events li a {
-    background: url("images/icons/calendar.png") no-repeat scroll left 0 transparent;
+    background: url("images/icons/calendar.png") no-repeat scroll left top transparent;
     color: #737B82;
-    padding-left: 12px;
+    padding-left: 21px;
     text-decoration: none;
+	font-size: 12px;
 }
 .pane-events .more-link {
     margin: -10px 0 0;
@@ -111,11 +111,11 @@ body {
     text-align: left !important;
 }
 .pane-events .more-link a {
-    background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
+    background: url("images/icons/calendar.png") no-repeat scroll left 0 transparent;
     color: #A85708;
     font-family: Univers Bold;
     font-size: 13px;
-    padding-left: 16px;
+    padding-left: 23px;
     text-decoration: none;
 }
 .pane-events li a:hover {
@@ -692,7 +692,7 @@ style-2 .views-field-title-1 {
     width: 185px;
 } 
 .recent-news .views-field-field-news-link a {
-    background: url("images/star.jpg") no-repeat scroll 0 50% transparent !important;
+    background: url("images/star.png") no-repeat scroll 0 50% transparent !important;
     font-weight: bold;
     padding-left: 18px;
 }

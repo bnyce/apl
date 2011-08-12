@@ -3,19 +3,10 @@
 /** HARD CODED MODULE GLOBALS
  * These are the various taxonomies and their vocab id.
  */
-    global $DEPT_TAX;
     global $DEBUGGING2;
-    global $VIEWS;
-    
+     
     $DEBUGGING2 = TRUE;
-    $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');
-    $VIEWS = array(
-             'News' => 'view1',
-             'Photo Gallery' => 'view1',
-             'Video Gallery' => 'view1',
-             'Blog' => 'view1',
-             'Forum' => 'view1',
-            );
+   
 /**
 * Implementation of hook_permission()
 * Adds permission to edit Department Home Page restrictions
@@ -48,35 +39,9 @@ function coa_department_content_form_alter(&$form, $form_state, $form_id) {
      	    $form['field_dept_features']['#type'] = 'hidden';
      	  };
 		  
-		  /*
-		  
-		  $form['workbench_access']['workbench_access_id']['#ajax'] = array(
-		                            // 'callback' is a function that will be called when this element changes.
-      								'callback' => 'coa_department_content_update_title_callback',
-		                             // 'wrapper' is the HTML id of the page element that will be replaced.
-      								'wrapper' => 'replace_title_div',
-		                            'method' => 'fade',
-		                          );
-		   
-		  $form['title']         = array(
-    								'#type' => 'textfield',
-    								'#title' => t("Department or Program Name!"),
-		                            '#required' => TRUE,
-		                            '#maxlength' => 255,
-		                            '#weight' => -5,
-		                            '#default_value' => isset($form_state['values']['title']) ? $form_state['values']['title'] : '',                          
-		                            // The prefix/suffix provide the div that we're replacing, named by
-		                            // #ajax['wrapper'] above.
-    								'#prefix' => '<div id="replace_title_div">',
-    								'#suffix' => '</div>',
-		                          );	
-			*/
 		  $form['#validate'][] = '_coa_department_content_validate';
-		  //$form['#submit'][] = 'coa_department_content_node_form_submit';
-		  //$form['actions']['submit']['#submit'][] = 'coa_department_content_node_form_submit';
 		  
-		  if($DEBUGGING2) dpm($form, "form");
-		  //dpm($form, "form");		   
+		  if($DEBUGGING2) dpm($form, "form");   
       break; 
     };
 };
@@ -103,7 +68,7 @@ function coa_department_content_update_title_callback($form, $form_state){
     								'#suffix' => '</div>',
 		                          );	 
 		        //$form['title']['#default_value'] = $form_state['values']['workbench_access_id'][0];
-		        dpm($value, 'value');
+		        //dpm($value, 'value');
 		  }        
 }
   
@@ -113,11 +78,11 @@ function coa_department_content_update_title_callback($form, $form_state){
 function _coa_department_content_validate($form, &$form_state) {
     
     //get the limits
-    $char_limit = $form_state['values']['field_dept_chars']['en'][0]['value'];
+    $char_limit    = $form_state['values']['field_dept_chars']['en'][0]['value'];
     $feature_limit = $form_state['values']['field_dept_features']['en'][0]['value'];
     // get the number of features
-    $features = $form_state['values']['field_dept_features_list']['en'];
-    $num_features = count($features);
+    $features      = $form_state['values']['field_dept_feature_views']['en'];
+    $num_features  = (count($features) - 2);  // remove blank and add_more
     
     if ($num_features > $feature_limit) {
   	      $msg = t("You have selected $num_features features which exceeds the feature limit of $feature_limit.  Please reduce the number of features, or contact PIO to have your feature limit increased.");
@@ -127,11 +92,6 @@ function _coa_department_content_validate($form, &$form_state) {
     //get the number of characters
     $body = $form_state['values']['body']['en'][0]['value'];
     $num_char = strlen(strip_tags($body));
-    
-    /*
-    $num_messages = 0;
-    $num_char2 = 0;
-    */
     
     $messages = $form_state['values']['field_dept_message']['en'];
     $num_messages = count($messages) - 1;  // get rid of the add new
@@ -160,14 +120,4 @@ function _coa_department_content_validate($form, &$form_state) {
       dpm($form_state['values'], 'form_state');
     }
 };
-
-/**
-* Additional handler for page node form submit.
-*/
-function coa_department_content_node_form_submit($form, &$form_state) {
-  //$form_id = $form->#form_id;
-  $form_id = $form['#form_id'];
-  
-    if($DEBUGGING2)  dpm($form_state['values'], 'form_state');
-}
 

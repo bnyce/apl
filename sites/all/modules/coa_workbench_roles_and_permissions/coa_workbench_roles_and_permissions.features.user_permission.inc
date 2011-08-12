@@ -109,6 +109,77 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'module' => 'workbench_moderation',
   );
 
+  // Exported permission: create calender_events content
+  $permissions['create calender_events content'] = array(
+    'name' => 'create calender_events content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'approver',
+      2 => 'author',
+      3 => 'dept_admin',
+      4 => 'developer',
+      5 => 'pio',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create department content
+  $permissions['create department content'] = array(
+    'name' => 'create department content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'dept_admin',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any calender_events content
+  $permissions['delete any calender_events content'] = array(
+    'name' => 'delete any calender_events content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'approver',
+      2 => 'dept_admin',
+      3 => 'developer',
+      4 => 'pio',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any department content
+  $permissions['delete any department content'] = array(
+    'name' => 'delete any department content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'dept_admin',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own calender_events content
+  $permissions['delete own calender_events content'] = array(
+    'name' => 'delete own calender_events content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'approver',
+      2 => 'author',
+      3 => 'dept_admin',
+      4 => 'developer',
+      5 => 'pio',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own department content
+  $permissions['delete own department content'] = array(
+    'name' => 'delete own department content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'dept_admin',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: delete revisions
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
@@ -119,13 +190,51 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit own webform submissions
-  $permissions['edit own webform submissions'] = array(
-    'name' => 'edit own webform submissions',
+  // Exported permission: edit any calender_events content
+  $permissions['edit any calender_events content'] = array(
+    'name' => 'edit any calender_events content',
     'roles' => array(
       0 => 'administrator',
+      1 => 'approver',
+      2 => 'dept_admin',
+      3 => 'developer',
+      4 => 'pio',
     ),
-    'module' => 'webform',
+    'module' => 'node',
+  );
+
+  // Exported permission: edit any department content
+  $permissions['edit any department content'] = array(
+    'name' => 'edit any department content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'dept_admin',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own calender_events content
+  $permissions['edit own calender_events content'] = array(
+    'name' => 'edit own calender_events content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'approver',
+      2 => 'author',
+      3 => 'dept_admin',
+      4 => 'developer',
+      5 => 'pio',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own department content
+  $permissions['edit own department content'] = array(
+    'name' => 'edit own department content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'dept_admin',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: moderate content from Draft to Needs Review
@@ -167,6 +276,17 @@ function coa_workbench_roles_and_permissions_user_default_permissions() {
       4 => 'pio',
     ),
     'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: modify department restrictions
+  $permissions['modify department restrictions'] = array(
+    'name' => 'modify department restrictions',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'developer',
+      2 => 'pio',
+    ),
+    'module' => 'coa_department_content',
   );
 
   // Exported permission: revert revisions

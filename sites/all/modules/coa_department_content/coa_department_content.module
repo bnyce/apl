@@ -5,10 +5,17 @@
  */
     global $DEPT_TAX;
     global $DEBUGGING2;
+    global $VIEWS;
     
     $DEBUGGING2 = TRUE;
     $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');
-
+    $VIEWS = array(
+             'News' => 'view1',
+             'Photo Gallery' => 'view1',
+             'Video Gallery' => 'view1',
+             'Blog' => 'view1',
+             'Forum' => 'view1',
+            );
 /**
 * Implementation of hook_permission()
 * Adds permission to edit Department Home Page restrictions
@@ -105,24 +112,53 @@ function coa_department_content_update_title_callback($form, $form_state){
 */
 function _coa_department_content_validate($form, &$form_state) {
     
-    //get the number of characters
-    $num_char = 6;
-    $num_char2 = 8;
+    //get the limits
+    $char_limit = $form_state['values']['field_dept_chars']['en'][0]['value'];
+    $feature_limit = $form_state['values']['field_dept_features']['en'][0]['value'];
+    // get the number of features
+    $features = $form_state['values']['field_dept_features_list']['en'];
+    $num_features = count($features);
     
-    //$num_char = strlen($form_state['values']['body']['en']);
-    //$num_char2 = strlen($form_state['values']['field_dept_message']['en'][0]);
-    $message = t("Body =  and Message 0 = ");
-  	form_set_error('body', $message);
-   	/*	
-      foreach ($sections as $section => $key) {
-          $term        = taxonomy_term_load($section);    
-  	    if (empty($term)) {
-  	      $message = t("You have selected a top-level Section Heading. Please be more specific in selecting an Editorial Section.");
-  	      form_set_error('workbench_access_id', $message);
+    if ($num_features > $feature_limit) {
+  	      $msg = t("You have selected $num_features features which exceeds the feature limit of $feature_limit.  Please reduce the number of features, or contact PIO to have your feature limit increased.");
+  	      form_set_error('field_dept_features_list', $msg);
    	      };
-      };
-	};
-	*/
+    
+    //get the number of characters
+    $body = $form_state['values']['body']['en'][0]['value'];
+    $num_char = strlen(strip_tags($body));
+    
+    /*
+    $num_messages = 0;
+    $num_char2 = 0;
+    */
+    
+    $messages = $form_state['values']['field_dept_message']['en'];
+    $num_messages = count($messages) - 1;  // get rid of the add new
+    
+    foreach ($messages as &$message) {
+          $value = $message['value'];
+          $num_char2 = $num_char2 + strlen(strip_tags($value));
+          };
+    
+   $total_num_char = $num_char + $num_char2;
+
+    if ($total_num_char > $char_limit) {
+  	      $msg = t("You have entered a combined total of $total_num_char characters which exceeds the character limit of $char_limit.  Please reduce the verbosity of either the Mission Statement or Message fields, or contact PIO to have your character limit increased.");
+  	      form_set_error('body', $msg);
+   	      };
+    
+    
+    if($DEBUGGING2) {
+      $msg = t("Body =  $body \n");
+      $msg .= t("Body =  $num_char characters and $num_messages Message(s) = $num_char2 characters. Total = $total_num_char, Limit = $char_limit . \n");
+      $msg .= t("Total Features = $num_features, Feature Limit = $feature_limit"); 
+  	
+      dpm($features, "Features");
+      dpm($messages, "Messages");
+      dpm($msg);
+      dpm($form_state['values'], 'form_state');
+    }
 };
 
 /**

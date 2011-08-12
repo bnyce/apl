@@ -33,7 +33,7 @@ body {
     font-size: 12px;
 }
 #squeeze h2 {
-    color: #636463;
+    color: #A85708;
     font-family: "Univers Light";
     font-size: 20px;
     text-transform: uppercase;
@@ -99,10 +99,9 @@ body {
     list-style: none outside none;
 }
 .pane-events li a {
-    background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
+    background: url("images/icons/calendar.png") no-repeat scroll left 0 transparent;
     color: #737B82;
-    font-family: Univers Bold;
-    padding-left: 16px;
+    padding-left: 12px;
     text-decoration: none;
 }
 .pane-events .more-link {
@@ -129,7 +128,7 @@ body {
     width: 209px;
 }
 .view-header p {
-    color: #A85708;
+    color: #636463;
     font-size: 16px !important;
     font-weight: bold;
 }
@@ -467,10 +466,18 @@ div.round-corners .br {
     background-color: #D0C9AF;
 }
 .view-topic-items h3 {
+    border-bottom: 1px solid #636463;
     margin-bottom: 0 !important;
 }
+
+.hide-view-all .views-limit-grouping-group h3 {
+    border: none !important;
+    margin-bottom: 0 !important;
+}
+
 .view-topic-items h3 a {
     color: #636463 !important;
+	text-decoration:none;
     font-family: "Univers Light";
     font-size: 18px;
     margin: 0;
@@ -486,13 +493,13 @@ div.round-corners .br {
 }
 .view-topic-items .views-limit-grouping-group {
     float: left;
-    width: 220px;
+    margin-right: 30px;
+    width: 200px;
 }
 .view-topic-items span {
-    background: url("images/icons/arrow.jpg") no-repeat scroll 0 50% transparent !important;
+    background: url("images/icons/star.png") no-repeat scroll 0 50% transparent !important;
 }
 .view-topic-items span a {
-    color: #636463;
     font-family: "arial";
     font-size: 12px;
     font-weight: bold;
@@ -596,7 +603,7 @@ style-2 .views-field-title-1 {
     padding-right: 10px;
     text-decoration: none;
 }
-.style-3 .views-field-field-icon {
+.style-3 .views-field-field-promo-icon {
     float: left;
     margin-right: 10px;
 }

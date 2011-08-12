@@ -39,7 +39,6 @@ class views_plugin_exposed_form extends views_plugin {
       '#default_value' => $this->options['submit_button'],
       '#required' => TRUE,
     );
-
     $form['reset_button'] = array (
       '#type' => 'checkbox',
       '#title' => t('Include reset button'),
@@ -100,7 +99,6 @@ class views_plugin_exposed_form extends views_plugin {
       'no_redirect' => TRUE,
       'always_process' => TRUE,
     );
-
     // Some types of displays (eg. attachments) may wish to use the exposed
     // filters of their parent displays instead of showing an additional
     // exposed filter form for the attachment as well as that for the parent.
@@ -112,8 +110,11 @@ class views_plugin_exposed_form extends views_plugin {
       $form_state['ajax'] = TRUE;
     }
     $form_state['exposed_form_plugin'] = $this;
+	
 	$form = drupal_build_form('views_exposed_form', $form_state);
-	//Tara & Srilu's code
+	
+	// This code only effects the Service Directory
+	//Fixes the form action to "/glossary" so that it searches in "all" pages instead of one section "/glossary/b"
 	if($form['#id']=='views-exposed-form-service-directory-view-page'){
 	    $action=$form['#action'];
 		if(!$action=='/glossary'){
@@ -121,11 +122,19 @@ class views_plugin_exposed_form extends views_plugin {
 			$form['#action']=$action;
 		}else{
 			$form['#action']='/glossary';
-			
+		}
+		//Clear the keyword from the search box on submit.
+		$submit=$form['submit'];
+		if($submit['#id']=='edit-submit-service-directory-view'){
+			$keys=$form['keys'];
+			$keys['#value'] = '';
+			$form['keys'] = $keys;
 		}
 	}
-	//Tara & Srilu's code
+	//End of Tara & Srilu's code
+	
 	$output = drupal_render($form);
+	//print_r($form_state);
 	if (!empty($form_state['js settings'])) {
       $this->view->js_settings = $form_state['js settings'];
     }

@@ -76,13 +76,17 @@ function coa_department_content_update_title_callback($form, $form_state){
 * Validate the node edit form.
 */
 function _coa_department_content_validate($form, &$form_state) {
-    
+    global $DEBUGGING2;
     //get the limits
     $char_limit    = $form_state['values']['field_dept_chars']['en'][0]['value'];
     $feature_limit = $form_state['values']['field_dept_features']['en'][0]['value'];
-    // get the number of features
+    // get the number of features with content
     $features      = $form_state['values']['field_dept_feature_views']['en'];
-    $num_features  = (count($features) - 2);  // remove blank and add_more
+    $num_features = 0;
+    foreach ($features as &$feature) {
+      $z = $feature['view_id'];
+      $num_features += (strlen($z) > 1) ? 1 : 0; // if view_id is 0, null, or single character it will not be counted
+    }
     
     if ($num_features > $feature_limit) {
   	      $msg = t("You have selected $num_features features which exceeds the feature limit of $feature_limit.  Please reduce the number of features, or contact PIO to have your feature limit increased.");

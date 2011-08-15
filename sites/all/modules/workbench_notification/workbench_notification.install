@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install file for the Workbench Notification module.
+ */
+
+
+function workbench_notification_schema() {
+  $schema['workbench_notification'] = array (
+    'description' => 'The main store for entities associated with notification messages.',
+    'fields' => array(
+      'pid' => array(
+        'description' => 'Primary key for our table of messages',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'note' => array(
+        'description' => 'The actual note',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE
+      ),
+    ),
+    'primary key' => array('pid'),
+  );
+  
+  return $schema;
+}

@@ -155,3 +155,44 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
 function _workbench_notification_explanation() {
   return t("Workbench Notification provides light-weight notification framework");
 }
+
+/**
+ * Implementation of hook_hook_info().
+ * This describes an action for triggers to respond to
+ */
+function workbench_notification_hook_info() {
+  return array(
+    'workbench_notification' => array(
+      		'workbench_notification' => array(
+        			'insert' => array(
+  							'runs when' => t('Notification request is generated.'),
+                      ),
+            ),
+     ),
+  );
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function workbench_notification_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'insert':
+      module_invoke_all('notification', 'insert', $node); // likely need to change this to recognize a new notification which uses entity.
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_script().
+ */
+function workbench_notification_script($op, $node) {
+  $aids = _trigger_get_hook_aids('notification', $op);
+  $context = array(
+    'hook' => 'notification',
+    'op' => $op,
+    'node' => $node,
+  );
+  actions_do(array_keys($aids), $node, $context);
+}
+

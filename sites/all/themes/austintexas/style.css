@@ -33,7 +33,7 @@ body {
     font-size: 12px;
 }
 #squeeze h2 {
-    color: #A85708;
+    color: #636463;
     font-family: "Univers Light";
     font-size: 20px;
     text-transform: uppercase;
@@ -74,15 +74,16 @@ body {
     padding: 0;
 }
 .pane-events {
-    background: url("images/tan_bottom_bkg.jpg") no-repeat scroll 0 bottom #EDEADB;
-    width: 209px;
+    background: url("/sites/all/themes/austintexas/images/b_white.png") no-repeat scroll left bottom #F0E9DC;
+    width: 207px;
 }
 .pane-events h2 {
-    background: url("images/title_blue_bkg.jpg") no-repeat scroll left 0 transparent;
+    background: url("/sites/all/themes/austintexas/images/t_white.png") no-repeat scroll 0 0 #585858;
     color: #DADBDD !important;
     font-weight: normal;
     line-height: 32px;
     padding-left: 15px;
+    width: 192px;
 }
 .pane-events ul {
     margin-left: -20px;
@@ -92,30 +93,27 @@ body {
     margin: 0 0 0.65em 1.7em !important;
 }
 .pane-events li {
-    background: url("images/icons/line_spacer.jpg") no-repeat scroll -25px 18px transparent;
+    border-bottom: 1px solid #FFFFFF;
     font-family: Arial;
-    font-size: 12px;
-    height: 20px;
+    height: 22px;
     list-style: none outside none;
+    width: 180px;
 }
 .pane-events li a {
-    background: url("images/icons/calendar.png") no-repeat scroll left 0 transparent;
-    color: #737B82;
-    padding-left: 12px;
-    text-decoration: none;
+    background: url("images/icons/calendar.png") no-repeat scroll left top transparent;
+    font-size: 12px;
+    padding-bottom: 2px;
+    padding-left: 21px;
 }
 .pane-events .more-link {
-    margin: -10px 0 0;
+    margin: -10px 20px 0 0;
     padding-bottom: 2px;
     padding-top: 2px;
-    text-align: left !important;
 }
 .pane-events .more-link a {
-    background: url("images/icons/curved_arrow.jpg") no-repeat scroll left 0 transparent;
     color: #A85708;
     font-family: Univers Bold;
     font-size: 13px;
-    padding-left: 16px;
     text-decoration: none;
 }
 .pane-events li a:hover {
@@ -692,7 +690,7 @@ style-2 .views-field-title-1 {
     width: 185px;
 } 
 .recent-news .views-field-field-news-link a {
-    background: url("images/star.jpg") no-repeat scroll 0 50% transparent !important;
+    background: url("images/star.png") no-repeat scroll 0 50% transparent !important;
     font-weight: bold;
     padding-left: 18px;
 }

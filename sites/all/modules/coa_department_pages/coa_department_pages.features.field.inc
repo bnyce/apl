@@ -45,7 +45,7 @@ function coa_department_pages_field_default_fields() {
       'description' => 'Enter the mission statement and - optionally - a summary for this Department or Program.  If a summary is included, Drupal will use it for list views.  Otherwise Drupal will use the contents of the mission statement trimmed to 600 characters.',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -360,7 +360,7 @@ function coa_department_pages_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'viewreference',
           'settings' => array(),
           'type' => 'viewreference_default',
@@ -482,7 +482,7 @@ function coa_department_pages_field_default_fields() {
       'description' => 'Use this field to add additional messages about your Department or Program. This information will be placed below the Mission statement.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',

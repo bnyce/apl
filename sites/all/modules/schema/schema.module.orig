@@ -133,10 +133,9 @@ function schema_phpprint_key($keys) {
 
 function schema_unprefix_table($name) {
   // TODO: Deal with D7 prefixing
-  global $databases;
+  global $db_prefix;
   static $_db_prefix;
-  $db_prefix = $databases['default']['default']['prefix'];
-  
+
   if (is_array($db_prefix)) {
     if (!isset($_db_prefix)) {
       foreach ($db_prefix as $key => $val) {

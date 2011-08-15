@@ -80,6 +80,8 @@ function _coa_department_content_validate($form, &$form_state) {
     //get the limits
     $char_limit    = $form_state['values']['field_dept_chars']['en'][0]['value'];
     $feature_limit = $form_state['values']['field_dept_features']['en'][0]['value'];
+    $per_feature_cost = 500; //this is the character limit cost per feature.
+    
     // get the number of features with content
     $features      = $form_state['values']['field_dept_feature_views']['en'];
     $num_features = 0;
@@ -105,10 +107,15 @@ function _coa_department_content_validate($form, &$form_state) {
           $num_char2 = $num_char2 + strlen(strip_tags($value));
           };
     
-   $total_num_char = $num_char + $num_char2;
-
-    if ($total_num_char > $char_limit) {
-  	      $msg = t("You have entered a combined total of $total_num_char characters which exceeds the character limit of $char_limit.  Please reduce the verbosity of either the Mission Statement or Message fields, or contact PIO to have your character limit increased.");
+   $total_num_char = ($num_char + $num_char2);
+   $total_feature_cost = ($per_feature_cost * $num_features);
+   $net_char_limit = $char_limit - $total_feature_cost;
+   
+    if ($total_num_char > $net_char_limit) {
+  	      $msg = t("You have entered a combined total of $total_num_char characters which exceeds the net character limit of $net_char_limit (character limit of $char_limit 
+  	      			LESS ($num_features features TIMES per feature cost of $per_feature_cost characters).  
+  	      			Please reduce the verbosity of either the Mission Statement or Message fields, OR decrease the number of features, OR 
+  	      			contact PIO to have your content limits increased.");
   	      form_set_error('body', $msg);
    	      };
     
@@ -117,6 +124,7 @@ function _coa_department_content_validate($form, &$form_state) {
       $msg = t("Body =  $body \n");
       $msg .= t("Body =  $num_char characters and $num_messages Message(s) = $num_char2 characters. Total = $total_num_char, Limit = $char_limit . \n");
       $msg .= t("Total Features = $num_features, Feature Limit = $feature_limit"); 
+      $msg .= t("Net Char Limit = $net_char_limit , $char_limit less $total_feature_cost ($num_features features * per feature cost of $per_feature_cost characters");
   	
       dpm($features, "Features");
       dpm($messages, "Messages");

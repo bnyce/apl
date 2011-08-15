@@ -3,9 +3,9 @@
 /** HARD CODED MODULE GLOBALS
  * These are the various taxonomies and their vocab id.
  */
-    global $DEBUGGING2;
+    global $DEBUGGING;
      
-    $DEBUGGING2 = TRUE;
+    $DEBUGGING = FALSE;
    
 /**
 * Implementation of hook_permission()
@@ -27,7 +27,7 @@ function coa_department_content_permission() {
 * A new case will need to be created for each content type that will be located by the primary site taxonomies.
 */
 function coa_department_content_form_alter(&$form, $form_state, $form_id) {
-   global $DEBUGGING2;
+   global $DEBUGGING;
    // a switch is used because you may want to alter more than
    // one form and it is easy to add a new case for each form.
    switch ($form_id) {
@@ -41,7 +41,7 @@ function coa_department_content_form_alter(&$form, $form_state, $form_id) {
 		  
 		  $form['#validate'][] = '_coa_department_content_validate';
 		  
-		  if($DEBUGGING2) dpm($form, "form");   
+		  if($DEBUGGING) dpm($form, "form");   
       break; 
     };
 };
@@ -76,7 +76,7 @@ function coa_department_content_update_title_callback($form, $form_state){
 * Validate the node edit form.
 */
 function _coa_department_content_validate($form, &$form_state) {
-    global $DEBUGGING2;
+    global $DEBUGGING;
     //get the limits
     $char_limit    = $form_state['values']['field_dept_chars']['en'][0]['value'];
     $feature_limit = $form_state['values']['field_dept_features']['en'][0]['value'];
@@ -113,7 +113,7 @@ function _coa_department_content_validate($form, &$form_state) {
    	      };
     
     
-    if($DEBUGGING2) {
+    if($DEBUGGING) {
       $msg = t("Body =  $body \n");
       $msg .= t("Body =  $num_char characters and $num_messages Message(s) = $num_char2 characters. Total = $total_num_char, Limit = $char_limit . \n");
       $msg .= t("Total Features = $num_features, Feature Limit = $feature_limit"); 

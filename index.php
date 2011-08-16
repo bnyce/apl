@@ -1,4 +1,13 @@
 <?php
+/*
+ * uncomment the following to view PHP errors when faced with WSOD (white screen of death)
+ *
+ *	error_reporting(E_ALL);
+ *	ini_set('display_errors', TRUE);
+ *	ini_set('display_startup_errors', TRUE);
+ * 
+ */
+ 
 // $Id: index.php,v 1.99 2009/10/15 14:07:25 dries Exp $
 
 /**

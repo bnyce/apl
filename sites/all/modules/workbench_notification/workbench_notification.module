@@ -13,6 +13,7 @@
     global $REVIEWERS;
     global $ROPTIONS;
     global $REVIEW_TEMPLATE;
+    global $TEST_TEMPLATE;
     
     $REVIEWERS =  array(
     			'Airport' => array('User' => 'lutherc', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
@@ -36,7 +37,7 @@
                 );
                 
      $ROPTIONS = array(
-                 'lutherc' => 'Airport',
+                 'lutherc'     => 'Airport',
                  'siteadmin02' => 'City Manager',
                  'siteadmin03' => 'Animal Services',
                  'siteadmin04' => 'EMS',
@@ -46,9 +47,33 @@
                 ); 
      
      $REVIEW_TEMPLATE = array(
-                 'subject' => "Review Message Subject Test",
-                 'body'    => "Review Message Body Text Yada Yada Yada",     
-     );
+                 'module'	=> 'workbench_notification',
+                 'id'		=> 'workbench_notification_approval_request',
+     			 'type'     => 'notification',
+     			 'method'   => $method,
+          		 'priority' => 1, // So it won't be queued
+                 'to'		=> NULL,
+                 'subject'  => "Approval Request for \"[current-page:title]\" ",
+          		 'header'   => "=========",
+               	 'content'  => "[current-user:name] has requested that you review and approve the following content by [date].\n\n To approve, comment or edit the content, please visit the page at: \n [current-page:url] \n",
+                 'footer'   => "=========",
+                 'headers'	=> array(
+                               'From'	        => Null,
+                               'Sender'         => NULL,
+                               'Return-Path'	=> NULL,
+                               ),
+                  );
+                  
+     $TEST_TEMPLATE = array(
+               	'type' => 'notification',
+          		'subject' => "Approval Request Subject",
+          		'header' => "Header Text \n",
+          		'content' => $body,
+          		'footer' => "footer text",
+          		'method' => $method,
+          		'priority' => 1, // So it won't be queued
+                );
+                  
      
 /**
  * workbench_notification_message_send($destinations, $message, $method, $queue = 0) 
@@ -179,6 +204,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
    );
   };
   dpm($form, "form");
+  //dpm($form_state, "form_state");
 };
 
 /**
@@ -189,84 +215,96 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
  */
 function workbench_notification_form_submit($form, &$form_state) {
   global $REVIEW_TEMPLATE;
+  global $TEST_TEMPLATE;
   global $user;
   
+  $values = $form_state['values'];
+  dpm($values, "values");
   
-  $module = 'workbench_notification';
-  $key = 'key';
-  $language = language_default();
-  $params = array();
-  $from = NULL;
-  $send = FALSE;
-  $message = drupal_mail($module, $key, $email, $language, $params, $from, $send);
-
-  $message['subject'] = $subject;
-  $message['body'] = array();
-  $message['body'][] = $line1;
+  $addresses = $form_state['values']['workbench_notification']['approvers']; 
+  $addresses = array_filter($addresses); // filter out empty options
+  //dpm($addresses, "addresses");
+  dpm($user, "user");
   
-    // Retrieve the responsible implementation for this message.
-    $system = drupal_mail_system($module, $key);
-
-    // Format the message body.
-    $message = $system->format($message);
-
-    // Send e-mail.
-    $message['result'] = $system->mail($message);
+  $body =  token_replace("sample text [user:name]");
+  //$toke = token_get_values('user');
+  dpm($body, 'token');
+  
   
   $v = $form_state['values']['workbench_notification']['enabled']; 
   if($v){
-        // Convert body in array of lines
-        $body = "this is the body";
-        $method = "mail";
-      
-        $message = messaging_message_build(array(
-          'type' => 'test',
-          'subject' => "Test Message",
-          'header' => "Header Text",
-          'content' => $body,
-          'footer' => "footer text",
-          'method' => $method,
-          'priority' => 1, // So it won't be queued
-        ));
+        $successful = null;
+        $unsuccessful = null;
+        // modify template
+        $template = $REVIEW_TEMPLATE;
+        $subject =  $template['subject'];
+        $subject =  token_replace($subject);
+        $template['subject'] = $subject;
         
-        // Destination may be account or plain parameter/s
-        $address = array('lutherc');
-        $send_method = messaging_send_method($method);
+        $body =  $template['content'];
+        $xtra_msg = $form_state['values']['workbench_notification']['xtra_message'];
+        $body =  "\n" .$body ."\n" .$xtra_msg ."\n";
+        $body =  token_replace($body);
+        $template['content'] = $body;
         
-        if ($account = user_load_by_name($address)) {
-          $vars['!name'] = theme('username', array('account' => $account));
-          $message->set_user($account);
-          if ($dest = $message->get_destinations()) {
-            $destination = reset($dest);
-            drupal_set_message(t('Found address @address for user !name', array('@address' => $destination->format('long')) + $vars));
-            $result = $message->send();
-            }
-            else {
-            drupal_set_message(t('Cannot find a valid address for user !name', $vars), 'error');
-            }
+        foreach($addresses as $address){
           
-          } elseif ($destination = $send_method->address_destination($address, TRUE)) {
-            drupal_set_message(t('Sending message to address: @address', array('@address' => $address)));
-            $result = $message->add_destination($destination)->send();
-          }
-        else {
-            drupal_set_message(t('The destination is not a user name nor a valid address.'), 'error');
-            };
+            $message = messaging_message_build($template);
+            $send_method = messaging_send_method($method);
             
-        if (isset($result)) {
-            if ($result) {
-              drupal_set_message(t('The message was sent successfully.'));
-            }
-            else {
-              drupal_set_message(t('The message sending failed.'), 'warning');
+            
+            if ($account = user_load_by_name($address)) {
+              $vars['!name'] = theme('username', array('account' => $account));
+              $message->set_user($account);
+              if ($dest = $message->get_destinations()) {
+                $destination = reset($dest);
+                // drupal_set_message(t('Found address @address for user !name', array('@address' => $destination->format('long')) + $vars));
+                $result = $message->send();
+                }
+                else {
+                drupal_set_message(t('Cannot find a valid address for user !name', $vars), 'error');
+                }
+              
+              } elseif ($destination = $send_method->address_destination($address, TRUE)) {
+                drupal_set_message(t('Sent message to: @address', array('@address' => $address)));
+                $result = $message->add_destination($destination)->send();
               }
+            else {
+                drupal_set_message(t('The destination @address is not a user name nor a valid address.', array('@address' => $address)), 'error');
+                };
+                
+            if (isset($result)) {
+                if ($result) {
+                  $successful .= "$address, ";
+                  //drupal_set_message(t('A message was successfully sent to @address.', array('@address' => $address)));
+                }
+                else {
+                  //drupal_set_message(t('The message sending failed.'), 'warning');
+                  $unsuccessful .= "$address, ";
+                  }
+                }
             }
-        // Check some conditions and let the user know
-        if (!$send_method->enabled) {
-            drupal_set_message(t('This sending method is disabled, thus regular messages will be discarded.'), 'warning');
-          }
-        }
-        dpm($message, 'message');
+            
+            //dpm($form_state, 'form_state');
+            
+            // Check some conditions and let the user know
+            if (!$send_method->enabled) {
+                dpm($send_method, "send_method");
+                //drupal_set_message(t('This sending method is disabled, thus regular messages will be discarded.'), 'warning');
+              };
+            
+            if (!$unsuccessful == null) {
+              $msg = t('Message unsuccessful for: @unsuccessful.', array('@subject' => $REVIEW_TEMPLATE['subject'], '@unsuccessful' => $unsuccessful));
+              drupal_set_message($msg, 'warning');
+              };
+            
+            if (!$successful == null) {
+              $msg = t('Message <b>@subject</b> was successfully sent to: @successful.', array('@subject' => $template['subject'], '@successful' => $successful));
+              drupal_set_message($msg);
+              };
+              
+        };
+        
     };
 
 /**

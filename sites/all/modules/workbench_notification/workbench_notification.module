@@ -12,11 +12,13 @@
  */
     global $REVIEWERS;
     global $ROPTIONS;
+    global $REVIEW_TEMPLATE;
+    
     $REVIEWERS =  array(
-    			'Airport' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'City Manager' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Airport' => array('User' => 'lutherc', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'City Manager' => array('User' => 'siteadmin02', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Planning' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Animal Services' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Animal Services' => array('User' => 'siteadmin03', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Austin Energy' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Capital Planning' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Code Compliance' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
@@ -24,26 +26,55 @@
     			'Convention Center' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Courts' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Employment' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'EMS' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Fire' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Health' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Police' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'EMS' => array('User' => 'siteadmin04', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Fire' => array('User' => 'siteadmin05', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Health' => array('User' => 'siteadmin06', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Police' => array('User' => 'siteadmin07', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Housing' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Law' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
     			'Library' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
                 );
                 
      $ROPTIONS = array(
-                 'user1' => 'Airport',
-                 'user2' => 'City Manager',
-                 'user3' => 'Animal Services',
-                 'user4' => 'EMS',
-                 'user5' => 'Fire',
-                 'user6' => 'Health',
-                 'user7' => 'Police',
+                 'lutherc' => 'Airport',
+                 'siteadmin02' => 'City Manager',
+                 'siteadmin03' => 'Animal Services',
+                 'siteadmin04' => 'EMS',
+                 'siteadmin05' => 'Fire',
+                 'siteadmin06' => 'Health',
+                 'siteadmin07' => 'Police',
                 ); 
-
-
+     
+     $REVIEW_TEMPLATE = array(
+                 'subject' => "Review Message Subject Test",
+                 'body'    => "Review Message Body Text Yada Yada Yada",     
+     );
+     
+/**
+ * workbench_notification_message_send($destinations, $message, $method, $queue = 0) 
+ * Send message to an array of destinations via the messaging framework.  The message is rendered just once.
+ * @param array $destinations
+ *   Array of destinations for sending.
+ *   The element type depends on sending method so it can be a list of e-mail addresses, user accounts, etc
+ * @param array $message
+ * The $message array may have the following elements
+ *   'subject' => Message subject, may be already rendered or not
+ *   'body'    => Message content, may be already rendered or not
+ *   'params'  => Optional message params, indexed by sending method group
+ *      i.e. params for mail methods will be in $message['params']['mail']
+ *   'render' => Optional flag to mark the message subject and body as rendered
+ *   'sender' => Optional int to identify message sender, may be $user->uid
+ *   'sender_account' => Optional user account to use as message sender
+ * @param array $method
+ *   Sending method. Unlike for messaging_message_send_user() for which the sending method may be user's default
+ *   it is not an optional parameter for this function.
+ * @param flag $queue
+ *   Optional flag, 0 for normal queueing, 1 to force queueing.
+ *   We may want to force queueing for bulk messaging. Otherwise it will depend on the sending method
+ *   wether to queue the messages (for pull methods) or not (push methods)
+ */     
+     
+     
 /**
  * Implements hook_menu for a simple explanation page.
  */
@@ -68,7 +99,8 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
   
   // Only include on node add/edit forms.
   if (!empty($form['#node_edit_form'])) {
-
+    $form['#submit'][] = workbench_notification_form_submit;
+    
     $form['workbench_notification'] = array(
       '#type' => 'fieldset',
       '#title' => t('Email Notification'),
@@ -146,8 +178,96 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
                         ),
    );
   };
+  dpm($form, "form");
 };
 
+/**
+ * workbench_notification_form_submit($form, &$form_state)
+ * Performs notification functions at save.
+ * @param array $form
+ * @param array $form_state
+ */
+function workbench_notification_form_submit($form, &$form_state) {
+  global $REVIEW_TEMPLATE;
+  global $user;
+  
+  
+  $module = 'workbench_notification';
+  $key = 'key';
+  $language = language_default();
+  $params = array();
+  $from = NULL;
+  $send = FALSE;
+  $message = drupal_mail($module, $key, $email, $language, $params, $from, $send);
+
+  $message['subject'] = $subject;
+  $message['body'] = array();
+  $message['body'][] = $line1;
+  
+    // Retrieve the responsible implementation for this message.
+    $system = drupal_mail_system($module, $key);
+
+    // Format the message body.
+    $message = $system->format($message);
+
+    // Send e-mail.
+    $message['result'] = $system->mail($message);
+  
+  $v = $form_state['values']['workbench_notification']['enabled']; 
+  if($v){
+        // Convert body in array of lines
+        $body = "this is the body";
+        $method = "mail";
+      
+        $message = messaging_message_build(array(
+          'type' => 'test',
+          'subject' => "Test Message",
+          'header' => "Header Text",
+          'content' => $body,
+          'footer' => "footer text",
+          'method' => $method,
+          'priority' => 1, // So it won't be queued
+        ));
+        
+        // Destination may be account or plain parameter/s
+        $address = array('lutherc');
+        $send_method = messaging_send_method($method);
+        
+        if ($account = user_load_by_name($address)) {
+          $vars['!name'] = theme('username', array('account' => $account));
+          $message->set_user($account);
+          if ($dest = $message->get_destinations()) {
+            $destination = reset($dest);
+            drupal_set_message(t('Found address @address for user !name', array('@address' => $destination->format('long')) + $vars));
+            $result = $message->send();
+            }
+            else {
+            drupal_set_message(t('Cannot find a valid address for user !name', $vars), 'error');
+            }
+          
+          } elseif ($destination = $send_method->address_destination($address, TRUE)) {
+            drupal_set_message(t('Sending message to address: @address', array('@address' => $address)));
+            $result = $message->add_destination($destination)->send();
+          }
+        else {
+            drupal_set_message(t('The destination is not a user name nor a valid address.'), 'error');
+            };
+            
+        if (isset($result)) {
+            if ($result) {
+              drupal_set_message(t('The message was sent successfully.'));
+            }
+            else {
+              drupal_set_message(t('The message sending failed.'), 'warning');
+              }
+            }
+        // Check some conditions and let the user know
+        if (!$send_method->enabled) {
+            drupal_set_message(t('This sending method is disabled, thus regular messages will be discarded.'), 'warning');
+          }
+        }
+        dpm($message, 'message');
+    };
 
 /**
  * Simple explanation page.
@@ -155,6 +275,11 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
 function _workbench_notification_explanation() {
   return t("Workbench Notification provides light-weight notification framework");
 }
+
+
+
+
+// TRIGGERS AND EVENTS
 
 /**
  * Implementation of hook_hook_info().

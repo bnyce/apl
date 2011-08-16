@@ -1,5 +1,4 @@
 <?php
-// $Id: phone.my.inc,v 1.1 2010/07/08 11:22:37 ckng Exp $
 
 /**
  * @file
@@ -45,80 +44,133 @@ function _my_phone_rules() {
 }
 
 /**
- * Validate country level phone number.
+ * Verifies that $number is a valid Malaysia phone number.
  *
  * @param $number
- *   Digits only phone number value.
- * @param $subaddress
- *   Subaddress value for telephone/fax's extension number, ISDN subaddress, 
- *   fax's T33 subaddress, modem's parameters/recommended parameters. 
- *   Reference: http://tools.ietf.org/html/rfc2806.
+ *   Digits only value.
+ * @param $ext
+ *   Digits only value.
  * @param $error
- *   Error message that will be displayed to user.
- * @param $phone_type
- *   Nature of the phone (Voice, Home, Msg, Work, Pref, Fax, Cell, Video, 
- *   Pager, BBS, Modem, Car, ISDN, PCS)
+ *   The error message to shown to user.
+ *   Available parameters to use in the error message are
+ *   - "%countrycode": the alpha-2 CC
+ *   - "%phone_input": the original number input by user (could be invalid)
+ *   - "%max_length": allowed maximum length of the phone number
  * @return boolean
- *   TRUE if it is a valid phone number for this country, FALSE otherwise.
+ *   TRUE if it is a valid phone number for that country, FALSE otherwise.
  */
-function my_validate_number($number = '', $subaddress = '', &$error, $phone_type = 'Voice') {
-  if (!empty($number)) {
-    foreach (_my_phone_rules() as $rule) {
-      // define regular expression
-      $regex = '/^
-        ([0]*)                             # an optional 0
-        ('. $rule[0] .')                   # area code
-        \d{'. $rule[1] .'}                 # local number within length $rule[1] & $rule[2]
-        $/x';
+function my_validate_number($number, $ext = '', &$error) {
+  // We don't want to worry about separators
+  $number = cck_phone_clean_number($number);
 
-      $result = preg_match($regex, $number, $matches);
+  foreach (_my_phone_rules() as $rule) {
+    // define regular expression
+    $regex = '/^
+      ([0]*)                             # an optional 0
+      (' . $rule[0] . ')                   # area code
+      \d{' . $rule[1] . '}                 # local number within length $rule[1] & $rule[2]
+      $/x';
 
-      if ($result) {
-        return TRUE;
-      }
+    $result = preg_match($regex, $number, $matches);
+
+    if ($result) {
+      return TRUE;
     }
-    $error = t('"%phone_input" is not a valid Malaysia phone number, it should be 9-10 digits number like "03-2222 2222", "0" is optional and will be removed.', array('%phone_input' => $number));
-    return FALSE;
   }
+
+  // t() is no needed
+  $error = '"%phone_input" is not a valid Malaysia phone number, it should be 9-10 digits number like "03-2222 2222", "0" is optional and will be removed.';
+  return FALSE;
 }
 
 /**
- * Cleanup user-entered values for a phone number field for storing to DB.
+ * Cleanup user-entered values for a phone number field for saving to DB.
  *
  * @param $number
  *   A single phone number item.
- * @param $href
- *   Valid number (numeric and + charaters only) placed at 
- *   href="tel:<phone number>;ext=123" of anchor tag.
  */
 function my_sanitize_number(&$number) {
   // Remove trunk prefix '0'
+
   $number = preg_replace('/^([0]*)/', '', $number);
 }
 
 /**
  * Default formatter for international phone number.
  *
- * @param $number
- *   Phone number.
+ * @param $element
+ *   $element['#item']['country_codes']: alpha-2 country code
+ *   $element['#item']['number']: phone number
+ * @param $error
+ *   The error message to shown to user.
+ *   Available parameters to use in the error message are
+ *   - "%countrycode": the alpha-2 CC
+ *   - "%phone_input": the original number input by user (could be invalid)
+ *   - "%max_length": allowed maximum length of the phone number
+ * @return boolean
+ *   TRUE if it is a valid phone number for that country, FALSE otherwise.
  */
-function my_formatter_default($number) {
+function my_formatter_default($element) {
+  // Display a global phone number with country code.
+  $cc = cck_phone_countrycodes($element['country_codes']);
+
   // Format the phone number however you like, this is the default
   foreach (_my_phone_rules() as $rule) {
     // define regular expression
     $regex = '/^
-      ('. $rule[0] .')                   # area code
+      (' . $rule[0] . ')                   # area code
       (\d{3,4})
       (\d{4})
       $/x';
-    $result = preg_match($regex, $number, $matches);
+
+    $result = preg_match($regex, $element['number'], $matches);
 
     if ($result) {
-      // output as A-BBB CCCC
-      $phone =  $matches[1] .'-'. $matches[2] .' '. $matches[3];
+      // output as +60A-BBB CCCC or +60A-BBBB CCCC
+      $phone =  $cc['code'] . $matches[1] . '-' . $matches[2] . ' ' . $matches[3];
 
       continue;
     }
   }
+
+  return $phone;
+}
+
+/**
+ * Local formatter for local phone number.
+ *
+ * @param $element
+ *   $element['#item']['country_codes']: alpha-2 country code
+ *   $element['#item']['number']: phone number
+ * @param $error
+ *   The error message to shown to user.
+ *   Available parameters to use in the error message are
+ *   - "%countrycode": the alpha-2 CC
+ *   - "%phone_input": the original number input by user (could be invalid)
+ *   - "%max_length": allowed maximum length of the phone number
+ * @return boolean
+ *   TRUE if it is a valid phone number for that country, FALSE otherwise.
+ */
+function my_formatter_local($element) {
+  // Display a local phone number without country code.
+  $phone = $element['number'];
+
+  foreach (_my_phone_rules() as $rule) {
+    // define regular expression
+    $regex = '/^
+      (' . $rule[0] . ')                   # area code
+      (\d{3,4})
+      (\d{4})
+      $/x';
+
+    $result = preg_match($regex, $phone, $matches);
+
+    if ($result) {
+      // output as 0A-BBB CCCC or 0A-BBBB CCCC
+      $phone = '0' . $matches[1] . '-' . $matches[2] . ' ' . $matches[3];
+      continue;
+    }
+  }
+
   return $phone;
 }

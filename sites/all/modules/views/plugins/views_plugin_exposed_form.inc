@@ -115,7 +115,7 @@ class views_plugin_exposed_form extends views_plugin {
 	
 	// This code only effects the Service Directory
 	//Fixes the form action to "/glossary" so that it searches in "all" pages instead of one section "/glossary/b"
-	if($form['#id']=='views-exposed-form-service-directory-view-page'){
+	if($form['#id']=='views-exposed-form-customer-service-directory-view-page'){
 	    $action=$form['#action'];
 		if(!$action=='/glossary'){
 			$action='/glossary';
@@ -125,7 +125,7 @@ class views_plugin_exposed_form extends views_plugin {
 		}
 		//Clear the keyword from the search box on submit.
 		$submit=$form['submit'];
-		if($submit['#id']=='edit-submit-service-directory-view'){
+		if($submit['#id']=='edit-submit-customer-service-directory-view'){
 			$keys=$form['keys'];
 			$keys['#value'] = '';
 			$form['keys'] = $keys;

@@ -30,16 +30,17 @@ function coa_workbench_roles_and_permissions_strongarm() {
   $strongarm->name = 'workbench_access_taxonomy';
   $strongarm->value = array(
     'business_portal' => 'business_portal',
+    'default' => 'default',
+    'department' => 'department',
     'development_taxonomy' => 'development_taxonomy',
     'environment_taxonomy' => 'environment_taxonomy',
     'government_taxonomy' => 'government_taxonomy',
+    'home_page_category' => 'home_page_category',
     'portal' => 'portal',
     'forums' => 0,
     'calander_departments' => 0,
-    'department' => 0,
     'departmental' => 0,
     'development' => 0,
-    'home_page_category' => 0,
     'tags' => 0,
     'spobrastoge' => 0,
   );

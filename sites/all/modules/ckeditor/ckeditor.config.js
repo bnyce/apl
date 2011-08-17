@@ -81,15 +81,15 @@ CKEDITOR.editorConfig = function(config) {
         config.extraPlugins += (config.extraPlugins) ? ',drupal_path' : 'drupal_path';
         CKEDITOR.plugins.addExternal('drupal_path', Drupal.settings.ckeditor_link.module_path + '/plugins/link/');
     }
-// 'MediaEmbed' plugin. To enable it, uncomment lines below and add 'MediaEmbed' button to selected toolbars.
-config.extraPlugins += (config.extraPlugins ? ',mediaembed' : 'mediaembed' );
-CKEDITOR.plugins.addExternal('mediaembed', Drupal.settings.ckeditor.module_path + '/plugins/mediaembed/');
-// coaMedia plugin
-config.extraPlugins += (config.extraPlugins ? ',coamedia' : 'coamedia' );
-CKEDITOR.plugins.addExternal('coamedia', Drupal.settings.ckeditor.module_path + '/plugins/coaMedia/');
+    // 'MediaEmbed' plugin. To enable it, uncomment lines below and add 'MediaEmbed' button to selected toolbars.
+    config.extraPlugins += (config.extraPlugins ? ',mediaembed' : 'mediaembed' );
+    CKEDITOR.plugins.addExternal('mediaembed', Drupal.settings.ckeditor.module_path + '/plugins/mediaembed/');
+    // coaMedia plugin
+    config.extraPlugins += (config.extraPlugins ? ',coamedia' : 'coamedia' );
+    CKEDITOR.plugins.addExternal('coamedia', Drupal.settings.ckeditor.module_path + '/plugins/coaMedia/');
 
-console.log(config.extraPlugins);
-// 'IMCE' plugin. If IMCE module is enabled, you may uncomment lines below and add an 'IMCE' button to selected toolbar.
-//config.extraPlugins += (config.extraPlugins ? ',imce' : 'imce' );
-//CKEDITOR.plugins.addExternal('imce', Drupal.settings.ckeditor.module_path + '/plugins/imce/');
+    //console.log(config.extraPlugins);
+    // 'IMCE' plugin. If IMCE module is enabled, you may uncomment lines below and add an 'IMCE' button to selected toolbar.
+    //config.extraPlugins += (config.extraPlugins ? ',imce' : 'imce' );
+    //CKEDITOR.plugins.addExternal('imce', Drupal.settings.ckeditor.module_path + '/plugins/imce/');
 };

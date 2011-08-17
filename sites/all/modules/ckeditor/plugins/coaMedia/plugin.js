@@ -2,18 +2,16 @@
 ( function() {
   CKEDITOR.plugins.add( 'coamedia',
   {
+    requires : [ 'fakeobjects', 'htmlwriter', 'iframedialog' ],
     init: function(editor)
     {
       /*editor.addCss(
-        'img.cke_mediaembed' +
-        '{' +
-          'background-image: url(' + CKEDITOR.getUrl( this.path + 'images/placeholder.gif' ) + ');' +
-          'background-position: center center;' +
-          'background-repeat: no-repeat;' +
-          'border: 1px solid #a9a9a9;' +
-          'width: 80px;' +
-          'height: 80px;' +
-        '}'
+          '#ck_YouTubeTab' +
+          '{' +
+              'list-style-image: none;' +
+              'list-style-position: outside;' +
+              'list-style-type: none;' +
+          '}'
         );*/
       var pluginName = 'coamedia';
       var pluginDialogName = 'coamediaDialog';
@@ -27,11 +25,4 @@
       });
     }
   } );
-  var numberRegex = /^\d+(?:\.\d+)?$/;
-  function cssifyLength( length )
-  {
-    if ( numberRegex.test( length ) )
-      return length + 'px';
-    return length;
-  }
 } )();

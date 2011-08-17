@@ -1,0 +1,71 @@
+/**
+* css for the YouTube tab in the coaMedia plugin
+*/
+
+#ck_YouTubeTab {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+.mediaListBlock:hover, .mediaListBlock:active,
+#ck_YouTubeTab li:hover, #ck_YouTubeTab li div:hover  {
+  background-color: #ddd;
+}
+
+#ck_YouTubeTab li {
+  margin: 0 0 0 -40px;
+}
+
+#ck_YouTubeTab .mediaListBlock, #ck_YouTubeTab .mediaListBlock img {
+  float:left;
+  margin: 3px;
+}
+
+#ck_YouTubeTab .mediaListBlock {
+  min-width: 500px;
+}
+
+#ck_YouTubeTab .mediaDesc {
+  font-size: 10px;
+}
+
+#channelTitle {
+
+}
+
+#channelSearch {
+  float:right;
+
+}
+
+#channelSearch input{
+  margin: 0 5px;
+  text-align:center;
+}
+
+#channelSearchBtn {
+  background-image: url("../images/srchBtn20_20.gif");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display:block;
+  width:20px;
+  height:20px;
+  float:right;
+}
+
+#channelSearchBtn:hover {
+  cursor:pointer;
+}
+
+.cke_label {
+  display:none;
+}
+
+#channelSearchText {
+  color: #ddd;
+}
+
+#channelSearchText:focus {
+  color: #000;
+}

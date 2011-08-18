@@ -1,4 +1,3 @@
-$Id: README.txt,v 1.1 2010/07/08 11:20:27 ckng Exp $
 
 Description
 -----------

@@ -1,0 +1,4 @@
+name = Workbench Notification
+description = Adds lightweight notification workflow.
+package = Workbench
+core = 7.x

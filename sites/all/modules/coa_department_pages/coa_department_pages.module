@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the COA Department Pages feature.
+ */
+
+include_once('coa_department_pages.features.inc');

@@ -7,7 +7,7 @@
 	#BREADCRUMBS
 	#ICON-LISTS
 	#VIEWS-FIELD & VIEWS-FIELD-TITLE
-	##ONLINE SERVICES SELECT LIST
+	#ONLINE SERVICES SELECT LIST
 	#Video page
 	#left col navigation for template node-17
 	#PROMO TILES
@@ -17,12 +17,13 @@
 	#BIO VIEW - GOVERNMENT BIO PAGE 
 	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
 	#FULL CALENDAR
-	#Panel Layout
-	#Topic Panel Icons
+	#PANEL LAYOUT
+	#TOPIC PANEL ICONS
 	#SERVICES (GLOSSARY)
 	#TAB BUTTONS
 	#CALENDAR
 	#DEPARTMENT LIST
+	
 	*/
 
 
@@ -302,6 +303,45 @@ h1#branding { margin: 0; }
     width: 207px;
 }
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
+
+/* PROMO LIST
+- Looking Ahead (User Home Pages)
+================================================== */
+
+.promo-list {
+    background: url("/sites/all/themes/austintexas/images/b_white.png") no-repeat scroll left bottom #F0E9DC;
+    width: 207px;
+}
+.promo-list h2 {
+    background: url("/sites/all/themes/austintexas/images/t_white.png") no-repeat scroll 0 0 #585858;
+    color: #DADBDD !important;
+    font-weight: normal;
+    line-height: 32px;
+    padding-left: 15px;
+    width: 192px;
+}
+
+.promo-list li {
+    border-bottom: 1px solid #FFFFFF;
+    height: 22px;
+}
+.promo-list .more-link {
+    margin: -10px 20px 0 0;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+.promo-list .more-link a {
+    color: #A85708;
+    font-family: Univers Bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+.promo-list li a:hover {
+    text-decoration: underline;
+}
+.promo-list .pane-content {
+    padding-left: 15px;
+}
 
 
 /* #VIEW MINI VIDEOS
@@ -673,3 +713,14 @@ ul.tabs {float: right;margin: 0 30px -2px 0;border: none;} ul.tabs li a {border-
     margin: 0 !important;
 }
 
+/* #ITEM LIST
+================================================== */
+
+.item-list ul li {
+    margin: 0 0 0.25em !important;
+    padding-left: 10px;
+}
+
+.item-list li a {
+    font-weight: bold;
+}

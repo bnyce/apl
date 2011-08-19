@@ -1,6 +1,6 @@
 name = HTMLimporter
 description = "Import html pages from City Clerks office"
 core = 7.x
-package = Other
+package = AustinGO
 version = "1.0"
 files[] = html_import.module

@@ -1,5 +1,4 @@
 <?php
-// $Id: cck_phone.crud_input.test,v 1.1 2010/07/08 11:22:37 ckng Exp $
 
 /**
  * @file
@@ -64,7 +63,7 @@ class PhoneNumberUITest extends DrupalWebTestcase {
     $this->assertRaw(t('Added field %label.', array('%label' => $name)), 'Field added');
     _content_type_info(TRUE);
     $fields = content_fields();
-    $field = $fields['field_'. $name];
+    $field = $fields['field_' . $name];
     $this->assertFalse($field['required'], 'Make sure field is not required.');
     $this->assertEqual($field['default_country'], 'af', 'Default country is first in list, af.');
     $this->assertTrue(1 === $field['all_country_codes'], 'Make sure Show all country codes is on.');
@@ -122,19 +121,19 @@ class PhoneNumberUITest extends DrupalWebTestcase {
         'type' => self::PHONENUMBER_INPUT_TYPE_GOOD
       ),
       array(
-        'number' => strval(mt_rand(100, 999)) .'-'. strval(mt_rand(1000, 9999)),
+        'number' => strval(mt_rand(100, 999)) . '-' . strval(mt_rand(1000, 9999)),
         'cc' => $cc,
         'msg' => 'Number found',
         'type' => self::PHONENUMBER_INPUT_TYPE_GOOD
       ),
       array(
-        'number' => '('. strval(mt_rand(100, 999)) .') '. strval(mt_rand(1000, 9999)),
+        'number' => '(' . strval(mt_rand(100, 999)) . ') ' . strval(mt_rand(1000, 9999)),
         'cc' => $cc,
         'msg' => 'Number found',
         'type' => self::PHONENUMBER_INPUT_TYPE_GOOD
       ),
       array(
-        'number' => strval(mt_rand(100, 999)) .' '. strval(mt_rand(1000, 9999)),
+        'number' => strval(mt_rand(100, 999)) . ' ' . strval(mt_rand(1000, 9999)),
         'cc' => $cc,
         'msg' => 'Number found',
         'type' => self::PHONENUMBER_INPUT_TYPE_GOOD
@@ -177,7 +176,7 @@ class PhoneNumberUITest extends DrupalWebTestcase {
       $this->drupalGet($url);
 
       if ($input['type'] == self::PHONENUMBER_INPUT_TYPE_GOOD) {
-        $phone_output = $countrycodes[$input['cc']]['code'] .'-'. cck_phone_clean_number($input['number']);
+        $phone_output = $countrycodes[$input['cc']]['code'] . '-' . cck_phone_clean_number($input['number']);
         $this->assertRaw($phone_output);
       }
     }

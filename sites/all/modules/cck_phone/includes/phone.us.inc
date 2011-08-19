@@ -1,5 +1,4 @@
 <?php
-// $Id: phone.us.inc,v 1.1 2010/07/08 11:22:37 ckng Exp $
 
 /**
  * @file
@@ -7,45 +6,55 @@
  */
 
 /**
- * Validate country level phone number.
+ * Verifies that $number is a valid ten-digit North American phone number.
  *
  * @param $number
- *   Digits only phone number value.
- * @param $subaddress
- *   Subaddress value for telephone/fax's extension number, ISDN subaddress, 
- *   fax's T33 subaddress, modem's parameters/recommended parameters. 
- *   Reference: http://tools.ietf.org/html/rfc2806.
+ *   Digits only value.
+ * @param $ext
+ *   Digits only value.
  * @param $error
- *   Error message that will be displayed to user.
- * @param $phone_type
- *   Nature of the phone (Voice, Home, Msg, Work, Pref, Fax, Cell, Video, 
- *   Pager, BBS, Modem, Car, ISDN, PCS)
+ *   The error message to shown to user.
+ *   Available parameters to use in the error message are
+ *   - "%countrycode": the alpha-2 CC
+ *   - "%phone_input": the original number input by user (could be invalid)
+ *   - "%max_length": allowed maximum length of the phone number
  * @return boolean
- *   TRUE if it is a valid phone number for this country, FALSE otherwise.
+ *   TRUE if it is a valid phone number for that country, FALSE otherwise.
  */
-function us_validate_number($number = '', $subaddress = '', &$error, $phone_type = 'Voice') {
-  if (!empty($number)) {
-    // Define regular expression
-    $regex = '/^
-      ([1]*)        # an optional 1
-      [2-9][0-8]\d  # area code (Allowed range of [2-9] for the first digit, [0-8] for the second, and [0-9] for the third digit)
-      [2-9]\d{2}    # 3-digit prefix (cannot start with 0 or 1)
-      \d{4}         # 4-digit line number
-      $/x';
+function us_validate_number($number, $ext = '', &$error) {
+  // Don't need to check for extension because it has been checked by generic validation as all digits, unless has special format/requirements
+  // We don't want to worry about separators
+  $number = cck_phone_clean_number($number);
 
-    $result = preg_match($regex, $number, $matches);
+  // define regular expression
+  $regex = '/^
+    ([1]*)        # an optional 1
+    [2-9][0-8]\d  # area code (Allowed range of [2-9] for the first digit, [0-8] for the second, and [0-9] for the third digit)
+    [2-9]\d{2}    # 3-digit prefix (cannot start with 0 or 1)
+    \d{4}         # 4-digit line number
+    $/x';
 
-    if ($result && $matches[1] == '') {
-      return TRUE;
-    }
-    elseif ($result && $matches[1] == '1') {
-      $error = t('Please enter a 10 digits North American phone number like "999 999 9999", without the country code "1" or "+1"');
-      return FALSE;
-    }
-    else {
-      $error = t('%phone_input is not a valid North American phone number, it should be 10 digits number like "989 999 9999"', array('%phone_input' => $number));
-      return FALSE;
-    }
+  $result = preg_match($regex, $number, $matches);
+  
+  
+
+  if ($result && $matches[1] == '') {
+    return TRUE;
+  }
+  elseif ($result && $matches[1] == '1') {
+    // t() is no needed
+    $error = 'Please enter a 10 digits North American phone number like "999 999 9999", without the country code "1" or "+1"';
+    return FALSE;
+  }
+  else {
+    // t() is no needed
+	
+	if($number=="311" or $number=="3-1-1" or $number=="3 1 1"){  //Accepts 311 as a valid phone number
+		return TRUE;
+	}else{
+		$error = '"%phone_input" is not a valid North American phone number, it should be 10 digits number like "999 999 9999"';
+		return FALSE;
+	}
   }
 }
 
@@ -65,10 +74,25 @@ function us_sanitize_number(&$number) {
 /**
  * Default formatter for international phone number.
  *
- * @param $number
- *   Phone number.
+ * @param $element
+ *   $element['#item']['country_codes']: alpha-2 country code
+ *   $element['#item']['number']: phone number
+ * @param $error
+ *   The error message to shown to user.
+ *   Available parameters to use in the error message are
+ *   - "%countrycode": the alpha-2 CC
+ *   - "%phone_input": the original number input by user (could be invalid)
+ *   - "%max_length": allowed maximum length of the phone number
+ * @return boolean
+ *   TRUE if it is a valid phone number for that country, FALSE otherwise.
  */
-function us_formatter_default($number) {
+function us_formatter_default($element) {
+  $item = $element['#item'];
+  $phone = '';
+
+  // Display a global phone number with country code.
+  $cc = cck_phone_countrycodes($item['country_codes']);
+
   // Format the phone number however you like, this is the default
   // define regular expression
   $regex = '/^
@@ -77,11 +101,47 @@ function us_formatter_default($number) {
     (\d{4})         # 4-digit line number
     /x';
 
-  $result = preg_match($regex, $number, $matches);
+  $result = preg_match($regex, $item['number'], $matches);
+
+  if ($result) {
+    // output as +1 (AAA) BBB CCCC
+    $phone =  $cc['code'] . ' (' . $matches[1] . ') ' . $matches[2] . ' ' . $matches[3];
+  }
+
+  return $phone . $ext;
+}
+
+/**
+ * Local formatter for local phone number.
+ *
+ * @param $element
+ *   $element['#item']['country_codes']: alpha-2 country code
+ *   $element['#item']['number']: phone number
+ * @param $error
+ *   The error message to shown to user.
+ *   Available parameters to use in the error message are
+ *   - "%countrycode": the alpha-2 CC
+ *   - "%phone_input": the original number input by user (could be invalid)
+ *   - "%max_length": allowed maximum length of the phone number
+ * @return boolean
+ *   TRUE if it is a valid phone number for that country, FALSE otherwise.
+ */
+function us_formatter_local($element) {
+  $item = $element['#item'];
+  $phone = '';
+
+  // Display a local phone number without country code.
+  $regex = '/^
+    ([2-9][0-8]\d)  # area code (Allowed range of [2-9] for the first digit, [0-8] for the second, and [0-9] for the third digit)
+    ([2-9]\d{2})    # 3-digit prefix (cannot start with 0 or 1)
+    (\d{4})         # 4-digit line number
+    /x';
+
+  $result = preg_match($regex, $item['number'], $matches);
 
   if ($result) {
     // output as (AAA) BBB CCCC
-    $phone =  '('. $matches[1] .') '. $matches[2] .' '. $matches[3];
+    $phone =  '(' . $matches[1] . ') ' . $matches[2] . ' ' . $matches[3];
   }
 
   return $phone;

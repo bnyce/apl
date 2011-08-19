@@ -109,18 +109,57 @@
      
      
 /**
- * Implements hook_menu for a simple explanation page.
+ * workbench_notification_menu()
+ * Implementation of hook_menu().
+ * 
  */
 function workbench_notification_menu() {
   $items['workbench_notification'] = array(
     'title' => 'Workbench Notification',
     'description' => 'Provides panel for triggering email notifications',
     'page callback' => '_workbench_notification_explanation',
-    'access callback' => TRUE,
+    'access callback' => 'user_access',
+    'access arguments' => array('submit notification requests'),
   );
+  
+  $items['approve'] = array(
+	'title' => 'Approve Form',
+	'description' => 'Form to approve or comment on content in one click.',
+    'type' => 'MENU_CALLBACK',
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('workbench_notification_approval_form'),
+    'access callback' => 'user_access',
+	'access arguments' => array('access approval form'),
+    );
+    
   return $items;
 }
 
+/**
+ * workbench_notification_permission()
+ * Implementation of hook_permission()
+ * 
+ */
+function workbench_notification_permission() {
+return array(
+		'submit notification requests' => array(
+                          'title' => t('Submit Notification Requests'),
+                          'description' => t('Allow users to submit notification requests'),
+                          ),
+                          
+        'receive notification requests' => array(
+                          'title' => t('Receive Notification Requests'),
+                          'description' => t('Allow users to receive notification requests'),
+                          ),
+
+        'access approval form' => array(
+                          'title' => t('Access Approval Form'),
+                          'description' => t('Allow users to access one-click approval form.'),
+                          ),
+        );
+};
+
+  
 /**
  * Implement hook_form_alter().
  *
@@ -412,34 +451,7 @@ function workbench_notification_script($op, $node) {
   actions_do(array_keys($aids), $node, $context);
 }
 
-// APPROVAL FORM
-/**
-* Implementation of hook_menu().
-*/
-/*
-function workbench_notification_menu() {
-  $items['content/approve'] = array(
-  	'title' => 'Content Approval',
-  	'description' => 'Approve content form.',
-  	'position' => 'right',
-  	'weight' => -5,
-  	'page callback' => 'system_admin_menu_block_page',
-  	'access arguments' => array('administer site configuration'),
-  	'file' => 'system.admin.inc',
-  	'file path' => drupal_get_path('module', 'system'),
-    );
-  $items['admin/config/annotate/settings'] = array(
-	'title' => 'Annotation settings',
-	'description' => 'Change how annotations behave.',
-	'page callback' => 'drupal_get_form',
-	'page arguments' => array('annotate_admin_settings'),
-	'access arguments' => array('administer site configuration'),
-	'type' => MENU_NORMAL_ITEM,
-	'file' => 'annotate.admin.inc',
-    );
-  return $items;
-}
-*/
+
 
 // APPROVAL BLOCK
  

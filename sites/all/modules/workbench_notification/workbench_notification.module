@@ -64,7 +64,7 @@
                  'to'		=> NULL,
                  'subject'  => "Approval Request for \"[node:title]\" ",
           		 'header'   => " ",
-               	 'content'  => "\n [current-user:name] has requested that you review and approve the following content. \n \n To approve, comment or edit the content, please visit the page at: \n \n [node:url] \n \n 
+               	 'content'  => "\n DON\'T REPLY TO THIS EMAIL - UNATTENDED EMAIL ACCOUNT \n [current-user:name] has requested that you review and approve the following content. \n \n To approve, comment or edit the content, please visit the page at: \n \n [node:url] \n \n 
 ***** BEGIN *****                        
 \n \n \r
 
@@ -122,15 +122,7 @@ function workbench_notification_menu() {
     'access arguments' => array('submit notification requests'),
   );
   
-  $items['approve'] = array(
-	'title' => 'Approve Form',
-	'description' => 'Form to approve or comment on content in one click.',
-    'type' => 'MENU_CALLBACK',
-	'page callback' => 'drupal_get_form',
-	'page arguments' => array('workbench_notification_approval_form'),
-    'access callback' => 'user_access',
-	'access arguments' => array('access approval form'),
-    );
+
     
   return $items;
 }
@@ -143,23 +135,88 @@ function workbench_notification_menu() {
 function workbench_notification_permission() {
 return array(
 		'submit notification requests' => array(
-                          'title' => t('Submit Notification Requests'),
+                          'title' => t('Submit Workbench Notification Requests'),
                           'description' => t('Allow users to submit notification requests'),
                           ),
                           
         'receive notification requests' => array(
-                          'title' => t('Receive Notification Requests'),
+                          'title' => t('Receive Workbench Notification Requests'),
                           'description' => t('Allow users to receive notification requests'),
                           ),
 
         'access approval form' => array(
-                          'title' => t('Access Approval Form'),
+                          'title' => t('Access Workbench Notification\'s Approval Form'),
                           'description' => t('Allow users to access one-click approval form.'),
                           ),
         );
 };
 
-  
+/**
+ * 
+ * workbench_notification_approval_form()
+ * Defines the approval form
+ * Approval Button
+ * Comment Button
+ * Comment Box
+ */
+function workbench_notification_approval_form() {
+  $form['info']    = array(
+      '#markup'			=> t('Review content below and click Approve, Comment or Edit.'),
+      );
+  $form['comment'] = array(
+      '#title'	        => t('Comments'),
+      '#type'	        => 'textfield',
+  	  '#description'	=> t('Optional: Comments will be added when you select Approve or Comment.'),
+      );
+  $form['approve'] = array(
+      '#type'	        => 'submit',
+  	  '#value'	        => t('Approve'),
+      );
+  $form['add_comment'] = array(
+      '#type'	        => 'submit',
+  	  '#value'	        => t('Comment'),
+      );
+  return $form;    
+}
+
+/**
+ * Implements hook_theme().
+ * 
+ */
+function workbench_notification_theme() {
+  return array(
+	' workbench_notification_approval_form' => array(
+		'render element' => 'form',
+		'template' => 'approval-block-form',
+        ),
+  );
+}
+
+/**
+* Assign the elements of the form to variables so
+* the themer can use those values to control how the
+* form elements are displayed, or alternatively
+* displaying the whole form as constructed above.
+*/
+function template_preprocess_workbench_notification_approval_form(&$variables) {
+  $variables['workbench_notification_approval_form'] = array();
+  $hidden = array();
+  // Provide variables named after form keys so themers can print each element independently.
+  foreach (element_children($variables['form']) as $key) {
+      $type = $variables['form'][$key]['#type'];
+      if ($type == 'hidden' || $type == 'token') {
+          $hidden[] = drupal_render($variables['form'][$key]);
+      }
+      else {
+      $variables['workbench_notification_approval_form'][$key] = drupal_render($variables['form'][$key]);
+      }
+  }
+  // Hidden form elements have no value to themers. No need for separation.
+  $variables['workbench_notification_approval_form']['hidden'] = implode($hidden);
+  // Collect all form elements to make it easier to print the whole form.
+  $variables['workbench_notification_approval_form_form'] = implode($variables['workbench_notification_approval_form']);
+}
+
 /**
  * Implement hook_form_alter().
  *
@@ -462,8 +519,12 @@ function workbench_notification_script($op, $node) {
  * 
  */
 function workbench_notification_block_info() {
-  $blocks['workbench-notification-approval-block'] = array(
-    'info' => t('Workbench Notificaiton Approval Block'),
+  $blocks['approval-block'] = array(
+    'info'        => t('Workbench Notificaiton One-Click Approval Form'),
+    'status'      => TRUE,
+    'region'      => 'above_content',
+    'visability'  => 'BLOCK_VISIBILITY_LISTED',  // or BLOCK_VISIBILITY_PHP
+    'pages'		  => 'nothing/*', // why isn't working?
   );
   return $blocks;
 }
@@ -474,9 +535,12 @@ function workbench_notification_block_info() {
 function workbench_notification_block_view($delta='') {
   $block = array();
   switch ($delta) {
-    case 'workbench-notification-approval-block':
-      $block['subject'] = t('Approval Block');
-      $block['content'] = workbench_notification_contents();
+    case 'approval-block':
+      // @TODO if user can veiw approval requests AND request item exists
+      if (user_access('access approval form')){
+        //$block['subject'] = t('One-Click Approval Form');
+        $block['content'] = workbench_notification_contents();
+      }
       break;
   }
   return $block;
@@ -487,9 +551,5 @@ function workbench_notification_block_view($delta='') {
  * @return string
  */
 function workbench_notification_contents() {
-  return '
-    </p><div class="approval">
-      Click to approve.
-    </div><p>
-  ';
+  return drupal_get_form(workbench_notification_approval_form);
 }

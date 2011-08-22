@@ -1,0 +1,16 @@
+#block-workbench-notification-approval-block {
+	background-color: #F8FFF0;
+	border: 2px solid #769405;
+	padding:   10px;
+}
+
+#edit-approve {
+  border: 2px solid #769405;
+  color: #668004;
+  margin-right: 10px;
+}
+
+#edit-add-comment {
+  border: 2px solid #8B7355;
+  color: #8B7355;
+}

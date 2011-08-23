@@ -9,9 +9,9 @@ CKEDITOR.dialog.add( 'coamediaDialog', function( editor )
     minWidth : 600,
     minHeight : 400,
     buttons:[
-      {
+      /*{
         type:'button',
-        id:'someButtonID', /* note: this is not the CSS ID attribute! */
+        id:'someButtonID',
         label: 'Selected Tab',
         onClick: function(){
           var CurrObj = CKEDITOR.dialog.getCurrent();
@@ -20,7 +20,7 @@ CKEDITOR.dialog.add( 'coamediaDialog', function( editor )
           var ytVideoIdLink = '<iframe width="560" height="349" src="http://www.youtube.com/embed/' + ytVideoId + '?rel=0" frameborder="0" allowfullscreen></iframe>';
           $('div[name="tab1"] textarea').val(ytVideoIdLink);
         }
-      },
+      },*/
       CKEDITOR.dialog.okButton,
       CKEDITOR.dialog.cancelButton
     ],
@@ -71,10 +71,12 @@ CKEDITOR.dialog.add( 'coamediaDialog', function( editor )
       if (currTab == 'tab2'){  //if it's the youtube tab, copy the video id to tab1 and format accordingly
         var ytVideoId = $('div[name="tab2"] iframe').contents().find('#ck_selYouTubeVid').val();
         var ytVideoIdLink = '<iframe width="560" height="349" src="http://www.youtube.com/embed/' + ytVideoId + '?rel=0" frameborder="0" allowfullscreen></iframe>';
-        $('div[name="tab1"] textarea').val(ytVideoIdLink);
+        if (ytVideoId.length > 0){
+          $('div[name="tab1"] textarea').val(ytVideoIdLink);
+        }
       }
       var content = this.getValueOf( 'tab1', 'input1' );
-      if ( content.length>0 ) {
+      if ( content.length > 0 ) {
         var realElement = CKEDITOR.dom.element.createFromHtml('<div class="media_embed"></div>');
         realElement.setHtml(content);
         var fakeElement = editor.createFakeElement( realElement , 'cke_mediaembed', 'div', true);
@@ -87,8 +89,10 @@ CKEDITOR.dialog.add( 'coamediaDialog', function( editor )
           fakeElement.setStyle('height', cssifyLength(matches[2]));
         }
         editor.insertElement(fakeElement);
+      }else{
+        alert('nothing selected!');
+        return false;
       }
-      //return false;
     },
     onLoad: function( data ) {
       $('div[role="tablist"] .cke_dialog_tab').css('margin', '0 3px');

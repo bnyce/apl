@@ -3,7 +3,7 @@
 <script type="text/javascript" src="/sites/all/modules/ckeditor/plugins/coaMedia/js/youTubeTab.js"></script>
 
 <div id='channelSearch'>
-  <input type="text" id='channelSearchText' width="50px" value="Search" onfocus="this.value=''" onblur="this.value='Search'" />
+  <input type="text" id='channelSearchText' width="50px" value="Search" onfocus="this.value=''" />
   <a href='javascript:void(0);' id='channelSearchBtn'><span class='cke_label'>X</span></a>
 </div>
 <div id='channelTitle'>AustinTexasGov Youtube Channel</div>

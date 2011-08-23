@@ -5,10 +5,24 @@
     var yt_max_results = 20;
     // click search button
     $('#channelSearchBtn').live('click', function() {
-      alert('search button clicked');
+      //alert('search button clicked' + $('#channelSearchText').val());
+      //if ($('#channelSearchText').val().length > 0 && $('#channelSearchText').val() != 'Search') {
+      if ($('#channelSearchText').val() != 'Search') {
+        var srcVal = $('#channelSearchText').val();
+        $.ajax ({
+          url: "https://gdata.youtube.com/feeds/api/users/austintexasgov/uploads",
+          data: "q=" + srcVal + "&orderby=published&start-index=1&max-results=" + yt_max_results + "&v=2&alt=json",
+          dataType: "jsonp",
+          success: function(data){
+            listVideos(data);
+          }
+        });
+      } else {
+        alert('Not a valid search term!');
+      }
     });
     // click video items
-    $('.mediaListBlock').each(function(index){
+/*    $('.mediaListBlock').each(function(index){
       $(this).click(function(event) {
         console.log($(this).attr('id'));
         var clkID = $(this).attr('id');
@@ -16,7 +30,7 @@
         $('.mediaListBlock').css('border', 'none');
         $('#'+clkID).css('border', '1px solid black');
       });
-    });
+    });  */
     //show selected video id textfield below title (AustinTexasGov Youtube Channel) for troubleshooting
     $('#channelTitle').live('click', function() {
       $('#ck_selYouTubeVid').css('display', 'inline');
@@ -93,4 +107,14 @@ function listVideos(root) {
   }
   html.push('</div>');
   document.getElementById("channelList").innerHTML = html.join("");
+  // apply click object to all videos for selection.
+  $('.mediaListBlock').each(function(index){
+    $(this).click(function(event) {
+      console.log($(this).attr('id'));
+      var clkID = $(this).attr('id');
+      $('#ck_selYouTubeVid').val(clkID);
+      $('.mediaListBlock').css('border', 'none');
+      $('#'+clkID).css('border', '1px solid black');
+    });
+  });
 }

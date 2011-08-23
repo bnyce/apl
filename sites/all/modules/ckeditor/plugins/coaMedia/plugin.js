@@ -16,7 +16,7 @@
       {
         label: 'Embed Media',
         command: pluginName,
-        icon: this.path + 'images/icon.png'
+        icon: this.path + 'images/web_video.png'
       });
     }
   } );

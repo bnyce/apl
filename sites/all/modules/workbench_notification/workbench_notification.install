@@ -8,22 +8,58 @@
 
 function workbench_notification_schema() {
   $schema['workbench_notification'] = array (
-    'description' => 'The main store for entities associated with notification messages.',
+    'description' => 'The main store notification message records',
     'fields' => array(
-      'pid' => array(
-        'description' => 'Primary key for our table of messages',
-        'type' => 'serial',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
+      'mid' => array(
+        'description'    => 'Primary key for our table of messages',
+        'type'           => 'serial',
+        'unsigned'       => TRUE,
+        'not null'       => TRUE,
+        'auto_increment' => TRUE,
       ),
-      'note' => array(
-        'description' => 'The actual note',
-        'type' => 'varchar',
-        'length' => '255',
-        'not null' => TRUE
+      
+      'entity_id' => array(
+        'description' => 'The entity id this data is attached to',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default'  => '0',
+      ),
+      
+      'status' => array(
+        'description' => 'The status of the message. ( 0 = sent no replies, 1 = some replies, 2 = approved by all recipients)',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default'  => '0',
+      ),
+      
+      'message' => array(
+        'description'   => 'The message that was sent',
+        'type'         => 'text',
+      ),
+      
+      'time' => array(
+        'description' => 'The Unix timestamp when the message was created and placed into sending queue',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default'  => '0',
+      ),
+      
+      'sender' => array(
+        'description' => 'The uid of the user that created this message',
+        'type'     => 'int',
+        'not null' => TRUE,
+        'default'  => '0',
+      ),
+
+      'recipients' => array(
+        'description' => 'An array of the users that recieved the message, along with their response ( 0 = no reply, 1 = comment, 2 = approved)',
+        'type'     => 'varchar',
+        'not null' => TRUE,
+        'default'  => '0',
       ),
     ),
-    'primary key' => array('pid'),
+    
+    'primary key' => array('mid', 'entity_id', 'sender'),
   );
   
   return $schema;

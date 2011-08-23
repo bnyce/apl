@@ -64,13 +64,14 @@
                  'to'		=> NULL,
                  'subject'  => "Approval Request for \"[node:title]\" ",
           		 'header'   => " ",
-               	 'content'  => "\n DON\'T REPLY TO THIS EMAIL - UNATTENDED EMAIL ACCOUNT \n [current-user:name] has requested that you review and approve the following content. \n \n To approve, comment or edit the content, please visit the page at: \n \n [node:url] \n \n 
+               	 'content'  => "\n [current-user:name] has requested that you review and approve the following content. \n \n To approve, comment or edit the content, please visit the page at: \n \n [node:url] \n \n  
+DO NOT REPLY TO THIS EMAIL - UNATTENDED EMAIL ACCOUNT \n
 ***** BEGIN *****                        
-\n \n \r
+\n \n
 
 [node:body] 
 
-\r \n \n 
+\n \n 
 
                   ***** END ***** \n",
                  'footer'   => " ",
@@ -161,12 +162,14 @@ return array(
  */
 function workbench_notification_approval_form() {
   $form['info']    = array(
-      '#markup'			=> t('Review content below and click Approve, Comment or Edit.'),
+      '#markup'			=> t('Please review content below, provide any review comments (optional), and click Approve or Comment.'),
       );
   $form['comment'] = array(
       '#title'	        => t('Comments'),
-      '#type'	        => 'textfield',
-  	  '#description'	=> t('Optional: Comments will be added when you select Approve or Comment.'),
+      '#type'	        => 'textarea',
+  	  '#cols' => 40,
+      '#rows' => 3,
+      '#resizable' => TRUE,
       );
   $form['approve'] = array(
       '#type'	        => 'submit',
@@ -387,12 +390,12 @@ function workbench_notification_form_submit($form, &$form_state) {
         // modify template
         
         $subject =  $template['subject'];
-        $subject =  token_replace($subject, $data);
-        $template['subject'] = $mtext . $subject;
+        $subject =  $mtext . token_replace($subject, $data);
+        $template['subject'] = $subject;
         
         $body =  $template['content'];
         $xtra_msg = $form_state['values']['workbench_notification']['xtra_message'];
-        $body =  "\n" .$xtra_msg ."\n" .$body ."\n";
+        $body =  "\n $xtra_msg \n $body \n";
         $body =  token_replace($body, $data);
         $template['content'] = $body;
         
@@ -450,6 +453,17 @@ function workbench_notification_form_submit($form, &$form_state) {
             if (!$successful == null) {
               $msg = t('Message <b>@subject</b> was successfully sent to: @successful.', array('@subject' => $template['subject'], '@successful' => $successful));
               drupal_set_message($msg);
+              
+              $table = 'workbench_notification';
+              $record = new stdClass();
+              $record->entity_id = $node->nid;
+              $record->status = 0;
+              $record->message = "$subject \n \n $body";
+              $record->time = time();
+              $record->sender = $user->uid;
+              $record->recipients = $addresses;
+              
+              drupal_write_record($table, $record);
               };
               
         };
@@ -552,4 +566,25 @@ function workbench_notification_block_view($delta='') {
  */
 function workbench_notification_contents() {
   return drupal_get_form(workbench_notification_approval_form);
+}
+
+/**
+ * workbench_notification_message_exists($nid = '')
+ * For a given node id does a workbench notification message exist?
+ * @param text $nid
+ */
+function workbench_notification_message_exists($nid = '') {
+  //@TODO start here
+   $query = db_select('workbench_notification', 'wn');
+   $query
+     ->condition('rid', 2);
+   $result = db_query("SELECT p.perm FROM {role} r INNER JOIN {permission} p ON p.rid = r.rid WHERE r.rid IN (". db_placeholders($account->roles) .")", array_keys($account->roles));
+
+   $messages = array();
+    while ($row = db_fetch_object($result)) {
+      $messages += array_flip(explode(', ', $row->perm));
+    }
+    $perm[$account->uid] = $perms;
+
+  return isset($perm[$account->uid][$string]);
 }

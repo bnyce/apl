@@ -3,16 +3,11 @@
   CKEDITOR.plugins.add( 'coamedia',
   {
     requires : [ 'fakeobjects', 'htmlwriter', 'iframedialog' ],
-    init: function(editor)
+    init: function( editor )
     {
-      /*editor.addCss(
-          '#ck_YouTubeTab' +
-          '{' +
-              'list-style-image: none;' +
-              'list-style-position: outside;' +
-              'list-style-type: none;' +
-          '}'
-        );*/
+      editor.addCss(
+          '#cke_dialog_tabs_134 { border: 1px black solid; }'
+        );
       var pluginName = 'coamedia';
       var pluginDialogName = 'coamediaDialog';
       CKEDITOR.dialog.add( pluginDialogName, this.path + 'dialogs/coaMedia.js');

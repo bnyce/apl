@@ -69,3 +69,38 @@
 #channelSearchText:focus {
   color: #000;
 }
+
+#ck_selYouTubeVid {
+  display: none;
+}
+
+#navigation {
+  clear:both;
+}
+
+#yt_prev, #yt_next {
+  background-image: url("../images/sprites.png");
+  cursor: pointer;
+  height: 20px;
+  text-align: center;
+  width: 20px;
+  display: block;
+  background-repeat: no-repeat;
+  text-align: center;
+  float: left;
+  margin: 5px 15px;
+  padding: 0 25px 0 15px;
+  border: 1px solid #ddd
+}
+
+#yt_prev {
+  background-position: 4px -1384px;
+}
+
+#yt_next {
+    background-position: 50px -1405px;
+}
+
+#yt_prev:hover, #yt_next:hover {
+  background-color: #ddd;
+}

@@ -19,43 +19,55 @@ function workbench_notification_schema() {
       ),
       
       'entity_id' => array(
-        'description' => 'The entity id this data is attached to',
-        'type' => 'int',
-        'not null' => TRUE,
-        'default'  => '0',
+        'description'    => 'The entity id this data is attached to',
+        'type'           => 'int',
+        'not null'       => TRUE,
+        'length'	     => 10,
+        'default'        => 0,
       ),
       
       'status' => array(
-        'description' => 'The status of the message. ( 0 = sent no replies, 1 = some replies, 2 = approved by all recipients)',
-        'type' => 'int',
-        'not null' => TRUE,
-        'default'  => '0',
+        'description'   => 'The status of the message. ( 0 = sent no replies, 1 = some replies, 2 = approved by all recipients)',
+        'type'          => 'int',
+        'not null'      => TRUE,
+        'length'		=> 10,
+        'default'       => 0,
       ),
       
       'message' => array(
-        'description'   => 'The message that was sent',
-        'type'         => 'text',
+        'description'   => 'An array (title, message) of the message that was sent',
+        'type'          => 'text',
+        'not null'      => FALSE,
       ),
       
       'time' => array(
-        'description' => 'The Unix timestamp when the message was created and placed into sending queue',
-        'type' => 'int',
-        'not null' => TRUE,
-        'default'  => '0',
+        'description'   => 'The Unix timestamp when the message was created and placed into sending queue',
+        'type'          => 'int',
+        'not null'      => TRUE,
+        'default'       =>  0,
       ),
       
       'sender' => array(
-        'description' => 'The uid of the user that created this message',
-        'type'     => 'int',
-        'not null' => TRUE,
-        'default'  => '0',
+        'description' => 'The {users}.uid of the user that created this message',
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'default'     => 0,
       ),
+      
+      'name' => array(
+        'description' => 'The account name of the user that created this message',
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => TRUE,
+        'default'     => '',
+       ),
 
       'recipients' => array(
-        'description' => 'An array of the users that recieved the message, along with their response ( 0 = no reply, 1 = comment, 2 = approved)',
-        'type'     => 'varchar',
-        'not null' => TRUE,
-        'default'  => '0',
+        'description'  => 'An array of the users that recieved the message, along with their response ( 0 = no reply, 1 = comment, 2 = approved)',
+        'type'         => 'text',
+        'serialize'    => TRUE,
+        'not null'     => FALSE,
+        'default'      => '',
       ),
     ),
     

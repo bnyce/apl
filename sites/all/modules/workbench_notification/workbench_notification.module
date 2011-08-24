@@ -454,18 +454,26 @@ function workbench_notification_form_submit($form, &$form_state) {
               $msg = t('Message <b>@subject</b> was successfully sent to: @successful.', array('@subject' => $template['subject'], '@successful' => $successful));
               drupal_set_message($msg);
               
+              //$msgarray            = array('subject' => $subject, 'body' => $body);
               $table = 'workbench_notification';
+              
               $record = new stdClass();
-              $record->entity_id = $node->nid;
-              $record->status = 0;
-              $record->message = "$subject \n \n $body";
-              $record->time = time();
-              $record->sender = $user->uid;
-              $record->recipients = $addresses;
+              $record->entity_id   = $node->nid;
+              $record->status      = 0;
+              $record->message     = $subject;
+              $record->time        = time();
+              $record->sender      = $user->uid;
+              $record->name        = $user->name;
+              $record->recipients  = $addresses;
               
-              drupal_write_record($table, $record);
-              };
-              
+                if ($record->mid) {
+                  // if this is a new entry, specify table's primary key
+                  drupal_write_record($table, $record, array('mid'));
+                }
+                else {
+                  drupal_write_record($table, $record);
+                  // $my_data->id is now set
+                };
         };
         
     };
@@ -547,13 +555,37 @@ function workbench_notification_block_info() {
  * Implementation of hook_block_view().
  */
 function workbench_notification_block_view($delta='') {
+  global $node;
+  
+  $nid = 0;
+  
+  if (arg(0) == 'node' && ctype_digit(arg(1))) {
+    $node = node_load(arg(1));
+    $nid = $node->nid;
+  };
+  
+  dpm($node, 'node');
+  
   $block = array();
   switch ($delta) {
     case 'approval-block':
-      // @TODO if user can veiw approval requests AND request item exists
-      if (user_access('access approval form')){
-        //$block['subject'] = t('One-Click Approval Form');
-        $block['content'] = workbench_notification_contents();
+      // Does message exist for this content?
+      $result = workbench_notification_message_exists($nid);
+     
+      dpm($result, 'result');
+      dpm($result->recipients, 'recipients');
+      // if user can veiw approval requests AND hasn't already approved this content.
+      if($result != FALSE){
+        if (user_access('access approval form') && ($result->status != 2)){
+          //$block['subject'] = t('One-Click Approval Form');
+          if (!true) { // if the user has approved this content
+            $text = 'You approved this content on DATE';
+            $block['content'] = $text;
+          } else {
+            $block['content'] = workbench_notification_contents();
+            
+          }
+        }
       }
       break;
   }
@@ -574,17 +606,20 @@ function workbench_notification_contents() {
  * @param text $nid
  */
 function workbench_notification_message_exists($nid = '') {
-  //@TODO start here
+   //$result = false;
+   //$nid = '1560';
+   /*
    $query = db_select('workbench_notification', 'wn');
+   
    $query
-     ->condition('rid', 2);
-   $result = db_query("SELECT p.perm FROM {role} r INNER JOIN {permission} p ON p.rid = r.rid WHERE r.rid IN (". db_placeholders($account->roles) .")", array_keys($account->roles));
-
-   $messages = array();
-    while ($row = db_fetch_object($result)) {
-      $messages += array_flip(explode(', ', $row->perm));
-    }
-    $perm[$account->uid] = $perms;
-
-  return isset($perm[$account->uid][$string]);
+     ->condition('wn.entity_id', '1520')
+     ->fields('wn', array('status', 'message', 'time', 'sender', 'recipients'));
+     
+   $result = $query->execute();  
+   */
+   $result = db_query('SELECT wn.status, wn.message, wn.time, wn.sender, wn.recipients 
+                              FROM {workbench_notification} wn 
+                              WHERE wn.entity_id = :nid', 
+                              array(':nid' => $nid,));
+   return $result->fetchAssoc();
 }

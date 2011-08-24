@@ -287,7 +287,7 @@ h1#branding { margin: 0; }
 }
 		.promo-tile .views-field-title a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
 	/* bottom */
-.promo-tile .views-field-title-1 {
+.promo-tile .views-field-field-body {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: #F0E9DC;
@@ -296,13 +296,23 @@ h1#branding { margin: 0; }
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: auto auto;
-    margin-top: -3px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-    text-align: right;
+    padding-bottom: 8px;
     width: 207px;
 }
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
+		
+.promo-tile .views-field-field-promo-image {
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #F0E9DC;
+    background-image: url("/sites/all/themes/austintexas/images/b_white.png");
+    background-origin: padding-box;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    padding-bottom: 8px;
+    width: 207px;
+}
 
 /* PROMO LIST
 - Looking Ahead (User Home Pages)
@@ -324,6 +334,7 @@ h1#branding { margin: 0; }
 .promo-list li {
     border-bottom: 1px solid #FFFFFF;
     height: 22px;
+	width: 155px;
 }
 .promo-list .more-link {
     margin: -10px 20px 0 0;

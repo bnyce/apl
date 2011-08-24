@@ -1,0 +1,157 @@
+<?php
+
+/**
+ * @file
+ * Shows how to use the vertical tabs functionality provided by Drupal 7. This
+ * example does not cover how to save / load custom setting, and only deals with
+ * elements visibility.
+ */
+
+/** HARD CODED MODULE GLOBALS
+ * 
+ */
+    global $REVIEWERS;
+    global $ROPTIONS;
+    $REVIEWERS =  array(
+    			'Airport' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'City Manager' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Planning' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Animal Services' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Austin Energy' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Capital Planning' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Code Compliance' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Communications' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Convention Center' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Courts' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Employment' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'EMS' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Fire' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Health' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Police' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Housing' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Law' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+    			'Library' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
+                );
+                
+     $ROPTIONS = array(
+                 'user1' => 'Airport',
+                 'user2' => 'City Manager',
+                 'user3' => 'Animal Services',
+                 'user4' => 'EMS',
+                 'user5' => 'Fire',
+                 'user6' => 'Health',
+                 'user7' => 'Police',
+                ); 
+
+
+/**
+ * Implements hook_menu for a simple explanation page.
+ */
+function workbench_notification_menu() {
+  $items['workbench_notification'] = array(
+    'title' => 'Workbench Notification',
+    'description' => 'Provides panel for triggering email notifications',
+    'page callback' => '_workbench_notification_explanation',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+/**
+ * Implement hook_form_alter().
+ *
+ * Adds custom fieldset to the node form, and attach ajax behaviour for vertical
+ * panels to update the settings description.
+ */
+function workbench_notification_form_alter(&$form, $form_state, $form_id) {
+  global $ROPTIONS;
+  
+  // Only include on node add/edit forms.
+  if (!empty($form['#node_edit_form'])) {
+
+    $form['workbench_notification'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Email Notification'),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      // The #group value must match the name of the vertical tabs element.
+      // In most cases, this is 'additional_settings'.
+      '#group' => 'additional_settings',
+      // Attach the javascript for vertical tabs.
+      '#attached' => array(
+        'js' => array(
+          'vertical-tabs' => drupal_get_path('module', 'workbench_notification') . '/workbench_notification.js',
+        ),
+      ),
+      '#tree' => TRUE,
+      '#weight' => -2,
+    );
+
+    // This checkbox is used to show or hide the custom settings form using
+    // javascript (altering states of a container defined later).
+    $form['workbench_notification']['enabled'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Send Notifications on Save'),
+      '#default_value' => FALSE,
+    );
+
+    // This container will be used to store the whole form for our custom
+    // settings. This way, showing/hidding the form using javascript is easier,
+    // as only one element should be set visible.
+    $form['workbench_notification']['workbench_notificationcontainer'] = array(
+      '#type' => 'container',
+      '#parents' => array('workbench_notification'),
+      '#states' => array(
+        'invisible' => array(
+          // If the checkbox is not enabled, show the container.
+          'input[name="workbench_notification[enabled]"]' => array('checked' => FALSE),
+        ),
+      ),
+    );
+
+
+    
+    $form['workbench_notification']['workbench_notificationcontainer']['approvers'] = array(
+      '#type'          => 'checkboxes',
+      '#title'         => t('To:'),
+      '#options'       => $ROPTIONS,
+      '#default_value' => '',
+    );
+    
+    $form['workbench_notification']['workbench_notificationcontainer']['xtra_message'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Additional Message:'),
+      '#description'    => t('Added to the standard request message.'),
+      '#cols'           => 40,
+      '#rows'			=> 3,
+      'resizable'		=> FALSE,
+      '#default_value'  => '',
+    );
+    
+    $due_options = array("n/a", "Urgent", "Date");
+    $form['workbench_notification']['workbench_notificationcontainer']['due'] = array(
+      '#type'          => 'select',
+      '#title'         => t('Flag'),
+      '#options'       => $due_options,
+      '#default_value' => FALSE,
+    );
+    
+    $form['workbench_notification']['workbench_notificationcontainer']['date'] = array(
+	  '#title'         => t('Due By Date'),
+	  '#type'          => 'date',
+	  '#default_value' => array(
+						'month' => format_date(time(), 'custom', 'n'),
+						'day' => format_date(time(), 'custom', 'j'),
+						'year' => format_date(time(), 'custom', 'Y'),
+                        ),
+   );
+  };
+};
+
+
+/**
+ * Simple explanation page.
+ */
+function _workbench_notification_explanation() {
+  return t("Workbench Notification provides light-weight notification framework");
+}

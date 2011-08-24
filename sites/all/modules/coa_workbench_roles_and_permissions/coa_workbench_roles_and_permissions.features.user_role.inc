@@ -10,6 +10,12 @@
 function coa_workbench_roles_and_permissions_user_default_roles() {
   $roles = array();
 
+  // Exported role: administrator
+  $roles['administrator'] = array(
+    'name' => 'administrator',
+    'weight' => '2',
+  );
+
   // Exported role: approver
   $roles['approver'] = array(
     'name' => 'approver',

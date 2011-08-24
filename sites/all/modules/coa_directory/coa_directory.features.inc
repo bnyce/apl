@@ -29,12 +29,12 @@ function coa_directory_views_api() {
  */
 function coa_directory_node_info() {
   $items = array(
-    'customer_service_entry' => array(
-      'name' => t('Customer Service Entry'),
+    'services' => array(
+      'name' => t('Services'),
       'base' => 'node_content',
-      'description' => t('Any service that needs to be listed in the customer services directory'),
+      'description' => t('Add services to be listed in the "Select a Service" Dropdown'),
       'has_title' => '1',
-      'title_label' => t('Service'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

@@ -1,0 +1,9 @@
+; $Id:
+name = COA Department Content Type
+description = Modifies display and performance of the DEPARTMENT content type.
+package = AustinGO
+version = VERSION
+core = 7.x
+files[] = 
+dependencies[] = views, viewsreference
+configure = admin/structure/coa_department_content

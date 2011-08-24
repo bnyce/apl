@@ -1,4 +1,3 @@
-// $id$
 
 File an issue if we miss any country codes.
 

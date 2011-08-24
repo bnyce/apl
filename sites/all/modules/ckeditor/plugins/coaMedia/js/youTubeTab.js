@@ -5,7 +5,6 @@
     var yt_max_results = 20;
     // click search button
     $('#channelSearchBtn').live('click', function() {
-      //alert('search button clicked' + $('#channelSearchText').val());
       //if ($('#channelSearchText').val().length > 0 && $('#channelSearchText').val() != 'Search') {
       if ($('#channelSearchText').val() != 'Search') {
         var srcVal = $('#channelSearchText').val();
@@ -21,23 +20,12 @@
         alert('Not a valid search term!');
       }
     });
-    // click video items
-/*    $('.mediaListBlock').each(function(index){
-      $(this).click(function(event) {
-        console.log($(this).attr('id'));
-        var clkID = $(this).attr('id');
-        $('#ck_selYouTubeVid').val(clkID);
-        $('.mediaListBlock').css('border', 'none');
-        $('#'+clkID).css('border', '1px solid black');
-      });
-    });  */
     //show selected video id textfield below title (AustinTexasGov Youtube Channel) for troubleshooting
     $('#channelTitle').live('click', function() {
       $('#ck_selYouTubeVid').css('display', 'inline');
     });
     // youtube pagination
     $('#yt_prev').live('click', function() {
-      //alert($('#pageCount').text());
       // https://gdata.youtube.com/feeds/api/users/austintexasgov/uploads?orderby=published&start-index=1&max-results=20&v=2&alt=json
       var pageIdx = (parseInt($('#pageCount').text(),10) - yt_max_results );
       if (pageIdx < 0) { pageIdx = 1; }
@@ -52,7 +40,6 @@
       });
     });
     $('#yt_next').live('click', function() {
-      //alert($('#pageCount').text());
       var pageIdx = (parseInt($('#pageCount').text(),10) + yt_max_results );
       console.log("pageIndex:" + pageIdx);
       $.ajax ({

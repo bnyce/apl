@@ -2,7 +2,6 @@
 
 CKEDITOR.dialog.add( 'coamediaDialog', function( editor )
 {
-  //console.log(editor.plugins.coamedia.path);
   var thisPluginPath = editor.plugins.coamedia.path;
   return {
     title : 'City of Austin - Media',

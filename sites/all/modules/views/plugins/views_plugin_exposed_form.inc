@@ -115,7 +115,7 @@ class views_plugin_exposed_form extends views_plugin {
 	
 	// This code only effects the Service Directory
 	//Fixes the form action to "/glossary" so that it searches in "all" pages instead of one section "/glossary/b"
-	if($form['#id']=='views-exposed-form-customer-service-directory-view-page'){
+	/*if($form['#id']=='views-exposed-form-customer-service-directory-view-page'){
 	    $action=$form['#action'];
 		if(!$action=='/glossary'){
 			$action='/glossary';
@@ -130,7 +130,7 @@ class views_plugin_exposed_form extends views_plugin {
 			$keys['#value'] = '';
 			$form['keys'] = $keys;
 		}
-	}
+	}*/
 	//End of Tara & Srilu's code
 	
 	$output = drupal_render($form);

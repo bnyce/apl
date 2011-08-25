@@ -160,24 +160,31 @@ return array(
  * Comment Button
  * Comment Box
  */
-function workbench_notification_approval_form() {
+function workbench_notification_approval_form($form_id, &$form_state, $mid = '50') {
   $form['info']    = array(
       '#markup'			=> t('Please review content below, provide any review comments (optional), and click Approve or Comment.'),
+      );
+  $form['mid']     = array(
+		'#type' => 'hidden',
+		'#value' => $mid,
       );
   $form['comment'] = array(
       '#title'	        => t('Comments'),
       '#type'	        => 'textarea',
-  	  '#cols' => 40,
-      '#rows' => 3,
+  	  '#cols'           => 40,
+      '#rows'           => 3,
       '#resizable' => TRUE,
       );
   $form['approve'] = array(
       '#type'	        => 'submit',
   	  '#value'	        => t('Approve'),
+  	  '#submit'         => array('workbench_notification_approval_form_submit'),
+  
       );
   $form['add_comment'] = array(
       '#type'	        => 'submit',
   	  '#value'	        => t('Comment'),
+      '#submit'         => array('workbench_notification_approval_form_submit'),
       );
   return $form;    
 }
@@ -327,6 +334,58 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
 };
 
 /**
+ * workbench_notification_approval_form_submit_approval()
+ * Submit for one-click approval
+ * @param array $form
+ * @param array $form_state
+ */
+function workbench_notification_approval_form_submit($form, &$form_state){
+      global $user;
+      global $node;
+      
+      $logtext = '';
+      
+      $mid = $form_state['values']['mid']; //Get message id from form.
+      $name = $user->name;
+      
+      if($form_state['clicked_button']['#value'] == 'Approve'){
+        // if the user clicks the approval button set approval flag to 2 (approved)   
+        $userstatus  = 2; // approved
+        $logtext = "APPROVED by $name. ";
+      } else {
+        $userstatus = 1; // only left comment  
+      }; 
+      
+      //$recipients[$name] = array('status' => $userstatus);
+      $recipients[$user->name] = array('uid' =>  $user->uid, 'mail' => $user->mail, 'status' => $userstatus, 'time' => time());     
+      
+      // update the notification message object
+      //TODO check to see if all requestors have approved and then update  $record->status = 2 (all approved).
+      $msgstatus = 0;
+      // update message db 
+      $query = db_update('workbench_notification')
+              ->fields(array(
+               'status'		 => $msgstatus,
+			   'recipients'	 => serialize($recipients),
+              ))
+              ->condition('mid', $mid)
+              ->execute();
+                             
+      // get any revision comments added using the approval form
+      $logtext .= $form_state['values']['comment'];      
+      
+      
+      // load node, create new revision, add log comment and save.
+      node_load($nid);
+      $node->revision = 1;//create new revision
+      $node->log = $logtext;
+      node_save($node);
+      
+      dpm($form_state, 'form_state');
+}
+
+
+/**
  * workbench_notification_form_submit($form, &$form_state)
  * Performs notification functions at save.
  * @param array $form
@@ -338,13 +397,15 @@ function workbench_notification_form_submit($form, &$form_state) {
   global $user;
   global $node;
   
+  $recipients = array(); // create empty recipents array
+  
   if (empty($node)) {
     // $node = $entity;
     if (arg(0)=='node' && is_numeric(arg(1)))
-    {
+      {
         $nodeId = arg(1);
         $node = node_load($nodeId);
-    };
+      };
   };
   
 
@@ -367,6 +428,7 @@ function workbench_notification_form_submit($form, &$form_state) {
         $unsuccessful = null;
         $mtext = null;
         $template = $REVIEW_TEMPLATE;
+        
         
         //discover any message modifiers
         $m = $form_state['values']['workbench_notification']['due'];
@@ -399,27 +461,31 @@ function workbench_notification_form_submit($form, &$form_state) {
         $body =  token_replace($body, $data);
         $template['content'] = $body;
         
+        
+        
         foreach($addresses as $address){
           
             $message = messaging_message_build($template);
             $send_method = messaging_send_method($method);
-            
-            
+             
             if ($account = user_load_by_name($address)) {
+              dpm($account, "account");
               $vars['!name'] = theme('username', array('account' => $account));
               $message->set_user($account);
               if ($dest = $message->get_destinations()) {
                 $destination = reset($dest);
                 // drupal_set_message(t('Found address @address for user !name', array('@address' => $destination->format('long')) + $vars));
                 $result = $message->send();
+                $recipients[$account->name] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0);     
                 }
                 else {
                 drupal_set_message(t('Cannot find a valid address for user !name', $vars), 'error');
                 }
               
               } elseif ($destination = $send_method->address_destination($address, TRUE)) {
-                drupal_set_message(t('Sent message to: @address', array('@address' => $address)));
                 $result = $message->add_destination($destination)->send();
+                drupal_set_message(t('Sent message to: @address', array('@address' => $address)));
+                $recipients[] = $address;
               }
             else {
                 drupal_set_message(t('The destination @address is not a user name nor a valid address.', array('@address' => $address)), 'error');
@@ -437,13 +503,14 @@ function workbench_notification_form_submit($form, &$form_state) {
                 }
             }
             
-            //dpm($form_state, 'form_state');
+            
             
             // Check some conditions and let the user know
             if (!$send_method->enabled) {
                 dpm($send_method, "send_method");
-                //drupal_set_message(t('This sending method is disabled, thus regular messages will be discarded.'), 'warning');
-              };
+                $msg = t('This sending method is disabled, thus regular messages will be discarded.');
+                drupal_set_message($msg, 'warning');
+            };
             
             if (!$unsuccessful == null) {
               $msg = t('Message unsuccessful for: @unsuccessful.', array('@subject' => $REVIEW_TEMPLATE['subject'], '@unsuccessful' => $unsuccessful));
@@ -453,6 +520,7 @@ function workbench_notification_form_submit($form, &$form_state) {
             if (!$successful == null) {
               $msg = t('Message <b>@subject</b> was successfully sent to: @successful.', array('@subject' => $template['subject'], '@successful' => $successful));
               drupal_set_message($msg);
+              
               
               //$msgarray            = array('subject' => $subject, 'body' => $body);
               $table = 'workbench_notification';
@@ -464,7 +532,8 @@ function workbench_notification_form_submit($form, &$form_state) {
               $record->time        = time();
               $record->sender      = $user->uid;
               $record->name        = $user->name;
-              $record->recipients  = $addresses;
+              $record->recipients  = $recipients; // $recipients[$address] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0);   
+              $record->log         = $msg;
               
                 if ($record->mid) {
                   // if this is a new entry, specify table's primary key
@@ -474,9 +543,9 @@ function workbench_notification_form_submit($form, &$form_state) {
                   drupal_write_record($table, $record);
                   // $my_data->id is now set
                 };
-        };
-        
+              };      
     };
+};
 
 /**
  * Simple explanation page.
@@ -485,15 +554,57 @@ function _workbench_notification_explanation() {
   return t("Workbench Notification provides light-weight notification framework");
 }
 
-
-
+/**
+* Implements hook_entity_info().
+*/
+function workbench_notification_entity_info() {
+  return array(
+    'workbench_notification' => array(
+      'label' => t('Test Entity'),
+      'entity class' => 'Entity',
+      'controller class' => 'EntityAPIController',
+      'base table' => 'workbench_notification',
+      'entity keys' => array(
+        'mid'       => 'mid',
+        'entity_id' => 'entity_id', 
+        'sender'    => 'sender',
+      ),
+      // Make use the class' label() and uri() implementation by default.
+      'label callback' => 'entity_class_label',
+      'uri callback' => 'entity_class_uri',
+    ),
+  );
+}
 
 // TRIGGERS AND EVENTS
+/**
+* Implementation of hook_trigger_info().
+* We call hook_trigger_info when we are defining the triggers we provide.
+* Triggers are the events that make fire any number of assigned actions.
+*/
+function workbench_notification_trigger_info() {
+return array(
+	'workbench_notification' => array(
+			'workbench_notification_insert' => array(
+				'label' => t('A new workbench notification message has been sent.'),
+                 ),
+             ),
+     );
+}
+
+/**
+ * Implementation of hook_node_insert(). (new for D7)
+ */
+function workbench_notification_node_insert($node) {  
+      module_invoke_all('notification'); // likely need to change this to recognize a new notification which uses entity.
+
+}
 
 /**
  * Implementation of hook_hook_info().
  * This describes an action for triggers to respond to
  */
+/* NOT NEEDED?
 function workbench_notification_hook_info() {
   return array(
     'workbench_notification' => array(
@@ -505,17 +616,9 @@ function workbench_notification_hook_info() {
      ),
   );
 }
+*/
 
-/**
- * Implementation of hook_nodeapi().
- */
-function workbench_notification_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
-  switch ($op) {
-    case 'insert':
-      module_invoke_all('notification', 'insert', $node); // likely need to change this to recognize a new notification which uses entity.
-      break;
-  }
-}
+
 
 /**
  * Implementation of hook_script().
@@ -556,8 +659,10 @@ function workbench_notification_block_info() {
  */
 function workbench_notification_block_view($delta='') {
   global $node;
+  global $user;
   
   $nid = 0;
+  $name = $user->name;
   
   if (arg(0) == 'node' && ctype_digit(arg(1))) {
     $node = node_load(arg(1));
@@ -572,17 +677,35 @@ function workbench_notification_block_view($delta='') {
       // Does message exist for this content?
       $result = workbench_notification_message_exists($nid);
      
-      dpm($result, 'result');
-      dpm($result->recipients, 'recipients');
-      // if user can veiw approval requests AND hasn't already approved this content.
-      if($result != FALSE){
+      dpm($result, 'RESULT');
+      $recipients = unserialize($result['recipients']);
+      dpm($recipients, 'recipients');
+      $userstatus = $result['recipients'][$name]->status;
+      dpm($userstatus, 'userstatus');
+       
+     
+      if($result != FALSE){  // if a message exists
+        
+        $userstatus = $result['recipients']; 
+
         if (user_access('access approval form') && ($result->status != 2)){
           //$block['subject'] = t('One-Click Approval Form');
-          if (!true) { // if the user has approved this content
-            $text = 'You approved this content on DATE';
+          if ($userstatus == 2) { // this recipient has already approved this content
+            $subject = $result['message'];
+            $date = format_date($result['recipients']['lutherc']['time'],'custom','g:i a \o\n F j, Y');
+            $text = "At $date you approved the content.";
             $block['content'] = $text;
-          } else {
-            $block['content'] = workbench_notification_contents();
+          } 
+          elseif ($result['sender'] == $user->uid) { // this is the sender.
+            $subject = $result['message'];
+            $date = format_date($result['time'],'custom','g:i a \o\n F j, Y');
+            $recipients =  implode(", ",array_keys(unserialize($result['recipients'])));
+            $text = "At $date you sent the message <b> $subject </b> to: $recipients .";
+            $block['content'] = $text;
+          } 
+          else { // this is a recipient who hasn't already approved content.
+            $mid = $result['mid'];
+            $block['content'] = workbench_notification_contents($mid);
             
           }
         }
@@ -596,8 +719,8 @@ function workbench_notification_block_view($delta='') {
  * custom html block
  * @return string
  */
-function workbench_notification_contents() {
-  return drupal_get_form(workbench_notification_approval_form);
+function workbench_notification_contents($mid) {
+  return drupal_get_form('workbench_notification_approval_form', $mid);
 }
 
 /**
@@ -617,9 +740,9 @@ function workbench_notification_message_exists($nid = '') {
      
    $result = $query->execute();  
    */
-   $result = db_query('SELECT wn.status, wn.message, wn.time, wn.sender, wn.recipients 
+   $result = db_query('SELECT wn.mid, wn.entity_id, wn.status, wn.message, wn.time, wn.sender, wn.name, wn.recipients 
                               FROM {workbench_notification} wn 
                               WHERE wn.entity_id = :nid', 
                               array(':nid' => $nid,));
    return $result->fetchAssoc();
-}
+};

@@ -35,7 +35,7 @@ function workbench_notification_schema() {
       ),
       
       'message' => array(
-        'description'   => 'An array (title, message) of the message that was sent',
+        'description'   => 'An subject line of the message that was sent',
         'type'          => 'text',
         'not null'      => FALSE,
       ),
@@ -67,7 +67,6 @@ function workbench_notification_schema() {
         'type'         => 'text',
         'serialize'    => TRUE,
         'not null'     => FALSE,
-        'default'      => '',
       ),
     ),
     

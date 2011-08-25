@@ -14,6 +14,9 @@
     global $ROPTIONS;
     global $REVIEW_TEMPLATE;
     global $TEST_TEMPLATE;
+    global $TYPES;
+    
+    $TYPES =  array('article', 'page', 'biography', 'deparment');
     
     $REVIEWERS =  array(
     			'Airport' => array('User' => 'lutherc', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
@@ -235,9 +238,10 @@ function template_preprocess_workbench_notification_approval_form(&$variables) {
  */
 function workbench_notification_form_alter(&$form, $form_state, $form_id) {
   global $ROPTIONS;
+  global $TYPES;
   
-  // Only include on node add/edit forms.
-  if (!empty($form['#node_edit_form'])) {
+  // Only include on node add/edit forms for supported content types.
+  if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $TYPES) || in_array($node['type']['#value'], $TYPES) )) {
     $form['#submit'][] = workbench_notification_form_submit; // add submit function
     
     $form['workbench_notification'] = array(
@@ -329,7 +333,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
      );
    
   };
-  dpm($form, "form");
+  //dpm($form, "form");
   //dpm($form_state, "form_state");
 };
 
@@ -381,7 +385,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
       $node->log = $logtext;
       node_save($node);
       
-      dpm($form_state, 'form_state');
+      //dpm($form_state, 'form_state');
 }
 
 
@@ -411,13 +415,13 @@ function workbench_notification_form_submit($form, &$form_state) {
 
     
   $values = $form_state['values'];
-  dpm($values, "values");
+  //dpm($values, "values");
   
   $addresses = $form_state['values']['workbench_notification']['approvers']; 
   $addresses = array_filter($addresses); // filter out empty options
   //dpm($addresses, "addresses");
-  dpm($user, "user");
-  dpm($node, "node");
+  //dpm($user, "user");
+  //dpm($node, "node");
   
   //create an array of objects keyed to the token type they correspond to.
   $data = array('node' => $node, 'user' => $user);
@@ -469,7 +473,7 @@ function workbench_notification_form_submit($form, &$form_state) {
             $send_method = messaging_send_method($method);
              
             if ($account = user_load_by_name($address)) {
-              dpm($account, "account");
+              //dpm($account, "account");
               $vars['!name'] = theme('username', array('account' => $account));
               $message->set_user($account);
               if ($dest = $message->get_destinations()) {
@@ -507,7 +511,7 @@ function workbench_notification_form_submit($form, &$form_state) {
             
             // Check some conditions and let the user know
             if (!$send_method->enabled) {
-                dpm($send_method, "send_method");
+                //dpm($send_method, "send_method");
                 $msg = t('This sending method is disabled, thus regular messages will be discarded.');
                 drupal_set_message($msg, 'warning');
             };
@@ -669,31 +673,24 @@ function workbench_notification_block_view($delta='') {
     $nid = $node->nid;
   };
   
-  dpm($node, 'node');
+  //dpm($node, 'node');
   
   $block = array();
   switch ($delta) {
     case 'approval-block':
       // Does message exist for this content?
       $result = workbench_notification_message_exists($nid);
-     
-      dpm($result, 'RESULT');
       $recipients = unserialize($result['recipients']);
-      dpm($recipients, 'recipients');
-      $userstatus = $result['recipients'][$name]->status;
-      dpm($userstatus, 'userstatus');
-       
+      $u = (object) $recipients[$name];       
      
-      if($result != FALSE){  // if a message exists
-        
-        $userstatus = $result['recipients']; 
+      if($result != FALSE){  // a message exists
 
-        if (user_access('access approval form') && ($result->status != 2)){
-          //$block['subject'] = t('One-Click Approval Form');
-          if ($userstatus == 2) { // this recipient has already approved this content
+        if (user_access('access approval form') && ($result->status != 2)){ // does user have access and are reviews open?
+         
+          if ($u->status == 2) { // this recipient has already approved this content
             $subject = $result['message'];
-            $date = format_date($result['recipients']['lutherc']['time'],'custom','g:i a \o\n F j, Y');
-            $text = "At $date you approved the content.";
+            $date = format_date($u->time,'custom','F j, Y \a\t g:i a ');
+            $text = "On $date you approved the content.";
             $block['content'] = $text;
           } 
           elseif ($result['sender'] == $user->uid) { // this is the sender.
@@ -706,7 +703,6 @@ function workbench_notification_block_view($delta='') {
           else { // this is a recipient who hasn't already approved content.
             $mid = $result['mid'];
             $block['content'] = workbench_notification_contents($mid);
-            
           }
         }
       }

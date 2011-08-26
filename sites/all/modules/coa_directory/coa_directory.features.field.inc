@@ -124,7 +124,7 @@ function coa_directory_field_default_fields() {
           'Police' => 'Police',
           'Police Monitor' => 'Police Monitor',
           'Public Works' => 'Public Works',
-          'Small / Minority Business' => 'Small / Minority Business',
+          'Small / Minority Business' => 'Small and Minority Business',
           'Sustainability' => 'Sustainability',
           'Telecommunications' => 'Telecommunications',
           'Transportation' => 'Transportation',

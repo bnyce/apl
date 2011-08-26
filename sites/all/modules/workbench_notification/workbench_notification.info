@@ -6,3 +6,5 @@ stylesheets[all][] = workbench_notification.css
 dependencies[] = messaging
 dependencies[] = token
 dependencies[] = entity
+dependencies[] = rules
+

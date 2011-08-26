@@ -40,21 +40,21 @@ function workbench_notification_schema() {
         'not null'      => FALSE,
       ),
       
-      'time' => array(
+      'time'            => array(
         'description'   => 'The Unix timestamp when the message was created and placed into sending queue',
         'type'          => 'int',
         'not null'      => TRUE,
         'default'       =>  0,
       ),
       
-      'sender' => array(
+      'sender'        => array(
         'description' => 'The {users}.uid of the user that created this message',
         'type'        => 'int',
         'not null'    => TRUE,
         'default'     => 0,
       ),
       
-      'name' => array(
+      'name'          => array(
         'description' => 'The account name of the user that created this message',
         'type'        => 'varchar',
         'length'      => 128,
@@ -62,7 +62,7 @@ function workbench_notification_schema() {
         'default'     => '',
        ),
 
-      'recipients' => array(
+      'recipients'     => array(
         'description'  => 'An array of the users that recieved the message, along with their response ( 0 = no reply, 1 = comment, 2 = approved)',
         'type'         => 'text',
         'serialize'    => TRUE,

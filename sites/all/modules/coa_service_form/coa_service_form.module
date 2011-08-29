@@ -1,0 +1,33 @@
+<?php
+
+
+
+/**
+ * 
+ * Modifies services search form
+ * @param unknown_type $form
+ * @param unknown_type $form_state
+ * @param unknown_type $form_id
+ */
+function coa_service_form_form_alter(&$form, $form_state, $form_id) {
+   // a switch is used because you may want to alter more than
+   // one form and it is easy to add a new case for each form.
+   switch ($form_id) {     
+     case 'views_exposed_form':
+         if ($form_state['view']->name == 'customer_service_directory_view') {
+             if($form['#action'] !='/glossary') {
+                $form['#action'] = '/glossary';
+             };
+        if($form['submit']['#id'] == 'edit-submit-customer-service-directory-view'){
+            $keys= $form['keys'];
+            $keys['#value'] = '';
+            $form['keys'] = $keys;
+            };
+         }
+         //dpm($form, 'form');
+         //dpm($form_state);
+    break;
+   };
+        
+};
+

@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ *   Install file for coa_department_content.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+
+
+
+/**
+  * Implementation of hook_install(). 
+  * Increasing the module weight the first time it's installed, so that it executes AFTER workbench_access:
+  */
+function coa_department_content_install() {
+  // Set a low weight so the module is called before baa module.
+  db_query("UPDATE {system} SET weight = 5 WHERE name = 'coa_department_content'");
+}
+
+/**
+  * Implementations of hook_update(). 
+  * To update already installed module
+  */
+   
+/** 
+  * Increasing the module weight so that it executes AFTER workbench_access:
+  */
+function coa_department_content_update_7000() {
+  // Set a low weight so the module is called before baa module.
+  db_query("UPDATE {system} SET weight = 5 WHERE name = 'coa_department_content'");
+}

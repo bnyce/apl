@@ -1,5 +1,4 @@
 <?php
-// $Id: cck_phone.crud.test,v 1.1 2010/07/08 11:22:37 ckng Exp $
 
 /**
  * @file
@@ -7,7 +6,7 @@
  */
 
 // Need to include content.crud.test so we can inherit from it's ContentCrudTestCase.
-require_once(drupal_get_path('module', 'content') .'/tests/content.crud.test');
+require_once(drupal_get_path('module', 'content') . '/tests/content.crud.test');
 
 class PhoneNumberContentCrudTest extends ContentCrudTestCase {
 

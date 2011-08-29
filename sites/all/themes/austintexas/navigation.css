@@ -239,29 +239,34 @@ margin: 0;
 	background-color:#000;
 }
 
-#block-menu-menu-brand-bar li {
-    background: url(images/nav_spacer.jpg) right 5px no-repeat;
-    display: inline-block;
-    height: 28px;
-    list-style-type: none;
-    padding-left: 8px;
-    padding-right: 8px;
-    text-align: center;
+#topmenu ul.menu {
+	height: 30px;
+	margin: 0 auto;
+	width: 960px;
+	text-align: center;
+}
+#topmenu ul.menu li {
+	float: none;
+	display: inline;
 }
 
-#block-menu-menu-brand-bar li.last {
-    background: none;
-}
 
 #block-menu-menu-brand-bar li a {
 	color: #bdbdbd;
 	text-transform: uppercase;
 	font-size: 11px;
 	text-decoration: none;
-	text-align:center;
 	letter-spacing: 1px;
-	font-family: Arial;
+	border-right: 1px solid #bdbdbd;
+	padding-right: 10px;
 }
+
+#block-menu-menu-brand-bar li.first {padding-left: 0;} #block-menu-menu-brand-bar li.last {padding-right: 0;}
+
+#block-menu-menu-brand-bar li.last a {
+	border: none;
+}
+
 
 #block-menu-menu-action-navigation li {
   display: inline-block;

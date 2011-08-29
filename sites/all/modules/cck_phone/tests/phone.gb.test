@@ -1,5 +1,4 @@
 <?php
-// $Id: phone.gb.test,v 1.1 2010/07/08 11:22:37 ckng Exp $
 
 /**
  * @file
@@ -78,10 +77,10 @@ class GBPhoneNumberTest extends DrupalWebTestcase {
 
     foreach ($test_cases as $test) {
       if ($test['type'] == self::PHONENUMBER_INPUT_TYPE_GOOD) {
-        $this->assertTrue(gb_validate_number($test['number'], '', $dummy), 'Test valid: '. $test['number']);
+        $this->assertTrue(gb_validate_number($test['number'], '', $dummy), 'Test valid: ' . $test['number']);
       }
       elseif ($test['type'] == self::PHONENUMBER_INPUT_TYPE_BAD) {
-        $this->assertFalse(gb_validate_number($test['number'], '', $dummy), 'Test invalid: '. $test['number']);
+        $this->assertFalse(gb_validate_number($test['number'], '', $dummy), 'Test invalid: ' . $test['number']);
       }
     }
   }

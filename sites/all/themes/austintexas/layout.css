@@ -7,7 +7,7 @@
 	#BREADCRUMBS
 	#ICON-LISTS
 	#VIEWS-FIELD & VIEWS-FIELD-TITLE
-	##ONLINE SERVICES SELECT LIST
+	#ONLINE SERVICES SELECT LIST
 	#Video page
 	#left col navigation for template node-17
 	#PROMO TILES
@@ -17,19 +17,20 @@
 	#BIO VIEW - GOVERNMENT BIO PAGE 
 	#DEV VIEW - DEVELOPMENT DEPARTMENT LIST 
 	#FULL CALENDAR
-	#Panel Layout
-	#Topic Panel Icons
+	#PANEL LAYOUT
+	#TOPIC PANEL ICONS
 	#SERVICES (GLOSSARY)
 	#TAB BUTTONS
 	#CALENDAR
 	#DEPARTMENT LIST
+	
 	*/
 
 
 
 /* #TYPOGRAPHY 
 ================================================== */
-#center p, #center ul, #center ol {font-size: 13px; line-height: 24px;}
+#center p, #center ul, #center ol {font-size: 12px;}
 #center p a, #center li a {color: #a85708;text-decoration: none; font-weight: bold;}
 #center p a:hover, #center li a:hover {text-decoration: underline;}
 
@@ -94,7 +95,7 @@ div.single-column {background:  #fff url("images/bl.jpg") no-repeat scroll left 
 div.single-column .breadcrumb-left {
     background-attachment: scroll;
     background-clip: border-box;
-    background-color: #767F89;
+    background-color: #585858;
     background-image: url("/sites/all/themes/austintexas/images/t_page.png");
     background-origin: padding-box;
     background-position: left top;
@@ -141,7 +142,7 @@ div.single-column .breadcrumb {
 
 /* #ICON-LISTS
 ================================================== */
-ul.star-list {list-style-image: url(images/star.jpg);padding:  0 0 0 15px;}
+ul.star-list {list-style-image: url(images/star.png);padding:  0 0 0 15px;}
 ul.star-list li {margin-bottom: 1em; line-height: normal;}
 ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
@@ -157,7 +158,7 @@ ul.star-list a {color: #a85708;text-decoration: none; font-weight: bold;}
 
 .views-field {
 	/* width:360px; */
-	font-size: 13px;
+	font-size: 12px;
 }
 
 .news-list .more-link {font-size: 12px;text-align: left;text-align: left;text-indent: 15px;}
@@ -273,7 +274,7 @@ h1#branding { margin: 0; }
 .promo-tile .views-field-title {
     background-attachment: scroll;
     background-clip: border-box;
-    background-color: #626C76;
+    background-color: #585858;
     background-image: url("/sites/all/themes/austintexas/images/t_white.png");
     background-origin: padding-box;
     background-position: 0 0;
@@ -286,7 +287,7 @@ h1#branding { margin: 0; }
 }
 		.promo-tile .views-field-title a {color: #fff; text-decoration: none; text-transform: uppercase; font-family: "Univers Light";}
 	/* bottom */
-.promo-tile .views-field-title-1 {
+.promo-tile .views-field-field-body {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: #F0E9DC;
@@ -295,13 +296,63 @@ h1#branding { margin: 0; }
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: auto auto;
-    margin-top: -3px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-    text-align: right;
+    padding-bottom: 8px;
     width: 207px;
 }
 		.promo-tile .views-field-title-1 a {text-decoration: none;color: #a85708; font-weight: bold; padding-right: 10px;}
+		
+.promo-tile .views-field-field-promo-image {
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #F0E9DC;
+    background-image: url("/sites/all/themes/austintexas/images/b_white.png");
+    background-origin: padding-box;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    padding-bottom: 8px;
+    width: 207px;
+}
+
+/* PROMO LIST
+- Looking Ahead (User Home Pages)
+================================================== */
+
+.promo-list {
+    background: url("/sites/all/themes/austintexas/images/b_white.png") no-repeat scroll left bottom #F0E9DC;
+    width: 207px;
+}
+.promo-list h2 {
+    background: url("/sites/all/themes/austintexas/images/t_white.png") no-repeat scroll 0 0 #585858;
+    color: #DADBDD !important;
+    font-weight: normal;
+    line-height: 32px;
+    padding-left: 15px;
+    width: 192px;
+}
+
+.promo-list li {
+    border-bottom: 1px solid #FFFFFF;
+    height: 22px;
+	width: 155px;
+}
+.promo-list .more-link {
+    margin: -10px 20px 0 0;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+.promo-list .more-link a {
+    color: #A85708;
+    font-family: Univers Bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+.promo-list li a:hover {
+    text-decoration: underline;
+}
+.promo-list .pane-content {
+    padding-left: 15px;
+}
 
 
 /* #VIEW MINI VIDEOS
@@ -673,3 +724,14 @@ ul.tabs {float: right;margin: 0 30px -2px 0;border: none;} ul.tabs li a {border-
     margin: 0 !important;
 }
 
+/* #ITEM LIST
+================================================== */
+
+.item-list ul li {
+    margin: 0 0 0.25em !important;
+    padding-left: 10px;
+}
+
+.item-list li a {
+    font-weight: bold;
+}

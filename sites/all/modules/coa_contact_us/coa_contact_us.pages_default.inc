@@ -51,13 +51,43 @@ function coa_contact_us_default_page_manager_pages() {
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'center';
-    $pane->type = 'block';
-    $pane->subtype = 'block-18';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h4>All phone numbers are in the (512) Area Code.</h4>
+For emergencies: 9-1-1
+For non-emergencies: 3-1-1 or 974-2000
+Out of Area non-emergencies: 512-974-2000
+TTY for the hearing impaired: 512-972-9848
+Fax (for 3-1-1 issues/requests only):  972-9876
+Power outages: 512-322-9100
+Utility Call Center (Electric/Water): 512-494-9400
+Accessibility Issues Inside Public Buildings - Code Enforcement - (SR)
+Accessibility Issues w/Sidewalks/Curb/Ramp - Sidewalk/Curb/Ramp - New (SR)
+
+Deliveries and Mailing Addresses
+If you have hand-deliveries such as fliers, mail, packets, courier deliveries, packages or shipped deliveries such as FedEx or UPS intended for City Hall, please drop them off or have them delivered to the City of Austin\'s Mail Services. These items will be promptly delivered to the appropriate offices at City Hall. The delivery address is:
+
+City of Austin
+Name of Intended Department
+ATT: Name of Intended Recipient
+2006 East 4th Street
+Austin, Texas 78702
+ 
+Letters and packages sent through the U.S. Postal Service may be mailed to: 
+
+City of Austin
+Name of Intended Department
+ATT: Name of Intended Recipient 
+Austin, Texas 78767-1088
+
+',
+      'format' => 'full_html',
+      'substitute' => TRUE,
     );
     $pane->cache = array();
     $pane->style = array();
@@ -112,7 +142,7 @@ function coa_contact_us_default_page_manager_pages() {
     $display->content['new-4'] = $pane;
     $display->panels['center'][3] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['global_contact_page'] = $page;

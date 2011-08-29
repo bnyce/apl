@@ -788,20 +788,6 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
-  /* Contextual filter: Fields: Contact (field_contact1) */
-  $handler->display->display_options['arguments']['field_contact1_value']['id'] = 'field_contact1_value';
-  $handler->display->display_options['arguments']['field_contact1_value']['table'] = 'field_data_field_contact1';
-  $handler->display->display_options['arguments']['field_contact1_value']['field'] = 'field_contact1_value';
-  $handler->display->display_options['arguments']['field_contact1_value']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_contact1_value']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['field_contact1_value']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_contact1_value']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_contact1_value']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_contact1_value']['glossary'] = 0;
-  $handler->display->display_options['arguments']['field_contact1_value']['limit'] = '0';
-  $handler->display->display_options['arguments']['field_contact1_value']['path_case'] = 'ucwords';
-  $handler->display->display_options['arguments']['field_contact1_value']['transform_dash'] = 1;
-  $handler->display->display_options['arguments']['field_contact1_value']['break_phrase'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';

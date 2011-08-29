@@ -294,7 +294,7 @@ function coa_contact_us_views_default_views() {
   $handler->display->display_options['fields']['field_key_con_position']['field'] = 'field_key_con_position';
   $handler->display->display_options['fields']['field_key_con_position']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_key_con_position']['alter']['alter_text'] = 1;
-  $handler->display->display_options['fields']['field_key_con_position']['alter']['text'] = '[field_key_con_position],';
+  $handler->display->display_options['fields']['field_key_con_position']['alter']['text'] = '[field_key_con_position]';
   $handler->display->display_options['fields']['field_key_con_position']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_key_con_position']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_key_con_position']['alter']['external'] = 0;
@@ -647,7 +647,6 @@ function coa_contact_us_views_default_views() {
     'forums' => 0,
     'business_portal' => 0,
     'calander_departments' => 0,
-    'default' => 0,
     'departmental' => 0,
     'development_taxonomy' => 0,
     'development' => 0,
@@ -1057,7 +1056,6 @@ function coa_contact_us_views_default_views() {
     'forums' => 0,
     'business_portal' => 0,
     'calander_departments' => 0,
-    'default' => 0,
     'departmental' => 0,
     'development_taxonomy' => 0,
     'development' => 0,
@@ -1267,7 +1265,7 @@ function coa_contact_us_views_default_views() {
     t('Email'),
     t('Key Phone'),
     t('Position'),
-    t('[field_key_con_position],'),
+    t('[field_key_con_position]'),
     t('Key Name'),
     t('[field_key_con_name], [field_key_con_position], [field_key_con_phone]'),
     t('Note'),
@@ -1275,6 +1273,7 @@ function coa_contact_us_views_default_views() {
     t('Departments'),
     t('View panes'),
     t('City Council'),
+    t('[field_key_con_position],'),
     t('[field_elected_position]  [field_key_con_name] :  [field_key_con_phone] '),
     t('Mayor & City Council'),
     t('City Manager'),

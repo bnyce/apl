@@ -46,12 +46,12 @@ function coa_contact_us_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Key Contact',
-    'weight' => '8',
+    'weight' => '7',
     'children' => array(
-      0 => 'field_key_con_name',
-      1 => 'field_key_con_position',
-      2 => 'field_key_con_phone',
-      3 => 'field_elected_position',
+      0 => 'field_elected_position',
+      1 => 'field_key_con_name',
+      2 => 'field_key_con_position',
+      3 => 'field_key_con_phone',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -104,7 +104,7 @@ function coa_contact_us_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Location',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_address1',
       1 => 'field_address2',

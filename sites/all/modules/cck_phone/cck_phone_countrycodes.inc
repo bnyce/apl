@@ -1,5 +1,4 @@
 <?php
-// $Id: cck_phone_countrycodes.inc,v 1.1 2010/07/08 11:20:27 ckng Exp $
 
 /**
  * @file

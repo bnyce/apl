@@ -24,6 +24,8 @@
 	#CALENDAR
 	#DEPARTMENT LIST
 	#SHORT CUTS
+=======
+
 	
 	*/
 
@@ -735,6 +737,7 @@ ul.tabs {float: right;margin: 0 30px -2px 0;border: none;} ul.tabs li a {border-
 
 .item-list li a {
     font-weight: bold;
+<<<<<<< HEAD
 }
 
 /* #SHORTCUTS
@@ -746,4 +749,6 @@ ul.tabs {float: right;margin: 0 30px -2px 0;border: none;} ul.tabs li a {border-
 
 .f-right {
 	float: right;
+=======
+>>>>>>> 18dde26ff956de8474528792b3d14b34f91e1f04
 }

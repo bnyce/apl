@@ -1,7 +1,4 @@
 <?php
-
-
-
 /**
  * 
  * Modifies services search form
@@ -28,6 +25,5 @@ function coa_service_form_form_alter(&$form, $form_state, $form_id) {
          //dpm($form_state);
     break;
    };
-        
 };
 

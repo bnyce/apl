@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * coa_department_pages.features.inc
+ * department_features_content_types.features.inc
  */
 
 /**
  * Implementation of hook_ctools_plugin_api().
  */
-function coa_department_pages_ctools_plugin_api() {
+function department_features_content_types_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
@@ -15,9 +15,19 @@ function coa_department_pages_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_views_api().
+ */
+function department_features_content_types_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => "3.0");
+  }
+}
+
+/**
  * Implementation of hook_node_info().
  */
-function coa_department_pages_node_info() {
+function department_features_content_types_node_info() {
   $items = array(
     'department' => array(
       'name' => t('Department or Program Home Page'),

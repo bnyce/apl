@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * coa_department_pages.features.field.inc
+ * department_features_content_types.features.field.inc
  */
 
 /**
  * Implementation of hook_field_default_fields().
  */
-function coa_department_pages_field_default_fields() {
+function department_features_content_types_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-department-body'
@@ -230,10 +230,10 @@ function coa_department_pages_field_default_fields() {
       'settings' => array(
         'append_id' => 0,
         'arguments' => array(
-          'delimiter' => '/',
+          'delimiter' => '^',
           'dsv_arguments' => 1,
-          'php_arguments' => 1,
-          'rows' => '1',
+          'php_arguments' => 0,
+          'rows' => '10',
         ),
         'referenceable_views' => array(
           'Directory:page' => 0,
@@ -254,6 +254,7 @@ function coa_department_pages_field_default_fields() {
           'department_features:panel_pane_2' => 'department_features:panel_pane_2',
           'department_features:panel_pane_3' => 'department_features:panel_pane_3',
           'department_features:panel_pane_4' => 'department_features:panel_pane_4',
+          'department_features:panel_pane_5' => 'department_features:panel_pane_5',
           'dept_home_page:panel_pane_1' => 0,
           'dept_listing:panel_pane_1' => 0,
           'dept_page_blocks:panel_pane_1' => 0,
@@ -336,6 +337,7 @@ function coa_department_pages_field_default_fields() {
           'popular:page' => 0,
           'popular:page_1' => 0,
           'portal_menu:panel_pane_1' => 0,
+          'portal_page_menu:panel_pane_1' => 0,
           'portal_view:panel_pane_1' => 0,
           'portal_view:panel_pane_2' => 0,
           'portal_view:panel_pane_3' => 0,
@@ -349,7 +351,6 @@ function coa_department_pages_field_default_fields() {
           'service_directory_view:attachment' => 0,
           'service_directory_view:page' => 0,
           'taxonomy_term:feed' => 0,
-          'taxonomy_term:feed_1' => 0,
           'taxonomy_term:page' => 0,
           'topic_promoted:block' => 0,
           'topic_sticky:block' => 0,

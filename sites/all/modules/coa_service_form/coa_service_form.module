@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * 
  * Modifies services search form
@@ -17,7 +15,8 @@ function coa_service_form_form_alter(&$form, $form_state, $form_id) {
          if ($form_state['view']->name == 'customer_service_directory_view') {
              if($form['#action'] !='/glossary') {
                 $form['#action'] = '/glossary';
-             };
+		 };
+		 
         /*if($form['submit']['#id'] == 'edit-submit-customer-service-directory-view'){
             $keys= $form['keys'];
             $keys['#value'] = '';

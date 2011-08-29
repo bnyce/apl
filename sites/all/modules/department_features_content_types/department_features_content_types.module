@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Department Features & Content Types feature.
+ */
+
+include_once('department_features_content_types.features.inc');

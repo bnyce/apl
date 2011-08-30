@@ -127,9 +127,6 @@ function workbench_notification_menu() {
     'access callback' => 'user_access',
     'access arguments' => array('submit notification requests'),
   );
-  
-
-    
   return $items;
 }
 
@@ -154,6 +151,7 @@ return array(
                           'title' => t('Access Workbench Notification\'s Approval Form'),
                           'description' => t('Allow users to access one-click approval form.'),
                           ),
+                          
         );
 };
 
@@ -347,6 +345,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
  * @param array $form_state
  */
 function workbench_notification_approval_form_submit($form, &$form_state){
+      watchdog('workbench_notification', 'workbench_notification_approval_form_submit called.');
       global $user;
       global $node;
       
@@ -369,21 +368,41 @@ function workbench_notification_approval_form_submit($form, &$form_state){
       // update the notification message object
       //TODO check to see if all requestors have approved and then update  $record->status = 2 (all approved).
       $msgstatus = 0;
-      // update message db 
-      $query = db_update('workbench_notification')
-              ->fields(array(
-               'status'		 => $msgstatus,
-			   'recipients'	 => serialize($recipients),
-              ))
-              ->condition('mid', $mid)
-              ->execute();
       
-      $i = module_invoke_all('workbench_notification_update');
+      // create reference to the message      
+      $table = 'workbench_notification';      
+      $query = db_select($table, 'wn');
+      $query
+        ->condition('mid', $mid)
+        ->fields(array('entity_id', 
+        			   'status', 
+        			   'message', 
+        			   'time', 
+        			   'sender', 
+        			   'name', 
+        			   'recipients'));
+      $record = $query->execute();
+      // update reference
+      $record->status     = $msgstatus;
+      $record->recipients = $serialize($recipients);
+      
+       // now update workbench notification db 
+      $query = db_update($table, 'wn');
+      $query
+         ->condition('mid', $mid)
+         ->fields(array(
+              			'status'		 => $msgstatus,
+			   			'recipients'	 => serialize($recipients),
+                      ));
+      $result = $query->execute();
+      
+      // invoke triggers
+      workbench_notification_update($node);
+      //module_invoke_all('workbench_notification_update', $node);
+      //module_invoke_all('entity_update', $record, 'workbench_notification');  
               
       // get any revision comments added using the approval form
       $logtext .= $form_state['values']['comment'];      
-      
-      
       // load node, create new revision, add log comment and save.
       node_load($nid);
       $node->revision = 1;//create new revision
@@ -391,6 +410,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
       node_save($node);
       
       //dpm($form_state, 'form_state');
+      return $result;
 }
 
 
@@ -402,6 +422,8 @@ function workbench_notification_approval_form_submit($form, &$form_state){
  * @param array $form_state
  */
 function workbench_notification_form_submit($form, &$form_state) {
+  watchdog('workbench_notification', 'workbench_notification_form_submit called.');
+  
   global $REVIEW_TEMPLATE;
   global $TEST_TEMPLATE;
   global $user;
@@ -492,16 +514,25 @@ function workbench_notification_form_submit($form, &$form_state) {
                     
          if (property_exists(get_class($record),'mid')) {
                 // if this is a new entry, specify table's primary key
-                drupal_write_record($table, $record, array('mid'));
-              }
+                $status = drupal_write_record($table, $record, array('mid'));
+                watchdog('workbench_notification', 'workbench_notification_form_submit - just before invoking workbench_notification_update.');
+                // invoke triggers
+                workbench_notification_update($node);
+                //module_invoke_all('workbench_notification_update', $node);
+                //module_invoke_all('entity_insert', $record, 'workbench_notification'); 
+             }
               else {
-                drupal_write_record($table, $record);
-                // $my_data->id is now set
-              };
+                $status = drupal_write_record($table, $record);
+                watchdog('workbench_notification', 'workbench_notification_form_submit - just before workbench_notification_insert2.');
+                // invoke triggers
+                workbench_notification_insert($node);
+                //module_invoke_all('workbench_notification_insert', $node);
+                //module_invoke_all('entity_update', $record, 'workbench_notification');              };
             };
-                  
-         $i = module_invoke_all('workbench_notification_insert');
-};
+            
+         return $status;
+  };
+}
 
 /**
  * _workbench_notification_explanation()
@@ -608,8 +639,10 @@ function workbench_notification_entity_property_info(){
 function TRIGGERS(){}
 
 // TRIGGERS /////////////////
+
+
 /**
-* Implementation of hook_trigger_info().
+* Implementation of hook_trigger_info(). - New for D7
 * We call hook_trigger_info when we are defining the triggers we provide.
 * Triggers are the events that make fire any number of assigned actions.
 * Since we are leveraging Entity API for basic CRUD triggers for our 
@@ -628,46 +661,66 @@ return array(
      );
 }
 
-function workbench_notification_insert($hook = 'workbench_notification_insert', &$edit, $account, $category = NULL) {
-   // Keep objects for reuse so that changes actions make to objects can persist.
-  static $objects;
-  // Ask the trigger module for all actions enqueued for the 'workbench_notification_insert' trigger.
-  $aids = trigger_get_assigned_actions('workbench_notification_insert');
-  // prepare a basic context, indicating group and "hook", and call all the
-  // actions with this context as arguments.
+/**
+ * Calls action functions for workbench notification triggers.
+ *
+ * @param $hook
+ *   Hook to trigger actions for workbench_notification_insert() or
+ *   workbench_notfication_update().
+ * @param $array
+ *   Item on which operation is being performed.
+ */
+
+function _workbench_notification_trigger($hook, $object = null) {
+  watchdog('workbench_notification', '_workbench_notification_trigger');
+  module_invoke_all($hook, $object);
+  $aids = trigger_get_assigned_actions($hook);
   $context = array(
-    'group' => 'workbench_notification', 
-    'hook' => 'workbench_notification_insert',
-    'form_values' => $$edit,
-  );
-  // Instead of making a call to actions_do for all triggers, doing this loop
-  // we provide the oportunity for actions to alter the account object, and
-  // the next action should have this altered account object as argument.
-  foreach ($aids as $aid => $info) {
-    $type = $info['type'];
-    if ($type != 'user') {
-      if (!isset($objects[$type])) {
-        $objects[$type] = _trigger_normalize_user_context($type, $account);
-      }
-      $context['user'] = $account;
-      actions_do($aid, $objects[$type], $context);
-    }
-    else {
-      actions_do($aid, $account, $context, $category);
-    }
-  }
+    'group' => 'workbench_notification',
+    'hook' => $hook
+     );
+  actions_do(array_keys($aids), (object) $object, $context);
+  return true;
 }
 
-function workbench_notification_update($options = array()) {
-  // Ask the trigger module for all actions enqueued for the 'triggersomething' trigger.
-  $aids = trigger_get_assigned_actions('workbench_notification_update');
-  // prepare a basic context, indicating group and "hook", and call all the
-  // actions with this context as arguments.
-  $context = array(
-    'group' => 'workbench_notification', 
-    'hook' => 'workbench_notification_update',
-  );
-  actions_do(array_keys($aids), (object) $options, $context);
+/**
+ * Implements hook_workbench_notification_insert().
+ */
+function workbench_notification_insert($node) {
+  _workbench_notification_trigger('workbench_notification_insert', (array) $node);
+}
+
+/**
+ * Implements hook_workbench_notification_update().
+ */
+function workbench_notification_update($node) {
+  _workbench_notification_trigger('workbench_notification_update', (array) $node);
+}
+
+
+/**
+ * Act on message notifications when inserted.
+ *
+ * Modules implementing this hook can act on the message notifications object when saved to
+ * the database.
+ *
+ * @param $notification
+ *   A message notifications object.
+ */
+function hook_workbench_notification_insert($notification) {
+
+}
+
+/**
+ * Act on message notifications when updated.
+ *
+ * Modules implementing this hook can act on the message notifications object when updated.
+ *
+ * @param $notification
+ *   A message notifications object.
+ */
+function hook_workbench_notification_update($notification) {
+
 }
 
 function ACTIONS(){};
@@ -681,7 +734,7 @@ function workbench_notification_action_info(){
   return array(
     'workbench_notification_basic_action' => array(
       'type'  => 'system',
-      'label' => t('A very basic action for testing'),
+      'label' => t('A very basic action just for testing'),
       'group' => t('Workbench Notification'),
       'triggers' => array('any'),
       'hooks' => array('any' => TRUE),
@@ -723,7 +776,7 @@ function workbench_notification_basic_action(&$entity, $context = array()) {
   // Simply announces that the action was executed using a message.
   
   drupal_set_message(t('workbench_notification_basic_action fired'));
-  watchdog('action_example', 'workbench_notification_basic_action fired.');
+  watchdog('workbench_notification', 'workbench_notification_basic_action fired.');
 }
 
 
@@ -746,7 +799,7 @@ function workbench_notification_mail_to_recipients_action(&$entity, $context = a
   
   //@TODO search for recpients attached to this mid
   $users = array('lutherc');
-  watchdog('workbench_access', 'workbench_notification_mail_to_recipients_action called');
+  watchdog('workbench_access', 'workbench_notification_mail_to_recipients_action fired');
   watchdog('workbench_access', 'with entity: %entity.', array('%entity' => print_r($entity)));
   watchdog('workbench_access', 'and context: %context.', array('%context' => print_r($context)));
   if(function_exists('dpm')){
@@ -805,7 +858,9 @@ function workbench_notification_mail_to_recipients_action(&$entity, $context = a
  * @param array $element
  */
 function workbench_notification_mail_to_creator_action(&$entity, $context = array()) {
-  
+  watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fired');
+  watchdog('workbench_access', 'with entity: %entity.', array('%entity' => print_r($entity)));
+  watchdog('workbench_access', 'and context: %context.', array('%context' => print_r($context)));
   $from = !empty($from) ? str_replace(array("\r", "\n"), '', $from) : NULL;
 
   // All authenticated users, which is everybody.
@@ -1019,4 +1074,5 @@ function workbench_notification_message_exists($nid = '') {
                               WHERE wn.entity_id = :nid', 
                               array(':nid' => $nid,));
    return $result->fetchAssoc();
-};
+}
+

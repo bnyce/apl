@@ -349,10 +349,20 @@ function workbench_notification_approval_form_submit($form, &$form_state){
       global $user;
       global $node;
       
+      if (empty($node)) {
+          if (arg(0)=='node' && is_numeric(arg(1)))
+          {
+            $nid = arg(1);
+            $node = node_load($nid);
+          };
+      };
+      
       $logtext = '';
       
       $mid = $form_state['values']['mid']; //Get message id from form.
       $name = $user->name;
+      $uid = $user->uid;
+      $mail = $user->mail;
       
       if($form_state['clicked_button']['#value'] == 'Approve'){
         // if the user clicks the approval button set approval flag to 2 (approved)   
@@ -362,38 +372,33 @@ function workbench_notification_approval_form_submit($form, &$form_state){
         $userstatus = 1; // only left comment  
       }; 
       
-      //$recipients[$name] = array('status' => $userstatus);
-      $recipients[$user->name] = array('uid' =>  $user->uid, 'mail' => $user->mail, 'status' => $userstatus, 'time' => time());     
-      
-      // update the notification message object
-      //TODO check to see if all requestors have approved and then update  $record->status = 2 (all approved).
-      $msgstatus = 0;
+      $recipient = $name;
+      $recipientinfo = array('uid' =>  $uid, 'mail' => $mail, 'status' => $userstatus, 'time' => time());     
       
       // create reference to the message      
       $table = 'workbench_notification';      
       $query = db_select($table, 'wn');
       $query
-        ->condition('mid', $mid)
-        ->fields(array('entity_id', 
-        			   'status', 
-        			   'message', 
-        			   'time', 
-        			   'sender', 
-        			   'name', 
-        			   'recipients'));
+         ->fields('wn')
+         ->condition('mid', $mid);
       $record = $query->execute();
-      // update reference
+      
+      //TODO check to see if all requestors have approved and then update  $record->status = 2 (all approved).
+      $msgstatus = 0;
+      
+      // update the notification message object
       $record->status     = $msgstatus;
-      $record->recipients = $serialize($recipients);
+      $record->recipients[$name] = $recipientinfo;
       
        // now update workbench notification db 
-      $query = db_update($table, 'wn');
+      $query = db_update($table);
       $query
-         ->condition('mid', $mid)
          ->fields(array(
               			'status'		 => $msgstatus,
-			   			'recipients'	 => serialize($recipients),
-                      ));
+			   			'recipients'	 => serialize($record->recipients),
+                      ))
+         ->condition('mid', $mid);
+         
       $result = $query->execute();
       
       // invoke triggers
@@ -403,8 +408,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
               
       // get any revision comments added using the approval form
       $logtext .= $form_state['values']['comment'];      
-      // load node, create new revision, add log comment and save.
-      node_load($nid);
+      
       $node->revision = 1;//create new revision
       $node->log = $logtext;
       node_save($node);

@@ -83,7 +83,7 @@ function coa_department_pages_listing_default_page_manager_pages() {
         'width' => 50,
         'width_type' => '%',
         'parent' => 'main-row',
-        'class' => 'port-col-left',
+        'class' => '',
       ),
     ),
   );

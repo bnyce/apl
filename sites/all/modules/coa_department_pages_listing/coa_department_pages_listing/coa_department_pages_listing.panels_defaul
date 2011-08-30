@@ -130,7 +130,7 @@ function coa_department_pages_listing_default_panels_mini() {
     $display->content['new-3'] = $pane;
     $display->panels['center'][2] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-1';
   $mini->display = $display;
   $export['online_services'] = $mini;
 

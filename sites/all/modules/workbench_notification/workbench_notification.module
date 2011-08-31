@@ -243,6 +243,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
   // Only include on node add/edit forms for supported content types.
   if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $TYPES) || in_array($node['type']['#value'], $TYPES) )) {
     $form['#submit'][] = 'workbench_notification_form_submit'; // add submit function
+    //$form['#submit'] = 'workbench_notification_form_submit'; // Perhaps bad form, stepping on all other submit handlers, but I'm calling node_form_submit within this handler.
     
     $form['workbench_notification'] = array(
       '#type' => 'fieldset',
@@ -333,7 +334,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
      );
    
   };
-  //dpm($form, "form");
+  dpm($form, "form");
   //dpm($form_state, "form_state");
 };
 
@@ -426,7 +427,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
  * @param array $form_state
  */
 function workbench_notification_form_submit($form, &$form_state) {
-  watchdog('workbench_notification', 'workbench_notification_form_submit called.');
+  //watchdog('workbench_notification', 'workbench_notification_form_submit called.');
   
   global $REVIEW_TEMPLATE;
   global $TEST_TEMPLATE;
@@ -436,25 +437,46 @@ function workbench_notification_form_submit($form, &$form_state) {
   $recipients = array(); // create empty recipents array
  
   if (empty($node)) {
-    // $node = $entity;
+    //drupal_set_message(t('empty node'),'warning');
     if (arg(0)=='node' && is_numeric(arg(1)))
       {
+        //drupal_set_message(t('load node using node/num'),'warning');
         $nodeId = arg(1);
         $node = node_load($nodeId);
-      };
-  };
+      }
+      else 
+      {
+        //@TODO having trouble with new nodes, but is there a better way to do this?   
+        //drupal_set_message(t('node being saved for first time.'),'warning');
+        $node = $form_state['node'];
+        $node->title = $form_state['values']['title'];
+        $node->body = $form_state['values']['body'];
+        $node->language = 'en';
+        dpm($node, "updated form_state[node]");
+        //entity_form_submit_build_entity('node', $node, $form, $form_state);
+        node_save($node);
+
+        $node_link = l(t('view'), 'node/' . $node->nid);
+        $watchdog_args = array('@type' => $node->type, '%title' => $node->title);
+        $t_args = array('@type' => node_type_get_name($node), '%title' => $node->title);
+        watchdog('content', 'Workbench Notification: @type: added %title.', $watchdog_args, WATCHDOG_NOTICE, $node_link);
+        drupal_set_message(t('Workbench Notification: @type %title has been created.', $t_args));
+        $nodeId = $node->nid;
+        $node = node_load($nodeId, NULL, TRUE);        
+      };  
+   };
      
   $values = $form_state['values'];
-  //dpm($values, "values");
+  dpm($values, "values");
   
   $addresses = $form_state['values']['workbench_notification']['approvers']; 
   $addresses = array_filter($addresses); // filter out empty options
-  //dpm($addresses, "addresses");
-  //dpm($user, "user");
-  //dpm($node, "node");
+  dpm($addresses, "addresses");
+  dpm($user, "user");
+  dpm($node, "node");
   
   //create an array of objects keyed to the token type they correspond to.
-  $data = array('node' => $node, 'user' => $user);
+  $context = array('node' => $node, 'user' => $user);
   
   // format message  
   $v = $form_state['values']['workbench_notification']['enabled']; 
@@ -487,13 +509,13 @@ function workbench_notification_form_submit($form, &$form_state) {
         // modify template
         
         $subject =  $template['subject'];
-        $subject =  $mtext . token_replace($subject, $data);
+        $subject =  $mtext . token_replace($subject, $context);
         $template['subject'] = $subject;
         
         $body =  $template['content'];
         $xtra_msg = $form_state['values']['workbench_notification']['xtra_message'];
         $body =  "\n $xtra_msg \n $body \n";
-        $body =  token_replace($body, $data);
+        $body =  token_replace($body, $context);
         $template['content'] = $body;
         
         
@@ -515,21 +537,25 @@ function workbench_notification_form_submit($form, &$form_state) {
          $record->sender      = $user->uid;
          $record->name        = $user->name;
          $record->recipients  = $recipients; // $recipients[$address] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0);   
-                    
+
+         //redifine object 
+         $object = array($node, $user);
+         //$context = array('node' => $node, 'user' => $user, 'workbench_notification' => $record);
+         
          if (property_exists(get_class($record),'mid')) {
                 // if this is a new entry, specify table's primary key
                 $status = drupal_write_record($table, $record, array('mid'));
-                watchdog('workbench_notification', 'workbench_notification_form_submit - just before invoking workbench_notification_update.');
+                //watchdog('workbench_notification', 'workbench_notification_form_submit - just before invoking workbench_notification_update.');
                 // invoke triggers
-                workbench_notification_update($node);
+                workbench_notification_update($object, $context);
                 //module_invoke_all('workbench_notification_update', $node);
                 //module_invoke_all('entity_insert', $record, 'workbench_notification'); 
              }
               else {
                 $status = drupal_write_record($table, $record);
-                watchdog('workbench_notification', 'workbench_notification_form_submit - just before workbench_notification_insert2.');
+                //watchdog('workbench_notification', 'workbench_notification_form_submit - just before workbench_notification_insert2.');
                 // invoke triggers
-                workbench_notification_insert($node);
+                workbench_notification_insert($object, $context);
                 //module_invoke_all('workbench_notification_insert', $node);
                 //module_invoke_all('entity_update', $record, 'workbench_notification');              };
             };
@@ -675,14 +701,12 @@ return array(
  *   Item on which operation is being performed.
  */
 
-function _workbench_notification_trigger($hook, $object = null) {
-  watchdog('workbench_notification', '_workbench_notification_trigger');
+function _workbench_notification_trigger($hook, $object = null, $context = null) {
+  //watchdog('workbench_notification', '_workbench_notification_trigger');
   module_invoke_all($hook, $object);
   $aids = trigger_get_assigned_actions($hook);
-  $context = array(
-    'group' => 'workbench_notification',
-    'hook' => $hook
-     );
+  $context['hook']  = $hook;
+  $context['group'] = 'workbench_notification';
   actions_do(array_keys($aids), (object) $object, $context);
   return true;
 }
@@ -690,15 +714,15 @@ function _workbench_notification_trigger($hook, $object = null) {
 /**
  * Implements hook_workbench_notification_insert().
  */
-function workbench_notification_insert($node) {
-  _workbench_notification_trigger('workbench_notification_insert', (array) $node);
+function workbench_notification_insert($object, $context) {
+  _workbench_notification_trigger('workbench_notification_insert', (array) $object, $context);
 }
 
 /**
  * Implements hook_workbench_notification_update().
  */
-function workbench_notification_update($node) {
-  _workbench_notification_trigger('workbench_notification_update', (array) $node);
+function workbench_notification_update($object, $context) {
+  _workbench_notification_trigger('workbench_notification_update', (array) $object, $context);
 }
 
 
@@ -1012,7 +1036,7 @@ function workbench_notification_block_view($delta='') {
       // Does message exist for this content?
       $result = workbench_notification_message_exists($nid);
       $recipients = unserialize($result['recipients']);
-      if (array_key_exists($name, $recipients)) {
+      if (array_key_exists($name, (array) $recipients)) {
         $u = (object) $recipients[$name];       
       } 
       else {
@@ -1080,3 +1104,30 @@ function workbench_notification_message_exists($nid = '') {
    return $result->fetchAssoc();
 }
 
+//// TOKENS ////////////////////////
+function workbench_notification_token_values($type, $object = NULL, $options = array()) {
+  if ($type == 'workbench_notification') {
+    $record                 =     $object;
+    $tokens['entity_id']    =     $record->entity_id;
+    $tokens['status']       =     $record->status;
+    $tokens['message']      =     $record->message;
+    $tokens['time']         =     $record->time;
+    $tokens['sender']       =     $record->sender;
+    $tokens['name']         =     $record->name;
+    $tokens['recipients']   =     $record->recipients;
+    return $tokens;
+  }
+}
+
+function workbench_notification_token_list($type = 'all') {
+  if ($type == 'workbench_notification' || $type == 'all') {
+    $tokens['workbench_notification']['entity_id']      = t("The workbench notification unique id.");
+    $tokens['workbench_notification']['status']         = t("The status of the message (0,1,2)");
+    $tokens['workbench_notification']['message']        = t("The message title.");
+    $tokens['workbench_notification']['time']           = t("The time the message was created.");
+    $tokens['workbench_notification']['sender']         = t("The message sender's user id.");
+    $tokens['workbench_notification']['name']           = t("The sender's username.");
+    $tokens['workbench_notification']['recipients']     = t("The recipient list.");
+    return $tokens;
+  }
+}

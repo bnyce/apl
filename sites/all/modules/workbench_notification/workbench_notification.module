@@ -43,7 +43,10 @@
                 
      $ROPTIONS = array(
                  'lutherc'     => 'lutherc',
+                 'jacksonta'  => 'jacksonta',
                  'florancec' => 'florancec',
+                 'nandigams' => 'nandigams',
+                 'wagnera'   => 'wagnera',
                  'vadrevuv' => 'vadrevuv',
                  'drupaladmin' => 'drupaladmin',
                  'esquibelm' => 'esquibelm',
@@ -334,8 +337,11 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
      );
    
   };
-  dpm($form, "form");
-  //dpm($form_state, "form_state");
+  if(function_exists('dpmX')) {
+    dpm($form, "form");
+    dpm($form_state, "form_state");  
+  }
+  
 };
 
 /**
@@ -414,7 +420,9 @@ function workbench_notification_approval_form_submit($form, &$form_state){
       $node->log = $logtext;
       node_save($node);
       
-      //dpm($form_state, 'form_state');
+      if(function_exists('dpmX')) {
+        dpm($form_state, 'form_state');
+      }
       return $result;
 }
 
@@ -452,8 +460,10 @@ function workbench_notification_form_submit($form, &$form_state) {
         $node->title = $form_state['values']['title'];
         $node->body = $form_state['values']['body'];
         $node->language = 'en';
-        dpm($node, "updated form_state[node]");
-        //entity_form_submit_build_entity('node', $node, $form, $form_state);
+        if(function_exists('dpmX')) {
+          dpm($node, "updated form_state[node]");
+        }
+          //entity_form_submit_build_entity('node', $node, $form, $form_state);
         node_save($node);
 
         $node_link = l(t('view'), 'node/' . $node->nid);
@@ -467,14 +477,16 @@ function workbench_notification_form_submit($form, &$form_state) {
    };
      
   $values = $form_state['values'];
-  dpm($values, "values");
-  
+  if(function_exists('dpmX')) {
+    dpm($values, "values");
+  }
   $addresses = $form_state['values']['workbench_notification']['approvers']; 
   $addresses = array_filter($addresses); // filter out empty options
-  dpm($addresses, "addresses");
-  dpm($user, "user");
-  dpm($node, "node");
-  
+  if(function_exists('dpmX')) {
+    dpm($addresses, "addresses");
+    dpm($user, "user");
+    dpm($node, "node");
+  }
   //create an array of objects keyed to the token type they correspond to.
   $context = array('node' => $node, 'user' => $user);
   
@@ -484,7 +496,8 @@ function workbench_notification_form_submit($form, &$form_state) {
         $successful = null;
         $unsuccessful = null;
         $mtext = null;
-        $template = $REVIEW_TEMPLATE;
+        // @TODO remove 
+        //$template = $REVIEW_TEMPLATE;
         
         
         //discover any message modifiers
@@ -508,15 +521,8 @@ function workbench_notification_form_submit($form, &$form_state) {
         }; 
         // modify template
         
-        $subject =  $template['subject'];
-        $subject =  $mtext . token_replace($subject, $context);
-        $template['subject'] = $subject;
-        
-        $body =  $template['content'];
-        $xtra_msg = $form_state['values']['workbench_notification']['xtra_message'];
-        $body =  "\n $xtra_msg \n $body \n";
-        $body =  token_replace($body, $context);
-        $template['content'] = $body;
+        $subject =  $mtext;
+        $comment = $form_state['values']['workbench_notification']['xtra_message'];
         
         
          // build out the recipient list    
@@ -536,18 +542,23 @@ function workbench_notification_form_submit($form, &$form_state) {
          $record->time        = time();
          $record->sender      = $user->uid;
          $record->name        = $user->name;
+         $record->comment     = $comment;
+         $record->commentor   = $user->uid;
+         $record->commentor_name   = $user->name;
          $record->recipients  = $recipients; // $recipients[$address] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0);   
 
          //redifine object 
+         
          $object = array($node, $user);
-         //$context = array('node' => $node, 'user' => $user, 'workbench_notification' => $record);
+         $context = array('node' => $node, 'user' => $user);
+         
          
          if (property_exists(get_class($record),'mid')) {
                 // if this is a new entry, specify table's primary key
                 $status = drupal_write_record($table, $record, array('mid'));
                 //watchdog('workbench_notification', 'workbench_notification_form_submit - just before invoking workbench_notification_update.');
                 // invoke triggers
-                workbench_notification_update($object, $context);
+                workbench_notification_update($object, $context, $record);
                 //module_invoke_all('workbench_notification_update', $node);
                 //module_invoke_all('entity_insert', $record, 'workbench_notification'); 
              }
@@ -555,7 +566,7 @@ function workbench_notification_form_submit($form, &$form_state) {
                 $status = drupal_write_record($table, $record);
                 //watchdog('workbench_notification', 'workbench_notification_form_submit - just before workbench_notification_insert2.');
                 // invoke triggers
-                workbench_notification_insert($object, $context);
+                workbench_notification_insert($object, $context, $record);
                 //module_invoke_all('workbench_notification_insert', $node);
                 //module_invoke_all('entity_update', $record, 'workbench_notification');              };
             };
@@ -626,39 +637,59 @@ function workbench_notification_entity_property_info(){
     $properties['status'] = array(
     	'label' => t("Status"),
     	'type'	=> 'integer',
-    	'description' => t("The status of the message."),
+    	'description' => t("The status of the message. ( 0 = sent no replies, 1 = some replies, 2 = approved by all recipients)"),
         'required' => TRUE,
     );
     
     $properties['message'] = array(
-    	'label' => t("Status"),
+    	'label' => t("Message Title"),
     	'type'	=> 'text',
-    	'description' => t("The status of the message."),
+    	'description' => t("The subject line of the message that was sent."),
     );
     
     $properties['time'] = array(
-    	'label' => t("Status"),
+    	'label' => t("Sent"),
         'type'	=> 'date',
-    	'description' => t("The time of the message request."),
+    	'description' => t("The Unix timestamp when the message was created and placed into sending queue."),
         'required' => TRUE,
     );
     
     $properties['sender'] = array(
-    	'label' => t("Status"),
+    	'label' => t("Sender"),
         'type'	=> 'integer',
-    	'description' => t("The creator uid of the message."),
+    	'description' => t("The {users}.uid of the user that created this message."),
     	'required' => TRUE,
     );
     
     $properties['name'] = array(
-    	'label' => t("Status"),
+    	'label' => t("Sender Name"),
     	'type'	=> 'text',
-    	'description' => t("The creator username of the message."),
+    	'description' => t("The account name of the user that created this message."),
          'required' => TRUE,
      );
      
+    $properties['commentor'] = array(
+    	'label' => t("Commentor"),
+        'type'	=> 'integer',
+    	'description' => t("The {users}.uid of the user who last commented on this message."),
+    	'required' => TRUE,
+    );
+    
+    $properties['commentor_name'] = array(
+    	'label' => t("Commentor Name"),
+    	'type'	=> 'text',
+    	'description' => t("The account name of the user that created this message."),
+         'required' => TRUE,
+     );
+     
+    $properties['comment'] = array(
+    	'label' => t("Last Comment"),
+    	'type'	=> 'text',
+    	'description' => t("The last comment on this message."),
+    );
+     
      $properties['recipients'] = array(
-    	'label' => t("Status"),
+    	'label' => t("Recipients"),
         'type'	=> 'text',
     	'description' => t("A serialized array of the recipients of the message."),
      );
@@ -701,12 +732,28 @@ return array(
  *   Item on which operation is being performed.
  */
 
-function _workbench_notification_trigger($hook, $object = null, $context = null) {
+function _workbench_notification_trigger($hook, $object = null, $context = null, $record = null) {
   //watchdog('workbench_notification', '_workbench_notification_trigger');
+  /*
+   *     $record->entity_id   = $node->nid;
+         $record->status      = 0;
+         $record->message     = $subject;
+         $record->time        = time();
+         $record->sender      = $user->uid;
+         $record->name        = $user->name;
+         $record->recipients
+   */
   module_invoke_all($hook, $object);
   $aids = trigger_get_assigned_actions($hook);
   $context['hook']  = $hook;
   $context['group'] = 'workbench_notification';
+  
+  if(!is_null($record)) {
+    $context['subject'] = $record->message;
+    $context['sender']  = $record->name;
+    $context['recipients']  = $record->recipients;
+  }
+  
   actions_do(array_keys($aids), (object) $object, $context);
   return true;
 }
@@ -714,15 +761,15 @@ function _workbench_notification_trigger($hook, $object = null, $context = null)
 /**
  * Implements hook_workbench_notification_insert().
  */
-function workbench_notification_insert($object, $context) {
-  _workbench_notification_trigger('workbench_notification_insert', (array) $object, $context);
+function workbench_notification_insert($object, $context, $record = null) {
+  _workbench_notification_trigger('workbench_notification_insert', (array) $object, $context, $record);
 }
 
 /**
  * Implements hook_workbench_notification_update().
  */
-function workbench_notification_update($object, $context) {
-  _workbench_notification_trigger('workbench_notification_update', (array) $object, $context);
+function workbench_notification_update($object, $context, $record = null) {
+  _workbench_notification_trigger('workbench_notification_update', (array) $object, $context , $record);
 }
 
 
@@ -809,71 +856,94 @@ function workbench_notification_basic_action(&$entity, $context = array()) {
 
 
 /**
- * Action: Send mail to all users defined as recipients.
- */
-
-/**
- * workbench_notification_mail_to_recipients_action($subject, $message, $from = NULL, $settings, RulesState $state, RulesPlugin $element)
+ * workbench_notification_mail_to_recipients_action($entity, $context)
  * Action: Send mail to all users defined as recipients of the workbench notification.
- * @param string $subject
- * @param string $message
- * @param string $from
- * @param array $settings
- * @param array $state
- * @param array $element
+ * @param object $entity
+ *   An optional node object, which will be added as $context['node'] if
+ *   provided.
+ * @param array $context
+ *  Array with the following elements:
+ *   - 'recipients': An array of usernames for E-mail message recipients. This will be passed through
+ *     token_replace().
+ *   - 'subject': The subject of the message. This will be passed through
+ *     token_replace().
+ *   - 'message': The message to send. This will be passed through
+ *     token_replace().
+ *   - Other elements will be used as the data for token replacement.
+ *
  */
-function workbench_notification_mail_to_recipients_action(&$entity, $context = array()) {
-  // get recipients
-  
-  //@TODO search for recpients attached to this mid
-  $users = array('lutherc');
+function workbench_notification_mail_to_recipients_action($entity, $context) {
   watchdog('workbench_access', 'workbench_notification_mail_to_recipients_action fired');
-  watchdog('workbench_access', 'with entity: %entity.', array('%entity' => print_r($entity)));
-  watchdog('workbench_access', 'and context: %context.', array('%context' => print_r($context)));
-  if(function_exists('dpm')){
-    dpm($settings, 'rules settings');
-    dpm($state, 'rules state');
-    dpm($element, 'rules element');
+  
+  if (empty($context['node'])) {
+    $context['node'] = $entity;
   }
   
-  
-  $from = !empty($from) ? str_replace(array("\r", "\n"), '', $from) : NULL;
-  
+  $recipients = $context['recipients'];
   $result = db_query('SELECT name, mail FROM {users} WHERE uid > 0');  // an array of all user emails
-  $filtered_users = array_intersect_keys($users, $result);
+  $compare = $result->fetchAllKeyed();
+  $filtered_users = array_intersect_key( (array) $recipients, $compare);
   
-  // Now, actually send the mails.
-  $params = array(
-    'subject' => $subject,
-    'message' => $message,
-    'action' => $element,
-    'state' => $state,
-  );
+  $module = 'workbench_notification';
+  $key = 'action_mail_to_recipients';
+  $language = language_default(); // move inside loop to modify per user
+  $to = null;
+  $params = array();
+  $from = null;
+  $send = false;
+  // build message array
+  $message = drupal_mail($module, $key, $to, $language, $params, $from, $send);
+  // title the message
+  //token_replace($context['recipient'], $context);
+  $subject = $context['subject'] .' ' .$message['subject'];
+  $message['subject'] = token_replace($subject, $context);
+  //format as html email
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  // build message body
+  $sentMessage = array();
+  $sentMessage[] = $context['message'];
+  $body = implode('<br />', $sentMessage);
+  $message['body'] = token_replace($body, $context);
+  
+  $message['result'] = FALSE;
+  // Retrieve the responsible implementation for this message.
+  $system = drupal_mail_system($module, $key);
   
   if(function_exists('dpm')){
-    dpm($result, 'result');
-    dpm($filtered_users, 'filter_users');
-    dpm($params, 'params');
+    dpm($context, 'context');
+    dpm($compare, 'compare result array');
+    dpm($filtered_users, 'filtered_users');
+    dpm($message, 'unadressed message');
+    dpm($system, 'system');
   }
   
-  // Set a unique key for this mail.
-  /*
-  $name = isset($element->root()->name) ? $element->root()->name : 'unnamed';
-  $key = 'workbench_notification_action_mail_to_recipients' . $name . '_' . $element->elementId();
-
-  $message = array('result' => TRUE);
-  foreach ($result as $row) {
-    $message = drupal_mail('rules', $key, $row->mail, language_default(), $params, $from); // update for message 
-    if (!$message['result']) {
-      break;
+  foreach ($filtered_users as $row) {
+    $recipient = $row['mail'];
+    $message['to'] = $recipient; // update to address 
+    
+    if(function_exists('dpm')){
+      dpm($message, 'addressed message');
     }
-  }
+    
+    $message['result'] = $system->mail($message); // send message 
+    if (!$message['result']) {
+        $msg = (t('Unable to send email to %recipient', array('%recipient' => $recipient)));
+        drupal_set_message($msg, 'warning');
+        watchdog('workbench_access', $msg);
+      break;
+    } 
+    else {
+      $successful[] = $recipient;
+    };
+  };
   if ($message['result']) {
-    $role_names = array_intersect_key(user_roles(TRUE), array_flip($roles));
-    watchdog('workbench_access', 'Successfully sent email to: %users.', array('%users' => implode(', ', $user_names)));
+    //$role_names = array_intersect_key(user_roles(TRUE), array_flip($roles));
+   $msg = t('Successfully sent email to: %users.', array('%users' => implode(', ', $successful)));
+   drupal_set_message($msg);
+   watchdog('workbench_access', $msg);
   }
-  */
 }
+
 
 /**
  * workbench_notification_mail_to_creator_action($subject, $message, $from = NULL, $settings, RulesState $state, RulesPlugin $element)
@@ -1028,7 +1098,9 @@ function workbench_notification_block_view($delta='') {
     $nid = $node->nid;
   };
   
-  //dpm($node, 'node');
+  if(function_exists('dpmXX')) {
+    dpm($node, 'node');
+  }
   
   $block = array();
   switch ($delta) {
@@ -1105,23 +1177,24 @@ function workbench_notification_message_exists($nid = '') {
 }
 
 //// TOKENS ////////////////////////
-function workbench_notification_token_values($type, $object = NULL, $options = array()) {
-  if ($type == 'workbench_notification') {
-    $record                 =     $object;
-    $tokens['entity_id']    =     $record->entity_id;
-    $tokens['status']       =     $record->status;
-    $tokens['message']      =     $record->message;
-    $tokens['time']         =     $record->time;
-    $tokens['sender']       =     $record->sender;
-    $tokens['name']         =     $record->name;
-    $tokens['recipients']   =     $record->recipients;
+/*
+function workbench_notification_token_values($type, $object = NULL) {
+  if ($type == 'entity') {
+    $record                 =     $object[0];
+    $tokens['entity_id']    =     $record['entity_id'];
+    $tokens['status']       =     $record['status'];
+    $tokens['message']      =     $record['message'];
+    $tokens['time']         =     $record['time'];
+    $tokens['sender']       =     $record['sender'];
+    $tokens['name']         =     $record['name'];
+    $tokens['recipients']   =     $record['recipients'];
     return $tokens;
   }
 }
 
 function workbench_notification_token_list($type = 'all') {
-  if ($type == 'workbench_notification' || $type == 'all') {
-    $tokens['workbench_notification']['entity_id']      = t("The workbench notification unique id.");
+  if ($type == 'entity' || $type == 'all') {
+    $tokens['workbench_notification']['entity-id']      = t("The workbench notification unique id.");
     $tokens['workbench_notification']['status']         = t("The status of the message (0,1,2)");
     $tokens['workbench_notification']['message']        = t("The message title.");
     $tokens['workbench_notification']['time']           = t("The time the message was created.");
@@ -1131,3 +1204,4 @@ function workbench_notification_token_list($type = 'all') {
     return $tokens;
   }
 }
+*/

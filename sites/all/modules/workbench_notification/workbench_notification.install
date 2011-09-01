@@ -47,33 +47,54 @@ function workbench_notification_schema() {
       ),
       
       'message' => array(
-        'description'   => 'An subject line of the message that was sent',
+        'description'   => 'The subject line of the message that was sent',
         'type'          => 'text',
         'not null'      => FALSE,
       ),
       
       'time'            => array(
-        'description'   => 'The Unix timestamp when the message was created and placed into sending queue',
+        'description'   => 'The Unix timestamp when the message was created and placed into sending queue.',
         'type'          => 'int',
         'not null'      => TRUE,
         'default'       =>  0,
       ),
       
       'sender'        => array(
-        'description' => 'The {users}.uid of the user that created this message',
+        'description' => 'The {users}.uid of the user that created this message.',
         'type'        => 'int',
         'not null'    => TRUE,
         'default'     => 0,
       ),
       
       'name'          => array(
-        'description' => 'The account name of the user that created this message',
+        'description' => 'The account name of the user that created this message.',
         'type'        => 'varchar',
         'length'      => 128,
         'not null'    => TRUE,
         'default'     => '',
        ),
-
+       
+      'commentor'          => array(
+        'description' => 'The {users}.uid of the user who last commented on this message',
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'default'     => 0,
+       ),  
+       
+       'commentor_name' => array(
+        'description' => 'The account name of the user who last commented on this message',
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => TRUE,
+        'default'     => '',
+       ),
+      
+      'comment'          => array(
+        'description' => 'The account name of the user that created this message',
+        'type'        => 'text',
+        'not null'    => FALSE,
+       ),
+        
       'recipients'     => array(
         'description'  => 'An serialized array of the users that recieved the message, along with their response ( 0 = no reply, 1 = comment, 2 = approved)',
         'type'         => 'blob',

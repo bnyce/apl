@@ -321,8 +321,10 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = FALSE;
   $handler->display->display_options['header']['area']['content'] = '<!--You are viewing the results from a filter "A".<a href="/glossary">Reset Filter</a>-->
-<p >The Customer Service Directory contains Web links about Departments and their services, phone numbers, and e-mail addresses for City of Austin services. For links to Web sites EXTERNAL to the City of Austin follow this link to our<a href="http://www.ci.austin.tx.us/links.htm" style="text-decoration:none"><strong> LINKS PAGE</strong></a>.</p>';
+<p >The Customer Service Directory contains Web links about Departments and their services, phone numbers, and e-mail addresses for City of Austin services. For links to Web sites EXTERNAL to the City of Austin follow this link to our
+<a href="http://www.ci.austin.tx.us/links.htm" style="text-decoration:none;"><strong> LINKS PAGE</strong></a>.</p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = 0;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area_1']['id'] = 'area_1';
@@ -363,7 +365,6 @@ For links to Web sites EXTERNAL to the City of Austin follow this link to our LI
   $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['label'] = 'Keyword Search';
-  $handler->display->display_options['filters']['keys']['expose']['use_operator'] = 1;
   $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
   $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
@@ -486,7 +487,8 @@ div.view-service-directory-view div.view-header {
     t('All'),
     t('Page'),
     t('<!--You are viewing the results from a filter "A".<a href="/glossary">Reset Filter</a>-->
-<p >The Customer Service Directory contains Web links about Departments and their services, phone numbers, and e-mail addresses for City of Austin services. For links to Web sites EXTERNAL to the City of Austin follow this link to our<a href="http://www.ci.austin.tx.us/links.htm" style="text-decoration:none"><strong> LINKS PAGE</strong></a>.</p>'),
+<p >The Customer Service Directory contains Web links about Departments and their services, phone numbers, and e-mail addresses for City of Austin services. For links to Web sites EXTERNAL to the City of Austin follow this link to our
+<a href="http://www.ci.austin.tx.us/links.htm" style="text-decoration:none;"><strong> LINKS PAGE</strong></a>.</p>'),
     t('Reasons you may not have succeeded: 
 1. Misspelling of any word in the keyword search box.
 2. Asking for an employee directory. We do not publicize our staff directory due to privacy concerns. You can call     3-1-1 or (512) 974-2000 and be transferred to anyone\'s desk.

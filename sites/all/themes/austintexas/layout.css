@@ -23,6 +23,9 @@
 	#TAB BUTTONS
 	#CALENDAR
 	#DEPARTMENT LIST
+	#SHORT CUTS
+=======
+
 	
 	*/
 
@@ -31,7 +34,7 @@
 /* #TYPOGRAPHY 
 ================================================== */
 #center p, #center ul, #center ol {font-size: 12px;}
-#center p a, #center li a {color: #a85708;text-decoration: none; font-weight: bold;}
+#center p a, #center li a {color: #636463 ;text-decoration: none; font-weight: bold;}
 #center p a:hover, #center li a:hover {text-decoration: underline;}
 
 
@@ -50,8 +53,8 @@
 
 #top-search #search-block-form #edit-search-block-form--2, #top-search #block-search-form input.form-text {
 	width: 420px;
-	height: 15px;
-	background: url(images/search_icon.jpg) no-repeat left center #E5E5E5;
+	height: 17px;
+	background: url(images/search_icon.jpg) no-repeat left center #FFF;
 	padding: 3px;
 	padding-left: 25px;
 	margin: 0 0 -5px;
@@ -584,7 +587,7 @@ p#tweet {font-weight: normal; font-size: 12px;}
 }
 
 .panel-center a {
-    color: #A85708;
+    color: #636463;
 	font-weight:bold;
 }
 .panel-center h2 {
@@ -734,4 +737,18 @@ ul.tabs {float: right;margin: 0 30px -2px 0;border: none;} ul.tabs li a {border-
 
 .item-list li a {
     font-weight: bold;
+<<<<<<< HEAD
+}
+
+/* #SHORTCUTS
+================================================== */
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+=======
+>>>>>>> 18dde26ff956de8474528792b3d14b34f91e1f04
 }

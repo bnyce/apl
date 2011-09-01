@@ -130,6 +130,7 @@ class views_plugin_exposed_form extends views_plugin {
 			$keys['#value'] = '';
 			$form['keys'] = $keys;
 		}
+
 	}*/
 	//End of Tara & Srilu's code
 	

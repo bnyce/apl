@@ -7,3 +7,4 @@ dependencies[] = messaging
 dependencies[] = token
 dependencies[] = entity
 
+version = "7.x-1.0-beta1"

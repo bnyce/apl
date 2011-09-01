@@ -46,8 +46,8 @@ function workbench_notification_schema() {
         'default'       => 0,
       ),
       
-      'message' => array(
-        'description'   => 'The subject line of the message that was sent',
+      'note' => array(
+        'description'   => 'The note title, may not match the subject line of the message that was sent',
         'type'          => 'text',
         'not null'      => FALSE,
       ),

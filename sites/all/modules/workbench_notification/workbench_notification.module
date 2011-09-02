@@ -442,56 +442,10 @@ function workbench_notification_form_submit($form, &$form_state) {
   global $user;
   global $node;
   
+  $nid = 0;
   $recipients = array(); // create empty recipents array
- 
-  if (empty($node)) {
-    drupal_set_message(t('form submit - empty node'),'warning');
-    if (arg(0)=='node' && is_numeric(arg(1)))
-      {
-        drupal_set_message(t('form submit - load node using node/num'),'warning');
-        $nodeId = arg(1);
-        $node = node_load($nodeId);
-      }
-      else 
-      {
-        //@TODO having trouble with new nodes, but is there a better way to do this?   
-        //drupal_set_message(t('node being saved for first time.'),'warning');
-        $node = $form_state['node'];
-        $node->title = $form_state['values']['title'];
-        $node->body = $form_state['values']['body'];
-        $node->language = 'en';
-        if(function_exists('dpmX')) {
-          dpm($node, "updated form_state[node]");
-        }
-          //entity_form_submit_build_entity('node', $node, $form, $form_state);
-        node_save($node);
-        $nid = $node->nid;
-        $node->revision = 0;
-        $node_link = l(t('view'), 'node/' . $node->nid);
-        $t_args = array('%nid' => $node->nid, '@type' => $node->type, '%title' => $node->title);
-        watchdog('content', 'Workbench Notification: Node %nid has been created for @type: %title.', $t_args, WATCHDOG_NOTICE, $node_link);
-        drupal_set_message(t('Workbench Notification: Node %nid has been created for @type %title.', $t_args));
-        
-        //$node = node_load($nid, NULL, TRUE);   // see http://drupal.org/node/221081
-      };  
-   };
-     
-  $values = $form_state['values'];
-  if(function_exists('dpm')) {
-    dpm($values, "form_state[values] - workbench_notification_form_submit");
-    dpm($node, "node - after node_save - workbench_notification_form_submit");
-  }
-  $addresses = $form_state['values']['workbench_notification']['approvers']; 
-  $addresses = array_filter($addresses); // filter out empty options
-  if(function_exists('dpmX')) {
-    dpm($addresses, "addresses");
-    dpm($user, "user");
-    dpm($node, "node");
-  }
-  //create an array of objects keyed to the token type they correspond to.
-  $context = array('node' => $node, 'user' => $user);
-  
-  // format message  
+       
+  // format the notification message if one has been created
   $v = $form_state['values']['workbench_notification']['enabled']; 
   if($v){
         $successful = null;
@@ -499,7 +453,6 @@ function workbench_notification_form_submit($form, &$form_state) {
         $mtext = null;
         // @TODO remove 
         //$template = $REVIEW_TEMPLATE;
-        
         
         //discover any message modifiers
         $m = $form_state['values']['workbench_notification']['due'];
@@ -521,11 +474,15 @@ function workbench_notification_form_submit($form, &$form_state) {
             break;
         }; 
         // modify template
-        
-        $subject =  $mtext .'MESSAGE';  // for a decent title in the db, remove 'Message' before actually sending the message.
+        $title = $form_state['values']['title'];
+        $note_subject = $mtext .$title;  // an identifier for the note in the db
+        $subject =  $mtext .'MESSAGE';  // A shorter title for sending to the action (which may choose to modify it).
         $comment = $form_state['values']['workbench_notification']['xtra_message'];
         
-        
+        //get the usernames of the approvers
+        $addresses = $form_state['values']['workbench_notification']['approvers']; 
+        $addresses = array_filter($addresses); // filter out empty options
+                
          // build out the recipient list    
          foreach($addresses as $address){
             if ($account = user_load_by_name($address)) {
@@ -537,9 +494,9 @@ function workbench_notification_form_submit($form, &$form_state) {
          $table = 'workbench_notification';
                     
          $record = new stdClass();
-         $record->entity_id     = $node->nid;
+         $record->entity_id     = 0;
          $record->status        = 0;
-         $record->note          = $subject;
+         $record->note          = $note_subject;  // temp title
          $record->time          = time();
          $record->sender        = $user->uid;
          $record->name          = $user->name;
@@ -548,29 +505,70 @@ function workbench_notification_form_submit($form, &$form_state) {
          $record->comment       = $comment;
          $record->recipients    = $recipients; // $recipients[$address] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0);   
 
-         //redifine object 
+         //show us what you got so far
+         if(function_exists('dpm')) {
+           $values = $form_state['values'];
+           dpm($values, "form_state[values] - workbench_notification_form_submit");
+           dpm($addresses, "chosen addresses array");
+           dpm($record, 'record');
+           dpm($node, "node - before node_save - workbench_notification_form_submit");
+         }
          
+         // Save the NODE so we can get a NID
+          if (empty($node)) {
+            if(function_exists('dpm')) drupal_set_message(t('form submit - empty node'),'warning');
+            if(arg(0)=='node' && is_numeric(arg(1)))
+              {
+                if (function_exists('dpm')) drupal_set_message(t('form submit - load node using node/num'),'warning');
+                $nid = arg(1);
+                $node = node_load($nid);
+              }
+            else 
+              {
+                if (function_exists('dpm')) drupal_set_message(t('form submit - using form_state node'),'warning');
+                //@TODO having trouble with new nodes, but is there a better way to do this?   
+                //drupal_set_message(t('node being saved for first time.'),'warning');
+                $node = $form_state['node'];
+                $node->title = $form_state['values']['title'];
+                $node->body = $form_state['values']['body'];
+                $node->language = 'en';
+                node_save($node);
+                if(function_exists('dpm')) {
+                  dpm($node, "node - after node_save");
+                }
+                
+                $form_state['values']['nid'] = $node->nid;  // sent form values so that node_save will update rather than create new.
+                $form_state['values']['vid'] = $node->vid;
+                $form_state['values']['revision'] = FALSE;
+                $atext = implode(", ", $$addresses);
+                $form_state['values']['log'] = $form_state['values']['revision'] ." Message queued for: $atext";
+                
+                $node_link = l(t('view'), 'node/' . $node->nid);
+                $t_args = array('%nid' => $node->nid, '@type' => $node->type, '%title' => $node->title);
+                watchdog('content', 'Workbench Notification: Node %nid has been created for @type: %title.', $t_args, WATCHDOG_NOTICE, $node_link);
+                drupal_set_message(t('Workbench Notification: Node %nid has been created for @type %title.', $t_args));
+              };  
+          };
+         
+         //create objects and context and provide NID 
          $object = array($node, $user);
          $context = array('node' => $node, 'user' => $user);
+         $record->entity_id     = $node->nid;
          
          // save the notification record and fire the trigger
          if (property_exists(get_class($record),'mid')) {
                 // if this is a new entry, specify table's primary key
                 $status = drupal_write_record($table, $record, array('mid'));
-                //watchdog('workbench_notification', 'workbench_notification_form_submit - just before invoking workbench_notification_update.');
+                $record->note          = $subject;  // simplify title before passing
                 // invoke triggers
                 workbench_notification_update($object, $context, $record);
-                //module_invoke_all('workbench_notification_update', $node);
-                //module_invoke_all('entity_insert', $record, 'workbench_notification'); 
-             }
-              else {
+         } 
+         else {
                 $status = drupal_write_record($table, $record);
-                //watchdog('workbench_notification', 'workbench_notification_form_submit - just before workbench_notification_insert2.');
+                $record->note          = $subject;  // simplify title before passing
                 // invoke triggers
                 workbench_notification_insert($object, $context, $record);
-                //module_invoke_all('workbench_notification_insert', $node);
-                //module_invoke_all('entity_update', $record, 'workbench_notification');              };
-            };
+         };
             
          return $status;
   };
@@ -932,9 +930,10 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
       dpm($message, 'addressed message');
     }
     
+    
     $message['result'] = $system->mail($message); // send message 
     if (!$message['result']) {
-        $msg = (t('Unable to send email to %recipient', array('%recipient' => $recipient)));
+        $msg0 = (t('Unable to send email to %recipient', array('%recipient' => $recipient)));
         drupal_set_message($msg, 'warning');
         watchdog('workbench_access', $msg);
       break;

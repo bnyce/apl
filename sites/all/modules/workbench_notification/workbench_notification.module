@@ -245,8 +245,8 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
   
   // Only include on node add/edit forms for supported content types.
   if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $TYPES) || in_array($node['type']['#value'], $TYPES) )) {
-    //$form['#submit'][] = 'workbench_notification_form_submit'; // add submit function
-    $form['#submit'] = 'workbench_notification_form_submit'; // Perhaps bad form, stepping on all other submit handlers, but I'm calling node_form_submit within this handler.
+    $form['#submit'][] = 'workbench_notification_form_submit'; // add submit function
+    //$form['#submit'] = 'workbench_notification_form_submit'; // Perhaps bad form, stepping on all other submit handlers, but I'm calling node_form_submit within this handler.
     
     $form['workbench_notification'] = array(
       '#type' => 'fieldset',
@@ -466,7 +466,7 @@ function workbench_notification_form_submit($form, &$form_state) {
           //entity_form_submit_build_entity('node', $node, $form, $form_state);
         node_save($node);
         $nid = $node->nid;
-        $node->vid = $nid;
+        $node->revision = 0;
         $node_link = l(t('view'), 'node/' . $node->nid);
         $t_args = array('%nid' => $node->nid, '@type' => $node->type, '%title' => $node->title);
         watchdog('content', 'Workbench Notification: Node %nid has been created for @type: %title.', $t_args, WATCHDOG_NOTICE, $node_link);
@@ -477,8 +477,9 @@ function workbench_notification_form_submit($form, &$form_state) {
    };
      
   $values = $form_state['values'];
-  if(function_exists('dpmX')) {
-    dpm($values, "values");
+  if(function_exists('dpm')) {
+    dpm($values, "form_state[values] - workbench_notification_form_submit");
+    dpm($node, "node - after node_save - workbench_notification_form_submit");
   }
   $addresses = $form_state['values']['workbench_notification']['approvers']; 
   $addresses = array_filter($addresses); // filter out empty options
@@ -532,7 +533,7 @@ function workbench_notification_form_submit($form, &$form_state) {
             }
          };
          
-         // save the record      
+         // create the notification record      
          $table = 'workbench_notification';
                     
          $record = new stdClass();
@@ -552,7 +553,7 @@ function workbench_notification_form_submit($form, &$form_state) {
          $object = array($node, $user);
          $context = array('node' => $node, 'user' => $user);
          
-         
+         // save the notification record and fire the trigger
          if (property_exists(get_class($record),'mid')) {
                 // if this is a new entry, specify table's primary key
                 $status = drupal_write_record($table, $record, array('mid'));

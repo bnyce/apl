@@ -166,13 +166,17 @@ return array(
  * Comment Button
  * Comment Box
  */
-function workbench_notification_approval_form($form_id, &$form_state, $mid = '50') {
+function workbench_notification_approval_form($form_id, &$form_state, $mid = '0', $recipients = null) {
   $form['info']    = array(
       '#markup'			=> t('Please review content below, provide any review comments (optional), and click Approve or Comment.'),
       );
   $form['mid']     = array(
-		'#type' => 'hidden',
+		'#type' => 'value',
 		'#value' => $mid,
+      );
+  $form['recipients']     = array(
+		'#type' => 'value',
+		'#value' => $recipients,
       );
   $form['comment'] = array(
       '#title'	        => t('Comments'),
@@ -475,7 +479,7 @@ function workbench_notification_form_submit($form, &$form_state) {
         }; 
         // modify template
         $title = $form_state['values']['title'];
-        $note_subject = $mtext .$title;  // an identifier for the note in the db
+        $note_subject = html_entity_decode($mtext .$title);  // an identifier for the note in the db - without any HTML entities
         $subject =  $mtext .'MESSAGE';  // A shorter title for sending to the action (which may choose to modify it).
         $comment = $form_state['values']['workbench_notification']['xtra_message'];
         
@@ -552,7 +556,8 @@ function workbench_notification_form_submit($form, &$form_state) {
          
          //create objects and context and provide NID 
          $object = array($node, $user);
-         $context = array('node' => $node, 'user' => $user);
+         //$context = array('node' => $node, 'user' => $user, 'workbench_notification' => $record);
+         $context = array('node' => $node, 'user' => $user );
          $record->entity_id     = $node->nid;
          
          // save the notification record and fire the trigger
@@ -962,42 +967,75 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
  * @param array $element
  */
 function workbench_notification_mail_to_creator_action(&$entity, $context = array()) {
-  watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fired');
-  watchdog('workbench_access', 'with entity: %entity.', array('%entity' => print_r($entity)));
-  watchdog('workbench_access', 'and context: %context.', array('%context' => print_r($context)));
-  $from = !empty($from) ? str_replace(array("\r", "\n"), '', $from) : NULL;
-
-  // All authenticated users, which is everybody.
-  if (in_array(DRUPAL_AUTHENTICATED_RID, $roles)) {
-    $result = db_query('SELECT mail FROM {users} WHERE uid > 0');
+watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fired');
+  
+  if (empty($context['node'])) {
+    $context['node'] = $entity;
   }
-  else {
-    $rids = implode(',', $roles);
-    // Avoid sending emails to members of two or more target role groups.
-    $result = db_query('SELECT DISTINCT u.mail FROM {users} u INNER JOIN {users_roles} r ON u.uid = r.uid WHERE r.rid IN ('. $rids .')');
+  
+  $recipients[] = $context['name']; // get name of note creator
+  $result = db_query('SELECT name, mail FROM {users} WHERE uid > 0');  // an array of all user emails
+  $compare = $result->fetchAllKeyed();
+  $filtered_users = array_intersect_key( (array) $recipients, $compare);
+  
+  $module = 'workbench_notification';
+  $key = 'action_mail_to_creator';
+  $language = language_default(); // move inside loop to modify per user
+  $to = null;
+  $params = array();
+  $from = null;
+  $send = false;
+  // build message array
+  $message = drupal_mail($module, $key, $to, $language, $params, $from, $send);
+  // title the message
+  $subject = $context['subject'];
+  $message['subject'] = token_replace($subject, $context);
+  //format as html email
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  // build message body
+  $sentMessage = array();
+  $sentMessage[] = $context['comment'];
+  $sentMessage[] = $context['message'];
+  $body = implode('<br />', $sentMessage);
+  $message['body'] = token_replace($body, $context);
+  
+  $message['result'] = FALSE;
+  // Retrieve the responsible implementation for this message.
+  $system = drupal_mail_system($module, $key);
+  
+  if(function_exists('dpm')){
+    dpm($context, 'context');
+    dpm($compare, 'compare result array');
+    dpm($filtered_users, 'filtered_users');
+    dpm($message, 'unadressed message');
+    dpm($system, 'system');
   }
-
-  // Now, actually send the mails.
-  $params = array(
-    'subject' => $subject,
-    'message' => $message,
-    'action' => $element,
-    'state' => $state,
-  );
-  // Set a unique key for this mail.
-  $name = isset($element->root()->name) ? $element->root()->name : 'unnamed';
-  $key = 'rules_action_mail_to_users_of_role_' . $name . '_' . $element->elementId();
-
-  $message = array('result' => TRUE);
-  foreach ($result as $row) {
-    $message = drupal_mail('rules', $key, $row->mail, language_default(), $params, $from);
-    if (!$message['result']) {
-      break;
+  
+  foreach ($filtered_users as $row) {
+    $recipient = $row['mail'];
+    $message['to'] = $recipient; // update to address 
+    
+    if(function_exists('dpm')){
+      dpm($message, 'addressed message');
     }
-  }
+    
+    
+    $message['result'] = $system->mail($message); // send message 
+    if (!$message['result']) {
+        $msg0 = (t('Unable to send email to %recipient', array('%recipient' => $recipient)));
+        drupal_set_message($msg, 'warning');
+        watchdog('workbench_access', $msg);
+      break;
+    } 
+    else {
+      $successful[] = $recipient;
+    };
+  };
   if ($message['result']) {
-    $role_names = array_intersect_key(user_roles(TRUE), array_flip($roles));
-    watchdog('workbench_access', 'Successfully sent email to: %users.', array('%users' => implode(', ', $user_names)));
+    //$role_names = array_intersect_key(user_roles(TRUE), array_flip($roles));
+   $msg = t('Successfully sent email to: %users.', array('%users' => implode(', ', $successful)));
+   drupal_set_message($msg);
+   watchdog('workbench_access', $msg);
   }
 }
 
@@ -1062,6 +1100,29 @@ function workbench_notification_mail_to_creator_action_submit($form, $form_state
     'message' => $form_state['values']['message'],
   );
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the custom configure action forms to add token context validation and
+ * adds the token tree for a better token UI and selection.
+ */
+function workbench_notification_form_system_actions_configure_alter(&$form, $form_state) {
+  $action = actions_function_lookup($form['actions_action']['#value']);
+
+  switch ($action) {
+    case 'workbench_notification_mail_to_creator_action':
+    case 'workbench_notification_mail_to_recipients_action':
+      $form['token_tree'] = array(
+        '#theme' => 'token_tree',
+        '#token_types' => 'all',
+        '#weight' => 100,
+      );
+      // @todo Add token validation to the action fields that can use tokens.
+      break;
+  }
+}
+
 
 
 
@@ -1133,15 +1194,16 @@ function workbench_notification_block_view($delta='') {
          
           if($result['sender'] == $user->uid) { // this is the sender.
             $subject = $result['message'];
+            $statustext = $result['status'] = 2 ? t(" All recipients have since approved the content.") :  "";
             $date = format_date($result['time'],'custom','g:i a \o\n F j, Y');
             $recipients =  implode(", ",array_keys(unserialize($result['recipients'])));
-            $text = "At $date you sent the message <b> $subject </b> to: $recipients .";
-            $block['content'] = $text;
+            $text = t("At $date you sent the message <b> $subject </b> to: $recipients .");
+            $block['content'] = "$text .$statustext";
           } 
           elseif ($u->status == 2) { // this recipient has already approved this content
             $subject = $result['message'];
             $date = format_date($u->time,'custom','F j, Y \a\t g:i a ');
-            $text = "On $date you approved the content.";
+            $text = t("On $date you approved the content.");
             $block['content'] = $text;
           } 
           else { // this is a recipient who hasn't already approved content.

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the coa_biography feature.
+ */
+
+include_once('coa_biography.features.inc');

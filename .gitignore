@@ -42,16 +42,40 @@ Thumbs.db
 .buildpath
 .project
 .settings
+<<<<<<< HEAD
 .metadata
 .gitignore
 .svn
 backup/*
 settings.php
 sites/default/*
+=======
+backup
+settings.php
+sites/default/settings.php
+<<<<<<< HEAD
+sites/default/*
+tmp
+=======
+sites/default/files
+sites/default/files/css
+sites/default/files/js
+sites/default/files/xmlsitemap
+sites/default/locfiles
+/tmp
+>>>>>>> 91a9d3fede731bd0503cef978c180450cdd5121e
+>>>>>>> master
 tmp/*
+bu
 bu/*
+<<<<<<< HEAD
+files/*
+Thumbs.db
+.gitignore
+=======
 pvt/*
 files/*
+<<<<<<< HEAD
 config/*
 capfile
 
@@ -62,3 +86,10 @@ sites/all/modules/drupalforfirebug/
 sites/all/modules/devel/
 sites/all/modules/devel_themer/ 
 sites/all/modules/examples/
+=======
+/themes
+.svn
+Capfile
+config/deploy.rb
+>>>>>>> 91a9d3fede731bd0503cef978c180450cdd5121e
+>>>>>>> master

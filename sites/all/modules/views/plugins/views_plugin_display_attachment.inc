@@ -222,9 +222,11 @@ class views_plugin_display_attachment extends views_plugin_display {
     // Get a fresh view because our current one has a lot of stuff on it because it's
     // already been executed.
     $view = $this->view->clone_view();
+			
     $view->original_args = $view->args;
 
     $args = $this->get_option('inherit_arguments') ? $this->view->args : array();
+	
     $view->set_arguments($args);
     $view->set_display($this->display->id);
     if ($this->get_option('inherit_pager')) {
@@ -233,7 +235,7 @@ class views_plugin_display_attachment extends views_plugin_display {
     }
 
     $attachment = $view->execute_display($this->display->id, $args);
-
+	
     switch ($this->get_option('attachment_position')) {
       case 'before':
         $this->view->attachment_before .= $attachment;

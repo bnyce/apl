@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * @file
+ *
+ */
+
+/**
+ * Implements hook_install().
+ */
+function anonymous_posting_install() {
+
+  // Set some module variables:
+  variable_set('anonymous_posting_enabled_node_types', array());
+
+  if (!field_info_field(ANONYMOUS_POSTING_FIELD_NAME)) {
+    // Create custom field for the anonymous author fields.
+    $field = array(
+      'field_name' => ANONYMOUS_POSTING_FIELD_NAME,
+      'type' => 'anonymous_author',
+      'entity_types' => array('node'),
+      'cardinality' => 1,
+      'translatable' => 0,
+      'locked' => TRUE,
+      'description' => st('Anonymous contact informations'),
+    );
+    _field_info_collate_types(TRUE); // quick work arround the reported bug: http://drupal.org/node/1168214
+    $field = field_create_field($field);
+  }
+}
+
+/**
+ * Implements hook_field_schema().
+ */
+function anonymous_posting_field_schema($field) {
+
+  $columns = array();
+  switch ($field['type']) {
+    case 'anonymous_author':
+      $columns = array(
+        'name' => array(
+          'type' => 'varchar',
+          'length' => 60,
+          'not null' => FALSE,
+          'description' => "The anonymous author's name. Uses {users}.name if the user is logged in, otherwise uses the value typed into the posting form.",
+        ),
+        'mail' => array(
+          'type' => 'varchar',
+          'length' => 64,
+          'not null' => FALSE,
+          'description' => "The anonymous author's e-mail address from the posting form, if user is anonymous, and the 'Anonymous users may/must leave their contact information' setting is turned on.",
+        ),
+        'homepage' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+          'description' => "The anonymous author's home page address from the posting form, if user is anonymous, and the 'Anonymous users may/must leave their contact information' setting is turned on.",
+        ),
+        'hostname' => array(
+          'type' => 'varchar',
+          'length' => 128,
+          'not null' => FALSE,
+          'description' => "The author's host name.",
+        ),
+      );
+      $indexes = array(
+//        'name' => array('name'),
+      );
+      break;
+  }
+  return array(
+    'columns' => $columns,
+    'indexes' => $indexes,
+  );
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function anonymous_posting_uninstall() {
+
+  watchdog("Anonymous Posting Module", "Uninstalling module");
+
+  // Delete module variables:
+  $var_to_del = array(
+    'anonymous_posting_enabled_node_types',
+  );
+  foreach (node_type_get_types () as $node_type) {
+    $var_to_del[] = 'anonymous_posting_setting_type_' . $node_type->type;
+  }
+  foreach ($var_to_del as $var) {
+    variable_del($var);
+  }
+
+  // Delete custom field:
+  // Note, the following lines are run instead of a single field_delete_field()
+  // because of this issue: issue http://drupal.org/node/1117000
+  // That is, fields get inactive while hook_uninstall() is processed and then
+  // field_delete_field() only operate on active fields.
+  $field = field_read_field(ANONYMOUS_POSTING_FIELD_NAME, array('include_inactive' => TRUE));
+  $instances = field_read_instances(array('field_id' => $field['id']), array('include_inactive' => TRUE));
+  foreach ($instances as $instance) {
+    field_delete_instance($instance, FALSE);
+  }
+  module_invoke($field['storage']['module'], 'field_storage_delete_field', $field);
+  field_delete_field($field['field_name']);
+}
+

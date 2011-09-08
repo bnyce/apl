@@ -89,7 +89,6 @@
   });
   $('.colorbox-load').once().attr('href', function(ind,attr){return attr + '?width=80%25&height=80%25&iframe=true'});
 
-
 	});
 })(jQuery);
 

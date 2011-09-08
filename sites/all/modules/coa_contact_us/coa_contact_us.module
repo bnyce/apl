@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the coa_Contact US feature.
+ */
+
+include_once('coa_contact_us.features.inc');

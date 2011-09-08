@@ -24,7 +24,7 @@ function coa_fullcalendar_ctools_plugin_api() {
 function coa_fullcalendar_node_info() {
   $items = array(
     'calender_events' => array(
-      'name' => t('Calender Events'),
+      'name' => t('Calendar Events'),
       'base' => 'node_content',
       'description' => t('Calendar Events'),
       'has_title' => '1',

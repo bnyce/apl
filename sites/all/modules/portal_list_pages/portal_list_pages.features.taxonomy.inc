@@ -82,7 +82,7 @@ function portal_list_pages_taxonomy_default_vocabularies() {
       'name' => 'Government',
       'machine_name' => 'government_taxonomy',
       'description' => 'Government Taxonomy',
-      'hierarchy' => '0',
+      'hierarchy' => '1',
       'module' => 'taxonomy',
       'weight' => '0',
       'rdf_mapping' => array(

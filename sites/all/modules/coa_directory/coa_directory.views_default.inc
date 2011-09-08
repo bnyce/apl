@@ -27,6 +27,7 @@ function coa_directory_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
   $handler->display->display_options['pager']['type'] = 'mini';
@@ -127,11 +128,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['nid_1']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['nid_1']['alter']['external'] = 0;
   $handler->display->display_options['fields']['nid_1']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['nid_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['nid_1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['nid_1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['nid_1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['nid_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nid_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['nid_1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['nid_1']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['nid_1']['element_default_classes'] = 1;
@@ -148,11 +149,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_news_link']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_news_link']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_news_link']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_news_link']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_news_link']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_news_link']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_news_link']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_news_link']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_news_link']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_news_link']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_news_link']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_news_link']['element_default_classes'] = 1;
@@ -172,11 +173,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['title_1']['alter']['absolute'] = 1;
   $handler->display->display_options['fields']['title_1']['alter']['external'] = 1;
   $handler->display->display_options['fields']['title_1']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['title_1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['title_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['title_1']['element_default_classes'] = 1;
@@ -193,11 +194,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_service_body']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_service_body']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_service_body']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_service_body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_service_body']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_service_body']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_service_body']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_service_body']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_service_body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_service_body']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_service_body']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_service_body']['element_default_classes'] = 1;
@@ -214,11 +215,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_phone1']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_phone1']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_phone1']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_phone1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_phone1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_phone1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_phone1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_phone1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_phone1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_phone1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_phone1']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_phone1']['element_default_classes'] = 1;
@@ -237,11 +238,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_email']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_email']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_email']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_email']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_email']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_email']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_email']['element_default_classes'] = 1;
@@ -259,11 +260,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_contact1']['alter']['absolute'] = 1;
   $handler->display->display_options['fields']['field_contact1']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['replace_spaces'] = 1;
-  $handler->display->display_options['fields']['field_contact1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_contact1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_contact1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_contact1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_contact1']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_contact1']['element_default_classes'] = 1;
@@ -319,8 +320,11 @@ div.view-service-directory-view div.view-header {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = FALSE;
-  $handler->display->display_options['header']['area']['content'] = '<!--You are viewing the results from a filter "A".<a href="/glossary">Reset Filter</a>-->';
+  $handler->display->display_options['header']['area']['content'] = '<!--You are viewing the results from a filter "A".<a href="/glossary">Reset Filter</a>-->
+<p >The Customer Service Directory contains Web links about Departments and their services, phone numbers, and e-mail addresses for City of Austin services. For links to Web sites EXTERNAL to the City of Austin follow this link to our
+<a href="http://www.ci.austin.tx.us/links.htm" style="text-decoration:none;"><strong> LINKS PAGE</strong></a>.</p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = 0;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area_1']['id'] = 'area_1';
@@ -361,7 +365,6 @@ For links to Web sites EXTERNAL to the City of Austin follow this link to our LI
   $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['label'] = 'Keyword Search';
-  $handler->display->display_options['filters']['keys']['expose']['use_operator'] = 1;
   $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
   $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
@@ -483,7 +486,9 @@ div.view-service-directory-view div.view-header {
     t('Content: Title'),
     t('All'),
     t('Page'),
-    t('<!--You are viewing the results from a filter "A".<a href="/glossary">Reset Filter</a>-->'),
+    t('<!--You are viewing the results from a filter "A".<a href="/glossary">Reset Filter</a>-->
+<p >The Customer Service Directory contains Web links about Departments and their services, phone numbers, and e-mail addresses for City of Austin services. For links to Web sites EXTERNAL to the City of Austin follow this link to our
+<a href="http://www.ci.austin.tx.us/links.htm" style="text-decoration:none;"><strong> LINKS PAGE</strong></a>.</p>'),
     t('Reasons you may not have succeeded: 
 1. Misspelling of any word in the keyword search box.
 2. Asking for an employee directory. We do not publicize our staff directory due to privacy concerns. You can call     3-1-1 or (512) 974-2000 and be transferred to anyone\'s desk.
@@ -554,6 +559,7 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -578,11 +584,11 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['title']['alter']['external'] = 0;
   $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
   $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
@@ -602,11 +608,11 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_email']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_email']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_email']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_email']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_email']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_email']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_email']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_email']['element_default_classes'] = 1;
@@ -625,11 +631,11 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['fields']['field_contact1']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_contact1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_contact1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_contact1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_contact1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_contact1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_contact1']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_contact1']['element_default_classes'] = 1;
@@ -646,11 +652,11 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['fields']['nid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['nid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['nid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['nid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['nid']['element_default_classes'] = 1;
@@ -667,11 +673,11 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['php']['alter']['external'] = 0;
   $handler->display->display_options['fields']['php']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['php']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['php']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['php']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['php']['alter']['html'] = 0;
   $handler->display->display_options['fields']['php']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
@@ -786,20 +792,6 @@ div.view-customer-service-directory-view div.view-header {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
-  /* Contextual filter: Fields: Contact (field_contact1) */
-  $handler->display->display_options['arguments']['field_contact1_value']['id'] = 'field_contact1_value';
-  $handler->display->display_options['arguments']['field_contact1_value']['table'] = 'field_data_field_contact1';
-  $handler->display->display_options['arguments']['field_contact1_value']['field'] = 'field_contact1_value';
-  $handler->display->display_options['arguments']['field_contact1_value']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_contact1_value']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['field_contact1_value']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_contact1_value']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_contact1_value']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_contact1_value']['glossary'] = 0;
-  $handler->display->display_options['arguments']['field_contact1_value']['limit'] = '0';
-  $handler->display->display_options['arguments']['field_contact1_value']['path_case'] = 'ucwords';
-  $handler->display->display_options['arguments']['field_contact1_value']['transform_dash'] = 1;
-  $handler->display->display_options['arguments']['field_contact1_value']['break_phrase'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';

@@ -26,7 +26,7 @@ body {
     background-color: transparent;
 }
 .br {
-    margin-top: 15px;
+    margin-bottom: 15px;
 }
 #squeeze p {
     font-family: "arial";
@@ -187,9 +187,7 @@ div.round-corners .bl {
 div.round-corners .br {
     background: url("images/br.jpg") no-repeat scroll right bottom transparent;
 }
-#content_box_top, #content_box_middle, #content_box_bottom {
-    margin-top: 15px;
-}
+
 #search-block-form {
     background: none repeat scroll 0 0 #FFFFFF;
 }
@@ -541,7 +539,8 @@ style-2 .views-field-title-1 {
     color: #A85708;
     font-weight: bold;
     padding-right: 10px;
-    text-decoration: none;
+	text-decoration:none;
+	text-transform: uppercase;
 }
 .style-3 .views-field-field-promo-icon {
     float: left;
@@ -643,11 +642,13 @@ style-2 .views-field-title-1 {
 .star ul li {
    background: url("images/icons/star.png") no-repeat scroll 0 0 transparent !important;
    list-style: none outside none;
+   padding-left: 15px !important;
 }
 
 .calendar ul li {
    background: url("images/icons/calendar.png") no-repeat scroll 0 0 transparent !important;
    list-style: none outside none;
+   padding-left: 22px !important;
 }
 
 .menu-block ul li {
@@ -663,4 +664,75 @@ style-2 .views-field-title-1 {
 
 .p-t-10 {
 	padding-top: 10px;
+}
+
+.m-l-20 {
+	margin-left: 20px;
+}
+
+.m-r-20 {
+	margin-right: 20px;
+}
+
+/* #SECTIONS
+================================================== */
+
+.section-resident #topic-group h2.pane-title {
+	color: #626C76 !important;
+} 
+.section-resident .promo-tile .views-field-title {
+	background-color: #626C76 !important; 
+} 
+.section-resident .breadcrumb-left {
+	background-color:#626C76 !important;
+}
+
+.section-business #topic-group h2.pane-title {
+	color: #A85708 !important;
+} 
+.section-business .promo-tile .views-field-title {
+	background-color: #A85708 !important; 
+} 
+.section-business .breadcrumb-left {
+	background-color:#A85708 !important;
+}
+
+.section-development #topic-group h2.pane-title {
+	color: #664B2D !important;
+} 
+.section-development .promo-tile .views-field-title {
+	background-color: #664B2D !important; 
+} 
+.section-development .breadcrumb-left {
+	background-color:#664B2D !important;
+}
+
+.section-development #topic-group h2.pane-title {
+	color: #664B2D !important;
+} 
+.section-development .promo-tile .views-field-title {
+	background-color: #664B2D !important; 
+} 
+.section-development .breadcrumb-left {
+	background-color:#664B2D !important;
+}
+
+.section-government #topic-group h2.pane-title {
+	color: #723D39 !important;
+} 
+.section-government .promo-tile .views-field-title {
+	background-color: #723D39 !important; 
+} 
+.section-government .breadcrumb-left {
+	background-color:#723D39 !important;
+}
+
+.section-environment #topic-group h2.pane-title {
+	color: #61641C !important;
+} 
+.section-environment .promo-tile .views-field-title {
+	background-color: #61641C !important; 
+} 
+.section-environment .breadcrumb-left {
+	background-color:#61641C !important;
 }

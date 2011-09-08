@@ -34,13 +34,6 @@ function coa_directory_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_customer_service_entry';
-  $strongarm->value = 1;
-  $export['comment_form_location_customer_service_entry'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_services';
   $strongarm->value = 1;
   $export['comment_form_location_services'] = $strongarm;

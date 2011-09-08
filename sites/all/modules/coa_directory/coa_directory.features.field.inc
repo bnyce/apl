@@ -10,14 +10,16 @@
 function coa_directory_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-services-field_body'
-  $fields['node-services-field_body'] = array(
+  // Exported field: 'node-services-body'
+  $fields['node-services-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_body',
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'field_name' => 'body',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -34,7 +36,7 @@ function coa_directory_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '1',
-      'type' => 'text_long',
+      'type' => 'text_with_summary',
     ),
     'field_instance' => array(
       'bundle' => 'services',
@@ -47,7 +49,7 @@ function coa_directory_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 10,
+          'weight' => 4,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -57,10 +59,11 @@ function coa_directory_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_body',
+      'field_name' => 'body',
       'label' => 'Body',
       'required' => 0,
       'settings' => array(
+        'display_summary' => 0,
         'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
@@ -68,9 +71,10 @@ function coa_directory_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '500',
+          'rows' => '1000',
+          'summary_rows' => 5,
         ),
-        'type' => 'text_textarea',
+        'type' => 'text_textarea_with_summary',
         'weight' => '7',
       ),
     ),
@@ -96,11 +100,9 @@ function coa_directory_field_default_fields() {
           'Airport' => 'Airport',
           'Animal Services' => 'Animal Services',
           'Auditor' => 'Auditor',
+          'Austin 3-1-1' => 'Austin 3-1-1',
           'Austin Energy' => 'Austin Energy',
-          'Capital Planning Office' => 'Capital Planning Office',
-          'City Clerk' => 'City Clerk',
-          'City Manager' => 'City Manager',
-          'Code Compliance' => 'Code Compliance',
+          'Capital Planning Office|Capital Planning Office City Clerk|City Clerk City Manager|City Manager Code Compliance' => 'Code Compliance',
           'Communications' => 'Communications',
           'Contract and Land' => 'Contract and Land',
           'Controller' => 'Controller',
@@ -148,7 +150,7 @@ function coa_directory_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 12,
+          'weight' => 7,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -213,7 +215,7 @@ function coa_directory_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 8,
+          'weight' => 6,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -234,7 +236,7 @@ function coa_directory_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => '40',
+          'size' => '60',
         ),
         'type' => 'text_textfield',
         'weight' => '9',
@@ -282,10 +284,11 @@ function coa_directory_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '1',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 8,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -306,7 +309,7 @@ function coa_directory_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -334,7 +337,7 @@ function coa_directory_field_default_fields() {
       ),
       'module' => 'text',
       'settings' => array(
-        'max_length' => '255',
+        'max_length' => '60',
       ),
       'translatable' => '1',
       'type' => 'text',
@@ -350,7 +353,7 @@ function coa_directory_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 11,
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -374,7 +377,7 @@ function coa_directory_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -418,7 +421,7 @@ function coa_directory_field_default_fields() {
           'module' => 'link',
           'settings' => array(),
           'type' => 'default',
-          'weight' => '0',
+          'weight' => 1,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -438,7 +441,7 @@ function coa_directory_field_default_fields() {
           'target' => '_top',
         ),
         'display' => array(
-          'url_cutoff' => '',
+          'url_cutoff' => '80',
         ),
         'enable_tokens' => 0,
         'title' => 'value',
@@ -451,7 +454,7 @@ function coa_directory_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '2',
+        'weight' => '4',
       ),
     ),
   );
@@ -468,7 +471,7 @@ function coa_directory_field_default_fields() {
       'indexes' => array(),
       'module' => 'cck_phone',
       'settings' => array(
-        'size' => '12',
+        'size' => '15',
       ),
       'translatable' => '1',
       'type' => 'phone_number',
@@ -483,7 +486,7 @@ function coa_directory_field_default_fields() {
           'module' => 'cck_phone',
           'settings' => array(),
           'type' => 'global_phone_number',
-          'weight' => 9,
+          'weight' => 5,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -786,7 +789,7 @@ function coa_directory_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 2,
+          'weight' => 3,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -800,7 +803,7 @@ function coa_directory_field_default_fields() {
       'label' => 'Service Description',
       'required' => 0,
       'settings' => array(
-        'display_summary' => 1,
+        'display_summary' => 0,
         'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
@@ -808,7 +811,7 @@ function coa_directory_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '15',
+          'rows' => '20',
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',

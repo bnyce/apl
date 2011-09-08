@@ -1,0 +1,106 @@
+/**
+* css for the YouTube tab in the coaMedia plugin
+*/
+
+#ck_YouTubeTab {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+.mediaListBlock:hover, .mediaListBlock:active,
+#ck_YouTubeTab li:hover, #ck_YouTubeTab li div:hover  {
+  background-color: #ddd;
+}
+
+#ck_YouTubeTab li {
+  margin: 0 0 0 -40px;
+}
+
+#ck_YouTubeTab .mediaListBlock, #ck_YouTubeTab .mediaListBlock img {
+  float:left;
+  margin: 3px;
+}
+
+#ck_YouTubeTab .mediaListBlock {
+  min-width: 500px;
+}
+
+#ck_YouTubeTab .mediaDesc {
+  font-size: 10px;
+}
+
+#channelTitle {
+
+}
+
+#channelSearch {
+  float:right;
+
+}
+
+#channelSearch input{
+  margin: 0 5px;
+  text-align:center;
+}
+
+#channelSearchBtn {
+  background-image: url("../images/srchBtn20_20.gif");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display:block;
+  width:20px;
+  height:20px;
+  float:right;
+}
+
+#channelSearchBtn:hover {
+  cursor:pointer;
+}
+
+.cke_label {
+  display:none;
+}
+
+#channelSearchText {
+  color: #ddd;
+}
+
+#channelSearchText:focus {
+  color: #000;
+}
+
+#ck_selYouTubeVid {
+  display: none;
+}
+
+#navigation {
+  clear:both;
+}
+
+#yt_prev, #yt_next {
+  background-image: url("../images/sprites.png");
+  cursor: pointer;
+  height: 20px;
+  text-align: center;
+  width: 20px;
+  display: block;
+  background-repeat: no-repeat;
+  text-align: center;
+  float: left;
+  margin: 5px 15px;
+  padding: 0 25px 0 15px;
+  border: 1px solid #ddd
+}
+
+#yt_prev {
+  background-position: 4px -1384px;
+}
+
+#yt_next {
+    background-position: 50px -1405px;
+}
+
+#yt_prev:hover, #yt_next:hover {
+  background-color: #ddd;
+}

@@ -59,11 +59,11 @@
            <!-- <h1<?php print $tabs ? ' class="with-tabs"' : '' ?>><?php print $title ?></h1> -->
           <?php endif; ?>
           <?php print render($title_suffix); ?>
+          <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
           <?php if ($tabs): ?><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($tabs2); ?>
           <?php print $messages; ?>
           <?php print render($page['help']); ?>
-          <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 		  <?php if ($page['above_content']): ?><div id="above-content"><?php print render($page['above_content']); ?></div><?php endif; ?>
 		  <?php if ($page['content_box_top']): ?><div id="content_box_top" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_box_top']); ?></div></div></div></div></div></div><?php endif; ?>
 		  <?php if ($page['content_box_middle']): ?><div id="content_box_middle" class="round-corners"><div class="tl"><div class="tr"><div class="bl"><div class="br"><div class="content-container"><?php print render($page['content_box_middle']); ?></div></div></div></div></div></div><?php endif; ?>

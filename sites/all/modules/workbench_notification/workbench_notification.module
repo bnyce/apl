@@ -726,7 +726,7 @@ return array(
 				'label' => t('A new workbench notification message has been created.'),
                  ),
              'workbench_notification_update' => array(
-        		'label' => t('After updating a workbench notification message.'),
+        		'label' => t('Workbench notification message was updated.'),
                  ), 
              ),
      );
@@ -949,7 +949,8 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
     if (!$message['result']) {
         $msg = (t('Unable to send email to %recipient', array('%recipient' => $recipient)));
         drupal_set_message($msg, 'warning');
-        watchdog('workbench_access', $msg, WATCHDOG_WARNING);
+        $var = array();
+        watchdog('workbench_access', $msg, $var, WATCHDOG_WARNING);
       break;
     } 
     else {
@@ -960,7 +961,8 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
     //$role_names = array_intersect_key(user_roles(TRUE), array_flip($roles));
    $msg = t('Successfully sent email to: %users.', array('%users' => implode(', ', $successful)));
    drupal_set_message($msg);
-   watchdog('workbench_access', $msg, WATCHDOG_INFO);
+   $vars = array();
+   watchdog('workbench_access', $msg, $vars, WATCHDOG_INFO);
   }
 }
 
@@ -1052,7 +1054,8 @@ watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fire
     if (!$message['result']) {
         $msg = (t('Unable to send email to %recipient', array('%recipient' => $recipient)));
         drupal_set_message($msg, 'warning');
-        watchdog('workbench_access', $msg, WATCHDOG_WARNING);
+        $vars = array();
+        watchdog('workbench_access', $msg, $vars, WATCHDOG_WARNING);
       break;
     } 
     else {
@@ -1063,7 +1066,8 @@ watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fire
     //$role_names = array_intersect_key(user_roles(TRUE), array_flip($roles));
    $msg = t('Successfully sent email to: %users.', array('%users' => implode(', ', $successful)));
    drupal_set_message($msg);
-   watchdog('workbench_access', $msg, WATCHDOG_INFO);
+   $vars = array();
+   watchdog('workbench_access', $msg, $vars, WATCHDOG_INFO);
   }
 }
 
@@ -1194,6 +1198,7 @@ function workbench_notification_block_view($delta='') {
   $block = array();
   switch ($delta) {
     case 'approval-block':
+     if($user->uid){  //is user logged in
       $name = $user->name;
       if (arg(0) == 'node' && ctype_digit(arg(1))) {
           $node = node_load(arg(1));
@@ -1244,6 +1249,7 @@ function workbench_notification_block_view($delta='') {
           }
         }
       }
+     }
       break;
   }
   return $block;

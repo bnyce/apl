@@ -23,11 +23,11 @@ function workbench_notification_schema() {
       ),
      
       'type' => array(
-        'description' => 'The {model_type}.type of this model.',
+        'description' => 'The type of this model.',
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' => '',
+        'default' => 'workbench_notification',
       ),
       
       'entity_id' => array(
@@ -103,12 +103,26 @@ function workbench_notification_schema() {
         'not null'     => FALSE,
       ),
     ),
-    
-    'primary key' => array('mid', 'entity_id', 'sender'),
-    'indexes'    => array(
-      'type'     => array('type'),
-     ),
+    'indexes'     => array(
+                    'entity_id' => array('entity_id'),
+                    'sender'	=> array('sender'),
+                    ),
+    'primary key' => array('mid'),
+    'unique keys' => array(
+                    'mid' => array('mid'), 
+                    ),
   );
   
   return $schema;
 }
+
+// SCHEMA ///////////////////
+/* Drupal now does this for you - see http://drupal.org/node/970598 
+function workbench_notification_install() {
+  drupal_install_schema('workbench_notification');
+}
+
+function workbench_notification_uninstall() {
+  drupal_uninstall_schema('workbench_notification');
+}
+*/

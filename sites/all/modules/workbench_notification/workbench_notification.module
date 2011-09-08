@@ -207,7 +207,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
   global $node;
   
   $roptions = workbench_notification_potential_recipients();
-  if(function_exists('dpmX')) dpm($roptions1, 'roptions');
+  if(function_exists('dpm')) dpm($roptions1, 'roptions');
   // Only include on node add/edit forms for supported content types.
   if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $TYPES) || in_array($node['type']['#value'], $TYPES) )) {
     $form['#submit'][] = 'workbench_notification_form_submit'; // add submit function
@@ -302,7 +302,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
      );
    
   };
-  if(function_exists('dpmX')) {
+  if(function_exists('dpm')) {
     dpm($form, "form");
     dpm($form_state, "form_state");  
   }
@@ -355,7 +355,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
       $s_recipients = $record->recipients; // get a reference to the recipients.
       $recipients = unserialize($s_recipients); // get a reference to the recipients.
       
-      if(function_exists('dpmX')) {
+      if(function_exists('dpm')) {
         dpm($result, 'workbench_notification_approval_form_submit result');
         dpm($record, 'workbench_notification_approval_form_submit record');
         dpm($recipients, 'workbench_notification_approval_form_submit recipients');
@@ -372,7 +372,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
               //check to see if all requestors have approved and then update  $record->status = 2 (all approved).
               $outstanding = array();
               foreach((array) $recipients as $row) {
-                if(function_exists('dpmX')) dpm($row, 'recipients as row');
+                if(function_exists('dpm')) dpm($row, 'recipients as row');
                 if($row['status'] != 2) $outstanding[] = $row['name'];
               }
               //append log text
@@ -427,7 +427,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
             drupal_set_message(t('Workbench_Notification: Odd - User not found as recipient.'),'error');
       };
         
-      if(function_exists('dpmX')) {
+      if(function_exists('dpm')) {
         dpm($form_state, 'form_state');
       }
       return $result;
@@ -512,7 +512,7 @@ function workbench_notification_form_submit($form, &$form_state) {
          $record->recipients    = $recipients; // $recipients[$address] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0);   
 
          //show us what you got so far
-         if(function_exists('dpmX')) {
+         if(function_exists('dpm')) {
            $values = $form_state['values'];
            dpm($values, "form_state[values] - workbench_notification_form_submit");
            dpm($addresses, "chosen addresses array");
@@ -522,16 +522,16 @@ function workbench_notification_form_submit($form, &$form_state) {
          
          // Save the NODE so we can get a NID
           if (empty($node)) {
-            if(function_exists('dpmX')) drupal_set_message(t('form submit - empty node'),'warning');
+            if(function_exists('dpm')) drupal_set_message(t('form submit - empty node'),'warning');
             if(arg(0)=='node' && is_numeric(arg(1)))
               {
-                if (function_exists('dpmX')) drupal_set_message(t('form submit - load node using node/num'),'warning');
+                if (function_exists('dpm')) drupal_set_message(t('form submit - load node using node/num'),'warning');
                 $nid = arg(1);
                 $node = node_load($nid);
               }
             else 
               {
-                if (function_exists('dpmX')) drupal_set_message(t('form submit - using form_state node'),'warning');
+                if (function_exists('dpm')) drupal_set_message(t('form submit - using form_state node'),'warning');
                 //@TODO having trouble with new nodes, but is there a better way to do this?   
                 //drupal_set_message(t('node being saved for first time.'),'warning');
                 $node = $form_state['node'];
@@ -539,7 +539,7 @@ function workbench_notification_form_submit($form, &$form_state) {
                 $node->body = $form_state['values']['body'];
                 $node->language = 'en';
                 node_save($node);
-                if(function_exists('dpmX')) {
+                if(function_exists('dpm')) {
                   dpm($node, "node - after node_save");
                 }
                 
@@ -547,7 +547,7 @@ function workbench_notification_form_submit($form, &$form_state) {
                 $form_state['values']['vid'] = $node->vid;
                 $form_state['values']['revision'] = FALSE;
                 $atext = implode(", ", $addresses);
-                if(function_exists('dpmX')) {
+                if(function_exists('dpm')) {
                   dpm($addresses, "addresses");
                   dpm($atext, "atext");
                 };
@@ -928,7 +928,7 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
   // Retrieve the responsible implementation for this message.
   $system = drupal_mail_system($module, $key);
   
-  if(function_exists('dpmX')){
+  if(function_exists('dpm')){
     dpm($context, 'context');
     dpm($compare, 'compare result array');
     dpm($filtered_users, 'filtered_users');
@@ -940,7 +940,7 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
     $recipient = $row['mail'];
     $message['to'] = $recipient; // update to address 
     
-    if(function_exists('dpmX')){
+    if(function_exists('dpm')){
       dpm($message, 'addressed message');
     }
     
@@ -1034,7 +1034,7 @@ watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fire
   // Retrieve the responsible implementation for this message.
   $system = drupal_mail_system($module, $key);
   
-  if(function_exists('dpmX')){
+  if(function_exists('dpm')){
     dpm($context, 'context');
     dpm($compare, 'compare result array');
     dpm($filtered_users, 'filtered_users');
@@ -1045,7 +1045,7 @@ watchdog('workbench_access', 'workbench_notification_mail_to_creator_action fire
     $recipient = $email;
     $message['to'] = $recipient; // update to address 
     
-    if(function_exists('dpmX')){
+    if(function_exists('dpm')){
       dpm($message, 'addressed message');
     }
     
@@ -1174,11 +1174,10 @@ function BLOCK(){};
  */
 function workbench_notification_block_info() {
   $blocks['approval-block'] = array(
-    'info'        => t('Workbench Notificaiton One-Click Approval Form'),
+    'info'        => t('Workbench Notificaiton One-Click Approval Block'),
     'status'      => TRUE,
     'region'      => 'above_content',
     'visability'  => 'BLOCK_VISIBILITY_LISTED',  // or BLOCK_VISIBILITY_PHP
-    'pages'		  => 'nothing/*', // why isn't working?
   );
   return $blocks;
 }
@@ -1210,7 +1209,7 @@ function workbench_notification_block_view($delta='') {
       // Does message exist for this content?
       $record = workbench_notification_message_exists($nid);
       
-      if(function_exists('dpmX')) {
+      if(function_exists('dpm')) {
             dpm($node,'workbench_notification_block_view node' );
             dpm($record, 'workbench_notification_block_view record');
         }
@@ -1218,7 +1217,7 @@ function workbench_notification_block_view($delta='') {
       if($record != FALSE){  // if a message exists
         //$record = (object) $record; 
         $recipients = unserialize($record->recipients); 
-        if(function_exists('dpmX')) dpm($recipients, 'workbench_notification_block_view $recipients');
+        if(function_exists('dpm')) dpm($recipients, 'workbench_notification_block_view $recipients');
            if (array_key_exists($name, $recipients)) {
                $u = (object) $recipients["$name"];       
               } 
@@ -1274,7 +1273,7 @@ function workbench_notification_contents($mid, $recipients) {
  */
 function workbench_notification_message_exists($nid = null) {
    global $node;
-   if(function_exists('dpmX')) drupal_set_message("Message Exist NID = $nid");
+   if(function_exists('dpm')) drupal_set_message("Message Exist NID = $nid");
    $result = db_query("SELECT *  
                        FROM {workbench_notification} 
                        WHERE entity_id = :nid", 

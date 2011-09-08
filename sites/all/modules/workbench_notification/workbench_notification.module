@@ -111,10 +111,7 @@ function workbench_notification_potential_recipients(){
 
                           
     $results = $resource->fetchAllKeyed();                     
-    // loop through the resource and fetch the rows
-    // $results = array();
-    // while ($row = $resource->fetchAssoc()) $results[] = $row;
-    // dpm($results, 'workbench_notification_potential_recipients results' );
+
     return $results;
 }
 
@@ -365,7 +362,7 @@ function workbench_notification_approval_form_submit($form, &$form_state){
        };
       //update the recipient record array
       if(array_key_exists($name, (array) $recipients)) {
-              drupal_set_message(t('Workbench_Notification: User found in result.'));
+              //drupal_set_message(t('Workbench_Notification: User found in result.'));
               
               // update recipient record  
               //$record->recipients[$name] = array('uid' =>  $uid, 'mail' => $mail, 'status' => $userstatus, 'name' => $name, 'time' => time()); 
@@ -550,8 +547,10 @@ function workbench_notification_form_submit($form, &$form_state) {
                 $form_state['values']['vid'] = $node->vid;
                 $form_state['values']['revision'] = FALSE;
                 $atext = implode(", ", $addresses);
-                dpm($addresses, "addresses");
-                dpm($atext, "atext");
+                if(function_exists('dpmX')) {
+                  dpm($addresses, "addresses");
+                  dpm($atext, "atext");
+                };
                 $form_state['values']['log'] = $form_state['values']['revision'] ." Message queued for: $atext";
                 
                 $node_link = l(t('view'), 'node/' . $node->nid);

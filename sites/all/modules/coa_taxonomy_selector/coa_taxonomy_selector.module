@@ -10,9 +10,7 @@
     global $GOV_TAX;
     global $ENV_TAX;
     global $TOP_TAX;
-    global $DEBUGGING;
     
-    $DEBUGGING = false;
     
     $TOP_TAX =  array('vid' => 5, 'machine_name' => 'home_page_category', 'name' => '== Sections ==');
     $DEPT_TAX = array('vid' => 15, 'machine_name' => 'department', 'name' => '== Departments ==');
@@ -30,7 +28,7 @@
 */
 //function coa_taxonomy_selector_workbench_access_node_element_alter(&$element, $form_state, $active){ 
 function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
-   global $DEBUGGING;
+
    // a switch is used because you may want to alter more than
    // one form and it is easy to add a new case for each form.
    switch ($form_id) {
@@ -50,8 +48,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  
-		  if($DEBUGGING) dpm($form, "form");
 		  				   
       break;
       
@@ -73,9 +69,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  
-		  
-		  if($DEBUGGING) dpm($form, "form");
 		 		  
      break;
      
@@ -101,7 +94,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		  if($DEBUGGING)  dpm($form, "form");
      break;  
      
      case 'contact_information_node_form':
@@ -121,7 +113,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		  if($DEBUGGING)  dpm($form, "form");
      break;  
      
      case 'department_banner_image_node_form':
@@ -142,8 +133,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		  if($DEBUGGING)  dpm($form, "form");
-       
      break;
      
      case 'factoid_node_form':       
@@ -158,8 +147,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		 if($DEBUGGING)  dpm($form, "form");
-       
      break;
      
      
@@ -188,8 +175,6 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-		 if($DEBUGGING)  dpm($form, "form");
-       
      break;
    };
    
@@ -375,10 +360,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
             $form_state['values']['field_dev_tax']['en'] = $dev;
             $form_state['values']['field_gov_tax']['en'] = $gov;
             $form_state['values']['field_env_tax']['en'] = $env;
-            
-            if($DEBUGGING) dpr($dep_tax, 'dep_stage');
-            if($DEBUGGING) dpr($form_state, 'form_state');
-        	
+                    	
       break;
     
       // These are DEPT only, except Calandar has it's own unique field
@@ -387,7 +369,6 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
 
             $form_state['values']['field_calendar_department']['en'] = $dept;
             
-            if($DEBUGGING) dpm($form_state, '$form_state');
       break;  
       
       // These are DEPT only
@@ -413,13 +394,9 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
             $form_state['values']['field_cat_dept']['en'] = $dept;
             $form_state['values']['field_home_category']['en'] = $top;
             
-            if($DEBUGGING) dpr($dep_tax, 'dep_stage');
-            if($DEBUGGING) dpr($form_state, 'form_state');
-        	
       break;
            
     };
-    if($DEBUGGING)  dpm($form_state['values'], 'form_state');
 }
 
 
@@ -505,13 +482,6 @@ function _coa_taxonomy_selector_dept_only_options($optionarray) {
    }
    // filter out all non-deparmental options
    $common = array_intersect($trimmedoptions,$deptarray);
-  
-   if($DEBUGGING) { 
-    dpm($optionarray, 'optionarray');
-    dpm($trimmedoptions, 'trimmedoptions');
-    dpm($deptarray, 'deptarray');
-    dpm($common, 'common');
-   };
    return $common;
 }
 
@@ -584,13 +554,7 @@ function _coa_taxonomy_selector_promo_options($optionarray) {
       //dvm($txt);
       $mergedarray[$name] = $value;
     }
-   
-    if($DEBUGGING) {
-      dpm($optionarray, 'optionarray');
-      dpm($mergedarray, 'mergedarray'); 
-    }
    // campare if the key exists in both arrays, if so, add it to trimmedoptions array
-   // 
     foreach ($mergedarray as $option => $pointer){
         if(array_key_exists($option, $optionarray)){
               //the term exists in both arrays
@@ -629,17 +593,9 @@ function _coa_taxonomy_selector_promo_options($optionarray) {
                   $key  = $tid;
                   $value = $name;
                   $common[$key] = $value;
-                  if($DEBUGGING){
-                    dpm($sample, "sample");
-                  }
               };
         };
-     };
-   
-   if($DEBUGGING){
-     dpm($common, 'common');
-   }
-   
+     };     
    return $common;
 }
 
@@ -651,6 +607,7 @@ function _coa_taxonomy_selector_dept_and_homepage_options($optionarray) {
     
     global $DEPT_TAX;
     global $TOP_TAX;
+
     // first we create an array of all the possible options
     
     // Get only the first level TIDs of the taxonomies
@@ -670,10 +627,6 @@ function _coa_taxonomy_selector_dept_and_homepage_options($optionarray) {
       $mergedarray[$name] = $value;
     }
    
-    if($DEBUGGING) {
-      dpm($optionarray, 'optionarray');
-      dpm($mergedarray, 'mergedarray'); 
-    }
    // campare if the key exists in both arrays, if so, add it to trimmedoptions array
    // 
     foreach ($mergedarray as $option => $pointer){
@@ -714,18 +667,10 @@ function _coa_taxonomy_selector_dept_and_homepage_options($optionarray) {
                   $key  = $tid;
                   $value = $name;
                   $common[$key] = $value;
-                  if($DEBUGGING){
-                    dpm($sample, "sample");
-                  }
               };
         };
      };
    
-   if($DEBUGGING){
-     dpm($common, 'common');
-   }
    
    return $common;
 }
-
-

@@ -35,6 +35,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      // This is our form ID.
      case 'page_node_form':
      case 'link_node_form':
+     case 'biography_node_form':
 		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  

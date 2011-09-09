@@ -736,3 +736,22 @@ style-2 .views-field-title-1 {
 .section-environment .breadcrumb-left {
 	background-color:#61641C !important;
 }
+
+.star .more-link a {
+    color: #A85708;
+    float: left;
+    font-family: Univers Bold;
+    font-size: 13px;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.promo-list li {
+    border-bottom: 1px solid #FFFFFF;
+    min-height: 22px;
+    width: 155px;
+}
+
+#search {
+        margin-top: 15px;
+}

@@ -26,9 +26,6 @@
 	#SHORT CUTS
 	*/
 
-	
-	*/
-
 
 
 /* #TYPOGRAPHY 
@@ -184,6 +181,26 @@ span.customStyleSelectBox {
     padding: 5px 0;
 }
 option {background:#ebe8da; border:1px solid #dcd6b3; color:#816c5b;}
+
+.view-header {
+    padding: 5px 20px;
+}
+
+
+.view-filters {
+    padding: 5px 20px;
+}
+
+/* override inline js */
+.view-customer-service-directory-view .attachment div.services-table div.view-header {
+    float: none;
+    clear: both;
+    padding: 0;
+}
+.view-content table {
+    width:  100%;
+    margin:  10px 0;
+}
 
 
 
@@ -417,59 +434,60 @@ p#tweet {font-weight: normal; font-size: 12px;}
 
 /* #BIO VIEW - GOVERNMENT BIO PAGE
 ================================================== */
-.gov-bio-home .views-field-field-last-name, .views-field-field-first-name {    
+.views-field-field-last-name, .views-field-field-first-name {    
     display: inline-block;
     font-size: 14px;
 	font-weight: bold;
 	margin-top: 18px;
 }
 
-.gov-bio-home .views-field-field-last-name a, .views-field-field-first-name a {    
+.views-field-field-last-name a, .views-field-field-first-name a {    
     text-decoration: none;
 	color: #A85708;
 }
 
-.gov-bio-home .views-field-field-image {
+.views-field-field-image {
     float: left;
     margin-right: 15px;
 }
 
-.gov-bio-home .views-field-field-council-place {
+.views-field-field-council-place {
     display: inline-block;
 	float: left;
 	font-size: 11px;
 }
 
-.gov-bio-home .views-label-field-council-place{
+.views-label-field-council-place{
 	display: inline-block;
 	padding-right: 2px;
 	font-size: 11px;
 }
 
-.gov-bio-home .views-label-field-council-place .field-content {
+.views-label-field-council-place .field-content {
 	font-size: 11px;
 }
 
-.gov-bio-home .views-field-field-council-place .field-content, .views-label-field-council-place {
+.views-field-field-council-place .field-content, .views-label-field-council-place {
 	float: left;
 }
 
-.gov-bio-home .views-label-field-council-place {
+.views-label-field-council-place {
     display: inline-block;
 }
 
-.gov-bio-home .views-field-title-1 a{
+.views-field-title-1 a{
 	color: none;
 }
 
-.gov-bio-home .bio {
+.bio {
 	background: url("images/bio_bkg.jpg") no-repeat scroll 0 0 transparent;
     height: 107px;
     padding-left: 10px;
     width: 209px;
 }
 
-.gov-bio-home .views-field-field-quote {
+
+.gov-bio-home .views-field-field-bio-quote {
 	color: #7D4E3D;
     font-size: 17px;
     height: auto;

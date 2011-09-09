@@ -55,7 +55,7 @@ class WorkbenchAccessTestCase extends DrupalWebTestCase {
   function testWorkbenchAccess() {
     // Check for user creation.
     $this->assertTrue(count($this->user_list) == 10, t('Ten new users were created.'));
-    $this->assertTrue(!empty($this->editor_role), t('Created edtior role.'));
+    $this->assertTrue(!empty($this->editor_role), t('Created editor role.'));
     // Check for node creation.
     $count = db_query("SELECT COUNT(n.nid) FROM {node} n")->fetchField();
     $this->assertTrue($count == 10, t('Ten initial nodes created.'));
@@ -98,52 +98,52 @@ class WorkbenchAccessTestCase extends DrupalWebTestCase {
       }
     }
     $this->assertTrue(!empty($assigned), t('All nodes properly assigned.'));
-    $actions = array('create', 'update', 'delete');
-    foreach ($actions as $action) {
-      foreach ($nodes as $node) {
-        $status[$action] = FALSE;
-        if ($action == 'create') {
-          $result = node_access($action, $node->type, $account);
-        }
-        else {
-          $result = node_access($action, $node, $account);
-        }
-        if ($result) {
-          $status[$action] = TRUE;
-          break;
-        }
-      }
-      $this->assertTrue(empty($status[$action]), t('Test user cannot @action content.', array('@action' => $action)));
-    }
+    $this->workbench_access_action_check($nodes, $account, t('No sections'), FALSE);
+
+    // Test that the role lookup function works correctly.
+    $roles = workbench_access_get_roles('access workbench access by role');
+    // The 'administrator' role always has permission.
+    $this->assertTrue(count($roles) == 2, t('One user role assigneed.'));
+
     // Now, we assign the user to a section and check again.
-    drupal_static_reset('node_access');
     workbench_access_user_section_save($account->uid, 'workbench_access', $active['access_scheme']['access_scheme']);
     $account = user_load($account->uid, TRUE);
     $this->assertTrue(!empty($account->workbench_access['workbench_access']), t('Test user assigned to top-level hierarchy.'));
-    foreach ($actions as $action) {
-      foreach ($nodes as $node) {
-        $status[$action] = TRUE;
-        if ($action == 'create') {
-          $result = node_access($action, $node->type, $account);
-        }
-        else {
-          $result = node_access($action, $node, $account);
-        }
-        if (!$result) {
-          $status[$action] = FALSE;
-          break;
-        }
-      }
-      $this->assertTrue(!empty($status[$action]), t('Test user can now @action content.', array('@action' => $action)));
-    }
+    $this->workbench_access_action_check($nodes, $account, t('Assigned sections'), TRUE);
+
     // Remove the permission to 'access workbench access by role' and check again.
     user_role_revoke_permissions($this->editor_role, array('access workbench access by role'));
     $account = user_load($account->uid, TRUE);
     $this->assertTrue(empty($account->workbench_access['workbench_access']), t('Permission revoked and test user not assigned to a section.'));
+    $this->workbench_access_action_check($nodes, $account, t('Role disallowed'), FALSE);
+
+    // Test that the role lookup function works correctly.
+    drupal_static_reset('workbench_access_get_roles');
+    $roles = workbench_access_get_roles('access workbench access by role');
+    // The 'administrator' role always has permission. Ignore that.
+    $this->assertTrue(count($roles) == 1, t('No user roles assigneed.'));
+
     // Now give them permissions again.
     user_role_grant_permissions($this->editor_role, array('access workbench access by role'));
     $account = user_load($account->uid, TRUE);
     $this->assertTrue(!empty($account->workbench_access['workbench_access']), t('Permission reinstated and test user assigned to a section.'));
+    $this->workbench_access_action_check($nodes, $account, t('Role allowed.'), TRUE);
+
+    // Now take away the core permissions to page content and test.
+    $perms = array(
+      'create page content',
+      'edit any page content',
+      'delete any page content',
+    );
+    user_role_revoke_permissions($this->editor_role, $perms);
+    $account = user_load($account->uid, TRUE);
+    $this->workbench_access_action_check($nodes, $account, t('Page access disallowed'), FALSE);
+
+    // Now give back the core permissions.
+    user_role_grant_permissions($this->editor_role, $perms);
+    $account = user_load($account->uid, TRUE);
+    $this->workbench_access_action_check($nodes, $account, t('Page access allowed'), TRUE);
+
     // Form testing in Drupal is horribly broken.
     // We can confirm that a form page is loaded, but cannot perform
     // any introspection on the $form array.
@@ -161,7 +161,65 @@ class WorkbenchAccessTestCase extends DrupalWebTestCase {
     $this->drupalGet("node/$node->nid/edit");
     $this->assertRaw('TestWA', t('Workbench Access field was renamed.'));
     $this->assertRaw('<select multiple="multiple" name="workbench_access_id[]" id="edit-workbench-access-id" class="form-select required">', t('Form presents a select list with multiple select.'));
-    // TODO: Test form options.
+
+    // Check that access control by node type settings work.
+    $this->assertTrue(variable_get('workbench_access_node_type_' . $node->type, 1), t('Workbench Access enforced for %type content.', array('%type' => $node->type)));
+    // Force a fail by removing this user's access rules. Else it will just
+    // return NODE_ACCESS_IGNORE, which cannot be tested.
+    $account->workbench_access = array('foo');
+    $response = workbench_access_node_access($node, 'update', $account);
+    $this->assertTrue($response == NODE_ACCESS_DENY, t('Workbench Access rules enforced on test node.'));
+
+    // Since the user is not in a section, this should DENY, unless the node
+    // type is ignored.
+    variable_set('workbench_access_node_type_' . $node->type, 0);
+    $this->assertFalse(variable_get('workbench_access_node_type_' . $node->type, 1), t('Workbench Access not enforced for %type content.', array('%type' => $node->type)));
+    $response = workbench_access_node_access($node, 'update', $account);
+    $this->assertTrue($response == NODE_ACCESS_IGNORE, t('Workbench Access rules ignored on test node.'));
+
+    // Restore the account, in case we do more tests later.
+    $account = user_load($account->uid, TRUE);
+
+  }
+
+  /**
+   * Simple method for running the same node access checks repeatedly.
+   *
+   * @param $nodes
+   *  The nodes to check. If one fails, the test fails.
+   * @param $account
+   *  The user account being tested.
+   * @param $message
+   *  The string to prefix in front of the test result message.
+   * @param $true
+   *  Boolean indicator that we want to test TRUE or FALSE on this test.
+   */
+  function workbench_access_action_check($nodes, $account, $message, $true = TRUE) {
+    // Since we change conditions, reset node access.
+    drupal_static_reset('node_access');
+    // Check the node operations.
+    $actions = array('create', 'update', 'delete');
+    foreach ($actions as $action) {
+      foreach ($nodes as $node) {
+        $status[$action] = FALSE;
+        if ($action == 'create') {
+          $result = node_access($action, $node->type, $account);
+        }
+        else {
+          $result = node_access($action, $node, $account);
+        }
+        if ($result) {
+          $status[$action] = TRUE;
+          break;
+        }
+      }
+      if ($true) {
+        $this->assertTrue(!empty($status[$action]), t('@message. Test user can @action content.', array('@message' => $message, '@action' => $action)));
+      }
+      else {
+        $this->assertTrue(empty($status[$action]), t('@message. Test user cannot @action content.', array('@message' => $message, '@action' => $action)));
+      }
+    }
   }
 
 }

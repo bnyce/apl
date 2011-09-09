@@ -20,42 +20,13 @@
     
     $DEFAULT_MAILTO_RECIPIENTS_SUBJECT = "[user:name] requests that you review \"[node:title]\"";
     
-    $DEFAULT_MAILTO_RECIPIENTS_BODY ="<p><b>[user:name]</b> requests that you review and 
-    						approve <b>\"[node:title]\"</b>.</p><p>To review and 
-    						comment or approve, please visit 
-    						<a href='[node:url]'>[node:url]</a>.</p>
+    $DEFAULT_MAILTO_RECIPIENTS_BODY ="<p><b>[user:name]</b> requests that you review and approve <b>\"[node:title]\"</b>.</p><p>To review and comment or approve, please visit <a href='[node:url]'>[node:url]</a>.</p>
 							<h4>PLEASE DO NOT REPLY TO THIS MESSAGE - UNATTENDED ACCOUNT</h4>
 							<hr /><p>[node:body]</p><hr />";
     
-    $DEFAULT_MAILTO_CREATOR_BODY ="<p>To review other reviewer's comments and edit and/or 
-    						publish content, please visit <a href='[node:url]'>[node:url]</a>.</p>
-    						<h4>PLEASE DO NOT REPLY TO THIS MESSAGE - UNATTENDED 
-    						ACCOUNT</h4><hr /><p>[node:body]</p><hr />";
+    $DEFAULT_MAILTO_CREATOR_BODY ="<p>To review other reviewer's comments and edit and/or publish content, please visit <a href='[node:url]'>[node:url]</a>.</p>
+    						<h4>PLEASE DO NOT REPLY TO THIS MESSAGE - UNATTENDED ACCOUNT</h4><hr /><p>[node:body]</p><hr />";
     
-    $method = '';
-    
-    $TYPES =  array('article', 'page', 'biography', 'deparment', 'home-page-news');
-    
-    $REVIEWERS =  array(
-    			'Airport' => array('User' => 'lutherc', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'City Manager' => array('User' => 'siteadmin02', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Planning' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Animal Services' => array('User' => 'siteadmin03', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Austin Energy' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Capital Planning' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Code Compliance' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Communications' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Convention Center' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Courts' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Employment' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'EMS' => array('User' => 'siteadmin04', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Fire' => array('User' => 'siteadmin05', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Health' => array('User' => 'siteadmin06', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Police' => array('User' => 'siteadmin07', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Housing' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Law' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-    			'Library' => array('User' => 'username', 'Name' => 'person', 'Email' => 'person@austin.ci.tx.us'),
-                );     
      
 /**
  * workbench_notification_menu()
@@ -64,13 +35,35 @@
  */
 function workbench_notification_menu() {
   $items['workbench_notification'] = array(
-    'title' => 'Workbench Notification',
-    'description' => 'Provides panel for triggering email notifications',
-    'page callback' => '_workbench_notification_explanation',
-    'access callback' => 'user_access',
-    'access arguments' => array('submit notification requests'),
+    'title'             => 'Workbench Notification',
+    'description'       => 'Provides panel for triggering email notifications',
+    'page callback'     => '_workbench_notification_explanation',
+    'access callback'   => 'user_access',
+    'access arguments'  => array('submit notification requests'),
+  );
+  $items['admin/config/workbench/notification'] = array(
+	'title'             => 'Workbench Notification',
+	'description'       => 'Change how notifications behave.',
+	'page callback'     => 'drupal_get_form',
+	'page arguments'	=> array('workbench_notification_admin_form'),
+	'access arguments'  => array('administer workbench notification'),
+	'file'              => 'workbench_notification.admin.inc',
+  );
+  $items['admin/config/workbench/notification/settings'] = array(
+    'title'             => 'Settings',
+	'type'              => MENU_NORMAL_ITEM,
   );
   return $items;
+}
+
+/**
+ * Implements hook_help()
+ */
+function workbench_notification_help($path, $arg) {
+  switch($path) {
+    case 'admin/config/workbench/notification':
+      return '<p>' . t("Help text for workbench notification.") . '</p>';
+  }
 }
 
 /**
@@ -80,6 +73,10 @@ function workbench_notification_menu() {
  */
 function workbench_notification_permission() {
 return array(
+		'administer workbench notification' => array(
+                          'title' => t('Configure Workbench Notification'),
+                          'description' => t('Configure Workbench Notification options.'),
+                          ),
 		'submit notification requests' => array(
                           'title' => t('Submit Workbench Notification Requests'),
                           'description' => t('Allow users to submit notification requests.'),
@@ -202,14 +199,20 @@ function template_preprocess_workbench_notification_approval_form(&$variables) {
  * ajax behaviour for vertical panels to update the settings description.
  */
 function workbench_notification_form_alter(&$form, $form_state, $form_id) {
-
-  global $TYPES;
   global $node;
   
+  // Get stored setting for supported types.
+  $types = variable_get('workbench_notification_node_types', array());
+  $types = array_filter($types);
+  // Get array of users who you can to send to.
   $roptions = workbench_notification_potential_recipients();
-  if(function_exists('dpm')) dpm($roptions1, 'roptions');
+  
+  if(function_exists('dpm')) {
+   dpm($roptions, 'roptions');
+   dpm($types, 'types'); 
+  }
   // Only include on node add/edit forms for supported content types.
-  if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $TYPES) || in_array($node['type']['#value'], $TYPES) )) {
+  if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $types) || in_array($node['type']['#value'], $TYPES) )) {
     $form['#submit'][] = 'workbench_notification_form_submit'; // add submit function
     //$form['#submit'] = 'workbench_notification_form_submit'; // Perhaps bad form, stepping on all other submit handlers, but I'm calling node_form_submit within this handler.
     
@@ -492,7 +495,13 @@ function workbench_notification_form_submit($form, &$form_state) {
          // build out the recipient list    
          foreach($addresses as $address){
             if ($account = user_load_by_name($address)) {
-                $recipients[$account->name] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => 0); 
+                if($account->uid == $user->uid) {
+                  $status = 2; // if the note creator sends to self, mark that he's already approved the content
+                } else {
+                  $status = 0;  // for everyone else, mark as unresponded to
+                }
+                 
+                $recipients[$account->name] = array('uid' =>  $account->uid, 'mail' => $account->mail, 'status' => $status); 
             }
          };
          
@@ -546,7 +555,7 @@ function workbench_notification_form_submit($form, &$form_state) {
                 $form_state['values']['nid'] = $node->nid;  // sent form values so that node_save will update rather than create new.
                 $form_state['values']['vid'] = $node->vid;
                 $form_state['values']['revision'] = FALSE;
-                $atext = implode(", ", $addresses);
+                $atext = implode(", ", $addresses); // a listing of email addresses
                 if(function_exists('dpm')) {
                   dpm($addresses, "addresses");
                   dpm($atext, "atext");
@@ -1286,6 +1295,7 @@ function workbench_notification_message_exists($nid = null) {
 
 
 //// TOKENS ////////////////////////
+//@TODO workbench tokens are not supported
 /*
 function workbench_notification_token_values($type, $object = NULL) {
   if ($type == 'entity') {

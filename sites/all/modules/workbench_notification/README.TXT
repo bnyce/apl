@@ -69,6 +69,7 @@ Workbench Access, Entity API, Token, Actions and Triggers.
 1. Download and install Workbench Notification.
 2. Configure permissions for roles and add users to roles.  
    The permissions are:
+   - Administer Workbench Notifications - Enables access to configuration panel.
    - Submit Workbench Notification Requests - This enables users to submit 
        notification requests.
   - Receive Workbench Notification Requests - This adds users to the option list 
@@ -91,9 +92,9 @@ Workbench Access, Entity API, Token, Actions and Triggers.
    3a. From the WORKBENCH NOTIFICATION tab assign "Send email in standard
    format to creator of a workbench notification" to the "WORKBENCH NOTIFICATION
    MESSAGE WAS UPDATED."
-5. In the workbench_notification.module file add any custom content type to the
-   $TYPES global. NOTE: An administrative UI will eventually be provided.
-   Only WORKBENCH MODERATED types of content are supported.
+5. In the adminstration panel (/admin/config/workbench/notification ) select the
+   content types to enable with notfications. Only WORKBENCH MODERATED types of 
+   content are supported (but all types are shown).
  6.In Blocks (/structure/blocks) verify that the "Workbench Notificaiton One-
    Click Approval Form Block" is placed in an appropriate area (default is 
    Above Content).

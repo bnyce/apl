@@ -580,12 +580,14 @@ function workbench_notification_form_submit($form, &$form_state) {
                 // if this is a new entry, specify table's primary key
                 $status = drupal_write_record($table, $record, array('mid'));
                 $record->note          = $subject;  // simplify title before passing
+                $record->user_status   = 0;         // and no recipients have approved the content yet
                 // invoke triggers
                 workbench_notification_update($object, $context, $record);
          } 
          else {
                 $status = drupal_write_record($table, $record);
                 $record->note          = $subject;  // simplify title before passing
+                $record->user_status   = 0;         // and no recipients have approved the content yet
                 // invoke triggers
                 workbench_notification_insert($object, $context, $record);
          };
@@ -898,6 +900,9 @@ function workbench_notification_basic_action(&$entity, $context = array()) {
  */
 function workbench_notification_mail_to_recipients_action($entity, $context) {
   watchdog('workbench_access', 'workbench_notification_mail_to_recipients_action fired');
+  if(function_exists('dpm')){
+    dpm($context, 'workbench_notification_mail_to_recipients_action context');
+  }
   
   if (empty($context['node'])) {
     $context['node'] = $entity;
@@ -928,7 +933,7 @@ function workbench_notification_mail_to_recipients_action($entity, $context) {
   $sentMessage = array();
   $comment = $context['comment'];
   $comment = "<font color=red>$comment</font>";
-  $sentMessage[] = $coment;
+  $sentMessage[] = $comment;
   $sentMessage[] = $context['message'];
   $body = implode('<br />', $sentMessage);
   $message['body'] = token_replace($body, $context);

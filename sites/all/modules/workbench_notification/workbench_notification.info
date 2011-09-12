@@ -2,3 +2,19 @@ name = Workbench Notification
 description = Adds lightweight notification workflow.
 package = Workbench
 core = 7.x
+
+configure = admin/config/workbench/notification
+
+files[] = workbench_notification.module
+files[] = workbench_notification.install
+files[] = workbench_notification.admin.inc
+
+stylesheets[all][] = workbench_notification.css
+dependencies[] = messaging
+dependencies[] = token
+dependencies[] = entity
+
+
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "workbench_notification"

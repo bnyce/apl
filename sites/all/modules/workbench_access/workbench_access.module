@@ -295,8 +295,10 @@ function workbench_access_field_extra_fields() {
   // @TODO: be more selective here.
   $extra = array();
   foreach (node_type_get_names() as $name => $value) {
-    $extra['node'][$name]['form'] = $base;
-    $extra['node'][$name]['display'] = $base;
+    if (variable_get('workbench_access_node_type_' . $name, 1)) {
+      $extra['node'][$name]['form'] = $base;
+      $extra['node'][$name]['display'] = $base;
+    }
   }
   return $extra;
 }
@@ -341,25 +343,34 @@ function workbench_access_node_access($node, $op, $account) {
   if (empty($tree['active'])) {
     return NODE_ACCESS_IGNORE;
   }
-  // Now check the user account.
-  if (!isset($account->workbench_access)) {
-    $account = user_load($account->uid);
+
+  // View step. We ignore for published nodes.
+  if ($op == 'view' && $node->status) {
+    return NODE_ACCESS_IGNORE;
   }
+
+  // If disabled for this content type, do nothing.
   if (!is_object($node)) {
     $type = $node;
   }
   else {
     $type = $node->type;
   }
+  if (!variable_get('workbench_access_node_type_' . $type, 1)) {
+    return NODE_ACCESS_IGNORE;
+  }
+
+  // Now check the user account.
+  if (!isset($account->workbench_access)) {
+    $account = user_load($account->uid);
+  }
+
   // Create step. User must be assigned to a section to create content.
   // Note that we do not currently enforce complex rules here.
   if ($op == 'create' && !empty($account->workbench_access)) {
     return NODE_ACCESS_IGNORE;
   }
-  // View step. We ignore for published nodes.
-  if ($op == 'view' && $node->status) {
-    return NODE_ACCESS_IGNORE;
-  }
+
   // Load the current scheme.
   workbench_access_load_include(variable_get('workbench_access', 'taxonomy'));
   // Get the access rules for this node.
@@ -367,8 +378,11 @@ function workbench_access_node_access($node, $op, $account) {
   if (!empty($node->workbench_access) && !empty($account->workbench_access)) {
     $result = workbench_access_check($op, $type, array_filter($node->workbench_access), $account->workbench_access);
   }
+  // The user must be allowed to perform this action by core node module.
+  // All we do is issue an ignore response, indicating that some other module
+  // may grants access. If we ever support complex data rules, this may change.
   if ($result !== FALSE) {
-    return NODE_ACCESS_ALLOW;
+    return NODE_ACCESS_IGNORE;
   }
   return NODE_ACCESS_DENY;
 }
@@ -508,12 +522,19 @@ function workbench_access_tree($info, $keys = FALSE) {
  * Load the active tree.
  */
 function workbench_access_get_active_tree() {
-  $access_tree = &drupal_static(__FUNCTION__);
+  // Even though we cache, we still need the include.
+  $scheme = variable_get('workbench_access', 'taxonomy');
+  workbench_access_load_include($scheme);
+
+  // Now check the cache.
+  $cache = cache_get('workbench_access_tree', 'cache_bootstrap');
+  if (isset($cache->data)) {
+    $access_tree = $cache->data;
+  }
   if (isset($access_tree['access_scheme'])) {
     return $access_tree;
   }
-  $scheme = variable_get('workbench_access', 'taxonomy');
-  workbench_access_load_include($scheme);
+  // Retrieve and cache data.
   $func = $scheme . '_workbench_access_info';
   $info = $func();
   $data = $info[$scheme];
@@ -525,7 +546,7 @@ function workbench_access_get_active_tree() {
     'tree' => $tree,
     'active' => $active,
   );
-
+  cache_set('workbench_access_tree', $access_tree, 'cache_bootstrap');
   return $access_tree;
 }
 
@@ -547,8 +568,9 @@ function workbench_access_node_load($nodes, $types) {
     $data[$obj->nid][$obj->access_id] = $obj->access_id;
   }
   foreach ($nodes as $node) {
-    // Cannot load if the node has not been created yet.
-    if (empty($node->nid)) {
+    // Cannot load if the node has not been created yet or if it is
+    // not under access control.
+    if (empty($node->nid) || (isset($node->type) && !variable_get('workbench_access_node_type_' . $node->type, 1))) {
       continue;
     }
     $nodes[$node->nid]->workbench_access = array();
@@ -778,6 +800,9 @@ function workbench_access_rebuild_scheme($access_scheme, $sections = array()) {
  * @see hook_workbench_access_section_save()
  */
 function workbench_access_section_save($section) {
+  // Reset the tree.
+  workbench_access_reset_tree();
+  // Write the record.
   drupal_write_record('workbench_access', $section);
   // Notify other modules.
   module_invoke_all('workbench_access_save', $section);
@@ -794,6 +819,8 @@ function workbench_access_section_save($section) {
  * @see hook_workbench_access_section_delete()
  */
 function workbench_access_section_delete($section) {
+  // Reset the tree.
+  workbench_access_reset_tree();
   // Notify other modules.
   module_invoke_all('workbench_access_delete', $section);
   // Now clean up.
@@ -821,8 +848,8 @@ function workbench_access_section_delete($section) {
  * Necessary when rebuilding the active tree settings.
  */
 function workbench_access_reset_tree() {
+  cache_clear_all('workbench_access_tree', 'cache_bootstrap');
   drupal_static_reset('workbench_access_get_access_tree');
-  drupal_static_reset('workbench_access_get_active_tree');
   drupal_static_reset('workbench_access_get_ids_by_scheme');
   drupal_static_reset('workbench_access_get_user_tree');
   drupal_static_reset('workbench_access_user_load_data');
@@ -1159,12 +1186,13 @@ function workbench_access_autocomplete($access_type, $access_id, $string) {
   $string = trim($string);
   $matches = array();
   if (!empty($string)) {
+    $roles = workbench_access_get_roles('access workbench access by role');
     $result = db_query_range("SELECT DISTINCT(u.uid), u.name FROM {users} u
-      INNER JOIN {users_roles} ur USING (uid) INNER JOIN {role_permission} USING (rid)
-      WHERE permission = :permission
-      AND u.name LIKE :string AND
-      (u.uid NOT IN (SELECT uid FROM {workbench_access_user} WHERE access_scheme = :access_scheme AND access_id = :access_id))", 0, 10,
-      array(':permission' => 'access workbench access by role', ':string' => db_like($string) . '%', ':access_scheme' => $access_type, ':access_id' => $access_id))->FetchAll();
+      INNER JOIN {users_roles} ur USING (uid)
+      WHERE ur.rid IN (:rids)
+      AND u.name LIKE :string AND u.status > 0 AND
+      (u.uid NOT IN (SELECT uid FROM {workbench_access_user} WHERE access_scheme = :access_scheme AND access_id = :access_id))", 0, 20,
+      array(':rids' => array_keys($roles), ':string' => db_like($string) . '%', ':access_scheme' => $access_type, ':access_id' => $access_id))->FetchAll();
     foreach ($result as $data) {
       $matches[$data->name] = $data->name;
     }
@@ -1244,6 +1272,10 @@ function workbench_access_form_alter(&$form, $form_state, $form_id) {
   // Fire any active internal module hooks.
   if (empty($form['#node_edit_form'])) {
     workbench_access_alter_form($form_id, $form, $form_state);
+  }
+  // Ensure that we can enforce our rules.
+  elseif (!isset($form['#node']->type) || !variable_get('workbench_access_node_type_' . $form['#node']->type, 1)) {
+    return;
   }
   // Fire the node form alter.
   else {
@@ -1346,7 +1378,7 @@ function workbench_access_alter_form($hook, &$form, &$form_state) {
  * Return the text directing admins to Workbench Access configuration.
  */
 function workbench_access_configuration_needed_message() {
-  return t('You must <a href="@settings">configure Workbench Access settings</a> before editorial access control will not be enforced.',
+  return t('You must <a href="@settings">configure Workbench Access settings</a> before editorial access control will be enforced.',
     array('@settings' => url('admin/config/workbench/access/settings'))
   );
 }
@@ -1556,6 +1588,20 @@ function workbench_access_menu_link_submit($form, &$form_state) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add access rules to node types.
+ */
+function workbench_access_form_node_type_form_alter(&$form, $form_state) {
+  $form['workflow']['workbench_access_node_type'] = array(
+    '#title' => t('Enforce Workbench Access control'),
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('workbench_access_node_type_' . $form['#node_type']->type, 1),
+    '#description' => t('Use Workbench Access to enforce editorial control to all content of this type.'),
+  );
+}
+
+/**
  * Implements hook_block_view_workbench_block_alter().
  *
  * Show the editorial status of this node.
@@ -1564,7 +1610,10 @@ function workbench_access_workbench_block() {
   // Add editing information to this page (if it's a node).
   if ($node = menu_get_object()) {
     if (user_access('view workbench access information')) {
-      if (empty($node->workbench_access)) {
+      if (!variable_get('workbench_access_node_type_' . $node->type, 1)) {
+        return array(t('@message_label: <em>@type pages are not under access control</em>', array('@message_label' => variable_get('workbench_access_label', 'Section'), '@type' => node_type_get_name($node->type))));
+      }
+      elseif (empty($node->workbench_access)) {
         return array(t('@message_label: <em>Unassigned</em>', array('@message_label' => variable_get('workbench_access_label', 'Section'))));
       }
       else {
@@ -1648,4 +1697,32 @@ function workbench_access_form_node_admin_content_alter(&$form, &$form_state) {
       $options[$item][$key] = $value;
     }
   }
+}
+
+/**
+ * Fetch all user roles with the a specific permission.
+ *
+ * This is a wrapper for user_roles() since it may exclude user roles that have
+ * a permission assigned to the 'authenticated user' role.
+ *
+ * @param $permission
+ *  The perimission to return active roles.
+ *
+ * @return
+ *  An array of allowed roles, in the format rid => name.
+ */
+function workbench_access_get_roles($permission) {
+  $roles = &drupal_static(__FUNCTION__, array());
+
+  if (!isset($roles[$permission])) {
+    // Build the list of user roles that can be assigned workbench access.
+    $roles[$permission] = user_roles(FALSE, $permission);
+    if (isset($roles[$permission][DRUPAL_AUTHENTICATED_RID])) {
+      // Because the permission may only be granted for the 'authenticated user'
+      // role, manually add in all non-anonymous roles in that case.
+      $roles[$permission] += user_roles(TRUE);
+    }
+  }
+
+  return $roles[$permission];
 }

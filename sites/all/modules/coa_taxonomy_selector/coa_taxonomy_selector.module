@@ -32,9 +32,10 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
    // a switch is used because you may want to alter more than
    // one form and it is easy to add a new case for each form.
    switch ($form_id) {
-     // This is our form ID.
+     // FULL + Department Taxonomy Models , No options filter
      case 'page_node_form':
      case 'link_node_form':
+     case 'biography_node_form':
 		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  
@@ -50,7 +51,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  				   
       break;
-      
+      // Department Taxonomy Model (but with different name unfortunately), Department Only options filter
      case 'calender_events_node_form':
      case 'calendar_events_node_form':
           $optionarray = array();
@@ -71,7 +72,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		 		  
      break;
-     
+     // Department Taxonomy Model, Department and No Home options filter
      case 'department_mission_node_form':
      case 'department_mission__node_form':
      case 'vertical_promo_tiles_node_form':
@@ -95,7 +96,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
      break;  
-     
+      // Department Taxonomy Model, Department and No Home options filter
      case 'contact_information_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
@@ -114,7 +115,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
      break;  
-     
+      // Department Taxonomy Model, Department and No Home options filter
      case 'department_banner_image_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
@@ -134,7 +135,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
      break;
-     
+      // Department Taxonomy Model, No filter
      case 'factoid_node_form':       
           $form['workbench_access']['workbench_access_id']['#title'] = t('Section Selection');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the editorial section to attach this factoid to.');
@@ -149,7 +150,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  
      break;
      
-     
+      // Department and Home Taxonomy Models, Department and Homepage options filter
      case 'large_promo_node_form': // "home promo tile" 
      case 'i_need_to_node_form': 
      case 'home_page_news_node_form':

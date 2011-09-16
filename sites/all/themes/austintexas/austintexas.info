@@ -9,6 +9,7 @@ stylesheets-conditional[lt IE 8][all][] = ie8.css
 stylesheets[all][] = style.css
 stylesheets[all][] = layout.css
 stylesheets[all][] = navigation.css
+stylesheets[all][] = custom.css
 
 scripts[] = js/coascripts.js
 

@@ -115,12 +115,11 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  
      break;
 
-     // FULL and Department Taxonomy Model, Department and No Home options filter
+     // FULL and Department Taxonomy Model, No options filter
      case 'department_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
-          $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+          
        
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this contact to.');

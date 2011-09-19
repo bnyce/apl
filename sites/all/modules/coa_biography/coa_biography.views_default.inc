@@ -223,11 +223,6 @@ function coa_biography_views_default_views() {
   $handler->display->display_options['filters']['field_council_place_value']['table'] = 'field_data_field_council_place';
   $handler->display->display_options['filters']['field_council_place_value']['field'] = 'field_council_place_value';
   $handler->display->display_options['filters']['field_council_place_value']['operator'] = 'not empty';
-  $handler->display->display_options['filters']['field_council_place_value']['value'] = array(
-    'min' => '',
-    'max' => '',
-    'value' => '',
-  );
 
   /* Display: Mayor */
   $handler = $view->new_display('block', 'Mayor', 'block_2');
@@ -241,7 +236,7 @@ function coa_biography_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Broken/missing handler */
+  /* Field: Content: Quote */
   $handler->display->display_options['fields']['field_bio_quote']['id'] = 'field_bio_quote';
   $handler->display->display_options['fields']['field_bio_quote']['table'] = 'field_data_field_bio_quote';
   $handler->display->display_options['fields']['field_bio_quote']['field'] = 'field_bio_quote';
@@ -765,7 +760,7 @@ function coa_biography_views_default_views() {
   $handler->display->display_options['fields']['field_council_place']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_council_place']['hide_alter_empty'] = 0;
   $handler->display->display_options['fields']['field_council_place']['field_api_classes'] = 0;
-  /* Field: Content: Office Term */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_office_term']['id'] = 'field_office_term';
   $handler->display->display_options['fields']['field_office_term']['table'] = 'field_data_field_office_term';
   $handler->display->display_options['fields']['field_office_term']['field'] = 'field_office_term';
@@ -787,15 +782,6 @@ function coa_biography_views_default_views() {
   $handler->display->display_options['fields']['field_office_term']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_office_term']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_office_term']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_office_term']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-  );
-  $handler->display->display_options['fields']['field_office_term']['field_api_classes'] = 0;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -844,7 +830,7 @@ function coa_biography_views_default_views() {
   $handler->display->display_options['fields']['body']['hide_empty'] = 0;
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
   $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
-  /* Field: Content: Quote */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_quote']['id'] = 'field_quote';
   $handler->display->display_options['fields']['field_quote']['table'] = 'field_data_field_quote';
   $handler->display->display_options['fields']['field_quote']['field'] = 'field_quote';
@@ -864,7 +850,6 @@ function coa_biography_views_default_views() {
   $handler->display->display_options['fields']['field_quote']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_quote']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_quote']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_quote']['field_api_classes'] = 0;
   $handler->display->display_options['path'] = 'mayor';
   $translatables['mayor_s_biography'] = array(
     t('Master'),

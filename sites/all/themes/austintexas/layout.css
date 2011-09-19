@@ -774,4 +774,8 @@ ul.tabs {float: right;margin: 0 30px -2px 0;border: none; font-size: 12px;} ul.t
 
 }
 
+.pane-coa-department-listing-panel-pane-1 table td {
+    width: 200px;
+    padding: 5px;
+} 
 

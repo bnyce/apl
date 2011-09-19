@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * department_features_content_types.features.field.inc
+ * coa_department_content_type.features.field.inc
  */
 
 /**
  * Implementation of hook_field_default_fields().
  */
-function department_features_content_types_field_default_fields() {
+function coa_department_content_type_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-department-body'
@@ -81,6 +81,79 @@ function department_features_content_types_field_default_fields() {
         'weight' => '4',
       ),
       'widget_type' => 'text_textarea_with_summary',
+    ),
+  );
+
+  // Exported field: 'node-department-field_bus_tax'
+  $fields['node-department-field_bus_tax'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_bus_tax',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'parent' => '0',
+            'vocabulary' => 'business_portal',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'department',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 8,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_bus_tax',
+      'label' => 'Business Taxonomy',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '14',
+      ),
     ),
   );
 
@@ -230,10 +303,10 @@ function department_features_content_types_field_default_fields() {
       'settings' => array(
         'append_id' => 0,
         'arguments' => array(
-          'delimiter' => '^',
+          'delimiter' => '/',
           'dsv_arguments' => 1,
-          'php_arguments' => 0,
-          'rows' => '10',
+          'php_arguments' => 1,
+          'rows' => '1',
         ),
         'referenceable_views' => array(
           'Directory:page' => 0,
@@ -254,7 +327,6 @@ function department_features_content_types_field_default_fields() {
           'department_features:panel_pane_2' => 'department_features:panel_pane_2',
           'department_features:panel_pane_3' => 'department_features:panel_pane_3',
           'department_features:panel_pane_4' => 'department_features:panel_pane_4',
-          'department_features:panel_pane_5' => 'department_features:panel_pane_5',
           'dept_home_page:panel_pane_1' => 0,
           'dept_listing:panel_pane_1' => 0,
           'dept_page_blocks:panel_pane_1' => 0,
@@ -337,7 +409,6 @@ function department_features_content_types_field_default_fields() {
           'popular:page' => 0,
           'popular:page_1' => 0,
           'portal_menu:panel_pane_1' => 0,
-          'portal_page_menu:panel_pane_1' => 0,
           'portal_view:panel_pane_1' => 0,
           'portal_view:panel_pane_2' => 0,
           'portal_view:panel_pane_3' => 0,
@@ -351,6 +422,7 @@ function department_features_content_types_field_default_fields() {
           'service_directory_view:attachment' => 0,
           'service_directory_view:page' => 0,
           'taxonomy_term:feed' => 0,
+          'taxonomy_term:feed_1' => 0,
           'taxonomy_term:page' => 0,
           'topic_promoted:block' => 0,
           'topic_sticky:block' => 0,
@@ -530,15 +602,460 @@ function department_features_content_types_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-department-field_dev_tax'
+  $fields['node-department-field_dev_tax'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_dev_tax',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'parent' => '0',
+            'vocabulary' => 'development_taxonomy',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'department',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 9,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_dev_tax',
+      'label' => 'Development Taxonomy',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '16',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-department-field_env_tax'
+  $fields['node-department-field_env_tax'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_env_tax',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'parent' => '0',
+            'vocabulary' => 'environment_taxonomy',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'department',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 11,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_env_tax',
+      'label' => 'Environment Taxonomy',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '20',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-department-field_gov_tax'
+  $fields['node-department-field_gov_tax'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_gov_tax',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'parent' => '0',
+            'vocabulary' => 'government_taxonomy',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'department',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 10,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_gov_tax',
+      'label' => 'Government Taxonomy',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '18',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-department-field_page_resident'
+  $fields['node-department-field_page_resident'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_page_resident',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'parent' => '0',
+            'vocabulary' => 'portal',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'department',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 7,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_page_resident',
+      'label' => 'Resident Taxonomy',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '12',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-departments-field_home_category'
+  $fields['node-departments-field_home_category'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_home_category',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'parent' => '0',
+            'vocabulary' => 'home_page_category',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'departments',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_home_category',
+      'label' => 'Category',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '0',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-departments-field_news_link'
+  $fields['node-departments-field_news_link'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_news_link',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'link',
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '1',
+      'type' => 'link_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'departments',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'default',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_news_link',
+      'label' => 'Link',
+      'required' => 1,
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => '_top',
+        ),
+        'display' => array(
+          'url_cutoff' => '',
+        ),
+        'enable_tokens' => 1,
+        'title' => 'value',
+        'title_value' => '[node:title]',
+        'url' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_field',
+        'weight' => '-2',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('Business Taxonomy');
+  t('Category');
   t('Character Limit');
   t('Department');
+  t('Development Taxonomy');
   t('Enter the mission statement and - optionally - a summary for this Department or Program.  If a summary is included, Drupal will use it for list views.  Otherwise Drupal will use the contents of the mission statement trimmed to 600 characters.');
+  t('Environment Taxonomy');
   t('Feature Limit');
   t('Features');
+  t('Government Taxonomy');
+  t('Link');
   t('Message');
   t('Mission Statement');
+  t('Resident Taxonomy');
   t('The maximum number of characters permitted on the page (or more specifically, the combined total of Mission and Message).  If additional features are selected, the number of characters will be reduced according a value associated with each feature.');
   t('The maximum number of features permitted on this page.');
   t('This field should be hidden by COA_TAXONOMY_SELECTOR module.');

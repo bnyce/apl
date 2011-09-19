@@ -1,2 +1,1 @@
-<?php 
-// bogus - to stop errors
+<!--  included to reduce log errors for this missing file - patch not fix! -->

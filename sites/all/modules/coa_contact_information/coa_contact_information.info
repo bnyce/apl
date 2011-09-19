@@ -1,0 +1,5 @@
+name = COA Contact Information Modifications
+description = "Modifies the Contact Information content type."
+package = AustinGO
+version = VERSION
+core = 7.x

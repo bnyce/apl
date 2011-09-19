@@ -1,4 +1,4 @@
-name = HTMLimporter
+name = COA HTMLimporter
 description = "Import html pages from City Clerks office"
 core = 7.x
 package = AustinGO

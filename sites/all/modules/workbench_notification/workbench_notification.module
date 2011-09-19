@@ -208,7 +208,7 @@ function workbench_notification_form_alter(&$form, $form_state, $form_id) {
    dpm($types, 'types'); 
   }
   // Only include on node add/edit forms for supported content types.
-  if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], $types) || in_array($node['type']['#value'], $types) )) {
+  if (!empty($form['#node_edit_form']) && (in_array($form['type']['#value'], (array) $types) || in_array($node['type']['#value'], (array) $types) )) {
     $form['#submit'][] = 'workbench_notification_form_submit'; // add submit function
     //$form['#submit'] = 'workbench_notification_form_submit'; // Perhaps bad form, stepping on all other submit handlers, but I'm calling node_form_submit within this handler.
     

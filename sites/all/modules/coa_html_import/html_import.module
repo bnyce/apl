@@ -20,46 +20,62 @@
 	}
 
 	function html_importer(){
-  		$path="C:/Documents and Settings/nandigamS/My Documents/cityclerk/";
+  		//$path="C:/Documents and Settings/nandigamS/My Documents/cityclerk/";
+		//$path="C:/Documents and Settings/nandigamS/Desktop/BCIC/";
+		//$path="C:/xampp/htdocs/austin-go/sites/all/modules/BCIC/";
+		$path="/var/www/godev/shared/BCIC/";
   		$returnVal = '<b>Starting html file import</b><br>';
   		if($handle=opendir($path)){
-    			$time_stamp="";
-    			while (false !== ($file0 = readdir($handle))) {
-      		$recent_dir="";
-      		if ($file0 != "." && $file0 != "..") {   //    strip out . and ..
-        			$returnVal .= $file0."<br/>";
-        			$file_name=explode("_",$file0);
-				$file_name_prefix=substr($file_name[0],0,2);
-				$file_name[0]=substr($file_name[0],2,strlen($file_name[0]));
-        			$time_stamp[]=strtotime($file_name[0].$file_name[1]);
-      		}
-    		 }
+			$time_stamp="";
+			while (false !== ($file0 = readdir($handle))) {
+			//while (false !== ($file0 = file_get_contents($handle))) {
+      			$recent_dir="";
+				if ($file0 != "." && $file0 != "..") {   //    strip out . and ..
+						//$returnVal .= $file0."<br/>";
+						$file_name=explode("_",$file0);
+						$file_name_prefix="BC";
+						/*if(substr($file_name[0],0,2)=="BC"){
+						   $file_name_prefix=substr($file_name[0],0,2);
+						}*/
+						$file_name[0]=substr($file_name[0],2,strlen($file_name[0]));
+						if(sizeof($file_name)>=2){
+						if(is_numeric($file_name[1])) {
+							//$returnVal .=$file_name[1]."<br/>";
+							$file_name[0]='20'.$file_name[0];
+							$time_stamp[]=strtotime($file_name[0].$file_name[1]);
+						}else{
+						}
+						}
+				}
+			}
     		$recent_dir= max($time_stamp);
-    		$recent_dir_date=$file_name_prefix.date('Ymd_His',$recent_dir);
+    		$recent_dir_date=$file_name_prefix.date('ymd_His',$recent_dir);
     		$new_path=$path.$recent_dir_date;
     		$returnVal .= $new_path."<br/>";
 		closedir($handle);
     		if($handle1=opendir($new_path)){
       		while (false !== ($file1 = readdir($handle1))) {
         			if ($file1 != "." && $file1 != "..") {   //    strip out . and ..
-          				$returnVal .= $file1."<br/><br/>";
-          				$new_path1=$new_path.'/'.$file1;
+          				if($file1=='boards_commissions'){
+							$returnVal .= $file1."<br/><br/>";
+          					$new_path1=$new_path.'/'.$file1;
+                            $new_path1=$new_path.'/'.$file1;
           				$returnVal .= $new_path1."<br/>";
-          				if($handle2=opendir($new_path1)){
+						if($handle2=opendir($new_path1)){
             				while (false !== ($file2 = readdir($handle2))) {
               					if ($file2 != "." && $file2 != "..") {   //    strip out . and ..
-                						$returnVal .= $file2."<br/>";
+                					if($file2=="boards" or $file2=="meetings"){
+										$returnVal .= $file2."<br/>";
                 						$new_path2=$new_path1.'/'.$file2;
-								$returnVal .= $new_path2."<br/>";
-                						if($file2=="boards" or $file2=="meetings"){
-				  					$Title="";
-                  						if($handle3=opendir($new_path2)){
+										$returnVal .= $new_path2."<br/>";
+				  						$Title="";
+										if($handle3=opendir($new_path2)){
                     							while (false !== ($file = readdir($handle3))) {
                       								$buffer1="";
                       								if ($file != "." && $file != "..") {   //    strip out . and ..
                       	 								$file_name=$file;
                          								$new_path3=$new_path2.'/'.$file;
-                         								$buffer1=file_get_contents($new_path3);
+														$buffer1=file_get_contents($new_path3);
                          								$result = db_query("select title,nid,created from {node} where title='$file_name'");
 						 						foreach ($result as $record){
 							 						$Title = $record->title;
@@ -101,6 +117,7 @@
                           									drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
                           									$file_timestamp=filemtime($new_path3);
                           									$bodytext = $buffer1; // Body part of the html file
+															//$returnVal .=$bodytext;
                           									$node = new stdClass(); // Create a new node object
                           									$node->type = "city_clerk_content"; // or page, or whatever content type you like
                           									node_object_prepare($node); // Set some default values
@@ -117,16 +134,17 @@
                           									$returnVal .= "Node Timestamp==".$node->remote_timestamp."<br/>";
                           									// using pathauto, which would override the below path
                           									if($file2=="meetings"){
-														$path = "cityclerk/meetings/".$file_name;
-							 							$returnVal .= $path."-------path----<br/>";
-						  							}elseif($file2=="boards"){
-							 							$path = "cityclerk/boards/".$file_name;
-							 							$returnVal .= $path."--------path----<br/>";
-						  							}
+																$path = "cityclerk/meetings/".$file_name;
+																$returnVal .= $path."-------path----<br/>";
+						  									}elseif($file2=="boards"){
+																$path = "cityclerk/boards/".$file_name;
+																$returnVal .= $path."--------path----<br/>";
+						  									}
                           									//$path = $file_name;
                           									$node->path = array('alias' => $path);   //alias path
                           									if($node = node_submit($node)) { // Prepare node for saving
-                            										node_save($node);
+                            										//print_r($node);
+																	node_save($node);
                             										$returnVal .= "<span style='color:green'>Node with nid</span> <span style='color:red'>" . $node->nid . "</span> <span style='color:green'>saved!</span><br/>";
                           									}
                           									@db_query("UPDATE {node} SET created=$file_timestamp WHERE title='$file_name'")or die(mysql_error());
@@ -140,6 +158,8 @@
               					}
             				}
           				}
+						}//-------------
+					
        			 }
       		}
     		}

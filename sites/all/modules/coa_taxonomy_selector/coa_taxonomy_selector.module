@@ -36,6 +36,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'page_node_form':
      case 'link_node_form':
      case 'biography_node_form':
+       
 		  $form['workbench_access']['workbench_access_id']['#title'] = t('Editorial Section');
 		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the section(s) for placing this content.  To select multiple sections, hold down the control (ctrl) key on Windows or the command key for Mac.');
 		  
@@ -49,7 +50,7 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
 		  $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  				   
+		  			   
       break;
       // Department Taxonomy Model (but with different name unfortunately), Department Only options filter
      case 'calender_events_node_form':
@@ -77,54 +78,17 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
      case 'department_mission__node_form':
      case 'vertical_promo_tiles_node_form':
      case 'summary_node_form': 
-     case 'department_node_form': 
-          $optionarray = array();
-          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
-          
-       
-          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
-		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program.');
-		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
-		  // make taxonomy field hidden and not required
-          $form['field_cat_dept']['#type'] = 'hidden';
-          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
-          $form['field_cat_dept']['en']['#required'] = FALSE;
-          
-          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
-          $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  
-     break;  
-      // Department Taxonomy Model, Department and No Home options filter
+     case  'contact_information_node_form':
      case 'contact_information_node_form':
-          $optionarray = array();
-          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
-          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
-          $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
-       
-          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
-		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this contact to.');
-		  // make taxonomy field hidden and not required
-          $form['field_cat_dept']['#type'] = 'hidden';
-          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
-          $form['field_cat_dept']['en']['#required'] = FALSE;
-          
-          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
-          $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
-		  
-     break;  
-      // Department Taxonomy Model, Department and No Home options filter
      case 'department_banner_image_node_form':
           $optionarray = array();
           $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
           $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
-          
+		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;          
        
           $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
-		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this banner image to.');
-		  $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program.');
+
 		  // make taxonomy field hidden and not required
           $form['field_cat_dept']['#type'] = 'hidden';
           $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
@@ -134,7 +98,8 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
           $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
-     break;
+     break;  
+
       // Department Taxonomy Model, No filter
      case 'factoid_node_form':       
           $form['workbench_access']['workbench_access_id']['#title'] = t('Section Selection');
@@ -149,6 +114,33 @@ function coa_taxonomy_selector_form_alter(&$form, $form_state, $form_id) {
 		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
 		  
      break;
+
+     // FULL and Department Taxonomy Model, Department and No Home options filter
+     case 'department_node_form':
+          $optionarray = array();
+          $optionarray = $form['workbench_access']['workbench_access_id']['#options'];
+          $optionarray = _coa_taxonomy_selector_dept_only_nohome_options($optionarray);  //filter the option array
+          $form['workbench_access']['workbench_access_id']['#options'] = $optionarray;
+       
+          $form['workbench_access']['workbench_access_id']['#title'] = t('Department/Program Selection');
+		  $form['workbench_access']['workbench_access_id']['#description'] = t('Select the Department or Program page to attach this contact to.');
+		  
+		  // make taxonomy field hidden and not required
+          $form['field_cat_dept']['#type'] = 'hidden';
+          $form['field_cat_dept']['und']['#required'] = FALSE;  //'und' is LANGUAGE_NONE
+          $form['field_cat_dept']['en']['#required'] = FALSE;
+          
+          $form['field_page_resident']['#type'] = 'hidden';
+		  $form['field_bus_tax']['#type'] = 'hidden';
+		  $form['field_dev_tax']['#type'] = 'hidden';
+		  $form['field_gov_tax']['#type'] = 'hidden';
+		  $form['field_env_tax']['#type'] = 'hidden';
+          
+          $form['#validate'][] = '_coa_taxonomy_selector_workbench_access_validate';
+          $form['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  $form['actions']['submit']['#submit'][] = 'coa_taxonomy_selector_node_form_submit';
+		  
+     break;  
      
       // Department and Home Taxonomy Models, Department and Homepage options filter
      case 'large_promo_node_form': // "home promo tile" 
@@ -354,6 +346,7 @@ function coa_taxonomy_selector_node_form_submit($form, &$form_state) {
     switch ($form_id) {
       case 'page_node_form':
       case 'link_node_form':
+      case 'biography_node_form':
             
             $form_state['values']['field_cat_dept']['en'] = $dept;
             $form_state['values']['field_page_resident']['en'] = $res;

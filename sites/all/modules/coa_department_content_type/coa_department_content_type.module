@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the COA Department Content Type feature.
- */
-
-include_once('coa_department_content_type.features.inc');

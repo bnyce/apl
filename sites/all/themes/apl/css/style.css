@@ -5,7 +5,7 @@ body {
    * http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography */
   font: 13px Arial,Helvetica,sans-serif;
   background-color: #FFEAC4;
-  background-image: url("/drupal_example/sites/all/themes/apl/images/content_bg.jpg");
+  background-image: url("../images/content_bg.jpg");
   background-position: center center;
   background-repeat: repeat-y;
 }
@@ -33,6 +33,12 @@ a:hover, a:active {
 #header a:visited {color: #fff; text-decoration:none;}
 #header a:hover {color: #FFEAC4; text-decoration:none;}
 #header a:active {color: #fff; text-decoration:none;}
+
+
+
+#footer a:link, #footer a:visited, #header a:hover, #footer a:active{
+  color: blue !important;
+}
 
 
 /* Titles. */
@@ -291,7 +297,7 @@ div.status {
 }
 
 #header-region {
-  background: url("/drupal_example/sites/all/themes/apl/images/nav_head.jpg");
+  background: url("../images/nav_head.jpg");
   background-repeat: no-repeat;
 }
 

@@ -84,7 +84,7 @@ body {
 }
 
 .panel-col-first .pane-title { 
-  background: url("/drupal_example/sites/all/themes/apl/images/left_col_head.jpg");
+  background: url("../images/left_col_head.jpg");
   background-repeat: no-repeat;
   color: white;
 }
@@ -97,7 +97,7 @@ body {
 }
 
 .panel-col-last .pane-title { 
-  background: url("/drupal_example/sites/all/themes/apl/images/right_col_head.jpg");
+  background: url("../images/right_col_head.jpg");
   background-repeat: no-repeat;
 }  
 

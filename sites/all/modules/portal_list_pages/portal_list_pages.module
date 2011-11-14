@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Portal List Pages feature.
- */
-
-include_once('portal_list_pages.features.inc');

@@ -1,6 +1,0 @@
-; $Id:
-name = "COA Log-in Modifications"
-description = "Modifies log-in form (and in the future, a good place to put custom authentication)."
-package = AustinGO
-version = VERSION
-core = 7.x

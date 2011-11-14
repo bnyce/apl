@@ -1,6 +1,0 @@
-; $Id:
-name = "COA Service Form Modifications"
-description = "Modifies service search form."
-package = AustinGO
-version = 1.0
-core = 7.x

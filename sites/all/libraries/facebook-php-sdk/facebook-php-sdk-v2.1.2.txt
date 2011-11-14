@@ -1,2 +1,0 @@
-Facebook Version: 
-facebook-php-sdk-v2.1.2-0-gb14edfa.tar

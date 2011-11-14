@@ -1,0 +1,40 @@
+name = APL
+description = Austin Public Library theme for Drupal 7
+screenshot = images/screenshot.gif
+core = "7.x"
+engine = phptemplate
+
+regions[page_top] = Page Top
+regions[city_header] = City Header
+regions[header] = APL Header
+regions[highlight] = Highlighted (Banner)
+regions[help] = Help
+regions[content] = Content
+regions[announcements] = Announcements
+regions[secondary_navigation] = Secondary Navigation
+regions[footer] = Footer
+regions[bottom]	= Bottom
+regions[page_bottom] = Page Bottom
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+stylesheets[all][] = css/default.css
+stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/style.css
+stylesheets[print][] = css/print.css
+
+settings[basic_tabs] = 1
+settings[basic_breadcrumb_separator] = »
+settings[wireframe_mode] = 0
+settings[clear_registry] = 0
+
+
+

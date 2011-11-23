@@ -25,7 +25,10 @@ body {
   margin: 0 auto;
 }
 
-#city-header{}
+#city-header{
+	width:100%;
+	background:black;
+}
 
 #header {
   width: 900px;
@@ -74,7 +77,7 @@ body {
   float: none;
   clear: both;
   width: 950px;
-  height: 4em;  /*issues with whitespace beneath #bottom */
+  height: 5em;  /*issues with whitespace beneath #bottom */
 }
 
 .panel-col-first {
@@ -103,7 +106,7 @@ body {
 
 h2.pane-title { 
   font-size: 1em;
-  padding: 0 0 0 10px !important;
+  padding: 5px 0 0 10px !important;
   text-transform: uppercase;  
   color: white;
 }

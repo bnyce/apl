@@ -1,22 +1,18 @@
-<div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
-
-
-
-
-
-
-
-  <!-- ______________________ HEADER _______________________ -->
- 
-  <div id="city-header">
+<div id="city-header">
     
-    <?php if ($page['city_header']): ?>
+    <div class="center-coa-brandbar"><?php if ($page['city_header']): ?>
       <div id="city-header-region">
         <?php print render($page['city_header']); ?>
       </div>
-    <?php endif; ?>
+    <?php endif; ?></div>
 
   </div> <!-- /city header -->
+  
+  <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+
+  <!-- ______________________ HEADER _______________________ -->
+ 
+
   
   <div id="header">
 

@@ -82,19 +82,17 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
   case 'apl_isbnfield_simple':
       foreach ($items as $delta => $item) {
 		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
-		$element[$delta]["blEntryWrapper"] = array(
+		$element[$delta]["blEntryElement_0"] = array(
           '#type' => 'markup',
 		  '#markup' => '<div class="blEntryWrapper">'
         );
-		 if(strlen($bookInfo->IMGSRCMED) > 1){ 
-		$element[$delta]["blEntryImage"] = array(
-		  	'#prefix' => '<div class="blSMImage">', 
+		$element[$delta]["blEntryElement_1"] = array(
+		  	'#prefix' => '<div class="blMEDImage">', 
 			'#suffix' => '</div>', 		
          	'#type' => 'markup',
 			'#markup' => '<a href="https://www.ci.austin.tx.us/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img src="'.$bookInfo->IMGSRCMED.'" style="width:100px;" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>',
         );
-		 }
-		  $element[$delta]["blBookTitle"] = array(
+		  $element[$delta]["blEntryElement_2"] = array(
 		  	'#prefix' => '<div class="bTitleLink">', 
 			'#suffix' => '</div>', 
 			'#type' => 'link',
@@ -105,8 +103,24 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
              'title' => $bookInfo->FULLTITLE,
           ),
         );
+		
+		$element[$delta]["blEntryElement_3"] = array(
+				'#prefix' => '<div class="blAuthorName">', 
+				'#suffix' => '</div>', 		
+				'#type' => 'markup',
+				'#markup' => "By ".$bookInfo->AUTHOR,
+			);
 
-		$element[$delta]["bl_desc"] = array(
+		if(strlen($item['bl_desc']) > 1){ 
+			$element[$delta]["blEntryElement_4"] = array(
+				'#prefix' => '<div class="blAPLSays">', 
+				'#suffix' => '</div>', 		
+				'#type' => 'markup',
+				'#markup' => $item['bl_desc'],
+			);
+		 }
+
+		$element[$delta]["blEntryElement_5"] = array(
           // We create a render array to produce the desired markup,
           // "<p style="color: #hexcolor">The color code ... #hexcolor</p>".
           // See theme_html_tag().
@@ -117,15 +131,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
           ),
          '#value' => " ".t($bookInfo->DESC),
         );
-		if(strlen($item['bl_desc']) > 1){ 
-			$element[$delta]["blEntryImage"] = array(
-				'#prefix' => '<div class="blAPLSays">', 
-				'#suffix' => '</div>', 		
-				'#type' => 'markup',
-				'#markup' => $item['bl_desc'],
-			);
-		 }
-		$element[$delta]["blEntryWrapperClose"] = array(
+		$element[$delta]["blEntryElement_6"] = array(
           '#type' => 'markup',
 		  '#markup' => '</div">'
         );

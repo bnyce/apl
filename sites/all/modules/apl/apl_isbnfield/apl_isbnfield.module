@@ -1,0 +1,393 @@
+<?php
+ 
+/**
+ * Implements hook_field_info().
+ */
+function apl_isbnfield_field_info() {
+  return array(
+    'apl_isbnfield' => array(
+      'label' => t('ISBN FIELD'),
+      'description' => t('Add ISBN FIELDS AND A DESCRIPTION FIELD'),
+      'default_widget' => 'apl_isbnfield_text',
+      'default_formatter' => 'apl_isbnfield_simple',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_validate().
+ *
+ * This hook gives us a chance to validate content that's in our
+ * field. We're really only interested in the $items parameter, since
+ * it holds arrays representing content in the field we've defined.
+ * We want to verify that the items only contain RGB hex values like
+ * this: #RRGGBB. If the item validates, we do nothing. If it doesn't
+ * validate, we add our own error notification to the $errors parameter.
+ *
+ * @see field_example_field_widget_error()
+ */
+function apl_isbnfield_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+  foreach ($items as $delta => $item) {
+    if (!empty($item['bl_isbn'])) {
+    /*  if (! preg_match('@^#[0-9a-z]{10}$@', $item['bl_isbn']) || ! preg_match('@^#[0-9a-z]{13}$@', $item['bl_isbn'])) {
+        $errors[$field['field_name']][$langcode][$delta][] = array(
+          'error' => 'apl_isbnfield_invalid',
+          'message' => t('ISBN Must be in the correct format(ALPHANUMERIC). no dashes or spaces and should be either 10 or 13 digits in length.'),
+        );
+      }*/
+    }
+  }
+}
+
+ /**
+ * Implements hook_field_is_empty().
+ */
+function apl_isbnfield_field_is_empty($item, $field) {
+	return empty($item['bl_isbn']);
+}
+
+
+
+/**
+ * Implements hook_field_formatter_info().
+ *
+ * We need to tell Drupal that we have two different types of formatters
+ * for this field. One will change the text color, and the other will
+ * change the background color.
+ *
+ * @see field_example_field_formatter_view()
+ */
+function apl_isbnfield_field_formatter_info() {
+  return array( 
+    // This formatter just displays the ISBN value in the color indicated.
+    'apl_isbnfield_simple' => array(
+      'label' => t('Simply showes the ISBN Field'),
+      'field types' => array('apl_isbnfield'),
+    ),
+	    'apl_isbnfield_linked' => array(
+      'label' => t('Links the isbn to the catalog'),
+      'field types' => array('apl_isbnfield'),
+    ),
+  );
+}
+ 
+ 
+ /**
+ * Implements hook_field_formatter_view().
+ */
+function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+ 	// var_dump($items);
+ switch ($display['type']) {
+  case 'apl_isbnfield_simple':
+      foreach ($items as $delta => $item) {
+		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
+		$element[$delta]["blEntryElement_0"] = array(
+          '#type' => 'markup',
+		  '#markup' => '<div class="blEntryWrapper">'
+        );
+		$element[$delta]["blEntryElement_1"] = array(
+		  	'#prefix' => '<div class="blMEDImage">', 
+			'#suffix' => '</div>', 		
+         	'#type' => 'markup',
+			'#markup' => '<a href="https://www.ci.austin.tx.us/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img src="'.$bookInfo->IMGSRCMED.'" style="width:100px;" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>',
+        );
+		  $element[$delta]["blEntryElement_2"] = array(
+		  	'#prefix' => '<div class="bTitleLink">', 
+			'#suffix' => '</div>', 
+			'#type' => 'link',
+    		'#title' => $bookInfo->FULLTITLE,
+			'#href' => $bookInfo->CATLINK,
+			'#class' => 'basic_book_list_book_title',
+			'#attributes' => array(
+             'title' => $bookInfo->FULLTITLE,
+          ),
+        );
+		
+		$element[$delta]["blEntryElement_3"] = array(
+				'#prefix' => '<div class="blAuthorName">', 
+				'#suffix' => '</div>', 		
+				'#type' => 'markup',
+				'#markup' => "By ".$bookInfo->AUTHOR,
+			);
+
+		if(strlen($item['bl_desc']) > 1){ 
+			$element[$delta]["blEntryElement_4"] = array(
+				'#prefix' => '<div class="blAPLSays">', 
+				'#suffix' => '</div>', 		
+				'#type' => 'markup',
+				'#markup' => $item['bl_desc'],
+			);
+		 }
+
+		$element[$delta]["blEntryElement_5"] = array(
+          // We create a render array to produce the desired markup,
+          // "<p style="color: #hexcolor">The color code ... #hexcolor</p>".
+          // See theme_html_tag().
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#attributes' => array(
+			'class' => 'field-item basic_book_list_book_desc',
+          ),
+         '#value' => " ".t($bookInfo->DESC),
+        );
+		$element[$delta]["blEntryElement_6"] = array(
+          '#type' => 'markup',
+		  '#markup' => '</div">'
+        );
+		
+      }
+	  break;
+	  
+	  
+	  case 'apl_isbnfield_linked':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          // We create a render array to produce the desired markup,
+          // "<p style="color: #hexcolor">The color code ... #hexcolor</p>".
+          // See theme_html_tag().
+          '#type' => 'html_tag',
+          '#tag' => 'p',
+          '#attributes' => array(
+            'style' => 'color: #ffff00',
+          ),
+          '#value' => t('The ISBN is(attempting link): @code', array('@code' => $item['bl_isbn'])),
+        );
+      }
+	  break;
+	}
+  return $element;
+}
+
+
+/**
+ * Implements hook_format_field().
+ */
+function apl_isbn_format_field($item) {
+  $element = array(
+    '#type' => 'container',
+    '#attributes' => array( 'class' => array( 'field-item') ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function apl_isbnfield_field_widget_info() {
+  return array(
+    'apl_isbnfield_text' => array(
+      'label' => t('Book ISBN (10 or 13)'),
+      'field types' => array('apl_isbnfield'),
+    ),
+  );
+}
+
+
+
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function apl_isbnfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+	$value_bl_isbn = isset($items[$delta]['bl_isbn']) ? $items[$delta]['bl_isbn'] : '';
+	// $value_bl_booktitle= isset($items[$delta]['bl_booktitle']) ? $items[$delta]['bl_booktitle'] : '';
+	$value_bl_desc = isset($items[$delta]['bl_desc']) ? $items[$delta]['bl_desc'] : '';
+	//print_r($items);
+	 
+	// echo "Value: ". $value."----- ".$delta;
+ // Store the key in the element array as a value so it can be easily retrieved
+  // in context in the $form_state['values'] array in the element validator.
+
+  //$widget = $element;
+ // $widget['#delta'] = $delta;
+
+
+  // $field_name = $field['field_name'];
+  // $field_type = $field['type'];
+ 
+  //$default_date_int = $instance['default_value'][0][$field_type][$field_type];
+  // $default_date_array = _intToDateArray($default_date_int);
+ 
+  //$apl_isbnfield_value = isset($default_date_array) ? $default_date_array : _intToDateArray(time());
+ 
+// echo "<br/>".$instance['widget']['type'];
+// print_r($display);
+  switch ($instance['widget']['type']) {
+    case 'apl_isbnfield_text':
+	
+	$element += array(
+		'#type' => 'fieldset',
+	);
+		if(strlen($value_bl_isbn)>9)
+		{
+			$oBookInfo = fnDisplayBookInfo($value_bl_isbn);
+			$title = "ISBN: <br /> Current:<br />".$oBookInfo->FULLTITLE;
+		} else
+		{
+			$title = "ISBN:";
+		}
+	
+	
+		$element['bl_isbn'] = array(
+		'#delta' => $delta,
+		 '#title' => $title,
+		  '#size' => 15,
+		  '#maxlength' => 13,
+		'#type' => 'textfield',
+		'#default_value'=>$value_bl_isbn
+		);
+		$element['bl_desc'] = array(
+		'#delta' => $delta,
+		'#type' => 'textarea',
+		 '#title' => "Book Desc",
+		'#default_value'=>$value_bl_desc
+		);
+		
+	
+	
+	
+	
+	
+/*
+	  $widget += array(
+          '#type' => 'textfield',
+          '#title' => "ISBN 1223",
+          //'#description' => t('Enter The ISBN'),
+          '#default_value' => $value,
+          //'#required' => FALSE,
+          //'#delta' => $delta,
+		  '#size' => 15,
+		  '#maxlength' => 13,
+		  '#ajax' => array(
+	     	 'callback' => 'dad_test_callback',
+    		 'wrapper' => 'bynavn-' . $delta,
+      ), 
+	  
+          //'#element_validate' => array('strToISBNValidate'),
+      );
+	  */
+	  /* $element['apl_isbnfield']['bl_desc'] = array(
+          '#type' => 'textarea',
+          '#title' => t("Description"),
+          '#description' => t('This will apear after the item description'),
+          '#default_value' => '',
+          '#required' => FALSE,
+          '#delta' => $delta,
+		  '#size' => 15,
+          //'#element_validate' => array('strToISBNValidate'),
+      );*/
+ 
+      break;
+  }
+/* // print_r($element);
+ $element['postnr'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Postnummer'),
+    '#default_value' => isset($items[$delta]['postnr']) ? $items[$delta]['postnr'] : NULL,
+    '#ajax' => array(
+      'callback' => 'ajax_callback',
+      'wrapper' => 'bynavn-' . $delta,
+      ),
+    );
+
+  $element['bynavn'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Bynavn'),
+    '#prefix' => '<div id="bynavn-' . $delta . '">',
+    '#suffix' => '</div>',
+    '#default_value' => isset($items[$delta]['bynavn']) ? $items[$delta]['bynavn'] : NULL,
+    );
+  $element['bl_isbn'] = $widget;
+  
+ //  $element['bl_desc'] = $widget;*/
+
+  return $element;
+}
+ 
+ /**
+ * Implements hook_field_widget_error().
+ */
+function apl_isbnfield_widget_error($element, $error, $form, &$form_state) {
+  switch ($error['error']) {
+    case 'apl_isbnfield_invalid':
+      form_error($element, $error['message']);
+      break;
+  }
+}
+
+ 
+ 
+ /**
+ * Implements hook_menu().
+ *
+ * Provides a simple user interface that tells the developer where to go.
+ */
+function apl_isbnfield_menu() {
+  $items['apl_isbnfield'] = array(
+    'title' => 'APL ISBN',
+    'page callback' => '_apl_isbnfield_page',
+    'access callback' => TRUE,
+	
+  );
+  return $items;
+}
+
+ /**
+ * A simple page to explain to the developer what to do.
+ */
+function _apl_isbnfield_page() {
+  return t("The Field Example provides a field composed of an HTML RGB value, like #ff00ff. To use it, add the field to a content type.");
+}
+  
+ /**
+ * A simple function to parse the wsdl from our catalog
+ */
+function fnDisplayBookInfo($isbn)
+{
+	$requestURI = "http://www.austinlibrary.com/includes/cfc/bib_public.cfc?wsdl&method=get_bib&isbn=".$isbn;
+ $response = file_get_contents($requestURI);
+ $responseXML = wddx_deserialize($response);
+ /* available options
+ SUBTITLE
+ PUB_DATE
+RELATED_ISBNS
+TITLE
+ISBN
+SUBJECTS
+DESC
+PUB_NAME
+FORWARD
+ISBN10
+AUTHOR
+ISBN13
+PUB_PLACE
+PUBLISHER
+XML
+
+
+	foreach ($responseXML as $key => $value) {
+    	echo "$key<br> Value: $value<br />\n";
+	}
+*/	$bookinfo = (object) $responseXML;
+	$bookinfo->FULLTITLE = (empty($responseXML['SUBTITLE'])) ? rtrim($responseXML['TITLE'], "/") :$responseXML['TITLE']." ".$responseXML['SUBTITLE'];
+	$bookinfo->CATLINK = (empty($responseXML['ISBN'])) ?"":"https://www.ci.austin.tx.us/uhtbin/cgisirsi/x/x/0/5?searchdata1=".$responseXML['ISBN'];
+	$bookinfo->IMGSRCSM = (empty($responseXML['ISBN'])) ?"":"http://www.austinlibrary.com/catalog/image_proxy.cfm?size=small&id=".$responseXML['ISBN'];
+	
+	$bookinfo->IMGSRCMED = (empty($responseXML['ISBN'])) ?"":"http://www.austinlibrary.com/catalog/image_proxy.cfm?size=medium&id=".$responseXML['ISBN'];
+	
+	$bookinfo->IMGSRCLG = (empty($responseXML['ISBN'])) ?"":"http://www.austinlibrary.com/catalog/image_proxy.cfm?size=large&id=".$responseXML['ISBN'];
+
+	return $bookinfo;
+}
+
+function ajax_callback($form, $form_state) {
+  $parents = $form_state['triggering_element']['#parents'];
+  return $form[$parents[0]][$parents[1]][$parents[2]][$parents[3]];;
+}
+
+
+// displays the simple booklist entry
+function fnFormatBLEntry($oBookInfo)
+{
+	
+}

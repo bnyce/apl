@@ -21,3 +21,59 @@ ul .secondary li a:hover {
   margin-left: 205px;
   padding-top: 58px;
 }
+
+/* Begin Library Footer */
+
+#footer{
+  background: #fff;
+}
+
+#footer .region-footer {font-size:14px; padding-top:10px; padding-left:-10em; } 
+
+#footer .region-footer #block-menu-menu-footer-menu
+
+#footer .region-footer #block-menu-menu-footer-menu .block-inner
+
+#footer .region-footer #block-menu-menu-footer-menu .block-inner .content
+
+#footer .region-footer #block-menu-menu-footer-menu .block-inner .content .menu
+
+
+#footer ul {
+  list-style: none !important;
+  list-style-type: none !important;
+  list-style-image: none !important;
+}
+
+#footer ul ul{
+  list-style: none !important;
+  list-style-type: none !important;
+  list-style-image: none !important;
+  margin-left:-1.65em;
+  margin-top:20px;  
+}
+
+#footer ul ul li{
+  clear:both;
+    font-size:11px;
+    line-height:50px;
+}
+
+#footer ul ul li li{
+  clear:both;
+  margin-top:0px;
+  line-height:0px;
+}
+
+#footer li{
+  list-style: none !important;
+  list-style-type: none !important;
+  list-style-image: none !important;  
+  float: left;
+  padding-bottom: 10px;
+  margin-left:-5px;
+  margin-right:20px;
+}
+
+
+/* End Library Footer */

@@ -58,6 +58,7 @@ body {
   width: 100%;
   padding: 0 25px;
   position: relative;
+  margin-top:0px;
 }
 
 /* line 29, ../sass/layout.sass */
@@ -102,7 +103,13 @@ body {
 .panel-col-last .pane-title { 
   background: url("../images/right_col_head.jpg");
   background-repeat: no-repeat;
-}  
+}
+
+.panel-col-bottom .pane-title { 
+  background: url("../images/apl_fullwidth_head.jpg");
+  background-repeat: no-repeat;
+  margin-top:8px;
+}   
 
 h2.pane-title { 
   font-size: 1em;
@@ -114,7 +121,8 @@ h2.pane-title {
 /*Panel Layout*/
 
 .panel-2col {
-  margin-top: 10px;
+  margin-top: 2px;
+  margin-left:0px;
 }
 
 
@@ -124,7 +132,7 @@ h2.pane-title {
 .panel-col-first .inside {
   padding: 0; 
   margin: 0 !important;
-  margin-right: 5px !important; 
+  margin-right: 0px !important; 
 }
 
 .panel-col-first .inside .panel-pane {padding: 0; margin: 0 !important;}

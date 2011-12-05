@@ -15,6 +15,8 @@
 
   
   <div id="header">
+  
+  <div class="overlogodiv"></div>
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -45,7 +47,7 @@
     <?php endif; ?>
 
     <?php if ($page['header']): ?>
-      <div id="header-region">
+      <div id="header-region" style="vertical-align:right;">
         <?php print render($page['header']); ?>
       </div>
     <?php endif; ?>
@@ -62,7 +64,7 @@
         <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
           <div id="content-header">
 
-            <?php print $breadcrumb; ?>
+            <//?php print $breadcrumb; ?>
 
             <?php if ($page['highlight']): ?>
               <div id="highlight"><?php print render($page['highlight']) ?></div>
@@ -83,6 +85,39 @@
               <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
             
+                <?php if ($main_menu || $secondary_menu): ?>
+      <div id="navigation" class="menu <?php if (!empty($main_menu)) {print "with-primary";} if (!empty($secondary_menu)) {print " with-secondary";} ?>">
+        <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
+        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
+      </div>
+    <?php endif; ?>
+            
+                    <?php if ($page['secondary_navigation']): ?>
+      <div id="secondary-navigation" class="column secondary-navigation second">
+        <div id="secondary-navigation-inner" class="inner">
+          <?php print render($page['secondary_navigation']); ?>
+        </div>
+      </div>
+    <?php endif; ?> <!-- /secondary-navigation -->
+            
+               
+      <div class="announce-wrap">
+      <div class="announce-top"></div>
+                
+                <?php if ($page['announcements']): ?>
+      <div id="announcements" class="column announcements first">
+        <div id="announcements-inner" class="inner">
+          <?php print render($page['announcements']); ?>
+        </div>
+      </div>
+    <?php endif; ?> <!-- /announcements -->
+    
+    <div class="announce-bottom"></div>
+    
+    </div>
+    
+
+            
           </div> <!-- /#content-header -->
         <?php endif; ?>
 
@@ -95,28 +130,11 @@
       </div>
     </div> <!-- /content-inner /content -->
 
-    <?php if ($main_menu || $secondary_menu): ?>
-      <div id="navigation" class="menu <?php if (!empty($main_menu)) {print "with-primary";} if (!empty($secondary_menu)) {print " with-secondary";} ?>">
-        <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
-        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
-      </div>
-    <?php endif; ?>
 
-    <?php if ($page['announcements']): ?>
-      <div id="announcements" class="column announcements first">
-        <div id="announcements-inner" class="inner">
-          <?php print render($page['announcements']); ?>
-        </div>
-      </div>
-    <?php endif; ?> <!-- /announcements -->
 
-    <?php if ($page['secondary_navigation']): ?>
-      <div id="secondary-navigation" class="column secondary-navigation second">
-        <div id="secondary-navigation-inner" class="inner">
-          <?php print render($page['secondary_navigation']); ?>
-        </div>
-      </div>
-    <?php endif; ?> <!-- /secondary-navigation -->
+
+
+
     
   </div> <!-- /main -->
 

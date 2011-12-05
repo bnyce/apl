@@ -4,6 +4,7 @@ screenshot = images/screenshot.gif
 core = "7.x"
 engine = phptemplate
 
+scripts[] = /aplcustom/js/aplcustom.js
 regions[page_top] = Page Top
 regions[city_header] = City Header
 regions[header] = APL Header
@@ -31,10 +32,8 @@ stylesheets[all][] = css/layout.css
 stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 
+
 settings[basic_tabs] = 1
 settings[basic_breadcrumb_separator] = »
 settings[wireframe_mode] = 0
 settings[clear_registry] = 0
-
-
-

@@ -34,6 +34,11 @@ a:hover, a:active {
 #header a:hover {color: #FFEAC4; text-decoration:none;}
 #header a:active {color: #fff; text-decoration:none;}
 
+#secondary-navigation a:link {color:#fff; text-decoration:none; }
+#secondary-navigation a:visited {color: #fff; text-decoration:none;}
+#secondary-navigation a:hover {color: #FFEAC4; text-decoration:none;}
+#secondary-navigation a:active {color: #fff; text-decoration:none;}
+
 
 
 #footer a:link {color: #333 !important;}
@@ -61,8 +66,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.2em;
   font-weight: bold;
-  padding: 0 0 0.5em;
+  padding: 2px 0 0px 0px;
   margin: 0;
+  color:#0069AA;
+  text-transform:uppercase;
 }
 
 /* line 37, ../sass/style.sass */
@@ -247,12 +254,48 @@ div.status {
 
 /* line 160, ../sass/style.sass */
 #announcements {
-  background: #e7edff;
+  background: #edf0ff;
+  width:890px;
+  padding-left:10px;
+  padding-top: 3px;
+  margin-top: 8px;
+}
+
+.announce-wrap {width:900px;}
+.announce-top {width:900px; height:10px; background-image:url(../images/apl_announcement_top.jpg); float:left;}
+.announce-bottom {width:900px; height:10px; background-image:url(../images/apl_announcement_bottom.jpg); float:left;}
+
+#announcements P {line-height:5px;
+}
+
+#announcements h2 {margin-bottom:0px;
+  color:#900;
+  text-transform:uppercase;
 }
 
 /* line 163, ../sass/style.sass */
 #secondary-navigation {
-  background: #ffd075;
+  //background: #ffd075;
+  width:900px;
+  height:29px;
+  margin-top:2px;
+  background-image:url(../images/apl_secnav_bg.png);
+}
+
+#secondary-navigation ul { margin-left:-1.65em;
+  //margin-top:5px;
+    color:#ccc;
+    float:left;
+ 
+}
+
+#secondary-navigation li {  list-style: none !important;
+  list-style-type: none !important;
+  list-style-image: none !important;
+  float:left;
+  margin-top:2px;
+  margin-left:7px;
+  color:#ccc;
 }
 
 /* line 166, ../sass/style.sass */
@@ -301,7 +344,7 @@ div.status {
 
 
 /* Begin Library Header */
-#header {
+#header {margin-bottom:0px;
 
 }
 
@@ -312,12 +355,12 @@ div.status {
 
 #block-system-main-menu {
   height: 86px;
-  margin: 18px auto 0;
+  margin: 18px auto 0px;
   width: 900px;
 }	
 
 #block-system-main-menu ul{
-  margin-left: 195px;
+  margin-left: 285px;
   padding-top: 58px;
 
 }
@@ -342,7 +385,7 @@ div.status {
 /* Begin Library Content*/
 
 #main {}
-#content {}
+#content {padding-top:0px;}
 
 /* End Library Content */
 
@@ -397,7 +440,7 @@ div.status {
   float: left;
   padding-bottom: 10px;
   margin-left:-5px;
-  margin-right:15px;
+  margin-right:5px;
 }
 
 
@@ -429,27 +472,48 @@ div.status {
 
 
 
-.panel-col-first {}
+.panel-col-first {/*height:174px;*/}
 
-.panel-col-first .inside {}
+.panel-col-first .inside {margin-top:0px;}
 
 .panel-col-first .inside .panel-pane {}
 
-.panel-col-first .inside .panel-pane h2.pane-title {height:27px;}
+.panel-col-first .inside .panel-pane h2.pane-title {height:27px;margin-top:8px;}
 
-.panel-col-first .inside .panel-pane .pane-content {}
+.panel-col-first .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px}
 
 
-.panel-col-last {}
+.panel-col-last {margin-bottom:8px;}
 
 .panel-col-last .inside {}
 
 .panel-col-last .inside .panel-pane {}
 
-.panel-col-last .inside .panel-pane h2.pane-title {height:27px;}
+.panel-col-last .inside .panel-pane h2.pane-title {height:27px; padding-bottom:-1em;margin-top:8px;}
 
-.panel-col-last .inside .panel-pane .pane-content {}
+.panel-col-last .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px}
 
 
+.panel-col-bottom .inside .panel-pane h2.pane-title {height:27px; padding-bottom:-1em;margin-top:8px;}
+
+.panel-col-bottom .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px; padding-right:8px;}
+
+
+
+//#highlight IMG {margin-left:-5px;}
+#highlight {height:174px;}
+
+#highlight .panel-col-first .inside .panel-pane .pane-content {padding-left:0px;}
+
+.breadcrumb {margin-bottom:-.5em;}
+
+.handler {padding-left:3px;}
+.handler_down {padding-left:3px;text-decoration:none;}
+.toggle {padding-left:3px;}
+
+.pane-faq-views-panel-pane-1 .views-row-odd {background-color:#D4DDEE; cursor:pointer;}
+.pane-faq-views-panel-pane-1 .views-row-even {cursor:pointer;}
+
+.overlogodiv {width:100px; height:75px; float:left; cursor:pointer; /*background-color:#000;*/}
 
 

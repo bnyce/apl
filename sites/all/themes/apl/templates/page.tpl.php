@@ -101,20 +101,22 @@
     <?php endif; ?> <!-- /secondary-navigation -->
             
                
-      <div class="announce-wrap">
-      <div class="announce-top"></div>
+      
                 
                 <?php if ($page['announcements']): ?>
+                <div class="announce-wrap">
+      <div class="announce-top"></div>
       <div id="announcements" class="column announcements first">
         <div id="announcements-inner" class="inner">
           <?php print render($page['announcements']); ?>
         </div>
       </div>
-    <?php endif; ?> <!-- /announcements -->
-    
-    <div class="announce-bottom"></div>
+          <div class="announce-bottom"></div>
     
     </div>
+    <?php endif; ?> <!-- /announcements -->
+    
+
     
 
             

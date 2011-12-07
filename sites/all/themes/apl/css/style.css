@@ -20,13 +20,13 @@ body {
 /* Links */
 /* line 11, ../sass/style.sass */
 a:link, a:visited {
-  color: blue;
+  color: #0069AA;
   text-decoration: none;
 }
 
 /* line 16, ../sass/style.sass */
 a:hover, a:active {
-  color: red;
+  color: #999;
 }
 
 #header a:link {color:#fff; text-decoration:none; }
@@ -386,6 +386,7 @@ div.status {
 
 #main {}
 #content {padding-top:0px;}
+#content-area {width:902px;}
 
 /* End Library Content */
 
@@ -472,9 +473,9 @@ div.status {
 
 
 
-.panel-col-first {/*height:174px;*/}
+.panel-col-first {}
 
-.panel-col-first .inside {margin-top:0px;}
+.panel-col-first .inside {margin-top:8px;}
 
 .panel-col-first .inside .panel-pane {}
 
@@ -483,7 +484,7 @@ div.status {
 .panel-col-first .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px}
 
 
-.panel-col-last {margin-bottom:8px;}
+.panel-col-last {margin-bottom:8px;margin-left:2px;}
 
 .panel-col-last .inside {}
 
@@ -499,21 +500,137 @@ div.status {
 .panel-col-bottom .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px; padding-right:8px;}
 
 
-
-//#highlight IMG {margin-left:-5px;}
-#highlight {height:174px;}
-
-#highlight .panel-col-first .inside .panel-pane .pane-content {padding-left:0px;}
+#mini-panel-front_page_highlighted_area .panel-col-last {width:390px !important;}
+#mini-panel-front_page_highlighted_area .panel-col-first {width:504px !important;}
+#highlight .panel-col-first .inside .panel-pane .pane-content {padding-left:0px; padding-right:0px; width:504px;height:174px;}
 
 .breadcrumb {margin-bottom:-.5em;}
 
 .handler {padding-left:3px;}
+
 .handler_down {padding-left:3px;text-decoration:none;}
+
 .toggle {padding-left:3px;}
 
 .pane-faq-views-panel-pane-1 .views-row-odd {background-color:#D4DDEE; cursor:pointer;}
+
 .pane-faq-views-panel-pane-1 .views-row-even {cursor:pointer;}
 
-.overlogodiv {width:100px; height:75px; float:left; cursor:pointer; /*background-color:#000;*/}
+.overlogodiv {width:100px; height:75px; float:left; cursor:pointer; z-index:10; /*background-color:#000;*/}
+
+.blEntryWrapper {width: 100%; clear:both; padding: 8px 0px 8px 0px;}
+
+.blMEDImage {width:100px; float:left; margin-right:8px; height:auto; clear:right;}
+
+.bTitleLink {font-weight:bold; font-size:18px; text-transform:uppercase;   color:#0069AA;}
+
+.bTitleLink a:link {color:#0069AA; text-decoration:none; }
+.bTitleLink a:visited {color: #0069AA; text-decoration:none;}
+.bTitleLink a:hover {color: #999; text-decoration:none;}
+.bTitleLink a:active {color: #0069AA; text-decoration:none;}
+
+.blAuthorName {font-weight:bold; font-size:12px;}
+
+.basic_book_list_book_desc {height:auto;margin-bottom:8px; margin-top: 8px;}
+
+/*SEARCH BOX BEGIN*/
+
+.customSearchTab {
+	position:relative;
+	float:left;
+	width:100%;
+	padding:0;
+	margin:0;
+	list-style:none;
+	line-height:1em;
+	font-size:.95em;
+	margin-right:2px;
+	text-transform:uppercase;
+}
+.aplCustomSearchContainer
+{
+	width:390px;
+	height:124px;
+	font-size:12px;
+    float:left;
+    padding:0px;
+    margin-left:-18px;
+    margin-top:8px;
+    background-image: none;
+}
+
+.aplCustomSearchContainer_bottom
+{
+	width:390px;
+	height:12px;
+    float:left;
+    background-image:url("../images/apl_bannerhead_searchbox_bottom.png");
+    background-repeat: no-repeat;
+    background-position:left;
+    margin-top:-1px;
+}
+.aplCustomSearchContainer form
+{
+	width:360px;
+	font-size:14px;
+	margin-left:15px;
+	margin-top:12px;
+}
+
+.customSearchTab li {
+	float:left;
+	margin:0;
+	padding:0;
+	height:26px;
+	clear: right;
+	margin-right:3px;
+}
+.customSearchTab a {
+	display:block;
+	color:#0069AA;
+	text-decoration:none;
+	font-weight:bold;
+	margin:0;
+	padding:0.25em 1em;
+	height:26px;
+	margin-top:3px;
+}
+.customSearchTab_active {
+	display:block;
+	color: #fff;
+	text-decoration:none;
+	font-weight:bold;
+	background:#fff;
+	margin:0;
+	padding:0.25em 1em;
+	border-left:1px solid #B2B2B2;
+	border-top:1px solid #B2B2B2;
+	border-right:1px solid #B2B2B2;
+}
+
+
+.initialHidden
+{
+	display:none;
+	background:#D4DDEE;
+
+
+}
+.customSearch_formContainer
+{
+	height:120px;
+	width:390px;
+	background-image:url("../images/apl_bannerhead_searchbox_bg.png");
+    background-repeat: repeat-y;
+    background-position:left;
+    margin-top:26px;
+    border-top:1px solid #B2B2B2;
+
+}
+
+//.aplCustomSearchContainer_top_buttons {width: 390px; heigh:26px; float:left;clear:both;    background-image:none;
+}
+
+/*SEARCH BOX END*/
 
 

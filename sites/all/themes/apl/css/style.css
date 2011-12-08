@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.2em;
   font-weight: bold;
-  padding: 2px 0 0px 0px;
+  padding: 12px 0 0px 0px;
   margin: 0;
   color:#0069AA;
   text-transform:uppercase;
@@ -473,7 +473,7 @@ div.status {
 
 
 
-.panel-col-first {}
+.panel-col-first {width:597px;float:left;}
 
 .panel-col-first .inside {margin-top:8px;}
 
@@ -481,18 +481,31 @@ div.status {
 
 .panel-col-first .inside .panel-pane h2.pane-title {height:27px;margin-top:8px;}
 
-.panel-col-first .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px}
+.panel-col-first .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px; width:579px;}
+
+.panel-col-first .view-faq-views {margin-bottom:0px;}
+
+//.panel-col-first .views-row {border-bottom:1px #999 solid; margin-bottom:15px;}
+
+.panel-col-first .views-field-title {font-size:12px;}
 
 
-.panel-col-last {margin-bottom:8px;margin-left:2px;}
 
-.panel-col-last .inside {}
+.panel-col-last {margin-bottom:8px;margin-left:0px;float:left;}
+
+.panel-col-last .views-field-title {font-size:14px; text-transform:uppercase; font-weight:bold;}
+
+.panel-col-last .bTitleLink {font-weight:bold; font-size:16px; text-transform:uppercase;   color:#0069AA;}
+
+.panel-col-last .inside {margin-left:0px;}
 
 .panel-col-last .inside .panel-pane {}
 
 .panel-col-last .inside .panel-pane h2.pane-title {height:27px; padding-bottom:-1em;margin-top:8px;}
 
-.panel-col-last .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px}
+.panel-col-last .inside .panel-pane .pane-content {padding-left:8px;padding-top:0px; width:275px;}
+
+.panel-col-last .pane-content P {margin-bottom:0px;}
 
 
 .panel-col-bottom .inside .panel-pane h2.pane-title {height:27px; padding-bottom:-1em;margin-top:8px;}
@@ -633,4 +646,6 @@ div.status {
 
 /*SEARCH BOX END*/
 
-
+.apl-blog-entry-wrapper .views-field-title {font-size:20px; text-transform:uppercase; font-weight:bold;}
+.apl-blog-entry-wrapper  {border-bottom:5px #ccc solid; margin-bottom:15px;}
+.node-blog {width:890px;margin-left:8px;}

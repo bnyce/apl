@@ -16,7 +16,7 @@
   
   <div id="header">
   
-  <div class="overlogodiv"></div>
+  <div class="overlogodiv" onclick="gotoURL(http://www.austintexas.gov/library)"></div>
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">

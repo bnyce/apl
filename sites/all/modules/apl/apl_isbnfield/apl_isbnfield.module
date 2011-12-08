@@ -133,7 +133,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
         );
 		$element[$delta]["blEntryElement_6"] = array(
           '#type' => 'markup',
-		  '#markup' => '</div">'
+		  '#markup' => '</div>'
         );
 		
       }

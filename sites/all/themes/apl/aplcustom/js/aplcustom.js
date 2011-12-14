@@ -13,14 +13,12 @@ $(document).ready(function() {
 	   //$("#BookAndMore_formContainer").show();
    });
 
-
-
-
-		$("div.overlogodiv").click(function() {
-		// alert("I think you want to head to the main APL site");
-		document.location = "http://library.austintexas.gov";  
-	});
+//    $("div.overlogodiv").click(function(e){
+	//alert("I think you want to head to the main APL site");
+//	alert('hello click');
+//	window.location.href = "http://library.austintexas.gov";  
+//	});
 	
-	});
+});
 	
 }(jQuery));

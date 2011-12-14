@@ -1,14 +1,12 @@
 <div id="city-header">
-    
     <div class="center-coa-brandbar"><?php if ($page['city_header']): ?>
       <div id="city-header-region">
         <?php print render($page['city_header']); ?>
       </div>
     <?php endif; ?></div>
-
-  </div> <!-- /city header -->
+</div> <!-- /city header -->
   
-  <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+<div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <!-- ______________________ HEADER _______________________ -->
  
@@ -16,7 +14,10 @@
   
   <div id="header">
   
-  <div class="overlogodiv" onclick="gotoURL(http://www.austintexas.gov/library)"></div>
+<!-- rwb 12/12/2011 fixed the link issue to work on all drupal 'sites' -->
+<div class="overlogodiv" style="height:86px; width:140px; position:absolute; z-index:10" 
+onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
+</div>
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">

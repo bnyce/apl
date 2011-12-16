@@ -1,5 +1,4 @@
 <?php
-// $Id: search-result.tpl.php,v 1.9 2010/11/21 20:36:36 dries Exp $
 
 /**
  * @file
@@ -32,8 +31,6 @@
  * - $info_split['date']: Last update of the node. Short formatted.
  * - $info_split['comment']: Number of comments output as "% comments", %
  *   being the count. Depends on comment.module.
- * - $info_split['upload']: Number of attachments output as "% attachments", %
- *   being the count. Depends on upload.module.
  *
  * Other variables:
  * - $classes_array: Array of HTML class attribute values. It is flattened
@@ -48,7 +45,7 @@
  * for its existence before printing. The default keys of 'type', 'user' and
  * 'date' always exist for node searches. Modules may provide other data.
  * @code
- *   <?php if (isset($info_split['comment'])) : ?>
+ *   <?php if (isset($info_split['comment'])): ?>
  *     <span class="info-comment">
  *       <?php print $info_split['comment']; ?>
  *     </span>
@@ -65,44 +62,18 @@
  * @see template_process()
  */
 ?>
-
-<!-- rwb 12/13/11 test -->
-
-<?php
-function form_example_tutorial_1($form, &$form_state) {
-
-  $form['description'] = array(
-    '#type' => 'item', 
-    '#title' => t('A form with nothing but a textfield'),
-  );
-  // This is the first form element. It's a textfield with a label, "Name"
-  $form['name'] = array(
-    '#type' => 'textfield', 
-    '#title' => t('Name'),
-  );
-  return $form;
-}
-?>
-
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
   <h3 class="title"<?php print $title_attributes; ?>>
     <a href="<?php print $url; ?>"><?php print $title; ?></a>
-    <?php if ($info) : ?>
-      <span class="search-info" style="float:right; color:silver"> <?php print $info_split['date']; ?> </span>
-    <?php endif; ?>
   </h3>
   <?php print render($title_suffix); ?>
   <div class="search-snippet-info">
-    <?php if ($snippet) : ?>
-	  <?php 
-	  $nog=str_replace("<strong>","<span style='color:orange;'><strong>",$snippet);
-	  $nog=str_replace("</strong>","</strong></span>",$nog);
-	   ?>
-      <p class="search-snippet"<?php print $content_attributes; ?>> <?php print $nog; ?></p>
+    <?php if ($snippet): ?>
+      <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
     <?php endif; ?>
-    <?php if ($info) : ?>
-	<!--  <p class="search-info"><?php print $info_split['date']; ?></p> 	-->
+    <?php if ($info): ?>
+      <p class="search-info"><?php print $info_split['date']; ?></p>
     <?php endif; ?>
   </div>
 </li>

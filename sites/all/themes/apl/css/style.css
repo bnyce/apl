@@ -495,7 +495,12 @@ div.status {
 
 .panel-col-last .views-field-title {font-size:14px; text-transform:uppercase; font-weight:bold;}
 
-.panel-col-last .bTitleLink {font-weight:bold; font-size:16px; text-transform:uppercase;   color:#0069AA;}
+.panel-col-last .bTitleLink {
+	font-weight:bold; 
+	font-size:14px; 
+/*	text-transform:uppercase; */
+	color:#0069AA;
+}
 
 .panel-col-last .inside {margin-left:0px;}
 
@@ -535,7 +540,13 @@ div.status {
 
 .blMEDImage {width:100px; float:left; margin-right:8px; height:auto; clear:right;}
 
-.bTitleLink {font-weight:bold; font-size:18px; text-transform:uppercase;   color:#0069AA;}
+.bTitleLink {
+	font-weight:bold; 
+	font-size:16px; 
+/*	text-transform:uppercase;  */
+	color:#FF9900;
+	margin:0;
+	margin-bottom:.75em;}
 
 .bTitleLink a:link {color:#0069AA; text-decoration:none; }
 .bTitleLink a:visited {color: #0069AA; text-decoration:none;}
@@ -545,6 +556,11 @@ div.status {
 .blAuthorName {font-weight:bold; font-size:12px;}
 
 .basic_book_list_book_desc {height:auto;margin-bottom:8px; margin-top: 8px;}
+
+div.views-field-title span.field-content a {
+color:orange;	
+
+}
 
 /*SEARCH BOX BEGIN*/
 

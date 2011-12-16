@@ -61,22 +61,35 @@ function apl_isbnfield_field_formatter_info() {
   return array( 
     // This formatter just displays the ISBN value in the color indicated.
     'apl_isbnfield_simple' => array(
-      'label' => t('Simply showes the ISBN Field'),
+      'label' => t('Simply shows the ISBN Field'),
       'field types' => array('apl_isbnfield'),
     ),
 	    'apl_isbnfield_linked' => array(
       'label' => t('Links the isbn to the catalog'),
       'field types' => array('apl_isbnfield'),
     ),
+    'apl_isbnfield_scrollbox' => array(
+      'label' => t('displays the scroll box of book titles'),
+      'field types' => array('apl_isbnfield'),
+    ),
+
   );
 }
- 
- 
+  /**
+ * Implements hook__init().
+ */
+ function apl_isbnfield_init(){
+  
+//  echo "Paco Fired";
+}
  /**
  * Implements hook_field_formatter_view().
  */
 function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
+ 	drupal_add_css(drupal_get_path('module', 'apl_isbnfield') .'/apl_isbnfield.css');
+	$options = array('group'=>JS_THEME,);
+		drupal_add_js(drupal_get_path('module', 'apl_isbnfield').'/apl_isbnfield.js', $options);
  	// var_dump($items);
  switch ($display['type']) {
   case 'apl_isbnfield_simple':
@@ -90,7 +103,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 		  	'#prefix' => '<div class="blMEDImage">', 
 			'#suffix' => '</div>', 		
          	'#type' => 'markup',
-			'#markup' => '<a href="https://www.ci.austin.tx.us/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img src="'.$bookInfo->IMGSRCMED.'" style="width:100px;" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>',
+			'#markup' => '<a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img src="'.$bookInfo->IMGSRCMED.'" style="width:100px;" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>',
         );
 		  $element[$delta]["blEntryElement_2"] = array(
 		  	'#prefix' => '<div class="bTitleLink">', 
@@ -119,21 +132,26 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 				'#markup' => $item['bl_desc'],
 			);
 		 }
-
-		$element[$delta]["blEntryElement_5"] = array(
+			$element[$delta]["blEntryElement_5"] = array(
+				'#prefix' => "<div class='book_desc'><div class='more-less'>", 
+				'#suffix' => '</div></div>', 		
+				'#type' => 'markup',
+				'#markup' =>  " ".$bookInfo->DESC,
+			);
+		/*$element[$delta]["blEntryElement_5"] = array(
           // We create a render array to produce the desired markup,
           // "<p style="color: #hexcolor">The color code ... #hexcolor</p>".
           // See theme_html_tag().
-          '#type' => 'html_tag',
+          '#type' => 'markup',
           '#tag' => 'div',
           '#attributes' => array(
 			'class' => 'field-item basic_book_list_book_desc',
           ),
          '#value' => " ".t($bookInfo->DESC),
-        );
+        );*/
 		$element[$delta]["blEntryElement_6"] = array(
           '#type' => 'markup',
-		  '#markup' => '</div>'
+		  '#markup' => '</div">'
         );
 		
       }
@@ -155,6 +173,39 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
         );
       }
 	  break;
+	  
+	  // lets build the title scroll box
+	  case 'apl_isbnfield_scrollbox':
+	   
+	  	$element[0]["blEntryElement_0"] = array(
+          '#type' => 'markup',
+		  '#markup' =>'<div class="bookSlideCont"><ul class="bookSlide jcarousel-skin-default">'
+        );
+	 
+      foreach ($items as $delta => $item) {
+		  $blimages[$delta]= '<a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>';
+		  $counter= $delta+1;
+		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
+		$element[$counter]["blEntryElement_1"] = array(
+					'#prefix' => '<li><a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'">', 
+					'#suffix' => '</a></li>', 		
+					'#type' => 'markup',
+					'#markup' => '<img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" />',
+				);
+      }
+
+        $element[count($items)+2]["blEntryElement_2"] = array(
+          '#type' => 'markup',
+		  '#markup' =>'</ul></div>'
+        );
+		$options = array (
+ 		 'wrap' => 'circular',
+		);
+		// blimages
+		jcarousel_add('bookSlide', array('wrap' => 'circular',));
+	  break;
+	  
+	  
 	}
   return $element;
 }
@@ -202,15 +253,7 @@ function apl_isbnfield_field_widget_form(&$form, &$form_state, $field, $instance
  // $widget['#delta'] = $delta;
 
 
-  // $field_name = $field['field_name'];
-  // $field_type = $field['type'];
- 
-  //$default_date_int = $instance['default_value'][0][$field_type][$field_type];
-  // $default_date_array = _intToDateArray($default_date_int);
- 
-  //$apl_isbnfield_value = isset($default_date_array) ? $default_date_array : _intToDateArray(time());
- 
-// echo "<br/>".$instance['widget']['type'];
+  
 // print_r($display);
   switch ($instance['widget']['type']) {
     case 'apl_isbnfield_text':
@@ -245,61 +288,8 @@ function apl_isbnfield_field_widget_form(&$form, &$form_state, $field, $instance
 		
 	
 	
-	
-	
-	
-/*
-	  $widget += array(
-          '#type' => 'textfield',
-          '#title' => "ISBN 1223",
-          //'#description' => t('Enter The ISBN'),
-          '#default_value' => $value,
-          //'#required' => FALSE,
-          //'#delta' => $delta,
-		  '#size' => 15,
-		  '#maxlength' => 13,
-		  '#ajax' => array(
-	     	 'callback' => 'dad_test_callback',
-    		 'wrapper' => 'bynavn-' . $delta,
-      ), 
-	  
-          //'#element_validate' => array('strToISBNValidate'),
-      );
-	  */
-	  /* $element['apl_isbnfield']['bl_desc'] = array(
-          '#type' => 'textarea',
-          '#title' => t("Description"),
-          '#description' => t('This will apear after the item description'),
-          '#default_value' => '',
-          '#required' => FALSE,
-          '#delta' => $delta,
-		  '#size' => 15,
-          //'#element_validate' => array('strToISBNValidate'),
-      );*/
- 
       break;
   }
-/* // print_r($element);
- $element['postnr'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Postnummer'),
-    '#default_value' => isset($items[$delta]['postnr']) ? $items[$delta]['postnr'] : NULL,
-    '#ajax' => array(
-      'callback' => 'ajax_callback',
-      'wrapper' => 'bynavn-' . $delta,
-      ),
-    );
-
-  $element['bynavn'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Bynavn'),
-    '#prefix' => '<div id="bynavn-' . $delta . '">',
-    '#suffix' => '</div>',
-    '#default_value' => isset($items[$delta]['bynavn']) ? $items[$delta]['bynavn'] : NULL,
-    );
-  $element['bl_isbn'] = $widget;
-  
- //  $element['bl_desc'] = $widget;*/
 
   return $element;
 }

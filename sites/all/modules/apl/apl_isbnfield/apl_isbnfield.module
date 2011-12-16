@@ -133,10 +133,10 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 			);
 		 }
 			$element[$delta]["blEntryElement_5"] = array(
-				'#prefix' => '<div class="more-less">', 
-				'#suffix' => '</div>', 		
+				'#prefix' => "<div class='book_desc'><div class='more-less'>", 
+				'#suffix' => '</div></div>', 		
 				'#type' => 'markup',
-				'#markup' =>  " ".t($bookInfo->DESC),
+				'#markup' =>  " ".$bookInfo->DESC,
 			);
 		/*$element[$delta]["blEntryElement_5"] = array(
           // We create a render array to produce the desired markup,

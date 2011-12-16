@@ -17,6 +17,17 @@ if (theme_get_setting('basic_tabs')) {
   drupal_add_css( drupal_get_path('theme', 'basic') .'/css/tabs.css');
 }
 
+/*
+ * RWB 12/15/2011 Added the ability to use stylesheet external to our
+ * site/theme.  This will allow rapid theme/css fixes without relying purely
+ * upon the site updates to css file.  This should be used only to fix problems
+ * and issues on temporary bases, and the css will be included in local css
+ * for deployment. 
+ */
+function apl_preprocess_html(&$variables) {
+	drupal_add_css('http://www.austinlibrary.com/drupal/library.austintexas.gov.css', array('group' => CSS_THEME,'type' => 'external','preprocess' => FALSE));
+}
+
 function basic_preprocess_page(&$vars, $hook) {
   if (isset($vars['node_title'])) {
     $vars['title'] = $vars['node_title'];
@@ -191,3 +202,5 @@ function basic_menu_local_tasks(&$variables) {
   return $output;
 
 }
+
+?>

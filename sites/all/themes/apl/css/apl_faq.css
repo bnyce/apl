@@ -1,0 +1,138 @@
+apl_html {
+  height: 100%;
+}
+
+.bold { 
+	font-weight:bold ; 
+}
+.bolder { 
+	font-weight: bolder ;
+}
+
+.normal { 
+	font-weight: normal ;
+}
+
+/* ------------- FAQ CSS ------------ */
+.faq_answer { 
+	display:block;
+	margin:0;
+	margin-bottom: 1.0em;
+	padding:.8em;
+	padding-top:0;
+}
+.handler {
+	margin:0;
+	margin-top:.5em;
+	margin-bottom:.5em;
+	padding:0;
+	padding-left:.5em;
+	padding-right:.5em;
+}
+
+.handler:link    {color:blue;}
+.handler:visited {color:blue;}
+.handler:hover   {color:orange;}
+.handler:active  {color:orange;} 
+
+h3 {
+	margin:0;
+	padding:0;
+}
+
+/* faq hr */
+.hr_faq {
+	margin:0;
+	padding:0;
+	margin-bottom:4px;
+	color:silver;
+    border: 1px solid silver;
+    height: 1px;
+	line-height:none;
+}
+
+/* faq changed date */
+.faq_changed {
+	background-color:#CFCCA7;
+	height:1em;
+	text-align:right;
+	width:auto;
+	float:right;
+	padding:.4em;
+	margin:0;
+	color:#666666;
+	font-size:10px;
+	font-weight:bold;
+	vertical-align:text-top;
+	line-height:1em;
+	border-radius: .3em;
+	}
+
+/* faq show/hide buttons */
+.show_all_button
+{
+   color:#555555;
+   border-style:solid;
+   border-color:#AAAAAA;
+   border-radius: .3em;
+}
+
+.hide_all_button
+{
+   color:#555555;
+   border-style:solid;
+   border-color:#AAAAAA;
+   border-radius: .3em;
+ }
+.show_all_button:hover {color:black; background-color:white; border-color:silver; cursor:pointer;}
+.hide_all_button:hover {color:black; background-color:white; border-color:silver; cursor:pointer;}
+
+.pane-faq-views-panel-pane-1 .views-row-odd {
+    background-color: #D4DDEE;
+	border-radius: 1.0em;
+    cursor: default;
+}
+
+/* ------------- Pager CSS ------------ */
+
+ul.pager {
+	margin:0;
+	margin-top:.5em;
+	margin-bottom:.5em;
+	padding:0;
+	line-height:1em;
+}
+
+.item-list .pager li
+{
+	margin:0;
+	padding:0;
+	padding-left:.3em;
+	padding-right:.3em;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1em;
+	font-weight:bold;
+	color:green;
+}
+
+.item-list pager-current:hover { color:orange; }
+.item-list a.active:hover { color:orange; }
+
+.pager-first a {text-transform:capitalize;}
+.pager-last a {text-transform:capitalize;}
+.pager-previous a {text-transform:capitalize;}
+.pager-next a {text-transform:capitalize;}
+
+
+.pager-current li{
+	padding:0;
+	padding-right:4em;
+	margin:0;
+	color:blue;
+}
+
+ul.pager.pager-item {
+	padding:0;
+	margin:0;
+}
+

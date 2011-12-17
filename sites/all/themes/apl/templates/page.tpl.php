@@ -14,10 +14,10 @@
   
   <div id="header">
   
-<!-- rwb 12/12/2011 fixed the link issue to work on all drupal 'sites' -->
-<div class="overlogodiv" style="height:86px; width:140px; position:absolute; z-index:10" 
-onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
-</div>
+	<!-- rwb 12/12/2011 fixed the link issue to work on all drupal 'sites' -->
+	<div class="overlogodiv" style="height:86px; width:140px; position:absolute; z-index:10" 
+	onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
+	</div>
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -44,7 +44,7 @@ onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Aus
           <div id="site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
 
-      </div>
+      </div> <!--- closes name and slogan -->
     <?php endif; ?>
 
     <?php if ($page['header']): ?>
@@ -65,7 +65,7 @@ onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Aus
         <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
           <div id="content-header">
 
-            <//?php print $breadcrumb; ?>
+            <?php //print $breadcrumb; ?>
 
             <?php if ($page['highlight']): ?>
               <div id="highlight"><?php print render($page['highlight']) ?></div>
@@ -91,9 +91,9 @@ onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Aus
         <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
       </div>
-    <?php endif; ?>
+			<?php endif; ?>
             
-                    <?php if ($page['secondary_navigation']): ?>
+            <?php if ($page['secondary_navigation']): ?>
       <div id="secondary-navigation" class="column secondary-navigation second">
         <div id="secondary-navigation-inner" class="inner">
           <?php print render($page['secondary_navigation']); ?>
@@ -104,16 +104,16 @@ onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Aus
                
       
                 
-                <?php if ($page['announcements']): ?>
-                <div class="announce-wrap">
+    <?php if ($page['announcements']): ?>
+    <div class="announce-wrap">
       <div class="announce-top"></div>
       <div id="announcements" class="column announcements first">
         <div id="announcements-inner" class="inner">
           <?php print render($page['announcements']); ?>
         </div>
       </div>
-          <div class="announce-bottom"></div>
-    
+      <div class="announce-bottom"></div>
+      </div>
     </div>
     <?php endif; ?> <!-- /announcements -->
     
@@ -133,13 +133,7 @@ onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Aus
       </div>
     </div> <!-- /content-inner /content -->
 
-
-
-
-
-
-    
-  </div> <!-- /main -->
+</div> <!-- /main -->
 
   <!-- ______________________ FOOTER _______________________ -->
 

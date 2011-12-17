@@ -64,10 +64,10 @@ function apl_isbnfield_field_formatter_info() {
       'label' => t('Simply shows the ISBN Field'),
       'field types' => array('apl_isbnfield'),
     ),
-	    'apl_isbnfield_linked' => array(
+	    /*'apl_isbnfield_linked' => array(
       'label' => t('Links the isbn to the catalog'),
       'field types' => array('apl_isbnfield'),
-    ),
+    ),*/
     'apl_isbnfield_scrollbox' => array(
       'label' => t('displays the scroll box of book titles'),
       'field types' => array('apl_isbnfield'),
@@ -93,8 +93,10 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
  	// var_dump($items);
  switch ($display['type']) {
   case 'apl_isbnfield_simple':
+  
       foreach ($items as $delta => $item) {
-		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
+		//  echo "Delta: ".$delta;
+		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']); 
 		$element[$delta]["blEntryElement_0"] = array(
           '#type' => 'markup',
 		  '#markup' => '<div class="blEntryWrapper">'
@@ -136,7 +138,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 				'#prefix' => "<div class='book_desc'><div class='more-less'>", 
 				'#suffix' => '</div></div>', 		
 				'#type' => 'markup',
-				'#markup' =>  " ".t($bookInfo->DESC),
+				'#markup' =>  " ".$bookInfo->DESC,
 			);
 		/*$element[$delta]["blEntryElement_5"] = array(
           // We create a render array to produce the desired markup,
@@ -151,7 +153,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
         );*/
 		$element[$delta]["blEntryElement_6"] = array(
           '#type' => 'markup',
-		  '#markup' => '</div">'
+		  '#markup' => '</div>'
         );
 		
       }
@@ -183,8 +185,6 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
         );
 	 
       foreach ($items as $delta => $item) {
-		  $counter= 0;
-		  $bookInfo = "";
 		  $blimages[$delta]= '<a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>';
 		  $counter= $delta+1;
 		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);

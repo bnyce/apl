@@ -5,6 +5,7 @@ core = 7.x
 package = Austin Public Library
 version = 0.09 beta
 
+dependencies[] = jCarousel
 dependencies[] = ctools
 files[] = apl_isbnfield.module
 files[] = apl_isbnfield.install

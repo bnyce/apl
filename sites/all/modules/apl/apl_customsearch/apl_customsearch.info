@@ -1,8 +1,0 @@
-; $Id: apl_customsearch.info,v 0.09 2010/09/05 02:21:38 dries Exp $
-name = Custom Search Forms
-description = Custom search forms for quering the catalog, website and databases
-core = 7.x
-package = Austin Public Library
-version = 0.09 beta
-
-files[] = apl_customsearch.module

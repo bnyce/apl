@@ -64,12 +64,9 @@
  * @see template_preprocess_search_result()
  * @see template_process()
  */
-?>
 
-<!-- rwb 12/13/11 test -->
 
-<?php
-function form_example_tutorial_1($form, &$form_state) {
+function form_example_remove_form($form, &$form_state) {
 
   $form['description'] = array(
     '#type' => 'item', 

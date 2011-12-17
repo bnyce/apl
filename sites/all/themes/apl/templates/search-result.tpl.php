@@ -66,7 +66,7 @@
  */
 
 
-function form_example_remove_form($form, &$form_state) {
+/*function form_example_remove_form($form, &$form_state) {
 
   $form['description'] = array(
     '#type' => 'item', 
@@ -78,7 +78,7 @@ function form_example_remove_form($form, &$form_state) {
     '#title' => t('Name'),
   );
   return $form;
-}
+}*/
 ?>
 
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>

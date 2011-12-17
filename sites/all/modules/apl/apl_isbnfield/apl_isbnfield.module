@@ -136,7 +136,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 				'#prefix' => "<div class='book_desc'><div class='more-less'>", 
 				'#suffix' => '</div></div>', 		
 				'#type' => 'markup',
-				'#markup' =>  " ".$bookInfo->DESC,
+				'#markup' =>  " ".t($bookInfo->DESC),
 			);
 		/*$element[$delta]["blEntryElement_5"] = array(
           // We create a render array to produce the desired markup,
@@ -183,6 +183,8 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
         );
 	 
       foreach ($items as $delta => $item) {
+		  $counter= 0;
+		  $bookInfo = "";
 		  $blimages[$delta]= '<a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>';
 		  $counter= $delta+1;
 		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);

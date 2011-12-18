@@ -584,8 +584,10 @@ color:orange;
     float:left;
     padding:0px;
     margin-left:-18px;
+	
     margin-top:8px;
     background-image: none;
+	z-index:500;
 }
 
 .aplCustomSearchContainer_bottom
@@ -614,6 +616,7 @@ color:orange;
 	clear: right;
 	margin-right:3px;
 }
+
 .customSearchTab a {
 	display:block;
 	color:#0069AA;
@@ -654,8 +657,19 @@ color:orange;
     background-position:left;
     margin-top:26px;
     border-top:1px solid #B2B2B2;
+	
 
 }
+.customSearch_formContainer > form >label 
+{
+	font-size:.85em;
+}
+.customSearch_formContainer > form >a 
+{
+	display:block;
+	font-size:.8em;
+}
+
 
 //.aplCustomSearchContainer_top_buttons {width: 390px; heigh:26px; float:left;clear:both;    background-image:none;
 }
@@ -665,3 +679,60 @@ color:orange;
 .apl-blog-entry-wrapper .views-field-title {font-size:20px; text-transform:uppercase; font-weight:bold;}
 .apl-blog-entry-wrapper  {border-bottom:5px #ccc solid; margin-bottom:15px;}
 .node-blog {width:890px;margin-left:8px;}
+
+
+.page-locations  .views-field-name
+{
+	font-weight:bold;
+}
+
+.page-locations .locality-block, .page-locations .street-block
+{
+	float:left;
+	padding-right:2px;
+}
+.page-locations .views-field-field-phone-num
+{
+	display:block;
+	clear:both;
+    width: 350px;
+}
+ .views-field-field-lib-image
+{
+    
+    position: relative;
+    top: 0;
+	clear:both;
+}
+.views-field-field-lib-image img
+{
+	width:125px;
+}
+.page-locations .country, .page-locations .locality, .page-locations .state
+{
+	display:none;
+}
+.views-field-field-monday div, .views-field-field-tuesday div, .views-field-field-wednesday div,.views-field-field-thursday div,.views-field-field-friday div,.views-field-field-saturday div,.views-field-field-sunday div
+{
+	float: right;
+	width: 150px;
+	position:relative;
+	right:75px;
+	clear:right;
+	
+}
+.views-label-field-monday, .views-label-field-tuesday, .views-label-field-wednesday , .views-label-field-thursday , .views-label-field-friday , .views-label-field-saturday , .views-label-field-sunday  
+{
+	float: left;
+	position:relative;
+	right:0px;
+}
+.views-field-field-monday, .views-field-field-tuesday, .views-field-field-wednesday, .views-field-field-thursday, .views-field-field-friday, .views-field-field-saturday, .views-field-field-sunday, .views-field-nothing
+{
+	width:300px;
+	clear:both;
+}
+.search-results
+{
+	margin-right:20px;
+}

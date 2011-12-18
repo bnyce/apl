@@ -222,5 +222,10 @@ h2.pane-title {
   height: 40px;
 }
 
+.page-locations > .views-field-name
+{
+	font-weight:bold;
+}
+
 /* line 94, ../sass/layout.sass */
 .with-navigation #content,

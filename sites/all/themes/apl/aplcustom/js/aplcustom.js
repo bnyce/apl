@@ -2,10 +2,11 @@
 $(document).ready(function() {
 
 
- $(".CustomSearchTab").click(function() {
+ $(".CustomSearchTab").click(function(event) {
 
 	   var activeDiv= $(this).attr("id").split("_");
 		//alert(activeDiv[1]);
+		event.preventDefault();
 		$(".CustomSearchTab").css('float');
 	  	$(".customSearch_formContainer").hide();
 		$(".CustomSearchTab").removeClass('customSearchTab_active');
@@ -70,13 +71,29 @@ $(".more-less").each(function(){
 // $("a.adjust").text(moreText); 
 });
 
-$(".adjust").click(function() {
+$("a.adjust").click(function(event) {
+	event.preventDefault();
+	// alert("Si");
 	$(this).parents("div:first").find(".more-less").css('max-height', '').css('overflow', 'visible');
 	$(this).parents("div:first").find(".more-block").css('max-height', '').css('overflow', 'visible');
 	$(this).parents("div:first").find("span.continued").css('display', ' ');
 	$(this).parents("div:first").find("span.continued").css('display', 'none');
-});
+	
 
+});
+var d = new Date();
+var weekday=new Array(7);
+weekday[0]="sunday";
+weekday[1]="monday";
+weekday[2]="tuesday";
+weekday[3]="wednesday";
+weekday[4]="thursday";
+weekday[5]="friday";
+weekday[6]="saturday";
+
+//alert(weekday[d.getDay()]);
+
+$(".views-field-field-"+weekday[d.getDay()]).css('font-weight', 'bold');
 
 });
 

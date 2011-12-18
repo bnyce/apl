@@ -178,17 +178,18 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 	  
 	  // lets build the title scroll box
 	  case 'apl_isbnfield_scrollbox':
-	   
+	   $counter=0;
 	  	$element[0]["blEntryElement_0"] = array(
           '#type' => 'markup',
 		  '#markup' =>'<div class="bookSlideCont"><ul class="bookSlide jcarousel-skin-default">'
         );
 	 
       foreach ($items as $delta => $item) {
+		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
+		
 		  $blimages[$delta]= '<a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'"><img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>';
 		  $counter= $delta+1;
-		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
-		$element[$counter]["blEntryElement_1"] = array(
+		$element[$delta]["blEntryElement_1"] = array(
 					'#prefix' => '<li><a href="https://www.austintexas.gov/uhtbin/cgisirsi/x/x/0/5?searchdata1='.$item['bl_isbn'].'">', 
 					'#suffix' => '</a></li>', 		
 					'#type' => 'markup',
@@ -196,7 +197,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 				);
       }
 
-        $element[count($items)+2]["blEntryElement_2"] = array(
+        $element[$delta]["blEntryElement_2"] = array(
           '#type' => 'markup',
 		  '#markup' =>'</ul></div>'
         );

@@ -648,6 +648,7 @@ color:orange;
 
 
 }
+
 .customSearch_formContainer
 {
 	height:120px;
@@ -655,11 +656,14 @@ color:orange;
 	background-image:url("../images/apl_bannerhead_searchbox_bg.png");
     background-repeat: repeat-y;
     background-position:left;
+	<!--[if gt IE 7]>
     margin-top:26px;
+	<![endif]-->
     border-top:1px solid #B2B2B2;
 	
 
 }
+
 .customSearch_formContainer > form >label 
 {
 	font-size:.85em;

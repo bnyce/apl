@@ -9,10 +9,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   
-  <!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" href="http://10.90.28.182/var/www/godev/sites/all/themes/apl/css/ie7.css">
-<![endif]-->
-
+ 
 
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>

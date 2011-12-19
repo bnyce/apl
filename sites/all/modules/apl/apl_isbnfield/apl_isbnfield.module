@@ -363,7 +363,7 @@ XML
 	}
 */	$bookinfo = (object) $responseXML;
 	$bookinfo->FULLTITLE = (empty($responseXML['SUBTITLE'])) ? rtrim($responseXML['TITLE'], "/") :$responseXML['TITLE']." ".$responseXML['SUBTITLE'];
-	$bookinfo->CATLINK = (empty($responseXML['ISBN'])) ?"":"https://www.ci.austin.tx.us/uhtbin/cgisirsi/x/x/0/5?searchdata1=".$responseXML['ISBN'];
+	$bookinfo->CATLINK = (empty($responseXML['ISBN'])) ?"":"https://www.austinlibrary.com/uhtbin/cgisirsi/x/x/0/5?searchdata1=".$responseXML['ISBN'];
 	$bookinfo->IMGSRCSM = (empty($responseXML['ISBN'])) ?"":"http://www.austinlibrary.com/catalog/image_proxy.cfm?size=small&id=".$responseXML['ISBN'];
 	
 	$bookinfo->IMGSRCMED = (empty($responseXML['ISBN'])) ?"":"http://www.austinlibrary.com/catalog/image_proxy.cfm?size=medium&id=".$responseXML['ISBN'];

@@ -9,8 +9,9 @@ description = Austin Public Library theme for Drupal 7
 screenshot = images/screenshot.gif
 core = "7.x"
 engine = phptemplate
+scripts[] = aplcustom/js/jquery.hoverIntent.minified.js
+scripts[] = aplcustom/js/aplcustom.js
 
-scripts[] = /aplcustom/js/aplcustom.js
 regions[page_top] = Page Top
 regions[city_header] = City Header
 regions[header] = APL Header
@@ -63,6 +64,7 @@ stylesheets[all][] = css/layout.css
 stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 stylesheets[all][] = css/apl_faq.css
+stylesheets[all][] = css/top_nav.css
 
 settings[basic_tabs] = 1
 settings[basic_breadcrumb_separator] = »

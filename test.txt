@@ -1,5 +1,0 @@
-This is a svn test file.
-Test 10 - apache user
-Yea
-
-More testing.

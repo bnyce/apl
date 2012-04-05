@@ -25,9 +25,9 @@ is important.
  8. Edit settings.php to make memcache the default cache class, for example:
       $conf['cache_backends'][] = 'sites/all/modules/memcache/memcache.inc';
       $conf['cache_default_class'] = 'MemCacheDrupal';
- 9. Make sure the following line also exists, to protect the special cache_form
-    bin from being assigned to a volatile cache storage implementation:
-      $conf['cache_class_form'] = 'DrupalDatabaseCache';
+ 9. Make sure the following line also exists, to ensure that the special
+    cache_form bin is assigned to non-volatile storage:
+      $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 10. Bring your site back online.
 
 For instructions on 1 and 2 above, please see the INSTALLATION.txt file that
@@ -97,7 +97,8 @@ bins go to 'default'.
 
 $conf['cache_backends'][] = 'sites/all/modules/memcache/memcache.inc';
 $conf['cache_default_class'] = 'MemCacheDrupal';
-$conf['cache_class_form'] = 'DrupalDatabaseCache';
+// The 'cache_form' bin must be assigned no non-volatile storage.
+$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf = array(
   'cache_default_class' = 'MemCacheDrupal',
   'memcache_servers' => array('localhost:11211' => 'default',
@@ -124,14 +125,16 @@ $conf = array(
 
 ## SESSIONS ##
 
+NOTE: Session.inc is not yet ported to Drupal 7 and is not recommended for use
+in production..
+
 Here is a sample config that uses memcache for sessions. Note you MUST have
 a session and a users server set up for memcached sessions to work.
 
-NOTE: Session.inc is not yet ported to Drupal 7.
-
 $conf['cache_backends'][] = 'sites/all/modules/memcache/memcache.inc';
 $conf['cache_default_class'] = 'MemCacheDrupal';
-$conf['cache_class_form'] = 'DrupalDatabaseCache';
+// The 'cache_form' bin must be assigned no non-volatile storage.
+$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf = array(
   'cache_default_class' = 'MemCacheDrupal',
   'session_inc' => './sites/all/modules/memcache/memcache-session.inc',

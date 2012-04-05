@@ -146,6 +146,10 @@ class MemCacheDrupal implements DrupalCacheInterface {
   }
 
   function clear($cid = NULL, $wildcard = FALSE) {
+    if ($this->memcache === FALSE) {
+      // No memcache connection.
+      return;
+    }
 
     // It is not possible to detect a cache_clear_all() call other than looking
     // at the backtrace unless http://drupal.org/node/81461 is added.
@@ -225,7 +229,7 @@ class MemCacheDrupal implements DrupalCacheInterface {
    * value against this single-value sum tells us whether or not a new wildcard
    * flush has affected the cached item.
    */
-  private function wildcard_flushes($cid) {
+  protected function wildcard_flushes($cid) {
     return array_sum($this->wildcards($cid));
   }
 
@@ -234,7 +238,7 @@ class MemCacheDrupal implements DrupalCacheInterface {
    * statically so multiple cache requests for the same item on the same page
    * load doesn't add overhead.
    */
-  private function wildcards($cid, $flush = FALSE) {
+  protected function wildcards($cid, $flush = FALSE) {
     static $wildcards = array();
     $matching = array();
 
@@ -330,13 +334,13 @@ class MemCacheDrupal implements DrupalCacheInterface {
         variable_set('memcache_wildcard_flushes', $this->wildcard_flushes);
       }
       $key = '.wildcard-' . $cid;
-      if (isset($wildcards[$this->bin][$key]) && $wildcards[$this->bin][$key] != 0) {
-        $this->memcache->increment($key);
+      if (isset($wildcards[$this->bin][$key])) {
         $wildcards[$this->bin][$key]++;
       }
       else {
-        dmemcache_set($key, '1', 0, $this->bin);
+        $wildcards[$this->bin][$key] = 1;
       }
+      dmemcache_set($key, $wildcards[$this->bin][$key], 0, $this->bin);
     }
     return $matching;
   }
@@ -344,7 +348,7 @@ class MemCacheDrupal implements DrupalCacheInterface {
   /**
    * Check if a wildcard flush has invalidated the current cached copy.
    */
-  private function wildcard_valid($cid, $cache) {
+  protected function wildcard_valid($cid, $cache) {
     // Previously cached content won't have ->flushes defined.  We could
     // force flush, but instead leave this up to the site admin.
     $flushes = isset($cache->flushes) ? (int)$cache->flushes : 0;
@@ -395,4 +399,3 @@ class MemCacheDrupal implements DrupalCacheInterface {
     $conf[$name] = $value;
   }
 }
-

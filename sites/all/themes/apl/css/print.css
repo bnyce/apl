@@ -86,6 +86,7 @@ div.views-field-title-1 span.field-content,
 #la_askus_content,
 #la_askus_popup_head,
 div#skip,
+
 .region-page-top,
 #city-header,
 .center-coa-brandbar,
@@ -94,8 +95,8 @@ div#skip,
 #block-menu-menu-coa-header,
 div#header,
 #highlight,
-#content-header,
 #la_askup_popup,
+
 #la_askup_button,
 #la_askus_overlay,
 #footer,
@@ -107,23 +108,64 @@ div#header,
 .breadcrumb,
 .tabs,
 .feed-icon,
-.links 
+.links,
+.panel-col-last,
+.pane-block-11, 
+ul.pager,
+.element-invisible,
+div.view-header,
+div.views-exposed-form,
+div.ss-form-container,
+div.ss-form,
+div.ss-form-entry
 {
+
 display: none !important;
 max-height: 0;
+
 }
 
-.panel-2col .panel-col-first,
-.pane-content,
+div.panel-2col div.panel-col-first,
+.panel-2col-stacked .panel-col-first,
+div.pane-content,
 .pane-content .view-display-id-panel_pane_1,
-.pane-events-panel-pane-1 
+.pane-events-panel-pane-1,
+.panel-2col-stacked,
+.center-wrapper
 {
 width: 100% !important;
 }
 
-h2.pane-title {
-font-size: 1.8em;
+.center-wrapper
+{
+margin: 10px;
 }
+
+h1.title,
+h2.pane-title {
+font-size: 1.6em;
+}
+
+h2.pane-title, 
+.views-field-description,
+.views-field-name,
+.views-row-last {
+margin-bottom: 20px;
+}
+p, ul {
+margin-top: 10px;
+}
+
+ul li {
+margin: 0 0 10px 20px;
+list-style-type: disc;
+}
+h3 > span.date-display-single {
+padding-top: 20px;
+clear: both;
+margin-top: 200px !important;
+}
+
 /*
 body {
 border: 1px dashed green;

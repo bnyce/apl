@@ -4,6 +4,7 @@
   <?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
+<link rel="icon" href="/favicon.png" />
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>

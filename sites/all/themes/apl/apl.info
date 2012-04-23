@@ -34,9 +34,6 @@ features[] = favicon
 features[] = main_menu
 features[] = secondary_menu
 
-; I think we should look at Conditional Stylesheets module
-; instead of using IE Conditionals: http://drupal.org/project/conditional_styles
-; bob
 
 ; CSS Media Type
 ; 
@@ -59,13 +56,14 @@ features[] = secondary_menu
 ; tv         - Intended for television-type devices (low resolution, color, limited-scrollability 
 ;               screens, sound available). 
 
-stylesheets[all][] = css/default.css
-stylesheets[all][] = css/layout.css
-stylesheets[all][] = css/style.css
+stylesheets[all][] = css/master.css
+; stylesheets[all][] = css/default.css
+; stylesheets[all][] = css/layout.css
+; stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 stylesheets[all][] = css/apl_faq.css
 stylesheets[all][] = css/top_nav.css
-stylesheets[all][] = css/master.css
+
 
 settings[basic_tabs] = 1
 settings[basic_breadcrumb_separator] = »

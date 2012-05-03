@@ -75,7 +75,7 @@ class calendar_plugin_row_ical_node extends views_plugin_row {
     $field_name  = str_replace(array('_value', '_value2'), '', $info['real_field_name']);
     $table_name  = $info['table_name'];
     $delta_field = $info['delta_field'];
-    $is_field = !empty($delta_field);
+    $is_field    = $info['is_field'];
 
     // Identify the field value that matched our query.
     $item = $node->$field_name;
@@ -89,21 +89,41 @@ class calendar_plugin_row_ical_node extends views_plugin_row {
       $node->date_id[] = 'calendar.' . $node->nid . '.' . $field_name . '.' . $delta;
 
       if (!empty($item['value'])) {
-        // @TODO Need to come back after this is all working and make more timezone adjustments.    
-        $start = new dateObject($item['value'], 'UTC');
-        $end   = array_key_exists('value2', $item) ? new dateObject($item['value2'], 'UTC') : $start;
+        $start = new dateObject($item['value'], $item['timezone_db']);
+        if (array_key_exists('value2', $item)) {
+          $end = new dateObject($item['value2'], $item['timezone_db']);
+        }
+        else {
+          $end = clone $start;
+        }
       }
     }
     elseif (!$is_field && !empty($item)) {
-      $start = new dateObject($item, 'UTC');
-      $end   = new dateObject($item, 'UTC');
-     }
-    
+      $start = new dateObject($item, $item['timezone_db']);
+      $end   = new dateObject($item, $item['timezone_db']);
+    }
+
+    // Set the item date to the proper display timezone;
+    $start->setTimezone(new dateTimezone($item['timezone']));
+    $end->setTimezone(new dateTimezone($item['timezone']));
+
+    $start_formatted = $start->format(DATE_FORMAT_DATETIME);
+    $end_formatted = $end->format(DATE_FORMAT_DATETIME);
+
+    $all_day = date_is_all_day($start_formatted, $end_formatted, date_granularity_precision($info['granularity']));
+
+    // According to RFC 2445 (clarified in RFC 5545) the DTEND value is
+    // non-inclusive.  When it is a DATE rather than a DATETIME, this means
+    // that we should add one day to its value.
+    if ($all_day) {
+      $end->modify("+1 day");
+    }
+
     // If we don't have an iCal date value, go no further.
     if (empty($start)) {
       return;
     }
-    
+
     module_load_include('inc', 'date_api', 'date_api_ical');
     $item_text = '';
 
@@ -117,14 +137,15 @@ class calendar_plugin_row_ical_node extends views_plugin_row {
     }
 
     $event = array();
-    $event['summary'] = $node->title;
-    $event['start'] = $start->format(DATE_FORMAT_ICAL);
-    $event['end'] = $end->format(DATE_FORMAT_ICAL);
+    $event['summary'] = date_ical_escape_text($node->title);
+    $event['all_day'] = $all_day;
+    $event['start'] = $start->format($all_day ? DATE_FORMAT_ICAL_DATE : DATE_FORMAT_ICAL);
+    $event['end'] = $end->format($all_day ? DATE_FORMAT_ICAL_DATE : DATE_FORMAT_ICAL);
     $event['description'] = date_ical_escape_text($item_text);
     $event['url'] = url("node/$node->nid", array('absolute' => TRUE));
     $event['uid'] = !empty($node->date_id) ? $node->date_id[0] : $event['url'];
     $event['rrule'] = $is_field && array_key_exists('rrule', $item) ? $item['rrule'] : '';
-    
+
     return theme($this->theme_functions(),
       array(
         'view' => $this->view,

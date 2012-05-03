@@ -1,6 +1,6 @@
 
 CONTENTS OF THIS FILE
-ooo---------------------
+---------------------
 
  * About Drupal
  * Configuration and features

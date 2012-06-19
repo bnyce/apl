@@ -1,0 +1,12 @@
+name = Google Search Appliance Query Suggestions
+description = Adds Google Search Appliance query suggestions to the search form.
+package = Google Appliance
+dependencies[] = google_appliance
+core = 7.x
+
+; Information added by drupal.org packaging script on 2012-05-16
+version = "7.x-1.0"
+core = "7.x"
+project = "google_appliance_suggest"
+datestamp = "1337127956"
+

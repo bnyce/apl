@@ -1,5 +1,53 @@
 (function ($) {
 $(document).ready(function() {
+
+
+// search field at #bottom
+var i = $('#gsearch-input');
+var f = $('#gsearch-form');
+
+  
+var default_value = i.val();
+i.css('color', 'silver');
+i.css('padding-left', '3px');
+f.css('display', 'inline');
+
+
+
+i.focus(function() {
+
+if(i.val() == default_value) {
+	this.value=""; 
+	this.style.color="black";
+    };
+
+});
+	
+i.blur(function() {
+
+
+if(i.val() == '') {
+	i.val(default_value); 
+	this.style.color="silver";
+    };
+}); 
+
+   i.bind("keydown", function(event) {
+      // track enter key
+      var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
+      if (keycode == 13) { // keycode for enter key
+	  
+	  f.attr("action", "/gsearch/" + i.val());
+
+         f.submit();
+         return false;
+      } else  {
+         return true;
+      }
+   }); // end of function
+
+
+
 //On Hover Over
 function megaHoverOver(){
     $(this).find(".sub").stop().fadeTo('fast', 10).show(); //Find sub and fade it in

@@ -156,8 +156,23 @@ body {
 	float: none;
 	clear: both;
 	width: 950px;
-	height: 5em;  /*issues with whitespace beneath #bottom */
+	height: 7em;  /*issues with whitespace beneath #bottom */
 }
+
+#bottom_links {
+margin: 5px auto;
+}
+
+#bottom_links td {
+padding: 5px;
+vertical-align: middle;
+text-align: center;
+}
+
+#bottom_links td a:hover{
+color: white;
+}
+
 .panel-col-first {
 	float: left;
 }

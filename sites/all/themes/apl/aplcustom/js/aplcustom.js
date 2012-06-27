@@ -4,12 +4,14 @@ $(document).ready(function() {
 
 // search field at #bottom
 var i = $('#gsearch-input');
+var t = $('.cst a');
 var i_s = $('.SSCentralSearchSearchCriteria');
 var i_b = $('#BookAndMore_search');
 var i_t = $('#searchTermFld');
 //var f = $('#gsearch-form, .SSCentralSearchSearchForm, #BookAndMore_form, #search-block-form');
 var f = $('#gsearch-form');
 
+var searchString = '';
   
 var default_value_i = i.val();
 var default_value_i_s = i_s.val();
@@ -24,75 +26,89 @@ f.css('display', 'inline');
 
 
 
-i.focus(function() {
 
+i.focus(function() {
+	this.style.color="black";
 if(i.val() == default_value_i) {
 	this.value=""; 
-	this.style.color="black";
     };
+
+i.bind("keyup", function(event) {
+  searchString = i.val();
+});
 
 });
 
 i_s.focus(function() {
-
+	this.style.color="black";
 if(i_s.val() == default_value_i_s) {
 	this.value=""; 
-	this.style.color="black";
     };
+    
+i_s.bind("keyup", function(event) {
+  searchString = i_s.val();
+});
 
 });
 
 i_b.focus(function() {
-
+	this.style.color="black";
 if(i_b.val() == default_value_i_b) {
 	this.value=""; 
-	this.style.color="black";
     };
+    
+
+i_b.bind("keyup", function(event) {
+  searchString = i_b.val();
+});
 
 });
 
 i_t.focus(function() {
-
+	this.style.color="black";
 if(i_t.val() == default_value_i_t) {
 	this.value=""; 
-	this.style.color="black";
+
     };
+
+i_t.bind("keyup", function(event) {
+  searchString = i_t.val();
+});
 
 });
 	
 i.blur(function() {
-
+	this.style.color="silver";
 
 if(i.val() == '') {
 	i.val(default_value_i); 
-	this.style.color="silver";
     };
 }); 
 	
 i_s.blur(function() {
-
+	this.style.color="silver";
 
 if(i_s.val() == '') {
 	i_s.val(default_value_i_s); 
-	this.style.color="silver";
+
     };
 }); 
 	
 i_b.blur(function() {
-
+	this.style.color="silver";
 
 if(i_b.val() == '') {
 	i_b.val(default_value_i_b); 
-	this.style.color="silver";
+
     };
 }); 
 	
 i_t.blur(function() {
-
+	this.style.color="silver";
 
 if(i_t.val() == '') {
 	i_t.val(default_value_i_t); 
-	this.style.color="silver";
+
     };
 }); 
 
@@ -179,6 +195,16 @@ $("ul#topnav li").hoverIntent(config); //Trigger Hover intent with custom config
 		$("#"+activeDiv[1]+"_formContainer").show();
 	   //$("#BookAndMore_formContainer").show();
    });
+   t.click(function() {
+//alert('ss='+searchString);
+if(searchString != "") {
+
+  i.val(searchString);
+  i_s.val(searchString);
+  i_b.val(searchString);
+  i_t.val(searchString);
+};
+});
 
 	$("form.siteSearchForm").submit(function()
    {

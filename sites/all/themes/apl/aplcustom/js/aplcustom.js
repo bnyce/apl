@@ -4,11 +4,21 @@ $(document).ready(function() {
 
 // search field at #bottom
 var i = $('#gsearch-input');
+var i_s = $('.SSCentralSearchSearchCriteria');
+var i_b = $('#BookAndMore_search');
+var i_t = $('#searchTermFld');
+//var f = $('#gsearch-form, .SSCentralSearchSearchForm, #BookAndMore_form, #search-block-form');
 var f = $('#gsearch-form');
 
   
-var default_value = i.val();
+var default_value_i = i.val();
+var default_value_i_s = i_s.val();
+var default_value_i_b = i_b.val();
+var default_value_i_t = i_t.val();
 i.css('color', 'silver');
+i_s.css('color', 'silver');
+i_b.css('color', 'silver');
+i_t.css('color', 'silver');
 i.css('padding-left', '3px');
 f.css('display', 'inline');
 
@@ -16,7 +26,34 @@ f.css('display', 'inline');
 
 i.focus(function() {
 
-if(i.val() == default_value) {
+if(i.val() == default_value_i) {
+	this.value=""; 
+	this.style.color="black";
+    };
+
+});
+
+i_s.focus(function() {
+
+if(i_s.val() == default_value_i_s) {
+	this.value=""; 
+	this.style.color="black";
+    };
+
+});
+
+i_b.focus(function() {
+
+if(i_b.val() == default_value_i_b) {
+	this.value=""; 
+	this.style.color="black";
+    };
+
+});
+
+i_t.focus(function() {
+
+if(i_t.val() == default_value_i_t) {
 	this.value=""; 
 	this.style.color="black";
     };
@@ -27,12 +64,39 @@ i.blur(function() {
 
 
 if(i.val() == '') {
-	i.val(default_value); 
+	i.val(default_value_i); 
+	this.style.color="silver";
+    };
+}); 
+	
+i_s.blur(function() {
+
+
+if(i_s.val() == '') {
+	i_s.val(default_value_i_s); 
+	this.style.color="silver";
+    };
+}); 
+	
+i_b.blur(function() {
+
+
+if(i_b.val() == '') {
+	i_b.val(default_value_i_b); 
+	this.style.color="silver";
+    };
+}); 
+	
+i_t.blur(function() {
+
+
+if(i_t.val() == '') {
+	i_t.val(default_value_i_t); 
 	this.style.color="silver";
     };
 }); 
 
-   i.bind("keydown", function(event) {
+i.bind("keydown", function(event) {
       // track enter key
       var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
       if (keycode == 13) { // keycode for enter key
@@ -44,7 +108,7 @@ if(i.val() == '') {
       } else  {
          return true;
       }
-   }); // end of function
+}); // end of function
 
 
 

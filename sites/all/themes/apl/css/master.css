@@ -871,6 +871,30 @@ div.views-field-title span.field-content a {
 	height:26px;
 	margin-top:3px;
 }
+
+.cst {
+/*  background: #B2B2B2;
+  background: #cccccc;*/
+  background: #cccccc;
+  filter:alpha(opacity=40);
+	margin:0;
+	padding:0;
+	border-left:1px solid #B2B2B2;
+	border-top:1px solid #B2B2B2;
+	border-right:1px solid #B2B2B2;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
+	border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	border-top-right-radius: 8px;
+}
+
+.cst:hover {
+background: white;
+filter:alpha(opacity:90);
+}
+
 .customSearchTab_active {
 	display:block;
 	color: #fff;
@@ -878,10 +902,16 @@ div.views-field-title span.field-content a {
 	font-weight:bold;
 	background:#fff;
 	margin:0;
-	padding:0.25em 1em;
+	/*padding:0.25em 1em;*/
 	border-left:1px solid #B2B2B2;
 	border-top:1px solid #B2B2B2;
 	border-right:1px solid #B2B2B2;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
+	border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	border-top-right-radius: 8px;
 }
 .initialHidden {
 	display:none;
@@ -893,14 +923,18 @@ div.views-field-title span.field-content a {
 	background-image:url("../images/apl_bannerhead_searchbox_bg.png");
 	background-repeat: repeat-y;
 	background-position:left;
-<!--
+  border-top:1px solid #B2B2B2;
+ <!--
 [if gt IE 7]>  margin-top:26px;
  <![endif]
 -->
- border-top:1px solid #B2B2B2;
+
 }
 .customSearch_formContainer > form >label {
 	font-size:.85em;
+}
+.CustomSearchLbl {
+visibility: hidden;
 }
 .customSearch_formContainer > form >a {
 	display:block;

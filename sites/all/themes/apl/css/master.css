@@ -810,9 +810,9 @@ div.status {
 	margin-bottom:8px;
 	margin-top: 8px;
 }
-div.views-field-title span.field-content a {
+/*div.views-field-title span.field-content a {
 	color:orange;
-}
+}Caused Vision Problems for some patrons, commenting out reverts it to blue.*/
 /*SEARCH BOX BEGIN*/
 
 /*

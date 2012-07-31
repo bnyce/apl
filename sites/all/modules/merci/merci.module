@@ -256,10 +256,10 @@ function merci_insert($node) {
  * Implementation of hook_update().
  */
 function merci_update($node) {
-  if ($node->revision) {
+  if (!empty($node->revision)) {
     drupal_write_record("merci_reservation", $node);
-      }
-      else {
+  }
+  else {
     drupal_write_record("merci_reservation", $node, "vid");
   }
   merci_add_reservation_items($node);
@@ -345,10 +345,11 @@ function merci_form($node, &$form_state) {
   //}
   
   // Choice adding code mostly stolen from poll module.
-  $choice_count = (isset($form_state['values']['choice_count'])) ? $form_state['values']['choice_count'] : 3;
+  $choice_count = (isset($form_state['values']['choice_count'])) ? $form_state['values']['choice_count'] : 1;
    
-  if (isset($form_state['triggering_element']['#value']) && $form_state['triggering_element']['#value'] == "Add more items") {
-    $choice_count += 3;
+  /*if (isset($form_state['triggering_element']['#value']) && $form_state['triggering_element']['#value'] == "Add more items") {*/
+  if (isset($form_state['triggering_element']['#value']) && $form_state['triggering_element']['#value'] == "Add another room") {
+    $choice_count += 1;
   }
 
   $form['choice_wrapper']['choice_count'] = array(
@@ -374,7 +375,8 @@ function merci_form($node, &$form_state) {
   // AHAH-enabled buttons with the id 'more'.
   $form['choice_wrapper']['merci_more'] = array(
     '#type' => 'submit',
-    '#value' => t('Add more items'),
+    /*'#value' => t('Add more items'),*/
+    '#value' => t('Add another room'),
     '#description' => t("If the number of items above isn't enough, click here to add more items."),
     '#weight' => 1,
     '#submit' => array('merci_more_choices_submit'),
@@ -830,9 +832,9 @@ function merci_cron() {
   // Give no shows a one hour grace period.
   // TODO: move grace period to admin option.
   // 2009-05-22 20:45:00
-  $time = gmdate('Y-m-j H:i:s', time() + 3600);
+  $time = gmdate('Y-m-j H:i:s', time() - 3600);
   //find all pending reservations that have started and set their stauts to no show
-  $nodes = merci_db_reservations_by_status_in_timespan(array(MERCI_STATUS_PENDING), NULL, $time);
+  $nodes = merci_db_reservations_by_status_in_timespan(array(MERCI_STATUS_PENDING), $time, NULL);
 
   foreach (array_keys($nodes) as $reservation_nid) {
     watchdog('merci', "Setting node " . $reservation_nid . " to no show");
@@ -937,7 +939,7 @@ function merci_theme() {
     ),
     'merci_conflict_grid' => array(
       'template' => 'merci_conflict_grid',
-      'variables' => array('type' => NULL, 'title' => NULL, 'start' => NULL, 'end' => NULL, 'nid' => NULL, 'reservation_vid' => NULL),
+      'variables' => array('type' => NULL, 'title' => NULL, 'start' => NULL, 'end' => NULL, 'nid' => NULL, 'reservation_nid' => NULL),
       'path' => drupal_get_path('module', 'merci') . '/theme',
       'file' => 'theme.inc',
     ),
@@ -1125,7 +1127,7 @@ function merci_delete_node_type_validate(&$form) {
  * @see http://drupal.org/node/1354
  */
 function merci_theme_conflict_grid($type, $title, $start, $end, $value, $vid) {
-  return theme('merci_conflict_grid', array('type' => $type, 'title' => $title, 'start' => $start, 'end' => $end, 'nid' => $value, 'reservation_vid' => $vid));
+  return theme('merci_conflict_grid', array('type' => $type, 'title' => $title, 'start' => $start, 'end' => $end, 'nid' => $value, 'reservation_nid' => $vid));
 }
 /**
  * Builds the form item for the status display.

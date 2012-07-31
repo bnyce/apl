@@ -12,7 +12,7 @@ function template_preprocess_merci_conflict_grid(&$variables) {
   $start = $variables['start'];
   $end = $variables['end'];
   $nid = $variables['nid'];
-  $reservation_vid = $variables['reservation_vid'];
+  $reservation_nid = $variables['reservation_nid'];
 
   $hours = array();
   if (user_access('create reservations outside hours of operation')) {
@@ -51,7 +51,7 @@ function template_preprocess_merci_conflict_grid(&$variables) {
   $start_mysql = $dates['value'];
   $end_mysql = $dates['value2'];
 
-  $reservations = merci_load_reservations_for_node_in_timespan($nid, $type, $start_mysql, $end_mysql, $reservation_vid);
+  $reservations = merci_load_reservations_for_node_in_timespan($nid, $type, $start_mysql, $end_mysql, $reservation_nid);
 
   $reservations_by_date = array();
 
@@ -188,7 +188,10 @@ function theme_merci_build_reservation_table_form2($variables) {
   }
 
   if (!empty($rows)) {
-    $table_caption = in_array((int) $node->merci_reservation_status, array(MERCI_STATUS_CHECKED_OUT, MERCI_STATUS_CHECKED_IN)) ? t('Checked out items') : t('Currently reserved items');
+    /*
+$table_caption = in_array((int) $node->merci_reservation_status, array(MERCI_STATUS_CHECKED_OUT, MERCI_STATUS_CHECKED_IN)) ? t('Checked out items') : t('Currently reserved items');
+*/
+    $table_caption = in_array((int) $node->merci_reservation_status, array(MERCI_STATUS_CHECKED_OUT, MERCI_STATUS_CHECKED_IN)) ? t('Checked out items') : t(' ');
     $output .= '<div class="existing-items-table-header">' . $table_caption . '</div>';
     $output .= theme('table', array('header' => $header, 'rows' => $rows));
   }

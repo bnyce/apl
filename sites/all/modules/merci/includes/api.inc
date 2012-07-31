@@ -10,11 +10,12 @@ function merci_validate_merci_selected_items($form, &$form_state) {
   $node = (object) $form_state['values'];
 
   $langcode = $node->language;
+//  $start = drupal_array_get_nested_value($node->field_merci_date,$parents,$exists);
   // ****
   // Build date objects we'll need for our different validations.
   // ****
-  $start              = $node->field_merci_date[$langcode][0]['value'];
-  $end                = $node->field_merci_date[$langcode][0]['value2'];
+  $start              = $node->field_merci_date[LANGUAGE_NONE][0]['value'];
+  $end                = $node->field_merci_date[LANGUAGE_NONE][0]['value2'];
 
   $messages = array();
   foreach ($node->merci_reservation_items as $did => $item) {
@@ -94,12 +95,12 @@ function merci_validate_merci_selected_items($form, &$form_state) {
       // Is it available?
 
       // Are we checking an existing item?
-      $vid = isset($item['did']) ? $node->vid : NULL; 
+      $nid = isset($item['did']) ? $node->nid : NULL; 
 
       // Is the item available at this time?
-      $count = merci_is_item_reservable($item_nid, $type, $start, $end, $vid);
+      $count = merci_is_item_reservable($item_nid, $type, $start, $end, $nid);
       if (!$count or (empty($item_nid) and merci_type_setting($type) == 'bucket' and $count - $selected_count[$type] < 0)) {
-        $messages[$did] = merci_theme_conflict_grid($type, $title, $start, $end, $item_nid, $node->vid);
+        $messages[$did] = merci_theme_conflict_grid($type, $title, $start, $end, $item_nid, $node->nid);
         form_set_error("merci_reservation_items][$did][merci_item_nid", $messages[$did]);
         continue;
       }
@@ -159,8 +160,8 @@ function merci_validate_merci_reservation_date($form, &$form_state) {
   // ****
   // Build date objects we'll need for our different validations.
   // ****
-  $start              = $node->field_merci_date[$langcode][0]['value'];
-  $end                = $node->field_merci_date[$langcode][0]['value2'];
+  $start              = $node->field_merci_date[LANGUAGE_NONE][0]['value'];
+  $end                = $node->field_merci_date[LANGUAGE_NONE][0]['value2'];
   $start_object       = merci_create_local_date_object($start);
   $end_object         = merci_create_local_date_object($end);
   $hours_of_operation = merci_load_hours_of_operation();
@@ -265,6 +266,17 @@ function merci_validate_status($form, &$form_state) {
         if (!is_numeric($item['merci_item_nid']) and strlen($item['merci_item_nid'])) {
           form_set_error("merci_reservation_items][$did][merci_item_nid", t("You cannot finalize a reservation while adding a bucket item."));
         }
+        if (!empty($item['merci_item_nid'])) {
+          $bad_reservations = merci_checked_out_reservations_for_item_nid($item['merci_item_nid'], $node->nid);
+          if (!empty($bad_reservations)) {
+            $output = '<ul>';
+            foreach ($bad_reservations as $reservation) {
+              $output .= '<li>' . $reservation . '</li>';
+            }
+            $output .= '</ul>';
+            form_set_error("merci_reservation_items][$did][merci_item_nid", t("Cannot check out this item as it is currently checked out by:") . $output);
+          }
+        }
       }
     }
   }
@@ -272,7 +284,7 @@ function merci_validate_status($form, &$form_state) {
   $current_status = $node->merci_original_reservation_status;
   if ($current_status 
     && $current_status != $node->merci_reservation_status 
-    && time() > strtotime($node->field_merci_date[$langcode][0]['value2']) 
+    && time() > strtotime($node->field_merci_date[LANGUAGE_NONE][0]['value2']) 
     && !in_array((int) $node->merci_reservation_status, array(
       MERCI_STATUS_CANCELLED, 
       MERCI_STATUS_CHECKED_IN, 
@@ -429,12 +441,12 @@ function merci_build_reservable_items($node, $form_state, $reservation_nid = NUL
   $langcode = $node->language;
   // Newly set dates take precedence.
   if (isset($form_state['values']['field_merci_date'])) {
-    $start = $form_state['values']['field_merci_date'][$langcode][0]['value'];
-    $end = $form_state['values']['field_merci_date'][$langcode][0]['value2'];
+    $start = $form_state['values']['field_merci_date'][LANGUAGE_NONE][0]['value'];
+    $end = $form_state['values']['field_merci_date'][LANGUAGE_NONE][0]['value2'];
   }
   // Dates loaded from the reservation are next.
   elseif (isset($node->nid)) {
-    $date_info = $node->field_merci_date[$langcode][0];
+    $date_info = $node->field_merci_date[LANGUAGE_NONE][0];
     $start     = $date_info['value'];
     $end       = $date_info['value2'];
   }
@@ -795,8 +807,8 @@ function merci_record_status($code = NULL) {
  */
 function merci_get_available_bucket_items($node, $bucket_type) {
 
-  $langcode = $node->language;
-  $date_info = $node->field_merci_date[$langcode][0];
+  // field_merci_date is not translatable.
+  $date_info = $node->field_merci_date[LANGUAGE_NONE][0];
   $start     = $date_info['value'];
   $end       = $date_info['value2'];
 
@@ -1005,7 +1017,7 @@ function merci_add_reservation_items($node) {
   $commercial_total = 0;
 
   $langcode = $node->language;
-  $hours = round(strtotime($node->field_merci_date[$langcode][0]['value2']) - strtotime($node->field_merci_date[$langcode][0]['value'])) / 3600;
+  $hours = round(strtotime($node->field_merci_date[LANGUAGE_NONE][0]['value2']) - strtotime($node->field_merci_date[LANGUAGE_NONE][0]['value'])) / 3600;
 
   $exempt_items = array();
   // Update existing items or add new ones.
@@ -1044,7 +1056,7 @@ function merci_add_reservation_items($node) {
           $settings = merci_load_item_settings($item['type']);
           $item['name']  = $settings->type_name;
           if ($settings->merci_auto_assign_bucket_item) {
-            $date_info = $node->field_merci_date[$langcode][0];
+            $date_info = $node->field_merci_date[LANGUAGE_NONE][0];
             $start     = $date_info['value'];
             $end       = $date_info['value2'];
 
@@ -1088,6 +1100,8 @@ function merci_add_reservation_items($node) {
         $reservation->merci_fee_free_hours = (isset($settings->merci_fee_free_hours)) ? $settings->merci_fee_free_hours : 0;
         $reservation->merci_autocheckin  = (isset($settings->merci_autocheckin))  ? $settings->merci_autocheckin  : 0;
         $reservation->merci_autocheckout = (isset($settings->merci_autocheckout)) ? $settings->merci_autocheckout : 0;
+        // TODO not sure why this is not set automatically.
+        $reservation->language = $langcode;
         $reservation = node_submit($reservation);
         node_save($reservation);
 
@@ -1120,7 +1134,10 @@ function merci_add_reservation_items($node) {
       // If we have an item assigned.  Set status to reserved.
       $item['merci_item_status'] = $item_status;
 
-      if ($node->revision or is_string($did) or $node->is_new) {
+      if (!empty($node->revision) or is_string($did) or $node->is_new) {
+        if (array_key_exists('did', $item)) {
+          unset($item['did']);
+        }
         $item['nid'] = $node->nid;
         $item['vid'] = $node->vid;
         drupal_write_record('merci_reservation_detail', $item);
@@ -1130,12 +1147,17 @@ function merci_add_reservation_items($node) {
         drupal_write_record('merci_reservation_detail', $item, 'did');
       }
 
+      // Update merci_item_status to Checked out or available.
       $item_status = $item_status == MERCI_ITEM_STATUS_CHECKED_OUT ? MERCI_ITEM_STATUS_CHECKED_OUT : MERCI_ITEM_STATUS_AVAILABLE;
       if (is_numeric($item['merci_item_nid']) and $item['merci_item_nid'] > 0) {
-        $update = array();
-        $update['nid'] = $item['merci_item_nid'];
-        $update['merci_item_status'] = $item_status;
-        drupal_write_record('merci_reservation_item_node', $update, 'nid');
+        // Only set to available if previously this reservation was checked out.
+        // Or if this reservation is being set to checked out.
+        if ($item_status == MERCI_ITEM_STATUS_CHECKED_OUT or ($node->merci_original_reservation_status == MERCI_STATUS_CHECKED_OUT and $item_status == MERCI_ITEM_STATUS_AVAILABLE)){
+          $update = array();
+          $update['nid'] = $item['merci_item_nid'];
+          $update['merci_item_status'] = $item_status;
+          drupal_write_record('merci_reservation_item_node', $update, 'nid');
+        }
       }
     }
   }

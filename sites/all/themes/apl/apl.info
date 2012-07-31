@@ -64,6 +64,7 @@ stylesheets[all][] = css/master.css
 stylesheets[print][] = css/print.css
 stylesheets[all][] = css/apl_faq.css
 stylesheets[all][] = css/top_nav.css
+stylesheets[all][] = css/merci.css
 
 
 settings[basic_tabs] = 1

@@ -14,6 +14,30 @@ apl_html {
 }
 
 /* ------------- FAQ CSS ------------ */
+
+
+.handler_down {
+        padding:1em;
+        text-decoration:none;
+    font-weight: bold;
+    margin-top: 1em;
+}
+.toggle {
+        padding:1em;
+}
+.pane-faq-views-panel-pane-1 .views-row-odd,
+.pane-faq-views-panel-pane-2 .views-row-odd {
+        background-color:#D4DDEE;
+        cursor:pointer;
+}
+.pane-faq-views-panel-pane-1 .views-row-even,
+.pane-faq-views-panel-pane-2 .views-row-even {
+        cursor:pointer;
+        ebackground-color: #acddee;
+}
+
+
+
 .faq_answer { 
 	display:block;
 	margin:0;
@@ -23,11 +47,15 @@ apl_html {
 }
 .handler {
 	margin:0;
-	margin-top:.5em;
-	margin-bottom:.5em;
-	padding:0;
-	padding-left:.5em;
-	padding-right:.5em;
+	emargin-top:.5em;
+	emargin-bottom:.5em;
+	epadding:0;
+	epadding-left:.5em;
+	epadding-right:.5em;
+
+        padding:1em !important;
+  margin-top: 1em;
+
 }
 
 .handler:link    {color:blue;}
@@ -87,9 +115,16 @@ h3 {
 .show_all_button:hover {color:black; background-color:white; border-color:silver; cursor:pointer;}
 .hide_all_button:hover {color:black; background-color:white; border-color:silver; cursor:pointer;}
 
-.pane-faq-views-panel-pane-1 .views-row-odd {
+.pane-faq-views-panel-pane-1 .views-row-odd, 
+.pane-faq-views-panel-pane-2 .views-row-odd {
     background-color: #D4DDEE;
 	border-radius: 1.0em;
+    cursor: default;
+}
+.pane-faq-views-panel-pane-1 .views-row-even,
+.pane-faq-views-panel-pane-2 .views-row-even {
+    background-color: #d9f5ff;
+        border-radius: 1.0em;
     cursor: default;
 }
 

@@ -385,6 +385,17 @@ function _form_builder_webform_form_builder_types_hidden() {
 }
 
 /**
+ * Implements _form_builder_webform_form_builder_load_component().
+ */
+function _form_builder_webform_form_builder_load_hidden($form_element) {
+  // Hidden elements may be #type "value" or "hidden". Set the internal property
+  // to keep track of hidden fields.
+  $form_element['#form_builder']['element_type'] = 'hidden';
+
+  return $form_element;
+}
+
+/**
  * Implements _form_builder_webform_form_builder_preview_alter_component().
  */
 function _form_builder_webform_form_builder_preview_alter_hidden($form_element) {
@@ -399,12 +410,7 @@ function _form_builder_webform_form_builder_preview_alter_hidden($form_element) 
 
   // Display the title of the hidden field as regular markup.
   $form_element['#children'] = t('@title - <em>hidden field</em>', array('@title' => $form_element['#title']));
-  $form_element['#title_display'] = 'none';
-
-  // Give the element a wrapper class so that themers can recognize it
-  // represents a hidden element.
-  $form_element['#attributes']['class'][] = 'form-builder-preview-hidden-webform-element';
-  array_unshift($form_element['#theme_wrappers'], 'container');
+  $form_element['#title'] = NULL;
 
   return $form_element;
 }
@@ -598,10 +604,28 @@ function _form_builder_webform_form_builder_load_pagebreak($form_element) {
   // Pagebreak components are rendered as hidden elements by webform, but
   // hidden elements do not have a #title property. So we have to convert the
   // rendered value to be used as the #title instead.
-  if ($form_element['#type'] == 'pagebreak') {
-    $form_element['#title'] = $form_element['#value'];
-  }
+  $form_element['#title'] = $form_element['#value'];
+  $form_element['#form_builder']['element_type'] = 'pagebreak';
+
   return $form_element;
+}
+
+/**
+ * Implements _form_builder_webform_form_builder_save_component().
+ */
+function _form_builder_webform_form_builder_save_pagebreak($component, $form_element) {
+  // Ensure pagebreaks are saved at the root level.
+  if ($component['pid'] !== 0) {
+    drupal_set_message(t('Page breaks may not be nested inside fieldsets. Each pagebreak has been moved outside of fieldsets.'), 'status', FALSE);
+
+    $form_cache = form_builder_cache_load('webform', $form_element['#form_builder']['form_id']);
+    $parent = form_builder_get_element($form_cache, $form_element['#form_builder']['parent_id']);
+
+    $component['weight'] = $parent['#weight'] + 1;
+    $component['pid'] = 0;
+  }
+
+  return $component;
 }
 
 /**
@@ -885,7 +909,7 @@ function _form_builder_webform_form_builder_map_time() {
         'storage_parents' => array('extra', 'timezone'),
       ),
       'hourformat' => array(
-        'storage_parents' => array('display', 'hourformat'),
+        'form_parents' => array('display', 'hourformat'),
         'storage_parents' => array('extra', 'hourformat'),
       ),
     ),
@@ -1020,7 +1044,7 @@ function _form_builder_webform_build_edit_form($component_type, $element, $prope
   // The most up-to-date configuration data stored by Form Builder for the
   // part of the component we are editing is also stored in the passed-in
   // element, and should always take precedence.
-  if (isset($element["#$property"])) {
+  if (array_key_exists("#$property", $element)) {
     drupal_array_set_nested_value($component, $component_nested_keys, $element["#$property"]);
   }
 

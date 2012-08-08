@@ -597,6 +597,7 @@ div.status {
 /* Begin Library Footer */
 
 #footer {
+margin-top: 2em !important;
 	background: #CCCCCC;
 }
 #footer .region-footer {
@@ -740,23 +741,6 @@ div.status {
 }
 .breadcrumb {
 	margin-bottom:-.5em;
-}
-.handler {
-	padding-left:3px;
-}
-.handler_down {
-	padding-left:3px;
-	text-decoration:none;
-}
-.toggle {
-	padding-left:3px;
-}
-.pane-faq-views-panel-pane-1 .views-row-odd {
-	background-color:#D4DDEE;
-	cursor:pointer;
-}
-.pane-faq-views-panel-pane-1 .views-row-even {
-	cursor:pointer;
 }
 .overlogodiv {
 	width:100px;

@@ -1,0 +1,45 @@
+div#edit-field-merci-date-und-0-value input,
+div#edit-field-merci-date-und-0-value2 input,
+.page-admin-merci input[type=text] {
+
+display: block;
+height: auto;
+width: 110px !important;
+}
+div#edit-field-merci-date-und-0-value div.description,
+div#edit-field-merci-date-und-0-value2 div.description,
+.page-admin-merci div.description
+ {
+
+width: 200px;
+margin-bottom: 10px;
+}
+.page-admin-merci #edit-reset {
+left: 0;
+}
+
+
+input#edit-field-merci-date-field-merci-date-button {
+display: none;
+}
+.page-node-add-merci-reservation input[type=submit],
+.page-admin-merci input[type=submit]
+
+ {
+
+padding: 5px;
+margin-right: 10px;
+margin-top: 5px;
+}
+#merci-choice-wrapper thead {
+display: none
+}
+
+.page-node-add-merci-reservation table,
+.page-node-add-merci-reservation td,
+.page-node-add-merci-reservation tr,
+.page-node-add-merci-reservation tbody,
+.page-node-add-merci-reservation th
+{
+border: none !important;
+}

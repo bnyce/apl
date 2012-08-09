@@ -51,4 +51,28 @@
         return true;
     }
   };
+
+  /**
+   * Overwrites default AJAX autocomplete error handling to fail silently rather
+   * than alert an error. This code block can be removed once the following core
+   * issue is resolved.
+   *
+   * @see http://drupal.org/node/1232416
+   */
+  $(document).ready(function() {
+    $.ajaxSetup({
+      beforeSend: function(jqXHR, settings) {
+        settings.error = function(jqXHR, textStatus, errorThrown) {
+          // If no console exists (IE), fake one.
+          if (typeof console === 'undefined') {
+            console = {};
+            'log info warn error dir clear'.replace(/\w+/g,function(f) {
+              if (!(f in console)) console[f] = console.log||new Function;
+            });
+          }
+          console.log('ajax error: ' + textStatus);
+        };
+      },
+    });
+  });
 }) (jQuery);

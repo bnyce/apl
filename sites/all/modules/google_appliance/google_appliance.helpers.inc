@@ -20,6 +20,7 @@ define('SGA_DEFAULT_AUTOFILTER', 1);
 define('SGA_DEFAULT_QUERY_INSPECTION', 0);
 define('SGA_DEFAULT_SEARCH_TITLE', 'Search this site');
 define('SGA_DEFAULT_RESULTS_PER_PAGE', 10);
+define('SGA_DEFAULT_BLOCK_VISIBILITY_SETTINGS', '');
 
 /*
  * Minimize redundant trips to the db when looking for module settings. 
@@ -46,18 +47,28 @@ function _google_appliance_get_settings($refresh = FALSE) {
     'query_inspection',
     'search_title',
     'results_per_page',
+    'block_visibility_settings',
   );
   
   if ($refresh || empty($settings)) {
     
+    // Settings fall back to default constants.
     foreach ($field_keys as $field) {  
-      $settings[$field] = trim(variable_get(
+      $settings[$field] = variable_get(
         'google_appliance_' . $field,
         constant('SGA_DEFAULT_' . strtoupper($field))
-      ));
-    
+      );
+    }
+
+    // The empty string in the define block above for block visibility 
+    // settings is really just a flag that nothing has been set yet. 
+    // Using an empty string is problematic, so we just set it to an 
+    // empty array instead.
+    if ($settings['block_visibility_settings'] === '') {
+      $settings['block_visibility_settings'] = array();
     }
   }
+
   return $settings;
 }
 
@@ -139,4 +150,28 @@ function _google_appliance_log_search_error($search_keys = NULL, $error_string =
   $link = l(t('view reproduction'), 'gsearch/' . check_plain($search_keys));
   
   watchdog($type, $message, $vars, WATCHDOG_NOTICE, $link);
+}
+
+/**
+ * Get googleon/googleoff tags.
+ */
+function _google_appliance_get_googleonoff() {
+  return array(
+    'index' => array(
+      'prefix' => '<!--googleoff: index-->',
+      'suffix' => '<!--googleon: index-->',
+    ),
+    'anchor' => array(
+      'prefix' => '<!--googleoff: anchor-->',
+      'suffix' => '<!--googleon: anchor-->',
+    ),
+    'snippet' => array(
+      'prefix' => '<!--googleoff: snippet-->',
+      'suffix' => '<!--googleon: snippet-->',
+    ),
+    'all' => array(
+      'prefix' => '<!--googleoff: all-->',
+      'suffix' => '<!--googleon: all-->',
+    ),
+  );
 }

@@ -67,26 +67,29 @@ if (function_exists('drupal_bootstrap')) {
     if ($result['response'] !== FALSE) {
       // Format JSON to what Drupal expects on autocomplete.
       $json_source = drupal_json_decode($result['response']);
-      $json_target = array();
+      $response = array();
       $strong = '<strong>' . $search_query . '</strong>';
       foreach ($json_source[1] as $item) {
-        $json_target[$item] = str_replace($search_query, $strong, $item);
+        $response[$item] = str_replace($search_query, $strong, $item);
       }
-      $response = drupal_json_encode($json_target);
-
-      // Set headers.
-      drupal_add_http_header('Content-type', 'application/json');
-      header('X-Drupal-Cache: MISS');
 
       // Prepare content for caching and display it.
       ob_start();
-      echo $response;
+      drupal_json_output($response);
       if ($gsa_suggest_cache) {
+        header('X-Drupal-Cache: MISS');
         $cache = drupal_page_set_cache();
         drupal_serve_page_from_cache($cache);
       }
     }
+    else {
+      drupal_json_output(array());
+    }
 
     curl_close($ch);
   }
+}
+else {
+  // Fallback to returning nothing.
+  drupal_json_output(array());
 }

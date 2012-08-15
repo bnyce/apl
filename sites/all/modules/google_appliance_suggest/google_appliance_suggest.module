@@ -11,7 +11,7 @@
  * Default module settings.
  */
 define('SGAS_DEFAULT_MAX', 5);
-define('SGAS_DEFAULT_CACHE', 1);
+define('SGAS_DEFAULT_CACHE', 0);
 define('SGAS_DEFAULT_HIDE_THROBBER', 1);
 define('SGAS_DEFAULT_AUTOSUBMIT', 1);
 
@@ -108,14 +108,6 @@ function google_appliance_suggest_form_google_appliance_admin_settings_alter(&$f
     '#description' => t('Maximum number of query suggestions to display to the user. Setting this to 0 disables query suggestions.'),
   );
 
-  // Switch whether or not to enable query suggest caching.
-  $form['suggest_settings']['cache'] = array(
-    '#title' => t('Enable suggestion caching'),
-    '#type' => 'checkbox',
-    '#description' => t('Speeds up query suggestions by caching suggestion results.'),
-    '#default_value' => $settings['cache'],
-  );
-
   // Switch whether or not to hide the default Drupal throbber.
   $form['suggest_settings']['hide_throbber'] = array(
     '#title' => t('Hide throbber'),
@@ -130,6 +122,22 @@ function google_appliance_suggest_form_google_appliance_admin_settings_alter(&$f
     '#type' => 'checkbox',
     '#description' => t('Automatically submits the search form when a user selects a query suggestion.'),
     '#default_value' => $settings['autosubmit'],
+  );
+
+  // Switch whether or not to enable query suggest caching.
+  $form['suggest_settings']['cache'] = array(
+    '#title' => t('Enable suggestion caching'),
+    '#type' => 'checkbox',
+    '#description' => t('Speeds up query suggestions by caching suggestion results.'),
+    '#default_value' => $settings['cache'],
+  );
+
+  // Button to clear query suggestion cache.
+  $form['suggest_settings']['clear_cache'] = array(
+    '#type' => 'submit',
+    '#value' => t('Clear suggestion cache'),
+    '#submit' => array('google_appliance_suggest_clear_cache_submit'),
+    '#disabled' => (boolean) !$settings['cache'],
   );
 
   // Add another submit handler to save query suggestion variables.
@@ -155,6 +163,16 @@ function google_appliance_suggest_admin_settings_submit($form, &$form_state) {
   
   // Refresh settings getter.
   $settings = _google_appliance_suggest_get_settings(TRUE);   
+}
+
+/**
+ * Submit handler for suggestion cache clearing.
+ */
+function google_appliance_suggest_clear_cache_submit($form, &$form_state) {
+  $deleted = db_delete('cache_page')
+    ->condition('cid', '%google_appliance_suggest%', 'LIKE')
+    ->execute();
+  drupal_set_message(t('@num suggestions cleared from cache.', array('@num' => $deleted)));
 }
 
 

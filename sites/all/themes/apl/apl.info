@@ -65,6 +65,7 @@ stylesheets[print][] = css/print.css
 stylesheets[all][] = css/apl_faq.css
 stylesheets[all][] = css/top_nav.css
 stylesheets[all][] = css/merci.css
+stylesheets[all][] = css/image_rotator.css
 
 
 settings[basic_tabs] = 1

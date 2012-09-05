@@ -515,7 +515,7 @@ img {
 
   /* Responsive images */
   /* @todo Add responsive embedded video. */
-  max-width: 100%;
+  max-width: 1920px;
   height: auto;
 }
 

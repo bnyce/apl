@@ -6,8 +6,8 @@ $(document).ready(function() {
 var i = $('#gsearch-input');
 var t = $('.cst a');
 var i_s = $('.SSCentralSearchSearchCriteria');
-var i_b = $('#BookAndMore_search');
-var i_t = $('#searchTermFld');
+var i_b = $('#BookAndMore_search, #BookAndMore_search2');
+var i_t = $('#searchTermFld, #searchTermFld2');
 //var f = $('#gsearch-form, .SSCentralSearchSearchForm, #BookAndMore_form, #search-block-form');
 var f = $('#gsearch-form');
 

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Meeting Room Request Form feature.
+ */
+
+include_once 'meeting_room_request_form.features.inc';

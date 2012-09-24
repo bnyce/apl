@@ -37,13 +37,13 @@ function _form_builder_webform_form_builder_map_date() {
         'form_parents' => array('default', 'timezone'),
         'storage_parents' => array('extra', 'timezone'),
       ),
-      'year_start' => array(
-        'form_parents' => array('validation', 'year_start'),
-        'storage_parents' => array('extra', 'year_start'),
+      'start_date' => array(
+        'form_parents' => array('validation', 'start_date'),
+        'storage_parents' => array('extra', 'start_date'),
       ),
-      'year_end' => array(
-        'form_parents' => array('validation', 'year_end'),
-        'storage_parents' => array('extra', 'year_end'),
+      'end_date' => array(
+        'form_parents' => array('validation', 'end_date'),
+        'storage_parents' => array('extra', 'end_date'),
       ),
       'year_textfield' => array(
         'form_parents' => array('display', 'year_textfield'),
@@ -202,6 +202,22 @@ function _form_builder_webform_form_builder_map_file() {
       ),
     ),
   );
+}
+
+/**
+ * Implements _form_builder_webform_form_builder_load_component().
+ */
+function _form_builder_webform_form_builder_load_file($form_element) {
+  if (isset($form_element['#upload_validators'])) {
+    // Extension list and size comes from #upload_validators on load.
+    $form_element['#webform_file_extensions']['types'] = empty($form_element['#upload_validators']['file_validate_extensions'][0]) ? array() : explode(' ', $form_element['#upload_validators']['file_validate_extensions'][0]);
+    $form_element['#webform_file_size'] = empty($form_element['#upload_validators']['file_validate_size'][0]) ? '' : format_size($form_element['#upload_validators']['file_validate_size'][0]);
+    // File directory and scheme come from #upload_location on load.
+    $form_element['#webform_file_directory'] = preg_replace('/^webform[\/]?/', '', file_uri_target($form_element['#upload_location']));
+    $form_element['#webform_file_scheme'] = file_uri_scheme($form_element['#upload_location']);
+  }
+
+  return $form_element;
 }
 
 /**
@@ -770,7 +786,7 @@ function _form_builder_webform_form_builder_save_select($component, $form_elemen
  */
 function form_builder_webform_property_select_options_form(&$form_state, $form_type, $element) {
   // Use the default options form, but enhance to allow Webform tokens.
-  $form = form_builder_property_options_form($form_state, $form_type, $element);
+  $form = form_builder_property_options_form($form_state, $form_type, $element, 'options');
   $form['options']['#default_value_pattern'] = '^%.+\[.+\]$';
   return $form;
 }
@@ -991,6 +1007,9 @@ function _form_builder_webform_default($component_type, $merge_extras = array())
   // Call the loading function to make sure that the default element gets the
   // same treatment as an existing one.
   $default_element = _form_builder_webform_set_mapped_type($default_element);
+  if ($element = form_builder_webform_component_invoke($component_type, 'form_builder_load', $default_element)) {
+    $default_element = $element;
+  }
 
   return $default_element;
 }

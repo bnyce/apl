@@ -105,7 +105,7 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 		  	'#prefix' => '<div class="blMEDImage">', 
 			'#suffix' => '</div>', 		
          	'#type' => 'markup',
-			'#markup' => '<a href="http://austin.bibliocommons.com/search?custom_query=identifier:'.$item['bl_isbn'].'"><img src="'.$bookInfo->IMGSRCMED.'" style="width:100px;" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>',
+			'#markup' => '<a href="http://austin.bibliocommons.com/search?custom_query=identifier:'.$item['bl_isbn'].'"><img src="'.$bookInfo->IMGSRCMED.'" style="width:100px;" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" title="'.htmlentities($bookInfo->FULLTITLE).' by '.htmlentities($bookInfo->AUTHOR).'"/></a>',
         );
 		  $element[$delta]["blEntryElement_2"] = array(
 		  	'#prefix' => '<div class="bTitleLink">', 
@@ -187,10 +187,10 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
       foreach ($items as $delta => $item) {
 		  $bookInfo = fnDisplayBookInfo($item['bl_isbn']);
 		
-		  $blimages[$delta]= '<a href="http://austin.bibliocommons.com/search?custom_query=identifier:'.$item['bl_isbn'].'"><img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" /></a>';
+		  $blimages[$delta]= '<a href="http://austin.bibliocommons.com/search?custom_query=identifier:'.$item['bl_isbn'].'"><img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" title="'.htmlentities($bookInfo->FULLTITLE).' by '.htmlentities($bookInfo->AUTHOR).'"/></a>';
 		  $counter= $delta+1;
 		$element[$delta]["blEntryElement_1"] = array(
-					'#prefix' => '<li><a href="http://austin.bibliocommons.com/search?custom_query=identifier:'.$item['bl_isbn'].'">', 
+					'#prefix' => '<li><a href="http://austin.bibliocommons.com/search?custom_query=identifier:'.$item['bl_isbn'].'" title="'.htmlentities($bookInfo->FULLTITLE).' by '.htmlentities($bookInfo->AUTHOR).'">', 
 					'#suffix' => '</a></li>', 		
 					'#type' => 'markup',
 					'#markup' => '<img id="'.$counter.'" src="'.$bookInfo->IMGSRCMED.'" alt="Cover of the book '.htmlentities($bookInfo->FULLTITLE).'" border="0" />',
@@ -204,8 +204,8 @@ function apl_isbnfield_field_formatter_view($entity_type, $entity, $field, $inst
 		$options = array (
  		 'wrap' => 'circular',
 		);
-		// blimages
-		jcarousel_add('bookSlide', array('wrap' => 'circular',));
+		// blimages  'auto' => 5,
+		jcarousel_add('bookSlide', array('wrap' => 'circular', 'scroll' => 1, 'animation' => 'slow', ));
 	  break;
 	  
 	  

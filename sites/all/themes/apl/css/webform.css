@@ -1,0 +1,171 @@
+/* Initially created to style the Meeting Room Request Form */
+
+div.node-webform {
+
+} 
+
+div.node-webform input.form-submit,
+div.node-webform a.button {
+  cursor: pointer;
+  padding: 4px 17px;
+  margin-bottom: 1em;
+  margin-right: 1em; /* LTR */
+  color: #5a5a5a;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.077em;
+ /* font-family: "Lucida Grande", Verdana, sans-serif;
+  */
+  border: 1px solid #e4e4e4;
+  border-bottom: 1px solid #b4b4b4;
+  border-left-color: #d2d2d2;
+  border-right-color: #d2d2d2;
+  background: url(images/buttons.png) 0 0 repeat-x;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+div.node-webform a.button:link,
+div.node-webform a.button:visited,
+div.node-webform a.button:hover,
+div.node-webform a.button:active {
+  text-decoration: none;
+  color: #5a5a5a;
+}
+div.node-webform input.form-submit:active {
+  background: #666;
+  color: #fff;
+  border-color: #555;
+  text-shadow: #222 0 -1px 0;
+}
+div.node-webform input.form-button-disabled,
+div.node-webform input.form-button-disabled:active {
+  background: #eee none;
+  border-color: #eee;
+  text-shadow: none;
+  color: #999;
+}
+div.node-webform input.form-autocomplete,
+div.node-webform input.form-text,
+div.node-webform input.form-file,
+div.node-webform textarea.form-textarea,
+div.node-webform select.form-select {
+  padding: 2px;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  display: inline;
+  float: left;
+  border: 1px solid #ccc;
+  border-top-color: #999;
+  background: #fff;
+  color: #333;
+}
+div.node-webform select.year {
+  width: 5em;
+}
+div.node-webform select.month {
+  width: 5.5em;
+}
+div.node-webform select.day {
+  width: 4.5em;
+}
+
+div.node-webform label {
+clear: left;
+margin-top: 1em;
+}
+
+div.node-webform div.form-item {
+margin: 0;
+}
+
+div.node-webform div.fieldset-description {
+font-style: oblique;
+}
+
+
+div.node-webform div.webform-component-markup {
+clear: left;
+}
+
+div.messages {
+padding: 0 9px 14px !important;
+}
+
+
+
+div.node-webform div.form-type-checkbox,
+div.node-webform div.form-type-radio {
+margin-top: .8em;
+}
+
+div.node-webform div.form-type-checkbox  input,
+div.node-webform div.form-type-checkbox  label,
+div.node-webform div.form-type-radio  input,
+div.node-webform div.form-type-radio  label {
+vertical-align: middle;
+}
+div.node-webform input.form-checkbox,
+div.node-webform input.form-radio {
+margin-right: .2em;
+}
+div.node-webform input.form-radio {
+margin-top: -2px;
+}
+
+div.node-webform div.description{
+clear: left;
+font-size: 1em;
+}
+
+
+
+
+
+/**
+ * Fieldsets.
+ *
+ * Fieldset legends are displayed like containers in Seven. However, several
+ * browsers do not support styling of LEGEND elements. To achieve the desired
+ * styling:
+ * - All fieldsets use 'position: relative'.
+ * - All legend labels are wrapped in a single span.fieldset-legend that uses
+ *   'position: absolute', which means that the LEGEND element itself is not
+ *   rendered by browsers.
+ * - Due to using 'position: absolute', collapsed fieldsets do not have a
+ *   height; the fieldset requires a 'padding-top' to make the absolute
+ *   positioned .fieldset-legend appear as though it would have a height.
+ * - Various browsers are positioning the legend differently if there is a
+ *   'padding-left'/'padding-right' applied on a fieldset and inherit the
+ *   positioning even to absolute positioned elements within; we therefore have
+ *   to apply all padding to the inner .fieldset-wrapper instead.
+ */
+div.node-webform fieldset {
+  border: 1px solid #ccc;
+  padding: 2.5em 0 1.5em 0; /* LTR */
+  position: relative;
+  margin: 1em 0;
+  clear: left;
+}
+div.node-webform fieldset .fieldset-legend {
+  margin-top: 0.5em;
+  padding-left: 15px; /* LTR */
+  position: absolute;
+  text-transform: uppercase;
+}
+div.node-webform fieldset .fieldset-wrapper {
+  padding: 0 13px 13px 15px; /* LTR */
+}
+div.node-webform fieldset.collapsed {
+  background-color: transparent;
+}
+html.js div.node-webform  fieldset.collapsed {
+  border-width: 1px;
+  min-height: auto;
+}
+div.node-webform fieldset fieldset {
+  background-color: #fff;
+}
+div.node-webform fieldset fieldset fieldset {
+  background-color: #f8f8f8;
+}

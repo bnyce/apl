@@ -1,8 +1,27 @@
 /* Initially created to style the Meeting Room Request Form */
 
+div.messages {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 1em;
+}
+
 div.node-webform {
 
 } 
+
+
+div.node-webform h2,
+div.webform-confirmation h2 {
+margin: 2em 0 1em;
+font-size: large;
+}
+
+
+
+
+
 
 div.node-webform input.form-submit,
 div.node-webform a.button {
@@ -52,7 +71,7 @@ div.node-webform textarea.form-textarea,
 div.node-webform select.form-select {
   padding: 2px;
   margin-right: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
   display: inline;
   float: left;
   border: 1px solid #ccc;
@@ -70,27 +89,24 @@ div.node-webform select.day {
   width: 4.5em;
 }
 
-div.node-webform label {
+div.node-webform  div.webform-component-select label,
+div.node-webform  div.webform-component-textfield label,
+div.node-webform  div.webform-component-email label {
+margin-top: 2em !important;
 clear: left;
-margin-top: 1em;
 }
 
 div.node-webform div.form-item {
 margin: 0;
 }
 
-div.node-webform div.fieldset-description {
-font-style: oblique;
-}
 
 
 div.node-webform div.webform-component-markup {
 clear: left;
 }
 
-div.messages {
-padding: 0 9px 14px !important;
-}
+
 
 
 
@@ -118,7 +134,26 @@ clear: left;
 font-size: 1em;
 }
 
+div.node-webform div.fieldset-description {
+font-style: oblique;
+margin-bottom: 2em;
+}
+div.node-webform  div#webform-component-digital-signature div.description {
+margin: 0 0 2em;
+color: black;
+}
 
+div.node-webform p.hint {
+margin-top: 10px !important;
+max-width: 20em;
+float: right;
+color: green;
+border: 1px solid green;
+ -moz-border-radius: 10px;
+ -webkit-border-radius: 10px;
+ border-radius: 10px;
+ padding: 10px;
+}
 
 
 
@@ -144,17 +179,24 @@ div.node-webform fieldset {
   border: 1px solid #ccc;
   padding: 2.5em 0 1.5em 0; /* LTR */
   position: relative;
-  margin: 1em 0;
+  margin: 1em 0 2em;
   clear: left;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 div.node-webform fieldset .fieldset-legend {
   margin-top: 0.5em;
   padding-left: 15px; /* LTR */
   position: absolute;
-  text-transform: uppercase;
+  font-weight: bold;
+  width: 100%;
+  /*text-transform: uppercase;*/
 }
 div.node-webform fieldset .fieldset-wrapper {
-  padding: 0 13px 13px 15px; /* LTR */
+  padding: 1em;
+  border-top: 2px solid #ccc;
+
 }
 div.node-webform fieldset.collapsed {
   background-color: transparent;

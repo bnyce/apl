@@ -1,4 +1,8 @@
-label.error {
-color: white;
+div.error, label.error {
+color: black !important;
 }
 
+div.messages ul {
+margin: 2em 40px !important;
+
+}

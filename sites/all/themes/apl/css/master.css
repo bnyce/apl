@@ -437,6 +437,7 @@ abbr {
 #edit-delete {
 	color: #cc0000;
 }
+/*
 div.messages {
 	padding: 9px;
 	margin: 1em 0;
@@ -459,6 +460,7 @@ div.status {
 	background: #ccff88;
 	border-color: #bbee77;
 }
+*/
 #header, #footer {
 	background: #efefef;
 }

@@ -617,7 +617,7 @@ function _merci_installed_instances () {
   return  array(
     'field_merci_date' => array(
       'field_name' => 'field_merci_date',
-      'label' => 'Meeting Room Reservation2',
+      'label' => 'Reservation',
       'description' => '',
       'weight' => 0,
       'required' => '1',

@@ -616,8 +616,8 @@ function _merci_installed_instances () {
 
   return  array(
     'field_merci_date' => array(
-      'field_name' => 'field_merci_date',
-      'label' => 'Meeting Room Reservation2',
+      'field_name' => 'field_merci_event_date',
+      'label' => 'Meeting Room Reservation',
       'description' => '',
       'weight' => 0,
       'required' => '1',
@@ -631,8 +631,8 @@ function _merci_installed_instances () {
         'description' => 'Select the start and end times for your reservation.',
         'settings' => array (
         'input_format' => $short_date_format,
-        'increment' => '15',
-        'year_range' => '-3:+3',
+        'increment' => '1',
+        'year_range' => '-0:+3',
         'label_position' => 'above',
       ),
     ),
@@ -649,8 +649,8 @@ function _merci_installed_fields () {
   // Create the date field for the reservation.
   return array(
     'field_merci_date' => array(
-      'field_name' => 'field_merci_date',
-      'type' => 'datetime',
+      'field_name' => 'field_merci_event_date',
+      'type' => 'date_popup',
       'entity_types' => array('node'),
 
       'module' => 'date',

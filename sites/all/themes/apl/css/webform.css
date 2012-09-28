@@ -175,7 +175,10 @@ border: 1px solid green;
  *   positioning even to absolute positioned elements within; we therefore have
  *   to apply all padding to the inner .fieldset-wrapper instead.
  */
-div.node-webform fieldset {
+div.node-webform fieldset,
+div#merci-choice-wrapper fieldset
+
+ {
   border: 1px solid #ccc;
   padding: 2.5em 0 1.5em 0; /* LTR */
   position: relative;

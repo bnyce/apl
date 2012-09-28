@@ -1,3 +1,17 @@
+div.field-label {
+margin-top: 1em;
+}
+
+div.field, span.submitted {
+margin-bottom: 1em;
+display: block;
+}
+
+ul.action-links {
+margin: 2em 0;
+font-size: large;
+}
+
 div#edit-field-merci-date-und-0-value input,
 div#edit-field-merci-date-und-0-value2 input,
 .page-admin-merci input[type=text] {

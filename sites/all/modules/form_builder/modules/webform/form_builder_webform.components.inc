@@ -956,8 +956,9 @@ function _form_builder_webform_mapped_form(&$form_state, $form_type, $element, $
 function _form_builder_webform_save_mapped_component($component, $element) {
   if ($map = _form_builder_webform_property_map($component['type'])) {
     foreach ($map['properties'] as $property => $property_map) {
-      if (isset($element['#' . $property]) && isset($property_map['storage_parents'])) {
-        _form_builder_webform_save_mapped_component_value($component, $element['#' . $property], $property_map['storage_parents']);
+      if (isset($property_map['storage_parents'])) {
+        $property_value = isset($element['#' . $property]) ? $element['#' . $property] : NULL;
+        _form_builder_webform_save_mapped_component_value($component, $property_value, $property_map['storage_parents']);
       }
     }
   }
@@ -1059,6 +1060,7 @@ function _form_builder_webform_build_edit_form($component_type, $element, $prope
   // component.
   $defaults_function = '_webform_defaults_' . $component_type;
   $component = isset($element['#webform_component']) ? $element['#webform_component'] : $defaults_function();
+  $nid = isset($component['nid']) ? $component['nid'] : NULL;
 
   // The most up-to-date configuration data stored by Form Builder for the
   // part of the component we are editing is also stored in the passed-in
@@ -1071,7 +1073,10 @@ function _form_builder_webform_build_edit_form($component_type, $element, $prope
   // the component, and obtain the slice of it that we want.
   $empty_form = array();
   $empty_form_state = form_state_defaults();
-  $node = (object) array('nid' => NULL);
+
+  // The full node is needed here so that the "private" option can be access
+  // checked.
+  $node = !isset($nid) ? (object) array('nid' => NULL) : node_load($nid);
   $form = webform_component_edit_form($empty_form, $empty_form_state, $node, $component);
   $form = drupal_array_get_nested_value($form, $form_nested_keys);
 

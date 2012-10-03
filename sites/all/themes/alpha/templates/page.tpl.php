@@ -69,7 +69,7 @@
  * @see template_process()
  */
 ?>
-
+<meta http-equiv="refresh" content="86400">
 <div id="page">
 
 

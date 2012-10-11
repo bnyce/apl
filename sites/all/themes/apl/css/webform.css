@@ -143,17 +143,7 @@ margin: 0 0 2em;
 color: black;
 }
 
-div.node-webform p.hint {
-margin-top: 10px !important;
-max-width: 20em;
-float: right;
-color: green;
-border: 1px solid green;
- -moz-border-radius: 10px;
- -webkit-border-radius: 10px;
- border-radius: 10px;
- padding: 10px;
-}
+
 
 
 
@@ -213,4 +203,54 @@ div.node-webform fieldset fieldset {
 }
 div.node-webform fieldset fieldset fieldset {
   background-color: #f8f8f8;
+}
+
+div.node-webform em {
+display: block;
+margin: 0 1.5em;
+font-style: normal;
+}
+
+div.node-webform strong {
+display: block;
+margin: 0 1.5em 1.5em 1.5em;
+border: 1px solid silver;
+font-weight: normal;
+padding: 1em 0;
+
+border: 1px solid #cccccc;
+ -moz-border-radius: 10px;
+ -webkit-border-radius: 10px;
+ border-radius: 10px;
+ padding: 10px;
+ 
+border-top-left-radius: 0;
+-moz-border-top-left-radius: 0;
+-webkit-border-top-left-radius: 0;
+}
+div.node-webform strong em strong {
+font-weight: 700;
+margin: 0;
+border: none;
+padding: 0;
+}
+
+div.node-webform .hint {
+margin: 1em 0 1em 1em !important;
+max-width: 36em;
+float: right;
+border: 1px solid green;
+ -moz-border-radius: 10px;
+ -webkit-border-radius: 10px;
+ border-radius: 10px;
+ padding: 10px;
+}
+
+
+div.node-webform p strong {
+font-weight: 700;
+display: inline;
+border: 0;
+padding: 0;
+margin: 0;
 }

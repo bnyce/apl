@@ -13,7 +13,8 @@ div.node-webform {
 
 
 div.node-webform h2,
-div.webform-confirmation h2 {
+div.webform-confirmation h2,
+div.webform-submission h2 {
 margin: 2em 0 1em;
 font-size: large;
 }
@@ -24,7 +25,9 @@ font-size: large;
 
 
 div.node-webform input.form-submit,
-div.node-webform a.button {
+div.node-webform a.button,
+div.webform-submission input.form-submit,
+div.webform-submission a.button {
   cursor: pointer;
   padding: 4px 17px;
   margin-bottom: 1em;
@@ -47,28 +50,43 @@ div.node-webform a.button {
 div.node-webform a.button:link,
 div.node-webform a.button:visited,
 div.node-webform a.button:hover,
-div.node-webform a.button:active {
+div.node-webform a.button:active,
+div.webform-submission a.button:link,
+div.webform-submission a.button:visited,
+div.webform-submission a.button:hover,
+div.webform-submission a.button:active {
   text-decoration: none;
   color: #5a5a5a;
 }
-div.node-webform input.form-submit:active {
+
+div.node-webform input.form-submit:active,
+div.webform-submission input.form-submit:active {
   background: #666;
   color: #fff;
   border-color: #555;
   text-shadow: #222 0 -1px 0;
 }
+
 div.node-webform input.form-button-disabled,
-div.node-webform input.form-button-disabled:active {
+div.node-webform input.form-button-disabled:active,
+div.webform-submission input.form-button-disabled,
+div.webform-submission input.form-button-disabled:active {
   background: #eee none;
   border-color: #eee;
   text-shadow: none;
   color: #999;
 }
+
 div.node-webform input.form-autocomplete,
 div.node-webform input.form-text,
 div.node-webform input.form-file,
 div.node-webform textarea.form-textarea,
-div.node-webform select.form-select {
+div.node-webform select.form-select,
+div.webform-submission input.form-autocomplete,
+div.webform-submission input.form-text,
+div.webform-submission input.form-file,
+div.webform-submission textarea.form-textarea,
+div.webform-submission select.form-select {
   padding: 2px;
   margin-right: 0.5em;
   margin-bottom: 2em;
@@ -79,6 +97,13 @@ div.node-webform select.form-select {
   background: #fff;
   color: #333;
 }
+
+
+
+
+
+
+
 div.node-webform select.year {
   width: 5em;
 }
@@ -100,15 +125,9 @@ div.node-webform div.form-item {
 margin: 0;
 }
 
-
-
 div.node-webform div.webform-component-markup {
 clear: left;
 }
-
-
-
-
 
 div.node-webform div.form-type-checkbox,
 div.node-webform div.form-type-radio {
@@ -129,16 +148,30 @@ div.node-webform input.form-radio {
 margin-top: -2px;
 }
 
-div.node-webform div.description{
+
+
+
+
+
+
+
+
+
+
+div.node-webform div.description.
+div.webform-submission div.description {
 clear: left;
 font-size: 1em;
 }
 
-div.node-webform div.fieldset-description {
+div.node-webform div.fieldset-description,
+div.webform-submission div.fieldset-description {
 font-style: oblique;
 margin-bottom: 2em;
 }
-div.node-webform  div#webform-component-digital-signature div.description {
+
+div.node-webform  div#webform-component-digital-signature div.description.
+div.webform-submission  div#webform-component-digital-signature div.description {
 margin: 0 0 2em;
 color: black;
 }
@@ -166,9 +199,8 @@ color: black;
  *   to apply all padding to the inner .fieldset-wrapper instead.
  */
 div.node-webform fieldset,
-div#merci-choice-wrapper fieldset
-
- {
+div#merci-choice-wrapper fieldset,
+div.webform-submission fieldset{
   border: 1px solid #ccc;
   padding: 2.5em 0 1.5em 0; /* LTR */
   position: relative;
@@ -178,7 +210,9 @@ div#merci-choice-wrapper fieldset
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-div.node-webform fieldset .fieldset-legend {
+
+div.node-webform fieldset .fieldset-legend,
+div.webform-submission fieldset .fieldset-legend {
   margin-top: 0.5em;
   padding-left: 15px; /* LTR */
   position: absolute;
@@ -186,38 +220,46 @@ div.node-webform fieldset .fieldset-legend {
   width: 100%;
   /*text-transform: uppercase;*/
 }
-div.node-webform fieldset .fieldset-wrapper {
+
+div.node-webform fieldset .fieldset-wrapper,
+div.webform-submission fieldset .fieldset-wrapper {
   padding: 1em;
   border-top: 2px solid #ccc;
-
 }
-div.node-webform fieldset.collapsed {
+
+div.node-webform fieldset.collapsed,
+div.webform-submission fieldset.collapsed {
   background-color: transparent;
 }
-html.js div.node-webform  fieldset.collapsed {
+
+html.js div.node-webform  fieldset.collapsed,
+html.js div.webform-submission  fieldset.collapsed {
   border-width: 1px;
   min-height: auto;
 }
-div.node-webform fieldset fieldset {
+
+div.node-webform fieldset fieldset,
+div.webform-submission fieldset fieldset {
   background-color: #fff;
 }
-div.node-webform fieldset fieldset fieldset {
+
+div.node-webform fieldset fieldset fieldset,
+div.webform-submission fieldset fieldset fieldset {
   background-color: #f8f8f8;
 }
 
-div.node-webform em {
+div.node-webform em,
+div.webform-submission em {
 display: block;
 margin: 0 1.5em;
 font-style: normal;
 }
 
-div.node-webform strong {
+div.node-webform strong,
+div.webform-submission strong {
 display: block;
 margin: 0 1.5em 1.5em 1.5em;
-border: 1px solid silver;
 font-weight: normal;
-padding: 1em 0;
-
 border: 1px solid #cccccc;
  -moz-border-radius: 10px;
  -webkit-border-radius: 10px;
@@ -228,14 +270,17 @@ border-top-left-radius: 0;
 -moz-border-top-left-radius: 0;
 -webkit-border-top-left-radius: 0;
 }
-div.node-webform strong em strong {
+
+div.node-webform strong em strong,
+div.webform-submission strong em strong {
 font-weight: 700;
 margin: 0;
 border: none;
 padding: 0;
 }
 
-div.node-webform .hint {
+div.node-webform .hint,
+div.webform-submission .hint {
 margin: 1em 0 1em 1em !important;
 max-width: 36em;
 float: right;
@@ -247,10 +292,49 @@ border: 1px solid green;
 }
 
 
-div.node-webform p strong {
+div.node-webform p strong,
+div.webform-submission p strong {
 font-weight: 700;
 display: inline;
 border: 0;
 padding: 0;
 margin: 0;
+}
+
+div.node-webform div#webform-component-general-guidelines-agreement,
+div.node-webform   div#webform-component-reservations-agreement,
+div.node-webform div#webform-component-care-and-use-agreement,
+div.node-webform div#webform-component-austin-history-center-additional-guidelines-agreement {
+margin: -1em 0 4em;
+}
+
+div.webform-submission div#webform-component-general-guidelines-agreement,
+div.webform-submission   div#webform-component-reservations-agreement,
+div.webform-submission div#webform-component-care-and-use-agreement,
+div.webform-submission div#webform-component-austin-history-center-additional-guidelines-agreement {
+margin: 1em 0 2em;
+}
+
+div.node-webform input.require-one + label.option,
+div.webform-submission input.require-one + label.option {
+font-weight: 700;
+}
+
+#webform-component-meeting-room-policy--intro p em {
+margin: 2em 0 0 0;
+font-style: italic;
+font-weight: 700;
+}
+
+
+
+div.webform-submission h2.webform-page,
+div.webform-submission fieldset#webform-component-meeting-room-policy, 
+div.webform-submission fieldset#webform-component-general-guidelines,
+div.webform-submission fieldset#webform-component-reservations,
+div.webform-submission fieldset#webform-component-care-and-use-of-facilities,
+div.webform-submission fieldset#webform-component-austin-history-center-additional-guidelines,
+div.webform-submission div.fieldset-description
+ {
+display: none;
 }

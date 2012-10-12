@@ -617,7 +617,7 @@ function _merci_installed_instances () {
   return  array(
     'field_merci_date' => array(
       'field_name' => 'field_merci_date',
-      'label' => 'Meeting Room Reservation',
+      'label' => 'Reservation',
       'description' => '',
       'weight' => 0,
       'required' => '1',
@@ -654,7 +654,7 @@ function _merci_installed_fields () {
       'entity_types' => array('node'),
 
       'module' => 'date',
-      'locked' => '0',
+      'locked' => '1',
       'settings' => array(
         'repeat' => 0,
         'todate' => 'required',

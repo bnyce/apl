@@ -151,7 +151,7 @@ function merci_node_info() {
   return array(
     // Reservation nodes.
     'merci_reservation' => array(
-      'name' => t('Meeting Room Reservation'),
+      'name' => t('Reservation'),
       'base' => 'merci',
       'has_body' => FALSE,
       'description' => t("A reservation reserves a resource or group of resources for some period of time."),
@@ -345,11 +345,10 @@ function merci_form($node, &$form_state) {
   //}
   
   // Choice adding code mostly stolen from poll module.
-  $choice_count = (isset($form_state['values']['choice_count'])) ? $form_state['values']['choice_count'] : 1;
+  $choice_count = (isset($form_state['values']['choice_count'])) ? $form_state['values']['choice_count'] : 3;
    
-  /*if (isset($form_state['triggering_element']['#value']) && $form_state['triggering_element']['#value'] == "Add more items") {*/
-  if (isset($form_state['triggering_element']['#value']) && $form_state['triggering_element']['#value'] == "Add another Meeting Room") {
-    $choice_count += 1;
+  if (isset($form_state['triggering_element']['#value']) && $form_state['triggering_element']['#value'] == "Add more items") {
+    $choice_count += 3;
   }
 
   $form['choice_wrapper']['choice_count'] = array(
@@ -375,8 +374,7 @@ function merci_form($node, &$form_state) {
   // AHAH-enabled buttons with the id 'more'.
   $form['choice_wrapper']['merci_more'] = array(
     '#type' => 'submit',
-    /*'#value' => t('Add more items'),*/
-    '#value' => t('Add another room'),
+    '#value' => t('Add more items'),
     '#description' => t("If the number of items above isn't enough, click here to add more items."),
     '#weight' => 1,
     '#submit' => array('merci_more_choices_submit'),
@@ -470,11 +468,10 @@ function merci_form_alter(&$form, $form_state, $form_id) {
   switch ($form_id) {
     // Node settings form.
 
-	
   case 'merci_reservation_node_form':
     $form['field_merci_date']['field_merci_date_button'] = array(
       '#type' => 'submit',
-      '#value' => t('Limit Lists to Available Meeting Rooms'),
+      '#value' => t('Limit Lists to Available Items'),
       //'#weight' => $weight,
       '#submit' => array('merci_date_filter'),
       '#limit_validation_errors' => array(array('merci_reservation_items'), array('choice_count'), array('field_merci_date')),  // No need to validate when submitting this.
@@ -488,8 +485,6 @@ function merci_form_alter(&$form, $form_state, $form_id) {
       ),
     );
     return;
-  
-  
   case $type . '_node_form':
       if (merci_is_merci_type($type)) {
 
@@ -1198,7 +1193,7 @@ function merci_build_reservation_table_form($form, &$form_state, $node, $edit_pa
   $table['#tree']   = TRUE;
   $table['#table']  = array();
   $table['#header'] = array(
-    t('Meeting Room')
+    t('Item'),
   );
 
   $reservation_items = array();

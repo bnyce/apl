@@ -5,13 +5,15 @@
 
 <head profile="<?php print $grddl_profile; ?>">
 
-<?php // begin check to see if the node is a webform, if it is print a meta refresh tag to fix an IE issue with webform css
+<!-- begin check to see if the node is a webform, if it is print a meta refresh tag to fix an IE issue with webform css -->
+<?php 
   if (strstr($classes, "node-type-webform")){ 
  print(
  '<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />'
  );
  };	
-// end check to see if node is a webform bap 10-8-12 ?>
+?>
+<!-- end check to see if node is a webform bap 10-8-12  -->
 
 <link rel="icon" href="/favicon.png" />
   <?php print $head; ?>

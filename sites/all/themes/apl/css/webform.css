@@ -338,3 +338,16 @@ div.webform-submission div.fieldset-description
  {
 display: none;
 }
+
+fieldset.collapsible   {
+ background: url("/misc/menu-expanded.png") no-repeat scroll 0.75em 1em transparent\9;
+}    
+
+fieldset.collapsed  {
+    background-image: url("/misc/menu-collapsed.png")\9;
+}
+
+div.node-webform fieldset legend span a{
+margin-top: -2.5em !important\9;
+	position: absolute\9;
+}

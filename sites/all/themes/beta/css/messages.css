@@ -1,0 +1,13 @@
+div.error, label.error {
+color: black !important;
+}
+
+div.messages ul {
+margin: 2em 3em !important;
+
+}
+div.messages  {
+padding-left: 3em !important;
+margin-top: 3em !important;
+margin-bottom: 3em !important;
+}

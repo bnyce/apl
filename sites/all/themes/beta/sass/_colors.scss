@@ -1,0 +1,71 @@
+$blue: #0069AA;
+$white: white;
+$black: black;
+$silver: #CCCCCC;
+$gray-medium: #efefef;
+
+$blue-medium-old: #CEDAEC;
+$blue-medium: lighten(mix($silver, $blue, 60%), 20%);
+$blue-light-old: #EBEFF7;
+$blue-light: lighten($blue-medium, 10%);
+
+$search-border: #B2B2B2;
+
+$radius: 10px;
+
+$blue-silver: mix($white, $blue, 25%);
+
+
+$background-color: #FFEAC4;
+
+$title-color: $blue;
+
+$link-color: $blue;
+$visited-color: $blue;
+
+$hover-color: #999;
+$active-color: #999;
+
+
+$brand-color: $blue;
+$action-color: #67a54b;
+$function-color: #f2f2f2;
+$alert-color: #b22727;
+
+$brand-color-light: lighten( $brand-color, 10% );
+$brand-color-lighter: lighten( $brand-color, 20% );
+$brand-color-dark: darken( $brand-color, 10% );
+$brand-color-darker: darken( $brand-color, 20% );
+
+$action-color-light: lighten( $action-color, 10% );
+$action-color-lighter: lighten( $action-color, 20% );
+$action-color-dark: darken( $action-color, 10% );
+$action-color-darker: darken( $action-color, 20% );
+
+$function-color-light: lighten( $function-color, 10% );
+$function-color-lighter: lighten( $function-color, 20% );
+$function-color-dark: darken( $function-color, 10% );
+$function-color-darker: darken( $function-color, 20% );
+
+$alert-color-light: lighten( $alert-color, 10% );
+$alert-color-lighter: lighten( $alert-color, 20% );
+$alert-color-dark: darken( $alert-color, 10% );
+$alert-color-darker: darken( $alert-color, 20% );
+
+@mixin gradient($color1, $color2) {
+	background: -webkit-gradient(linear, left center, right center, from($color1), to($color2));
+	background: -moz-linear-gradient(left, $color1, $color2);
+	background: linear-gradient(270deg, $color2, $color1);
+	-pie-background: linear-gradient(270deg, $color2, $color1);
+	behavior: url(/sites/default/themes/beta/css/PIE.htc);
+}
+
+@mixin headline {
+	background: $blue;
+	border-top-left-radius: $radius;
+	border-top-right-radius: $radius;
+	color: white;
+	padding: .25em .5em .5em .5em;
+	margin: .5em .5em .5em 0 !important;
+	@include gradient($blue, darken($blue, 10%));
+}

@@ -1,0 +1,77 @@
+/* line 3, ../sass/blogs.scss */
+.apl-blog-entry-wrapper {
+  border-bottom: 5px solid #cccccc;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+/* line 7, ../sass/blogs.scss */
+.apl-blog-entry-wrapper .views-field-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 12, ../sass/blogs.scss */
+.apl-blog-entry-wrapper img {
+  margin: 0 .5em .5em 0;
+}
+/* line 15, ../sass/blogs.scss */
+.apl-blog-entry-wrapper p {
+  padding-right: 1em;
+}
+/* line 18, ../sass/blogs.scss */
+.apl-blog-entry-wrapper .views-field-title {
+  font-size: 1.2em;
+}
+/* line 21, ../sass/blogs.scss */
+.apl-blog-entry-wrapper .views-field-title-1 span {
+  clear: both;
+  display: block;
+}
+
+/* line 27, ../sass/blogs.scss */
+.blEntryWrapper .blMEDImage {
+  width: auto !important;
+}
+
+/* line 31, ../sass/blogs.scss */
+.bTitleLink {
+  font-weight: bold;
+  color: #0069aa;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+/* line 38, ../sass/blogs.scss */
+.blEntryWrapper {
+  width: 100%;
+  clear: both;
+  padding: 8px 0px 8px 0px;
+}
+
+/* line 44, ../sass/blogs.scss */
+.blMEDImage {
+  width: 100px;
+  float: left;
+  margin-right: 8px;
+  height: auto;
+  clear: right;
+}
+
+/* line 52, ../sass/blogs.scss */
+.blAuthorName {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 1em;
+}
+
+/* line 58, ../sass/blogs.scss */
+.basic_book_list_book_desc {
+  height: auto;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+/* line 64, ../sass/blogs.scss */
+.views-field-body div.field-content {
+  margin-top: 1em;
+}

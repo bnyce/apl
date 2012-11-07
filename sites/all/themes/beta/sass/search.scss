@@ -1,0 +1,128 @@
+@import "colors";
+
+.customSearch_formContainer {
+	height: 120px;
+	width: 390px;
+	background-image: url("../images/apl_bannerhead_searchbox_bg.png");
+	background-repeat: repeat-y;
+	background-position: left;
+	border-top: 1px solid $search-border;
+	margin: 0;
+	margin-top: 26px;
+}
+
+.customSearch_formContainer > form >label {
+	font-size: .85em;
+}
+
+.CustomSearchLbl {
+	visibility: hidden;
+}
+
+.customSearch_formContainer > form > a {
+	display: block;
+	font-size: .8em;
+}
+
+.customSearch_lgTxtFld {
+	margin-left: 0;
+}
+
+.customSearchTab {
+	position: relative;
+	float: left;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1em;
+	font-size: .95em;
+	margin-right: 2px;
+	text-transform: uppercase;
+	li {
+		float: left;
+		margin: 0 0;
+		padding: 0 .5em;
+		height: 26px;
+		clear: right;
+		margin-right: 3px;
+	}
+	a {
+		display: block;
+		text-decoration: none;
+		font-weight: bold;
+		margin: 0;
+		padding: 0.25em 0em;
+		height: 26px;
+		margin-top: 3px;
+	}
+}
+
+.aplCustomSearchContainer {
+	width: 390px;
+	height: 124px;
+	font-size: 12px;
+	float: left;
+	padding: 0px;
+	margin-left: -18px;
+	margin-top: 8px;
+	background-image: none;
+	z-index: 500;
+	form {
+		width: 360px;
+		font-size: 14px;
+		margin-left: 15px;
+		margin-top: 12px;
+	}
+}
+
+.aplCustomSearchContainer_bottom {
+	width: 390px;
+	height: 12px;
+	float: left;
+	background-image: url("../images/apl_bannerhead_searchbox_bottom.png");
+	background-repeat: no-repeat;
+	background-position: left;
+	margin-top: -1px;
+}
+
+.cst {
+	background: #cccccc;
+	margin: 0;
+	padding: 0;
+	border-left: 1px solid $search-border;
+	border-top: 1px solid $search-border;
+	border-right: 1px solid $search-border;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
+	border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	border-top-right-radius: 8px;
+&:hover {
+	background: white;
+}
+}
+
+.customSearchTab_active {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	background: #fff;
+	margin: 0;
+	border-left: 1px solid $search-border;
+	border-top: 1px solid $search-border;
+	border-right: 1px solid $search-border;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
+	border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	border-top-right-radius: 8px;
+}
+
+.initialHidden {
+	display: none;
+	background: #D4DDEE;
+}

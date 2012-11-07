@@ -1,0 +1,148 @@
+@import "colors";
+div#swatch {
+
+table {
+	border: 5px solid silver;
+	margin-bottom: 2em;
+	h1.new {
+		text-transform: none;
+	}
+	h2.new {
+		@include headline;
+	}
+}
+
+tr {
+	th, 
+	td {
+	padding: .5em;
+	width: 25%;
+	}
+	td {
+	&.background {
+		background-color: $background-color;
+	}
+	&.blue {
+		background-color: $blue;
+	}
+	&.blue-medium {	
+		background-color: $blue-medium;
+	}
+	&.blue-light {
+		background-color: $blue-light;
+	}
+	&.blue-medium-old	{	
+		background-color: $blue-medium-old;
+	}
+	&.blue-light-old {
+		background-color: $blue-light-old;
+	}
+	&.silver {
+		background-color: $silver;
+	}
+	
+	&.link {
+		color: $link-color;
+	}
+	
+	&.visited {
+		color: $visited-color;
+	}
+	
+	&.hover {
+		color: $hover-color;
+	}
+	
+	&.active-link {
+		color: $active-color;
+	}
+	}
+	
+	
+	th {
+	&.brand {
+		background-color: $brand-color;
+	}
+	&.action {
+		background-color: $action-color;
+	}
+	&.function {
+		background-color: $function-color;
+	}
+	&.alert {
+		background-color: $alert-color;
+	}
+	}
+&.light {
+	td {
+		color: white;
+	&.brand {
+		background-color: $brand-color-light;
+	
+	}
+	&.action {
+		background-color: $action-color-light;
+	}
+	&.function {
+		background-color: $function-color-light;
+		color: black;
+	}
+	&.alert {
+		background-color: $alert-color-light;
+	}
+	}
+}
+&.lighter {
+	td {
+	&.brand {
+		background-color: $brand-color-lighter;
+	}
+	&.action {
+		background-color: $action-color-lighter;
+	}
+	&.function {
+		background-color: $function-color-lighter;
+	}
+	&.alert {
+		background-color: $alert-color-lighter;
+	}
+	}
+}
+&.dark {
+	td {
+		color: white;
+	&.brand {
+		background-color: $brand-color-dark;
+	}
+	&.action {
+		background-color: $action-color-dark;
+	}
+	&.function {
+		background-color: $function-color-dark;
+		color: black;
+	}
+	&.alert {
+		background-color: $alert-color-dark;
+	}
+	}
+}
+&.darker {
+	td {
+		color: white;
+	&.brand {
+		background-color: $brand-color-darker;
+	}
+	&.action {
+		background-color: $action-color-darker;
+	}
+	&.function {
+		background-color: $function-color-darker;
+	}
+	&.alert {
+		background-color: $alert-color-darker;
+	}
+	}
+}
+}
+
+} 

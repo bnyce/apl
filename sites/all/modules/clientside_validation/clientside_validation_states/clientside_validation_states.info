@@ -1,13 +1,9 @@
-; $Id: 
-name = Clientside Validation Webform
-description = Add client side validation to Webforms
-core = 7.x
+name = Clientside Validation States
+description = Clientside Validation support for From API's #states.
 package = Clientside Validation
+core = 7.x
 
-files[] = clientside_validation_webform.module
 dependencies[] = clientside_validation_form
-dependencies[] = webform
-
 ; Information added by drupal.org packaging script on 2012-10-27
 version = "7.x-1.35"
 core = "7.x"

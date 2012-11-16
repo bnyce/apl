@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file suggest_a_title.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function suggest_a_title_form_alter(&$form, &$form_state, $form_id) {
+//print $form_id;
+//drupal_set_title(t("Suggest a... $form_id"));
+      if ($form_id == 'suggest_a_title_node_form') {
+        drupal_set_title(t("Suggest a Title for Purchase"));
+      }
+}
+

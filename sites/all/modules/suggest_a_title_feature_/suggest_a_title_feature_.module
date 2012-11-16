@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Suggest a Title (Feature) feature.
+ */
+
+include_once 'suggest_a_title_feature_.features.inc';

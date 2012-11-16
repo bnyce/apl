@@ -1,56 +1,76 @@
 $blue: #0069AA;
-$white: white;
-$black: black;
-$silver: #CCCCCC;
-$gray-medium: #efefef;
-
-$blue-medium-old: #CEDAEC;
-$blue-medium: lighten(mix($silver, $blue, 60%), 20%);
-$blue-light-old: #EBEFF7;
-$blue-light: lighten($blue-medium, 10%);
-
-$search-border: #B2B2B2;
+$yellow: #fdb813;
 
 $radius: 10px;
 
-$blue-silver: mix($white, $blue, 25%);
+$white: white;
+$black: black;
+$silver: #CCCCCC;
 
 
-$background-color: #FFEAC4;
+$status_border: #be7;
+$status_color: #234600;
+$status_background: #f8fff0;
 
-$title-color: $blue;
+$warning_border: #ed5;
+$warning_color: #840;
+$warning_background: #fffce5;
 
-$link-color: $blue;
-$visited-color: $blue;
+$error_border: #ed541d;
+$error_color: #8c2e0b;
+$error_background: #fef5f1;
+$error_p_color: #333;
 
-$hover-color: #999;
-$active-color: #999;
+$gray_medium: #efefef;
+$purple_light: #edf0ff;
+
+$blue_medium_old: #CEDAEC;
+$blue_medium: lighten(mix($silver, $blue, 60%), 20%);
 
 
-$brand-color: $blue;
-$action-color: #67a54b;
-$function-color: #f2f2f2;
-$alert-color: #b22727;
+$blue_light_old: #EBEFF7;
+$blue_light: lighten($blue_medium, 10%);
 
-$brand-color-light: lighten( $brand-color, 10% );
-$brand-color-lighter: lighten( $brand-color, 20% );
-$brand-color-dark: darken( $brand-color, 10% );
-$brand-color-darker: darken( $brand-color, 20% );
+$search_border: #B2B2B2;
 
-$action-color-light: lighten( $action-color, 10% );
-$action-color-lighter: lighten( $action-color, 20% );
-$action-color-dark: darken( $action-color, 10% );
-$action-color-darker: darken( $action-color, 20% );
+$blue_silver: mix($white, $blue, 25%);
 
-$function-color-light: lighten( $function-color, 10% );
-$function-color-lighter: lighten( $function-color, 20% );
-$function-color-dark: darken( $function-color, 10% );
-$function-color-darker: darken( $function-color, 20% );
 
-$alert-color-light: lighten( $alert-color, 10% );
-$alert-color-lighter: lighten( $alert-color, 20% );
-$alert-color-dark: darken( $alert-color, 10% );
-$alert-color-darker: darken( $alert-color, 20% );
+$background_color: #FFEAC4;
+
+$title_color: $blue;
+
+$link_color: $blue;
+$visited_color: $blue;
+
+$hover_color: #999;
+$active_color: #999;
+
+
+$brand_color: $blue;
+$action_color: $status_border;
+$function_color: #f2f2f2;
+$alert_color: $warning_border;
+
+$brand_color_light: lighten( $brand_color, 10% );
+$brand_color_lighter: lighten( $brand_color, 20% );
+$brand_color_dark: darken( $brand_color, 10% );
+$brand_color_darker: darken( $brand_color, 20% );
+
+$action_color_light: lighten( $action_color, 10% );
+$action_color_lighter: lighten( $action_color, 20% );
+$action_color_dark: darken( $action_color, 10% );
+$action_color_darker: darken( $action_color, 20% );
+
+$function_color_light: lighten( $function_color, 10% );
+$function_color_lighter: lighten( $function_color, 20% );
+$function_color_dark: darken( $function_color, 10% );
+$function_color_darker: darken( $function_color, 20% );
+
+$alert_color_light: lighten( $alert_color, 10% );
+$alert_color_lighter: lighten( $alert_color, 20% );
+$alert_color_dark: darken( $alert_color, 10% );
+$alert_color_darker: darken( $alert_color, 20% );
 
 @mixin gradient($color1, $color2) {
 	background: -webkit-gradient(linear, left center, right center, from($color1), to($color2));
@@ -65,7 +85,65 @@ $alert-color-darker: darken( $alert-color, 20% );
 	border-top-left-radius: $radius;
 	border-top-right-radius: $radius;
 	color: white;
-	padding: .25em .5em .5em .5em;
+	padding: .2em .5em 0.2em .5em;
+	@include gradient($blue, lighten($blue, 10%));
 	margin: .5em .5em .5em 0 !important;
-	@include gradient($blue, darken($blue, 10%));
+}
+
+@mixin library_message {
+	border: 1px solid $alert_color;
+	background-color: $alert_color_lighter;
+	margin-top: 8px;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+@mixin header_alpha {
+        height: 86px;
+        position: relative;
+        z-index: 1;
+	background: url("../images/nav_head.jpg") no-repeat scroll 0 0 transparent;
+
+        div {
+                background-color: transparent;
+        &.overlogodiv {
+                height: 86px;
+                width: 200px;
+                position: absolute;
+                z-index: 10;
+        }
+        }
+}
+@mixin header_beta {
+        height: 86px;
+        position: relative;
+        /*background: url("../images/nav_head.jpg");*/
+        background-color: $blue;
+        @include gradient(lighten($blue, 10%), $blue);
+        background-repeat: no-repeat;
+        z-index: 0;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+        div {
+                background-color: transparent;
+        &.overlogodiv {
+                height: 86px;
+                width: 200px;
+                position: absolute;
+                z-index: 10;
+                background: url("../images/apl_logo.png") 10px 10px no-repeat;
+        }
+        }
+}
+
+@mixin page_alpha {
+        width: 950px;
+        margin: 0 auto;
+        line-height: 1.5em;
+}
+@mixin page_beta {
+        width: 950px;
+        margin: 0 auto;
+        line-height: 1.5em;
+        border-radius: 10px;
 }

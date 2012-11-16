@@ -20,91 +20,92 @@ tr {
 	}
 	td {
 	&.background {
-		background-color: $background-color;
+		background-color: $background_color;
 	}
 	&.blue {
 		background-color: $blue;
 	}
-	&.blue-medium {	
-		background-color: $blue-medium;
+	&.blue_medium {	
+		background-color: $blue_medium;
 	}
-	&.blue-light {
-		background-color: $blue-light;
+	&.blue_light {
+		background-color: $blue_light;
 	}
-	&.blue-medium-old	{	
-		background-color: $blue-medium-old;
+	&.blue_medium_old	{	
+		background-color: $blue_medium_old;
 	}
-	&.blue-light-old {
-		background-color: $blue-light-old;
+	&.blue_light_old {
+		background-color: $blue_light_old;
 	}
 	&.silver {
 		background-color: $silver;
 	}
 	
 	&.link {
-		color: $link-color;
+		color: $link_color;
 	}
 	
 	&.visited {
-		color: $visited-color;
+		color: $visited_color;
 	}
 	
 	&.hover {
-		color: $hover-color;
+		color: $hover_color;
 	}
 	
 	&.active-link {
-		color: $active-color;
+		color: $active_color;
 	}
 	}
 	
 	
 	th {
 	&.brand {
-		background-color: $brand-color;
+		background-color: $brand_color;
 	}
 	&.action {
-		background-color: $action-color;
+		background-color: $action_color;
 	}
 	&.function {
-		background-color: $function-color;
+		background-color: $function_color;
 	}
 	&.alert {
-		background-color: $alert-color;
+		background-color: $alert_color;
 	}
 	}
 &.light {
 	td {
-		color: white;
+		color: $white;
 	&.brand {
-		background-color: $brand-color-light;
+		background-color: $brand_color_light;
 	
 	}
 	&.action {
-		background-color: $action-color-light;
+		color: $black;
+		background-color: $action_color_light;
 	}
 	&.function {
-		background-color: $function-color-light;
-		color: black;
+		background-color: $function_color_light;
+		color: $black;
 	}
 	&.alert {
-		background-color: $alert-color-light;
+		background-color: $alert_color_light;
 	}
 	}
 }
 &.lighter {
 	td {
 	&.brand {
-		background-color: $brand-color-lighter;
+		background-color: $brand_color_lighter;
 	}
 	&.action {
-		background-color: $action-color-lighter;
+		background-color: $action_color_lighter;
 	}
 	&.function {
-		background-color: $function-color-lighter;
+		background-color: $function_color_lighter;
 	}
 	&.alert {
-		background-color: $alert-color-lighter;
+		background-color: $alert_color_lighter;
 	}
 	}
 }
@@ -112,17 +113,17 @@ tr {
 	td {
 		color: white;
 	&.brand {
-		background-color: $brand-color-dark;
+		background-color: $brand_color_dark;
 	}
 	&.action {
-		background-color: $action-color-dark;
+		background-color: $action_color_dark;
 	}
 	&.function {
-		background-color: $function-color-dark;
+		background-color: $function_color_dark;
 		color: black;
 	}
 	&.alert {
-		background-color: $alert-color-dark;
+		background-color: $alert_color_dark;
 	}
 	}
 }
@@ -130,16 +131,16 @@ tr {
 	td {
 		color: white;
 	&.brand {
-		background-color: $brand-color-darker;
+		background-color: $brand_color_darker;
 	}
 	&.action {
-		background-color: $action-color-darker;
+		background-color: $action_color_darker;
 	}
 	&.function {
-		background-color: $function-color-darker;
+		background-color: $function_color_darker;
 	}
 	&.alert {
-		background-color: $alert-color-darker;
+		background-color: $alert_color_darker;
 	}
 	}
 }

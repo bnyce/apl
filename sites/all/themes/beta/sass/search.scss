@@ -2,7 +2,6 @@
 
 .customSearch_formContainer {
 	height: 120px;
-	width: 390px;
 	background-image: url("../images/apl_bannerhead_searchbox_bg.png");
 	background-repeat: repeat-y;
 	background-position: left;
@@ -36,9 +35,7 @@
 	margin: 0;
 	list-style: none;
 	line-height: 1em;
-	font-size: .95em;
 	margin-right: 2px;
-	text-transform: uppercase;
 	li {
 		float: left;
 		margin: 0 0;
@@ -121,8 +118,17 @@
 	-moz-border-top-right-radius: 10px;
 	border-top-right-radius: 8px;
 }
+#BookAndMore_formContainer form {
+	margin-left: 16px;
+}
+.SSCentralSearchSearchCriteria,
+#BookAndMore_search {
+	margin-bottom: 5px !important;
+}
 
 .initialHidden {
 	display: none;
-	background: #D4DDEE;
+	background: white;
+	border-left: 1px solid #b2b2b2;
+	border-right: 1px solid #b2b2b2;
 }

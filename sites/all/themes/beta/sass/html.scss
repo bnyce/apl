@@ -11,23 +11,25 @@ html {
 
 body {
 	font: 13px Arial, Helvetica, sans-serif;
-	background-color: $background-color;
-	background-image: url("../images/content_bg.jpg");
-	background-position: center center;
-	background-repeat: repeat-y;
+	background-color: $background_color;
 	margin: 0;
 	height: 100%;
+}
+
+body > div {
+	background-image: none !important;
+	background-color: white;
 }
 
 
 a:link, 
 a:visited {
-	color: $visited-color;
+	color: $visited_color;
 	text-decoration: none;
 }
 
 a:hover, a:active {
-	color: $active-color;
+	color: $active_color;
 }
 
 
@@ -44,8 +46,7 @@ h1 {
 	font-weight: bold;
 	padding: 12px 0 0px 0px;
 	margin: 0;
-	color: $title-color;
-	text-transform: uppercase;
+	color: $title_color;
 }
 
 h2 {

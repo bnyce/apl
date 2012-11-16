@@ -1,7 +1,6 @@
 /* line 3, ../sass/search.scss */
 .customSearch_formContainer {
   height: 120px;
-  width: 390px;
   background-image: url("../images/apl_bannerhead_searchbox_bg.png");
   background-repeat: repeat-y;
   background-position: left;
@@ -10,28 +9,28 @@
   margin-top: 26px;
 }
 
-/* line 14, ../sass/search.scss */
+/* line 13, ../sass/search.scss */
 .customSearch_formContainer > form > label {
   font-size: .85em;
 }
 
-/* line 18, ../sass/search.scss */
+/* line 17, ../sass/search.scss */
 .CustomSearchLbl {
   visibility: hidden;
 }
 
-/* line 22, ../sass/search.scss */
+/* line 21, ../sass/search.scss */
 .customSearch_formContainer > form > a {
   display: block;
   font-size: .8em;
 }
 
-/* line 27, ../sass/search.scss */
+/* line 26, ../sass/search.scss */
 .customSearch_lgTxtFld {
   margin-left: 0;
 }
 
-/* line 31, ../sass/search.scss */
+/* line 30, ../sass/search.scss */
 .customSearchTab {
   position: relative;
   float: left;
@@ -40,11 +39,9 @@
   margin: 0;
   list-style: none;
   line-height: 1em;
-  font-size: .95em;
   margin-right: 2px;
-  text-transform: uppercase;
 }
-/* line 42, ../sass/search.scss */
+/* line 39, ../sass/search.scss */
 .customSearchTab li {
   float: left;
   margin: 0 0;
@@ -53,7 +50,7 @@
   clear: right;
   margin-right: 3px;
 }
-/* line 50, ../sass/search.scss */
+/* line 47, ../sass/search.scss */
 .customSearchTab a {
   display: block;
   text-decoration: none;
@@ -64,7 +61,7 @@
   margin-top: 3px;
 }
 
-/* line 61, ../sass/search.scss */
+/* line 58, ../sass/search.scss */
 .aplCustomSearchContainer {
   width: 390px;
   height: 124px;
@@ -76,7 +73,7 @@
   background-image: none;
   z-index: 500;
 }
-/* line 71, ../sass/search.scss */
+/* line 68, ../sass/search.scss */
 .aplCustomSearchContainer form {
   width: 360px;
   font-size: 14px;
@@ -84,7 +81,7 @@
   margin-top: 12px;
 }
 
-/* line 79, ../sass/search.scss */
+/* line 76, ../sass/search.scss */
 .aplCustomSearchContainer_bottom {
   width: 390px;
   height: 12px;
@@ -95,7 +92,7 @@
   margin-top: -1px;
 }
 
-/* line 89, ../sass/search.scss */
+/* line 86, ../sass/search.scss */
 .cst {
   background: #cccccc;
   margin: 0;
@@ -110,12 +107,12 @@
   -moz-border-top-right-radius: 10px;
   border-top-right-radius: 8px;
 }
-/* line 102, ../sass/search.scss */
+/* line 99, ../sass/search.scss */
 .cst:hover {
   background: white;
 }
 
-/* line 107, ../sass/search.scss */
+/* line 104, ../sass/search.scss */
 .customSearchTab_active {
   display: block;
   color: #fff;
@@ -134,8 +131,21 @@
   border-top-right-radius: 8px;
 }
 
+/* line 121, ../sass/search.scss */
+#BookAndMore_formContainer form {
+  margin-left: 16px;
+}
+
 /* line 125, ../sass/search.scss */
+.SSCentralSearchSearchCriteria,
+#BookAndMore_search {
+  margin-bottom: 5px !important;
+}
+
+/* line 129, ../sass/search.scss */
 .initialHidden {
   display: none;
-  background: #D4DDEE;
+  background: white;
+  border-left: 1px solid #b2b2b2;
+  border-right: 1px solid #b2b2b2;
 }

@@ -101,6 +101,10 @@
  *   http://drupal.org/node/223440 and http://drupal.org/node/1089656
  */
 
+function beta_preprocess_html(&$vars, $hook) {
+  global $base_url;
+  $vars['base_url'] = $base_url;
+}
 
 /**
  * Override or insert variables into the maintenance page template.

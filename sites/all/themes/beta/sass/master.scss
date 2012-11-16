@@ -1,5 +1,16 @@
 @import "colors";
 
+#page {
+	@include page_alpha;
+}
+
+body {
+	background: url("../images/content_bg.jpg") center center repeat-y #FFEAC4;
+	> div {
+		background-color: transparent;
+	}
+}
+
 .clearfix {
 	display: inline-block;
 }
@@ -137,11 +148,6 @@ div.block {
 }
 }
 
-#page {
-	width: 950px;
-	margin: 0 auto;
-	line-height: 1.5em;  
-}
 
 #main {
 	min-height: 715px;  /*issues with whitespace beneath #bottom */
@@ -337,7 +343,6 @@ div#footer,
 	color: #777777;
 }
 
-#header,
 div#footer {
 	background: $gray-medium;
 }

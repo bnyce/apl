@@ -1,9 +1,5 @@
 div {
 	z-index: 0;
-	.sub,
-	.apl-nav-div {
-		z-index:9999 !important;
-	}
 }
 
 div#header-region {
@@ -118,16 +114,6 @@ div.field-content div.blEntryWrapper div.book_desc {
    
 .views-field-field-lib-image img {
     width: auto !important;
-}
-
-.apl-nav-div {
-	display: block;
-	float: right;
-	vertical-align: text-bottom;
-	position: absolute;  
-	width: 85%; 
-	left: 15%; 
-	top: 60px;
 }
 
 .apl-main-nav {
@@ -247,15 +233,4 @@ div.views-row div.field-content div.locality-block  span.postal-code {
 
 .view-id-faq_views .views-field-title dt.handler {
 	color: blue;
-}
-
-.region-help {
-	background-color: #EDF0FF;
-	margin-top: 8px;
-	padding: 8px;
-	border-radius: 10px 10px 10px 10px;
-	h2 {
-		color: #990000;
-		margin-bottom:.5em;
-	}
 }

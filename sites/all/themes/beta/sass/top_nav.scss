@@ -1,16 +1,15 @@
 @import "colors";
+	
+#header-region {
+	@include header-alpha;
+}
 
 #header {
 	width: 900px;
-	margin: 25px;
+	margin-top: 0px;
+	padding: 25px;
 	margin-bottom: 0px;
-}
-
-#header-region {
-	height: 86px;
-	position: relative;
-	background: url("../images/nav_head.jpg");
-	background-repeat: no-repeat;
+	padding-bottom: 0px;
 }
 
 .apl-nav-div {
@@ -18,9 +17,10 @@
 	float: right;
 	left: 15%;
 	position: absolute;
-	top: 60px;
 	vertical-align: text-bottom;
 	width: 85%;
+	z-index:9999 !important;
+	height: 86px;
 }
 ul {
 	li {
@@ -75,7 +75,7 @@ ul {
     font-size: 1.1em;
     list-style: none outside none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0;
 	li {
 		float: left;
 		margin: 0;
@@ -93,7 +93,7 @@ ul {
 		&:hover {
 			border-right: 1px solid transparent !important;
 		}
-		border-right: 1px solid white !important;
+		border-right: 1px solid fade-out(white, 0.2) !important;
 		margin: 0 !important;
 		float: left;
 		padding: 0 !important;
@@ -137,7 +137,7 @@ ul {
 			padding: 20px 26px 18px 18px;
 			position: absolute;
 			top: 20px;
-			z-index: 99999;
+			z-index:9999 !important;
 			border-radius: 5px;
 			border-top-right-radius: 0;
 			ul {

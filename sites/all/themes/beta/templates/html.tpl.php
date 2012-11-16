@@ -15,7 +15,10 @@
 ?>
 <!-- end check to see if node is a webform bap 10-8-12  -->
 
-<link rel="icon" href="/favicon.png" />
+<link rel="icon" href="<?php
+global $base_path, $base_url;
+
+ print $base_url; ?>/favicon.png" />
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>

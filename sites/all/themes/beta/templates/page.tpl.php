@@ -1,18 +1,11 @@
+<?php if ($page['top']): ?>
 <div id="city-header">
-    <div class="center-coa-brandbar"><?php if ($page['city_header']): ?>
-      <div id="city-header-region">
-<ul class="menu"><li class="first leaf"><a class="active" title="" href="/">austintexas.gov</a></li>
-<li class="leaf"><a title="" href="http://www.ci.austin.tx.us/austinairport">Airport</a></li>
-<li class="leaf"><a title="" href="http://library.austintexas.gov/">Library</a></li>
-<li class="leaf"><a title="" href="http://www.austinenergy.com/">Austin Energy</a></li>
-<li class="leaf"><a title="" href="/department/water">Austin Water</a></li>
-<li class="leaf"><a title="" href="http://www.austinconventioncenter.com/">Convention Center</a></li>
-<li class="leaf"><a title="" href="http://www.austintexas.org/">Visitors Bureau</a></li>
-<li class="last leaf"><a title="" href="/open-government">Open Government</a></li>
-</ul>
-      </div>
-    <?php endif; ?></div>
+
+<?php print render($page['top']); ?>
+
 </div> <!-- /city header -->
+<?php endif; ?>  
+  
   
 <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
@@ -23,41 +16,13 @@
   <div id="header">
   
 	<!-- rwb 12/12/2011 fixed the link issue to work on all drupal 'sites' -->
-	<div class="overlogodiv" style="height:86px; width:140px; position:absolute; z-index:10" 
-	onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
+	
+
+     <?php if ($page['top_navigation']): ?>
+      <div id="header-region">
+	  <div class="overlogodiv" onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
 	</div>
-
-    <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
-      </a>
-    <?php endif; ?>
-
-    <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan">
-
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
-            </div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
-            </h1>
-          <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <div id="site-slogan"><?php print $site_slogan; ?></div>
-        <?php endif; ?>
-
-      </div> <!--- closes name and slogan -->
-    <?php endif; ?>
-
-    <?php if ($page['header']): ?>
-      <div id="header-region" style="vertical-align:right;">
-        <?php print render($page['header']); ?>
+        <?php print render($page['top_navigation']); ?>
       </div>
     <?php endif; ?>
 
@@ -79,12 +44,12 @@
               <div id="highlight"><?php print render($page['highlight']) ?></div>
             <?php endif; ?>
 
+            <?php print $messages; ?>
+            <?php print render($page['help']); ?>
+
             <?php if ($title): ?>
               <h1 class="title"><?php print $title; ?></h1>
             <?php endif; ?>
-
-            <?php print $messages; ?>
-            <?php print render($page['help']); ?>
 
             <?php if ($tabs): ?>
               <div class="tabs"><?php print render($tabs); ?></div>

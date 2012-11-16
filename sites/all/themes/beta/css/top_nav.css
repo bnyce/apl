@@ -1,27 +1,41 @@
 /* line 3, ../sass/top_nav.scss */
-#header {
-  width: 900px;
-  margin: 25px;
-  margin-bottom: 0px;
-}
-
-/* line 9, ../sass/top_nav.scss */
 #header-region {
   height: 86px;
   position: relative;
-  background: url("../images/nav_head.jpg");
-  background-repeat: no-repeat;
+  z-index: 1;
+  background: url("../images/nav_head.jpg") no-repeat scroll 0 0 transparent;
+}
+/* line 107, ../sass/_colors.scss */
+#header-region div {
+  background-color: transparent;
+}
+/* line 109, ../sass/_colors.scss */
+#header-region div.overlogodiv {
+  height: 86px;
+  width: 200px;
+  position: absolute;
+  z-index: 10;
 }
 
-/* line 16, ../sass/top_nav.scss */
+/* line 7, ../sass/top_nav.scss */
+#header {
+  width: 900px;
+  margin-top: 0px;
+  padding: 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/* line 15, ../sass/top_nav.scss */
 .apl-nav-div {
   display: block;
   float: right;
   left: 15%;
   position: absolute;
-  top: 60px;
   vertical-align: text-bottom;
   width: 85%;
+  z-index: 9999 !important;
+  height: 86px;
 }
 
 /* line 28, ../sass/top_nav.scss */
@@ -79,7 +93,7 @@ ul#topnav {
   font-size: 1.1em;
   list-style: none outside none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 0;
 }
 /* line 79, ../sass/top_nav.scss */
 ul#topnav li {
@@ -100,7 +114,7 @@ ul#topnav li a {
 }
 /* line 92, ../sass/top_nav.scss */
 ul#topnav li.apl-mnav-link {
-  border-right: 1px solid white !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.8) !important;
   margin: 0 !important;
   float: left;
   padding: 0 !important;
@@ -147,7 +161,7 @@ ul#topnav li .sub {
   padding: 20px 26px 18px 18px;
   position: absolute;
   top: 20px;
-  z-index: 99999;
+  z-index: 9999 !important;
   border-radius: 5px;
   border-top-right-radius: 0;
 }

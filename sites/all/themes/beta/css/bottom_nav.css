@@ -64,6 +64,8 @@ div#footer a:hover {
 
 /* line 59, ../sass/bottom_nav.scss */
 #bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   background: #CCCCCC;
   border-top: 1px solid #333;
   font-size: 12px;
@@ -73,23 +75,23 @@ div#footer a:hover {
   width: 950px;
   height: 7em;
 }
-/* line 68, ../sass/bottom_nav.scss */
+/* line 70, ../sass/bottom_nav.scss */
 #bottom p {
   margin-left: 19px;
   margin-top: 10px;
 }
 
-/* line 74, ../sass/bottom_nav.scss */
+/* line 76, ../sass/bottom_nav.scss */
 #bottom_links {
   margin: 5px auto;
 }
-/* line 76, ../sass/bottom_nav.scss */
+/* line 78, ../sass/bottom_nav.scss */
 #bottom_links td {
   padding: 5px;
   vertical-align: middle;
   text-align: center;
 }
-/* line 80, ../sass/bottom_nav.scss */
+/* line 82, ../sass/bottom_nav.scss */
 #bottom_links td a:hover {
   color: white;
 }

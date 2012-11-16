@@ -1,0 +1,97 @@
+@import "colors";
+
+div.error, label.error {
+	color: $black !important;
+}
+
+div.messages  {
+	padding-left: 3em !important;
+	margin-top: 1em !important;
+	margin-bottom: 1em !important;
+	a.close {
+		float: right;
+		border: 1px solid $yellow;
+		border-radius: 5px;
+		background-color: white;
+		padding: 0 .5em;
+	&:hover {
+		border: 1px solid red;
+		color: red;
+	}
+	}
+	ul {
+		margin: 2em 3em !important;
+	}
+}
+
+.region-help {
+	margin: 0;
+	padding: 0;
+	div {
+		padding: 0;
+		margin: 0;
+	}
+	h2 {
+		margin-bottom:.3em;
+	}
+}
+
+
+
+div.messages {
+  background-position: 8px 8px; /* LTR */
+  background-repeat: no-repeat;
+  border: 1px solid;
+  margin: 6px 0;
+  padding: 10px 10px 10px 50px; /* LTR */
+}
+
+div.status {
+	background-image: url(../../../../../misc/message-24-ok.png);
+	border-color: $status_border;
+}
+div.status,
+.ok {
+  color: $status_color;
+}
+div.status,
+table tr.ok {
+  background-color: $status_background;
+}
+
+div.warning {
+  background-image: url(../../../../../misc/message-24-warning.png);
+  border-color: $warning_border;
+}
+div.warning,
+.warning {
+  color: $warning_color;
+}
+div.warning,
+table tr.warning {
+  background-color: $warning_background;
+}
+
+div.error {
+  background-image: url(../../../../../misc/message-24-error.png);
+  border-color: $error_border;
+}
+div.error,
+.error {
+  color: $error_color;
+}
+div.error,
+table tr.error {
+  background-color: $error_background;
+}
+div.error p.error {
+  color: $error_p_color;
+}
+
+div.messages ul {
+  margin: 0 0 0 1em; /* LTR */
+  padding: 0;
+}
+div.messages ul li {
+  list-style-image: none;
+}

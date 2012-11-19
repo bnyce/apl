@@ -72,6 +72,7 @@ stylesheets[all][] = css/blogs.css
 stylesheets[all][] = css/search.css
 stylesheets[all][] = css/merci.css
 stylesheets[all][] = css/apl_faq.css
+stylesheets[all][] = css/events.css
 stylesheets[print][] = css/print-reset.css
 ;stylesheets[print][] = css/print.css
 

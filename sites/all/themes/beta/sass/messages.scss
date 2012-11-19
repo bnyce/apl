@@ -13,7 +13,7 @@ div.messages  {
 		border: 1px solid $yellow;
 		border-radius: 5px;
 		background-color: white;
-		padding: 0 .5em;
+		padding: 0 .5em 0 .5em !important;
 	&:hover {
 		border: 1px solid red;
 		color: red;

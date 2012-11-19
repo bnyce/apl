@@ -15,7 +15,7 @@ div.messages a.close {
   border: 1px solid #fdb813;
   border-radius: 5px;
   background-color: white;
-  padding: 0 .5em;
+  padding: 0 .5em 0 .5em !important;
 }
 /* line 17, ../sass/messages.scss */
 div.messages a.close:hover {

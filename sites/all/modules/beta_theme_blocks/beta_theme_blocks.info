@@ -1,0 +1,13 @@
+name = Beta theme blocks
+core = 7.x
+package = Features
+version = 7.x-1.001
+project = beta_theme_blocks
+dependencies[] = fe_block
+dependencies[] = mini_panels
+dependencies[] = panels_mini
+features[fe_block_settings][] = panels_mini-front_page_highlighted_area
+features[fe_block_settings][] = panels_mini-messages
+features[fe_block_settings][] = panels_mini-top
+features[fe_block_settings][] = panels_mini-top_navigation
+features[features_api][] = api:1

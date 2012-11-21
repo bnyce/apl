@@ -1,4 +1,0 @@
-name = Suggest a Title
-description = TODO: Description of module
-core = 7.x
-files[] = suggest_a_title.module

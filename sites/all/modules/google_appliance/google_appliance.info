@@ -12,9 +12,9 @@ stylesheets[all][] = theme/google_appliance.css
 
 
 
-; Information added by drupal.org packaging script on 2012-10-04
-version = "7.x-1.9"
+; Information added by drupal.org packaging script on 2012-11-20
+version = "7.x-1.10"
 core = "7.x"
 project = "google_appliance"
-datestamp = "1349373129"
+datestamp = "1353386539"
 

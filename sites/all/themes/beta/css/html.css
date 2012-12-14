@@ -1,0 +1,169 @@
+/* line 3, ../sass/html.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 8, ../sass/html.scss */
+html {
+  height: 100%;
+}
+
+/* line 12, ../sass/html.scss */
+body {
+  font: 13px Arial, Helvetica, sans-serif;
+  background-color: #ffeac4;
+  margin: 0;
+  height: 100%;
+}
+
+/* line 19, ../sass/html.scss */
+body > div {
+  background-image: none !important;
+  background-color: white;
+}
+
+/* line 26, ../sass/html.scss */
+a:link,
+a:visited {
+  color: #0069aa;
+  text-decoration: none;
+}
+
+/* line 31, ../sass/html.scss */
+a:hover, a:active {
+  color: #999999;
+}
+
+/* line 41, ../sass/html.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3em;
+}
+
+/* line 44, ../sass/html.scss */
+h1 {
+  font-size: 2.2em;
+  font-weight: bold;
+  padding: 12px 0 0px 0px;
+  margin: 0;
+  color: #0069aa;
+}
+
+/* line 52, ../sass/html.scss */
+h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+/* line 58, ../sass/html.scss */
+h3 {
+  font-size: 18px;
+  margin-top: 1em;
+}
+
+/* line 63, ../sass/html.scss */
+h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+/* line 68, ../sass/html.scss */
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* line 74, ../sass/html.scss */
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* line 79, ../sass/html.scss */
+p {
+  margin: 0 0 1em 0;
+}
+
+/* line 84, ../sass/html.scss */
+ul,
+ol {
+  margin-left: 0;
+  padding-left: 2em;
+}
+
+/* line 89, ../sass/html.scss */
+table {
+  width: 99%;
+}
+
+/* line 95, ../sass/html.scss */
+tr.even td,
+tr.odd td {
+  padding: 10px 5px;
+}
+
+/* line 100, ../sass/html.scss */
+tr.odd {
+  background-color: white;
+}
+
+/* line 106, ../sass/html.scss */
+pre,
+code,
+tt {
+  font: 1em "andale mono", "lucida console", monospace;
+  line-height: 1.5;
+}
+
+/* line 111, ../sass/html.scss */
+pre {
+  background-color: #efefef;
+  display: block;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #aaaaaa;
+}
+
+/* line 119, ../sass/html.scss */
+ul {
+  list-style-type: disc;
+}
+/* line 121, ../sass/html.scss */
+ul ul {
+  list-style-type: circle;
+}
+/* line 123, ../sass/html.scss */
+ul ul ul {
+  list-style-type: square;
+}
+/* line 125, ../sass/html.scss */
+ul ul ul ul {
+  list-style-type: circle;
+}
+
+/* line 132, ../sass/html.scss */
+ol {
+  list-style-type: decimal;
+}
+/* line 134, ../sass/html.scss */
+ol ol {
+  list-style-type: lower-alpha;
+}
+/* line 136, ../sass/html.scss */
+ol ol ol {
+  list-style-type: decimal;
+}
+
+/* line 142, ../sass/html.scss */
+abbr {
+  border-bottom: 1px dotted #666666;
+  cursor: help;
+  white-space: nowrap;
+}

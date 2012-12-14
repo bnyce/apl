@@ -218,3 +218,39 @@ function _clientside_validation_update_7101_save($formid, $settings) {
     clientside_validation_settings_add('custom-forms', $formid, $settings, TRUE);
   }
 }
+
+/**
+ * Dependencies changed, enable the right modules.
+ */
+function clientside_validation_update_7102() {
+  $dependants = array(
+    'clientside_validation_fapi',
+    'clientside_validation_field_validation',
+    'clientside_validation_html5',
+    'clientside_validation_ife',
+    'clientside_validation_webform',
+  );
+  foreach($dependants as $dependant) {
+    if (module_exists($dependant) && !module_exists('clientside_validation_form')) {
+      module_enable(array('clientside_validation_form'));
+      break;
+    }
+  }
+}
+
+/**
+ * Add captcha setting.
+ */
+function clientside_validation_update_7103() {
+  $default_settings_db = variable_get('clientside_validation_default_settings', FALSE);
+  if (!$default_settings_db) {
+    // Default settings are not stored in the database.
+    // Nothing to do here.
+    return;
+  }
+  $default_settings = clientside_validation_settings_load_defaults();
+  if (!isset($default_settings['validate_options']['captcha'])) {
+    $default_settings['validate_options']['captcha'] = 1;
+  }
+  variable_set('clientside_validation_default_settings', $default_settings);
+}

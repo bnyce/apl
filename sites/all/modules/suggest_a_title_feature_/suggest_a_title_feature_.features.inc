@@ -9,9 +9,20 @@
  */
 function suggest_a_title_feature__ctools_plugin_api() {
   list($module, $api) = func_get_args();
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
+  list($module, $api) = func_get_args();
   if ($module == "field_validation" && $api == "default_field_validation_rules") {
     return array("version" => "2");
   }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function suggest_a_title_feature__views_api() {
+  return array("version" => "3.0");
 }
 
 /**
@@ -20,7 +31,7 @@ function suggest_a_title_feature__ctools_plugin_api() {
 function suggest_a_title_feature__node_info() {
   $items = array(
     'suggest_a_title' => array(
-      'name' => t('Suggest a Title'),
+      'name' => t('Suggest a Title for Purchase'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

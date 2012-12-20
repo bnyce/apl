@@ -1,12 +1,11 @@
 @import "colors";
 
 .apl-blog-entry-wrapper {
-	border-bottom: 5px solid $silver;
+	border-bottom: 1px solid $silver;
 	padding-bottom: 1em;
     margin-bottom: 1em;	
 	.views-field-title {
 		font-size: 20px;
-		text-transform: uppercase;
 		font-weight: bold;
 	}
 	img {

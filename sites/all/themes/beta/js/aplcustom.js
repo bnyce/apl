@@ -251,6 +251,7 @@ if(searchString != "") {
 		return false;
 	});
 
+/*
 $(".book_desc").addClass("more-block").addClass("clearfix");
 // $(".blEntryWrapper").addClass("clearfix"); 
 
@@ -276,7 +277,7 @@ $("a.adjust").click(function(event) {
 	$(this).parents("div:first").find(".more-block").css('max-height', '').css('overflow', 'visible');
 	$(this).parents("div:first").find("span.continued").css('display', ' ');
 	$(this).parents("div:first").find("span.continued").css('display', 'none');
-	
+*/	
 
 });
 var d = new Date();

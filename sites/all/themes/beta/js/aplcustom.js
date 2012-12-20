@@ -277,9 +277,9 @@ $("a.adjust").click(function(event) {
 	$(this).parents("div:first").find(".more-block").css('max-height', '').css('overflow', 'visible');
 	$(this).parents("div:first").find("span.continued").css('display', ' ');
 	$(this).parents("div:first").find("span.continued").css('display', 'none');
-*/	
 
 });
+*/	
 var d = new Date();
 var weekday=new Array(7);
 weekday[0]="sunday";

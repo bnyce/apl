@@ -1,17 +1,31 @@
 @import "colors";
 
+a:link,
 a:hover {
-	text-decoration: underline !important;
-	color: $blue !important;
+	color: $blue;
+}
+a:link {
+	text-decoration: none;
 }
 
-.views-label-field-event-loc,
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: $blue_purple;
+}
+
+.views-label-field-event-loc a,
 .views-field-field-event-loc span.field-content a {
 	color: black;
 	font-style: normal;
 	&:hover {
-		text-decoration: underline !important;
-		color: $blue !important;
+		text-decoration: underline;
+		color: $blue;
+	}
+	&:visited:hover {
+		color: $blue_purple;
 	}
 }
 
@@ -34,18 +48,6 @@ body > div {
 	background-image: none !important;
 	background-color: white;
 }
-
-
-a:link, 
-a:visited {
-	color: $visited_color;
-	text-decoration: none;
-}
-
-a:hover, a:active {
-	color: $active_color;
-}
-
 
 h1, 
 h2, 

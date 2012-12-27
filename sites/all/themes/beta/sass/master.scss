@@ -2,15 +2,15 @@
 
 #page {
 	@include page_alpha;
-	border-right: 4px double $silver;
-	border-left: 4px double $silver;
 	background-color: $white;
-	border-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+
 }
 
 body {
-	background-coltor: lighten($blue,60%);
-	background-color: $silver;
+	background-color: $background_color;
+
 	> div {
 		background-color: transparent;
 	}

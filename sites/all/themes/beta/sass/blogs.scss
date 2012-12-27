@@ -1,9 +1,12 @@
 @import "colors";
 
 .apl-blog-entry-wrapper {
-	border-bottom: 1px solid $silver;
+	border-bottom: 1px solid $blue_light;
 	padding-bottom: 1em;
-    margin-bottom: 1em;	
+    	margin-bottom: 1em;	
+	.views-field-body {
+		margin-left: 1em;
+	}
 	.views-field-title {
 		font-size: 20px;
 		font-weight: bold;
@@ -17,9 +20,13 @@
 	.views-field-title {
 		font-size: 1.2em;
 	}
-	.views-field-title-1 span {
+	.views-field-title-1 {
+		text-align: right;
 		clear: both;
-		display: block;
+		 span {
+			clear: both;
+			display: block;
+		}
 	}
 }
 

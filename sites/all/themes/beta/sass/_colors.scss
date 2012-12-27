@@ -6,6 +6,7 @@ $radius: 10px;
 $white: white;
 $black: black;
 $silver: #CCCCCC;
+$purple: #800080;
 
 
 $status_border: #be7;
@@ -26,6 +27,7 @@ $purple_light: #edf0ff;
 
 $blue_medium_old: #CEDAEC;
 $blue_medium: lighten(mix($silver, $blue, 60%), 20%);
+$blue_purple: mix($purple, $blue, 60%);
 
 
 $blue_light_old: #EBEFF7;
@@ -35,8 +37,9 @@ $search_border: #B2B2B2;
 
 $blue_silver: mix($white, $blue, 25%);
 
+$beige: #FFEAC4;
+$background_color: $beige;
 
-$background_color: #FFEAC4;
 
 $title_color: $blue;
 
@@ -94,7 +97,7 @@ $alert_color_darker: darken( $alert_color, 20% );
 @mixin headline2 {
 	padding: .2em .5em 0.2em 0em;
 	margin: .5em .5em .5em 0 !important;
-	border-bottom: 2px solid $blue;
+	border-bottom: 1px solid $blue;
 }
 
 @mixin library_message {

@@ -1,0 +1,15 @@
+@import "colors";
+
+div#block-panels_mini-library_locations {
+	div.center-wrapper {
+		clear: both;
+	}
+	div.panel-col-last,
+	div.panel-col-first {
+		width: 50% !important;
+		border: 1px solid $blue;
+	}
+	div.panel-col-first {
+		float: none;
+	}
+}

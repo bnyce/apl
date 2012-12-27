@@ -97,7 +97,7 @@ $alert_color_darker: darken( $alert_color, 20% );
 @mixin headline2 {
 	padding: .2em .5em 0.2em 0em;
 	margin: .5em .5em .5em 0 !important;
-	border-bottom: 1px solid $blue;
+	border-bottom: 1px solid $blue_medium;
 }
 
 @mixin library_message {

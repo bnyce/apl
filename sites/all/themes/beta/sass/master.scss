@@ -2,7 +2,6 @@
 
 #page {
 	@include page_alpha;
-	background-color: $white;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 
@@ -157,13 +156,14 @@ div.block {
 #main {
 	min-height: 715px;  /*issues with whitespace beneath #bottom */
 	height: auto !important; /*issues with whitespace beneath #bottom */
+	background-color: white;
 }
 
 #content {
 	float: left;
 	width: 900px;
 	margin-right: -100%;
-	padding: 0;
+	padding: 0 0 2em 0;
 }
 
 #content-inner {

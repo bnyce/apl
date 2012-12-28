@@ -28,6 +28,7 @@ $purple_light: #edf0ff;
 $blue_medium_old: #CEDAEC;
 $blue_medium: lighten(mix($silver, $blue, 60%), 20%);
 $blue_purple: mix($purple, $blue, 60%);
+$blue_black: mix($black, $blue, 90%);
 
 
 $blue_light_old: #EBEFF7;
@@ -96,6 +97,7 @@ $alert_color_darker: darken( $alert_color, 20% );
 
 @mixin headline2 {
 	padding: .2em .5em 0.2em 0em;
+	color: $blue_black;
 	margin: .5em .5em .5em 0 !important;
 	border-bottom: 1px solid $blue_medium;
 }

@@ -1,3 +1,5 @@
+@import "colors";
+
 #block-menu-menu-coa-header li a {
     padding-left: 8px;
     padding-right: 8px;
@@ -9,7 +11,7 @@
 }
 
 #block-menu-menu-coa-header {
-	background: black;
+	background: $blue_black;
 	font-family: Arial, Helvetica, sans-serif;
 	height: 30px;
 	ul {
@@ -27,6 +29,9 @@
 				text-transform: uppercase;
 				vertical-align:middle;
 			}
+			&:hover {
+				text-decoration: underline !important;
+			}
 		&.last a {
 			border: medium none;
 		}
@@ -36,5 +41,5 @@
 
 #city-header {
 	width:100%;
-	background:black;
+	background:$blue_black;
 }

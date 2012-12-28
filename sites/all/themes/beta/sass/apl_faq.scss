@@ -1,3 +1,5 @@
+@import "colors";
+
 apl_html {
 	height: 100%;
 }
@@ -106,7 +108,7 @@ h3 {
 	border-color: #AAAAAA;
 	border-radius: .3em;
 &:hover {
-	color: black; 
+	color: $blue_black; 
 	background-color: white; 
 	border-color: silver; 
 	cursor: pointer;
@@ -119,7 +121,7 @@ h3 {
 	border-color: #AAAAAA;
 	border-radius: .3em;
 &:hover {
-	color: black; 
+	color: $blue_black; 
 	background-color: white; 
 	border-color: silver; 
 	cursor: pointer;

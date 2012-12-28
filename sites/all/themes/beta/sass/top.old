@@ -1,7 +1,7 @@
 @import "colors";
 
 #city-header {
-	background-color: black;
+	background-color: $blue_black;
 	h2.pane-title {
 		display: none;
 	}
@@ -35,16 +35,16 @@
 				letter-spacing: 1px;
 				border-right: 1px solid fade-out(#BDBDBD, 0.2);
 				color: #BDBDBD;
-				font-size: 1.1em;
+				font-size: 1.2em;
 				padding: 0 0.75em;
 				text-decoration: none;
-				text-transform: uppercase;
-			&:hover {
-				text-decoration: underline;
-			}
+				text-transform: capitalize;
 			&.active {
 				color: $yellow;
 				font-weight: bold;
+			}
+			&:hover {
+				text-decoration: underline !important;
 			}
 			}	    
 		&.first {

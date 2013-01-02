@@ -48,7 +48,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '14',
         ),
@@ -56,6 +58,7 @@ function suggest_a_title_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'conditions' => array(),
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
@@ -124,7 +127,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '6',
         ),
@@ -198,7 +203,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'list_default',
           'weight' => '5',
         ),
@@ -276,7 +283,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'list_default',
           'weight' => '9',
         ),
@@ -342,7 +351,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '13',
         ),
@@ -413,7 +424,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '12',
         ),
@@ -548,7 +561,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'list_default',
           'weight' => '11',
         ),
@@ -604,6 +619,7 @@ function suggest_a_title_field_default_fields() {
           'label' => 'above',
           'module' => 'number',
           'settings' => array(
+            'conditions' => array(),
             'decimal_separator' => '.',
             'prefix_suffix' => TRUE,
             'scale' => 0,
@@ -685,6 +701,7 @@ function suggest_a_title_field_default_fields() {
           'label' => 'above',
           'module' => 'date',
           'settings' => array(
+            'conditions' => array(),
             'format_type' => 'long',
             'fromto' => 'both',
             'multiple_from' => '',
@@ -772,7 +789,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '7',
         ),
@@ -840,7 +859,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'list_default',
           'weight' => '10',
         ),
@@ -911,7 +932,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => 16,
         ),
@@ -985,7 +1008,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '15',
         ),
@@ -1061,7 +1086,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'taxonomy',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'taxonomy_term_reference_link',
           'weight' => '4',
         ),
@@ -1129,7 +1156,9 @@ function suggest_a_title_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'text_default',
           'weight' => '3',
         ),

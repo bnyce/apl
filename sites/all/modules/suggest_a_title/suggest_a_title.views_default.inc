@@ -121,22 +121,6 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['fields']['field_author_performer_band']['id'] = 'field_author_performer_band';
   $handler->display->display_options['fields']['field_author_performer_band']['table'] = 'field_data_field_author_performer_band';
   $handler->display->display_options['fields']['field_author_performer_band']['field'] = 'field_author_performer_band';
-  /* Field: Content: Publisher */
-  $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
-  $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
-  $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_publication_year']['id'] = 'field_publication_year';
-  $handler->display->display_options['fields']['field_publication_year']['table'] = 'field_data_field_publication_year';
-  $handler->display->display_options['fields']['field_publication_year']['field'] = 'field_publication_year';
-  /* Field: Content: ISBN/ISSN/UPC */
-  $handler->display->display_options['fields']['field_isbn_issn_upc']['id'] = 'field_isbn_issn_upc';
-  $handler->display->display_options['fields']['field_isbn_issn_upc']['table'] = 'field_data_field_isbn_issn_upc';
-  $handler->display->display_options['fields']['field_isbn_issn_upc']['field'] = 'field_isbn_issn_upc';
-  /* Field: Content: How did you learn about this item? */
-  $handler->display->display_options['fields']['field_how_did_you_learn_about_th']['id'] = 'field_how_did_you_learn_about_th';
-  $handler->display->display_options['fields']['field_how_did_you_learn_about_th']['table'] = 'field_data_field_how_did_you_learn_about_th';
-  $handler->display->display_options['fields']['field_how_did_you_learn_about_th']['field'] = 'field_how_did_you_learn_about_th';
   /* Field: Content: Format */
   $handler->display->display_options['fields']['field_format']['id'] = 'field_format';
   $handler->display->display_options['fields']['field_format']['table'] = 'field_data_field_format';
@@ -145,15 +129,21 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['fields']['field_language']['id'] = 'field_language';
   $handler->display->display_options['fields']['field_language']['table'] = 'field_data_field_language';
   $handler->display->display_options['fields']['field_language']['field'] = 'field_language';
-  /* Field: Content: Which library locations do you use most often? */
-  $handler->display->display_options['fields']['field_which_library_locations_do']['id'] = 'field_which_library_locations_do';
-  $handler->display->display_options['fields']['field_which_library_locations_do']['table'] = 'field_data_field_which_library_locations_do';
-  $handler->display->display_options['fields']['field_which_library_locations_do']['field'] = 'field_which_library_locations_do';
-  $handler->display->display_options['fields']['field_which_library_locations_do']['delta_offset'] = '0';
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Suggestion date';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
   /* Field: Content: URL */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_url']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['field_url']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['field_url']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['field_url']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -174,21 +164,23 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'suggest_a_title' => 'suggest_a_title',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Follow Up (field_follow_up) */
+  $handler->display->display_options['filters']['field_follow_up_value']['id'] = 'field_follow_up_value';
+  $handler->display->display_options['filters']['field_follow_up_value']['table'] = 'field_data_field_follow_up';
+  $handler->display->display_options['filters']['field_follow_up_value']['field'] = 'field_follow_up_value';
+  $handler->display->display_options['filters']['field_follow_up_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_follow_up_value']['value'] = array(
+    'Denial' => 'Denial',
+    'Not Available' => 'Not Available',
+    'In Catalog' => 'In Catalog',
+    'To Be Ordered' => 'To Be Ordered',
+    'Resources' => 'Resources',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'suggest-a-title/queue/all';
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -205,11 +197,18 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'suggest_a_title' => 'suggest_a_title',
   );
-  /* Filter criterion: Content: Most recent email sent (field_most_recent_email_sent) */
-  $handler->display->display_options['filters']['field_most_recent_email_sent_value']['id'] = 'field_most_recent_email_sent_value';
-  $handler->display->display_options['filters']['field_most_recent_email_sent_value']['table'] = 'field_data_field_most_recent_email_sent';
-  $handler->display->display_options['filters']['field_most_recent_email_sent_value']['field'] = 'field_most_recent_email_sent_value';
-  $handler->display->display_options['filters']['field_most_recent_email_sent_value']['operator'] = 'empty';
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['path'] = 'suggest-a-title/queue/all';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['path'] = 'suggest-a-title/queue';
   $export['suggest_a_title_queue'] = $view;
 

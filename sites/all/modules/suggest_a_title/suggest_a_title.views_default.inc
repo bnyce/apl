@@ -125,14 +125,10 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
-  /* Field: Content: Publication Year */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_publication_year']['id'] = 'field_publication_year';
   $handler->display->display_options['fields']['field_publication_year']['table'] = 'field_data_field_publication_year';
   $handler->display->display_options['fields']['field_publication_year']['field'] = 'field_publication_year';
-  $handler->display->display_options['fields']['field_publication_year']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
   /* Field: Content: ISBN/ISSN/UPC */
   $handler->display->display_options['fields']['field_isbn_issn_upc']['id'] = 'field_isbn_issn_upc';
   $handler->display->display_options['fields']['field_isbn_issn_upc']['table'] = 'field_data_field_isbn_issn_upc';

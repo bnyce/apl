@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * suggest_a_title_feature_.default_field_validation_rules.inc
+ * suggest_a_title.default_field_validation_rules.inc
  */
 
 /**
  * Implements hook_default_field_validation_rule().
  */
-function suggest_a_title_feature__default_field_validation_rule() {
+function suggest_a_title_default_field_validation_rule() {
   $export = array();
 
   $rule = new stdClass();

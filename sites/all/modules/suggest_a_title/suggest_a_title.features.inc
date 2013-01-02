@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * suggest_a_title_feature_.features.inc
+ * suggest_a_title.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function suggest_a_title_feature__ctools_plugin_api() {
+function suggest_a_title_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
@@ -21,14 +21,14 @@ function suggest_a_title_feature__ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function suggest_a_title_feature__views_api() {
+function suggest_a_title_views_api() {
   return array("version" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function suggest_a_title_feature__node_info() {
+function suggest_a_title_node_info() {
   $items = array(
     'suggest_a_title' => array(
       'name' => t('Suggest a Title for Purchase'),

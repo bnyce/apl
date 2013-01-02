@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * suggest_a_title_feature_.rules_defaults.inc
+ * suggest_a_title.rules_defaults.inc
  */
 
 /**
  * Implements hook_default_rules_configuration().
  */
-function suggest_a_title_feature__default_rules_configuration() {
+function suggest_a_title_default_rules_configuration() {
   $items = array();
   $items['rules_send_e_mail_on_suggest_a_title'] = entity_import('rules_config', '{ "rules_send_e_mail_on_suggest_a_title" : {
       "LABEL" : "Suggest a Title - Thank You for Submitting",

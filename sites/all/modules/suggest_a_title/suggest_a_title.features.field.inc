@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * suggest_a_title_feature_.features.field.inc
+ * suggest_a_title.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function suggest_a_title_feature__field_default_fields() {
+function suggest_a_title_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-suggest_a_title-body'.

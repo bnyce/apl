@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * suggest_a_title_feature_.field_group.inc
+ * suggest_a_title.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function suggest_a_title_feature__field_group_info() {
+function suggest_a_title_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

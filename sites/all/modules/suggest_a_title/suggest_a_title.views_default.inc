@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * suggest_a_title_feature_.views_default.inc
+ * suggest_a_title.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function suggest_a_title_feature__views_default_views() {
+function suggest_a_title_views_default_views() {
   $export = array();
 
   $view = new view();

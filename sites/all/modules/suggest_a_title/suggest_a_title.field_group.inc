@@ -37,7 +37,7 @@ function suggest_a_title_field_group_info() {
       'label' => 'More Information (optional)',
       'instance_settings' => array(
         'required_fields' => 1,
-        'classes' => '',
+        'classes' => 'suggest',
         'description' => '',
       ),
       'formatter' => 'collapsed',
@@ -103,7 +103,7 @@ function suggest_a_title_field_group_info() {
       'label' => 'Your Suggestion',
       'instance_settings' => array(
         'required_fields' => 1,
-        'classes' => '',
+        'classes' => 'suggest',
         'description' => '<p>Thank you for taking the time to suggest an item for the Library. Your input as a citizen of Austin is valuable to the Library\'s selection team and will be given careful consideration.</p>
 <p>Have you searched the <a href="http://austin.bibliocommons.com">Library catalog</a> for the item you are suggesting? If not, please check the catalog before completing this form.</p>
 <p>The decision to purchase an item is based on the Library\'s selection criteria, current budget constraints, and the item\'s availability.</p>',
@@ -163,7 +163,7 @@ function suggest_a_title_field_group_info() {
       'label' => 'How can we follow up with you?',
       'instance_settings' => array(
         'required_fields' => 1,
-        'classes' => '',
+        'classes' => 'suggest',
         'description' => '',
       ),
       'formatter' => 'collapsible',

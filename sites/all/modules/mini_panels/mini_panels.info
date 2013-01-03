@@ -1,0 +1,13 @@
+name = Mini panels
+core = 7.x
+package = Features
+version = 7.x-1.001
+project = mini_panels
+dependencies[] = ctools
+dependencies[] = panels_mini
+features[ctools][] = panels_mini:panels_default:1
+features[features_api][] = api:1
+features[panels_mini][] = front_page_highlighted_area
+features[panels_mini][] = messages
+features[panels_mini][] = top
+features[panels_mini][] = top_navigation

@@ -56,7 +56,7 @@ function suggest_a_title_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Your Suggestion',
-    'weight' => '0',
+    'weight' => '3',
     'children' => array(
       0 => 'body',
       1 => 'field_author_performer_band',
@@ -67,7 +67,6 @@ function suggest_a_title_field_group_info() {
       6 => 'field_publisher',
       7 => 'field_targeted_age_level_of_item',
       8 => 'field_url',
-      9 => 'field_publication_year',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -91,7 +90,7 @@ function suggest_a_title_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Your Suggestion',
-    'weight' => '0',
+    'weight' => '3',
     'children' => array(
       0 => 'field_author_performer_band',
       1 => 'field_url',
@@ -124,7 +123,7 @@ function suggest_a_title_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'How can we follow up with you?',
-    'weight' => '1',
+    'weight' => '4',
     'children' => array(
       0 => 'field_library_card_number',
       1 => 'field_which_library_locations_do',
@@ -152,7 +151,7 @@ function suggest_a_title_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'How can we follow up with you?',
-    'weight' => '1',
+    'weight' => '4',
     'children' => array(
       0 => 'field_library_card_number',
       1 => 'field_which_library_locations_do',

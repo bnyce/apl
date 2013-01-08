@@ -164,6 +164,30 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: exclude from message filtering.
+  $permissions['exclude from message filtering'] = array(
+    'name' => 'exclude from message filtering',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'disable_messages',
+  );
+
+  // Exported permission: view error messages.
+  $permissions['view error messages'] = array(
+    'name' => 'view error messages',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
+      3 => 'blogger',
+      4 => 'materials selector',
+      5 => 'meeting rooms administrator',
+      6 => 'pio',
+    ),
+    'module' => 'disable_messages',
+  );
+
   // Exported permission: view field_follow_up.
   $permissions['view field_follow_up'] = array(
     'name' => 'view field_follow_up',
@@ -218,6 +242,36 @@ function suggest_a_title_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: view status messages.
+  $permissions['view status messages'] = array(
+    'name' => 'view status messages',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
+      3 => 'blogger',
+      4 => 'materials selector',
+      5 => 'meeting rooms administrator',
+      6 => 'pio',
+    ),
+    'module' => 'disable_messages',
+  );
+
+  // Exported permission: view warning messages.
+  $permissions['view warning messages'] = array(
+    'name' => 'view warning messages',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
+      3 => 'blogger',
+      4 => 'materials selector',
+      5 => 'meeting rooms administrator',
+      6 => 'pio',
+    ),
+    'module' => 'disable_messages',
   );
 
   return $permissions;

@@ -358,14 +358,15 @@ display: none;
 }
 
 fieldset.collapsible   {
- background: url("/misc/menu-expanded.png") no-repeat scroll 0.75em 1em transparent\9;
+ background: url("/misc/menu-expanded.png") no-repeat scroll 0.75em 1em transparent !important;
 }    
 
 fieldset.collapsed  {
-    background-image: url("/misc/menu-collapsed.png")\9;
+    background-image: url("/misc/menu-collapsed.png") !important;
 }
 
-div.node-webform fieldset legend span a{
+//div.node-webform fieldset legend span a{
+fieldset legend span a{
 margin-top: -2.5em !important\9;
 	position: absolute\9;
 }

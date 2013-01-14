@@ -24,6 +24,10 @@
 		font-size: 62.5%;
 	    font-weight: normal;
 	    text-align: center;
+		li:nth-child(3) a {
+			color: $yellow;
+			font-weight: bold;
+		}
 		li {
 			display: inline;
 			float: none;

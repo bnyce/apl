@@ -1,0 +1,33 @@
+/* line 1, ../sass/search.scss */
+#apl-search {
+  padding: 0;
+}
+/* line 3, ../sass/search.scss */
+#apl-search div {
+  margin: 0;
+  padding: 0;
+}
+/* line 7, ../sass/search.scss */
+#apl-search img#apl-logo {
+  height: 86px;
+}
+/* line 10, ../sass/search.scss */
+#apl-search ul#ask_log_in {
+  margin: 0;
+  float: right;
+}
+/* line 13, ../sass/search.scss */
+#apl-search ul#ask_log_in li {
+  display: block;
+  float: left;
+  margin-left: .5em;
+}
+/* line 19, ../sass/search.scss */
+#apl-search div.panel-col-last {
+  float: right;
+}
+/* line 21, ../sass/search.scss */
+#apl-search div.panel-col-last form#search {
+  clear: both;
+  float: right;
+}

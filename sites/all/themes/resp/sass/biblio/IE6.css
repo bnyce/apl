@@ -1,0 +1,411 @@
+* html, .clearfix {
+	height: 1%;
+}
+
+#globalSpinner {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	z-index: 21000;
+}
+
+hr {
+	margin: 0.5em 0;
+}
+
+.titleBlock {
+	height: 40px;
+}
+
+/* =SPLITCONTENT PAGES
+--------------------------------------------------------- */
+.titleBlock p, .titleBlock h1, .titleBlock .editor {
+	width: 475px;
+}
+
+
+/* =ratings
+----------------------------------------------- */
+.ratingBlock {
+	width: 92px;
+	margin: 0.25em 0;
+}
+
+/* =browser
+----------------------------------------------- */
+.viewer .rightBlind {
+	background: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="/images/widget.right.blind.png?1358244096478", sizingMethod='scale');
+}
+
+.viewer .leftBlind {
+	background: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="/images/widget.left.blind.png?1358244096478", sizingMethod='scale');
+}
+
+/* =buttons
+----------------------------------------------- */
+
+input.search_button, input.submit_button, a.submit_button {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="/images/button_gradient.png", sizingMethod='scale');
+	border-style: outset;
+	
+}
+
+/* =header
+----------------------------------------------- */
+#header form div.searchOptions{
+	width: 223px;
+	margin-left: 70px;
+}
+
+#navAndSearch input.search_button {
+	float: none;
+	margin-top: 1px;
+}
+
+div#navAndSearch {
+	width: 630px!important;
+	margin-bottom: 0px!important;
+	padding: 0;
+}
+
+#navAndSearch form{
+	width: 600 !important;
+	float: none;
+	top: 5px;
+	margin-bottom: 5px;
+	padding-bottom:10px;
+}
+
+#navAndSearch a.moreSearch {
+	width: 100px;
+}
+
+#header select {
+	font-size: 1.25em;
+}
+
+/* =main nav
+----------------------------------------------- */
+ul#mainNav {
+	display: block;
+}
+#mainNav li {
+	display: inline;
+	float: left;
+}
+
+
+#mainNav li a.navLabel {
+  float: left;
+	height: 32px;
+	line-height: 32px;
+	padding: 0px 15px;
+	font-size: 1.16em;
+	font-variant: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+#mainNav li.active a.navLabel {
+	color: #0069AA;
+	background: #FFEAC4;
+}
+
+#mainNav li:hover a.navLabel, #mainNav li a.navLabel:hover {
+	color: #404040;
+	background: #FFFFFF;
+}
+
+#mainNav li.openDropDown a.navLabel {
+	background: #FFFFFF;
+	color: #404040;
+}
+
+#mainNav li.openDropDown div.dropDownContent {
+	top: 31px;
+	position: absolute;
+	border-width: 0 1px 1px 1px;
+	color: #333333;
+	background-color: #FFFFFF;
+	border-color: #DEDEDE;
+}
+
+#mainNav li.extendedNav div.dropDownContent {
+	padding: 0;
+	margin: 0;
+	width: 900px;
+	background-color: transparent!important;
+	border: none;
+	
+}
+
+#mainNav li.extendedNav div.dropDownContent ul {
+	float: left;
+	margin-left: 0px;
+	padding: 5px!important;
+	border-width: 0px 1px 1px 1px;
+	border-style: solid;
+	border-color: #DEDEDE!important;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+#mainNav li.extendedNav div.dropDownContent ul li ul {
+	border: none;
+	padding: 0;
+	margin: 0;
+	overflow: none;
+}
+#mainNav li.extendedNav div.dropDownContent ul li {
+	width: 125px;
+	display: block;
+	float: left;
+}
+
+#mainNav li .dropDownContent li a  {
+  line-height: 16px;
+	display: block;
+  height: 16px;
+	margin: 0.5em 0;
+  margin: 0;
+	color: #333333;
+	white-space: nowrap;
+}
+
+.filterList select {
+	width: 140px;
+}
+
+/* =sub nav
+----------------------------------------------- */
+ul#subNav li {
+	float: none;
+	display: inline;
+}
+
+ul#subNav li a {
+	display: inline;
+}
+
+/* =buttons
+----------------------------------------------- */
+.saveToButton ul {
+}
+
+/* =stickywin
+----------------------------------------------- */
+div.defaultPopup div.closeButton {
+	width: 18px;
+	height: 18px;
+	float: right;
+	margin: 13px 15px 0px 0px;
+	cursor: pointer;
+}
+
+div.defaultPopup div.top {
+	height: 35px;
+	overflow: hidden;
+}
+
+div.itemDetails div.body {
+	margin-bottom: -8px;
+	background-color: #fff;
+}
+
+div.itemDetails .detailsPointer {
+  left: -25px;
+  background: url("/images/sprites/base_master.png?yergeau-rc1-5124-g0d7c4a1") no-repeat; 
+  background-position: -0px -135px; width: 20px; height: 30px;
+}
+
+div.itemDetails .detailsPointerRight {
+	background: url("/images/sprites/base_master.png?yergeau-rc1-5124-g0d7c4a1") no-repeat; 
+  background-position: -0px -105px; width: 20px; height: 30px;
+}
+
+/* =item detail
+----------------------------------------------- */
+.circulation {
+	padding: 15px 10px;
+}
+
+#rightBar.showDetails {
+	background: url("/images/background.edit.png?yergeau-rc1-5124-g0d7c4a1");
+	height: 100%;
+	margin: -8px 0 -6px 0;
+}
+
+#rightBar .sideBarNav {
+	right: 15px;
+	top: 2px;
+}
+
+#rightBar p.help {
+	margin-bottom: 0;
+}
+
+.buyAtAmazon {
+	margin: 0;
+}
+
+.actions hr {
+	margin: 0;
+}
+
+#userContent .userContent .creator .date {
+	line-height: 15px;
+}
+
+.actions {
+  display:inline;
+}
+
+#leftBar .content {
+	width: 189px;
+}
+
+/* =list
+----------------------------------------------- */
+.mainContent .editable #bib-medium .url {
+	width: 260px;
+	margin-left: 49px;
+}
+
+div.ie6_message {
+	display: block;
+	
+}
+
+.mainContent #bib-medium .info {
+	width: 220px;
+}
+
+.listItem .itemButtons {
+	width: 140px;
+}
+
+/* subNav on item page
+----------------------------------------------- */
+ul.subNav {
+	width: 474px;
+	height: 20px;
+	padding: 3px 0px 0px 1px;
+}
+
+ul.subNav li.active {
+	border-bottom-color: #FF0000;
+	padding-bottom: 3px;
+	z-index: 20000;
+}
+
+/* =Logo adjustment...
+--------------------------------------------- */ 
+#header div#language {
+	position: relative;
+}
+
+/* Explore Awards BestSellers Page
+--------------------------------------------- */ 
+
+div.language_select {
+  margin: 0px;
+  padding: 0px;
+}
+
+div.language_select span.label {
+  width: 60%;
+}
+
+div.language_select span.value {
+  width: 40%;
+}
+
+div.tabContainer ul.subNav {
+  width : 99%;
+}
+
+/* Explore Newly Acquired Canned Search Lists
+--------------------------------------------- */ 
+
+div.carouselContainer ul.subNav li.active{
+  border-bottom: 2px solid #FFF;
+}
+
+div.carouselContainer div.filterGroup{
+  margin: 0px;
+}
+
+div.widget_filters {
+  width: 590px;
+  height: 35px;
+  display: block;
+  overflow: hidden;
+}
+
+div.newly_acquired_link{
+  width: 180px;
+}
+
+/* OMDC Stuff
+--------------------------------------------- */ 
+div#audience_select {
+  margin-top: 0px;
+}
+input#omdcSearchBtn {
+  margin-left: -3px;
+}
+
+div.loggedIn{
+  margin-top: 0px;
+}
+
+body.omdc div.main{
+  width: 617px;
+}
+
+body.omdc div#recentComments img.upper_quotation {
+  left: -100px;
+}
+
+body.omdc div#recentComments img.lower_quotation {
+  bottom: 100px;
+  right: 15px;
+}
+body.omdc div.main div#runnersUp, body.omdc div.main div#recentComments, body.omdc div.main div#currentNominees{
+  margin-right: 0px;
+}
+
+body.omdc div.main div#currentNominees div#jacketCoversContainer {
+  width: 597px;
+}
+
+div.omdc_loggedIn {
+	margin-top: 5px;
+}
+
+div.listItem.disabled div.disabled_overlay {
+	filter:alpha(opacity=40);
+	background-color:  #777;
+	height:180px;
+}
+
+#advanced_search div.open_additional_constraints{
+	opacity: 1;
+	overflow: auto;
+	height: auto;
+	width: 100%;
+	display: block;
+}
+
+#advanced_search div.constraintBlock {
+	opacity: 1;
+	height: auto;
+	overflow: auto;
+}
+
+input#custom_query {
+	width:565px;
+}

@@ -1,0 +1,27 @@
+#apl-search {
+	padding: 0;
+	div {
+		margin: 0;
+		padding: 0;
+	}
+	img#apl-logo {
+		height: 86px;
+	}
+	ul#ask_log_in {
+		margin: 0;
+		float: right;
+		li {
+			display: block;
+			float: left;
+			margin-left: .5em;
+		}
+	}
+	div.panel-col-last {
+		float: right;
+		form#search {
+			clear: both;
+			float: right;
+		}
+	}
+}
+

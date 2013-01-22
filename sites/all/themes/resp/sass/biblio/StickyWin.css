@@ -1,0 +1,250 @@
+/* =stickywin ui overrides
+----------------------------------------------- */
+div.defaultPopup {
+	width: 400px;
+}
+
+div.DefaultStickyWin div.top_ul {
+	background: url(/images/stickyWin/full.gif?yergeau-rc1-5124-g0d7c4a1) top left no-repeat;
+	height: 55px;
+	width: 21px;
+	float: left;
+}
+
+div.DefaultStickyWin div.top_ur {
+	position: relative;
+	left: 0 !important;
+	left: -4px;
+	background: url(/images/stickyWin/full.gif?yergeau-rc1-5124-g0d7c4a1) top right;
+	height: 55px;
+	margin: 0 0 0 21px !important;
+	margin-right: -4px;
+	padding: 0;
+}
+
+div.DefaultStickyWin h1.caption{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #555;
+	font-size: 14px;
+	position: relative;
+	top: 7px;
+	left: 5px;
+	width: 90%;
+}
+
+div.defaultPopup div.middle {
+	background: url(/images/stickyWin/body.gif?yergeau-rc1-5124-g0d7c4a1) top left repeat-y;
+	margin: 0 20px 0 0px;
+}
+
+div.defaultPopup div.body {
+	background: url(/images/stickyWin/body.gif?yergeau-rc1-5124-g0d7c4a1) top right repeat-y;
+	padding: 8px 14px 8px 0;
+	margin-left: 5px;
+	position: relative;
+	right: -20px;
+}
+
+div.defaultPopup div.bottom_ll {
+	background: url(/images/stickyWin/full.gif?yergeau-rc1-5124-g0d7c4a1) bottom left no-repeat;
+	width: 15px;
+	height: 15px;
+	float: left;
+}
+
+div.defaultPopup div.bottom_lr {
+	background: url(/images/stickyWin/full.gif?yergeau-rc1-5124-g0d7c4a1) bottom right;
+	position: relative;
+	left: 0 !important;
+	left: -4px;
+	margin: 0 0 0 15px !important;
+	margin-right: -4px;
+	height: 15px;
+}
+
+div.defaultPopup div.closeButton {
+	width: 20px;
+	height: 20px;
+	background: url(/images/icon.close.png?yergeau-rc1-5124-g0d7c4a1);
+	float: right;
+	margin: 13px 15px 0 0;
+	cursor: pointer;
+}
+
+div.defaultPopup div.popupContent {
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	margin: 0 10px 0 0;
+	padding: 0 10px 0 0;
+	background-color: #fff;
+	position: relative;
+}
+
+/* =popup details
+----------------------------------------------- */
+div.itemDetails {
+	z-index: 9999;
+	margin-left: 10px;
+}
+
+div.itemDetails div.top_ul {
+	background: url(/images/popupDetails/full.png?yergeau-rc1-5124-g0d7c4a1) top left no-repeat !important;
+	background: url(/images/popupDetails/full.gif?yergeau-rc1-5124-g0d7c4a1) top left no-repeat;
+	height: 6px;
+	width: 10px;
+	float: left;
+	line-height: 5px;
+}
+
+div.itemDetails div.top_ur {
+	position: relative;
+	left: 0 !important;
+	left: -4px;
+	background: url(/images/popupDetails/full.png?yergeau-rc1-5124-g0d7c4a1) top right !important;
+	background: url(/images/popupDetails/full.gif?yergeau-rc1-5124-g0d7c4a1) top right;
+	height: 5px;
+	margin: 0 0 0 10px !important;
+	margin-right: -4px;
+	padding: 0;
+	line-height: 5px;
+}
+
+div.itemDetails div.top {
+	overflow: hidden;
+}
+
+div.itemDetails div.top, div.itemDetails div.bottom {
+	height: 5px;
+	line-height: 5px;
+}
+
+div.itemDetails h1.caption{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #555;
+	font-size: 14px;
+	position: relative;
+	top: 7px;
+	left: 5px;
+	width: 90%;
+}
+
+div.itemDetails div.middle {
+	background: url(/images/popupDetails/body.png?yergeau-rc1-5124-g0d7c4a1) top left repeat-y!important;
+	background: url(/images/popupDetails/body.gif?yergeau-rc1-5124-g0d7c4a1) top left repeat-y;
+	margin: 0;
+}
+
+div.itemDetails div.body {
+	background: #fff url(/images/popupDetails/body.png?yergeau-rc1-5124-g0d7c4a1) top right repeat-y !important;
+	background: #fff url(/images/popupDetails/body.gif?yergeau-rc1-5124-g0d7c4a1) top right repeat-y;
+	padding: 0 6px 0 1px;
+	margin-left: 5px;
+	position: relative;
+	z-index: 9999;
+}
+
+div.itemDetails div.bottom_ll {
+	background: url(/images/popupDetails/full.png?yergeau-rc1-5124-g0d7c4a1) bottom left no-repeat!important;
+	background: url(/images/popupDetails/full.gif?yergeau-rc1-5124-g0d7c4a1) bottom left no-repeat;
+	width: 10px;
+	height: 5px;
+	float: left;
+	line-height: 5px;
+}
+
+div.itemDetails div.bottom_lr {
+	background: url(/images/popupDetails/full.png?yergeau-rc1-5124-g0d7c4a1) bottom right !important;
+	background: url(/images/popupDetails/full.gif?yergeau-rc1-5124-g0d7c4a1) bottom right;
+	position: relative;
+	left: 0 !important;
+	left: -4px;
+	margin: 0 0 0 10px !important;
+	margin-right: -4px;
+	height: 5px;
+	line-height: 5px;
+	z-index: 5000;
+}
+
+div.itemDetails div.closeButton {
+	display: none;
+}
+
+/* div.itemDetails .editable {
+	background: url("/images/background.edit.png");
+	padding: 4px;
+	margin: 0;
+} */
+
+div.itemDetails .nonEditable {
+	padding: 4px;
+}
+
+div.itemDetails .nonEditable div.itemDetailsContent, div.itemDetails .editable div.itemDetailsContent {
+	margin: 0;
+	background: #fff;
+	padding: 4px 9px;
+}
+
+div.itemDetailsContent a.help_icon{
+  display:inline;
+  float:right;
+  margin-top:-20px;
+  position:static; 
+}
+
+div.itemDetails .detailsPointer {
+  position: absolute;
+  display: block;
+	margin-left: -5px;
+}
+
+div.itemDetails .detailsPointerRight {
+  position: absolute;
+  display: block;
+  margin-left: 20px;
+}
+
+div.itemDetails div.itemDetailsContent {
+	margin: 0 0 0 -11px;
+}
+
+#closeWin {
+position: relative;
+top: 8px;
+color: #88898c;
+margin-right: 10px;
+float:right;
+font-size:13px;
+}
+
+a#closeWin:link {
+text-decoration:underline;
+}
+
+a#closeWin:hover {
+text-decoration:none;
+}
+
+div.DefaultStickyWin h1.caption.dragHandle {
+	float:right;
+	width:80% !important;
+}
+
+/* =filter popup
+----------------------------------------------- */
+div.allFilters div.closeButton {
+	display: block;
+	float: right;
+	margin: 6px 8px 0 0;
+	cursor: pointer;
+}
+
+div.allFilters div.top, div.allFilters div.top_ul, div.allFilters div.top_ur {
+	height: 26px;
+	line-height: 26px;
+}

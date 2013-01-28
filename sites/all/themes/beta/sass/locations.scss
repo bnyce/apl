@@ -13,3 +13,12 @@ div#block-panels_mini-library_locations {
 		float: none;
 	}
 }
+div.panel-col-last div.addressfield-container-inline {
+	span.locality,
+	span.state,
+	span.postal-code,
+
+	 {
+		visibility: hidden;
+	}
+}

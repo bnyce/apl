@@ -1,5 +1,40 @@
 @import "colors";
+.views-field-nothing.holiday-schedule {
+	margin-bottom: 1em;
+}
 
+.views-field.views-field-field-library-image,
+.views-field.views-field-field-library-image-1 {
+	float: right;
+}
+div.street-block {
+	margin-left: 0 !important;
+}
+
+.views-field.views-field-field-address,
+.views-field-field-phone-num,
+.views-field.views-field-description,
+.views-field.views-field-description-1,
+.views-field.holiday-schedule {
+	clear: left !important;
+	float: left !important;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
+}
+
+.views-field.holiday-schedule {
+	max-width: 200px;
+}
+.views-field-field-geofield,
+.views-field-field-phone-num {
+	margin-bottom: 1em;
+	clear: both;
+}
+body.page-locations .views-field-field-geofield {
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid $blue-light;
+}
 div#block-panels_mini-library_locations {
 	div.center-wrapper {
 		clear: both;
@@ -13,12 +48,27 @@ div#block-panels_mini-library_locations {
 		float: none;
 	}
 }
-div.panel-col-last div.addressfield-container-inline {
+div.panel-col-last,
+body.page-all-locations {
+	div.views-row {
+//		border-bottom: 1px solid $blue;
+//		margin-bottom: 2em;
+	}
+	div.views-field-name {
+//		@include headline2;
+//		font-size: 1.3em;
+//		margin-top: 1em;
+//		margin-bottom: .5em;
+//		border-bottom: 1px solid $blue;
+	}
+	div.thoroughfare {
+		float: none;	
+	}
 	span.locality,
 	span.state,
 	span.postal-code,
-
-	 {
+	div.locality-block {
 		visibility: hidden;
+		max-height: 0;
 	}
 }

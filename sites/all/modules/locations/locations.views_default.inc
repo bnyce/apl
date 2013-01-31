@@ -339,6 +339,12 @@ function locations_views_default_views() {
     'geofield_map_draggable' => 1,
     'geofield_map_streetview_show' => 1,
   );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description_1']['id'] = 'description_1';
+  $handler->display->display_options['fields']['description_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description_1']['field'] = 'description';
+  $handler->display->display_options['fields']['description_1']['label'] = '';
+  $handler->display->display_options['fields']['description_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['argument_input'] = array(
     'name' => array(
       'type' => 'panel',
@@ -444,6 +450,12 @@ function locations_views_default_views() {
     'geofield_map_draggable' => 1,
     'geofield_map_streetview_show' => 1,
   );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description_1']['id'] = 'description_1';
+  $handler->display->display_options['fields']['description_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description_1']['field'] = 'description';
+  $handler->display->display_options['fields']['description_1']['label'] = '';
+  $handler->display->display_options['fields']['description_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['argument_input'] = array(
     'name' => array(
       'type' => 'panel',

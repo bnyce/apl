@@ -81,6 +81,14 @@ function library_services_views_default_views() {
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -92,24 +100,55 @@ function library_services_views_default_views() {
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
   $handler->display->display_options['filters']['vid']['value'] = array(
-    18 => '18',
+    17 => '17',
   );
   $handler->display->display_options['filters']['vid']['group'] = 1;
 
   /* Display:  Library Service Audiences + Descriptions */
   $handler = $view->new_display('panel_pane', ' Library Service Audiences + Descriptions', 'panel_pane_7');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['display_description'] = 'A list of all Library Service Audiences plus descriptions';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'name',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'description',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    2 => array(
+      'field' => 'field_service_audience_image',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Taxonomy term: Content using Library Service Audience */
+  $handler->display->display_options['relationships']['reverse_field_library_service_audience_node']['id'] = 'reverse_field_library_service_audience_node';
+  $handler->display->display_options['relationships']['reverse_field_library_service_audience_node']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['relationships']['reverse_field_library_service_audience_node']['field'] = 'reverse_field_library_service_audience_node';
+  $handler->display->display_options['relationships']['reverse_field_library_service_audience_node']['label'] = 'library_service_audience';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['text'] = '<a alt="[name]" href="/locations/[name]">[name]</a>';
   $handler->display->display_options['fields']['name']['alter']['path'] = 'http://library.austintexas.gov/locations/[name]';
   $handler->display->display_options['fields']['name']['alter']['absolute'] = TRUE;
@@ -123,8 +162,42 @@ function library_services_views_default_views() {
   $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['description']['field'] = 'description';
   $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['exclude'] = TRUE;
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: Service Audience Image */
+  $handler->display->display_options['fields']['field_service_audience_image']['id'] = 'field_service_audience_image';
+  $handler->display->display_options['fields']['field_service_audience_image']['table'] = 'field_data_field_service_audience_image';
+  $handler->display->display_options['fields']['field_service_audience_image']['field'] = 'field_service_audience_image';
+  $handler->display->display_options['fields']['field_service_audience_image']['label'] = '';
+  $handler->display->display_options['fields']['field_service_audience_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_service_audience_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_service_audience_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_service_audience_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_library_service_audience_node';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'reverse_field_library_service_audience_node';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -136,7 +209,7 @@ function library_services_views_default_views() {
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
   $handler->display->display_options['filters']['vid']['value'] = array(
-    18 => '18',
+    17 => '17',
   );
   $handler->display->display_options['filters']['vid']['group'] = 1;
   $export['library_service_feature_taxonomy_view'] = $view;
@@ -157,8 +230,13 @@ function library_services_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
@@ -196,6 +274,7 @@ function library_services_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'services' => 'services',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Library Services Tagged */
   $handler = $view->new_display('panel_pane', 'Library Services Tagged', 'panel_pane_1');
@@ -220,6 +299,11 @@ function library_services_views_default_views() {
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'name',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'field_service_category_image',
       'rendered' => 1,
       'rendered_strip' => 0,
     ),
@@ -250,6 +334,7 @@ function library_services_views_default_views() {
   $handler->display->display_options['fields']['field_service_category_image']['field'] = 'field_service_category_image';
   $handler->display->display_options['fields']['field_service_category_image']['relationship'] = 'field_library_service_category_tid';
   $handler->display->display_options['fields']['field_service_category_image']['label'] = '';
+  $handler->display->display_options['fields']['field_service_category_image']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_service_category_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_service_category_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_service_category_image']['settings'] = array(
@@ -269,7 +354,117 @@ function library_services_views_default_views() {
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['relationship'] = 'field_library_service_category_tid';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+
+  /* Display: Library Services Grouped under Audience */
+  $handler = $view->new_display('panel_pane', 'Library Services Grouped under Audience', 'panel_pane_3');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'name',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'description',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    2 => array(
+      'field' => 'field_service_audience_image',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Library Service Audience (field_library_service_audience) */
+  $handler->display->display_options['relationships']['field_library_service_audience_tid']['id'] = 'field_library_service_audience_tid';
+  $handler->display->display_options['relationships']['field_library_service_audience_tid']['table'] = 'field_data_field_library_service_audience';
+  $handler->display->display_options['relationships']['field_library_service_audience_tid']['field'] = 'field_library_service_audience_tid';
+  $handler->display->display_options['relationships']['field_library_service_audience_tid']['label'] = 'service_audience';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_library_service_audience_tid';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['relationship'] = 'field_library_service_audience_tid';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: Service Audience Image */
+  $handler->display->display_options['fields']['field_service_audience_image']['id'] = 'field_service_audience_image';
+  $handler->display->display_options['fields']['field_service_audience_image']['table'] = 'field_data_field_service_audience_image';
+  $handler->display->display_options['fields']['field_service_audience_image']['field'] = 'field_service_audience_image';
+  $handler->display->display_options['fields']['field_service_audience_image']['relationship'] = 'field_library_service_audience_tid';
+  $handler->display->display_options['fields']['field_service_audience_image']['label'] = '';
+  $handler->display->display_options['fields']['field_service_audience_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_service_audience_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_service_audience_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_service_audience_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['relationship'] = 'field_library_service_audience_tid';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'services' => 'services',
+  );
+  /* Filter criterion: Content: Has taxonomy term */
+  $handler->display->display_options['filters']['tid']['id'] = 'tid';
+  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['tid']['type'] = 'select';
+  $handler->display->display_options['filters']['tid']['vocabulary'] = 'library_service_audience';
   $export['library_service_views'] = $view;
 
   return $export;

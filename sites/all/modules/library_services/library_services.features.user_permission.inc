@@ -35,18 +35,6 @@ function library_services_user_default_permissions() {
     'module' => 'contextual',
   );
 
-  // Exported permission: access toolbar.
-  $permissions['access toolbar'] = array(
-    'name' => 'access toolbar',
-    'roles' => array(
-      0 => 'blogger',
-      1 => 'library service editor',
-      2 => 'meeting rooms administrator',
-      3 => 'pio',
-    ),
-    'module' => 'toolbar',
-  );
-
   // Exported permission: administer taxonomy.
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',

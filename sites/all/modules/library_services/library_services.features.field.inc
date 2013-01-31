@@ -373,7 +373,7 @@ function library_services_field_default_fields() {
       'exclude_cv' => 0,
       'field_name' => 'field_service_audience_image',
       'label' => 'Service Audience Image',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
@@ -396,6 +396,7 @@ function library_services_field_default_fields() {
           ),
           'allowed_types' => array(
             'audio' => 0,
+            0 => 0,
             'default' => 0,
             'image' => 'image',
             'video' => 0,
@@ -458,7 +459,7 @@ function library_services_field_default_fields() {
       'exclude_cv' => 0,
       'field_name' => 'field_service_category_image',
       'label' => 'Service Category Image',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
@@ -481,6 +482,7 @@ function library_services_field_default_fields() {
           ),
           'allowed_types' => array(
             'audio' => 0,
+            0 => 0,
             'default' => 0,
             'image' => 'image',
             'video' => 0,

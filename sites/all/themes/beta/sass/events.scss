@@ -7,7 +7,10 @@ h3 {
         float: left;
 }
 span.views-field.views-field-field-time + .views-field.views-field-title {
-        padding-left: 2em;
+//        padding-left: 2em;
+	display: block;
+	font-weight: normal;
+	margin-left: 5em !important;
 }
 ul.pager {
         margin-top: 1em;

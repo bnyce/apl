@@ -2,6 +2,18 @@
 .views-field-nothing.holiday-schedule {
 	margin-bottom: 1em;
 }
+.views-field.views-field-description {
+	margin-bottom: 1em;
+}
+
+span.days {
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+    text-align: left;
+    width: 9em;
+}
+
 
 .views-field.views-field-field-library-image,
 .views-field.views-field-field-library-image-1 {
@@ -14,7 +26,7 @@ div.street-block {
 .views-field.views-field-field-address,
 .views-field-field-phone-num,
 .views-field.views-field-description,
-.views-field.views-field-description-1,
+//.views-field.views-field-description-1,
 .views-field.holiday-schedule {
 	clear: left !important;
 	float: left !important;
@@ -30,7 +42,8 @@ div.street-block {
 	margin-bottom: 1em;
 	clear: both;
 }
-body.page-locations .views-field-field-geofield {
+//body.page-locations .views-field-field-geofield {
+body.page-locations .views-field-description-1 {
 	margin-bottom: 2em;
 	padding-bottom: 1em;
 	border-bottom: 1px solid $blue-light;

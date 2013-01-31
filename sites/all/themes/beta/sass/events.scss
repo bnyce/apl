@@ -2,5 +2,14 @@ h3 {
 	margin-top: 1em;
 }
 .views-field.views-field-field-time {
-    margin-left: 1em;
+        margin-left: 5px;
+        width: 2.6em;
+        float: left;
 }
+span.views-field.views-field-field-time + .views-field.views-field-title {
+        padding-left: 2em;
+}
+ul.pager {
+        margin-top: 1em;
+}
+

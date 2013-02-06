@@ -54,7 +54,11 @@
             if (typeof ret === 'undefined') {
               ret = true;
             }
-            return ret && Drupal.myClientsideValidation.validators[element.attr('id')].form();
+            ret = ret && Drupal.myClientsideValidation.validators[element.attr('id')].form();
+            if (!ret) {
+              Drupal.ajax[ajax_el].ajaxing = false;
+            }
+            return ret;
           };
         }
       }
@@ -1167,6 +1171,15 @@
       var year = parseInt(parts[param.yearpos], 10);
       var date = new Date();
       var result = true;
+      if (day.toString().length !== parts[param.daypos].length){
+        result = false;
+      }
+      if (month.toString().length !== parts[param.monthpos].length){
+        result = false;
+      }
+      if (year.toString().length !== parts[param.yearpos].length){
+        result = false;
+      }
       if (param.yearpos !== false){
         expectedpartscount++;
         date.setFullYear(year);

@@ -1,0 +1,134 @@
+.clearfix {
+  height: 1%;
+}
+div#awardList.tabContainer {
+  width: 601px;
+  float: left;
+}
+
+
+.messaging p {
+  white-space: normal;
+}
+
+
+div#navAndSearch {
+	width: 633px;
+}
+
+div.library_header div#navAndSearch {
+	width: auto;
+}
+
+div#navAndSearch form {
+	top: 5px;
+}
+
+#navAndSearch input.search_button {
+	float: none;
+	max-width: 100px;
+	margin-top: 1px;
+}
+input.search_button, input.submit_button {
+	border-style: outset;
+}
+
+#header form div.searchOptions{
+	float: left;
+	width: 300px;
+}
+ul.subNav {
+	padding: 3px 0 0 1px;
+}
+
+ul.subNav li.active{
+	border-bottom: 3px solid #FFFFFF;
+}
+
+/* =List Items
+--------------------------------------------------- */
+.mainContent #bib-medium .info {
+	width: 220px;
+}
+
+tr.even td {
+	background: #e2e2e2;
+}
+
+div#audience_select {
+  margin-top: 0px;
+}
+
+div.omdc_loggedIn {
+  margin-top: 0px;
+}
+
+div#jacketCoversContainer {
+  clear: both;
+}
+
+body.omdc div#bottomCap {
+  margin-top: 10px;
+}
+
+div.listItem.disabled div.disabled_overlay {
+	filter:alpha(opacity=40);
+	background-color:  #777;
+	height:180px;
+}
+
+#advanced_search #custom_query {
+	width: 560px;
+	margin: 0;
+}  
+
+/** Program **/
+
+a.large_button, input.large_button{
+  vertical-align: middle; 
+	height: 35px;
+}
+
+a.button img {
+	margin-top:0px;
+}
+
+a.dropDownArrow img {
+	margin-top:2px;
+}
+
+.actions hr {
+	margin-top: -1px !important;
+	margin-bottom: -1px !important;
+}
+
+/** Facets **/
+#popout-box-content .filterList {
+    width: 600px;
+}
+
+.filterList.facets .count, #popout-box-content .filterList ul .count {
+    position: static;
+    margin-left: 3px;
+    margin-right: 1px;
+}
+
+#popout-box-content .filterList .button.cancel {
+    margin-right: 8px;
+}
+
+/* Force Suspension Popup to be a specific size */
+.popup-box-ie-position div.suspend-popup {
+	width: 280px;
+}
+
+/* Logged In Nav */
+#userNav .mySettings img {
+    vertical-align: middle;
+}
+
+
+.suspend_section_top .ui-daterangepickercontain {
+  position: relative !important;
+  top:10px;
+}

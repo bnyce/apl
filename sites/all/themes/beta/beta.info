@@ -86,6 +86,7 @@ stylesheets[all][] = css/webform.css
 stylesheets[all][] = css/top.css
 stylesheets[all][] = css/swatch.css
 stylesheets[all][] = css/hotfix.css
+stylesheets[all][] = css/locations.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

@@ -7,11 +7,12 @@
 
 <!-- begin check to see if the node is a webform, if it is print a meta refresh tag to fix an IE issue with webform css -->
 <?php 
-  if (strstr($classes, "node-type-webform")){ 
- print(
- '<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />'
- );
- };	
+if (strstr($classes, "node-type-webform")){ 
+	print('<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />');
+}	
+elseif (strstr($classes, "page-node-add")){ 
+	print('<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />');
+};	
 ?>
 <!-- end check to see if node is a webform bap 10-8-12  -->
 

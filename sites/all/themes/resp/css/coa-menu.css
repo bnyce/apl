@@ -1,0 +1,72 @@
+/* line 3, ../sass/coa-menu.scss */
+#coa-menu {
+  background-color: #000a10;
+}
+/* line 5, ../sass/coa-menu.scss */
+#coa-menu h2.pane-title {
+  display: none;
+}
+/* line 8, ../sass/coa-menu.scss */
+#coa-menu div {
+  margin: 0;
+  padding: 0;
+}
+/* line 12, ../sass/coa-menu.scss */
+#coa-menu ul.menu {
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  border: medium none;
+  list-style: none outside none;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 8px;
+  font-weight: normal;
+}
+/* line 23, ../sass/coa-menu.scss */
+#coa-menu ul.menu li:nth-child(3) a {
+  color: #fdb813;
+  font-weight: bold;
+}
+/* line 27, ../sass/coa-menu.scss */
+#coa-menu ul.menu li {
+  display: inline;
+  float: none;
+  margin: 0;
+  margin: 0 0 0 0.5em;
+  list-style: none outside none;
+  font-size: 1.2em;
+}
+/* line 34, ../sass/coa-menu.scss */
+#coa-menu ul.menu li a {
+  letter-spacing: 1px;
+  border-right: 1px solid rgba(189, 189, 189, 0.8);
+  color: #BDBDBD;
+  font-size: 1.1em;
+  padding: 0 0.75em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* line 42, ../sass/coa-menu.scss */
+#coa-menu ul.menu li a:hover {
+  text-decoration: underline;
+}
+/* line 45, ../sass/coa-menu.scss */
+#coa-menu ul.menu li a.active {
+  color: #fdb813;
+  font-weight: bold;
+}
+/* line 50, ../sass/coa-menu.scss */
+#coa-menu ul.menu li.first {
+  padding-left: 0;
+}
+/* line 53, ../sass/coa-menu.scss */
+#coa-menu ul.menu li.last a {
+  border-right: none;
+}
+/* line 57, ../sass/coa-menu.scss */
+#coa-menu ul.menu li.expanded, #coa-menu ul.menu li.collapsed, #coa-menu ul.menu li.leaf {
+  margin: 0;
+  padding: 0.2em 0 0 0;
+}

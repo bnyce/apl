@@ -11,7 +11,22 @@ span.days {
     float: left;
     margin-right: 0.5em;
     text-align: left;
-    width: 9em;
+    width: 175px;
+}
+div.library-hours {
+	margin-left: -5px;
+	div {
+		border-bottom: 1px dotted $blue-light;
+		padding: 2px 5px;
+		width: 275px;
+		span.hours {
+			text-align: right;
+			display: block;
+		}
+	}
+	div.last {
+		border-bottom: none;
+	}
 }
 
 

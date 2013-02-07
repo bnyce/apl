@@ -21,16 +21,15 @@ function suggest_a_title_field_group_info() {
   $field_group->parent_name = 'group_suggestion';
   $field_group->data = array(
     'label' => 'More Information (optional)',
-    'weight' => '-2',
+    'weight' => '14',
     'children' => array(
       0 => 'body',
-      1 => 'field_format',
-      2 => 'field_how_did_you_learn_about_th',
-      3 => 'field_isbn_issn_upc',
-      4 => 'field_language',
-      5 => 'field_publisher',
-      6 => 'field_targeted_age_level_of_item',
-      7 => 'field_text_publication_year',
+      1 => 'field_how_did_you_learn_about_th',
+      2 => 'field_isbn_issn_upc',
+      3 => 'field_language',
+      4 => 'field_publisher',
+      5 => 'field_targeted_age_level_of_item',
+      6 => 'field_text_publication_year',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -93,9 +92,13 @@ function suggest_a_title_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_author_performer_band',
-      1 => 'field_url',
-      2 => 'title',
-      3 => 'group_optional',
+      1 => 'field_format',
+      2 => 'field_url',
+      3 => 'field_which_library_locations_do',
+      4 => 'field_your_e_mail',
+      5 => 'field_austin_public_library_card',
+      6 => 'title',
+      7 => 'group_optional',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -125,9 +128,8 @@ function suggest_a_title_field_group_info() {
     'label' => 'How can we follow up with you?',
     'weight' => '4',
     'children' => array(
-      0 => 'field_library_card_number',
-      1 => 'field_which_library_locations_do',
-      2 => 'field_your_e_mail',
+      0 => 'field_which_library_locations_do',
+      1 => 'field_your_e_mail',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

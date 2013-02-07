@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file
+ * Code for the Suggest a Title (Feature) feature.
+ */
+
+include_once 'suggest_a_title.features.inc';
+
+function suggest_a_title_form_alter(&$form, &$form_state, $form_id) {
+if($form_id == 'suggest_a_title_node_form') {
+    drupal_set_title('Suggest a Title for Purchase');
+}
+}

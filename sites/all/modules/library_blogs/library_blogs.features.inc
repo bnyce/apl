@@ -55,11 +55,11 @@ function library_blogs_flag_default_flags() {
     'show_on_form' => 0,
     'access_author' => '',
     'show_on_comment' => 1,
-    'api_version' => 2,
     'module' => 'library_blogs',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 2,
   );
   return $flags;
 

@@ -4,7 +4,7 @@
 	@include page_alpha;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
-
+	background-color: white;
 }
 
 body {
@@ -424,21 +424,21 @@ div#footer {
 }
 
 #block-system-main-menu {
-	height: 86px;
-	margin: 18px auto 0px;
-	width: 900px;
+//	height: 86px;
+//	margin: 18px auto 0px;
+//	width: 900px;
 	ul {
-		margin-left: 285px;
-		padding-top: 58px;
+//		margin-left: 285px;
+//		padding-top: 58px;
 	}
 	li {
-		border-right: 1px solid white;
-		float: left;
-		margin: 0 5px 0 0;
-		padding: 0 5px 0 0;
-		list-style: none;
+//		border-right: 1px solid white;
+//		float: left;
+//		margin: 0 5px 0 0;
+//		padding: 0 5px 0 0;
+//		list-style: none;
 		a {
-			color: white;
+//			color: white;
 		}
 	&.last {
 		border: none;

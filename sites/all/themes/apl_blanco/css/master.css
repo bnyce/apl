@@ -5,6 +5,7 @@
   line-height: 1.5em;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  background-color: white;
 }
 
 /* line 10, ../sass/master.scss */
@@ -481,29 +482,6 @@ div#footer {
   background: #feffa5;
 }
 
-/* line 426, ../sass/master.scss */
-#block-system-main-menu {
-  height: 86px;
-  margin: 18px auto 0px;
-  width: 900px;
-}
-/* line 430, ../sass/master.scss */
-#block-system-main-menu ul {
-  margin-left: 285px;
-  padding-top: 58px;
-}
-/* line 434, ../sass/master.scss */
-#block-system-main-menu li {
-  border-right: 1px solid white;
-  float: left;
-  margin: 0 5px 0 0;
-  padding: 0 5px 0 0;
-  list-style: none;
-}
-/* line 440, ../sass/master.scss */
-#block-system-main-menu li a {
-  color: white;
-}
 /* line 443, ../sass/master.scss */
 #block-system-main-menu li.last {
   border: none;

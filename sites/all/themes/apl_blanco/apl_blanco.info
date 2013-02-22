@@ -89,6 +89,7 @@ stylesheets[all][] = css/swatch.css
 stylesheets[all][] = css/hotfix.css
 stylesheets[all][] = css/locations.css
 stylesheets[all][] = css/services.css
+stylesheets[all][] = css/nice-menus.css
 stylesheets[all][] = css/ace.css
 
 

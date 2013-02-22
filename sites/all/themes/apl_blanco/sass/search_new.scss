@@ -1,0 +1,277 @@
+@import "colors";
+
+#header div.logo {
+  margin: 25px 0px 6px 12px;
+  width: 120px;
+}
+
+#header div.logo_text {
+  margin: 25px 0px 6px 12px;
+  width: 120px;
+}
+
+#header div.mobile_logo {
+  margin: 10px;
+  width: 135px;
+}
+
+#header div.logo_text {
+  font-size: 20px;
+}
+
+#header.omdc div.logo img{
+  height: 109px;
+}
+
+
+#header div.logo img {
+  width: 120px;
+}
+
+#header div.mobile_logo img {
+  margin: 0px;
+  width: 135px;
+} 
+
+#header form {
+	margin-top: 10px;
+	background: transparent;
+	padding: 0px 25px 0px 60px;
+	border-width: 0;
+	border-style: solid;
+	border-color: #f2f2f2;
+	label {
+		font-weight: normal;
+	}
+}
+
+#header form h1 { 
+//  color: #ffffff; 
+	font-size: 14px;
+}
+
+#header form a.moreSearch { 
+	clear: right;
+//	color: #ffffff;
+}
+
+#header form div.searchOptions label.inline {
+//	color: #ffffff;
+	display: inline;
+	border-color: #c2c2c2; 
+	margin: 0 5px 0 2px;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+#header form div.searchOptions label.search_scope_label {
+}
+#header select { 
+//	border-color: #c2c2c2;
+}
+textarea, input.text, input.password {
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px;
+	font-size: 0.916em;
+}
+div#search {
+//	border: 1px solid green;
+	width: 650px;
+	float: right;
+}
+#globalSearch {
+	float: right;
+}
+input.text, input.password {
+	width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+#header {
+	position: relative;
+	margin: 0 0 8px 0px;
+	z-index: 50;
+	background-color: #FFF;
+}
+*/
+#header.omdc {
+	margin: 35px 0 8px 0;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+#header.omdc div.logo {
+	width: 460px;
+}
+#header.omdc h1.header_text {
+	margin: 33px 0 0 0;
+}
+h1.header_text {
+	margin: 0;
+	color: #000000;
+	font-size: 2em;
+}
+h1.header_text em {
+	text-decoration: none;
+	font-style: normal;
+}
+h1.header_text span.betaMarker {
+	color: #B2B2B2;
+	font-size: 0.5em;
+	line-height: 2em;
+	vertical-align: text-top;
+	cursor: help;
+}
+#header div.logo, #header div.logo_text {
+	float: left;
+	clear: both;
+}
+#header div.logo_text {
+	padding: 0px 10px;
+	float: left;
+}
+#header div.logo_text h1, #header div.logo_text h2 {
+	color: #000;
+	margin: 0px;
+	text-align: left;
+}
+#header div.logo_text h1 {
+	font-size: 1em;
+}
+#header div.logo_text h2 {
+	font-size: 0.6em;
+}
+#header.omdc div.logo a, #header.omdc div.logo a img {
+	float: left;
+}
+#header #navAndSearch {
+	float: right;
+	width: 648px;
+}
+#header #navBar {
+	float: right;
+	width: 800px;
+}
+#header.omdc form {
+	float: right;
+	padding: 0;
+	border: none;
+	width: 245px;
+	clear: none;
+	top: 19px;
+}
+/*
+#header form {
+	position: relative;
+	margin: 0 5px 5px 0;
+	clear: both;
+}
+*/
+#header form .autocompleter-choices {
+	position: absolute;
+}
+#header form h1 {
+	font-weight: normal;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	margin: 10px 0 5px 0;
+	clear: both;
+	padding: 0;
+	text-align: right;
+}
+#header form a.moreSearch {
+	white-space: nowrap;
+//	text-decoration: underline;
+	font-size: 10px;
+	text-align: right;
+	display:block;
+//	border: 1px solid $blue;
+	width: 15em;
+	float: right;
+	&:hover {
+		text-decoration: underline;
+		color: $blue;
+	}
+}
+#header form div.searchOptions {
+	color: $blue;
+	float: left;
+	margin-left: 5px;
+	padding-left: 134px;
+}
+#header form div.searchOptions label.search_scope_label {
+	display: inline;
+}
+#header form a.help_icon {
+	top: 10px;
+	margin: -5px 0 0 0;
+}
+#header.omdc input.text {
+	margin: 0;
+	height: 19px;
+	width: 170px;
+	padding-left: 20px;
+	-moz-border-radius: 15px 0 0 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+	border-radius: 15px 0 0 15px;
+	background: #f2f2f2;
+	border: 1px solid #e2e2e2;
+	float: left;
+}
+#header input.text {
+	border-color: $blue-medium;
+	margin: 0;
+	height: 20px;
+	width: 350px;
+	font-size: 1.2em;
+	border-width: 1px 0 1px 1px;
+	float: right;
+}
+#header input.search_scope {
+	width: 295px;
+}
+#header form select {
+	width: 124px;
+	margin: 0 2px 0 0;
+//	height: 28px;
+	padding: 6px 2px 6px 0;
+	float: right;
+}
+#header input.search_button {
+	background-color: $blue;
+	color: white;
+	height: 30px;
+	padding: 4px 10px 5px;
+	vertical-align: middle;
+	float: right;
+//	position: absolute;
+//	right: 15px;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+}

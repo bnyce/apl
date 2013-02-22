@@ -1,0 +1,310 @@
+/* line 3, ../sass/search_new.scss */
+#header div.logo {
+  margin: 25px 0px 6px 12px;
+  width: 120px;
+}
+
+/* line 8, ../sass/search_new.scss */
+#header div.logo_text {
+  margin: 25px 0px 6px 12px;
+  width: 120px;
+}
+
+/* line 13, ../sass/search_new.scss */
+#header div.mobile_logo {
+  margin: 10px;
+  width: 135px;
+}
+
+/* line 18, ../sass/search_new.scss */
+#header div.logo_text {
+  font-size: 20px;
+}
+
+/* line 22, ../sass/search_new.scss */
+#header.omdc div.logo img {
+  height: 109px;
+}
+
+/* line 27, ../sass/search_new.scss */
+#header div.logo img {
+  width: 120px;
+}
+
+/* line 31, ../sass/search_new.scss */
+#header div.mobile_logo img {
+  margin: 0px;
+  width: 135px;
+}
+
+/* line 36, ../sass/search_new.scss */
+#header form {
+  margin-top: 10px;
+  background: transparent;
+  padding: 0px 25px 0px 60px;
+  border-width: 0;
+  border-style: solid;
+  border-color: #f2f2f2;
+}
+/* line 43, ../sass/search_new.scss */
+#header form label {
+  font-weight: normal;
+}
+
+/* line 48, ../sass/search_new.scss */
+#header form h1 {
+  font-size: 14px;
+}
+
+/* line 53, ../sass/search_new.scss */
+#header form a.moreSearch {
+  clear: right;
+}
+
+/* line 58, ../sass/search_new.scss */
+#header form div.searchOptions label.inline {
+  display: inline;
+  border-color: #c2c2c2;
+  margin: 0 5px 0 2px;
+}
+/* line 63, ../sass/search_new.scss */
+#header form div.searchOptions label.inline:hover {
+  text-decoration: underline;
+}
+
+/* line 73, ../sass/search_new.scss */
+textarea, input.text, input.password {
+  border-width: 1px;
+  border-style: solid;
+  padding: 4px;
+  font-size: 0.916em;
+}
+
+/* line 79, ../sass/search_new.scss */
+div#search {
+  width: 650px;
+  float: right;
+}
+
+/* line 84, ../sass/search_new.scss */
+#globalSearch {
+  float: right;
+}
+
+/* line 87, ../sass/search_new.scss */
+input.text, input.password {
+  width: 200px;
+}
+
+/*
+#header {
+	position: relative;
+	margin: 0 0 8px 0px;
+	z-index: 50;
+	background-color: #FFF;
+}
+*/
+/* line 121, ../sass/search_new.scss */
+#header.omdc {
+  margin: 35px 0 8px 0;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+/* line 127, ../sass/search_new.scss */
+#header.omdc div.logo {
+  width: 460px;
+}
+
+/* line 130, ../sass/search_new.scss */
+#header.omdc h1.header_text {
+  margin: 33px 0 0 0;
+}
+
+/* line 133, ../sass/search_new.scss */
+h1.header_text {
+  margin: 0;
+  color: #000000;
+  font-size: 2em;
+}
+
+/* line 138, ../sass/search_new.scss */
+h1.header_text em {
+  text-decoration: none;
+  font-style: normal;
+}
+
+/* line 142, ../sass/search_new.scss */
+h1.header_text span.betaMarker {
+  color: #B2B2B2;
+  font-size: 0.5em;
+  line-height: 2em;
+  vertical-align: text-top;
+  cursor: help;
+}
+
+/* line 149, ../sass/search_new.scss */
+#header div.logo, #header div.logo_text {
+  float: left;
+  clear: both;
+}
+
+/* line 153, ../sass/search_new.scss */
+#header div.logo_text {
+  padding: 0px 10px;
+  float: left;
+}
+
+/* line 157, ../sass/search_new.scss */
+#header div.logo_text h1, #header div.logo_text h2 {
+  color: #000;
+  margin: 0px;
+  text-align: left;
+}
+
+/* line 162, ../sass/search_new.scss */
+#header div.logo_text h1 {
+  font-size: 1em;
+}
+
+/* line 165, ../sass/search_new.scss */
+#header div.logo_text h2 {
+  font-size: 0.6em;
+}
+
+/* line 168, ../sass/search_new.scss */
+#header.omdc div.logo a, #header.omdc div.logo a img {
+  float: left;
+}
+
+/* line 171, ../sass/search_new.scss */
+#header #navAndSearch {
+  float: right;
+  width: 648px;
+}
+
+/* line 175, ../sass/search_new.scss */
+#header #navBar {
+  float: right;
+  width: 800px;
+}
+
+/* line 179, ../sass/search_new.scss */
+#header.omdc form {
+  float: right;
+  padding: 0;
+  border: none;
+  width: 245px;
+  clear: none;
+  top: 19px;
+}
+
+/*
+#header form {
+	position: relative;
+	margin: 0 5px 5px 0;
+	clear: both;
+}
+*/
+/* line 194, ../sass/search_new.scss */
+#header form .autocompleter-choices {
+  position: absolute;
+}
+
+/* line 197, ../sass/search_new.scss */
+#header form h1 {
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 10px 0 5px 0;
+  clear: both;
+  padding: 0;
+  text-align: right;
+}
+
+/* line 206, ../sass/search_new.scss */
+#header form a.moreSearch {
+  white-space: nowrap;
+  font-size: 10px;
+  text-align: right;
+  display: block;
+  width: 15em;
+  float: right;
+}
+/* line 215, ../sass/search_new.scss */
+#header form a.moreSearch:hover {
+  text-decoration: underline;
+  color: #0069aa;
+}
+
+/* line 220, ../sass/search_new.scss */
+#header form div.searchOptions {
+  color: #0069aa;
+  float: left;
+  margin-left: 5px;
+  padding-left: 134px;
+}
+
+/* line 226, ../sass/search_new.scss */
+#header form div.searchOptions label.search_scope_label {
+  display: inline;
+}
+
+/* line 229, ../sass/search_new.scss */
+#header form a.help_icon {
+  top: 10px;
+  margin: -5px 0 0 0;
+}
+
+/* line 233, ../sass/search_new.scss */
+#header.omdc input.text {
+  margin: 0;
+  height: 19px;
+  width: 170px;
+  padding-left: 20px;
+  -moz-border-radius: 15px 0 0 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -webkit-border-top-left-radius: 15px;
+  border-radius: 15px 0 0 15px;
+  background: #f2f2f2;
+  border: 1px solid #e2e2e2;
+  float: left;
+}
+
+/* line 246, ../sass/search_new.scss */
+#header input.text {
+  border-color: #bfd3df;
+  margin: 0;
+  height: 20px;
+  width: 350px;
+  font-size: 1.2em;
+  border-width: 1px 0 1px 1px;
+  float: right;
+}
+
+/* line 255, ../sass/search_new.scss */
+#header input.search_scope {
+  width: 295px;
+}
+
+/* line 258, ../sass/search_new.scss */
+#header form select {
+  width: 124px;
+  margin: 0 2px 0 0;
+  padding: 6px 2px 6px 0;
+  float: right;
+}
+
+/* line 265, ../sass/search_new.scss */
+#header input.search_button {
+  background-color: #0069aa;
+  color: white;
+  height: 30px;
+  padding: 4px 10px 5px;
+  vertical-align: middle;
+  float: right;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}

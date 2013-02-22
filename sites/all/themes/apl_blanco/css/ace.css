@@ -1,0 +1,18 @@
+/* line 3, ../sass/ace.scss */
+div.overlogodiv {
+  background: url("../images/apl_logo_color.png") no-repeat scroll 10px center transparent;
+}
+
+/* line 7, ../sass/ace.scss */
+#header-region {
+  background-color: white;
+  background-image: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-left: 15px;
+}
+
+/* line 14, ../sass/ace.scss */
+li.apl-mnav-link.ahc > a {
+  font-weight: 800;
+}

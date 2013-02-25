@@ -1,20 +1,62 @@
 @import "colors";
 
-body.page-node-22112 {
+body.page-node-22112,
+body.page-node-22115 {
 	ul.primary {
 //		display: none; // delete this line after testing...
 	}
-	h1.title {
-		margin-bottom: 1em;
-	}
+//	h1.title {
+//		margin-bottom: 1em;
+//	}
 }
 div#virtual {
+	div.virtual-service {
+		p.title,	
+		a {
+		margin-left: 15px;
+		display: inline;
+	}
+	}
+	div.description {
+		border: 1px solid #bbee77;
+		background-color: #f8fff0;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		padding: 7px 10px 10px;
+//		margin-bottom: 1em;
+//		margin-top: 5px;
+		margin: 2px 0 1em 5px;
+	}
+	div.more-info {
+	    clip: rect(1px, 1px, 1px, 1px);
+	    height: 1px;
+	    overflow: hidden;
+	    position: absolute !important;
+	}
+	
+		span.show-hide {
+			&:hover {
+				cursor: hand;
+			}
+			display: block;
+			margin-top: -1.6em;
+			margin-left: -3px;
+			text-align: right;
+		background: url("../images/menu-collapsed.png") no-repeat scroll 5px 65% transparent;
+		z-index: 1000;
+//		padding-left: 15px;
+		//margin-left: -5px;
+	&.expanded {
+		background-image: url("../images/menu-expanded.png");
+	}
+		}
 			div.services-grouping {
 				padding: 5px;
 			}
 	div.grouping {
 		&.help {
-			border: 1px solid $green-medium;
+			border: 1px solid #BBEE77;
+			background-color: #F8FFF0;
 			h2 {
 				color: green;
 			}
@@ -24,8 +66,14 @@ div#virtual {
 			margin: 10px 10px 0;
 		}
 		div.content {
+			div.popup-element a {
+				color: $blue;
+				&:visited {
+					color: $blue-purple;
+				}
+			}
 			span.coming-soon {
-				color: red;
+				color: silver;
 			}
 			ul {
 				list-style-type: none;
@@ -71,7 +119,8 @@ div#virtual {
 //		&:nth-child(4) {
 			margin-right: 0;
 			clear: none;
-			float: right;
+		//	float: right;
+			float: left;
 		}
 	}
 }

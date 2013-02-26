@@ -1,0 +1,251 @@
+/* line 1, ../sass/hotfix.scss */
+div {
+  z-index: 0;
+}
+
+/* line 5, ../sass/hotfix.scss */
+div#header-region {
+  z-index: 1 !important;
+}
+
+/* line 9, ../sass/hotfix.scss */
+h2.pane-title {
+  clear: both;
+}
+
+/* line 13, ../sass/hotfix.scss */
+div.field-content div.blEntryWrapper div.book_desc {
+  overflow: visible !important;
+}
+
+/* line 17, ../sass/hotfix.scss */
+.view-footer {
+  text-align: right;
+}
+
+/* line 21, ../sass/hotfix.scss */
+.view-id-all_book_lists .view-footer {
+  text-align: right;
+}
+
+/* line 25, ../sass/hotfix.scss */
+.apl_external_test {
+  font-size: 36px !important;
+  color: green !important;
+}
+
+/* line 30, ../sass/hotfix.scss */
+.bottom_social {
+  list-style: none;
+}
+/* line 32, ../sass/hotfix.scss */
+.bottom_social ul {
+  list-style-type: none;
+}
+
+/* line 37, ../sass/hotfix.scss */
+.bottom_links ul {
+  list-style-type: none;
+}
+/* line 39, ../sass/hotfix.scss */
+.bottom_links ul li {
+  float: left;
+}
+
+/* line 44, ../sass/hotfix.scss */
+.bottom_social ul li {
+  float: left;
+}
+
+/* line 48, ../sass/hotfix.scss */
+.view-location-based-blogs .view-footer {
+  text-align: right;
+}
+
+/* line 53, ../sass/hotfix.scss */
+.pane-news-panel-pane-6 div.views-row,
+.pane-news-panel-pane-6 div.views-row-last {
+  margin-bottom: 4px;
+}
+
+/* line 57, ../sass/hotfix.scss */
+.pane-news-panel-pane-6 div.views-row-last {
+  border-bottom: none;
+}
+
+/* line 61, ../sass/hotfix.scss */
+.pane-news-panel-pane-6 div.view-empty {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 68, ../sass/hotfix.scss */
+.pane-news-panel-pane-6 span.field-content,
+.pane-news-panel-pane-7 span.field-content {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 76, ../sass/hotfix.scss */
+.pane-news-panel-pane-8 p {
+  border-bottom: 1px solid #CCCCCC;
+  margin-bottom: 8px;
+  font: 13px Arial,Helvetica,sans-serif;
+}
+
+/* line 88, ../sass/hotfix.scss */
+.recent-blog-posts .views-field-title {
+  font: 13px Arial,Helvetica,sans-serif !important;
+  text-transform: none !important;
+}
+
+/* line 102, ../sass/hotfix.scss */
+.pane-highlighted-images-panel-pane-2 .pane-content,
+.pane-highlighted-images-panel-pane-1 .pane-content,
+.pane-highlighted-images-panel-pane-4 .pane-content,
+.pane-highlighted-images-panel-pane-5 .pane-content,
+.pane-2 .pane-content,
+.pane-3 .pane-content,
+.pane-block-15 .pane-content,
+.pane-block-13 .pane-content,
+.pane-new-location-view-panel-pane-3 .pane-content {
+  padding: 0 !important;
+}
+
+/* line 107, ../sass/hotfix.scss */
+.pane-block-13 .pane-content {
+  width: 293px !important;
+}
+
+/* line 111, ../sass/hotfix.scss */
+.views-field-field-lib-image img {
+  width: auto !important;
+}
+
+/*
+.apl-main-nav {
+	float: right;
+	list-style: none; 
+	list-style-type: none !important; 
+	list-style-position: outside;
+	margin: auto;
+}
+
+li.apl-mnav-last {
+	border-right: none !important;
+}
+
+.apl-mnav-link {
+	float: right;
+	border-right: 1px solid white;
+    margin: 0 5px 0 0 !important;
+    padding: 0 5px 0 0 !important;
+}
+*/
+/* line 138, ../sass/hotfix.scss */
+.pane-news-panel-pane-6 a:link, .pane-news-panel-pane-6 a:visited {
+  color: red;
+}
+
+/* line 144, ../sass/hotfix.scss */
+.container-inline-date .form-item,
+.container-inline-date .form-item input {
+  width: 50px;
+}
+
+/* line 148, ../sass/hotfix.scss */
+.country {
+  display: none;
+}
+
+/* line 152, ../sass/hotfix.scss */
+.thoroughfare {
+  float: left;
+  padding-right: 5px;
+}
+
+/* line 158, ../sass/hotfix.scss */
+.pane-events-panel-pane-7 .views-label {
+  float: left;
+  font-weight: bold;
+  padding-right: 5px;
+}
+/* line 163, ../sass/hotfix.scss */
+.pane-events-panel-pane-7 .field-content {
+  margin: 10px 0;
+}
+
+/* line 169, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .views-field-name,
+.pane-new-location-view-panel-pane-2 .view-display-id-panel_pane_2 .views-row .views-field-name span.field-content {
+  float: left;
+  font-size: 16px;
+}
+
+/* line 175, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .street-block,
+.view-display-id-panel_pane_2 .street-block {
+  float: left;
+  margin-left: 10px;
+}
+
+/* line 180, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .postal-code {
+  float: left;
+  display: none;
+}
+
+/* line 189, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .state,
+.pane-new-location-view-panel-pane-1 .locality,
+.pane-new-location-view-panel-pane-1 .country,
+.pane-new-location-view-panel-pane-1 .address {
+  float: left;
+}
+
+/* line 196, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .views-field-field-phone-num,
+.page-locations .views-field-field-phone-num {
+  display: block;
+  float: right;
+  clear: none;
+  width: auto;
+  padding-left: 10px;
+}
+
+/* line 205, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .views-field-field-phone-num .field-content {
+  float: left;
+}
+
+/* line 209, ../sass/hotfix.scss */
+.pane-new-location-view-panel-pane-1 .views-field-nothing {
+  margin-bottom: 15px;
+}
+
+/* line 214, ../sass/hotfix.scss */
+.view-display-id-panel_pane_2 .postal-code {
+  float: left;
+  display: none;
+}
+
+/* line 219, ../sass/hotfix.scss */
+div.views-row div.field-content div.locality-block span.postal-code {
+  margin: 0px !important;
+  padding: 0px;
+  float: left !important;
+  text-align: left;
+}
+
+/* line 226, ../sass/hotfix.scss */
+.views-field-field-lib-image {
+  border-top: 1px solid silver;
+  padding-top: 10px;
+}
+
+/* line 231, ../sass/hotfix.scss */
+.view-id-faq_views .views-field-title dt.handler {
+  color: blue;
+}

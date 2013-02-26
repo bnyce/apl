@@ -20,7 +20,8 @@ function suggest_a_title_default_rules_configuration() {
             "node" : [ "node" ],
             "type" : { "value" : { "suggest_a_title" : "suggest_a_title" } }
           }
-        }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-your-e-mail" ] } }
       ],
       "DO" : [
         { "mail" : {
@@ -32,7 +33,7 @@ function suggest_a_title_default_rules_configuration() {
           }
         },
         { "drupal_message" : {
-            "message" : "\\u003Cp\\u003EThank you for Suggesting a Title for Purchase. You can expect to receive a follow up e-mail within two months.\\u003C\\/p\\u003E",
+            "message" : "\\u003Cp\\u003EThank you for suggesting \\u003Ci\\u003E[node:title]\\u003C\\/i\\u003E. You can expect to receive a follow up email within two months.\\u003C\\/p\\u003E",
             "repeat" : 0
           }
         }
@@ -65,7 +66,7 @@ function suggest_a_title_default_rules_configuration() {
       "DO" : [
         { "mail" : {
             "to" : "[node:field-your-e-mail]; \\u0022(Remove static address on apldev! -in catalog- ) Suggestor\\u0027s e-mail here\\u0022 \\u003Cbryce.benton@austintexas.gov\\u003E",
-            "subject" : "Thank you for taking the time to make a purchase suggestion to us for:\\r\\n\\r\\nTitle:\\r\\n[node:title]\\r\\n\\r\\nAuthor\\/Performer\\/Band:\\r\\n[node:field-author-performer-band]\\r\\n\\r\\nCustomer suggestions help us build a quality library collection. Unfortunately, we are not able to purchase the title at this time. This item does not meet the Austin Public Library\\u2019s \\u003Ca href=\\u0022http:\\/\\/library.austintexas.gov\\/basic-page\\/materials-selection-policy\\u0022\\u003EMaterials Selection policy\\u003C\\/a\\u003E.\\r\\n\\r\\nYou may be able to borrow this title through Interlibrary Loan (ILL). Interlibrary Loan is a service that allows Austin Public Library card holders access to materials from other library collections worldwide. To use Interlibrary Loan services you must have a current Library card. To inquire about the title you are interested in, please phone our Call a Librarian service, (512) 974-7400, or email our \\u003Ca href=\\u0022http:\\/\\/library.austintexas.gov\\/ask\\u0022\\u003EAsk a Librarian\\u003C\\/a\\u003E service. ",
+            "subject" : "Suggest a Title for Purchase - Follow Up",
             "message" : "Thank you for taking the time to make a purchase suggestion to us for:\\r\\n\\r\\nTitle:\\r\\n[node:title]\\r\\n\\r\\nAuthor\\/Performer\\/Band:\\r\\n[node:field-author-performer-band]\\r\\n\\r\\nCustomer suggestions help us build a quality library collection. This title is listed in our catalog.  For help locating a copy, please visit, email, chat, or call us:\\r\\n\\r\\nLocations and hours of operation: \\r\\nhttp:\\/\\/www.austinlibrary.com\\/mapapp\\/gmap.cfm?zipcode=all\\r\\n\\r\\nLibrary Catalog: \\r\\nhttp:\\/\\/austin.bibliocommons.com \\r\\n\\r\\nAsk a Librarian: \\r\\nhttp:\\/\\/library.austintexas.gov\\/ask\\r\\n\\r\\nCall a Librarian: \\r\\n(512) 974-7400",
             "from" : "\\u0022Austin Public Library\\u0022 \\u003Cnoreplyapl@austintexas.gov\\u003E",
             "language" : [ "" ]

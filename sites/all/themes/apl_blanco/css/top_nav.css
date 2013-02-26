@@ -1,0 +1,268 @@
+/* line 3, ../sass/top_nav.scss */
+#header-region {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* line 176, ../sass/_colors.scss */
+#header-region div.overlogodiv {
+  height: 86px;
+  width: 200px;
+  margin: 0;
+}
+
+/* line 7, ../sass/top_nav.scss */
+#header {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: white;
+}
+
+/* line 20, ../sass/top_nav.scss */
+.apl-nav-div {
+  display: block;
+  width: 100%;
+  float: left;
+  vertical-align: text-bottom;
+  background-color: #0069aa !important;
+}
+/* line 36, ../sass/top_nav.scss */
+.apl-nav-div li a {
+  color: white;
+  padding: 4px;
+}
+
+/* line 42, ../sass/top_nav.scss */
+ul.apl_site_menu_top_cont {
+  float: right;
+  list-style: none outside none;
+  margin: auto;
+}
+/* line 47, ../sass/top_nav.scss */
+ul.primary {
+  border-bottom: 1px solid #BBBBBB;
+  border-collapse: collapse;
+  height: auto;
+  line-height: normal;
+  list-style: none outside none;
+  margin: 5px;
+  padding: 0 0 0 1em;
+  white-space: nowrap;
+}
+/* line 56, ../sass/top_nav.scss */
+ul.primary li {
+  display: inline;
+}
+/* line 58, ../sass/top_nav.scss */
+ul.primary li.active a {
+  background-color: #FFFFFF;
+  border-color: #BBBBBB #BBBBBB #FFFFFF;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px;
+}
+/* line 65, ../sass/top_nav.scss */
+ul.primary li a {
+  background-color: #DDDDDD;
+  border-color: #BBBBBB;
+  border-style: solid solid none;
+  border-width: 1px;
+  height: auto;
+  margin-right: 0.5em;
+  padding: 0 1em;
+  text-decoration: none;
+}
+/* line 77, ../sass/top_nav.scss */
+ul#topnav {
+  overflow: visible !important;
+  height: 2em;
+  float: right !important;
+  text-align: right;
+  width: auto;
+  color: #000000;
+  font-size: 1.1em;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0 0 0 0;
+}
+/* line 89, ../sass/top_nav.scss */
+ul#topnav li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: small;
+  list-style: none outside none !important;
+}
+/* line 101, ../sass/top_nav.scss */
+ul#topnav li ul li a {
+  text-align: left !important;
+}
+/* line 104, ../sass/top_nav.scss */
+ul#topnav li a {
+  height: auto !important;
+}
+/* line 107, ../sass/top_nav.scss */
+ul#topnav li.apl-mnav-link {
+  border-right: 1px solid rgba(255, 255, 255, 0.8) !important;
+  margin: 0 !important;
+  float: left;
+  list-style-type: none !important;
+}
+/* line 108, ../sass/top_nav.scss */
+ul#topnav li.apl-mnav-link:hover {
+  border-right: 1px solid transparent !important;
+}
+/* line 117, ../sass/top_nav.scss */
+ul#topnav li.apl-mnav-link a {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* line 121, ../sass/top_nav.scss */
+ul#topnav li.apl-mnav-link a:hover, ul#topnav li.apl-mnav-link a.selected_nav {
+  background: rgba(191, 211, 223, 0.9);
+  border-top-right-radius: 5px;
+  color: black;
+  padding-bottom: 1em;
+}
+/* line 133, ../sass/top_nav.scss */
+ul#topnav li.apl-mnav-link.apl-mnav-last a:hover, ul#topnav li.apl-mnav-link.apl-mnav-last a.selected_nav {
+  background: #bfd3df;
+  border-radius: 0 5px 0 5px;
+  color: black;
+}
+/* line 141, ../sass/top_nav.scss */
+ul#topnav li.prev_selected_nav {
+  border-right: 1px solid transparent !important;
+}
+/* line 145, ../sass/top_nav.scss */
+ul#topnav li.apl-mnav-last {
+  border-right: 1px solid transparent !important;
+}
+/* line 148, ../sass/top_nav.scss */
+ul#topnav li .sub {
+  background: url("sub_bg.png") repeat-x scroll 0 0 rgba(0, 105, 170, 0.3);
+  display: none;
+  float: left;
+  left: 0;
+  padding: 4px 14px 4px 4px;
+  position: absolute;
+  top: 28px;
+  z-index: 9999 !important;
+  border-radius: 0 5px 0 5px;
+}
+/* line 161, ../sass/top_nav.scss */
+ul#topnav li .sub ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  float: left;
+}
+/* line 167, ../sass/top_nav.scss */
+ul#topnav li .sub ul li {
+  width: 100%;
+  color: #fff;
+}
+/* line 170, ../sass/top_nav.scss */
+ul#topnav li .sub ul li a {
+  float: none;
+  text-indent: 0;
+  height: auto;
+  background: url(navlist_arrow.png) no-repeat 5px 12px;
+  padding: 3px 3px 3px 5px;
+  display: block;
+  text-decoration: none;
+  color: #404041;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 10px;
+}
+/* line 183, ../sass/top_nav.scss */
+ul#topnav li .sub ul li a:hover, ul#topnav li .sub ul li a.selected_nav {
+  color: red;
+  background-color: transparent !important;
+  padding-bottom: 3px;
+  line-height: 10px;
+}
+/* line 190, ../sass/top_nav.scss */
+ul#topnav li .sub ul li h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: normal;
+}
+/* line 195, ../sass/top_nav.scss */
+ul#topnav li .sub ul li h2 a {
+  padding: 5px 0 !important;
+  background-image: none;
+  color: #404041;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 13px;
+}
+/* line 204, ../sass/top_nav.scss */
+ul#topnav li .sub ul li h2 a:hover, ul#topnav li .sub ul li h2 a.selected_nav {
+  color: red;
+  padding: 7px 0 6px 0 !important;
+}
+/* line 213, ../sass/top_nav.scss */
+ul#topnav li .row {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: white;
+  padding: 3px 3px 5px 7px;
+  border-radius: 0 5px 0 5px;
+}
+/* line 223, ../sass/top_nav.scss */
+ul#topnav li a {
+  float: left;
+  height: 30px;
+  text-align: left;
+}
+/* line 227, ../sass/top_nav.scss */
+ul#topnav li a.myaccount {
+  width: 85px;
+}
+/* line 230, ../sass/top_nav.scss */
+ul#topnav li a.locations {
+  width: 110px;
+}
+/* line 233, ../sass/top_nav.scss */
+ul#topnav li a.research {
+  width: 70px;
+}
+/* line 236, ../sass/top_nav.scss */
+ul#topnav li a.about {
+  width: 100px;
+}
+/* line 239, ../sass/top_nav.scss */
+ul#topnav li a.catalog {
+  width: 60px;
+}
+/* line 242, ../sass/top_nav.scss */
+ul#topnav li a.programs {
+  width: 125px;
+}
+/* line 245, ../sass/top_nav.scss */
+ul#topnav li a.recommendations {
+  background: url(images/nav_recommendations.jpg) no-repeat;
+  width: 135px;
+}
+/* line 249, ../sass/top_nav.scss */
+ul#topnav li a.youth {
+  background: url(images/nav_youth.jpg) no-repeat;
+  width: 55px;
+}
+/* line 254, ../sass/top_nav.scss */
+ul#topnav li:hover a, ul#topnav li a:hover {
+  background-position: left bottom;
+}

@@ -1,0 +1,43 @@
+/* line 4, ../sass/services.scss */
+body.page-libraryservices h1.title {
+  margin-bottom: 1em;
+}
+/* line 7, ../sass/services.scss */
+body.page-libraryservices div.view-grouping-content {
+  margin: 0 10px 20px;
+}
+/* line 10, ../sass/services.scss */
+body.page-libraryservices div.services-grouping {
+  padding: 5px;
+}
+/* line 13, ../sass/services.scss */
+body.page-libraryservices div.view-grouping {
+  width: 436px !important;
+  margin-bottom: 25px;
+  border: 1px solid #0069aa;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 14, ../sass/services.scss */
+body.page-libraryservices div.view-grouping div.view-grouping-header {
+  font-size: 1.5em;
+  margin: 10px 10px 0;
+}
+/* line 33, ../sass/services.scss */
+body.page-libraryservices div.view-grouping:nth-child(1), body.page-libraryservices div.view-grouping:nth-child(3), body.page-libraryservices div.view-grouping:nth-child(5), body.page-libraryservices div.view-grouping:nth-child(7), body.page-libraryservices div.view-grouping:nth-child(9), body.page-libraryservices div.view-grouping:nth-child(11), body.page-libraryservices div.view-grouping:nth-child(13), body.page-libraryservices div.view-grouping:nth-child(15), body.page-libraryservices div.view-grouping:nth-child(17), body.page-libraryservices div.view-grouping:nth-child(19) {
+  float: left;
+  clear: both;
+}
+/* line 46, ../sass/services.scss */
+body.page-libraryservices div.view-grouping:nth-child(2), body.page-libraryservices div.view-grouping:nth-child(4), body.page-libraryservices div.view-grouping:nth-child(6), body.page-libraryservices div.view-grouping:nth-child(8), body.page-libraryservices div.view-grouping:nth-child(10), body.page-libraryservices div.view-grouping:nth-child(12), body.page-libraryservices div.view-grouping:nth-child(14), body.page-libraryservices div.view-grouping:nth-child(16), body.page-libraryservices div.view-grouping:nth-child(18), body.page-libraryservices div.view-grouping:nth-child(20) {
+  float: right;
+}
+/* line 49, ../sass/services.scss */
+body.page-libraryservices div.view-grouping img {
+  max-width: 100%;
+  max-height: 175px;
+  width: 416px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 10px;
+}

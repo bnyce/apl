@@ -1,0 +1,167 @@
+//$blue: #0069AA;
+$blue: #aaaf7a;
+$yellow: #fdb813;
+$width: 960px;
+
+$radius: 10px;
+
+$white: white;
+$black: black;
+$silver: #CCCCCC;
+$purple: #800080;
+
+
+$status_border: #be7;
+$status_color: #234600;
+$status_background: #f8fff0;
+
+$warning_border: #ed5;
+$warning_color: #840;
+$warning_background: #fffce5;
+
+$error_border: #ed541d;
+$error_color: #8c2e0b;
+$error_background: #fef5f1;
+$error_p_color: #333;
+
+$gray_medium: #efefef;
+$purple_light: #edf0ff;
+
+$blue_medium_old: #CEDAEC;
+$blue_medium: lighten(mix($silver, $blue, 60%), 20%);
+$green_medium: lighten(mix($silver, green, 60%), 20%);
+
+$blue_purple: mix($purple, $blue, 60%);
+$blue_black: mix($black, $blue, 90%);
+
+
+$blue_light_old: #EBEFF7;
+$blue_light: lighten($blue_medium, 10%);
+$green_light: lighten($green_medium, 10%);
+
+$search_border: #B2B2B2;
+
+$blue_silver: mix($white, $blue, 25%);
+
+$beige: #FFEAC4;
+$background_color: $beige;
+
+
+$title_color: $blue;
+
+$link_color: $blue;
+$visited_color: $blue;
+
+$hover_color: #999;
+$active_color: #999;
+
+
+//$brand_color: $blue;
+$brand_color: silver;
+$action_color: $status_border;
+$function_color: #f2f2f2;
+$alert_color: $warning_border;
+
+$brand_color_light: lighten( $brand_color, 10% );
+$brand_color_lighter: lighten( $brand_color, 20% );
+$brand_color_dark: darken( $brand_color, 10% );
+$brand_color_darker: darken( $brand_color, 20% );
+
+$action_color_light: lighten( $action_color, 10% );
+$action_color_lighter: lighten( $action_color, 20% );
+$action_color_dark: darken( $action_color, 10% );
+$action_color_darker: darken( $action_color, 20% );
+
+$function_color_light: lighten( $function_color, 10% );
+$function_color_lighter: lighten( $function_color, 20% );
+$function_color_dark: darken( $function_color, 10% );
+$function_color_darker: darken( $function_color, 20% );
+
+$alert_color_light: lighten( $alert_color, 10% );
+$alert_color_lighter: lighten( $alert_color, 20% );
+$alert_color_dark: darken( $alert_color, 10% );
+$alert_color_darker: darken( $alert_color, 20% );
+
+@mixin gradient($color1, $color2) {
+	background: -webkit-gradient(linear, left center, right center, from($color1), to($color2));
+	background: -moz-linear-gradient(left, $color1, $color2);
+	background: linear-gradient(270deg, $color2, $color1);
+	-pie-background: linear-gradient(270deg, $color2, $color1);
+	behavior: url(/sites/default/themes/beta/css/PIE.htc);
+}
+
+@mixin headline {
+	background: $blue;
+	border-top-left-radius: $radius;
+	border-top-right-radius: $radius;
+	color: white;
+	padding: .2em .5em 0.2em .5em;
+	@include gradient($blue, lighten($blue, 10%));
+	margin: .5em .5em .5em 0 !important;
+}
+
+
+@mixin headline2 {
+	padding: .2em .5em 0.2em 0em;
+	color: $blue_black;
+	margin: .5em .5em .5em 0 !important;
+	border-bottom: 1px solid $blue_medium;
+}
+
+@mixin library_message {
+	border: 1px solid $alert_color;
+	background-color: $alert_color_lighter;
+	margin-top: 8px;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+@mixin header_alpha {
+        height: 86px;
+        position: relative;
+        z-index: 1;
+	background: url("../images/nav_head.jpg") no-repeat scroll 0 0 transparent;
+
+        div {
+                background-color: transparent;
+        &.overlogodiv {
+                height: 86px;
+                width: 200px;
+                position: absolute;
+                z-index: 10;
+        }
+        }
+}
+@mixin header_beta {
+        height: 86px;
+        position: relative;
+        /*background: url("../images/nav_head.jpg");*/
+        background-color: $blue;
+        @include gradient(lighten($blue, 10%), $blue);
+        background-repeat: no-repeat;
+        z-index: 0;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+        div {
+                background-color: transparent;
+        &.overlogodiv {
+                height: 86px;
+                width: 200px;
+                position: absolute;
+                z-index: 10;
+                background: url("../images/apl_logo.png") 10px 10px no-repeat;
+        }
+        }
+}
+
+@mixin page_alpha {
+        width: 950px;
+        margin: 0 auto;
+        line-height: 1.5em;
+}
+@mixin page_beta {
+        width: 950px;
+        margin: 0 auto;
+        line-height: 1.5em;
+        border-radius: 10px;
+}

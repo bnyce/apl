@@ -167,9 +167,7 @@ function suggest_a_title_user_default_permissions() {
   // Exported permission: exclude from message filtering.
   $permissions['exclude from message filtering'] = array(
     'name' => 'exclude from message filtering',
-    'roles' => array(
-      0 => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'disable_messages',
   );
 

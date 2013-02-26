@@ -1,0 +1,59 @@
+<?php
+/**
+ * @file
+ * library_blogs.features.taxonomy.inc
+ */
+
+/**
+ * Implements hook_taxonomy_default_vocabularies().
+ */
+function library_blogs_taxonomy_default_vocabularies() {
+  return array(
+    'blog_topics' => array(
+      'name' => 'Blog Topics',
+      'machine_name' => 'blog_topics',
+      'description' => 'Broad Top Level Blogs that will be segregated into separate views',
+      'hierarchy' => '1',
+      'module' => 'taxonomy',
+      'weight' => '-9',
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'tags' => array(
+      'name' => 'Tags',
+      'machine_name' => 'tags',
+      'description' => 'Use tags to group articles on similar topics into categories.',
+      'hierarchy' => '0',
+      'module' => 'taxonomy',
+      'weight' => '-1',
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+  );
+}

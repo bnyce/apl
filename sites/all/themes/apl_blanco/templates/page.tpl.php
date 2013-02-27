@@ -23,42 +23,6 @@
  <div class="overlogodiv" onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
  </div>
 
-<!-- Search Boxen -->
-
-<div id="search">
-
-<form onsubmit="javascript: MooTools_$(this).getElements('input.defaultText').set('value','');" method="get" id="globalSearch" class="clearfix" action="/search">
-<!--
-        <h1>Find books, music, movies, and more.</h1>
--->				
- 	   		    <input type="submit" value="Search" title="Search" role="button" name="commit" class="search_button" alt="Search">
-				<input type="hidden" value="keyword" name="search_category" id="search_category">		
-				 
-	 
-				<input type="text" name="q" id="globalQuery" class="text ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-<!--
-				<select name="t" id="t" class="hideMe"><option value="smart" title="Keyword">Keyword</option>
-<option value="title" title="Title">Title</option>
-<option value="author" title="Author">Author</option>
-<option value="series" title="Series">Series</option>
-<option value="subject" title="Subject">Subject</option>
-<option value="tag" title="Tag">Tag</option>
-<option value="userlist" title="List">List</option>
-<option value="user" title="User">User</option></select>			
--->
-  		    <div class="searchOptions">
-    				<input type="radio" value="catalogue" name="searchOpt" id="searchOpt_catalogue" class="inline" checked="checked"><label class="inline" for="searchOpt_catalogue">Catalog</label>
-    					<input type="radio" value="website" name="searchOpt" id="searchOpt_website" class="inline"><label class="inline" for="searchOpt_website">Website</label>
-    					<input type="radio" value="articles" name="searchOpt" id="searchOpt_articles" class="inline"><label class="inline" for="searchOpt_articles">Articles</label>
-    			</div>     
-  			                      
-  			
-  			<a class="moreSearch" href="/search">Advanced Search</a>
-
-</form>
-
-</div>
-<!-- Search Boxen Enden -->
 
 </div>
 <?php endif; ?>

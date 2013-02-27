@@ -2,23 +2,24 @@ body.page-austinmusic {
 	.field-item {
 		p.item {
 			width: 172px;
-			min-height: 216px;
+			min-height: 228px;
 			float: left;
 			margin: 0 4px 8px;
 			span {
+			&.artist,
+			&.title {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
 				display: block;
 				width: 172px;
-//				border: 1px dotted red;
 			}
 			img {
 				width: 172px;
 				height: 172px;
-//		float: left;
 			}
 		}
-	&:nth-child(5n) {
-//		margin-right: 0px;
-	}
 	}
 
 

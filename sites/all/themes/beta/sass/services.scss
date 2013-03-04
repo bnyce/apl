@@ -1,5 +1,49 @@
 @import "colors";
 
+@mixin rhombus {
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+@mixin section-border {
+	border: 1px solid $blue-light;
+	@include rhombus;
+}
+
+body.section-library-service-category,
+body.section-services {
+	div.panel-col {
+		div.field-item {
+			padding: 5px;
+		}
+		div.view-content,
+		div.field-items
+		 {
+			padding: 0 10px 20px;
+		}
+		div.field-label {
+//			clear: both;
+			margin-left: 5px;
+		}
+		div.field-items {
+//			width: 45%;
+//			float: left;
+//			@include section-border;
+//			@include rhombus;
+		}
+		@include section-border;
+		div.views-field-title {
+			padding: 5px;
+		}
+		div.field-type-image div.field-label {
+			display: none;
+		}
+		div.taxonomy-term-description {
+			margin: 15px 15px 20px;
+		}
+	}
+}
+
 body.page-libraryservices {
 	h1.title {
 		margin-bottom: 1em;
@@ -7,20 +51,17 @@ body.page-libraryservices {
 	div.view-grouping-content {
 		margin: 0 10px 20px;
 	}
-			div.services-grouping {
-				padding: 5px;
-			}
+	div.services-grouping {
+		padding: 5px;
+	}
 	div.view-grouping {
 		div.view-grouping-header {
 			font-size: 1.5em;
-//			padding: 5px;
 			margin: 10px 10px 0;
 		}
 		width: 436px !important;
 		margin-bottom: 25px;
-		border: 1px solid $blue-light;
-		border-top-right-radius: 10px;
-		border-bottom-left-radius: 10px;
+		@include section-border;
 		&:nth-child(1), 
 		&:nth-child(3),
 		&:nth-child(5),
@@ -50,8 +91,7 @@ body.page-libraryservices {
 			max-width: 100%;
 			max-height: 175px;
 			width: 416px; 
-			border-bottom-left-radius: 10px;
-			border-top-right-radius: 10px;
+			@include rhombus;
 			margin-bottom: 10px;
 		}
 	}

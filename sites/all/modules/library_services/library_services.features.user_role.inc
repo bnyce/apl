@@ -13,7 +13,7 @@ function library_services_user_default_roles() {
   // Exported role: library service editor.
   $roles['library service editor'] = array(
     'name' => 'library service editor',
-    'weight' => '6',
+    'weight' => '7',
   );
 
   return $roles;

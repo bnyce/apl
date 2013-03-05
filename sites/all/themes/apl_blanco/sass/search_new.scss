@@ -1,7 +1,10 @@
 @import "colors";
 
 #header {
-	h2.block-title {
+	h2.block-title,
+	#form_catalog,
+	#form_site,
+	#form_articles {
 		display: none;
 	}
 	div.logo {

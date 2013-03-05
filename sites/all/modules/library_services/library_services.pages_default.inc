@@ -13,11 +13,11 @@ function library_services_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view_panel_context_9';
+  $handler->name = 'node_view_panel_context_10';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Library Service Node',
     'no_blocks' => 0,
@@ -88,16 +88,16 @@ function library_services_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
-  $export['node_view_panel_context_9'] = $handler;
+  $export['node_view_panel_context_10'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'term_view_panel_context';
+  $handler->name = 'term_view_panel_context_2';
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 6;
+  $handler->weight = 7;
   $handler->conf = array(
     'title' => 'Library Service Category Panel',
     'no_blocks' => 0,
@@ -176,16 +176,16 @@ function library_services_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-2';
   $handler->conf['display'] = $display;
-  $export['term_view_panel_context'] = $handler;
+  $export['term_view_panel_context_2'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'term_view_panel_context_2';
+  $handler->name = 'term_view_panel_context_3';
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 7;
+  $handler->weight = 8;
   $handler->conf = array(
     'title' => 'Library Service Audience Category',
     'no_blocks' => 0,
@@ -264,7 +264,7 @@ function library_services_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;
-  $export['term_view_panel_context_2'] = $handler;
+  $export['term_view_panel_context_3'] = $handler;
 
   return $export;
 }

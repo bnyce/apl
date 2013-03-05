@@ -20,10 +20,7 @@
 
 <?php if ($page['top_navigation']): ?>
 <div id="header-region">
- <div class="overlogodiv" onclick='window.location.href="<?php print $front_page; ?>";' title="Link to Austin Public Library website.">
- </div>
-
-
+ <div class="overlogodiv" onclick='window.location.href="<?php print $front_page; ?>";'></div>
 </div>
 <?php endif; ?>
 

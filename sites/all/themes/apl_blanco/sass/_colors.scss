@@ -174,9 +174,14 @@ $alert_color_darker: darken( $alert_color, 20% );
         div {
               //  background-color: $blue;
         &.overlogodiv {
+		border-bottom: 1px solid white;
+	&:hover {
+//		border-radius: 10px;
+		border-color: $blue;
+	}
 //                height: 86px;
                 height: 86px;
-                width: 200px;
+                width: 124px;
 //                position: absolute;
 //                z-index: 10;
 //	background: url("../images/apl_logo_color.png") no-repeat scroll 10px 10px transparent;
@@ -218,4 +223,14 @@ $alert_color_darker: darken( $alert_color, 20% );
         margin: 0 auto;
         line-height: 1.5em;
         border-radius: 10px;
+}
+
+@mixin input_box_button {
+	height: 12px;
+	//margin: 0 0 10px 0;
+	padding: 8px 0;
+	text-indent: 5px;
+	width: 219px;
+	border: 1px solid $blue;
+	border-bottom-left-radius: 5px;
 }

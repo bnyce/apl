@@ -35,7 +35,8 @@ div.library-hours {
 	margin-left: -5px;
 	div {
 		//border-bottom: 1px dotted lighten($blue, 10%);
-		border-bottom: 1px dotted $blue_light;
+//		border-bottom: 1px dotted $blue_light;
+		@include divider;
 		padding: 2px 5px;
 		width: 275px;
 		span.hours {
@@ -43,9 +44,9 @@ div.library-hours {
 			display: block;
 		}
 	}
-	div.last {
-		border-bottom: none;
-	}
+//	div.last {
+//		border-bottom: none;
+//	}
 }
 
 

@@ -31,7 +31,7 @@
   font-weight: bold;
   border-top-right-radius: 5px;
 }
-/* line 255, ../sass/_colors.scss */
+/* line 255, /var/www/websites/alis.dev/seeds07/sites/all/themes/apl_blanco/sass/_colors.scss */
 #apl_locations_form #apl_locations_button:hover {
   background-color: #0088dd;
 }
@@ -65,28 +65,28 @@ div.library-hours div {
   padding: 2px 5px;
   width: 275px;
 }
-/* line 41, ../sass/locations.scss */
+/* line 267, /var/www/websites/alis.dev/seeds07/sites/all/themes/apl_blanco/sass/_colors.scss */
+div.library-hours div.last, div.library-hours div.views-row-last {
+  border-bottom: none;
+}
+/* line 42, ../sass/locations.scss */
 div.library-hours div span.hours {
   text-align: right;
   display: block;
 }
-/* line 46, ../sass/locations.scss */
-div.library-hours div.last {
-  border-bottom: none;
-}
 
-/* line 53, ../sass/locations.scss */
+/* line 54, ../sass/locations.scss */
 .views-field.views-field-field-library-image,
 .views-field.views-field-field-library-image-1 {
   float: right;
 }
 
-/* line 56, ../sass/locations.scss */
+/* line 57, ../sass/locations.scss */
 div.street-block {
   margin-left: 0 !important;
 }
 
-/* line 64, ../sass/locations.scss */
+/* line 65, ../sass/locations.scss */
 .views-field.views-field-field-address,
 .views-field-field-phone-num,
 .views-field.views-field-description,
@@ -97,46 +97,46 @@ div.street-block {
   padding-left: 0 !important;
 }
 
-/* line 71, ../sass/locations.scss */
+/* line 72, ../sass/locations.scss */
 .views-field.holiday-schedule {
   max-width: 200px;
 }
 
-/* line 75, ../sass/locations.scss */
+/* line 76, ../sass/locations.scss */
 .views-field-field-geofield,
 .views-field-field-phone-num {
   margin-bottom: 1em;
   clear: both;
 }
 
-/* line 80, ../sass/locations.scss */
+/* line 81, ../sass/locations.scss */
 body.page-locations .views-field-description-1 {
   margin-bottom: 2em;
   padding-bottom: 1em;
   border-bottom: 1px solid #e1eaf0;
 }
 
-/* line 86, ../sass/locations.scss */
+/* line 87, ../sass/locations.scss */
 div#block-panels_mini-library_locations div.center-wrapper {
   clear: both;
 }
-/* line 90, ../sass/locations.scss */
+/* line 91, ../sass/locations.scss */
 div#block-panels_mini-library_locations div.panel-col-last,
 div#block-panels_mini-library_locations div.panel-col-first {
   width: 50% !important;
   border: 1px solid #0069aa;
 }
-/* line 94, ../sass/locations.scss */
+/* line 95, ../sass/locations.scss */
 div#block-panels_mini-library_locations div.panel-col-first {
   float: none;
 }
 
-/* line 111, ../sass/locations.scss */
+/* line 112, ../sass/locations.scss */
 div.panel-col-last div.thoroughfare,
 body.page-all-locations div.thoroughfare {
   float: none;
 }
-/* line 117, ../sass/locations.scss */
+/* line 118, ../sass/locations.scss */
 div.panel-col-last span.locality,
 div.panel-col-last span.state,
 div.panel-col-last span.postal-code,

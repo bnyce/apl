@@ -261,3 +261,10 @@ $alert_color_darker: darken( $alert_color, 20% );
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+@mixin divider {
+	border-bottom: 1px dotted $blue_light;
+	&.last,
+	&.views-row-last {
+		border-bottom: none;
+	}
+}

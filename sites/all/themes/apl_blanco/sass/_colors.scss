@@ -256,3 +256,8 @@ $alert_color_darker: darken( $alert_color, 20% );
 		background-color: lighten($blue, 10%);
 	}
 }
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

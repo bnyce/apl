@@ -98,6 +98,7 @@ stylesheets[all][] = css/mailchimp.css
 stylesheets[all][] = css/ace.css
 stylesheets[all][] = css/apl_global_search.css
 stylesheets[all][] = css/apl_recommends.css
+stylesheets[all][] = css/admin.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

@@ -1,3 +1,31 @@
+@import "colors";
+
+/*
+#edit-field-date-value-1-value-datepicker-popup-0 {
+	@include input_box_button;
+	width: 135px;
+}
+#edit-submit-events {
+	@include input_button;
+	float: none;
+}
+.views-exposed-widget.views-widget-filter-field_date_value_1,
+form-type-date-popup form-item-field-date-value-1-value {
+	width: 120px;
+	div {
+		width: auto;
+	}	
+}
+.views-exposed-widget.views-submit-button {
+    float: right;
+    margin-top: -1px;
+    padding-right: 0;
+}
+#edit-term-node-tid-depth > option {
+	height: 18px;
+	padding: 2px;
+}
+*/
 h3 {
 	margin-top: 1em;
 }
@@ -17,7 +45,7 @@ span.views-field.views-field-field-time + .views-field.views-field-title {
 }
 body.front
 .views-field.views-field-title {
-	padding-left: 2em;
+//	padding-left: 2em;
 }
 ul.pager {
         margin-top: 1em;
@@ -33,6 +61,8 @@ body {
 	&.page-events {
 		div.view-events div.views-row {
 			margin-top: .5em;
+			@include ellipsis;
+			@include divider;
 		}
 	}
 }

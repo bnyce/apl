@@ -10,40 +10,16 @@
 function library_services_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: access content overview.
-  $permissions['access content overview'] = array(
-    'name' => 'access content overview',
+  // Exported permission: administer nodes.
+  $permissions['administer nodes'] = array(
+    'name' => 'administer nodes',
     'roles' => array(
       0 => 'administrator',
-      1 => 'authenticated user',
-      2 => 'blogger',
-      3 => 'library service editor',
-      4 => 'pio',
+      1 => 'blogger',
+      2 => 'library service editor',
+      3 => 'pio',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: access contextual links.
-  $permissions['access contextual links'] = array(
-    'name' => 'access contextual links',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
-      2 => 'blogger',
-      3 => 'library service editor',
-    ),
-    'module' => 'contextual',
-  );
-
-  // Exported permission: administer taxonomy.
-  $permissions['administer taxonomy'] = array(
-    'name' => 'administer taxonomy',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'library service editor',
-      2 => 'pio',
-    ),
-    'module' => 'taxonomy',
   );
 
   // Exported permission: create services content.
@@ -73,18 +49,18 @@ function library_services_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: delete terms in 17.
-  $permissions['delete terms in 17'] = array(
-    'name' => 'delete terms in 17',
+  // Exported permission: delete terms in 18.
+  $permissions['delete terms in 18'] = array(
+    'name' => 'delete terms in 18',
     'roles' => array(
       0 => 'library service editor',
     ),
     'module' => 'taxonomy',
   );
 
-  // Exported permission: delete terms in 18.
-  $permissions['delete terms in 18'] = array(
-    'name' => 'delete terms in 18',
+  // Exported permission: delete terms in 19.
+  $permissions['delete terms in 19'] = array(
+    'name' => 'delete terms in 19',
     'roles' => array(
       0 => 'library service editor',
     ),
@@ -109,15 +85,6 @@ function library_services_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit terms in 17.
-  $permissions['edit terms in 17'] = array(
-    'name' => 'edit terms in 17',
-    'roles' => array(
-      0 => 'library service editor',
-    ),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: edit terms in 18.
   $permissions['edit terms in 18'] = array(
     'name' => 'edit terms in 18',
@@ -127,16 +94,13 @@ function library_services_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: use text format full_html.
-  $permissions['use text format full_html'] = array(
-    'name' => 'use text format full_html',
+  // Exported permission: edit terms in 19.
+  $permissions['edit terms in 19'] = array(
+    'name' => 'edit terms in 19',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'blogger',
-      2 => 'library service editor',
-      3 => 'pio',
+      0 => 'library service editor',
     ),
-    'module' => 'filter',
+    'module' => 'taxonomy',
   );
 
   return $permissions;

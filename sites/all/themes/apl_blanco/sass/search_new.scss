@@ -1,7 +1,10 @@
 @import "colors";
 
 #header {
-	h2.block-title {
+	h2.block-title,
+	#form_catalog,
+	#form_site,
+	#form_articles {
 		display: none;
 	}
 	div.logo {
@@ -37,9 +40,16 @@
 			padding: 4px 10px 5px;
 			vertical-align: middle;
 			float: right;
-			-webkit-border-radius: 0 5px 5px 0;
-			-moz-border-radius: 0 5px 5px 0;
-			border-radius: 0 5px 5px 0;
+			border-width: 0;
+			font-size: 1em;
+			font-weight: bold;
+			border-top-right-radius: 5px;
+			&:hover {
+				background-color: lighten($blue, 10%);
+			}
+		//	-webkit-border-radius: 0 5px 5px 0;
+		//	-moz-border-radius: 0 5px 5px 0;
+		//	border-radius: 0 5px 5px 0;
 		}
 		label {
 			font-weight: normal;
@@ -50,7 +60,7 @@
 			font-size: 10px;
 			text-align: right;
 			display:block;
-			width: 15em;
+		//	width: 15em;
 			float: right;
 			&:hover {
 				text-decoration: underline;
@@ -61,11 +71,11 @@
 			color: $blue;
 			float: left;
 			margin-left: 5px;
-			padding-left: 134px;
+//			padding-left: 134px;
 			label.inline {
 				display: inline;
 				border-color: #c2c2c2; 
-				margin: 0 5px 0 2px;
+				margin: 0 10px 0 0;
 			&:hover {
 				text-decoration: underline;
 			}
@@ -77,24 +87,28 @@
 			border-width: 1px;
 			border-style: solid;
 			padding: 4px;
-			font-size: 0.916em;
+			//font-size: 0.916em;
+			margin-bottom: 2px;
 		}
 		input.text, 
 		input.password {
 			width: 200px;
 		}
 		input.text {
-			border-color: $blue-medium;
-			margin: 0;
-			height: 20px;
-			width: 350px;
-			font-size: 1.2em;
-			border-width: 1px 0 1px 1px;
+		//	border-color: $blue-medium;
+		//	margin: 0;
+		//	height: 20px;
+		//	width: 350px;
+		//	font-size: 1.2em;
+		//	border-width: 1px 0 1px 1px;
+			@include input_box_button;
 			float: right;
+			width: 320px !important;
+			
 		}
 	}
 	div#aplCustomSearchWrapper2 {
-		width: 650px;
+//		width: 650px;
 		float: right;
 	}
 }

@@ -50,6 +50,10 @@ $status_color: #345729;
 $status_background: #e7ea7f;
 $status_link: #8ca53c;
 
+@mixin status {
+	background-color: $status_background;
+	border: 1px solid $status_border;
+}
 
 // Error //
 
@@ -85,7 +89,8 @@ $blue_purple: mix($purple, $blue, 60%);
 
 
 $blue_light_old: #EBEFF7;
-$blue_light: lighten($blue_medium, 25%);
+//$blue_light: lighten($blue_medium, 25%);
+$blue_light: #E1EAF0;
 
 $search_border: #B2B2B2;
 
@@ -174,9 +179,14 @@ $alert_color_darker: darken( $alert_color, 20% );
         div {
               //  background-color: $blue;
         &.overlogodiv {
+		border-bottom: 1px solid white;
+	&:hover {
+//		border-radius: 10px;
+		border-color: $blue;
+	}
 //                height: 86px;
                 height: 86px;
-                width: 200px;
+                width: 124px;
 //                position: absolute;
 //                z-index: 10;
 //	background: url("../images/apl_logo_color.png") no-repeat scroll 10px 10px transparent;
@@ -218,4 +228,43 @@ $alert_color_darker: darken( $alert_color, 20% );
         margin: 0 auto;
         line-height: 1.5em;
         border-radius: 10px;
+}
+
+@mixin input_box_button {
+	min-height: 12px;
+	//margin: 0 0 10px 0;
+	padding: 6px 0;
+	text-indent: 6px;
+	width: 14em;
+	border: 1px solid $blue;
+	border-bottom-left-radius: 5px;
+	float: left;
+}
+
+@mixin input_button {
+	background-color: $blue;
+	color: white;
+	height: 30px;
+	padding: 4px 10px 5px;
+	vertical-align: middle;
+	float: left;
+	border-width: 0;
+	font-size: 1em;
+	font-weight: bold;
+	border-top-right-radius: 5px;
+	&:hover {
+		background-color: lighten($blue, 10%);
+	}
+}
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+@mixin divider {
+	border-bottom: 1px dotted $blue_light;
+	&.last,
+	&.views-row-last {
+		border-bottom: none;
+	}
 }

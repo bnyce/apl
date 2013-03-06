@@ -56,6 +56,17 @@ $("div.searchOptions input").change(function(event) {
 	searchType= $(this).attr("id").split("_");
 	var selectedInput = $("input#searchOpt_" + searchType[1]);
 	
+	switch(searchType[1]) {
+		case "articles":
+			ii.attr("placeholder", "Search articles and research");
+			break;
+		case "catalog":
+			ii.attr("placeholder", "Search books and more");
+			break;
+		case "site":
+			ii.attr("placeholder", "Search the APL site");
+			break;
+	}
 	selectedInput.attr("checked", "checked");   
 });
 

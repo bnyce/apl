@@ -1,0 +1,23 @@
+/* line 3, ../sass/austinmusic.scss */
+body.page-austinmusic .field-item p.item {
+  width: 172px;
+  min-height: 228px;
+  float: left;
+  margin: 0 4px 8px;
+}
+/* line 8, ../sass/austinmusic.scss */
+body.page-austinmusic .field-item p.item span {
+  display: block;
+  width: 172px;
+}
+/* line 10, ../sass/austinmusic.scss */
+body.page-austinmusic .field-item p.item span.artist, body.page-austinmusic .field-item p.item span.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 18, ../sass/austinmusic.scss */
+body.page-austinmusic .field-item p.item img {
+  width: 172px;
+  height: 172px;
+}

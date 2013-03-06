@@ -107,9 +107,10 @@
   min-height: 12px;
   padding: 6px 0;
   text-indent: 6px;
-  width: 219px;
+  width: 14em;
   border: 1px solid #0069aa;
   border-bottom-left-radius: 5px;
+  float: left;
   float: right;
   width: 320px !important;
 }

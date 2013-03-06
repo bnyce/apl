@@ -50,6 +50,10 @@ $status_color: #345729;
 $status_background: #e7ea7f;
 $status_link: #8ca53c;
 
+@mixin status {
+	background-color: $status_background;
+	border: 1px solid $status_border;
+}
 
 // Error //
 

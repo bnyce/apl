@@ -38,25 +38,27 @@
   min-height: 12px;
   padding: 6px 0;
   text-indent: 6px;
-  width: 219px;
+  width: 14em;
   border: 1px solid #0069aa;
   border-bottom-left-radius: 5px;
+  float: left;
+  width: 223px;
 }
-/* line 38, ../sass/mailchimp.scss */
+/* line 39, ../sass/mailchimp.scss */
 #mc_embed_signup input.button {
   width: 50px;
   margin: 0 -4px 10px 0;
   border-top-right-radius: 5px;
 }
-/* line 44, ../sass/mailchimp.scss */
+/* line 45, ../sass/mailchimp.scss */
 #mc_embed_signup input[type=checkbox] {
   -webkit-appearance: checkbox;
 }
-/* line 47, ../sass/mailchimp.scss */
+/* line 48, ../sass/mailchimp.scss */
 #mc_embed_signup input[type=radio] {
   -webkit-appearance: radio;
 }
-/* line 50, ../sass/mailchimp.scss */
+/* line 51, ../sass/mailchimp.scss */
 #mc_embed_signup .button {
   clear: both;
   background-color: #0069aa;
@@ -75,24 +77,24 @@
   white-space: nowrap;
   width: auto;
 }
-/* line 69, ../sass/mailchimp.scss */
+/* line 70, ../sass/mailchimp.scss */
 #mc_embed_signup .button:hover {
   background-color: #0088dd;
 }
-/* line 73, ../sass/mailchimp.scss */
+/* line 74, ../sass/mailchimp.scss */
 #mc_embed_signup .small-meta {
   font-size: 11px;
 }
-/* line 76, ../sass/mailchimp.scss */
+/* line 77, ../sass/mailchimp.scss */
 #mc_embed_signup .nowrap {
   white-space: nowrap;
 }
-/* line 79, ../sass/mailchimp.scss */
+/* line 80, ../sass/mailchimp.scss */
 #mc_embed_signup .clear {
   clear: none;
   display: inline;
 }
-/* line 83, ../sass/mailchimp.scss */
+/* line 84, ../sass/mailchimp.scss */
 #mc_embed_signup label {
   display: block;
   font-size: 16px;
@@ -101,7 +103,7 @@
   color: #C08C2C;
   margin-left: -4px;
 }
-/* line 90, ../sass/mailchimp.scss */
+/* line 91, ../sass/mailchimp.scss */
 #mc_embed_signup label.error {
   display: block;
   float: none;
@@ -110,7 +112,7 @@
   text-align: left;
   padding: .5em 0;
 }
-/* line 99, ../sass/mailchimp.scss */
+/* line 100, ../sass/mailchimp.scss */
 #mc_embed_signup div#mce-responses {
   float: left;
   top: -1.4em;
@@ -120,7 +122,7 @@
   margin: 0 5%;
   clear: both;
 }
-/* line 108, ../sass/mailchimp.scss */
+/* line 109, ../sass/mailchimp.scss */
 #mc_embed_signup div.response {
   margin: 1em 0;
   padding: 1em .5em .5em 0;
@@ -130,11 +132,11 @@
   z-index: 1;
   width: 80%;
 }
-/* line 117, ../sass/mailchimp.scss */
+/* line 118, ../sass/mailchimp.scss */
 #mc_embed_signup #mce-error-response {
   display: none;
 }
-/* line 120, ../sass/mailchimp.scss */
+/* line 121, ../sass/mailchimp.scss */
 #mc_embed_signup #mce-success-response {
   color: #529214;
   display: none;

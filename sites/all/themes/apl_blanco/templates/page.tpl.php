@@ -1,5 +1,5 @@
 <?php if ($page['top']): ?>
-<div id="city-header">
+<div id="austin_city_header">
 
 <?php print render($page['top']); ?>
 

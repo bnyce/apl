@@ -1,0 +1,119 @@
+/* line 7, ../sass/apl_global_search.scss */
+#header h2.block-title,
+#header #form_catalog,
+#header #form_site,
+#header #form_articles {
+  display: none;
+}
+/* line 10, ../sass/apl_global_search.scss */
+#header div.logo {
+  margin: 25px 0px 6px 12px;
+  width: 120px;
+}
+/* line 14, ../sass/apl_global_search.scss */
+#header div.logo_text {
+  margin: 25px 0px 6px 12px;
+  width: 120px;
+  font-size: 20px;
+}
+/* line 19, ../sass/apl_global_search.scss */
+#header div.mobile_logo {
+  margin: 10px;
+  width: 135px;
+}
+/* line 23, ../sass/apl_global_search.scss */
+#header form {
+  margin-top: 10px;
+  background: transparent;
+  padding: 0px 25px 0px 60px;
+  border-width: 0;
+  border-style: solid;
+  border-color: #f2f2f2;
+}
+/* line 30, ../sass/apl_global_search.scss */
+#header form select {
+  width: 124px;
+  margin: 0 2px 0 0;
+  padding: 6px 2px 6px 0;
+  float: right;
+}
+/* line 36, ../sass/apl_global_search.scss */
+#header form input.search_button {
+  background-color: #0069aa;
+  color: white;
+  height: 30px;
+  padding: 4px 10px 5px;
+  vertical-align: middle;
+  float: right;
+  border-width: 0;
+  font-size: 1em;
+  font-weight: bold;
+  border-top-right-radius: 5px;
+}
+/* line 47, ../sass/apl_global_search.scss */
+#header form input.search_button:hover {
+  background-color: #0088dd;
+}
+/* line 54, ../sass/apl_global_search.scss */
+#header form label {
+  font-weight: normal;
+}
+/* line 57, ../sass/apl_global_search.scss */
+#header form a.moreSearch {
+  clear: right;
+  white-space: nowrap;
+  font-size: 10px;
+  text-align: right;
+  display: block;
+  float: right;
+}
+/* line 65, ../sass/apl_global_search.scss */
+#header form a.moreSearch:hover {
+  text-decoration: underline;
+  color: #0069aa;
+}
+/* line 70, ../sass/apl_global_search.scss */
+#header form div.searchOptions {
+  color: #0069aa;
+  float: left;
+  margin-left: 5px;
+}
+/* line 75, ../sass/apl_global_search.scss */
+#header form div.searchOptions label.inline {
+  display: inline;
+  border-color: #c2c2c2;
+  margin: 0 10px 0 0;
+}
+/* line 79, ../sass/apl_global_search.scss */
+#header form div.searchOptions label.inline:hover {
+  text-decoration: underline;
+}
+/* line 86, ../sass/apl_global_search.scss */
+#header form textarea,
+#header form input.text,
+#header form input.password {
+  border-width: 1px;
+  border-style: solid;
+  padding: 4px;
+  margin-bottom: 2px;
+}
+/* line 94, ../sass/apl_global_search.scss */
+#header form input.text,
+#header form input.password {
+  width: 200px;
+}
+/* line 97, ../sass/apl_global_search.scss */
+#header form input.text {
+  min-height: 12px;
+  padding: 6px 0;
+  text-indent: 6px;
+  width: 219px;
+  border: 1px solid #0069aa;
+  border-bottom-left-radius: 5px;
+  float: right;
+  width: 320px !important;
+}
+/* line 110, ../sass/apl_global_search.scss */
+#header div#apl_global_search {
+  float: right;
+}

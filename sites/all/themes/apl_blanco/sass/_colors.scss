@@ -226,10 +226,10 @@ $alert_color_darker: darken( $alert_color, 20% );
 }
 
 @mixin input_box_button {
-	height: 12px;
+	min-height: 12px;
 	//margin: 0 0 10px 0;
-	padding: 8px 0;
-	text-indent: 5px;
+	padding: 6px 0;
+	text-indent: 6px;
 	width: 219px;
 	border: 1px solid $blue;
 	border-bottom-left-radius: 5px;

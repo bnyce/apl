@@ -35,9 +35,9 @@
 /* line 29, ../sass/mailchimp.scss */
 #mc_embed_signup input.email {
   margin: 0 -4px 10px;
-  height: 12px;
-  padding: 8px 0;
-  text-indent: 5px;
+  min-height: 12px;
+  padding: 6px 0;
+  text-indent: 6px;
   width: 219px;
   border: 1px solid #0069aa;
   border-bottom-left-radius: 5px;

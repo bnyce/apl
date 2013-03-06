@@ -66,11 +66,11 @@ base theme  = zen
 
 stylesheets[all][] = css/html.css
 stylesheets[all][] = css/master.css
-stylesheets[all][] = css/top_nav.css
+;stylesheets[all][] = css/top_nav.css
 stylesheets[all][] = css/bottom_nav.css
 stylesheets[all][] = css/blogs.css
 stylesheets[all][] = css/search.css
-stylesheets[all][] = css/search_new.css
+;stylesheets[all][] = css/search_new.css
 stylesheets[all][] = css/merci.css
 stylesheets[all][] = css/apl_faq.css
 stylesheets[all][] = css/events.css
@@ -84,7 +84,8 @@ stylesheets[all][] = css/image_rotator.css
 stylesheets[all][] = css/messages.css
 stylesheets[all][] = css/webform.css
 ;stylesheets[all][] = css/coa-header.css
-stylesheets[all][] = css/top.css
+;stylesheets[all][] = css/top.css
+stylesheets[all][] = css/austin_city_header.css
 stylesheets[all][] = css/swatch.css
 stylesheets[all][] = css/hotfix.css
 stylesheets[all][] = css/locations.css
@@ -92,6 +93,7 @@ stylesheets[all][] = css/services.css
 stylesheets[all][] = css/nice-menus.css
 stylesheets[all][] = css/mailchimp.css
 stylesheets[all][] = css/ace.css
+stylesheets[all][] = css/apl_global_search.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
@@ -109,7 +111,7 @@ stylesheets[all][] = css/ace.css
 ; Optionally add some JavaScripts to your theme.
 
 ;scripts[] = js/script.js
-scripts[] = js/jquery.hoverIntent.minified.js
+;scripts[] = js/jquery.hoverIntent.minified.js
 scripts[] = js/aplcustom.js
 ;scripts[] = js/messages_close_button.js
 ;scripts[] = js/openlayers-hotfix.js

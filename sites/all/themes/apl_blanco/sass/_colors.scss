@@ -85,7 +85,8 @@ $blue_purple: mix($purple, $blue, 60%);
 
 
 $blue_light_old: #EBEFF7;
-$blue_light: lighten($blue_medium, 25%);
+//$blue_light: lighten($blue_medium, 25%);
+$blue_light: #E1EAF0;
 
 $search_border: #B2B2B2;
 
@@ -230,7 +231,24 @@ $alert_color_darker: darken( $alert_color, 20% );
 	//margin: 0 0 10px 0;
 	padding: 6px 0;
 	text-indent: 6px;
-	width: 219px;
+	width: 14em;
 	border: 1px solid $blue;
 	border-bottom-left-radius: 5px;
+	float: left;
+}
+
+@mixin input_button {
+	background-color: $blue;
+	color: white;
+	height: 30px;
+	padding: 4px 10px 5px;
+	vertical-align: middle;
+	float: left;
+	border-width: 0;
+	font-size: 1em;
+	font-weight: bold;
+	border-top-right-radius: 5px;
+	&:hover {
+		background-color: lighten($blue, 10%);
+	}
 }

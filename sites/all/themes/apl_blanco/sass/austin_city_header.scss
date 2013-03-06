@@ -1,0 +1,67 @@
+@import "colors";
+
+body {
+	margin: 0;
+}
+#austin_city_header {
+	background-color: $black;
+	h2.pane-title {
+		display: none;
+	}
+	div {
+		margin: 0;
+		padding: 0;
+	}
+	ul.menu {
+		height: 30px;
+		line-height: 30px;
+		margin: 0;
+		padding: 0;
+		text-align: center;    
+		border: medium none;
+		list-style: none outside none;
+		font-family: Arial,Helvetica,sans-serif;
+		//font-size: 62.5%;
+		font-size: 8px;
+		font-weight: normal;
+		text-align: center;
+		li:nth-child(3) a {
+			color: $yellow;
+			font-weight: bold;
+		}
+		li {
+			display: inline;
+			float: none;
+			margin: 0;
+			margin: 0 0 0 0.5em;
+			list-style: none outside none;
+			font-size: 1.2em;	
+			a {
+				letter-spacing: 1px;
+				border-right: 1px solid fade-out(#BDBDBD, 0.2);
+				color: #BDBDBD;
+				font-size: 1.1em;
+				padding: 0 0.75em;
+				text-decoration: none;
+				text-transform: uppercase;
+			&:hover {
+				text-decoration: underline;
+			}
+			&.active {
+				color: $yellow;
+				font-weight: bold;
+			}
+			}	    
+		&.first {
+			padding-left: 0;
+		}
+		&.last a {
+			border-right: none;
+		}
+		}
+		li.expanded, li.collapsed, li.leaf {
+		    margin: 0;
+		    padding: 0.2em 0 0 0;
+		}
+	}
+}

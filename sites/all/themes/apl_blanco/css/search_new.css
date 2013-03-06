@@ -82,7 +82,7 @@
 #header form div.searchOptions label.inline {
   display: inline;
   border-color: #c2c2c2;
-  margin: 0 5px 0 2px;
+  margin: 0 10px 0 0;
 }
 /* line 79, ../sass/search_new.scss */
 #header form div.searchOptions label.inline:hover {
@@ -95,25 +95,26 @@
   border-width: 1px;
   border-style: solid;
   padding: 4px;
-  font-size: 0.916em;
+  margin-bottom: 2px;
 }
-/* line 93, ../sass/search_new.scss */
+/* line 94, ../sass/search_new.scss */
 #header form input.text,
 #header form input.password {
   width: 200px;
 }
-/* line 96, ../sass/search_new.scss */
+/* line 97, ../sass/search_new.scss */
 #header form input.text {
-  height: 12px;
-  padding: 8px 0;
-  text-indent: 5px;
-  width: 219px;
+  min-height: 12px;
+  padding: 6px 0;
+  text-indent: 6px;
+  width: 14em;
   border: 1px solid #0069aa;
   border-bottom-left-radius: 5px;
+  float: left;
   float: right;
   width: 320px !important;
 }
-/* line 109, ../sass/search_new.scss */
+/* line 110, ../sass/search_new.scss */
 #header div#aplCustomSearchWrapper2 {
   float: right;
 }

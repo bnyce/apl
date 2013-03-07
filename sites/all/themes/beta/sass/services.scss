@@ -1,45 +1,53 @@
 @import "colors";
+@import "patterns";
 
-@mixin rhombus {
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
+// dimensions
 
-@mixin section-border {
-	border: 1px solid $blue-light;
-	@include rhombus;
-}
+$img_w: 435px;
+//$span_w: 49.2%;
+$span_w: $img_w;
+$img_h: 175px;
+$pad: 5px;
 
 body.section-library-service-category,
+body.section-library-service-audience,
 body.section-services {
 	div.panel-col {
+		div.content div.field {
+			margin-bottom: 0;
+		}
+		width: $pad+$img_w+$pad !important;
+		margin-top: 1em;
 		div.field-item {
-			padding: 5px;
+			padding: $pad;
+			img {
+				max-width: 100%;
+				max-height: $img_h;
+				width: $img_w - $pad*2; 
+				@include rhombus;
+				margin: $pad*2 0;
+			}
 		}
 		div.view-content,
 		div.field-items
 		 {
-			padding: 0 10px 20px;
+			//padding: 0 $pad*2 $pad*4;
+			padding: 0 $pad*2 0;
 		}
 		div.field-label {
-//			clear: both;
-			margin-left: 5px;
+			margin-left: $pad;
 		}
 		div.field-items {
-//			width: 45%;
-//			float: left;
-//			@include section-border;
-//			@include rhombus;
 		}
 		@include section-border;
 		div.views-field-title {
-			padding: 5px;
+			padding: $pad;
 		}
 		div.field-type-image div.field-label {
 			display: none;
 		}
 		div.taxonomy-term-description {
-			margin: 15px 15px 20px;
+			margin: $pad*3 $pad*3 $pad*4;
 		}
 	}
 }
@@ -49,18 +57,19 @@ body.page-libraryservices {
 		margin-bottom: 1em;
 	}
 	div.view-grouping-content {
-		margin: 0 10px 20px;
+		margin: 0 $pad*2 $pad*4;
 	}
 	div.services-grouping {
-		padding: 5px;
+		padding: $pad;
 	}
 	div.view-grouping {
 		div.view-grouping-header {
 			font-size: 1.5em;
-			margin: 10px 10px 0;
+			margin: $pad*2 $pad*2 0;
 		}
-		width: 436px !important;
-		margin-bottom: 25px;
+	//	width: $pad+$img_w+$pad !important;
+		width: $span_w;
+		margin-bottom: $pad*5;
 		@include section-border;
 		&:nth-child(1), 
 		&:nth-child(3),
@@ -86,13 +95,14 @@ body.page-libraryservices {
 		&:nth-child(18),
 		&:nth-child(20) {
 			float: right;
+			margin-right: 1px;
 		}
 		img {
 			max-width: 100%;
-			max-height: 175px;
-			width: 416px; 
+			max-height: $img_h;
+			width: $img_w; 
 			@include rhombus;
-			margin-bottom: 10px;
+			margin-bottom: $pad*4;
 		}
 	}
 }

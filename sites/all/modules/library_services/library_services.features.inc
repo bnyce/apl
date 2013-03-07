@@ -33,7 +33,7 @@ function library_services_node_info() {
     'services' => array(
       'name' => t('Services'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Services that the Library Offers the Public.'),
       'has_title' => '1',
       'title_label' => t('Service Name'),
       'help' => '',

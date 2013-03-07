@@ -88,7 +88,10 @@ stylesheets[all][] = css/swatch.css
 stylesheets[all][] = css/hotfix.css
 stylesheets[all][] = css/locations.css
 stylesheets[all][] = css/services.css
-;stylesheets[all][] = css/services3.css
+stylesheets[all][] = css/virtual.css
+stylesheets[all][] = css/austinmusic.css
+stylesheets[all][] = css/info-guides.css
+stylesheets[all][] = css/mailchimp.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

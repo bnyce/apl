@@ -28,12 +28,15 @@ $purple_light: #edf0ff;
 
 $blue_medium_old: #CEDAEC;
 $blue_medium: lighten(mix($silver, $blue, 60%), 20%);
+$green_medium: lighten(mix($silver, green, 60%), 20%);
+
 $blue_purple: mix($purple, $blue, 60%);
 $blue_black: mix($black, $blue, 90%);
 
 
 $blue_light_old: #EBEFF7;
 $blue_light: lighten($blue_medium, 10%);
+$green_light: lighten($green_medium, 10%);
 
 $search_border: #B2B2B2;
 

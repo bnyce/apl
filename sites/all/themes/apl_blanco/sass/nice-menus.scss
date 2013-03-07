@@ -1,0 +1,29 @@
+@import "colors";
+
+#block-nice-menus-1 {
+	h2 {
+		display:none;
+	}
+	ul {
+		&.nice-menu-down {
+			clear: right;
+			float: right;
+			margin: 5px 25px;
+		}
+		li {
+			&.menuparent {
+				background-image: none;
+				a {
+					padding: 0.3em 5px;
+				}
+			}
+			background-color: $blue;
+			a {
+				color: white;
+				&:hover {
+					color: $yellow;
+				}
+			}
+		}
+	}
+}

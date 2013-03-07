@@ -1,0 +1,146 @@
+/* line 3, ../sass/apl_faq.scss */
+apl_html {
+  height: 100%;
+}
+
+/* line 7, ../sass/apl_faq.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 11, ../sass/apl_faq.scss */
+.bolder {
+  font-weight: 800;
+}
+
+/* line 15, ../sass/apl_faq.scss */
+.normal {
+  font-weight: normal;
+}
+
+/* line 19, ../sass/apl_faq.scss */
+.handler_down {
+  padding: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+/* line 26, ../sass/apl_faq.scss */
+.toggle {
+  padding: 1em;
+}
+
+/* line 32, ../sass/apl_faq.scss */
+.pane-faq-views-panel-pane-1 .views-row-odd,
+.pane-faq-views-panel-pane-2 .views-row-odd {
+  background-color: #D4DDEE;
+  border-radius: 1.0em;
+  cursor: pointer;
+}
+/* line 37, ../sass/apl_faq.scss */
+.pane-faq-views-panel-pane-1 .views-row-even,
+.pane-faq-views-panel-pane-2 .views-row-even {
+  background-color: #d9f5ff;
+  border-radius: 1.0em;
+  cursor: pointer;
+}
+
+/* line 44, ../sass/apl_faq.scss */
+.faq_answer {
+  display: block;
+  margin: 0;
+  margin-bottom: 1.0em;
+  padding: .8em;
+  padding-top: 0;
+}
+
+/* line 52, ../sass/apl_faq.scss */
+.handler {
+  margin: 0;
+  padding: 1em !important;
+  margin-top: 1em;
+  border: 1px solid transparent;
+  border-radius: 1em;
+}
+/* line 58, ../sass/apl_faq.scss */
+.handler:link {
+  color: blue;
+}
+/* line 61, ../sass/apl_faq.scss */
+.handler:visited {
+  color: blue;
+}
+/* line 64, ../sass/apl_faq.scss */
+.handler:hover {
+  color: red;
+  border: 1px solid silver;
+}
+/* line 68, ../sass/apl_faq.scss */
+.handler:active {
+  color: orange;
+}
+
+/* line 74, ../sass/apl_faq.scss */
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 79, ../sass/apl_faq.scss */
+.hr_faq {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 4px;
+  color: silver;
+  border: 1px solid silver;
+  height: 1px;
+  line-height: none;
+}
+
+/* line 89, ../sass/apl_faq.scss */
+.faq_changed {
+  background-color: #CFCCA7;
+  height: 1em;
+  text-align: right;
+  width: auto;
+  float: right;
+  padding: .4em;
+  margin: 0;
+  color: #666666;
+  font-size: 10px;
+  font-weight: bold;
+  vertical-align: text-top;
+  line-height: 1em;
+  border-radius: .3em;
+}
+
+/* line 105, ../sass/apl_faq.scss */
+.show_all_button {
+  color: #555555;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-radius: .3em;
+}
+/* line 110, ../sass/apl_faq.scss */
+.show_all_button:hover {
+  color: #001421;
+  background-color: white;
+  border-color: silver;
+  cursor: pointer;
+}
+
+/* line 118, ../sass/apl_faq.scss */
+.hide_all_button {
+  color: #555555;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-radius: .3em;
+}
+/* line 123, ../sass/apl_faq.scss */
+.hide_all_button:hover {
+  color: #001421;
+  background-color: white;
+  border-color: silver;
+  cursor: pointer;
+}

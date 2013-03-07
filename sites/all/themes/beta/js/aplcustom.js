@@ -223,12 +223,18 @@ if(searchString != "") {
    );
 
 	// FAQ Question Click
-    $("dt.handler").click(function(){
+    $("div#virtual span.show-hide").click(function(){
 		var my_dt=$(this);
-		var my_question=$(this).text();
-		var my_answer=$(this).parent().parent().parent().find(".toggleable");
-		$(my_dt).toggleClass('bold');
-		$(my_answer).toggleClass('element-invisible');
+//		var my_question=$(this).text();
+//		var my_answer=$(this).parent().parent().parent().find(".toggleable");
+//		var my_answer2=$(this).parent().siblings(":first");
+		var my_dd=$(this).closest('.virtual-service').find('.description');
+//		var my_answer3=$(my_answer2);
+		$(my_dt).toggleClass('expanded');
+//		$(my_dt).fadeToggle('expanded');
+//		$(my_answer3).removeClass('hide');
+//		$(my_dd).slideDown();
+		$(my_dd).toggleClass('more-info');
 		return false;
 	});
 

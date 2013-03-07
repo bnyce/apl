@@ -1,0 +1,58 @@
+@import "colors";
+
+body.page-libraryservices {
+	h1.title {
+		margin-bottom: 1em;
+	}
+	div.view-grouping-content {
+		margin: 0 10px 20px;
+	}
+			div.services-grouping {
+				padding: 5px;
+			}
+	div.view-grouping {
+		div.view-grouping-header {
+			font-size: 1.5em;
+//			padding: 5px;
+			margin: 10px 10px 0;
+		}
+		width: 436px !important;
+		margin-bottom: 25px;
+		border: 1px solid $blue;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		&:nth-child(1), 
+		&:nth-child(3),
+		&:nth-child(5),
+		&:nth-child(7),
+		&:nth-child(9),
+		&:nth-child(11),
+		&:nth-child(13),
+		&:nth-child(15),
+		&:nth-child(17),
+		&:nth-child(19) {
+			float: left;
+			clear: both;
+		}
+		&:nth-child(2),
+		&:nth-child(4),
+		&:nth-child(6),
+		&:nth-child(8),
+		&:nth-child(10),
+		&:nth-child(12),
+		&:nth-child(14),
+		&:nth-child(16),
+		&:nth-child(18),
+		&:nth-child(20) {
+			float: right;
+		}
+		img {
+			max-width: 100%;
+			max-height: 175px;
+			width: 416px; 
+			border-bottom-left-radius: 10px;
+			border-top-right-radius: 10px;
+			margin-bottom: 10px;
+		}
+	}
+}

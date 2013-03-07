@@ -1,0 +1,49 @@
+/* line 3, ../sass/coa-header.scss */
+#block-menu-menu-coa-header li a {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* line 8, ../sass/coa-header.scss */
+.center-coa-brandbar {
+  width: 990px;
+  margin: 0 auto;
+}
+
+/* line 13, ../sass/coa-header.scss */
+#block-menu-menu-coa-header {
+  background: #001421;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 30px;
+}
+/* line 18, ../sass/coa-header.scss */
+#block-menu-menu-coa-header ul li {
+  list-style: none outside none;
+  float: left;
+  margin-top: 4px;
+}
+/* line 22, ../sass/coa-header.scss */
+#block-menu-menu-coa-header ul li a {
+  border-right: 1px solid #BDBDBD;
+  color: #BDBDBD;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding-right: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+/* line 32, ../sass/coa-header.scss */
+#block-menu-menu-coa-header ul li:hover {
+  text-decoration: underline !important;
+}
+/* line 35, ../sass/coa-header.scss */
+#block-menu-menu-coa-header ul li.last a {
+  border: medium none;
+}
+
+/* line 42, ../sass/coa-header.scss */
+#city-header {
+  width: 100%;
+  background: #001421;
+}

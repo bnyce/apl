@@ -1,5 +1,16 @@
 body.page-austinmusic {
 	.field-item {
+		p.welcome {
+			background-color: #F8FFF0;
+			border: 1px solid #BBEE77;
+			border-bottom-left-radius: 10px;
+			border-top-right-radius: 10px;
+			float: right;
+			margin-right: 4px;
+			min-height: 201px;
+			padding: 10px;
+			width: 331px;
+		}
 		p.item {
 			width: 172px;
 			min-height: 228px;

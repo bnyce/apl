@@ -1,4 +1,5 @@
 @import "colors";
+@import "dimensions";
 
 $info_padding: 2em;
 $info_margin: 0.75em;
@@ -16,11 +17,12 @@ $info_border_title: 2px solid white;
 @mixin info_inside {
 	div.inside {
 		max-width: 100%;
+		margin: 0;
 		img, iframe {
 			max-width: 100%;
 			height: auto !important;
 		}
-		margin: $info_margin_inside !important;
+//		margin: $info_margin_inside !important;
 		div.pane-content {
 			width: auto;
 			padding: $info_padding_inside !important;
@@ -49,6 +51,9 @@ $info_border_title: 2px solid white;
 	border: 1px solid $blue_light !important;
 }
 div#info-guides {
+//	width: $grid_w;
+//	margin: 0 auto;
+//	border: 1px dotted yellow;
 	div.panel-col-top ul {
 		
 		height: 2em;
@@ -91,6 +96,8 @@ div#info-guides {
 div.panel-col-first {
 	@include info_inside;
 	max-width: 25%;
+	margin-right: 20px;
+	width: 220px;
 	div.pane-node-field-left-box-1-title,
 	div.pane-node-field-left-box-2-title,
 	div.pane-node-field-left-box-3-title {
@@ -105,6 +112,8 @@ div.panel-col-first {
 div.panel-col {
 	@include info_inside;
 	max-width: 49%;
+	width: 420px;
+	margin-right: 20px;
 	div.pane-node-field-center-box-1-title,
 	div.pane-node-field-center-box-2-title,
 	div.pane-node-field-center-box-3-title {
@@ -119,6 +128,7 @@ div.panel-col {
 div.panel-col-last {
 	@include info_inside;
 	max-width: 25%;
+	width: 220px;
 	div.pane-node-field-right-box-1-title,
 	div.pane-node-field-right-box-2-title,
 	div.pane-node-field-right-box-3-title {

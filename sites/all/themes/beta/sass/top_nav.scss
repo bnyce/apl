@@ -2,10 +2,11 @@
 	
 #header-region {
 	@include header-alpha;
+	border-top-right-radius: 10px;
 }
 
 #header {
-	width: 900px;
+	width: 850px;
 	margin-top: 0px;
 	padding: 25px;
 	margin-bottom: 0px;

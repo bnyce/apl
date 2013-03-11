@@ -1,11 +1,11 @@
 @import "colors";
 @import "dimensions";
 
-$info_padding: 2em;
+$info_padding: 1em;
 $info_margin: 0.75em;
 $info_margin_inside: 5px;
 $info_padding_inside: 5px;
-$info_padding_title: 4px;
+$info_padding_title: 5px;
 $info_font_size_title: 1.25em;
 $info_border_body: 4px double white;
 $info_border_title: 2px solid white;
@@ -54,6 +54,9 @@ div#info-guides {
 //	width: $grid_w;
 //	margin: 0 auto;
 //	border: 1px dotted yellow;
+	.pane-new-information-guides-panel-pane-1 {
+		margin-bottom: 20px;
+	}
 	div.panel-col-top ul {
 		
 		height: 2em;
@@ -69,7 +72,7 @@ div#info-guides {
 			list-style-type: none;
 			background-color: $blue;
 			a {
-				padding: 4px 8px;
+				padding: 5px 10px;
 				//padding: 2px 4px;
 				// color: white;
 				color: $yellow;
@@ -78,10 +81,14 @@ div#info-guides {
 		}
 	}
 	ul {
-		padding-left: $info_padding;
+		//padding-left: $info_padding;
+		padding-left: 0;
+		list-style-type: none;
 		margin-bottom: $info_padding;
 		li {
 			margin-top: $info_margin;
+			//padding-bottom: 1em;
+			border-bottom: 1px dotted $blue_light;
 			ul {
 				margin-top: -$info_margin;
 			}
@@ -107,6 +114,12 @@ div.panel-col-first {
 	div.pane-node-field-left-box-2-body,
 	div.pane-node-field-left-box-3-body {
 		@include info_body;
+		ul li {
+			&:nth-last-child(1) {
+				border-bottom: 0px solid white;
+			}
+			padding-bottom: 1em;
+		}
 	}
 	}
 div.panel-col {
@@ -123,6 +136,9 @@ div.panel-col {
 	div.pane-node-field-center-box-2-body,
 	div.pane-node-field-center-box-3-body {
 		@include info_body;
+		ul li {
+			padding-bottom: 1em;
+		}
 	}
 	}
 div.panel-col-last {
@@ -138,6 +154,12 @@ div.panel-col-last {
 	div.pane-node-field-right-box-2-body,
 	div.pane-node-field-right-box-3-body {
 		@include info_body;
+		ul li {
+			&:nth-last-child(1) {
+				border-bottom: 0px solid white;
+			}
+			padding-bottom: 1em;
+		}
 	}
 	}
 }

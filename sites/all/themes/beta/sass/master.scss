@@ -445,7 +445,14 @@ div#footer {
 //	width: $page_w - $page_pad*2;
 }
 
-
+body.front {
+	.panel-col-last {
+		width: 300px !important;
+	}
+	.panel-col-first {
+		width: 600px !important;
+	}
+}
 
 #mini-panel-front_page_highlighted_area {
 	.panel-col-last {

@@ -1,10 +1,11 @@
 @import "colors";
+@import "dimensions";
 
 #page {
 	@include page_alpha;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
-	width: 900px;
+	width: $page_w + $page_pad*2;
 }
 
 body {
@@ -157,19 +158,20 @@ div.block {
 	min-height: 715px;  /*issues with whitespace beneath #bottom */
 	height: auto !important; /*issues with whitespace beneath #bottom */
 	background-color: white;
-	width: 900px;
+	//width: $page_w;
+	width: $page_w + $page_pad*2;
 }
 
 #content {
 	float: left;
-	width: 900px;
+//	width: $page_w;
 	margin-right: -100%;
 	padding: 0 0 2em 0;
 }
 
 #content-inner {
 	//width: 100%;
-	padding: 0 25px;
+	padding: 0 $page_pad;
 	position: relative;
 	margin-top:0px;
 }
@@ -372,14 +374,14 @@ div#footer {
 }
 
 .announce-top {
-	width: 900px;
+	width: $page_w;
 	height: 10px;
 	background-image: url(../images/apl_announcement_top.jpg);
 	float: left;
 }
 
 .announce-bottom {
-	width: 900px;
+	width: $page_w;
 	height: 10px;
 	background-image: url(../images/apl_announcement_bottom.jpg);
 	float:left;
@@ -387,7 +389,7 @@ div#footer {
 
 
 #secondary-navigation {
-	width:900px;
+	width: $page_w;
 	height:29px;
 	margin-top:2px;
 	background-image:url(../images/apl_secnav_bg.png);
@@ -414,7 +416,7 @@ div#footer {
 #block-system-main-menu {
 	height: 86px;
 	margin: 18px auto 0px;
-	width: 900px;
+	width: $page_w;
 	ul {
 		margin-left: 285px;
 		padding-top: 58px;
@@ -439,7 +441,7 @@ div#footer {
 }
 #content-area {
 //	width: 902px;
-	width: 850px;
+//	width: $page_w - $page_pad*2;
 }
 
 

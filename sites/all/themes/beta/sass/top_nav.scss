@@ -1,4 +1,5 @@
 @import "colors";
+@import "dimensions";
 	
 #header-region {
 	@include header-alpha;
@@ -6,9 +7,10 @@
 }
 
 #header {
-	width: 850px;
+	//width: $page_w - $page_pad*2;
+	width: $page_w;
 	margin-top: 0px;
-	padding: 25px;
+	padding: $page_pad;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 	border-top-left-radius: 10px;

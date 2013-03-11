@@ -1,10 +1,12 @@
+@import "dimensions";
+
 div#footer {
 	margin: 0;
 	padding: 0 20px;
 	float: left;
 	text-align: center;
 	clear: both;
-	width: 860px;
+	width: $page_w + 10px;
 	ul {
 	text-align: left;
 	padding: 0;
@@ -52,7 +54,7 @@ div#footer {
 	color: #333;
 	float: none;
 	clear: both;
-	width: 900px;
+	width: $page_w + $page_pad*2;
 	height: 7em;
 	padding-top: 1px;
 	p {

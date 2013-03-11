@@ -23,10 +23,11 @@ body.section-services {
 		div.content div.field {
 			margin-bottom: 0;
 		}
-		width: $pad+$img_w+$pad !important;
+	//	width: $pad+$img_w+$pad !important;
+		width: $img_w;
 		margin-top: 1em;
 		div.field-item {
-			padding: $pad;
+		//	padding: $pad;
 			img {
 				max-width: 100%;
 				max-height: $img_h;
@@ -42,7 +43,7 @@ body.section-services {
 			padding: 0 $pad*2 0;
 		}
 		div.field-label {
-			margin-left: $pad;
+			margin-left: $pad*2;
 		}
 		div.field-items {
 		}
@@ -116,7 +117,7 @@ body.page-libraryservices {
 		img {
 			max-width: 100%;
 			max-height: $img_h;
-			width: $img_w; 
+			width: $img_w - $pad*2; 
 			@include rhombus;
 			margin-bottom: $pad*4;
 		}

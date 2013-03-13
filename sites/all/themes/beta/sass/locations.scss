@@ -1,4 +1,12 @@
 @import "colors";
+
+p#other-location-links {
+	float: left;
+}
+form#by-zip {
+	float: right;
+}
+
 .views-field-nothing.holiday-schedule {
 	margin-bottom: 1em;
 }

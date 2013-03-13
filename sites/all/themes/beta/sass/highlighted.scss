@@ -1,0 +1,30 @@
+div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.field-content img {
+	border-top-left-radius: 10px;
+}
+body {
+	div.jcarousel-skin-default {
+		a.jcarousel-next-horizontal {
+			background-position: 0 -32px;
+			position: absolute;
+			right: -15px;
+			top: 50px;
+		}
+		a.jcarousel-prev-horizontal {
+			background-position: 0 0;
+			left: -19px;
+			position: absolute;
+			top: 50px;
+		}
+		div.jcarousel-clip-horizontal {
+			left: 11px;
+			overflow: hidden;
+			width: 550px;
+		}
+		div.jcarousel-container-horizontal {
+			height: 162px;
+			margin: 0;
+			padding: 0;
+			width: auto;
+		}
+	}
+}

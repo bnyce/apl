@@ -48,7 +48,9 @@ base theme  = zen
 ;stylesheets[all][] = system.menus.css
 
 ; Then we add our own stylesheets.
-;stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/normalize.css
+;stylesheets[all][] = css/app.css
+
 ;stylesheets[all][] = css/wireframes.css
 ;stylesheets[all][] = css/layouts/responsive-sidebars.css
 ;stylesheets[all][] = css/page-backgrounds.css
@@ -92,6 +94,7 @@ stylesheets[all][] = css/virtual.css
 stylesheets[all][] = css/austinmusic.css
 stylesheets[all][] = css/info-guides.css
 stylesheets[all][] = css/mailchimp.css
+stylesheets[all][] = css/highlighted.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

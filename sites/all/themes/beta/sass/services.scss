@@ -3,29 +3,85 @@
 
 // dimensions
 
-$img_w: 435px;
+$img_w: 460px;
 //$span_w: 49.2%;
 $span_w: $img_w;
 $img_h: 175px;
 $pad: 5px;
 
+div.pane-library-service-views-panel-pane-3 {
+	width: $img_w;
+}
+
+
+@mixin status {
+	//margin: $pad*3 $pad*2 $pad*4;
+	margin: 0 $pad*2 $pad*4;
+	background-color: $status_background;
+	border: 1px solid $status_border;
+	padding: $pad*2 $pad*2 $pad*3 $pad*2;
+	@include rhombus;
+}
+body.page-resources-for-you {
+	div.view-grouping {
+		div.view-grouping-header {
+			font-size: large;
+			padding: $pad $pad*2;
+		}
+		@include section-border;
+		margin-bottom: $pad*5;
+		div.view-grouping {
+			@include status;
+		}
+		img {
+			max-width: $img_w - $pad*9;
+		//	max-height: $img_h;
+			width: $img_w - $pad*4; 
+			@include rhombus;
+			margin-bottom: $pad*4;
+			height: auto !important;
+		}
+	}
+}
+
 body.section-library-service-category,
 body.section-library-service-audience,
 body.section-services {
 	div.panel-col {
+		div.pane-custom.pane-1 {
+			background-color: #e8e8e8;
+			border-top-right-radius: 10px;		
+			border-bottom: 1px dashed white;
+			div.pane-content {
+//			border-bottom: 1px solid #e8e8e8;
+//			border-right: 1px solid #e8e8e8;
+			display: inline-block;
+			padding: $pad;
+//			border-bottom-right-radius: $pad;
+			}
+		}
 		div.content div.field {
 			margin-bottom: 0;
 		}
-		width: $pad+$img_w+$pad !important;
-		margin-top: 1em;
+	//	width: $pad+$img_w+$pad !important;
+		width: $img_w;
+		margin-top: $pad*4;
+		margin-bottom: $pad*6;
+		padding-bottom: $pad*2;
 		div.field-item {
-			padding: $pad;
+		//	padding: $pad;
 			img {
 				max-width: 100%;
 				max-height: $img_h;
 				width: $img_w - $pad*2; 
 				@include rhombus;
-				margin: $pad*2 0;
+				margin: $pad*2 0 0;
+			}
+		}
+		div.field-name-field-library-service-category,
+		div.field-name-field-library-service-audience {
+			div.field-items {
+				padding: 0 $pad*2 0 $pad*4;
 			}
 		}
 		div.view-content,
@@ -35,7 +91,7 @@ body.section-services {
 			padding: 0 $pad*2 0;
 		}
 		div.field-label {
-			margin-left: $pad;
+			margin-left: $pad*2;
 		}
 		div.field-items {
 		}
@@ -46,12 +102,23 @@ body.section-services {
 		div.field-type-image div.field-label {
 			display: none;
 		}
-		div.taxonomy-term-description {
-			margin: $pad*3 $pad*3 $pad*4;
+		div.taxonomy-term-description,
+		div.field-name-body {
+			img {
+				max-width: 100%;
+				height: auto !important;
+			}
+			@include status;
+
+			div {
+				margin: 0;
+				padding: 0;
+			}
 		}
 	}
 }
 
+//body.page-resources-for-you,
 body.page-libraryservices {
 	h1.title {
 		margin-bottom: 1em;
@@ -71,6 +138,8 @@ body.page-libraryservices {
 		width: $span_w;
 		margin-bottom: $pad*5;
 		@include section-border;
+
+// it may be better to follow the normal grid pattern, but this works for now... //
 		&:nth-child(1), 
 		&:nth-child(3),
 		&:nth-child(5),
@@ -100,7 +169,7 @@ body.page-libraryservices {
 		img {
 			max-width: 100%;
 			max-height: $img_h;
-			width: $img_w; 
+			width: $img_w - $pad*2; 
 			@include rhombus;
 			margin-bottom: $pad*4;
 		}

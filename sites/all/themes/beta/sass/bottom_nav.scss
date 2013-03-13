@@ -1,10 +1,12 @@
+@import "dimensions";
+
 div#footer {
 	margin: 0;
-	padding: 0 20px;
+	padding: 0 10px;
 	float: left;
 	text-align: center;
 	clear: both;
-	width: 910px;
+	width: 940px;
 	ul {
 	text-align: left;
 	padding: 0;
@@ -36,6 +38,7 @@ div#footer {
 		list-style-type: none !important;
 		list-style-image: none !important;
 		margin-right: 5px;
+		width: 129px;
 	}
 	.region-footer {
 		font-size:14px;
@@ -52,9 +55,9 @@ div#footer {
 	color: #333;
 	float: none;
 	clear: both;
-	width: 950px;
-	height: 7em;
-	padding-top: 1px;
+	width: $page_w + $page_pad*2;
+//	height: 7em;
+	padding-top: 10px;
 	p {
 		margin-left:19px;
 		margin-top:10px;
@@ -62,11 +65,13 @@ div#footer {
 }
 
 #bottom_links {
-	margin: 5px auto;
+	//margin: 5px auto;
+	margin: 0 0 10px 10px;
+	width: 940px;
 	td {
-		padding: 5px;
+	//	padding: 5px;
 		vertical-align: middle;
-		text-align: center;
+		text-align: left;
 		a:hover {
 		}
 	}

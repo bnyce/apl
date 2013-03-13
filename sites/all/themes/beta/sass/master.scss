@@ -1,13 +1,30 @@
 @import "colors";
+@import "dimensions";
 
 #page {
 	@include page_alpha;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
-
+	width: $page_w + $page_pad*2;
 }
 
 body {
+	div#content-area {
+		div.panel-display {
+			margin-top: 10px;
+//			border: 1px dotted red;
+			margin-bottom: 20px;
+		}
+		div.panel-col-first {
+			float: left;
+			width: 580px;
+			clear: both;
+		}
+		div.panel-col-last {
+			float: right;
+			width: 340px;
+		}
+	}
 	background-color: $background_color;
 
 	> div {
@@ -157,25 +174,28 @@ div.block {
 	min-height: 715px;  /*issues with whitespace beneath #bottom */
 	height: auto !important; /*issues with whitespace beneath #bottom */
 	background-color: white;
+	//width: $page_w;
+	width: $page_w + $page_pad*2;
 }
 
 #content {
 	float: left;
-	width: 900px;
-	margin-right: -100%;
-	padding: 0 0 2em 0;
+	width: $page_w;
+//	margin-right: -100%;
+//	padding: 0 0 2em 0;
+	margin-left: $page_pad;
 }
 
 #content-inner {
-	width: 100%;
-	padding: 0 25px;
+	//width: 100%;
+//	padding: 0 $page_pad;
 	position: relative;
 	margin-top:0px;
 }
 
 .panel-col-first {
 	float: left;
-	width: 600px !important;
+//	width: 600px !important;
 	.views-field-title {
 		font-size: 12px;
 	}
@@ -194,14 +214,16 @@ div.block {
 			margin: 0 !important;
 			h2.pane-title-OLD {
 				height: 27px;
-				margin-top: 8px;
+				margin-top: 10px;
 			}
 			.pane-content {
-				padding: 0 5px;
+//				padding: 0 5px;
 				margin: 0 !important;
-				padding-left: 8px;
-				padding-top: 0px;
-				width: 579px;
+				//padding-left: 8px;
+			//	padding-left: 5px;
+				//padding-top: 0px;
+				padding: 0 0 0 5px;
+//				width: 579px;
 			}
 		}
 	}
@@ -209,8 +231,8 @@ div.block {
 
 .panel-col-last {
 	float: left; 
-	width: 300px !important;
-	margin-bottom: 8px;
+//	width: 300px !important;
+	margin-bottom: 20px;
 	margin-left: 0px;
 	.views-field-title {
 		font-size: 14px;
@@ -222,22 +244,22 @@ div.block {
 	.inside {
 		padding: 0;
 		margin: 0 !important;
-		margin-left: 5px !important;
+//		margin-left: 5px !important;
 		.panel-pane {
 			padding: 0;
 			margin: 0 !important;
 			h2.pane-title-OLD {
 				height: 27px;
 				padding-bottom: -1em;
-				margin-top: 8px;
+				margin-top: 10px;
 			}
 			.pane-content {
-				padding: 0 5px;
+				padding: 0 0 0 5px;
 				margin: 0 !important;
-				padding-left: 8px;
-				padding-top: 0px;
-				padding-right:8px;
-				width: 275px;
+			//	padding-left: 5px;
+			//	padding-top: 0px;
+			//	padding-right:5px;
+//				width: 275px;
 				p {
 					margin-bottom:0px;
 				}
@@ -356,7 +378,7 @@ div#footer {
 	width: 890px;
 	padding-left: 10px;
 	padding-top: 3px;
-	margin-top: 8px;
+	margin-top: 10px;
 	p {
 		line-height:5px;
 	}
@@ -371,14 +393,14 @@ div#footer {
 }
 
 .announce-top {
-	width: 900px;
+	width: $page_w;
 	height: 10px;
 	background-image: url(../images/apl_announcement_top.jpg);
 	float: left;
 }
 
 .announce-bottom {
-	width: 900px;
+	width: $page_w;
 	height: 10px;
 	background-image: url(../images/apl_announcement_bottom.jpg);
 	float:left;
@@ -386,7 +408,7 @@ div#footer {
 
 
 #secondary-navigation {
-	width:900px;
+	width: $page_w;
 	height:29px;
 	margin-top:2px;
 	background-image:url(../images/apl_secnav_bg.png);
@@ -410,52 +432,42 @@ div#footer {
 	background: #feffa5;
 }
 
-#block-system-main-menu {
-	height: 86px;
-	margin: 18px auto 0px;
-	width: 900px;
-	ul {
-		margin-left: 285px;
-		padding-top: 58px;
-	}
-	li {
-		border-right: 1px solid white;
-		float: left;
-		margin: 0 5px 0 0;
-		padding: 0 5px 0 0;
-		list-style: none;
-		a {
-			color: white;
-		}
-	&.last {
-		border: none;
-	}
-	}
-}
-
 #content {
 	padding-top: 0px;
 }
 #content-area {
-	width: 902px;
+//	margin-top: 20px;
+//	width: 902px;
+//	width: $page_w - $page_pad*2;
 }
-
-
-
+/*
+body.front {
+	.panel-col-last {
+		width: 300px !important;
+	}
+	.panel-col-first {
+		width: 600px !important;
+	}
+}
+*/
 #mini-panel-front_page_highlighted_area {
 	.panel-col-last {
-		width: 390px !important;
+		width: 387px !important;
+		float: right;
 	}
 	.panel-col-first {
 		width: 504px !important;
 	}
 }
 
-#highlight .panel-col-first .inside .panel-pane .pane-content {
-	padding-left: 0px;
-	padding-right: 0px;
-	width: 504px;
-	height: 174px;
+#highlight {
+	margin-left: 40px;
+	.panel-col-first .inside .panel-pane .pane-content {
+		padding-left: 0px;
+		padding-right: 0px;
+		width: 504px;
+		height: 174px;
+	}
 }
 
 .breadcrumb {
@@ -472,7 +484,7 @@ div#footer {
 
 .node-blog {
 	width: 890px;
-	margin-left: 8px;
+	margin-left: 5px;
 }
 
 .page-locations {

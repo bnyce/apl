@@ -1,13 +1,17 @@
 @import "colors";
+@import "dimensions";
 	
 #header-region {
 	@include header-alpha;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 #header {
-	width: 900px;
+	//width: $page_w - $page_pad*2;
+	width: $page_w;
 	margin-top: 0px;
-	padding: 25px;
+	padding: $page_pad;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 	border-top-left-radius: 10px;
@@ -15,16 +19,22 @@
 	background-color: white;
 	
 }
-
+div#header div.panel-col-bottom {
+    clear: none;
+}
 .apl-nav-div {
 	display: block;
 	float: right;
 	left: 15%;
 	position: absolute;
-	vertical-align: text-bottom;
+	//vertical-align: text-bottom;
+	vertical-align: text-top;
 	width: 85%;
 	z-index:9999 !important;
-	height: 86px;
+//	height: 86px;
+	height: 77px;
+	//top: -15px;
+	top: 5px;
 }
 ul {
 &.apl_site_menu_top_cont {

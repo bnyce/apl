@@ -10,7 +10,6 @@ $info_padding_title: 5px;
 $info_font_size_title: 1.25em;
 $info_border_body: 4px double white;
 $info_border_title: 2px solid white;
-//$info_border_title: $info_border_body;
 @mixin rounded_top {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -23,7 +22,6 @@ $info_border_title: 2px solid white;
 			max-width: 100%;
 			height: auto !important;
 		}
-//		margin: $info_margin_inside !important;
 		div.pane-content {
 			width: auto;
 			padding: 0 $info_padding_inside;
@@ -37,50 +35,52 @@ $info_border_title: 2px solid white;
 	font-size: $info_font_size_title;
 	border-bottom: $info_border_title;
 	background-color: $blue;
-//	background-color: lighten($blue, 10%);
-//	background-color: darken($blue_light, 30%);
-//	color: lighten($yellow, 20%);
-//	color: mix(white, $yellow, 80%);
 	color: mix(white, silver, 80%);
 }
 @mixin info_body {
 	margin-bottom: $info_padding !important;
-//	padding: $info_padding_title;
 	padding: 5px;
 	background-color: mix(lighten($blue, 70%), silver, 90%);
-//	background-color: white;
 	border-bottom: $info_border_body;
 	border: 1px solid $blue_light !important;
 }
-body.page-new-information-guides {
+body.page-new-information-guides,
+body.section-information-guide-subjects {
+	div#content-area {
+		p.nav {
+			background-color: #e8e8e8;
+			display: inline-block;
+			padding: 5px;
+		}
+		margin-top: 10px;
+	}
 	div.panels-flexible-region {
-		//width: 900px;
 		width: 940px;
-//		border: 1px dotted blue;
 		padding: 0;
-		//margin: 0 0 0 -20px;
 		margin: 0;
 	}
 	div.views-row {
-		&:nth-child(5n) {
+		&:nth-child(4n) {
 			margin-right: 0 !important;
-	//		background-color: red;
-			//float: right;
 		}
-//		border: 1px dotted green;
 		float: left;
 		display: block;
 		margin-right: 20px;
-		width: 172px;
-		div {
-			border: 1px solid red;
+		width: $info_guide_w;
+		div a {
+			&:hover {
+				background-color: lighten($blue, 10%);
+				color: white;
+			}
+			background-color: #e8e8e8;
+			border: 1px solid silver;
 			@include rhombus;
-	//		padding: 0 20px 0 0 !important;
 			display: inline-block;
-			width: 172px;
-			min-height: 172px;
-//		margin: 0 20px 20px 0 !important;
-			margin: 0 0 20px 0;
+			padding: 10px;
+			font-size: large;
+			width: $info_guide_w -$info_guide_pad*2;
+			min-height: $info_guide_w -$info_guide_pad*2;
+			margin: 0 20px 20px 0;
 			span.field-content {
 				background-color: #e8e8e8;
 				border-bottom: 1px dotted red;
@@ -110,45 +110,42 @@ body.page-new-information-guides {
 	}
 }
 div#info-guides {
-	p.nav {
-		background-color: #e8e8e8;
-		display: inline-block;
-		padding: 5px;
-	}
+		p.nav {
+			background-color: #e8e8e8;
+			display: inline-block;
+			padding: 5px;
+		}
+
+
+
 	.pane-new-information-guides-panel-pane-1 {
 		margin-bottom: 20px;
 	}
 	div.panel-col-top ul {
-		
-//		height: 2em;
 		margin: 0 auto !important;
 		padding: 0 !important;
 		li {
 			float: left;
 			margin: 0 0 0 2px;
 			border: 4px solid $blue_light;
-//			border-left: 2px solid $blue_light;
-//			border-right: 2px solid  lighten($blue_light, 20%);
-//			border-bottom: 2px lighten($blue_light, 40%);
 			list-style-type: none;
 			background-color: $blue;
+		&:hover {
+			background-color: lighten($blue, 10%);
+		}
 			a {
 				padding: 5px 10px;
-				//padding: 2px 4px;
-				// color: white;
 				color: $yellow;
 				font-weight: bold;
 			}
 		}
 	}
 	ul {
-		//padding-left: $info_padding;
 		padding-left: 0;
 		list-style-type: none;
 		margin-bottom: $info_padding;
 		li {
 			margin-top: $info_margin;
-			//padding-bottom: 1em;
 			border-bottom: 1px dotted $blue_light;
 			ul {
 				margin-top: -$info_margin;
@@ -156,7 +153,6 @@ div#info-guides {
 		}
 	}
 	div.panel-separator {
-//		@include disappear;
 		margin: 0;
 		max-height: 0;
 		display: none;
@@ -165,7 +161,8 @@ div.panel-col-first {
 	@include info_inside;
 	max-width: 25%;
 	margin-right: 20px;
-	width: 220px;
+	//width: 220px;
+	width: 225px !important;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	div.pane-node-field-left-box-1-title,
@@ -188,7 +185,7 @@ div.panel-col-first {
 div.panel-col {
 	@include info_inside;
 	max-width: 49%;
-	width: 420px;
+	width: 440px;
 	margin-top: 10px;
 	margin-right: 20px;
 	margin-bottom: 20px;
@@ -230,4 +227,3 @@ div.panel-col-last {
 	}
 	}
 }
-

@@ -3,17 +3,20 @@
 .pane-block-13 {
 	background-color: #EEF2FA;
 	border-radius: 10px;	
+	div.pane-content {
+		width: 100% !important;
+	}
 }
 
 #mc_embed_signup {
 //	margin-top: 10px;
 	#signup_box {
-		padding-bottom: 4px;
+		padding-bottom: 5px;
 	}
 	form {
 		display: block; 
-		padding: 10px 5px 0px 10px;
-		margin: 0 5px;
+		padding: 10px 10px 0;
+		margin: 0;
 		width: auto;
 	}
 	h2 {
@@ -29,7 +32,7 @@
 		padding: 8px 0; 
 		margin: 0 5px 10px 0; 
 		text-indent: 5px; 
-		width: 200px; 
+		width: 258px; 
 		height: 18px;
 	}
 	&.button {

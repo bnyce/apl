@@ -10,15 +10,18 @@
 
 body {
 	div#content-area {
+		div.panel-display {
+			margin-top: 10px;
+//			border: 1px dotted red;
+			margin-bottom: 20px;
+		}
 		div.panel-col-first {
 			float: left;
 			width: 580px;
-			margin-bottom: 20px;
 		}
 		div.panel-col-last {
 			float: right;
 			width: 340px;
-			margin-bottom: 20px;
 		}
 	}
 	background-color: $background_color;
@@ -210,14 +213,15 @@ div.block {
 			margin: 0 !important;
 			h2.pane-title-OLD {
 				height: 27px;
-				margin-top: 8px;
+				margin-top: 10px;
 			}
 			.pane-content {
 //				padding: 0 5px;
 				margin: 0 !important;
 				//padding-left: 8px;
-				padding-left: 5px;
-				padding-top: 0px;
+			//	padding-left: 5px;
+				//padding-top: 0px;
+				padding: 0 0 0 5px;
 //				width: 579px;
 			}
 		}
@@ -227,7 +231,7 @@ div.block {
 .panel-col-last {
 	float: left; 
 //	width: 300px !important;
-	margin-bottom: 8px;
+	margin-bottom: 20px;
 	margin-left: 0px;
 	.views-field-title {
 		font-size: 14px;
@@ -246,15 +250,15 @@ div.block {
 			h2.pane-title-OLD {
 				height: 27px;
 				padding-bottom: -1em;
-				margin-top: 8px;
+				margin-top: 10px;
 			}
 			.pane-content {
-				padding: 0 5px;
+				padding: 0 0 0 5px;
 				margin: 0 !important;
-				padding-left: 8px;
-				padding-top: 0px;
-				padding-right:8px;
-				width: 275px;
+			//	padding-left: 5px;
+			//	padding-top: 0px;
+			//	padding-right:5px;
+//				width: 275px;
 				p {
 					margin-bottom:0px;
 				}
@@ -373,7 +377,7 @@ div#footer {
 	width: 890px;
 	padding-left: 10px;
 	padding-top: 3px;
-	margin-top: 8px;
+	margin-top: 10px;
 	p {
 		line-height:5px;
 	}
@@ -447,7 +451,8 @@ body.front {
 */
 #mini-panel-front_page_highlighted_area {
 	.panel-col-last {
-		width: 390px !important;
+		width: 387px !important;
+		float: right;
 	}
 	.panel-col-first {
 		width: 504px !important;
@@ -478,7 +483,7 @@ body.front {
 
 .node-blog {
 	width: 890px;
-	margin-left: 8px;
+	margin-left: 5px;
 }
 
 .page-locations {

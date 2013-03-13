@@ -19,17 +19,22 @@
 	background-color: white;
 	
 }
-
+div#header div.panel-col-bottom {
+    clear: none;
+}
 .apl-nav-div {
 	display: block;
 	float: right;
 	left: 15%;
 	position: absolute;
-	vertical-align: text-bottom;
+	//vertical-align: text-bottom;
+	vertical-align: text-top;
 	width: 85%;
 	z-index:9999 !important;
 //	height: 86px;
 	height: 77px;
+	//top: -15px;
+	top: 5px;
 }
 ul {
 &.apl_site_menu_top_cont {

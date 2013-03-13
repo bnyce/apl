@@ -9,6 +9,11 @@ $span_w: $img_w;
 $img_h: 175px;
 $pad: 5px;
 
+div.pane-library-service-views-panel-pane-3 {
+	width: $img_w;
+}
+
+
 @mixin status {
 	//margin: $pad*3 $pad*2 $pad*4;
 	margin: 0 $pad*2 $pad*4;
@@ -17,6 +22,28 @@ $pad: 5px;
 	padding: $pad*2 $pad*2 $pad*3 $pad*2;
 	@include rhombus;
 }
+body.page-resources-for-you {
+	div.view-grouping {
+		div.view-grouping-header {
+			font-size: large;
+			padding: $pad $pad*2;
+		}
+		@include section-border;
+		margin-bottom: $pad*5;
+		div.view-grouping {
+			@include status;
+		}
+		img {
+			max-width: $img_w - $pad*9;
+		//	max-height: $img_h;
+			width: $img_w - $pad*4; 
+			@include rhombus;
+			margin-bottom: $pad*4;
+			height: auto !important;
+		}
+	}
+}
+
 body.section-library-service-category,
 body.section-library-service-audience,
 body.section-services {
@@ -91,6 +118,7 @@ body.section-services {
 	}
 }
 
+//body.page-resources-for-you,
 body.page-libraryservices {
 	h1.title {
 		margin-bottom: 1em;

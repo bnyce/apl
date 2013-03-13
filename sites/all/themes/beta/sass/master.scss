@@ -213,11 +213,12 @@ div.block {
 				margin-top: 8px;
 			}
 			.pane-content {
-				padding: 0 5px;
+//				padding: 0 5px;
 				margin: 0 !important;
-				padding-left: 8px;
+				//padding-left: 8px;
+				padding-left: 5px;
 				padding-top: 0px;
-				width: 579px;
+//				width: 579px;
 			}
 		}
 	}
@@ -430,11 +431,11 @@ div#footer {
 	padding-top: 0px;
 }
 #content-area {
-	margin-top: 20px;
+//	margin-top: 20px;
 //	width: 902px;
 //	width: $page_w - $page_pad*2;
 }
-
+/*
 body.front {
 	.panel-col-last {
 		width: 300px !important;
@@ -443,7 +444,7 @@ body.front {
 		width: 600px !important;
 	}
 }
-
+*/
 #mini-panel-front_page_highlighted_area {
 	.panel-col-last {
 		width: 390px !important;

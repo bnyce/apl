@@ -1,3 +1,5 @@
+@import "typography";
+
 h3 {
 	margin-top: 1em;
 }
@@ -31,6 +33,8 @@ body {
 	&.page-youth-events,
 	&.page-events {
 		div.view-events div.views-row {
+//			border: 1px dotted red;
+			@include ellipsis;
 			margin-top: .5em;
 		}
 	}

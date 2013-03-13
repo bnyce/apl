@@ -1,5 +1,6 @@
 @import "colors";
 @import "dimensions";
+@import "patterns";
 
 $info_padding: 10px;
 $info_margin: 10px;
@@ -73,16 +74,24 @@ body.page-new-information-guides {
 		width: 172px;
 		div {
 			border: 1px solid red;
+			@include rhombus;
 	//		padding: 0 20px 0 0 !important;
 			display: inline-block;
 			width: 172px;
 			min-height: 172px;
 //		margin: 0 20px 20px 0 !important;
 			margin: 0 0 20px 0;
-		div {
-			margin: 0;
-			padding: 0;
-		}
+			span.field-content {
+				background-color: #e8e8e8;
+				border-bottom: 1px dotted red;
+				border-top-right-radius: 10px;
+				display: block;
+				padding: 5px;
+			}
+			div {
+				margin: 0;
+				padding: 0;
+			}
 		&:nth-child(2n) {
 			background-color: silver;
 		}

@@ -1,38 +1,13 @@
-@import "colors";
+@import "typography";
 
-/*
-#edit-field-date-value-1-value-datepicker-popup-0 {
-	@include input_box_button;
-	width: 135px;
-}
-#edit-submit-events {
-	@include input_button;
-	float: none;
-}
-.views-exposed-widget.views-widget-filter-field_date_value_1,
-form-type-date-popup form-item-field-date-value-1-value {
-	width: 120px;
-	div {
-		width: auto;
-	}	
-}
-.views-exposed-widget.views-submit-button {
-    float: right;
-    margin-top: -1px;
-    padding-right: 0;
-}
-#edit-term-node-tid-depth > option {
-	height: 18px;
-	padding: 2px;
-}
-*/
 h3 {
 	margin-top: 1em;
 }
 .views-field.views-field-field-time {
         margin-left: 5px;
 //        width: 2.6em;
-        width: 5em;
+//      width: 5em;
+        width: 60px;
         float: left;
 }
 body.page-locations
@@ -40,12 +15,12 @@ span.views-field.views-field-field-time + .views-field.views-field-title {
 //        padding-left: 2em;
 	font-weight: normal;
 	display: block;
-	margin-left: 5em;
+//	margin-left: 5em;
+	margin: 1px 0 0 60px;
 //	font-size: 12px;
 }
-body.front
-.views-field.views-field-title {
-//	padding-left: 2em;
+body.front .pane-events-panel-pane-1 .views-field.views-field-title {
+	padding-left: 2em;
 }
 ul.pager {
         margin-top: 1em;
@@ -60,9 +35,9 @@ body {
 	&.page-youth-events,
 	&.page-events {
 		div.view-events div.views-row {
-			margin-top: .5em;
+//			border: 1px dotted red;
 			@include ellipsis;
-			@include divider;
+			margin-top: .5em;
 		}
 	}
 }

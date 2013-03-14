@@ -1,18 +1,18 @@
-/* line 1, ../sass/bottom_nav.scss */
+/* line 3, ../sass/bottom_nav.scss */
 div#footer {
   margin: 0;
-  padding: 0 20px;
+  padding: 0 10px;
   float: left;
   text-align: center;
   clear: both;
-  width: 910px;
+  width: 940px;
 }
-/* line 8, ../sass/bottom_nav.scss */
+/* line 10, ../sass/bottom_nav.scss */
 div#footer ul {
   text-align: left;
   padding: 0;
 }
-/* line 11, ../sass/bottom_nav.scss */
+/* line 13, ../sass/bottom_nav.scss */
 div#footer ul ul {
   list-style: none !important;
   list-style-type: none !important;
@@ -20,23 +20,23 @@ div#footer ul ul {
   margin-top: 4px;
   margin-right: 8px;
 }
-/* line 17, ../sass/bottom_nav.scss */
+/* line 19, ../sass/bottom_nav.scss */
 div#footer ul ul li {
   clear: both;
   font-size: 11px;
   line-height: 11px;
 }
-/* line 18, ../sass/bottom_nav.scss */
+/* line 20, ../sass/bottom_nav.scss */
 div#footer ul ul li a {
   font-weight: normal;
 }
-/* line 24, ../sass/bottom_nav.scss */
+/* line 26, ../sass/bottom_nav.scss */
 div#footer ul ul li li {
   clear: both;
   margin-top: 0px;
   line-height: 0px;
 }
-/* line 32, ../sass/bottom_nav.scss */
+/* line 34, ../sass/bottom_nav.scss */
 div#footer li {
   float: left;
   list-style: none outside none !important;
@@ -44,38 +44,40 @@ div#footer li {
   list-style-type: none !important;
   list-style-image: none !important;
   margin-right: 5px;
+  width: 129px;
 }
-/* line 40, ../sass/bottom_nav.scss */
+/* line 43, ../sass/bottom_nav.scss */
 div#footer .region-footer {
   font-size: 14px;
   padding-top: 10px;
   padding-left: -10em;
 }
 
-/* line 47, ../sass/bottom_nav.scss */
+/* line 50, ../sass/bottom_nav.scss */
 #bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   background: #CCCCCC;
   font-size: 12px;
   color: #333;
   float: none;
   clear: both;
-  width: 950px;
-  height: 7em;
-  padding-top: 1px;
+  width: 960px;
+  padding-top: 10px;
 }
-/* line 58, ../sass/bottom_nav.scss */
+/* line 61, ../sass/bottom_nav.scss */
 #bottom p {
   margin-left: 19px;
   margin-top: 10px;
 }
 
-/* line 64, ../sass/bottom_nav.scss */
+/* line 67, ../sass/bottom_nav.scss */
 #bottom_links {
-  margin: 5px auto;
+  margin: 0 0 10px 10px;
+  width: 940px;
 }
-/* line 66, ../sass/bottom_nav.scss */
+/* line 71, ../sass/bottom_nav.scss */
 #bottom_links td {
-  padding: 5px;
   vertical-align: middle;
-  text-align: center;
+  text-align: left;
 }

@@ -11,9 +11,6 @@ body.page-node-22115 {
 }
 div#virtual {
 	div.virtual-service {
-		p:nth-child(2) {
-			margin: 0;
-		}
 		p.title,	
 		a {
 		margin-left: 15px;
@@ -21,9 +18,8 @@ div#virtual {
 	}
 	}
 	div.description {
-//		border: 1px solid #bbee77;
-//		background-color: #f8fff0;
-		@include status;
+		border: 1px solid #bbee77;
+		background-color: #f8fff0;
 		border-top-right-radius: 10px;
 		border-bottom-left-radius: 10px;
 		padding: 7px 10px 10px;
@@ -59,9 +55,8 @@ div#virtual {
 			}
 	div.grouping {
 		&.help {
-		//	border: 1px solid #BBEE77;
-		//	background-color: #F8FFF0;
-			@include status;
+			border: 1px solid #BBEE77;
+			background-color: #F8FFF0;
 			h2 {
 				color: green;
 			}
@@ -100,13 +95,13 @@ div#virtual {
 				margin-right: 5px;
 			}
 		}	
-		margin-bottom: 25px;
+		margin-bottom: 20px;
 		border: 1px solid $blue-light;
 		border-top-right-radius: 10px;
 		border-bottom-left-radius: 10px;
 		float: left;
-		margin-right: 15px;
-		width: 288px;
+		margin-right: 20px;
+		width: 298px;
 //		&:nth-child(4), 
 		&:nth-child(7),
 		&:nth-child(10),

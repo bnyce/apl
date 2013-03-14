@@ -1,27 +1,13 @@
 @import "colors";
 
-.CustomSearchSubmit,
-.CustomSearch_lgTxtFld {
-	float: right;
-	margin-left: 2px;
-	border: 0px solid white;
-}
-
-.CustomSearchSubmit {
-	background-color: $apl_blue;
-	color: white;
-	clear: both;
-}
-
 .customSearch_formContainer {
-//	height: 120px;
-//	background-image: url("../images/apl_bannerhead_searchbox_bg.png");
-//	background-repeat: repeat-y;
-//	background-position: left;
-//	border-top: 1px solid $search-border;
+	height: 120px;
+	background-image: url("../images/apl_bannerhead_searchbox_bg.png");
+	background-repeat: repeat-y;
+	background-position: left;
+	border-top: 1px solid $search-border;
 	margin: 0;
-	text-align: right;
-//	margin-top: 26px;
+	margin-top: 26px;
 }
 
 .customSearch_formContainer > form >label {
@@ -43,18 +29,19 @@
 
 .customSearchTab {
 	position: relative;
-//	float: left;
+	float: left;
 	width: 100%;
 	padding: 0;
-	margin: 0 0 0 2px;
+	margin: 0;
 	list-style: none;
 	line-height: 1em;
+	margin-right: 2px;
 	li {
-		float: right;
+		float: left;
 		margin: 0 0;
 		padding: 0 .5em;
 		height: 26px;
-		clear: left;
+		clear: right;
 		margin-right: 3px;
 	}
 	a {
@@ -69,12 +56,13 @@
 }
 
 .aplCustomSearchContainer {
-//	width: 390px;
-//	height: 124px;
+	width: 390px;
+	height: 124px;
 	font-size: 12px;
-	float: right;
+	float: left;
 	padding: 0px;
-	margin-right: 25px;
+	margin-left: -18px;
+	margin-top: 8px;
 	background-image: none;
 	z-index: 500;
 	form {
@@ -84,7 +72,7 @@
 		margin-top: 12px;
 	}
 }
-/*
+
 .aplCustomSearchContainer_bottom {
 	width: 390px;
 	height: 12px;
@@ -94,7 +82,7 @@
 	background-position: left;
 	margin-top: -1px;
 }
-*/
+
 .cst {
 	background: #cccccc;
 	margin: 0;
@@ -136,10 +124,6 @@
 .SSCentralSearchSearchCriteria,
 #BookAndMore_search {
 	margin-bottom: 5px !important;
-	input,
-	select {
-		float: right;
-	}
 }
 
 .initialHidden {

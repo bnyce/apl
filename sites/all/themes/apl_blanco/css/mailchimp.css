@@ -1,64 +1,58 @@
 /* line 3, ../sass/mailchimp.scss */
 .pane-block-13 {
   background-color: #EEF2FA;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
+}
+/* line 6, ../sass/mailchimp.scss */
+.pane-block-13 div.pane-content {
+  width: 100% !important;
 }
 
-/* line 9, ../sass/mailchimp.scss */
-#mc_embed_signup {
-  margin-top: 10px;
-}
-/* line 11, ../sass/mailchimp.scss */
+/* line 13, ../sass/mailchimp.scss */
 #mc_embed_signup #signup_box {
-  padding-bottom: 4px;
+  padding-bottom: 5px;
 }
-/* line 14, ../sass/mailchimp.scss */
+/* line 16, ../sass/mailchimp.scss */
 #mc_embed_signup form {
   display: block;
-  padding: 10px 5px 0px 10px;
-  margin: 0 5px;
+  padding: 10px 10px 0;
+  margin: 0;
   width: auto;
 }
-/* line 20, ../sass/mailchimp.scss */
+/* line 22, ../sass/mailchimp.scss */
 #mc_embed_signup h2 {
   font-weight: bold;
   padding: 0;
   margin: 15px 0;
   font-size: 1.4em;
 }
-/* line 26, ../sass/mailchimp.scss */
+/* line 28, ../sass/mailchimp.scss */
 #mc_embed_signup input {
   border: 1px solid #0069aa;
   -webkit-appearance: none;
 }
-/* line 29, ../sass/mailchimp.scss */
+/* line 31, ../sass/mailchimp.scss */
 #mc_embed_signup input.email {
-  margin: 0 -4px 10px;
-  min-height: 12px;
-  padding: 6px 0;
-  text-indent: 6px;
-  width: 14em;
-  border: 1px solid #0069aa;
-  border-bottom-left-radius: 5px;
-  float: left;
-  width: 223px;
+  padding: 8px 0;
+  margin: 0 5px 10px 0;
+  text-indent: 5px;
+  width: 258px;
+  height: 18px;
 }
-/* line 39, ../sass/mailchimp.scss */
+/* line 38, ../sass/mailchimp.scss */
 #mc_embed_signup input.button {
   width: 50px;
-  margin: 0 -4px 10px 0;
-  border-top-right-radius: 5px;
+  margin: 0 0 10px 0;
 }
-/* line 45, ../sass/mailchimp.scss */
+/* line 43, ../sass/mailchimp.scss */
 #mc_embed_signup input[type=checkbox] {
   -webkit-appearance: checkbox;
 }
-/* line 48, ../sass/mailchimp.scss */
+/* line 46, ../sass/mailchimp.scss */
 #mc_embed_signup input[type=radio] {
   -webkit-appearance: radio;
 }
-/* line 51, ../sass/mailchimp.scss */
+/* line 49, ../sass/mailchimp.scss */
 #mc_embed_signup .button {
   clear: both;
   background-color: #0069aa;
@@ -66,9 +60,10 @@
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-size: 1em;
+  font-size: 16px;
   font-weight: bold;
-  height: 30px;
+  height: 36px;
+  line-height: 32px;
   margin: 0 5px 10px 0;
   padding: 0;
   text-align: center;
@@ -77,33 +72,32 @@
   white-space: nowrap;
   width: auto;
 }
-/* line 70, ../sass/mailchimp.scss */
+/* line 67, ../sass/mailchimp.scss */
 #mc_embed_signup .button:hover {
   background-color: #0088dd;
 }
-/* line 74, ../sass/mailchimp.scss */
+/* line 71, ../sass/mailchimp.scss */
 #mc_embed_signup .small-meta {
   font-size: 11px;
 }
-/* line 77, ../sass/mailchimp.scss */
+/* line 74, ../sass/mailchimp.scss */
 #mc_embed_signup .nowrap {
   white-space: nowrap;
 }
-/* line 80, ../sass/mailchimp.scss */
+/* line 77, ../sass/mailchimp.scss */
 #mc_embed_signup .clear {
   clear: none;
   display: inline;
 }
-/* line 84, ../sass/mailchimp.scss */
+/* line 81, ../sass/mailchimp.scss */
 #mc_embed_signup label {
   display: block;
   font-size: 16px;
   padding-bottom: 10px;
   font-weight: bold;
   color: #C08C2C;
-  margin-left: -4px;
 }
-/* line 91, ../sass/mailchimp.scss */
+/* line 87, ../sass/mailchimp.scss */
 #mc_embed_signup label.error {
   display: block;
   float: none;
@@ -112,7 +106,7 @@
   text-align: left;
   padding: .5em 0;
 }
-/* line 100, ../sass/mailchimp.scss */
+/* line 96, ../sass/mailchimp.scss */
 #mc_embed_signup div#mce-responses {
   float: left;
   top: -1.4em;
@@ -122,7 +116,7 @@
   margin: 0 5%;
   clear: both;
 }
-/* line 109, ../sass/mailchimp.scss */
+/* line 105, ../sass/mailchimp.scss */
 #mc_embed_signup div.response {
   margin: 1em 0;
   padding: 1em .5em .5em 0;
@@ -132,11 +126,11 @@
   z-index: 1;
   width: 80%;
 }
-/* line 118, ../sass/mailchimp.scss */
+/* line 114, ../sass/mailchimp.scss */
 #mc_embed_signup #mce-error-response {
   display: none;
 }
-/* line 121, ../sass/mailchimp.scss */
+/* line 117, ../sass/mailchimp.scss */
 #mc_embed_signup #mce-success-response {
   color: #529214;
   display: none;

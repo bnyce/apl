@@ -1,10 +1,30 @@
 body.page-austinmusic {
 	.field-item {
+		p#austinmusic-banner {
+			float: right;
+			position: relative;
+			margin: 0;
+			top: -12px;
+		}
+		p.welcome {
+			background-color: #F8FFF0;
+			border: 1px solid #BBEE77;
+			border-bottom-left-radius: 10px;
+			border-top-right-radius: 10px;
+			float: right;
+			margin-right: 0px;
+			min-height: 158px;
+			padding: 10px;
+			width: 348px;
+		}
 		p.item {
-			width: 172px;
+			&.right {
+				margin-right: 0 !important;
+			}
+			width: 180px;
 			min-height: 228px;
 			float: left;
-			margin: 0 4px 8px;
+			margin: 0 10px 15px 0;
 			span {
 			&.artist,
 			&.title {
@@ -13,11 +33,11 @@ body.page-austinmusic {
 				white-space: nowrap;
 			}
 				display: block;
-				width: 172px;
+				width: 180px;
 			}
 			img {
-				width: 172px;
-				height: 172px;
+				width: 180px;
+				height: 180px;
 			}
 		}
 	}

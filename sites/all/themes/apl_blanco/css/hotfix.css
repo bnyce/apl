@@ -124,80 +124,82 @@ div.field-content div.blEntryWrapper div.book_desc {
   width: auto !important;
 }
 
-/*
+/* line 115, ../sass/hotfix.scss */
 .apl-main-nav {
-	float: right;
-	list-style: none; 
-	list-style-type: none !important; 
-	list-style-position: outside;
-	margin: auto;
+  float: right;
+  list-style: none;
+  list-style-type: none !important;
+  list-style-position: outside;
+  margin: auto;
 }
 
+/* line 123, ../sass/hotfix.scss */
 li.apl-mnav-last {
-	border-right: none !important;
+  border-right: none !important;
 }
 
+/* line 127, ../sass/hotfix.scss */
 .apl-mnav-link {
-	float: right;
-	border-right: 1px solid white;
-    margin: 0 5px 0 0 !important;
-    padding: 0 5px 0 0 !important;
+  float: right;
+  border-right: 1px solid white;
+  margin: 0 5px 0 0 !important;
+  padding: 0 5px 0 0 !important;
 }
-*/
-/* line 138, ../sass/hotfix.scss */
+
+/* line 136, ../sass/hotfix.scss */
 .pane-news-panel-pane-6 a:link, .pane-news-panel-pane-6 a:visited {
   color: red;
 }
 
-/* line 144, ../sass/hotfix.scss */
+/* line 142, ../sass/hotfix.scss */
 .container-inline-date .form-item,
 .container-inline-date .form-item input {
-  width: 50px;
+  width: 82px;
 }
 
-/* line 148, ../sass/hotfix.scss */
+/* line 146, ../sass/hotfix.scss */
 .country {
   display: none;
 }
 
-/* line 152, ../sass/hotfix.scss */
+/* line 150, ../sass/hotfix.scss */
 .thoroughfare {
   float: left;
   padding-right: 5px;
 }
 
-/* line 158, ../sass/hotfix.scss */
+/* line 156, ../sass/hotfix.scss */
 .pane-events-panel-pane-7 .views-label {
   float: left;
   font-weight: bold;
   padding-right: 5px;
 }
-/* line 163, ../sass/hotfix.scss */
+/* line 161, ../sass/hotfix.scss */
 .pane-events-panel-pane-7 .field-content {
   margin: 10px 0;
 }
 
-/* line 169, ../sass/hotfix.scss */
+/* line 167, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .views-field-name,
 .pane-new-location-view-panel-pane-2 .view-display-id-panel_pane_2 .views-row .views-field-name span.field-content {
   float: left;
   font-size: 16px;
 }
 
-/* line 175, ../sass/hotfix.scss */
+/* line 173, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .street-block,
 .view-display-id-panel_pane_2 .street-block {
   float: left;
   margin-left: 10px;
 }
 
-/* line 180, ../sass/hotfix.scss */
+/* line 178, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .postal-code {
   float: left;
   display: none;
 }
 
-/* line 189, ../sass/hotfix.scss */
+/* line 187, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .state,
 .pane-new-location-view-panel-pane-1 .locality,
 .pane-new-location-view-panel-pane-1 .country,
@@ -205,7 +207,7 @@ li.apl-mnav-last {
   float: left;
 }
 
-/* line 196, ../sass/hotfix.scss */
+/* line 194, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .views-field-field-phone-num,
 .page-locations .views-field-field-phone-num {
   display: block;
@@ -215,23 +217,23 @@ li.apl-mnav-last {
   padding-left: 10px;
 }
 
-/* line 205, ../sass/hotfix.scss */
+/* line 203, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .views-field-field-phone-num .field-content {
   float: left;
 }
 
-/* line 209, ../sass/hotfix.scss */
+/* line 207, ../sass/hotfix.scss */
 .pane-new-location-view-panel-pane-1 .views-field-nothing {
   margin-bottom: 15px;
 }
 
-/* line 214, ../sass/hotfix.scss */
+/* line 212, ../sass/hotfix.scss */
 .view-display-id-panel_pane_2 .postal-code {
   float: left;
   display: none;
 }
 
-/* line 219, ../sass/hotfix.scss */
+/* line 217, ../sass/hotfix.scss */
 div.views-row div.field-content div.locality-block span.postal-code {
   margin: 0px !important;
   padding: 0px;
@@ -239,13 +241,13 @@ div.views-row div.field-content div.locality-block span.postal-code {
   text-align: left;
 }
 
-/* line 226, ../sass/hotfix.scss */
+/* line 224, ../sass/hotfix.scss */
 .views-field-field-lib-image {
   border-top: 1px solid silver;
   padding-top: 10px;
 }
 
-/* line 231, ../sass/hotfix.scss */
+/* line 229, ../sass/hotfix.scss */
 .view-id-faq_views .views-field-title dt.handler {
   color: blue;
 }

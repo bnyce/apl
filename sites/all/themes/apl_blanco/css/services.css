@@ -1,43 +1,196 @@
-/* line 4, ../sass/services.scss */
-body.page-libraryservices h1.title {
-  margin-bottom: 1em;
+/* line 12, ../sass/services.scss */
+div.pane-library-service-views-panel-pane-3 {
+  width: 220px;
 }
-/* line 7, ../sass/services.scss */
-body.page-libraryservices div.view-grouping-content {
-  margin: 0 10px 20px;
-}
-/* line 10, ../sass/services.scss */
-body.page-libraryservices div.services-grouping {
-  padding: 5px;
-}
-/* line 13, ../sass/services.scss */
-body.page-libraryservices div.view-grouping {
-  width: 436px !important;
+
+/* line 25, ../sass/services.scss */
+body.page-resources-for-you div.view-grouping {
+  border: 1px solid #e1eaf0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   margin-bottom: 25px;
-  border: 1px solid #0069aa;
+}
+/* line 26, ../sass/services.scss */
+body.page-resources-for-you div.view-grouping div.view-grouping-header {
+  font-size: large;
+  padding: 5px 10px;
+}
+/* line 32, ../sass/services.scss */
+body.page-resources-for-you div.view-grouping div.view-grouping {
+  margin: 0 10px 20px;
+  background-color: #e7ea7f;
+  border: 1px solid #a6b839;
+  padding: 10px 10px 15px 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-/* line 14, ../sass/services.scss */
+/* line 35, ../sass/services.scss */
+body.page-resources-for-you div.view-grouping img {
+  max-width: 175px;
+  width: 200px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom: 20px;
+  height: auto !important;
+}
+
+/* line 48, ../sass/services.scss */
+body.section-library-service-category div.panel-col,
+body.section-library-service-audience div.panel-col,
+body.section-services div.panel-col {
+  width: 220px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border: 1px solid #e1eaf0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 49, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.pane-custom.pane-1,
+body.section-library-service-audience div.panel-col div.pane-custom.pane-1,
+body.section-services div.panel-col div.pane-custom.pane-1 {
+  background-color: #e8e8e8;
+  border-top-right-radius: 10px;
+  border-bottom: 1px dashed white;
+}
+/* line 53, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.pane-custom.pane-1 div.pane-content,
+body.section-library-service-audience div.panel-col div.pane-custom.pane-1 div.pane-content,
+body.section-services div.panel-col div.pane-custom.pane-1 div.pane-content {
+  display: inline-block;
+  padding: 5px;
+}
+/* line 58, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.content div.field,
+body.section-library-service-audience div.panel-col div.content div.field,
+body.section-services div.panel-col div.content div.field {
+  margin-bottom: 0;
+}
+/* line 66, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.field-item img,
+body.section-library-service-audience div.panel-col div.field-item img,
+body.section-services div.panel-col div.field-item img {
+  max-width: 100%;
+  max-height: 175px;
+  width: 210px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 10px 0 0;
+}
+/* line 76, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.field-name-field-library-service-category div.field-items,
+body.section-library-service-category div.panel-col div.field-name-field-library-service-audience div.field-items,
+body.section-library-service-audience div.panel-col div.field-name-field-library-service-category div.field-items,
+body.section-library-service-audience div.panel-col div.field-name-field-library-service-audience div.field-items,
+body.section-services div.panel-col div.field-name-field-library-service-category div.field-items,
+body.section-services div.panel-col div.field-name-field-library-service-audience div.field-items {
+  padding: 0 10px 0 20px;
+}
+/* line 82, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.view-content,
+body.section-library-service-category div.panel-col div.field-items,
+body.section-library-service-audience div.panel-col div.view-content,
+body.section-library-service-audience div.panel-col div.field-items,
+body.section-services div.panel-col div.view-content,
+body.section-services div.panel-col div.field-items {
+  padding: 0 10px 0;
+}
+/* line 85, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.field-label,
+body.section-library-service-audience div.panel-col div.field-label,
+body.section-services div.panel-col div.field-label {
+  margin-left: 10px;
+}
+/* line 91, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.views-field-title,
+body.section-library-service-audience div.panel-col div.views-field-title,
+body.section-services div.panel-col div.views-field-title {
+  padding: 5px;
+}
+/* line 94, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.field-type-image div.field-label,
+body.section-library-service-audience div.panel-col div.field-type-image div.field-label,
+body.section-services div.panel-col div.field-type-image div.field-label {
+  display: none;
+}
+/* line 98, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.taxonomy-term-description,
+body.section-library-service-category div.panel-col div.field-name-body,
+body.section-library-service-audience div.panel-col div.taxonomy-term-description,
+body.section-library-service-audience div.panel-col div.field-name-body,
+body.section-services div.panel-col div.taxonomy-term-description,
+body.section-services div.panel-col div.field-name-body {
+  margin: 0 10px 20px;
+  background-color: #e7ea7f;
+  border: 1px solid #a6b839;
+  padding: 10px 10px 15px 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 99, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.taxonomy-term-description img,
+body.section-library-service-category div.panel-col div.field-name-body img,
+body.section-library-service-audience div.panel-col div.taxonomy-term-description img,
+body.section-library-service-audience div.panel-col div.field-name-body img,
+body.section-services div.panel-col div.taxonomy-term-description img,
+body.section-services div.panel-col div.field-name-body img {
+  max-width: 100%;
+  height: auto !important;
+}
+/* line 105, ../sass/services.scss */
+body.section-library-service-category div.panel-col div.taxonomy-term-description div,
+body.section-library-service-category div.panel-col div.field-name-body div,
+body.section-library-service-audience div.panel-col div.taxonomy-term-description div,
+body.section-library-service-audience div.panel-col div.field-name-body div,
+body.section-services div.panel-col div.taxonomy-term-description div,
+body.section-services div.panel-col div.field-name-body div {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 114, ../sass/services.scss */
+body.page-libraryservices h1.title {
+  margin-bottom: 1em;
+}
+/* line 117, ../sass/services.scss */
+body.page-libraryservices div.view-grouping-content {
+  margin: 0 10px 20px;
+}
+/* line 120, ../sass/services.scss */
+body.page-libraryservices div.services-grouping {
+  padding: 5px;
+}
+/* line 123, ../sass/services.scss */
+body.page-libraryservices div.view-grouping {
+  width: 218px;
+  margin-bottom: 25px;
+  border: 1px solid #e1eaf0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  float: left;
+  margin-right: 20px;
+}
+/* line 124, ../sass/services.scss */
 body.page-libraryservices div.view-grouping div.view-grouping-header {
   font-size: 1.5em;
   margin: 10px 10px 0;
 }
-/* line 33, ../sass/services.scss */
-body.page-libraryservices div.view-grouping:nth-child(1), body.page-libraryservices div.view-grouping:nth-child(3), body.page-libraryservices div.view-grouping:nth-child(5), body.page-libraryservices div.view-grouping:nth-child(7), body.page-libraryservices div.view-grouping:nth-child(9), body.page-libraryservices div.view-grouping:nth-child(11), body.page-libraryservices div.view-grouping:nth-child(13), body.page-libraryservices div.view-grouping:nth-child(15), body.page-libraryservices div.view-grouping:nth-child(17), body.page-libraryservices div.view-grouping:nth-child(19) {
-  float: left;
+/* line 134, ../sass/services.scss */
+body.page-libraryservices div.view-grouping:nth-child(4n) {
+  float: right;
+  margin-right: 0;
+}
+/* line 138, ../sass/services.scss */
+body.page-libraryservices div.view-grouping:nth-child(4n+1) {
   clear: both;
 }
-/* line 46, ../sass/services.scss */
-body.page-libraryservices div.view-grouping:nth-child(2), body.page-libraryservices div.view-grouping:nth-child(4), body.page-libraryservices div.view-grouping:nth-child(6), body.page-libraryservices div.view-grouping:nth-child(8), body.page-libraryservices div.view-grouping:nth-child(10), body.page-libraryservices div.view-grouping:nth-child(12), body.page-libraryservices div.view-grouping:nth-child(14), body.page-libraryservices div.view-grouping:nth-child(16), body.page-libraryservices div.view-grouping:nth-child(18), body.page-libraryservices div.view-grouping:nth-child(20) {
-  float: right;
-}
-/* line 49, ../sass/services.scss */
+/* line 141, ../sass/services.scss */
 body.page-libraryservices div.view-grouping img {
   max-width: 100%;
   max-height: 175px;
-  width: 416px;
-  border-bottom-left-radius: 10px;
+  width: 210px;
   border-top-right-radius: 10px;
-  margin-bottom: 10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom: 20px;
 }

@@ -1,77 +1,56 @@
-/*
-#edit-field-date-value-1-value-datepicker-popup-0 {
-	@include input_box_button;
-	width: 135px;
-}
-#edit-submit-events {
-	@include input_button;
-	float: none;
-}
-.views-exposed-widget.views-widget-filter-field_date_value_1,
-form-type-date-popup form-item-field-date-value-1-value {
-	width: 120px;
-	div {
-		width: auto;
-	}	
-}
-.views-exposed-widget.views-submit-button {
-    float: right;
-    margin-top: -1px;
-    padding-right: 0;
-}
-#edit-term-node-tid-depth > option {
-	height: 18px;
-	padding: 2px;
-}
-*/
-/* line 29, ../sass/events.scss */
+/* line 3, ../sass/events.scss */
 h3 {
   margin-top: 1em;
 }
 
-/* line 32, ../sass/events.scss */
+/* line 6, ../sass/events.scss */
 .views-field.views-field-field-time {
   margin-left: 5px;
-  width: 5em;
+  width: 60px;
   float: left;
 }
 
-/* line 39, ../sass/events.scss */
+/* line 14, ../sass/events.scss */
 body.page-locations
 span.views-field.views-field-field-time + .views-field.views-field-title {
   font-weight: normal;
   display: block;
-  margin-left: 5em;
+  margin: 1px 0 0 60px;
 }
 
-/* line 50, ../sass/events.scss */
+/* line 22, ../sass/events.scss */
+body.front .pane-events-panel-pane-1 .views-field.views-field-title {
+  padding-left: 2em;
+}
+
+/* line 25, ../sass/events.scss */
 ul.pager {
   margin-top: 1em;
 }
 
-/* line 53, ../sass/events.scss */
+/* line 28, ../sass/events.scss */
 .views-label.views-label-field-date {
   width: 100%;
 }
 
-/* line 62, ../sass/events.scss */
+/* line 37, ../sass/events.scss */
 body.front div.view-events div.views-row, body.page-locations div.view-events div.views-row, body.page-adult-events div.view-events div.views-row, body.page-youth-events div.view-events div.views-row, body.page-events div.view-events div.views-row {
-  margin-top: .5em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-top: .5em;
 }
 
-/* line 69, ../sass/events.scss */
+/* line 45, ../sass/events.scss */
 body.node-type-event .views-field.views-field-field-time {
   margin-left: 0;
   width: 100%;
 }
-/* line 73, ../sass/events.scss */
+/* line 49, ../sass/events.scss */
 body.node-type-event div.views-field-field-date .field-content > br {
   display: none;
 }
-/* line 76, ../sass/events.scss */
+/* line 52, ../sass/events.scss */
 body.node-type-event span.date-display-single {
   clear: both;
   display: block;

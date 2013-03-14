@@ -25,19 +25,21 @@
 #header form {
   margin-top: 10px;
   background: transparent;
-  padding: 0px 25px 0px 60px;
+  padding: 0 10px 0;
   border-width: 0;
   border-style: solid;
   border-color: #f2f2f2;
+  width: 420px;
+  float: right;
 }
-/* line 30, ../sass/apl_global_search.scss */
+/* line 33, ../sass/apl_global_search.scss */
 #header form select {
   width: 124px;
   margin: 0 2px 0 0;
   padding: 6px 2px 6px 0;
   float: right;
 }
-/* line 36, ../sass/apl_global_search.scss */
+/* line 39, ../sass/apl_global_search.scss */
 #header form input.search_button {
   background-color: #0069aa;
   color: white;
@@ -50,15 +52,15 @@
   font-weight: bold;
   border-top-right-radius: 5px;
 }
-/* line 47, ../sass/apl_global_search.scss */
+/* line 50, ../sass/apl_global_search.scss */
 #header form input.search_button:hover {
   background-color: #0088dd;
 }
-/* line 54, ../sass/apl_global_search.scss */
+/* line 57, ../sass/apl_global_search.scss */
 #header form label {
   font-weight: normal;
 }
-/* line 57, ../sass/apl_global_search.scss */
+/* line 60, ../sass/apl_global_search.scss */
 #header form a.moreSearch {
   clear: right;
   white-space: nowrap;
@@ -67,28 +69,28 @@
   display: block;
   float: right;
 }
-/* line 65, ../sass/apl_global_search.scss */
+/* line 68, ../sass/apl_global_search.scss */
 #header form a.moreSearch:hover {
   text-decoration: underline;
   color: #0069aa;
 }
-/* line 70, ../sass/apl_global_search.scss */
+/* line 73, ../sass/apl_global_search.scss */
 #header form div.searchOptions {
   color: #0069aa;
   float: left;
-  margin-left: 5px;
+  margin-left: 30px;
 }
-/* line 75, ../sass/apl_global_search.scss */
+/* line 78, ../sass/apl_global_search.scss */
 #header form div.searchOptions label.inline {
   display: inline;
   border-color: #c2c2c2;
   margin: 0 10px 0 0;
 }
-/* line 79, ../sass/apl_global_search.scss */
+/* line 82, ../sass/apl_global_search.scss */
 #header form div.searchOptions label.inline:hover {
   text-decoration: underline;
 }
-/* line 86, ../sass/apl_global_search.scss */
+/* line 89, ../sass/apl_global_search.scss */
 #header form textarea,
 #header form input.text,
 #header form input.password {
@@ -97,12 +99,12 @@
   padding: 4px;
   margin-bottom: 2px;
 }
-/* line 94, ../sass/apl_global_search.scss */
+/* line 97, ../sass/apl_global_search.scss */
 #header form input.text,
 #header form input.password {
   width: 200px;
 }
-/* line 97, ../sass/apl_global_search.scss */
+/* line 100, ../sass/apl_global_search.scss */
 #header form input.text {
   min-height: 12px;
   padding: 6px 0;
@@ -114,7 +116,7 @@
   float: right;
   width: 320px !important;
 }
-/* line 110, ../sass/apl_global_search.scss */
+/* line 113, ../sass/apl_global_search.scss */
 #header div#apl_global_search {
   float: right;
 }

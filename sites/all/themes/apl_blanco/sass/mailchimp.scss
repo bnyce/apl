@@ -2,19 +2,21 @@
 
 .pane-block-13 {
 	background-color: #EEF2FA;
-	border-top-right-radius: 10px;	
-	border-bottom-left-radius: 10px;	
+	border-radius: 10px;	
+	div.pane-content {
+		width: 100% !important;
+	}
 }
 
 #mc_embed_signup {
-	margin-top: 10px;
+//	margin-top: 10px;
 	#signup_box {
-		padding-bottom: 4px;
+		padding-bottom: 5px;
 	}
 	form {
 		display: block; 
-		padding: 10px 5px 0px 10px;
-		margin: 0 5px;
+		padding: 10px 10px 0;
+		margin: 0;
 		width: auto;
 	}
 	h2 {
@@ -27,19 +29,15 @@
 		border: 1px solid $blue; 
 		-webkit-appearance: none;
 	&.email {
-	//	padding: 8px 0; 
-	//	margin: 0 5px 10px 0; 
-	//	text-indent: 5px; 
-	//	width: 200px; 
-		margin: 0 -4px 10px;
-	//	height: 12px;
-		@include input_box_button;
-		width: 223px;
+		padding: 8px 0; 
+		margin: 0 5px 10px 0; 
+		text-indent: 5px; 
+		width: 258px; 
+		height: 18px;
 	}
 	&.button {
 		width: 50px; 
-		margin: 0 -4px 10px 0; 
-		border-top-right-radius: 5px;
+		margin: 0 0 10px 0; 
 	}
 	}
 	input[type=checkbox] {
@@ -55,11 +53,10 @@
 		color: #FFFFFF; 
 		cursor: pointer; 
 		display: inline-block; 
-//		font-size: 16px; 
-		font-size: 1em; 
+		font-size: 16px; 
 		font-weight: bold; 
-		height: 30px; 
-	//	line-height: 32px; 
+		height: 36px; 
+		line-height: 32px; 
 		margin: 0 5px 10px 0; 
 		padding: 0; 
 		text-align: center; 
@@ -87,7 +84,6 @@
 		padding-bottom: 10px; 
 		font-weight: bold;
 		color: #C08C2C;
-		margin-left: -4px;
 	&.error {
 		display: block; 
 		float: none; 

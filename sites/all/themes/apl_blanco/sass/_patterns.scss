@@ -1,0 +1,11 @@
+
+@mixin rhombus {
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+}
+
+@mixin section-border {
+        border: 1px solid $blue-light;
+        @include rhombus;
+}
+

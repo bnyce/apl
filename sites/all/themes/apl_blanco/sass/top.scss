@@ -1,7 +1,8 @@
 @import "colors";
+$width: 100%;
 
 #city-header {
-	background-color: $black;
+	background-color: $blue_black;
 	h2.pane-title {
 		display: none;
 	}
@@ -12,7 +13,7 @@
 	
 	
 	ul.menu {
-		//width: $width;    
+		width: $width;    
 		height: 30px;
 		line-height: 30px;
 		margin: 0 auto;

@@ -1,0 +1,48 @@
+/*  SECTIONS  ============================================================================= */
+/* line 4, ../sass/col.scss */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+/* line 14, ../sass/col.scss */
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+/* line 18, ../sass/col.scss */
+.group:after {
+  clear: both;
+}
+
+/* line 21, ../sass/col.scss */
+.group {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+/* line 27, ../sass/col.scss */
+.col {
+  display: block;
+  float: left;
+  margin: 1% 0 1% 1.6%;
+}
+
+/* line 33, ../sass/col.scss */
+.col:first-child {
+  margin-left: 0;
+}
+
+/* all browsers except IE6 and lower */
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+@media only screen and (max-width: 480px) {
+  /* line 39, ../sass/col.scss */
+  .col {
+    margin: 1% 0 1% 0%;
+  }
+}

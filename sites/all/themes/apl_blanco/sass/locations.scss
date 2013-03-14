@@ -1,21 +1,11 @@
 @import "colors";
 
-#apl_locations_menu {
+p#other-location-links {
 	float: left;
 }
-
-#apl_locations_form {
+form#by-zip {
 	float: right;
-	clear: none;
-	#apl_locations_input {
-		@include input_box_button;
-	}
-	#apl_locations_button {
-		@include input_button;
-	}
-
 }
-
 
 .views-field-nothing.holiday-schedule {
 	margin-bottom: 1em;
@@ -34,9 +24,7 @@ span.days {
 div.library-hours {
 	margin-left: -5px;
 	div {
-		//border-bottom: 1px dotted lighten($blue, 10%);
-//		border-bottom: 1px dotted $blue_light;
-		@include divider;
+		border-bottom: 1px dotted $blue-light;
 		padding: 2px 5px;
 		width: 275px;
 		span.hours {
@@ -44,9 +32,9 @@ div.library-hours {
 			display: block;
 		}
 	}
-//	div.last {
-//		border-bottom: none;
-//	}
+	div.last {
+		border-bottom: none;
+	}
 }
 
 

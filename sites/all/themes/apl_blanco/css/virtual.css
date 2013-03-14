@@ -1,30 +1,26 @@
-/* line 14, ../sass/virtual.scss */
-div#virtual div.virtual-service p:nth-child(2) {
-  margin: 0;
-}
-/* line 18, ../sass/virtual.scss */
+/* line 15, ../sass/virtual.scss */
 div#virtual div.virtual-service p.title,
 div#virtual div.virtual-service a {
   margin-left: 15px;
   display: inline;
 }
-/* line 23, ../sass/virtual.scss */
+/* line 20, ../sass/virtual.scss */
 div#virtual div.description {
-  background-color: #e7ea7f;
-  border: 1px solid #a6b839;
+  border: 1px solid #bbee77;
+  background-color: #f8fff0;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 7px 10px 10px;
   margin: 2px 0 1em 5px;
 }
-/* line 34, ../sass/virtual.scss */
+/* line 30, ../sass/virtual.scss */
 div#virtual div.more-info {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
   position: absolute !important;
 }
-/* line 41, ../sass/virtual.scss */
+/* line 37, ../sass/virtual.scss */
 div#virtual span.show-hide {
   display: block;
   margin-top: -1.6em;
@@ -33,70 +29,70 @@ div#virtual span.show-hide {
   background: url("../images/menu-collapsed.png") no-repeat scroll 5px 65% transparent;
   z-index: 1000;
 }
-/* line 42, ../sass/virtual.scss */
+/* line 38, ../sass/virtual.scss */
 div#virtual span.show-hide:hover {
   cursor: hand;
 }
-/* line 53, ../sass/virtual.scss */
+/* line 49, ../sass/virtual.scss */
 div#virtual span.show-hide.expanded {
   background-image: url("../images/menu-expanded.png");
 }
-/* line 57, ../sass/virtual.scss */
+/* line 53, ../sass/virtual.scss */
 div#virtual div.services-grouping {
   padding: 5px;
 }
-/* line 60, ../sass/virtual.scss */
+/* line 56, ../sass/virtual.scss */
 div#virtual div.grouping {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border: 1px solid #e1eaf0;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   float: left;
-  margin-right: 15px;
-  width: 288px;
+  margin-right: 20px;
+  width: 298px;
 }
-/* line 61, ../sass/virtual.scss */
+/* line 57, ../sass/virtual.scss */
 div#virtual div.grouping.help {
-  background-color: #e7ea7f;
-  border: 1px solid #a6b839;
+  border: 1px solid #BBEE77;
+  background-color: #F8FFF0;
 }
-/* line 65, ../sass/virtual.scss */
+/* line 60, ../sass/virtual.scss */
 div#virtual div.grouping.help h2 {
   color: green;
 }
-/* line 69, ../sass/virtual.scss */
+/* line 64, ../sass/virtual.scss */
 div#virtual div.grouping h2 {
   font-size: 1.5em;
   margin: 10px 10px 0;
 }
-/* line 73, ../sass/virtual.scss */
+/* line 68, ../sass/virtual.scss */
 div#virtual div.grouping div.content {
   margin: 1em 10px 20px;
 }
-/* line 74, ../sass/virtual.scss */
+/* line 69, ../sass/virtual.scss */
 div#virtual div.grouping div.content div.popup-element a {
   color: #0069aa;
 }
-/* line 76, ../sass/virtual.scss */
+/* line 71, ../sass/virtual.scss */
 div#virtual div.grouping div.content div.popup-element a:visited {
   color: #4c2a90;
 }
-/* line 80, ../sass/virtual.scss */
+/* line 75, ../sass/virtual.scss */
 div#virtual div.grouping div.content span.coming-soon {
   color: silver;
 }
-/* line 83, ../sass/virtual.scss */
+/* line 78, ../sass/virtual.scss */
 div#virtual div.grouping div.content ul {
   list-style-type: none;
   margin-left: 0;
   margin-bottom: 20px;
   padding-left: 0;
 }
-/* line 89, ../sass/virtual.scss */
+/* line 84, ../sass/virtual.scss */
 div#virtual div.grouping div.content ul li {
   padding: 0 5px;
 }
-/* line 94, ../sass/virtual.scss */
+/* line 89, ../sass/virtual.scss */
 div#virtual div.grouping div.content img {
   max-width: 100%;
   max-height: 175px;
@@ -105,11 +101,11 @@ div#virtual div.grouping div.content img {
   margin-bottom: 10px;
   margin-right: 5px;
 }
-/* line 115, ../sass/virtual.scss */
+/* line 110, ../sass/virtual.scss */
 div#virtual div.grouping:nth-child(7), div#virtual div.grouping:nth-child(10), div#virtual div.grouping:nth-child(13), div#virtual div.grouping:nth-child(16), div#virtual div.grouping:nth-child(19) {
   clear: both;
 }
-/* line 118, ../sass/virtual.scss */
+/* line 113, ../sass/virtual.scss */
 div#virtual div.grouping.column-3 {
   margin-right: 0;
   clear: none;

@@ -53,7 +53,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '14',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -86,6 +86,74 @@ function suggest_a_title_field_default_fields() {
         ),
         'type' => 'text_textarea_with_summary',
         'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-suggest_a_title-field_anticipated_'.
+  $fields['node-suggest_a_title-field_anticipated_'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_anticipated_',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'Yes, we anticipated the demand for this item and it was already on our list to order.' => 'Yes, we anticipated the demand for this item and it was already on our list to order.',
+          'No, prior to this request we had not anticipated the demand for this item.' => 'No, prior to this request we had not anticipated the demand for this item.',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'suggest_a_title',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 17,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'exclude_cv' => 0,
+      'field_name' => 'field_anticipated_',
+      'label' => 'Anticipated?',
+      'required' => 0,
+      'settings' => array(
+        'exclude_cv' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '1',
       ),
     ),
   );
@@ -132,7 +200,7 @@ function suggest_a_title_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -158,7 +226,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '9',
+        'weight' => '-4',
       ),
     ),
   );
@@ -229,7 +297,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '12',
+        'weight' => '-2',
       ),
     ),
   );
@@ -344,9 +412,13 @@ function suggest_a_title_field_default_fields() {
           'eAudiobook-nonfiction' => 'eAudiobook-nonfiction',
           'eBook-fiction' => 'eBook-fiction',
           'eBook-nonfiction' => 'eBook-nonfiction',
+          'eMusic' => 'eMusic',
+          'eVideo' => 'eVideo',
+          'ePeriodical' => 'ePeriodical',
+          'eNewspaper' => 'eNewspaper',
           'Music CD' => 'Music CD',
-          'Other' => 'Other',
           'Periodical/Newspaper' => 'Periodical/Newspaper',
+          'Other' => 'Other',
         ),
         'allowed_values_function' => '',
       ),
@@ -368,7 +440,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '9',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -378,7 +450,7 @@ function suggest_a_title_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'exclude_cv' => 1,
+      'exclude_cv' => 0,
       'field_name' => 'field_format',
       'label' => 'Format',
       'required' => 1,
@@ -391,7 +463,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '11',
+        'weight' => '-1',
       ),
     ),
   );
@@ -436,7 +508,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '13',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -507,7 +579,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -546,6 +618,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_language',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -642,7 +717,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '11',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -655,7 +730,7 @@ function suggest_a_title_field_default_fields() {
       'exclude_cv' => 0,
       'field_name' => 'field_language',
       'label' => 'Language',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'exclude_cv' => FALSE,
         'user_register_form' => FALSE,
@@ -665,7 +740,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '0',
       ),
     ),
   );
@@ -757,7 +832,7 @@ function suggest_a_title_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_text',
-        'weight' => '2',
+        'weight' => '4',
       ),
     ),
   );
@@ -802,7 +877,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '7',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -900,7 +975,79 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-suggest_a_title-field_selector_s_comment'.
+  $fields['node-suggest_a_title-field_selector_s_comment'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_selector_s_comment',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'suggest_a_title',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 16,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'exclude_cv' => 0,
+      'field_name' => 'field_selector_s_comment',
+      'label' => 'Selector\'s Comment',
+      'required' => 0,
+      'settings' => array(
+        'exclude_cv' => FALSE,
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '2',
       ),
     ),
   );
@@ -913,6 +1060,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_targeted_age_level_of_item',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -942,7 +1092,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '10',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -955,7 +1105,7 @@ function suggest_a_title_field_default_fields() {
       'exclude_cv' => 0,
       'field_name' => 'field_targeted_age_level_of_item',
       'label' => 'Targeted Age Level of Item',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'exclude_cv' => FALSE,
         'user_register_form' => FALSE,
@@ -1013,7 +1163,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1087,7 +1237,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1113,7 +1263,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '13',
+        'weight' => '2',
       ),
     ),
   );
@@ -1267,6 +1417,7 @@ function suggest_a_title_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Anticipated?');
   t('Austin Public Library Card Number');
   t('Author/Performer/Band');
   t('Comments');
@@ -1283,6 +1434,7 @@ function suggest_a_title_field_default_fields() {
   t('Publication Year');
   t('Publisher');
   t('Ready to email?');
+  t('Selector\'s Comment');
   t('Targeted Age Level of Item');
   t('URL');
   t('Which library locations do you use most often?');

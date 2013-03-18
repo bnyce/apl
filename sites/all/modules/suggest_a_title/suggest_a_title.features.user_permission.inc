@@ -24,15 +24,14 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'admin_menu',
   );
 
-  // Exported permission: access toolbar.
-  $permissions['access toolbar'] = array(
-    'name' => 'access toolbar',
+  // Exported permission: create field_anticipated_.
+  $permissions['create field_anticipated_'] = array(
+    'name' => 'create field_anticipated_',
     'roles' => array(
-      0 => 'blogger',
-      1 => 'meeting rooms administrator',
-      2 => 'pio',
+      0 => 'administrator',
+      1 => 'materials selector',
     ),
-    'module' => 'toolbar',
+    'module' => 'field_permissions',
   );
 
   // Exported permission: create field_follow_up.
@@ -58,6 +57,16 @@ function suggest_a_title_user_default_permissions() {
     'name' => 'create field_ready_to_email_',
     'roles' => array(
       0 => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: create field_selector_s_comment.
+  $permissions['create field_selector_s_comment'] = array(
+    'name' => 'create field_selector_s_comment',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
     ),
     'module' => 'field_permissions',
   );
@@ -99,6 +108,16 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: edit field_anticipated_.
+  $permissions['edit field_anticipated_'] = array(
+    'name' => 'edit field_anticipated_',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: edit field_follow_up.
   $permissions['edit field_follow_up'] = array(
     'name' => 'edit field_follow_up',
@@ -127,6 +146,26 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: edit field_selector_s_comment.
+  $permissions['edit field_selector_s_comment'] = array(
+    'name' => 'edit field_selector_s_comment',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: edit own field_anticipated_.
+  $permissions['edit own field_anticipated_'] = array(
+    'name' => 'edit own field_anticipated_',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: edit own field_follow_up.
   $permissions['edit own field_follow_up'] = array(
     'name' => 'edit own field_follow_up',
@@ -151,6 +190,16 @@ function suggest_a_title_user_default_permissions() {
     'name' => 'edit own field_ready_to_email_',
     'roles' => array(
       0 => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: edit own field_selector_s_comment.
+  $permissions['edit own field_selector_s_comment'] = array(
+    'name' => 'edit own field_selector_s_comment',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
     ),
     'module' => 'field_permissions',
   );
@@ -186,6 +235,16 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'disable_messages',
   );
 
+  // Exported permission: view field_anticipated_.
+  $permissions['view field_anticipated_'] = array(
+    'name' => 'view field_anticipated_',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: view field_follow_up.
   $permissions['view field_follow_up'] = array(
     'name' => 'view field_follow_up',
@@ -214,6 +273,26 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: view field_selector_s_comment.
+  $permissions['view field_selector_s_comment'] = array(
+    'name' => 'view field_selector_s_comment',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: view own field_anticipated_.
+  $permissions['view own field_anticipated_'] = array(
+    'name' => 'view own field_anticipated_',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: view own field_follow_up.
   $permissions['view own field_follow_up'] = array(
     'name' => 'view own field_follow_up',
@@ -238,6 +317,16 @@ function suggest_a_title_user_default_permissions() {
     'name' => 'view own field_ready_to_email_',
     'roles' => array(
       0 => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: view own field_selector_s_comment.
+  $permissions['view own field_selector_s_comment'] = array(
+    'name' => 'view own field_selector_s_comment',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
     ),
     'module' => 'field_permissions',
   );

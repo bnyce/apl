@@ -366,7 +366,9 @@ fieldset.collapsed  {
 }
 
 //div.node-webform fieldset legend span a{
-fieldset legend span a{
-margin-top: -2.5em !important\9;
+//fieldset legend span, 
+fieldset legend span {
+	//margin-top: -2.5em !important\9;
+	margin-top: -25px !important\9;
 	position: absolute\9;
 }

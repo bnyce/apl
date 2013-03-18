@@ -93,21 +93,21 @@ node/add/suggest-a-title';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_debug_visible_div';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['disable_messages_debug_visible_div'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_enable';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['disable_messages_enable'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_enable_debug';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['disable_messages_enable_debug'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -121,35 +121,39 @@ node/add/suggest-a-title';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_filter_by_page';
-  $strongarm->value = 0;
+  $strongarm->value = '2';
   $export['disable_messages_filter_by_page'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_ignore_case';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['disable_messages_ignore_case'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_ignore_patterns';
-  $strongarm->value = '';
+  $strongarm->value = '.*has been created.*
+.*has been updated.*';
   $export['disable_messages_ignore_patterns'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_ignore_regex';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => '/^.*has been created.*$/i',
+    1 => '/^.*has been updated.*$/i',
+  );
   $export['disable_messages_ignore_regex'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_page_filter_paths';
-  $strongarm->value = '';
+  $strongarm->value = 'suggest-*';
   $export['disable_messages_page_filter_paths'] = $strongarm;
 
   $strongarm = new stdClass();

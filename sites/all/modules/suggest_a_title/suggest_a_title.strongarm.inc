@@ -22,8 +22,8 @@ function suggest_a_title_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'clientside_validation_path_list';
   $strongarm->value = '*/webform*
-admin/structure/views/view/*\\
-node/add/suggest-a-title';
+admin/structure/views/view/*
+suggest*';
   $export['clientside_validation_path_list'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -44,7 +44,7 @@ node/add/suggest-a-title';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_suggest_a_title';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_suggest_a_title'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -121,7 +121,7 @@ node/add/suggest-a-title';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disable_messages_filter_by_page';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['disable_messages_filter_by_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -229,6 +229,13 @@ node/add/suggest-a-title';
   $strongarm->name = 'node_submitted_suggest_a_title';
   $strongarm->value = 0;
   $export['node_submitted_suggest_a_title'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_suggest_a_title_pattern';
+  $strongarm->value = 'suggest-a-title/[node:nid]/[node:title]';
+  $export['pathauto_node_suggest_a_title_pattern'] = $strongarm;
 
   return $export;
 }

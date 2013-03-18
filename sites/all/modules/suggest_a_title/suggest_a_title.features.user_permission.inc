@@ -29,7 +29,6 @@ function suggest_a_title_user_default_permissions() {
     'name' => 'create field_anticipated_',
     'roles' => array(
       0 => 'administrator',
-      1 => 'materials selector',
     ),
     'module' => 'field_permissions',
   );
@@ -66,7 +65,6 @@ function suggest_a_title_user_default_permissions() {
     'name' => 'create field_selector_s_comment',
     'roles' => array(
       0 => 'administrator',
-      1 => 'materials selector',
     ),
     'module' => 'field_permissions',
   );

@@ -105,11 +105,9 @@ function suggest_a_title_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'suggest',
-        'description' => '<p>Thank you for taking the time to suggest an item for the Library. Your input as a citizen of Austin is valuable to the Library\'s selection team and will be given careful consideration.</p>
-<p>Have you searched the <a href="http://austin.bibliocommons.com">Library catalog</a> for the item you are suggesting? If not, please check the catalog before completing this form.</p>
-<p>The decision to purchase an item is based on the Library\'s selection criteria, current budget constraints, and the item\'s availability.</p>',
+        'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $export['group_suggestion|node|suggest_a_title|form'] = $field_group;

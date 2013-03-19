@@ -10,20 +10,6 @@
 function suggest_a_title_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: access administration menu.
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
-      2 => 'blogger',
-      3 => 'materials selector',
-      4 => 'meeting rooms administrator',
-      5 => 'pio',
-    ),
-    'module' => 'admin_menu',
-  );
-
   // Exported permission: create field_anticipated_.
   $permissions['create field_anticipated_'] = array(
     'name' => 'create field_anticipated_',
@@ -342,6 +328,17 @@ function suggest_a_title_user_default_permissions() {
       6 => 'pio',
     ),
     'module' => 'disable_messages',
+  );
+
+  // Exported permission: view the administration theme.
+  $permissions['view the administration theme'] = array(
+    'name' => 'view the administration theme',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'materials selector',
+      2 => 'pio',
+    ),
+    'module' => 'system',
   );
 
   // Exported permission: view warning messages.

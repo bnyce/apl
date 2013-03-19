@@ -22,8 +22,7 @@ function suggest_a_title_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'clientside_validation_path_list';
   $strongarm->value = '*/webform*
-admin/structure/views/view/*
-suggest*';
+admin/structure/views/view/*';
   $export['clientside_validation_path_list'] = $strongarm;
 
   $strongarm = new stdClass();

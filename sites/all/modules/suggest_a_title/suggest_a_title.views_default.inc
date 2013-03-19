@@ -50,6 +50,8 @@ function suggest_a_title_views_default_views() {
     'field_format' => 'field_format',
     'field_language' => 'field_language',
     'field_url' => 'field_url',
+    'field_anticipated_' => 'field_anticipated_',
+    'field_your_e_mail' => 'field_your_e_mail',
   );
   $handler->display->display_options['style_options']['default'] = 'created';
   $handler->display->display_options['style_options']['info'] = array(
@@ -79,28 +81,42 @@ function suggest_a_title_views_default_views() {
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
-      'empty_column' => 1,
+      'empty_column' => 0,
     ),
     'field_format' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
-      'empty_column' => 1,
+      'empty_column' => 0,
     ),
     'field_language' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
-      'empty_column' => 1,
+      'empty_column' => 0,
     ),
     'field_url' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
-      'empty_column' => 1,
+      'empty_column' => 0,
+    ),
+    'field_anticipated_' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_your_e_mail' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
     ),
   );
   $handler->display->display_options['style_options']['sticky'] = TRUE;
@@ -111,22 +127,31 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<div class="messages warning">There are no items in the Queue that match your criteria.</div>';
   $handler->display->display_options['empty']['area']['format'] = 'truly_unfiltered_html';
+  /* Field: Content: Email */
+  $handler->display->display_options['fields']['field_your_e_mail']['id'] = 'field_your_e_mail';
+  $handler->display->display_options['fields']['field_your_e_mail']['table'] = 'field_data_field_your_e_mail';
+  $handler->display->display_options['fields']['field_your_e_mail']['field'] = 'field_your_e_mail';
+  $handler->display->display_options['fields']['field_your_e_mail']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_your_e_mail']['alter']['max_length'] = '10';
+  $handler->display->display_options['fields']['field_your_e_mail']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['field_your_e_mail']['alter']['trim'] = TRUE;
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Time since submission';
+  $handler->display->display_options['fields']['created']['label'] = 'Date/Time';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'View';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['label'] = 'ID';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'node/[nid]/edit';
   $handler->display->display_options['fields']['nid']['alter']['max_length'] = '2';
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -165,6 +190,13 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['fields']['field_url']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_url']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_url']['delta_offset'] = '0';
+  /* Field: Content: Anticipated? */
+  $handler->display->display_options['fields']['field_anticipated_']['id'] = 'field_anticipated_';
+  $handler->display->display_options['fields']['field_anticipated_']['table'] = 'field_data_field_anticipated_';
+  $handler->display->display_options['fields']['field_anticipated_']['field'] = 'field_anticipated_';
+  $handler->display->display_options['fields']['field_anticipated_']['alter']['max_length'] = '8';
+  $handler->display->display_options['fields']['field_anticipated_']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_anticipated_']['type'] = 'list_key';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

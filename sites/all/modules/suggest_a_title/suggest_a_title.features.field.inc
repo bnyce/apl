@@ -111,8 +111,8 @@ function suggest_a_title_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'Yes, we anticipated the demand for this item and it was already on our list to order.' => 'Yes, we anticipated the demand for this item and it was already on our list to order.',
-          'No, prior to this request we had not anticipated the demand for this item.' => 'No, prior to this request we had not anticipated the demand for this item.',
+          'Yes' => 'Yes, we anticipated the demand for this item and it was already on our list to order.',
+          'No' => 'No, prior to this request we had not anticipated the demand for this item.',
         ),
         'allowed_values_function' => '',
       ),
@@ -226,7 +226,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-4',
+        'weight' => '5',
       ),
     ),
   );
@@ -297,7 +297,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-2',
+        'weight' => '2',
       ),
     ),
   );
@@ -463,7 +463,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '-1',
+        'weight' => '3',
       ),
     ),
   );
@@ -740,7 +740,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '0',
+        'weight' => '4',
       ),
     ),
   );
@@ -1115,7 +1115,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '5',
       ),
     ),
   );
@@ -1263,7 +1263,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '6',
       ),
     ),
   );

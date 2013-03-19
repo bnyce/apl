@@ -1,26 +1,11 @@
 @import "colors";
 @import "patterns";
-
-// dimensions
-
-$img_w: 220px;
-$border: 1px;
-$span_w: $img_w;
-$img_h: 175px;
-$pad: 5px;
+@import "dimensions";
 
 div.pane-library-service-views-panel-pane-3 {
 	width: $img_w;
 }
 
-
-@mixin status {
-	margin: 0 $pad*2 $pad*4;
-	background-color: $status_background;
-	border: 1px solid $status_border;
-	padding: $pad*2 $pad*2 $pad*3 $pad*2;
-	@include rhombus;
-}
 body.page-resources-for-you {
 	div.view-grouping {
 		div.view-grouping-header {

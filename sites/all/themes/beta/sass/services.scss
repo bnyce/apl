@@ -2,6 +2,7 @@
 @import "patterns";
 @import "dimensions";
 
+
 div.pane-library-service-views-panel-pane-3 {
 	width: $img_w;
 }
@@ -26,10 +27,23 @@ body.page-resources-for-you {
 		}
 	}
 }
+body.section-services {
+	div.panel-col {
+		width: 220px;
+		div.field-name-body {
+			position: absolute;
+			margin-left: 240px !important;
+			margin-top: 10px !important;
+			width: 678px;
+			float: left;	
+		}
+	}
+}
 
 body.section-library-service-category,
 body.section-library-service-audience,
-body.section-services {
+body.section-services,
+body.section-libraryservices {
 	div.panel-col {
 		div.pane-custom.pane-1 {
 			background-color: #e8e8e8;
@@ -43,10 +57,7 @@ body.section-services {
 		div.content div.field {
 			margin-bottom: 0;
 		}
-		width: $img_w;
-		margin-top: $pad*4;
-		margin-bottom: $pad*6;
-		padding-bottom: $pad*2;
+		margin-left: 0;
 		div.field-item {
 			img {
 				max-width: 100%;
@@ -63,16 +74,11 @@ body.section-services {
 			}
 		}
 		div.view-content,
-		div.field-items
-		 {
-			padding: 0 $pad*2 0;
-		}
 		div.field-label {
 			margin-left: $pad*2;
 		}
 		div.field-items {
 		}
-		@include section-border;
 		div.views-field-title {
 			padding: $pad;
 		}

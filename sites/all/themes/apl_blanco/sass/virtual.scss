@@ -55,8 +55,9 @@ div#virtual {
 			}
 	div.grouping {
 		&.help {
-			border: 1px solid #BBEE77;
-			background-color: #F8FFF0;
+		//	border: 1px solid #BBEE77;
+		//	background-color: #F8FFF0;
+			@include status;
 			h2 {
 				color: green;
 			}

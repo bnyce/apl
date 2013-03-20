@@ -46,6 +46,7 @@ div.messages {
 div.status {
 	background-image: url(../../../../../misc/message-24-ok.png);
 	border-color: $status_border;
+	@include status;
 }
 div.status,
 .ok {

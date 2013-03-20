@@ -1,3 +1,6 @@
+@import "colors";
+@import "patterns";
+
 body.page-austinmusic {
 	.field-item {
 		p#austinmusic-banner {
@@ -7,10 +10,12 @@ body.page-austinmusic {
 			top: -12px;
 		}
 		p.welcome {
-			background-color: #F8FFF0;
+//			background-color: #F8FFF0;
+			background-color: $status_background;
 			border: 1px solid #BBEE77;
-			border-bottom-left-radius: 10px;
-			border-top-right-radius: 10px;
+//			border-bottom-left-radius: 10px;
+//			border-top-right-radius: 10px;
+			@include rhombus;
 			float: right;
 			margin-right: 0px;
 			min-height: 158px;

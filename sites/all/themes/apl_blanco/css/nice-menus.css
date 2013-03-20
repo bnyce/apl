@@ -26,5 +26,6 @@
 }
 /* line 23, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a:hover {
-  color: #fdb813;
+  background-color: #0088dd;
+  color: white;
 }

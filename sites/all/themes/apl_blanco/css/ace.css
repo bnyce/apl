@@ -1,9 +1,11 @@
 /* line 3, ../sass/ace.scss */
 div.overlogodiv {
-  background: url("../images/apl_logo_color.png") no-repeat scroll 10px center transparent;
+  background: transparent url("../images/apl_logo_color.png") no-repeat 10px 10px;
+  width: 125px;
+  height: 85px;
 }
 
-/* line 15, ../sass/ace.scss */
+/* line 17, ../sass/ace.scss */
 li.apl-mnav-link.ahc > a {
   font-weight: 800;
 }

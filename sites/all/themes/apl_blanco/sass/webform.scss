@@ -1,16 +1,10 @@
+@import "patterns";
+
 /* Initially created to style the Meeting Room Request Form */
 
 div.messages {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  padding: 1em;
+	@include rhombus;
 }
-
-div.node-webform {
-
-} 
-
 
 div.node-webform h2,
 div.webform-confirmation h2,
@@ -18,11 +12,6 @@ div.webform-submission h2 {
 margin: 2em 0 1em;
 font-size: large;
 }
-
-
-
-
-
 
 div.node-webform input.form-submit,
 div.node-webform a.button,

@@ -21,7 +21,8 @@
 			a {
 				color: white;
 				&:hover {
-					color: $yellow;
+					background-color: lighten($blue, 10%);
+					color: white;
 				}
 			}
 		}

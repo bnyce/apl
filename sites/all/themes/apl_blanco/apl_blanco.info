@@ -100,6 +100,7 @@ stylesheets[all][] = css/apl_global_search.css
 stylesheets[all][] = css/apl_recommends.css
 stylesheets[all][] = css/admin.css
 stylesheets[all][] = css/highlighted.css
+stylesheets[all][] = css/suggest_a_title.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

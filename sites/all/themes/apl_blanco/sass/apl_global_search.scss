@@ -58,6 +58,7 @@
 			font-weight: normal;
 		}
 		a.moreSearch { 
+			color: $blue;
 			clear: right;
 			white-space: nowrap;
 			font-size: 10px;
@@ -72,8 +73,8 @@
 		}
 		div.searchOptions {
 			color: $blue;
-			float: left;
-			margin-left: 30px;
+			float: right;
+			margin-right: 25px;
 //			padding-left: 134px;
 			label.inline {
 				display: inline;

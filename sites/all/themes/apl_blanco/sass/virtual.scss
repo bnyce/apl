@@ -1,4 +1,6 @@
 @import "colors";
+@import "dimensions";
+@import "patterns";
 
 body.page-node-22112,
 body.page-node-22115 {
@@ -11,20 +13,18 @@ body.page-node-22115 {
 }
 div#virtual {
 	div.virtual-service {
+		p {
+			margin-bottom: 0;
+		}
 		p.title,	
 		a {
 		margin-left: 15px;
 		display: inline;
+		margin-bottom: 5px;
 	}
 	}
 	div.description {
-		border: 1px solid #bbee77;
-		background-color: #f8fff0;
-		border-top-right-radius: 10px;
-		border-bottom-left-radius: 10px;
-		padding: 7px 10px 10px;
-//		margin-bottom: 1em;
-//		margin-top: 5px;
+		@include status;
 		margin: 2px 0 1em 5px;
 	}
 	div.more-info {
@@ -58,6 +58,9 @@ div#virtual {
 		//	border: 1px solid #BBEE77;
 		//	background-color: #F8FFF0;
 			@include status;
+			width: 298px;
+			padding: 0;
+			margin: 0;
 			h2 {
 				color: green;
 			}

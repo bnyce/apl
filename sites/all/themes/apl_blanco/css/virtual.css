@@ -1,16 +1,22 @@
-/* line 15, ../sass/virtual.scss */
+/* line 16, ../sass/virtual.scss */
+div#virtual div.virtual-service p {
+  margin-bottom: 0;
+}
+/* line 20, ../sass/virtual.scss */
 div#virtual div.virtual-service p.title,
 div#virtual div.virtual-service a {
   margin-left: 15px;
   display: inline;
+  margin-bottom: 5px;
 }
-/* line 20, ../sass/virtual.scss */
+/* line 26, ../sass/virtual.scss */
 div#virtual div.description {
-  border: 1px solid #bbee77;
-  background-color: #f8fff0;
+  margin: 0 10px 20px;
+  background-color: #e7ea7f;
+  border: 1px solid #a6b839;
+  padding: 10px 10px 15px 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  padding: 7px 10px 10px;
   margin: 2px 0 1em 5px;
 }
 /* line 30, ../sass/virtual.scss */
@@ -53,46 +59,53 @@ div#virtual div.grouping {
 }
 /* line 57, ../sass/virtual.scss */
 div#virtual div.grouping.help {
+  margin: 0 10px 20px;
   background-color: #e7ea7f;
   border: 1px solid #a6b839;
+  padding: 10px 10px 15px 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 298px;
+  padding: 0;
+  margin: 0;
 }
-/* line 61, ../sass/virtual.scss */
+/* line 64, ../sass/virtual.scss */
 div#virtual div.grouping.help h2 {
   color: green;
 }
-/* line 65, ../sass/virtual.scss */
+/* line 68, ../sass/virtual.scss */
 div#virtual div.grouping h2 {
   font-size: 1.5em;
   margin: 10px 10px 0;
 }
-/* line 69, ../sass/virtual.scss */
+/* line 72, ../sass/virtual.scss */
 div#virtual div.grouping div.content {
   margin: 1em 10px 20px;
 }
-/* line 70, ../sass/virtual.scss */
+/* line 73, ../sass/virtual.scss */
 div#virtual div.grouping div.content div.popup-element a {
   color: #0069aa;
 }
-/* line 72, ../sass/virtual.scss */
+/* line 75, ../sass/virtual.scss */
 div#virtual div.grouping div.content div.popup-element a:visited {
   color: #4c2a90;
 }
-/* line 76, ../sass/virtual.scss */
+/* line 79, ../sass/virtual.scss */
 div#virtual div.grouping div.content span.coming-soon {
   color: silver;
 }
-/* line 79, ../sass/virtual.scss */
+/* line 82, ../sass/virtual.scss */
 div#virtual div.grouping div.content ul {
   list-style-type: none;
   margin-left: 0;
   margin-bottom: 20px;
   padding-left: 0;
 }
-/* line 85, ../sass/virtual.scss */
+/* line 88, ../sass/virtual.scss */
 div#virtual div.grouping div.content ul li {
   padding: 0 5px;
 }
-/* line 90, ../sass/virtual.scss */
+/* line 93, ../sass/virtual.scss */
 div#virtual div.grouping div.content img {
   max-width: 100%;
   max-height: 175px;
@@ -101,11 +114,11 @@ div#virtual div.grouping div.content img {
   margin-bottom: 10px;
   margin-right: 5px;
 }
-/* line 111, ../sass/virtual.scss */
+/* line 114, ../sass/virtual.scss */
 div#virtual div.grouping:nth-child(7), div#virtual div.grouping:nth-child(10), div#virtual div.grouping:nth-child(13), div#virtual div.grouping:nth-child(16), div#virtual div.grouping:nth-child(19) {
   clear: both;
 }
-/* line 114, ../sass/virtual.scss */
+/* line 117, ../sass/virtual.scss */
 div#virtual div.grouping.column-3 {
   margin-right: 0;
   clear: none;

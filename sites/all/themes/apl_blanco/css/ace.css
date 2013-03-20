@@ -3,15 +3,7 @@ div.overlogodiv {
   background: url("../images/apl_logo_color.png") no-repeat scroll 10px center transparent;
 }
 
-/* line 7, ../sass/ace.scss */
-#header-region {
-  background-color: white;
-  background-image: none;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-/* line 14, ../sass/ace.scss */
+/* line 15, ../sass/ace.scss */
 li.apl-mnav-link.ahc > a {
   font-weight: 800;
 }

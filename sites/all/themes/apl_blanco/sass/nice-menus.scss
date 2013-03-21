@@ -5,6 +5,9 @@
 		display:none;
 	}
 	ul {
+		&.nice-menu a {
+			padding: 5px;
+		}
 		&.nice-menu-down {
 			clear: right;
 			float: right;
@@ -14,7 +17,7 @@
 			&.menuparent {
 				background-image: none;
 				a {
-					padding: 0.3em 5px;
+					padding: 5px;
 				}
 			}
 			background-color: $blue;

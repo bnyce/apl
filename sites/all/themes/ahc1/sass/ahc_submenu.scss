@@ -1,5 +1,14 @@
 @import "colors";
 
+#header ul#nice-menu-1 {
+	> li:nth-child(7) {
+//		background-color: darken($ahc_olive, 25%);
+		a {
+			font-weight: bold;
+		}
+	}
+}
+
 #highlight ul,
 #highlight ul ul {
   z-index: 5;

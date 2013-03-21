@@ -1,0 +1,71 @@
+@import "colors";
+
+#highlight ul,
+#highlight ul ul {
+  z-index: 5;
+  position: relative;
+}
+
+#highlight ul {
+	padding-left: 0;
+
+	/* Show submenus when over their parents. */
+	li ul,
+	li a:hover ul,
+	li li a:hover ul,
+	li li li a:hover ul,
+	li li li li a:hover ul {
+		visibility: visible;
+//		border: 1px solid red !important;
+		li {
+			width: 200px;
+			background-color: silver;
+			border: 1px solid silver;
+		}
+	}
+
+	/* Hide sub-menus initially. */
+	li ul ul,
+	li a:hover ul ul,
+	li a:hover ul ul ul,
+	li a:hover li:hover ul ul,
+	li a:hover li:hover ul ul ul,
+	li a:hover li:hover li:hover ul ul,
+	li a:hover li:hover li:hover ul ul ul {
+		visibility: hidden;
+	}
+	
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	ul {
+		position: absolute;
+		visibility: hidden;
+	}
+	li {
+		display: block;
+		float: left;
+		margin-right: 0;
+		border: 1px solid silver;
+		&.over ul {
+			visibility: visible;
+		}	
+		position: relative;
+		a {
+			display: block;
+
+			/*Default to Blue, but override as necessary*/
+			color: white;
+			background-color: darken($ahc_olive, 25%);
+			padding: 5px;
+			text-decoration: none;
+		&:hover {
+			background-color: $ahc_olive;
+		}
+		}
+	}
+}

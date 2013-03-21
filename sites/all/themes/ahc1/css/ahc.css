@@ -1,16 +1,24 @@
-/* line 1, ../sass/ahc.scss */
+/* line 7, ../sass/ahc.scss */
+body a,
+body a:hover,
+body a:link,
+body h1 {
+  color: #666a40;
+}
+
+/* line 12, ../sass/ahc.scss */
 div.overlogodiv {
   background: transparent url("../../apl_blanco/images/apl_logo_color.png") no-repeat 10px 10px;
   width: 125px;
   height: 85px;
 }
 
-/* line 6, ../sass/ahc.scss */
+/* line 17, ../sass/ahc.scss */
 li.apl-mnav-link.ahc > a {
   font-weight: 800;
 }
 
-/* line 9, ../sass/ahc.scss */
+/* line 20, ../sass/ahc.scss */
 div#highlight {
   margin-left: 0;
 }

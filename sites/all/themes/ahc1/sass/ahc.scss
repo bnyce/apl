@@ -1,3 +1,14 @@
+@import "colors";
+
+body {
+	a,
+	a:hover,
+	a:link,
+	h1 {
+		color: darken($ahc_olive, 25%);
+	}
+}
+
 div.overlogodiv {
 	background: transparent url("../../apl_blanco/images/apl_logo_color.png") no-repeat 10px 10px;
 	width: 125px;

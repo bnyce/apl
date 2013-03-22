@@ -5,6 +5,20 @@
 		display:none;
 	}
 	ul {
+        li.active-trail {
+                a {
+                        color: $yellow;
+                }
+                font-weight: bold;
+                li a {
+                        color: white;
+                        &:hover {
+                                color: $yellow;
+                        }
+                        font-weight: normal;
+                }
+        }
+
 		&.nice-menu a {
 			padding: 5px;
 		}

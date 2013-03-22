@@ -25,7 +25,7 @@ body {
 				color: white;
 			&:hover {
 				text-decoration: none;
-				background-color: $ahc_olive;
+				background-color: lighten($blue, 10%);
 			}
 			}
 //			background-color: $ahc_olive !important;
@@ -61,7 +61,7 @@ body {
 				color: white;
 				&:hover {
 					background-color: lighten($blue, 10%);
-					color: white;
+					color: $yellow;
 				}
 			}
 		}

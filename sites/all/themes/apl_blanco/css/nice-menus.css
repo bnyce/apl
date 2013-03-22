@@ -3,32 +3,49 @@
   display: none;
 }
 /* line 8, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail {
+  font-weight: bold;
+}
+/* line 9, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail a {
+  color: #fdb813;
+}
+/* line 13, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail li a {
+  color: white;
+  font-weight: normal;
+}
+/* line 15, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail li a:hover {
+  color: #fdb813;
+}
+/* line 22, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu a {
   padding: 5px;
 }
-/* line 11, ../sass/nice-menus.scss */
+/* line 25, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu-down {
   clear: right;
   float: right;
   margin: 5px 10px;
 }
-/* line 16, ../sass/nice-menus.scss */
+/* line 30, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li {
   background-color: #0069aa;
 }
-/* line 17, ../sass/nice-menus.scss */
+/* line 31, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent {
   background-image: none;
 }
-/* line 19, ../sass/nice-menus.scss */
+/* line 33, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent a {
   padding: 5px;
 }
-/* line 24, ../sass/nice-menus.scss */
+/* line 38, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a {
   color: white;
 }
-/* line 26, ../sass/nice-menus.scss */
+/* line 40, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a:hover {
   background-color: #0088dd;
   color: white;

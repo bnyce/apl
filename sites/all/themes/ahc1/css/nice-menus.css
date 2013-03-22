@@ -32,7 +32,7 @@ body #mini-panel-ahc_banner ul li a {
 /* line 26, ../sass/nice-menus.scss */
 body #mini-panel-ahc_banner ul li a:hover {
   text-decoration: none;
-  background-color: #aaaf7a;
+  background-color: #0088dd;
 }
 
 /* line 40, ../sass/nice-menus.scss */
@@ -68,5 +68,5 @@ body #mini-panel-ahc_banner ul li a:hover {
 /* line 62, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a:hover {
   background-color: #0088dd;
-  color: white;
+  color: #fdb813;
 }

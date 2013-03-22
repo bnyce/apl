@@ -1,10 +1,17 @@
 @import "colors";
 
 #header ul#nice-menu-1 {
-	> li:nth-child(7) {
-//		background-color: darken($ahc_olive, 25%);
+	li.active-trail {
 		a {
-			font-weight: bold;
+			color: $yellow;
+		}
+		font-weight: bold;
+		li a {
+			color: white;
+			&:hover {
+				color: $yellow;
+			}
+			font-weight: normal;
 		}
 	}
 }
@@ -16,6 +23,18 @@
 }
 
 #highlight ul {
+	li.active,
+	a.active {
+		background-color: $ahc_olive;
+		font-weight: bold;
+	&:hover {
+		background-color: lighten($ahc_olive, 10%) !important;
+		//background-color: red !important;
+	}
+		li a {
+			font-weight: normal;
+		}
+	}
 	padding-left: 0;
 
 	/* Show submenus when over their parents. */
@@ -73,7 +92,7 @@
 			padding: 5px;
 			text-decoration: none;
 		&:hover {
-			background-color: $ahc_olive;
+			background-color: $ahc_olive !important;
 		}
 		}
 	}

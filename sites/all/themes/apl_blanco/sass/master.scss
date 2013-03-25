@@ -7,6 +7,7 @@
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	width: $page_w + $page_pad*2;
+	background-color: white;
 }
 
 body {
@@ -464,7 +465,7 @@ body.front {
 }
 
 #highlight {
-	margin-left: 40px;
+//	margin-left: 40px;
 	.panel-col-first .inside .panel-pane .pane-content {
 		padding-left: 0px;
 		padding-right: 0px;

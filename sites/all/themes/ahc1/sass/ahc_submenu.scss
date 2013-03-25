@@ -22,7 +22,13 @@
   position: relative;
 }
 
-#highlight ul {
+#highlight {
+	div.menu-block-wrapper {
+		background-color: $ahc_olive;
+		min-height: 30px;
+		border-bottom: 1px solid silver;
+	}
+	ul {
 	li.active,
 	a.active {
 		background-color: $ahc_olive;
@@ -96,4 +102,5 @@
 		}
 		}
 	}
+}
 }

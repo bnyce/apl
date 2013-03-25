@@ -41,7 +41,7 @@ div#swatch tr td.blue_medium {
 }
 /* line 31, ../sass/swatch.scss */
 div#swatch tr td.blue_light {
-  background-color: white;
+  background-color: #e1eaf0;
 }
 /* line 34, ../sass/swatch.scss */
 div#swatch tr td.blue_medium_old {

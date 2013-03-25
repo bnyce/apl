@@ -229,8 +229,8 @@ div.block:hover .edit {
 }
 /* line 209, ../sass/master.scss */
 .panel-col-first .pane-title {
-  padding: .2em .5em 0.2em 0em;
-  margin: .5em .5em .5em 0 !important;
+  padding: 5px 5px 0 0;
+  margin: 5px 0 !important;
   border-bottom: 1px solid #bfd3df;
 }
 /* line 212, ../sass/master.scss */
@@ -268,8 +268,8 @@ div.block:hover .edit {
 }
 /* line 245, ../sass/master.scss */
 .panel-col-last .pane-title {
-  padding: .2em .5em 0.2em 0em;
-  margin: .5em .5em .5em 0 !important;
+  padding: 5px 5px 0 0;
+  margin: 5px 0 !important;
   border-bottom: 1px solid #bfd3df;
 }
 /* line 248, ../sass/master.scss */
@@ -300,15 +300,15 @@ div.block:hover .edit {
 
 /* line 276, ../sass/master.scss */
 .panel-col-bottom .pane-title {
-  padding: .2em .5em 0.2em 0em;
-  margin: .5em .5em .5em 0 !important;
+  padding: 5px 5px 0 0;
+  margin: 5px 0 !important;
   border-bottom: 1px solid #bfd3df;
 }
 
 /* line 281, ../sass/master.scss */
 h2.pane-title {
-  padding: .2em .5em 0.2em 0em;
-  margin: .5em .5em .5em 0 !important;
+  padding: 5px 5px 0 0;
+  margin: 5px 0 !important;
   border-bottom: 1px solid #bfd3df;
 }
 

@@ -1,8 +1,9 @@
 @import "colors";
+@import "patterns";
 
 .pane-block-13 {
 	background-color: #EEF2FA;
-	border-radius: 10px;	
+	@include rhombus;
 	div.pane-content {
 		width: 100% !important;
 	}
@@ -11,11 +12,11 @@
 #mc_embed_signup {
 //	margin-top: 10px;
 	#signup_box {
-		padding-bottom: 5px;
+		padding-bottom: 0;
 	}
 	form {
 		display: block; 
-		padding: 10px 10px 0;
+		padding: 10px;
 		margin: 0;
 		width: auto;
 	}
@@ -29,15 +30,19 @@
 		border: 1px solid $blue; 
 		-webkit-appearance: none;
 	&.email {
-		padding: 8px 0; 
-		margin: 0 5px 10px 0; 
-		text-indent: 5px; 
-		width: 258px; 
-		height: 18px;
+		border: 1px solid $blue;
+		border-bottom-left-radius: 5px;
+		float: left;
+		margin: 0 0 10px 0;
+		min-height: 12px;
+		padding: 6px 0; 
+		text-indent: 6px; 
+		width: 268px; 
 	}
 	&.button {
+		border-top-right-radius: 5px;
+		margin: 0 -4px 10px 0;
 		width: 50px; 
-		margin: 0 0 10px 0; 
 	}
 	}
 	input[type=checkbox] {
@@ -53,9 +58,9 @@
 		color: #FFFFFF; 
 		cursor: pointer; 
 		display: inline-block; 
-		font-size: 16px; 
+		font-size: 1em; 
 		font-weight: bold; 
-		height: 36px; 
+		height: 30px; 
 		line-height: 32px; 
 		margin: 0 5px 10px 0; 
 		padding: 0; 

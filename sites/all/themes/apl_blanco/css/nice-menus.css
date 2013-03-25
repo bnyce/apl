@@ -3,49 +3,77 @@
   display: none;
 }
 /* line 8, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li {
+  border: none;
+  margin-left: 1px;
+}
+/* line 9, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li ul {
+  clear: both;
+  top: 26px;
+  border-left: 10px solid #0088dd;
+  border-top-right-radius: 10px;
+}
+/* line 14, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li ul li {
+  margin-left: 0;
+}
+/* line 15, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li ul li.first {
+  border-top-right-radius: 10px;
+}
+/* line 17, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li ul li.first a:hover {
+  border-top-right-radius: 10px;
+}
+/* line 26, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.active-trail {
   font-weight: bold;
 }
-/* line 9, ../sass/nice-menus.scss */
-#block-nice-menus-1 ul li.active-trail a {
+/* line 28, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail > a,
+#block-nice-menus-1 ul li.active-trail a.active {
   color: #fdb813;
 }
-/* line 13, ../sass/nice-menus.scss */
-#block-nice-menus-1 ul li.active-trail li a {
+/* line 31, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail ul li a:hover {
   color: white;
+}
+/* line 34, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail ul li:active-trail a {
+  color: #fdb813;
+}
+/* line 38, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.active-trail li a {
   font-weight: normal;
 }
-/* line 15, ../sass/nice-menus.scss */
-#block-nice-menus-1 ul li.active-trail li a:hover {
-  color: #fdb813;
-}
-/* line 22, ../sass/nice-menus.scss */
+/* line 48, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu a {
   padding: 5px;
 }
-/* line 25, ../sass/nice-menus.scss */
+/* line 51, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu-down {
   clear: right;
   float: right;
   margin: 5px 10px;
 }
-/* line 30, ../sass/nice-menus.scss */
+/* line 56, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li {
   background-color: #0069aa;
 }
-/* line 31, ../sass/nice-menus.scss */
+/* line 57, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent {
   background-image: none;
 }
-/* line 33, ../sass/nice-menus.scss */
+/* line 59, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent a {
   padding: 5px;
 }
-/* line 38, ../sass/nice-menus.scss */
+/* line 64, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a {
   color: white;
 }
-/* line 40, ../sass/nice-menus.scss */
+/* line 66, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a:hover {
   background-color: #0088dd;
   color: white;

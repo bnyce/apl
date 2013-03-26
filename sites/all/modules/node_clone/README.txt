@@ -3,8 +3,7 @@ README file for the clone module for Drupal 7.x.
 
 The clone module allows users to make a copy of an existing node and then edit
 that copy. The authorship is set to the current user, the menu and url aliases
-are reset, and the (localized) words "Clone of" are inserted into the title to
-remind you that you are not editing the original node.
+are reset.
 
 Users with the "clone node" or "clone own nodes" permission can utilize this
 functionality. A new tab will appear on node pages with the word "Clone".

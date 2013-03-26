@@ -125,7 +125,7 @@ function clone_node_clone_menu_link($node) {
 
     if (!empty($node->menu['mlid'])) {
       $old_link = $node->menu;
-      $link['link_title'] = t('Clone of !title', array('!title' => $old_link['link_title']));
+      $link['link_title'] = t('!title', array('!title' => $old_link['link_title']));
       $link['plid'] = $old_link['plid'];
       $link['menu_name'] = $old_link['menu_name'];
       $link['weight'] = $old_link['weight'];
@@ -161,7 +161,7 @@ function clone_node_prepopulate($original_node) {
       }
       $node->path = NULL;
       $node->files = array();
-      $node->title = t('Clone of !title', array('!title' => $node->title));
+      $node->title = t('!title', array('!title' => $node->title));
       // Add an extra property as a flag.
       $node->clone_from_original_nid = $original_node->nid;
       drupal_set_title($node->title);
@@ -212,7 +212,7 @@ function clone_node_save($nid) {
       }
       $node->path = NULL;
       $node->files = array();
-      $node->title = t('Clone of !title', array('!title' => $node->title));
+      $node->title = t('!title', array('!title' => $node->title));
       // Add an extra property as a flag.
       $node->clone_from_original_nid = $original_node->nid;
 

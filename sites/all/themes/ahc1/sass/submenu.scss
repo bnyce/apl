@@ -1,21 +1,5 @@
 @import "colors";
 
-#header ul#nice-menu-1 {
-	li.active-trail {
-		a {
-			color: $yellow;
-		}
-		font-weight: bold;
-		li a {
-			color: white;
-			&:hover {
-				color: $yellow;
-			}
-			font-weight: normal;
-		}
-	}
-}
-
 #highlight ul,
 #highlight ul ul {
   z-index: 5;
@@ -26,7 +10,7 @@
 	div.menu-block-wrapper {
 		background-color: $ahc_olive;
 		min-height: 30px;
-		border-bottom: 1px solid silver;
+	//	border-bottom: 1px solid silver;
 	}
 	ul {
 	li.active,
@@ -35,7 +19,6 @@
 		font-weight: bold;
 	&:hover {
 		background-color: lighten($ahc_olive, 10%) !important;
-		//background-color: red !important;
 	}
 		li a {
 			font-weight: normal;
@@ -54,7 +37,7 @@
 		li {
 			width: 200px;
 			background-color: silver;
-			border: 1px solid silver;
+			//border: 1px solid silver;
 		}
 	}
 
@@ -81,10 +64,25 @@
 		visibility: hidden;
 	}
 	li {
+		ul {
+			border-left: 10px solid $ahc_olive;
+			border-top-right-radius: 10px;
+			border-top: 1px solid silver;
+                        li {
+                        &.first {
+                                border-top-right-radius: 10px;
+                        a,
+			a:hover {
+                                border-top-right-radius: 10px;
+                        }
+                        }
+                                margin-left: 0;
+                        }
+		}
 		display: block;
 		float: left;
-		margin-right: 0;
-		border: 1px solid silver;
+		margin-right: 1px;
+		//border: 1px solid silver;
 		&.over ul {
 			visibility: visible;
 		}	

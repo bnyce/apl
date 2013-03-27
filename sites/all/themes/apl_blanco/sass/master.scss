@@ -11,6 +11,13 @@
 }
 
 body {
+       #content-area,
+       #footer,
+       #bottom {
+               position: relative;
+               z-index: -6;
+       }
+
 	div#content-area {
 		div.panel-display {
 			margin-top: 10px;

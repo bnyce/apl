@@ -5,7 +5,7 @@
 // Add Superfish to all Nice menus with some basic options.
 (function ($) {
   $(document).ready(function() {
-    $('#mini-panel-ahc_banner ul').superfish({
+    $('#mini-panel-ahc_subheader ul').superfish({
       // Apply a generic hover class.
       hoverClass: 'over',
       // Disable generation of arrow mark-up.
@@ -19,6 +19,6 @@
     // Add in Brandon Aaron’s bgIframe plugin for IE select issues.
     // http://plugins.jquery.com/node/46/release
     }).find('ul').bgIframe({opacity:false});
-    $('#mini-panel-ahc_banner ul ul').css('display', 'none');
+    $('#mini-panel-ahc_subheader ul ul').css('display', 'none');
   });
 })(jQuery);

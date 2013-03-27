@@ -9,8 +9,6 @@
 #highlight {
 	div.menu-block-wrapper {
 		background-color: $ahc_olive;
-		min-height: 30px;
-	//	border-bottom: 1px solid silver;
 	}
 	ul {
 	li.active,
@@ -27,22 +25,18 @@
 	}
 	padding-left: 0;
 
-	/* Show submenus when over their parents. */
 	li ul,
 	li a:hover ul,
 	li li a:hover ul,
 	li li li a:hover ul,
 	li li li li a:hover ul {
 		visibility: visible;
-//		border: 1px solid red !important;
 		li {
 			width: 200px;
 			background-color: silver;
-			//border: 1px solid silver;
 		}
 	}
 
-	/* Hide sub-menus initially. */
 	li ul ul,
 	li a:hover ul ul,
 	li a:hover ul ul ul,
@@ -82,8 +76,7 @@
 		}
 		display: block;
 		float: left;
-		margin-right: 1px;
-		//border: 1px solid silver;
+		border-right: 1px solid white;
 		&.over ul {
 			visibility: visible;
 		}	
@@ -91,7 +84,6 @@
 		a {
 			display: block;
 
-			/*Default to Blue, but override as necessary*/
 			color: white;
 			background-color: darken($ahc_olive, 25%);
 			padding: 5px;

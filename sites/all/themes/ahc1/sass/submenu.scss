@@ -9,7 +9,7 @@
 #highlight {
 	line-height: 16px;
 	div.menu-block-wrapper {
-		background-color: $ahc_olive;
+		background-color: darken($ahc_olive, 25%);
 		border-bottom-right-radius: 5px;
 	}
 	ul {

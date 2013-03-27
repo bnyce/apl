@@ -11,9 +11,9 @@
 }
 
 body {
-       #content-area,
-       #footer,
-       #bottom {
+       #content-area {
+//       #footer,
+//       #bottom {
                position: relative;
                z-index: -6;
        }

@@ -13,10 +13,8 @@
 body {
   background-color: #e8e8e8;
 }
-/* line 16, ../sass/master.scss */
-body #content-area,
-body #footer,
-body #bottom {
+/* line 14, ../sass/master.scss */
+body #content-area {
   position: relative;
   z-index: -6;
 }

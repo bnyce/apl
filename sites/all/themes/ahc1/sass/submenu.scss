@@ -64,7 +64,7 @@
 		ul {
 			border-left: 10px solid $ahc_olive;
 			border-top-right-radius: 10px;
-			border-top: 1px solid silver;
+			border-top: 1px solid lighten($ahc_olive, 30%);
                         li {
                         &.first {
                                 border-top-right-radius: 10px;
@@ -79,6 +79,9 @@
 		display: block;
 		float: left;
 		border-right: 1px solid white;
+			ul {
+				border-right: none;
+			}
 		&.over ul {
 			visibility: visible;
 		}	

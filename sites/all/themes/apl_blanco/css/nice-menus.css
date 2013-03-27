@@ -23,7 +23,7 @@
   border-top-right-radius: 10px;
 }
 /* line 17, ../sass/nice-menus.scss */
-#block-nice-menus-1 ul li ul li.first a:hover {
+#block-nice-menus-1 ul li ul li.first > a:hover {
   border-top-right-radius: 10px;
 }
 /* line 26, ../sass/nice-menus.scss */

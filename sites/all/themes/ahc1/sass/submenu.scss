@@ -17,6 +17,7 @@
 	a.active {
 		background-color: $ahc_olive;
 		font-weight: bold;
+//		color: $yellow;
 	&:hover {
 		background-color: lighten($ahc_olive, 10%) !important;
 	}

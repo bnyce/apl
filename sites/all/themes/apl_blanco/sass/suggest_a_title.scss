@@ -2,6 +2,13 @@
 
 
 body.page-node-add-suggest-a-title {
+
+        div.vertical-tabs {
+                visibility: hidden;
+                height: 0;
+		float: right;
+        }
+
 	#content-area {
 		margin-top: 20px;
 		.form-submit {

@@ -1,24 +1,30 @@
-/* line 5, ../sass/suggest_a_title.scss */
+/* line 6, ../sass/suggest_a_title.scss */
+body.page-node-add-suggest-a-title div.vertical-tabs {
+  visibility: hidden;
+  height: 0;
+  float: right;
+}
+/* line 12, ../sass/suggest_a_title.scss */
 body.page-node-add-suggest-a-title #content-area {
   margin-top: 20px;
 }
-/* line 7, ../sass/suggest_a_title.scss */
+/* line 14, ../sass/suggest_a_title.scss */
 body.page-node-add-suggest-a-title #content-area .form-submit {
   padding: 5px;
 }
-/* line 10, ../sass/suggest_a_title.scss */
+/* line 17, ../sass/suggest_a_title.scss */
 body.page-node-add-suggest-a-title #content-area label.option {
   display: inline;
   font-weight: normal;
   position: relative;
   top: 2px;
 }
-/* line 16, ../sass/suggest_a_title.scss */
+/* line 23, ../sass/suggest_a_title.scss */
 body.page-node-add-suggest-a-title #content-area .form-item {
   margin-top: 0;
   margin-bottom: 20px;
 }
-/* line 19, ../sass/suggest_a_title.scss */
+/* line 26, ../sass/suggest_a_title.scss */
 body.page-node-add-suggest-a-title #content-area .form-item .description {
   font-size: 12px;
   margin: 0 10px 20px;
@@ -32,7 +38,7 @@ body.page-node-add-suggest-a-title #content-area .form-item .description {
   font-style: normal;
   color: #345729;
 }
-/* line 29, ../sass/suggest_a_title.scss */
+/* line 36, ../sass/suggest_a_title.scss */
 body.page-node-add-suggest-a-title #content-area .form-item.form-type-radio.form-item-field-targeted-age-level-of-item-und {
   margin-bottom: 5px;
 }

@@ -52,8 +52,8 @@ function suggest_a_title_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Your Suggestion',
-    'weight' => '3',
+    'label' => 'Original Suggestion',
+    'weight' => '12',
     'children' => array(
       0 => 'body',
       1 => 'field_author_performer_band',
@@ -68,11 +68,12 @@ function suggest_a_title_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Original Suggestion',
       'instance_settings' => array(
-        'description' => '',
         'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_suggestion|node|suggest_a_title|default'] = $field_group;
@@ -87,26 +88,30 @@ function suggest_a_title_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Your Suggestion',
+    'label' => 'What title would you like to suggest?',
     'weight' => '6',
     'children' => array(
-      0 => 'field_author_performer_band',
-      1 => 'field_format',
-      2 => 'field_language',
-      3 => 'field_targeted_age_level_of_item',
-      4 => 'field_url',
-      5 => 'title',
-      6 => 'group_optional',
+      0 => 'body',
+      1 => 'field_author_performer_band',
+      2 => 'field_format',
+      3 => 'field_how_did_you_learn_about_th',
+      4 => 'field_isbn_issn_upc',
+      5 => 'field_language',
+      6 => 'field_publisher',
+      7 => 'field_targeted_age_level_of_item',
+      8 => 'field_text_publication_year',
+      9 => 'field_url',
+      10 => 'title',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Your Suggestion',
+      'label' => 'What title would you like to suggest?',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'suggest',
         'description' => '',
       ),
-      'formatter' => 'open',
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_suggestion|node|suggest_a_title|form'] = $field_group;
@@ -121,19 +126,24 @@ function suggest_a_title_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'How can we follow up with you?',
-    'weight' => '6',
+    'label' => 'Administrative',
+    'weight' => '15',
     'children' => array(
-      0 => 'field_which_library_locations_do',
-      1 => 'field_your_e_mail',
+      0 => 'field_anticipated_',
+      1 => 'field_follow_up',
+      2 => 'field_ready_to_email_',
+      3 => 'field_selector_s_comment',
+      4 => 'field_which_library_locations_do',
+      5 => 'field_your_e_mail',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Administrative',
       'instance_settings' => array(
-        'description' => '',
         'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_you|node|suggest_a_title|default'] = $field_group;

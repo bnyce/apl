@@ -40,7 +40,7 @@ function suggest_a_title_node_info() {
       'description' => '',
       'has_title' => '1',
       'title_label' => t('Title'),
-      'help' => t('<div class="messages status"><p>Thank you for taking the time to suggest an item for the Library. Your input as a citizen of Austin is valuable to the Library\'s selection team and will be given careful consideration.</p>
+      'help' => t('<div id="suggest-thanks" class="messages status"><p>Thank you for taking the time to suggest an item for the Library. Your input as a citizen of Austin is valuable to the Library\'s selection team and will be given careful consideration.</p>
 <p>Have you searched the <a href="http://austin.bibliocommons.com">Library catalog</a> for the item you are suggesting? If not, please check the catalog before completing this form.</p>
 <p>The decision to purchase an item is based on the Library\'s selection criteria, current budget constraints, and the item\'s availability.</p></div>'),
     ),

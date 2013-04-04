@@ -53,7 +53,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -130,7 +130,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 17,
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -153,7 +153,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -200,7 +200,7 @@ function suggest_a_title_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '8',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -226,7 +226,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -271,7 +271,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '6',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -297,7 +297,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '-4',
       ),
     ),
   );
@@ -373,7 +373,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '0',
+        'weight' => 0,
       ),
     ),
   );
@@ -440,7 +440,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '7',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -463,7 +463,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '-3',
       ),
     ),
   );
@@ -508,7 +508,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '14',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -579,7 +579,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '13',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -605,7 +605,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '1',
       ),
     ),
   );
@@ -717,7 +717,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '8',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -740,63 +740,53 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '-2',
       ),
     ),
   );
 
-  // Exported field: 'node-suggest_a_title-field_most_recent_email_sent'.
-  $fields['node-suggest_a_title-field_most_recent_email_sent'] = array(
+  // Exported field: 'node-suggest_a_title-field_original_request'.
+  $fields['node-suggest_a_title-field_original_request'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_most_recent_email_sent',
+      'field_name' => 'field_original_request',
       'field_permissions' => array(
         'type' => '2',
       ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'date',
-      'settings' => array(
-        'cache_count' => '4',
-        'cache_enabled' => 0,
-        'granularity' => array(
-          'day' => 'day',
-          'hour' => 'hour',
-          'minute' => 'minute',
-          'month' => 'month',
-          'second' => 0,
-          'year' => 'year',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
         ),
-        'repeat' => '0',
-        'timezone_db' => 'UTC',
-        'todate' => '',
-        'tz_handling' => 'site',
       ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
       'translatable' => '0',
-      'type' => 'datetime',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'suggest_a_title',
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'date',
-          'settings' => array(
-            'format_type' => 'long',
-            'fromto' => 'both',
-            'multiple_from' => '',
-            'multiple_number' => '',
-            'multiple_to' => '',
-            'show_repeat_rule' => 'show',
-          ),
-          'type' => 'date_default',
-          'weight' => '2',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -806,33 +796,23 @@ function suggest_a_title_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'exclude_cv' => 1,
-      'field_name' => 'field_most_recent_email_sent',
-      'label' => 'Most recent email sent',
+      'exclude_cv' => 0,
+      'field_name' => 'field_original_request',
+      'label' => 'Original Request',
       'required' => 0,
       'settings' => array(
-        'default_value' => 'now',
-        'default_value2' => 'same',
-        'default_value_code' => '',
-        'default_value_code2' => '',
         'exclude_cv' => FALSE,
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'date',
+        'module' => 'text',
         'settings' => array(
-          'display_all_day' => 0,
-          'increment' => '15',
-          'input_format' => 'Y-m-d H:i:s',
-          'input_format_custom' => '',
-          'label_position' => 'above',
-          'repeat_collapsed' => 0,
-          'text_parts' => array(),
-          'year_range' => '-3:+3',
+          'rows' => '5',
         ),
-        'type' => 'date_text',
-        'weight' => '4',
+        'type' => 'text_textarea',
+        'weight' => '10',
       ),
     ),
   );
@@ -877,7 +857,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '11',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -903,7 +883,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-2',
+        'weight' => '2',
       ),
     ),
   );
@@ -975,7 +955,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '3',
+        'weight' => '1',
       ),
     ),
   );
@@ -1021,7 +1001,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 16,
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1047,7 +1027,7 @@ function suggest_a_title_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -1092,7 +1072,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '9',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1115,7 +1095,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '5',
+        'weight' => '-1',
       ),
     ),
   );
@@ -1163,7 +1143,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1189,7 +1169,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '5',
         ),
         'type' => 'text_textfield',
-        'weight' => '-1',
+        'weight' => '3',
       ),
     ),
   );
@@ -1237,7 +1217,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '10',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1263,7 +1243,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '0',
       ),
     ),
   );
@@ -1313,7 +1293,7 @@ function suggest_a_title_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1336,7 +1316,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '16',
+        'weight' => '7',
       ),
     ),
   );
@@ -1410,7 +1390,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '15',
+        'weight' => '5',
       ),
     ),
   );
@@ -1429,8 +1409,8 @@ function suggest_a_title_field_default_fields() {
   t('If you would like to receive an update when the Austin Public Library processes your suggestion, please provide your email address.');
   t('Is there a webpage that would help our Librarians find out more about your suggested title? This could be, for example, a link to an item on Amazon.com or the URL address from which you discovered your suggested title.');
   t('Language');
-  t('Most recent email sent');
   t('Only Austin Public Library cardholders may Suggest a Title for Purchase.');
+  t('Original Request');
   t('Publication Year');
   t('Publisher');
   t('Ready to email?');

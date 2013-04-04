@@ -1,0 +1,28 @@
+body {
+&.logged-in.node-type-suggest-a-title {
+	div#suggest-thanks {
+		display: none;
+	}
+	#edit-field-selector-s-comment {
+		width: 550px;
+		float: left;
+		margin-right: 20px;
+	}
+	div.tabs,
+	div.vertical-tabs {
+		visibility: hidden;
+		height: 0;
+	}
+	#field-austin-public-library-card-add-more-wrapper {
+		clear: left;
+	}
+	#edit-actions {
+		position: absolute;
+		top: 0;
+		right: 0;
+		#edit-delete {
+			margin-right: 0;
+		}
+	}
+}
+}

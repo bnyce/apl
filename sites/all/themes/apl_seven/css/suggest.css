@@ -1,0 +1,30 @@
+/* line 3, ../sass/suggest.scss */
+body.logged-in.node-type-suggest-a-title div#suggest-thanks {
+  display: none;
+}
+/* line 6, ../sass/suggest.scss */
+body.logged-in.node-type-suggest-a-title #edit-field-selector-s-comment {
+  width: 550px;
+  float: left;
+  margin-right: 20px;
+}
+/* line 12, ../sass/suggest.scss */
+body.logged-in.node-type-suggest-a-title div.tabs,
+body.logged-in.node-type-suggest-a-title div.vertical-tabs {
+  visibility: hidden;
+  height: 0;
+}
+/* line 16, ../sass/suggest.scss */
+body.logged-in.node-type-suggest-a-title #field-austin-public-library-card-add-more-wrapper {
+  clear: left;
+}
+/* line 19, ../sass/suggest.scss */
+body.logged-in.node-type-suggest-a-title #edit-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 23, ../sass/suggest.scss */
+body.logged-in.node-type-suggest-a-title #edit-actions #edit-delete {
+  margin-right: 0;
+}

@@ -28,15 +28,6 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: create field_most_recent_email_sent.
-  $permissions['create field_most_recent_email_sent'] = array(
-    'name' => 'create field_most_recent_email_sent',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: create field_ready_to_email_.
   $permissions['create field_ready_to_email_'] = array(
     'name' => 'create field_ready_to_email_',
@@ -112,15 +103,6 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: edit field_most_recent_email_sent.
-  $permissions['edit field_most_recent_email_sent'] = array(
-    'name' => 'edit field_most_recent_email_sent',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: edit field_ready_to_email_.
   $permissions['edit field_ready_to_email_'] = array(
     'name' => 'edit field_ready_to_email_',
@@ -156,15 +138,6 @@ function suggest_a_title_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: edit own field_most_recent_email_sent.
-  $permissions['edit own field_most_recent_email_sent'] = array(
-    'name' => 'edit own field_most_recent_email_sent',
-    'roles' => array(
-      0 => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -234,16 +207,8 @@ function suggest_a_title_user_default_permissions() {
     'name' => 'view field_follow_up',
     'roles' => array(
       0 => 'administrator',
-      1 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: view field_most_recent_email_sent.
-  $permissions['view field_most_recent_email_sent'] = array(
-    'name' => 'view field_most_recent_email_sent',
-    'roles' => array(
-      0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'materials selector',
     ),
     'module' => 'field_permissions',
   );
@@ -283,15 +248,6 @@ function suggest_a_title_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: view own field_most_recent_email_sent.
-  $permissions['view own field_most_recent_email_sent'] = array(
-    'name' => 'view own field_most_recent_email_sent',
-    'roles' => array(
-      0 => 'administrator',
     ),
     'module' => 'field_permissions',
   );

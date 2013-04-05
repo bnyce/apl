@@ -72,7 +72,7 @@
           }
           console.log('ajax error: ' + textStatus);
         };
-      },
+      }
     });
   });
 }) (jQuery);

@@ -4,9 +4,9 @@ package = Google Appliance
 dependencies[] = google_appliance
 core = 7.x
 
-; Information added by drupal.org packaging script on 2012-08-05
-version = "7.x-1.1"
+; Information added by drupal.org packaging script on 2013-04-01
+version = "7.x-1.2"
 core = "7.x"
 project = "google_appliance_suggest"
-datestamp = "1344125565"
+datestamp = "1364838014"
 

@@ -75,7 +75,7 @@ body.section-libraryservices {
 		}
 		div.view-content,
 		div.field-label {
-			margin-left: $pad*2;
+//			margin-left: $pad*2;
 		}
 		div.field-items {
 		}
@@ -102,6 +102,15 @@ body.section-libraryservices {
 }
 
 body.page-libraryservices {
+	.pane-library-service-feature-taxonomy-view-panel-pane-6 {
+		div.views-field {
+			margin: $pad*3;
+			span.field-content {
+				padding: $pad;
+			}
+//			margin: 0 $pad*2;
+		}
+	}
 	h1.title {
 		margin-bottom: 1em;
 	}
@@ -112,9 +121,15 @@ body.page-libraryservices {
 		padding: $pad;
 	}
 	div.view-grouping {
-		div.view-grouping-header {
+		div.view-grouping-header,
+		h2 {
 			font-size: 1.5em;
 			margin: $pad*2 $pad*2 0;
+		}
+		h2 {
+			border: none;
+			font-weight: normal;
+			line-height: 1em;
 		}
 		width: $span_w - $border*2;
 		margin-bottom: $pad*5;

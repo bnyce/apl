@@ -40,10 +40,10 @@ function news_default_fe_block_settings() {
         'weight' => '0',
       ),
       'apl_blanco' => array(
-        'region' => 'help',
-        'status' => '1',
+        'region' => '',
+        'status' => 0,
         'theme' => 'apl_blanco',
-        'weight' => '-32',
+        'weight' => '0',
       ),
       'beta' => array(
         'region' => '',

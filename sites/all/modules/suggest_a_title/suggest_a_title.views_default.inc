@@ -440,18 +440,13 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<p>This view shows All Suggestions. You may also view <a href="/suggest-a-title/queue">Suggestions Awaiting Follow Up</a>.</p>';
-  $handler->display->display_options['header']['area']['format'] = 'truly_unfiltered_html';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<p>This view shows All Suggestions. You may also view <a href="/suggest-a-title/queue">Suggestions Awaiting Follow Up</a>.</p>';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<p>This view shows Suggestions that Materials Selectors have already processed. You may also view the <a href="/suggest-a-title/queue">Queue</a> of suggestions awaiting a response.</p>';
   $handler->display->display_options['footer']['area']['format'] = 'truly_unfiltered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: View result counter */
@@ -725,7 +720,8 @@ function suggest_a_title_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<p>This view shows only Suggestions awaiting a Follow Up. You may also view <a href="/suggest-a-title/queue/all">All Suggestions</a>.</p>';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<p>This view shows only Suggestions awaiting a Follow Up. You may also view the <a href="/suggest-a-title/queue/archive">Archive</a>.</p>';
   $handler->display->display_options['footer']['area']['format'] = 'truly_unfiltered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: View result counter */

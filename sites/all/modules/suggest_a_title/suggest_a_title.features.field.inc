@@ -972,78 +972,6 @@ function suggest_a_title_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-suggest_a_title-field_selector_s_comment_2'.
-  $fields['node-suggest_a_title-field_selector_s_comment_2'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_selector_s_comment_2',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'suggest_a_title',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 20,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'exclude_cv' => 1,
-      'field_name' => 'field_selector_s_comment_2',
-      'label' => 'Selector\'s Comment 2',
-      'required' => 0,
-      'settings' => array(
-        'exclude_cv' => FALSE,
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '1',
-      ),
-    ),
-  );
-
   // Exported field: 'node-suggest_a_title-field_targeted_age_level_of_item'.
   $fields['node-suggest_a_title-field_targeted_age_level_of_item'] = array(
     'field_config' => array(
@@ -1331,7 +1259,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '10',
+        'weight' => '11',
       ),
     ),
   );
@@ -1429,7 +1357,6 @@ function suggest_a_title_field_default_fields() {
   t('Publisher');
   t('Ready to email?');
   t('Selector\'s Comment');
-  t('Selector\'s Comment 2');
   t('Targeted Age Level of Item');
   t('URL');
   t('Which library locations do you use most often?');

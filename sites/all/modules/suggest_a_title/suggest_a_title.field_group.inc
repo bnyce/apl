@@ -89,7 +89,7 @@ function suggest_a_title_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'What title would you like to suggest?',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'body',
       1 => 'field_author_performer_band',

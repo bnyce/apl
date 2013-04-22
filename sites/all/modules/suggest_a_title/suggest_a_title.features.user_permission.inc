@@ -128,16 +128,6 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: create field_selector_s_comment_2.
-  $permissions['create field_selector_s_comment_2'] = array(
-    'name' => 'create field_selector_s_comment_2',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: create field_targeted_age_level_of_item.
   $permissions['create field_targeted_age_level_of_item'] = array(
     'name' => 'create field_targeted_age_level_of_item',
@@ -337,16 +327,6 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: edit field_selector_s_comment_2.
-  $permissions['edit field_selector_s_comment_2'] = array(
-    'name' => 'edit field_selector_s_comment_2',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: edit field_targeted_age_level_of_item.
   $permissions['edit field_targeted_age_level_of_item'] = array(
     'name' => 'edit field_targeted_age_level_of_item',
@@ -497,16 +477,6 @@ function suggest_a_title_user_default_permissions() {
   // Exported permission: edit own field_selector_s_comment.
   $permissions['edit own field_selector_s_comment'] = array(
     'name' => 'edit own field_selector_s_comment',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: edit own field_selector_s_comment_2.
-  $permissions['edit own field_selector_s_comment_2'] = array(
-    'name' => 'edit own field_selector_s_comment_2',
     'roles' => array(
       0 => 'administrator',
       1 => 'materials selector',
@@ -719,17 +689,6 @@ function suggest_a_title_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: view field_selector_s_comment_2.
-  $permissions['view field_selector_s_comment_2'] = array(
-    'name' => 'view field_selector_s_comment_2',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: view field_targeted_age_level_of_item.
   $permissions['view field_targeted_age_level_of_item'] = array(
     'name' => 'view field_targeted_age_level_of_item',
@@ -891,17 +850,6 @@ function suggest_a_title_user_default_permissions() {
   // Exported permission: view own field_selector_s_comment.
   $permissions['view own field_selector_s_comment'] = array(
     'name' => 'view own field_selector_s_comment',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'materials selector',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: view own field_selector_s_comment_2.
-  $permissions['view own field_selector_s_comment_2'] = array(
-    'name' => 'view own field_selector_s_comment_2',
     'roles' => array(
       0 => 'administrator',
       1 => 'anonymous user',

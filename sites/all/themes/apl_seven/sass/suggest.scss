@@ -1,6 +1,13 @@
 body {
+	&.page-node-edit #node_suggest_a_title_form_group_suggestion {
+		visibility: hidden;
+		max-height: 0;
+	}
+	#edit-uid-wrapper {
+		width: 160px;
+	}
 	#edit-uid {
-		width: 250px;
+		width: 154px;
 	}
 &.logged-in.node-type-suggest-a-title {
 	div#suggest-thanks {

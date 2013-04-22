@@ -22,7 +22,7 @@ function suggest_a_title_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'clientside_validation_path_list';
   $strongarm->value = '*/webform*
-admin/structure/views/view/*';
+*suggest-a-title*';
   $export['clientside_validation_path_list'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -254,6 +254,7 @@ admin/structure/views/view/*';
   $strongarm->name = 'node_options_suggest_a_title';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_suggest_a_title'] = $strongarm;
 
@@ -294,6 +295,16 @@ admin/structure/views/view/*';
       'fit' => 21,
     ),
     1 => array(
+      'path' => 'comment/reply/#/#',
+      'callbacks' => array(),
+      'wildcards' => array(
+        2 => 'node:nid',
+        3 => 'comment:cid',
+      ),
+      'weight' => 3,
+      'fit' => 12,
+    ),
+    2 => array(
       'path' => 'taxonomy/term/#',
       'callbacks' => array(),
       'wildcards' => array(
@@ -302,7 +313,34 @@ admin/structure/views/view/*';
       'weight' => 1,
       'fit' => 6,
     ),
-    2 => array(
+    3 => array(
+      'path' => 'comment/reply/#',
+      'callbacks' => array(),
+      'wildcards' => array(
+        2 => 'node:nid',
+      ),
+      'weight' => 1,
+      'fit' => 6,
+    ),
+    4 => array(
+      'path' => 'comment/#/edit',
+      'callbacks' => array(),
+      'wildcards' => array(
+        1 => 'comment:cid',
+      ),
+      'weight' => 2,
+      'fit' => 5,
+    ),
+    5 => array(
+      'path' => 'comment/#/delete',
+      'callbacks' => array(),
+      'wildcards' => array(
+        1 => 'comment:cid',
+      ),
+      'weight' => 2,
+      'fit' => 5,
+    ),
+    6 => array(
       'path' => 'node/#',
       'callbacks' => array(),
       'wildcards' => array(
@@ -311,7 +349,7 @@ admin/structure/views/view/*';
       'weight' => 1,
       'fit' => 2,
     ),
-    3 => array(
+    7 => array(
       'path' => 'blog/#',
       'callbacks' => array(),
       'wildcards' => array(

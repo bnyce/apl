@@ -21,7 +21,7 @@ function suggest_a_title_field_default_fields() {
       ),
       'field_name' => 'body',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(
         'format' => array(
@@ -153,7 +153,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '2',
+        'weight' => '4',
       ),
     ),
   );
@@ -167,7 +167,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_austin_public_library_card',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(
         'format' => array(
@@ -226,7 +226,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -239,6 +239,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_author_performer_band',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -373,7 +376,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => 0,
+        'weight' => '2',
       ),
     ),
   );
@@ -387,7 +390,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_format',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(),
       'indexes' => array(
@@ -476,6 +479,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_how_did_you_learn_about_th',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -547,6 +553,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_isbn_issn_upc',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -619,7 +628,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_language',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(),
       'indexes' => array(
@@ -745,78 +754,6 @@ function suggest_a_title_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-suggest_a_title-field_original_request'.
-  $fields['node-suggest_a_title-field_original_request'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_original_request',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'suggest_a_title',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '18',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'exclude_cv' => 0,
-      'field_name' => 'field_original_request',
-      'label' => 'Original Request',
-      'required' => 0,
-      'settings' => array(
-        'exclude_cv' => FALSE,
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '10',
-      ),
-    ),
-  );
-
   // Exported field: 'node-suggest_a_title-field_publisher'.
   $fields['node-suggest_a_title-field_publisher'] = array(
     'field_config' => array(
@@ -825,6 +762,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_publisher',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -955,7 +895,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -1024,10 +964,82 @@ function suggest_a_title_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
+          'rows' => '50',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '0',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-suggest_a_title-field_selector_s_comment_2'.
+  $fields['node-suggest_a_title-field_selector_s_comment_2'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_selector_s_comment_2',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'suggest_a_title',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 20,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'exclude_cv' => 1,
+      'field_name' => 'field_selector_s_comment_2',
+      'label' => 'Selector\'s Comment 2',
+      'required' => 0,
+      'settings' => array(
+        'exclude_cv' => FALSE,
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '3',
+        'weight' => '1',
       ),
     ),
   );
@@ -1041,7 +1053,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_targeted_age_level_of_item',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(),
       'indexes' => array(
@@ -1109,7 +1121,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_text_publication_year',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(
         'format' => array(
@@ -1183,7 +1195,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_url',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(
         'format' => array(
@@ -1256,6 +1268,9 @@ function suggest_a_title_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_which_library_locations_do',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1316,7 +1331,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '7',
+        'weight' => '10',
       ),
     ),
   );
@@ -1330,7 +1345,7 @@ function suggest_a_title_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_your_e_mail',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'foreign keys' => array(
         'format' => array(
@@ -1390,7 +1405,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -1410,11 +1425,11 @@ function suggest_a_title_field_default_fields() {
   t('Is there a webpage that would help our Librarians find out more about your suggested title? This could be, for example, a link to an item on Amazon.com or the URL address from which you discovered your suggested title.');
   t('Language');
   t('Only Austin Public Library cardholders may Suggest a Title for Purchase.');
-  t('Original Request');
   t('Publication Year');
   t('Publisher');
   t('Ready to email?');
   t('Selector\'s Comment');
+  t('Selector\'s Comment 2');
   t('Targeted Age Level of Item');
   t('URL');
   t('Which library locations do you use most often?');

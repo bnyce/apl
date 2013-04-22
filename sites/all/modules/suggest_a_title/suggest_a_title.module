@@ -96,7 +96,7 @@ function suggest_a_title_callback(&$form, &$form_state) {
 	if($isbn_v) {$all .= $isbn_l . ":\n  " . $isbn_v . "\n\n";};
 	if($how_v) {$all .= $how_l . ":\n  " . $how_v . "\n\n";};
 	if($comments_v) {$all .= $comments_l . ":\n  " . $comments_v . "\n\n";};
-	if($locations_v) {$all .= $locations_l . "\n" . $locations_v;};
+	if(count($locations_a)>1) {$all .= $locations_l . "\n" . $locations_v;};
 
 	switch($form['field_follow_up']['und']['#value']) {
 	case 'Denied':

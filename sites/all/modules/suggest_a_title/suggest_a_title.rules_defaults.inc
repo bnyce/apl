@@ -95,7 +95,7 @@ function suggest_a_title_default_rules_configuration() {
       ],
       "DO" : [
         { "drupal_message" : {
-            "message" : "\\u003Cp\\u003EThank you for suggesting \\u003Ci\\u003E[node:title]\\u003C\\/i\\u003E. Processing time may take up to two weeks or more.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYou may view the current status of your suggestion at any time by visiting this page, which is at:\\u003Cbr\\/\\u003E\\r\\n\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:url]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EWould you like to \\u003Ca href=\\u0022[site:url]\\/suggest-a-title\\u0022\\u003Esuggest another title for purchase\\u003C\\/a\\u003E?\\u003C\\/p\\u003E",
+            "message" : "\\u003Cp\\u003EThank you for suggesting \\u003Ci\\u003E[node:title]\\u003C\\/i\\u003E. Processing time may take up to two weeks or more.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYou may view the current status of your suggestion at any time by visiting this page, which is at:\\u003Cbr\\/\\u003E\\r\\n\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:url]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EWould you like to \\u003Ca href=\\u0022[site:url]suggest-a-title\\u0022\\u003Esuggest another title for purchase\\u003C\\/a\\u003E?\\u003C\\/p\\u003E",
             "repeat" : 0
           }
         }

@@ -153,7 +153,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
@@ -226,7 +226,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -376,7 +376,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
@@ -895,7 +895,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -1259,7 +1259,7 @@ function suggest_a_title_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '11',
+        'weight' => '7',
       ),
     ),
   );
@@ -1333,7 +1333,7 @@ function suggest_a_title_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '5',
       ),
     ),
   );

@@ -44,12 +44,24 @@ function suggest_a_title_callback(&$form, &$form_state) {
 		} else {
 			$title_by_author = $title_v;
 		}
-
-	$format_v = $form['field_format']['und']['#value'];
+	$formats_a = array_filter($form_state['values']['field_format']['und']);
 		$format_l = $form['field_format']['und']['#title'];
-
+		$format_v = '';
+		foreach ($formats_a as $id) {
+			$id_i = $id['tid'];
+			$format_v .= '  ' . $form['field_format']['und']['#options'][$id_i] . "\n";
+		}
+	$languages_a = array_filter($form_state['values']['field_language']['und']);
+		$language_l = $form['field_language']['und']['#title'];
+		$language_v = '';
+		foreach ($languages_a as $id) {
+			$id_i = $id['tid'];
+			$language_v .= '  ' . $form['field_language']['und']['#options'][$id_i] . "\n";
+		}
+/*
 	$language_v = $form['field_language']['und']['#value'];
 		$language_l = $form['field_language']['und']['#title'];
+*/
 
 	$age_v = $form['field_targeted_age_level_of_item']['und']['#value'];
 		$age_l = $form['field_targeted_age_level_of_item']['und']['#title'];
@@ -87,8 +99,9 @@ function suggest_a_title_callback(&$form, &$form_state) {
 	$all .= "\n\nHere's what you suggested:\n\n";
 	if($title_v) {$all .= "Title:\n  " . $title_v . "\n\n";};
 	if($author_v) {$all .= $author_l . ":\n  " . $author_v . "\n\n";};
-	if($format_v) {$all .= $format_l . ":\n  " . $format_v . "\n\n";};
-	if($language_v) {$all .= $language_l . ":\n  " . $language_v . "\n\n";};
+	if($format_v) {$all .= $format_l . ":\n  " . $formats_a[0]['value'] . "\n\n";};
+	if($language_v) {$all .= $language_l . ":\n  " . $languages_a[0]['value'] . "\n\n";};
+//	if($language_v) {$all .= $language_l . ":\n  " . $language_v . "\n\n";};
 	if($age_v) {$all .= $age_l . ":\n  " . $age_v . "\n\n";};
 	if($url_v) {$all .= $url_l . ":\n  " . $url_v . "\n\n";};
 	if($publisher_v) {$all .= $publisher_l . ":\n  " . $publisher_v . "\n\n";};
@@ -96,7 +109,7 @@ function suggest_a_title_callback(&$form, &$form_state) {
 	if($isbn_v) {$all .= $isbn_l . ":\n  " . $isbn_v . "\n\n";};
 	if($how_v) {$all .= $how_l . ":\n  " . $how_v . "\n\n";};
 	if($comments_v) {$all .= $comments_l . ":\n  " . $comments_v . "\n\n";};
-	if(count($locations_a)>1) {$all .= $locations_l . "\n" . $locations_v;};
+	if($locations_v) {$all .= $locations_l . "\n" . $locations_v;};
 
 	switch($form['field_follow_up']['und']['#value']) {
 	case 'Denied':

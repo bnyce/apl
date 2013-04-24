@@ -185,6 +185,7 @@ textarea {
 textarea {
   font-size: 1em;
   line-height: 1.538em;
+  padding: 5px;
 }
 
 /**
@@ -194,7 +195,7 @@ textarea {
  * to sneak the clearfix class into Drupal's markup.
  * From http://perishablepress.com/press/2009/12/06/new-clearfix-hack
  */
-/* line 189, ../sass/reset.scss */
+/* line 190, ../sass/reset.scss */
 ul.links:after,
 div.admin-panel .body:after,
 .clearfix:after {
@@ -206,7 +207,7 @@ div.admin-panel .body:after,
 }
 
 /* Exclude inline links from clearfix behavior */
-/* line 198, ../sass/reset.scss */
+/* line 199, ../sass/reset.scss */
 ul.inline:after {
   content: "";
   display: none;
@@ -214,7 +215,7 @@ ul.inline:after {
 }
 
 /* IE6 */
-/* line 207, ../sass/reset.scss */
+/* line 208, ../sass/reset.scss */
 * html .form-item,
 * html ul.links,
 * html div.admin-panel .body,
@@ -223,7 +224,7 @@ ul.inline:after {
 }
 
 /* IE7 */
-/* line 214, ../sass/reset.scss */
+/* line 215, ../sass/reset.scss */
 *:first-child + html .form-item,
 *:first-child + html ul.links,
 *:first-child + html div.admin-panel .body,

@@ -21,7 +21,7 @@ function suggest_a_title_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'admin_theme';
-  $strongarm->value = 'seven';
+  $strongarm->value = 'apl_seven';
   $export['admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -299,7 +299,7 @@ admin/structure/views/view/*';
       'page cache' => 1,
     ),
     'comment:cid' => array(
-      'description' => 'Comment: ID - The id of a comment (cid). See <a href="/next21/admin/content/comment">admin/content/comment</a> for your published comments or <a href="/next21/admin/content/comment/approval">admin/content/comment/approval</a> for comments awaiting approval',
+      'description' => 'Comment: ID - The id of a comment (cid). See <a href="/suggest_rc6/admin/content/comment">admin/content/comment</a> for your published comments or <a href="/suggest_rc6/admin/content/comment/approval">admin/content/comment/approval</a> for comments awaiting approval',
       'validator' => 'themekey_validator_ctype_digit',
       'page cache' => 1,
     ),
@@ -404,7 +404,7 @@ foo
       'page cache' => 1,
     ),
     'node:language' => array(
-      'description' => 'Node: Language - The code of the selected language of a node (formatted like "en" or "de") or "neutral". See <a href="/next21/admin/config/language">admin/config/language</a> for the codes of your enabled languages',
+      'description' => 'Node: Language - The code of the selected language of a node (formatted like "en" or "de") or "neutral". See <a href="/suggest_rc6/admin/config/language">admin/config/language</a> for the codes of your enabled languages',
       'validator' => 'themekey_validator_language',
       'page cache' => 1,
     ),
@@ -429,12 +429,12 @@ foo
       'page cache' => 1,
     ),
     'node:type' => array(
-      'description' => 'Node: Type - The machine-readable content type of the node. See <a href="/next21/admin/structure/types">admin/structure/types</a> for your content types (use column "Type"). Drupal default types are "page" and "story".',
+      'description' => 'Node: Type - The machine-readable content type of the node. See <a href="/suggest_rc6/admin/structure/types">admin/structure/types</a> for your content types (use column "Type"). Drupal default types are "page" and "story".',
       'validator' => 'themekey_validator_node_type',
       'page cache' => 1,
     ),
     'node:uid' => array(
-      'description' => 'Node: User ID - The node author\'s user id (uid). The user id can be found in the URL of the user\'s profile page, "user/23" or "user/23/edit" (23 = uid). See <a href="/next21/admin/user/user/list">admin/user/user/list</a> for your users.',
+      'description' => 'Node: User ID - The node author\'s user id (uid). The user id can be found in the URL of the user\'s profile page, "user/23" or "user/23/edit" (23 = uid). See <a href="/suggest_rc6/admin/user/user/list">admin/user/user/list</a> for your users.',
       'validator' => 'themekey_validator_ctype_digit',
       'page cache' => 1,
     ),
@@ -570,22 +570,22 @@ foo
       'page cache' => 0,
     ),
     'taxonomy:vid' => array(
-      'description' => 'Taxonomy: Vocabulary - The vocabulary id (vid) of a taxonomy vocabulary. See <a href="/next21/admin/structure/taxonomy">admin/structure/taxonomy</a> for your vocabularies.',
+      'description' => 'Taxonomy: Vocabulary - The vocabulary id (vid) of a taxonomy vocabulary. See <a href="/suggest_rc6/admin/structure/taxonomy">admin/structure/taxonomy</a> for your vocabularies.',
       'validator' => 'themekey_validator_ctype_digit',
       'page cache' => 1,
     ),
     'themekey_ui:blog_author_triggers_theme' => array(
-      'description' => 'The property, themekey_ui:blog_author_triggers_theme, could not be selected from the property drop down. You get this static property by activating <a href="/next21/admin/config/user-interface/themekey/settings/ui">Let the user select a theme for her blog pages</a>. Afterwards, you can move the property to any position in the rule chain. When done, it triggers the switch to the theme the author selected for her nodes in her user profile. This property is an addition to themekey_ui:node_author_triggers_theme to cover the automatically generated blog pages as well.',
+      'description' => 'The property, themekey_ui:blog_author_triggers_theme, could not be selected from the property drop down. You get this static property by activating <a href="/suggest_rc6/admin/config/user-interface/themekey/settings/ui">Let the user select a theme for her blog pages</a>. Afterwards, you can move the property to any position in the rule chain. When done, it triggers the switch to the theme the author selected for her nodes in her user profile. This property is an addition to themekey_ui:node_author_triggers_theme to cover the automatically generated blog pages as well.',
       'page cache' => 1,
       'static' => TRUE,
     ),
     'themekey_ui:node_author_triggers_theme' => array(
-      'description' => 'The property, themekey_ui:node_author_triggers_theme, could not be selected from the property drop down. You get this static property by activating <a href="/next21/admin/config/user-interface/themekey/settings/ui">Let the user select a theme for her nodes in her user profile</a>. Afterwards, you can move the property to any position in the rule chain. When done, it triggers the switch to the theme the author selected for her nodes in her user profile.',
+      'description' => 'The property, themekey_ui:node_author_triggers_theme, could not be selected from the property drop down. You get this static property by activating <a href="/suggest_rc6/admin/config/user-interface/themekey/settings/ui">Let the user select a theme for her nodes in her user profile</a>. Afterwards, you can move the property to any position in the rule chain. When done, it triggers the switch to the theme the author selected for her nodes in her user profile.',
       'page cache' => 1,
       'static' => TRUE,
     ),
     'themekey_ui:node_triggers_theme' => array(
-      'description' => 'The property, themekey_ui:node_triggers_theme, could not be selected from the property drop-down. You get this static property by activating <a href="/next21/admin/config/user-interface/themekey/settings/ui">Show theme option in create/edit node forms</a>. Afterwards, you can move the property to any position in the rule chain. When done, it triggers the switch to the theme assigned to the current node using ThemeKey UI.',
+      'description' => 'The property, themekey_ui:node_triggers_theme, could not be selected from the property drop-down. You get this static property by activating <a href="/suggest_rc6/admin/config/user-interface/themekey/settings/ui">Show theme option in create/edit node forms</a>. Afterwards, you can move the property to any position in the rule chain. When done, it triggers the switch to the theme assigned to the current node using ThemeKey UI.',
       'page cache' => 1,
       'static' => TRUE,
     ),
@@ -597,12 +597,12 @@ foo
     ),
     'user:language' => array(
       'description' => 'User: Language - The language the user has set in the settings of his profile page.
-      Format is the language code (for example "en" for English or "de" for German) that can be found on <a href="/next21/admin/config/regional/language/overview">admin/config/regional/language/overview</a>.',
+      Format is the language code (for example "en" for English or "de" for German) that can be found on <a href="/suggest_rc6/admin/config/regional/language/overview">admin/config/regional/language/overview</a>.',
       'validator' => 'themekey_validator_language',
       'page cache' => 1,
     ),
     'user:name' => array(
-      'description' => 'User: Name - The username of the user. See <a href="/next21/admin/people/people">admin/people/people</a> for your users.',
+      'description' => 'User: Name - The username of the user. See <a href="/suggest_rc6/admin/people/people">admin/people/people</a> for your users.',
       'page cache' => 1,
     ),
     'user:role' => array(
@@ -611,7 +611,7 @@ foo
       'page cache' => 1,
     ),
     'user:uid' => array(
-      'description' => 'User: ID - The id of the user (uid). The user id can be found in the URL of the users profile page, "user/23" or "user/23/edit" (23 = uid). See <a href="/next21/admin/people/people">admin/people/people</a> for your users.',
+      'description' => 'User: ID - The id of the user (uid). The user id can be found in the URL of the users profile page, "user/23" or "user/23/edit" (23 = uid). See <a href="/suggest_rc6/admin/people/people">admin/people/people</a> for your users.',
       'validator' => 'themekey_validator_ctype_digit',
       'page cache' => 1,
     ),

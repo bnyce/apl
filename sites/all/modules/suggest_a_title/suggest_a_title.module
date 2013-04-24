@@ -122,15 +122,13 @@ You may be able to borrow this title through Interlibrary Loan (http://library.a
 		// Do we want to say WHY it's not available?
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. Unfortunately, we are not able to purchase the title at this time. The item is not available from our " . $format_v . " vendor.
 
-Out-of-print and out-of stock titles may be available through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.
-
-We are unable to place a hold on a title. You are welcome to check the Library catalog (http://library.austintexas.gov/catalog) periodically to see if it has been added to the collection.";
+Out-of-print and out-of stock titles may be available through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 
 	case 'In Catalog':
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. This title is listed in our catalog.  
 
-We are unable to place a hold on a title. For help in locating a copy, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically. For help in locating a copy, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 
 	case 'Resources':
@@ -141,7 +139,7 @@ We are unable to place a hold on a title. For help in locating a copy, please ca
 	case 'To Be Ordered':
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. This title is available from our " . $format_v . " vendor and will be ordered promptly. It should arrive within 4-6 weeks.  
 
-We are unable to place a hold on a title. You are welcome to check the Library catalog (http://library.austintexas.gov/catalog) periodically to see when it has been added to the collection.";
+For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically.";
 		break;
 
 	default:

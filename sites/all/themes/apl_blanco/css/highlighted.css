@@ -16,7 +16,6 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 /* line 16, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-previous,
 .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
-  border: 1px solid red;
   display: block;
   height: 0px;
   width: 0px;
@@ -25,8 +24,9 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
   overflow: hidden;
   border-color: transparent #0069aa;
   border-style: solid;
-  border-width: 16px 20px 16px 0;
+  border-width: 16px 16px 16px 0;
   display: block;
+  border-radius: 4px;
 }
 /* line 28, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-previous:hover,
@@ -35,7 +35,7 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 }
 /* line 32, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
-  border-width: 16px 0 16px 20px;
+  border-width: 16px 0 16px 16px;
 }
 /* line 35, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-pager-fields {
@@ -76,27 +76,53 @@ div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.fie
 body div.panel-col-last div.field-content img {
   width: 340px;
 }
-/* line 72, ../sass/highlighted.scss */
+/* line 75, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-next-horizontal {
-  background-position: 0 -32px;
+  background: none;
   position: absolute;
-  right: -15px;
+  right: 0;
   top: 50px;
+  border-style: solid;
+  border-width: 16px 0 16px 16px;
+  border-color: transparent green transparent #0069aa;
+  border-radius: 4px;
+  width: 0;
+  height: 0;
 }
-/* line 78, ../sass/highlighted.scss */
+/* line 86, ../sass/highlighted.scss */
+body div.jcarousel-skin-default a.jcarousel-next-horizontal:hover {
+  border-color: transparent green transparent #0088dd;
+  background: none;
+}
+/* line 91, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-prev-horizontal {
   background-position: 0 0;
-  left: -19px;
+  left: 0;
   position: absolute;
   top: 50px;
+  border: 20px solid green;
+  background: none;
+  position: absolute;
+  top: 50px;
+  border-style: solid;
+  border-width: 16px 16px 16px 0;
+  border-color: transparent #0069aa transparent #0069aa;
+  border-radius: 4px;
+  width: 0;
+  height: 0;
 }
-/* line 84, ../sass/highlighted.scss */
+/* line 107, ../sass/highlighted.scss */
+body div.jcarousel-skin-default a.jcarousel-prev-horizontal:hover {
+  border-color: transparent #0088dd transparent transparent;
+  background: none;
+}
+/* line 112, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-clip-horizontal {
-  left: 11px;
+  left: 15px;
   overflow: hidden;
   width: 550px;
 }
-/* line 89, ../sass/highlighted.scss */
+/* line 117, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-container-horizontal {
   height: 162px;
   margin: 0;

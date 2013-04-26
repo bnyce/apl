@@ -14,7 +14,6 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 	}
 	.views-slideshow-controls-text-previous, 
 	.views-slideshow-controls-text-next {
-	    border: 1px solid red;
 	    display: block;
 	    height: 0px;
 	    width: 0px;
@@ -23,14 +22,15 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 		overflow: hidden;
 		border-color: transparent $blue;
 		border-style: solid;
-		border-width: 16px 20px 16px 0;
+		border-width: 16px 16px 16px 0;
 		display: block;
+		border-radius: 4px;
 	&:hover {
 		border-color: transparent lighten($blue, 10%);
 	}
 	}	
 	.views-slideshow-controls-text-next {
-		border-width: 16px 0 16px 20px;
+		border-width: 16px 0 16px 16px;
 	}
 	.views-slideshow-pager-fields {
 		float: left;
@@ -69,20 +69,48 @@ body {
 
 
 	div.jcarousel-skin-default {
+        .views-slideshow-controls-text-next {
+        }
+
 		a.jcarousel-next-horizontal {
-			background-position: 0 -32px;
+			background: none;
 			position: absolute;
-			right: -15px;
+			right: 0;
 			top: 50px;
+			border-style: solid;
+                	border-width: 16px 0 16px 16px;
+			border-color: transparent green transparent $blue;
+			border-radius: 4px;
+			width: 0;
+			height: 0;
+			&:hover {
+				border-color: transparent green transparent lighten($blue, 10%);
+				background: none;
+			}
 		}
 		a.jcarousel-prev-horizontal {
 			background-position: 0 0;
-			left: -19px;
+			left: 0;
 			position: absolute;
 			top: 50px;
+			border:20px solid green;
+			background: none;
+			position: absolute;
+			//right: 0;
+			top: 50px;
+			border-style: solid;
+                	border-width: 16px 16px 16px 0;
+			border-color: transparent $blue transparent $blue;
+			border-radius: 4px;
+			width: 0;
+			height: 0;
+			&:hover {
+				border-color: transparent lighten($blue, 10%) transparent transparent;
+				background: none;
+			}
 		}
 		div.jcarousel-clip-horizontal {
-			left: 11px;
+			left: 15px;
 			overflow: hidden;
 			width: 550px;
 		}

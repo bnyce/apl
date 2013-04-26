@@ -9,6 +9,8 @@ h3 {
 //      width: 5em;
         width: 60px;
         float: left;
+//	font-size: 11px;
+	
 }
 body.page-locations
 span.views-field.views-field-field-time + .views-field.views-field-title {
@@ -17,10 +19,23 @@ span.views-field.views-field-field-time + .views-field.views-field-title {
 	display: block;
 //	margin-left: 5em;
 	margin: 1px 0 0 60px;
-//	font-size: 12px;
+	font-size: 12px;
 }
-body.front .pane-events-panel-pane-1 .views-field.views-field-title {
-	padding-left: 2em;
+body.front {
+	.views-label.views-label-field-event-loc + .field-content {
+//		font-size:11px;
+//		float: left;
+	}
+	.views-label.views-label-field-event-loc {
+//		display:none;
+	font-size: 12px;
+	}
+	.pane-events-panel-pane-1 .views-field.views-field-title {
+	//	padding-left: 2em;
+		color: yellow;
+		font-weight: normal;
+		font-size: 12px;
+	}
 }
 ul.pager {
         margin-top: 1em;

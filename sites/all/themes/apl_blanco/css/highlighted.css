@@ -1,34 +1,102 @@
-/* line 1, ../sass/highlighted.scss */
+/* line 3, ../sass/highlighted.scss */
+div.pane-content div.view div.view-content div.skin-default div#views_slideshow_cycle_main_highlighted_images-panel_pane_8 div.views-slideshow-cycle-main-frame-row-item div.views-field div.field-content img {
+  max-width: 580px;
+  height: auto;
+}
+
+/* line 9, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom {
+  width: 100%;
+  float: left;
+}
+/* line 12, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom .views-slideshow-controls-text-pause {
+  display: none;
+}
+/* line 16, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom .views-slideshow-controls-text-previous,
+.views-slideshow-controls-bottom .views-slideshow-controls-text-next {
+  border: 1px solid red;
+  display: block;
+  height: 0px;
+  width: 0px;
+  float: left;
+  margin-left: 10px;
+  overflow: hidden;
+  border-color: transparent #0069aa;
+  border-style: solid;
+  border-width: 16px 20px 16px 0;
+  display: block;
+}
+/* line 28, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom .views-slideshow-controls-text-previous:hover,
+.views-slideshow-controls-bottom .views-slideshow-controls-text-next:hover {
+  border-color: transparent #0088dd;
+}
+/* line 32, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom .views-slideshow-controls-text-next {
+  border-width: 16px 0 16px 20px;
+}
+/* line 35, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom .views-slideshow-pager-fields {
+  float: left;
+}
+/* line 38, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom .views-slideshow-controls-text {
+  float: right;
+}
+
+/* line 43, ../sass/highlighted.scss */
+.views-slideshow-pager-field-item {
+  float: left;
+  margin-right: 10px;
+}
+/* line 46, ../sass/highlighted.scss */
+.views-slideshow-pager-field-item img {
+  border: 1px solid white;
+  border-radius: 17px;
+  opacity: 0.3;
+  max-width: 580px;
+  height: auto;
+}
+/* line 54, ../sass/highlighted.scss */
+.views-slideshow-pager-field-item.active img, .views-slideshow-pager-field-item:hover img {
+  border: 1px solid #0069aa;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* line 61, ../sass/highlighted.scss */
 div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.field-content img {
   border-top-left-radius: 10px;
   width: 940px;
 }
 
-/* line 6, ../sass/highlighted.scss */
+/* line 66, ../sass/highlighted.scss */
 body div.panel-col-last div.field-content img {
   width: 340px;
 }
-/* line 12, ../sass/highlighted.scss */
+/* line 72, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-next-horizontal {
   background-position: 0 -32px;
   position: absolute;
   right: -15px;
   top: 50px;
 }
-/* line 18, ../sass/highlighted.scss */
+/* line 78, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-prev-horizontal {
   background-position: 0 0;
   left: -19px;
   position: absolute;
   top: 50px;
 }
-/* line 24, ../sass/highlighted.scss */
+/* line 84, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-clip-horizontal {
   left: 11px;
   overflow: hidden;
   width: 550px;
 }
-/* line 29, ../sass/highlighted.scss */
+/* line 89, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-container-horizontal {
   height: 162px;
   margin: 0;

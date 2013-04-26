@@ -1,13 +1,50 @@
-/* line 4, ../sass/nice-menus.scss */
+/* line 3, ../sass/nice-menus.scss */
+#block-nice-menus-1 {
+  background-color: #0069aa;
+  clear: both;
+}
+/* line 6, ../sass/nice-menus.scss */
+#block-nice-menus-1:after {
+  border-color: transparent #004977;
+  border-image: none;
+  border-style: solid;
+  border-width: 26px 0 0 26px;
+  content: "";
+  display: block;
+  float: right;
+  height: 0;
+  margin-top: 0;
+  position: absolute;
+  right: -26px;
+  top: 0;
+  width: 0;
+}
+/* line 21, ../sass/nice-menus.scss */
+#block-nice-menus-1:before {
+  border-color: #004977 #004977 transparent;
+  border-image: none;
+  border-style: solid;
+  border-width: 13px;
+  content: "";
+  display: block;
+  float: right;
+  height: 250px;
+  margin-top: 0;
+  position: absolute;
+  right: -26px;
+  top: 26px;
+  width: 0;
+}
+/* line 36, ../sass/nice-menus.scss */
 #block-nice-menus-1 h2 {
   display: none;
 }
-/* line 8, ../sass/nice-menus.scss */
+/* line 40, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li {
   border: none;
   margin-left: 1px;
 }
-/* line 9, ../sass/nice-menus.scss */
+/* line 41, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li ul {
   clear: both;
   top: 26px;
@@ -15,66 +52,66 @@
   border-top-right-radius: 10px;
   border-top: 1px solid #aadeff;
 }
-/* line 16, ../sass/nice-menus.scss */
+/* line 48, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li ul li {
   margin-left: 0;
 }
-/* line 17, ../sass/nice-menus.scss */
+/* line 49, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li ul li.first {
   border-top-right-radius: 10px;
 }
-/* line 19, ../sass/nice-menus.scss */
+/* line 51, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li ul li.first > a:hover {
   border-top-right-radius: 10px;
 }
-/* line 28, ../sass/nice-menus.scss */
+/* line 60, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.active-trail {
   font-weight: bold;
 }
-/* line 30, ../sass/nice-menus.scss */
+/* line 62, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.active-trail > a,
 #block-nice-menus-1 ul li.active-trail a.active {
   color: #fdb813;
 }
-/* line 33, ../sass/nice-menus.scss */
+/* line 65, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.active-trail ul li a:hover {
   color: white;
 }
-/* line 36, ../sass/nice-menus.scss */
+/* line 68, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.active-trail ul li:active-trail a {
   color: #fdb813;
 }
-/* line 40, ../sass/nice-menus.scss */
+/* line 72, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.active-trail li a {
   font-weight: normal;
 }
-/* line 50, ../sass/nice-menus.scss */
+/* line 82, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu a {
   padding: 5px;
 }
-/* line 53, ../sass/nice-menus.scss */
+/* line 85, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu-down {
-  clear: right;
-  float: right;
+  clear: left;
+  float: none;
   margin: 5px 10px;
 }
-/* line 58, ../sass/nice-menus.scss */
+/* line 92, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li {
   background-color: #0069aa;
 }
-/* line 59, ../sass/nice-menus.scss */
+/* line 93, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent {
   background-image: none;
 }
-/* line 61, ../sass/nice-menus.scss */
+/* line 95, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent a {
   padding: 5px;
 }
-/* line 66, ../sass/nice-menus.scss */
+/* line 100, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a {
   color: white;
 }
-/* line 68, ../sass/nice-menus.scss */
+/* line 102, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a:hover {
   background-color: #0088dd;
   color: white;

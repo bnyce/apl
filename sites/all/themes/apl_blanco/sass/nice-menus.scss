@@ -1,6 +1,38 @@
 @import "colors";
 
 #block-nice-menus-1 {
+	background-color: $blue;
+	clear: both;
+	&:after {
+    border-color: transparent darken($blue,10%);
+    border-image: none;
+    border-style: solid;
+    border-width: 26px 0 0 26px;
+    content: "";
+    display: block;
+    float: right;
+    height: 0;
+    margin-top: 0;
+    position: absolute;
+    right: -26px;
+    top: 0;
+    width: 0;
+	}
+	&:before {
+    border-color: darken($blue,10%) darken($blue,10%) transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 13px;
+    content: "";
+    display: block;
+    float: right;
+    height: 250px;
+    margin-top: 0;
+    position: absolute;
+    right: -26px;
+    top: 26px;
+    width: 0;
+	}
 h2 {
 	display:none;
 }
@@ -51,8 +83,10 @@ ul {
 			padding: 5px;
 		}
 		&.nice-menu-down {
-			clear: right;
-			float: right;
+//			clear: right;
+			clear: left;
+//			float: right;
+			float: none;
 			margin: 5px 10px;
 		}
 		li {

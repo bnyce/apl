@@ -1,3 +1,63 @@
+@import "colors";
+
+div.pane-content div.view div.view-content div.skin-default div#views_slideshow_cycle_main_highlighted_images-panel_pane_8 div.views-slideshow-cycle-main-frame-row-item div.views-field div.field-content img {
+	max-width: 580px;
+	height: auto;
+}
+
+
+.views-slideshow-controls-bottom {
+	width: 100%;
+	float: left;
+	.views-slideshow-controls-text-pause {
+		display: none;
+	}
+	.views-slideshow-controls-text-previous, 
+	.views-slideshow-controls-text-next {
+	    border: 1px solid red;
+	    display: block;
+	    height: 0px;
+	    width: 0px;
+		float: left;
+		margin-left: 10px;
+		overflow: hidden;
+		border-color: transparent $blue;
+		border-style: solid;
+		border-width: 16px 20px 16px 0;
+		display: block;
+	&:hover {
+		border-color: transparent lighten($blue, 10%);
+	}
+	}	
+	.views-slideshow-controls-text-next {
+		border-width: 16px 0 16px 20px;
+	}
+	.views-slideshow-pager-fields {
+		float: left;
+	}
+	.views-slideshow-controls-text {
+	    float: right;
+	}
+}
+
+.views-slideshow-pager-field-item {
+	float: left;
+	margin-right: 10px;
+	img {
+		border: 1px solid white;
+		border-radius: 17px;
+		opacity: 0.3;
+		max-width: 580px;
+		height: auto;
+}
+	&.active img,
+	&:hover  img{
+		//border: 1px solid lighten($blue, 10%);
+		border: 1px solid $blue;
+		cursor: pointer;
+		opacity: 1;
+	}
+}	
 div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.field-content img {
 	border-top-left-radius: 10px;
 	width: 940px;

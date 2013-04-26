@@ -76,7 +76,11 @@ div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.fie
 body div.panel-col-last div.field-content img {
   width: 340px;
 }
-/* line 75, ../sass/highlighted.scss */
+/* line 74, ../sass/highlighted.scss */
+body div.jcarousel-skin-default ul.bookSlide {
+  margin-left: -4px !important;
+}
+/* line 77, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-next-horizontal {
   background: none;
   position: absolute;
@@ -89,12 +93,12 @@ body div.jcarousel-skin-default a.jcarousel-next-horizontal {
   width: 0;
   height: 0;
 }
-/* line 86, ../sass/highlighted.scss */
+/* line 88, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-next-horizontal:hover {
   border-color: transparent green transparent #0088dd;
   background: none;
 }
-/* line 91, ../sass/highlighted.scss */
+/* line 93, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-prev-horizontal {
   background-position: 0 0;
   left: 0;
@@ -111,18 +115,19 @@ body div.jcarousel-skin-default a.jcarousel-prev-horizontal {
   width: 0;
   height: 0;
 }
-/* line 107, ../sass/highlighted.scss */
+/* line 109, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-prev-horizontal:hover {
   border-color: transparent #0088dd transparent transparent;
   background: none;
 }
-/* line 112, ../sass/highlighted.scss */
+/* line 114, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-clip-horizontal {
-  left: 15px;
+  left: 19px;
   overflow: hidden;
   width: 550px;
+  width: 542px;
 }
-/* line 117, ../sass/highlighted.scss */
+/* line 120, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-container-horizontal {
   height: 162px;
   margin: 0;

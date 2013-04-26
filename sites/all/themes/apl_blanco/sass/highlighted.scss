@@ -71,7 +71,9 @@ body {
 	div.jcarousel-skin-default {
         .views-slideshow-controls-text-next {
         }
-
+ul.bookSlide {
+	margin-left: -4px !important;
+}
 		a.jcarousel-next-horizontal {
 			background: none;
 			position: absolute;
@@ -110,9 +112,10 @@ body {
 			}
 		}
 		div.jcarousel-clip-horizontal {
-			left: 15px;
+			left: 19px;
 			overflow: hidden;
 			width: 550px;
+			width: 542px;
 		}
 		div.jcarousel-container-horizontal {
 			height: 162px;

@@ -88,7 +88,11 @@ ul {
 			clear: left;
 //			float: right;
 			float: none;
-			margin: 5px 10px;
+			//margin: 5px 10px;
+			margin-left: 4px;
+			> li.menuparent {
+				padding-right: 10px;
+			}
 		}
 		li {
 			&.menuparent {

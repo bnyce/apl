@@ -7,6 +7,11 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 
 
 .views-slideshow-controls-bottom {
+	z-index: 13;
+	position: absolute;
+	#widget_pager_bottom_highlighted_images-panel_pane_8 {
+		z-index: 12;
+	}
 	width: 100%;
 	float: left;
 	.views-slideshow-controls-text-pause {
@@ -17,6 +22,7 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 	    display: block;
 	    height: 0px;
 	    width: 0px;
+		z-index: 12;
 		float: left;
 		margin-left: 10px;
 		overflow: hidden;
@@ -34,33 +40,74 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 	}
 	.views-slideshow-pager-fields {
 		float: left;
+		position: absolute;
+		bottom: 9px;
+		left: 5px;
 	}
 	.views-slideshow-controls-text {
-	    float: right;
+		position: absolute;
+		bottom: 32px;
+//		right: 0;
+		left: 528px;
 	}
 }
 
-.views-slideshow-pager-field-item {
+.views_slideshow_pager_field_item {
 	float: left;
-	margin-right: 10px;
-	img {
-		border: 1px solid white;
-		border-radius: 17px;
-		opacity: 0.3;
-		max-width: 580px;
-		height: auto;
-}
-	&.active img,
-	&:hover  img{
-		//border: 1px solid lighten($blue, 10%);
-		border: 1px solid $blue;
+	margin-right: 5px;
+	background-color: $blue;
+	min-width: 16px;
+	max-width: 16px;
+	min-height: 16px;
+	max-height: 16px;
+	border-radius: 8px;
+	overflow: hidden;
+	a {
+		font-size: 0;
+	}
+	&.active,
+	&:hover {
+		background-color: $yellow;
 		cursor: pointer;
-		opacity: 1;
 	}
 }	
-div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.field-content img {
-	border-top-left-radius: 10px;
-	width: 940px;
+.pane-highlighted-images-panel-pane-8 {
+	div.views-field-title,
+	div.views-field-body {
+		position: absolute;
+		width: 575px;
+		.field-content {
+			display: block;
+			background-color: rgba(0,0,0,0.5);
+			color: white;
+			max-height: 20px;	
+			@include ellipsis;
+			padding: 2px 38px 0 5px;
+			a {
+				color: white;
+			}
+		}
+	}
+	div.views-field-title {
+		font-weight: bold;
+		font-size: 16px;
+		bottom: 48px;
+		z-index: 10;
+		padding-top: 3px;
+	}
+	div.views-field-body {
+		bottom: 27px;
+		z-index: 9;
+	}
+	div.views-field-field-highlighted-image {
+		z-index: 8;
+	}
+}
+div.view-display-id-panel_pane_1 {
+	div.views-field-field-highlighted-image div.field-content img {
+		border-top-left-radius: 10px;
+		width: 940px;
+	}
 }
 body {
 	div.panel-col-last div.field-content img {
@@ -69,8 +116,6 @@ body {
 
 
 	div.jcarousel-skin-default {
-        .views-slideshow-controls-text-next {
-        }
 ul.bookSlide {
 	margin-left: -4px !important;
 }

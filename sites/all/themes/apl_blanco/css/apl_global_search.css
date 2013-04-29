@@ -14,36 +14,38 @@
 }
 /* line 15, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 input {
-  padding: 5px;
   float: right;
 }
-/* line 19, ../sass/apl_global_search.scss */
+/* line 18, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 input#search_input {
   width: 258px;
   padding: 5px;
   border-bottom-left-radius: 5px;
+  border: 1px solid #0069aa;
+  height: 16px;
 }
-/* line 24, ../sass/apl_global_search.scss */
+/* line 25, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 input.search_button {
   background-color: #0069aa;
-  border: none;
+  border: 1px solid transparent;
   border-top-right-radius: 5px;
   color: white;
   font-weight: bold;
   width: 70px;
-  padding: 5px;
+  max-height: 30px;
+  height: 28px;
 }
-/* line 33, ../sass/apl_global_search.scss */
+/* line 35, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 .searchOptions {
   float: left;
   clear: both;
   margin-top: 5px;
 }
-/* line 37, ../sass/apl_global_search.scss */
+/* line 39, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 .searchOptions input {
   float: left;
 }
-/* line 40, ../sass/apl_global_search.scss */
+/* line 42, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 .searchOptions label {
   font-weight: normal;
   float: left;

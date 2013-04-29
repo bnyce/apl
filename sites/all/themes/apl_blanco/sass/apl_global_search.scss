@@ -13,22 +13,24 @@
 	margin-right: 10px;
 	margin-top: 10px;
 	input {
-		padding: 5px;
 		float: right;
 	}
 	input#search_input {
 		width: 258px;
 		padding: 5px;
 		border-bottom-left-radius: 5px;
+		border: 1px solid $blue;
+		height: 16px;
 	}
 	input.search_button {
 		background-color: $blue;
-		border: none;
+		border: 1px solid transparent;
 		border-top-right-radius: 5px;
 		color: white;
 		font-weight: bold;
 		width: 70px;
-		padding: 5px;
+		max-height: 30px;
+		height: 28px;
 	}
 	.searchOptions {
 		float: left;

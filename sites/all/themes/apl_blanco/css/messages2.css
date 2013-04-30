@@ -1,0 +1,130 @@
+/* line 3, ../sass/messages2.scss */
+#block-panels-mini-clone-of-messages {
+  margin: 10px 0 !important;
+}
+/* line 5, ../sass/messages2.scss */
+#block-panels-mini-clone-of-messages #mini-panel-clone_of_messages {
+  margin-bottom: 0;
+}
+
+/* line 9, ../sass/messages2.scss */
+div.error, label.error {
+  color: #001421 !important;
+}
+
+/* line 12, ../sass/messages2.scss */
+div.messages {
+  padding-left: 3em !important;
+  margin: 10px 0;
+}
+/* line 17, ../sass/messages2.scss */
+div.messages a.close {
+  float: right;
+  border: 1px solid #fdb813;
+  border-radius: 5px;
+  background-color: white;
+  padding: 0 .5em 0 .5em !important;
+}
+/* line 23, ../sass/messages2.scss */
+div.messages a.close:hover {
+  border: 1px solid red;
+  color: red;
+}
+
+/* line 30, ../sass/messages2.scss */
+.region-help {
+  margin: 0;
+  padding: 0;
+}
+/* line 33, ../sass/messages2.scss */
+.region-help div {
+  padding: 0;
+  margin: 0;
+}
+/* line 37, ../sass/messages2.scss */
+.region-help h2 {
+  margin-bottom: .3em;
+}
+
+/* line 44, ../sass/messages2.scss */
+div.messages {
+  background-position: 8px 8px;
+  /* LTR */
+  background-repeat: no-repeat;
+  border: 1px solid;
+  padding: 10px 10px 10px 50px;
+  /* LTR */
+}
+
+/* line 52, ../sass/messages2.scss */
+div.status {
+  background-image: url(../../../../../misc/message-24-ok.png);
+  border-color: #a6b839;
+  background-color: #e7ea7f;
+  border: 1px solid #a6b839;
+}
+
+/* line 58, ../sass/messages2.scss */
+div.status,
+.ok {
+  color: #345729;
+}
+
+/* line 62, ../sass/messages2.scss */
+div.status,
+table tr.ok {
+  background-color: #e7ea7f;
+}
+
+/* line 66, ../sass/messages2.scss */
+div.warning {
+  background-image: url(../../../../../misc/message-24-warning.png);
+  border-color: #fcb716;
+}
+
+/* line 71, ../sass/messages2.scss */
+div.warning,
+.warning {
+  color: #da8c28;
+}
+
+/* line 75, ../sass/messages2.scss */
+div.warning,
+table tr.warning {
+  background-color: white;
+}
+
+/* line 79, ../sass/messages2.scss */
+div.error {
+  background-image: url(../../../../../misc/message-24-error.png);
+  border-color: #ed541d;
+}
+
+/* line 84, ../sass/messages2.scss */
+div.error,
+.error {
+  color: #8c2e0b;
+}
+
+/* line 88, ../sass/messages2.scss */
+div.error,
+table tr.error {
+  background-color: #fef5f1;
+}
+
+/* line 91, ../sass/messages2.scss */
+div.error p.error {
+  color: #333333;
+}
+
+/* line 95, ../sass/messages2.scss */
+div.messages ul {
+  margin: 0 0 0 1em;
+  /* LTR */
+  padding: 0;
+}
+
+/* line 99, ../sass/messages2.scss */
+div.messages ul li {
+  list-style-image: none;
+}

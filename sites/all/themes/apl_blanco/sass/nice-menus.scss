@@ -1,6 +1,9 @@
 @import "colors";
 
 #block-nice-menus-1 {
+	ul li a.active {
+		color: $yellow;
+	}
 	background-color: $blue;
 	clear: both;
 	&:after {

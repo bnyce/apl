@@ -20,7 +20,7 @@ body #content-area {
 }
 /* line 22, ../sass/master.scss */
 body div#content-area div.panel-display {
-  margin-top: 10px;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 /* line 27, ../sass/master.scss */
@@ -241,13 +241,11 @@ div.block:hover .edit {
 /* line 219, ../sass/master.scss */
 .panel-col-first .inside {
   padding: 0;
-  margin: 0 !important;
   margin-right: 0px !important;
 }
 /* line 223, ../sass/master.scss */
 .panel-col-first .inside .panel-pane {
   padding: 0;
-  margin: 0 !important;
 }
 /* line 226, ../sass/master.scss */
 .panel-col-first .inside .panel-pane h2.pane-title-OLD {
@@ -256,7 +254,6 @@ div.block:hover .edit {
 }
 /* line 230, ../sass/master.scss */
 .panel-col-first .inside .panel-pane .pane-content {
-  margin: 0 !important;
   padding: 0;
 }
 
@@ -280,12 +277,11 @@ div.block:hover .edit {
 /* line 256, ../sass/master.scss */
 .panel-col-last .inside {
   padding: 0;
-  margin: 0 !important;
+  margin-left: 0 !important;
 }
 /* line 260, ../sass/master.scss */
 .panel-col-last .inside .panel-pane {
   padding: 0;
-  margin: 0 !important;
 }
 /* line 263, ../sass/master.scss */
 .panel-col-last .inside .panel-pane h2.pane-title-OLD {
@@ -296,7 +292,6 @@ div.block:hover .edit {
 /* line 268, ../sass/master.scss */
 .panel-col-last .inside .panel-pane .pane-content {
   padding: 0 0 0 5px;
-  margin: 0 !important;
 }
 /* line 275, ../sass/master.scss */
 .panel-col-last .inside .panel-pane .pane-content p {

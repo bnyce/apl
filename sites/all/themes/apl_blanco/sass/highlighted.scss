@@ -4,8 +4,9 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 	max-width: 580px;
 	height: auto;
 }
-
-
+div.pane-highlighted-images-panel-pane-8 div.view-content {
+	position: relative;
+}
 .views-slideshow-controls-bottom {
 	z-index: 13;
 	position: absolute;
@@ -39,10 +40,10 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 		border-width: 16px 0 16px 16px;
 	}
 	.views-slideshow-pager-fields {
-		float: left;
+	//	float: left;
 		position: absolute;
 		bottom: 9px;
-		left: 5px;
+		right: -2px;
 	}
 	.views-slideshow-controls-text {
 		position: absolute;
@@ -62,20 +63,27 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 	max-height: 16px;
 	border-radius: 8px;
 	overflow: hidden;
+//	border: 1px solid transparent;
+//	opacity: .85;
 	a {
 		font-size: 0;
 	}
 	&.active,
 	&:hover {
 		background-color: $yellow;
+		//background-color: lighten($blue,10%);
+		//opacity: 1;
 		cursor: pointer;
+//		border-color: rgba(255,255,255,.5);
 	}
 }	
 .pane-highlighted-images-panel-pane-8 {
+	margin-top: 10px;
 	div.views-field-title,
 	div.views-field-body {
 		position: absolute;
-		width: 575px;
+		//width: 575px;
+		width: 580px;
 		.field-content {
 			display: block;
 			background-color: rgba(0,0,0,0.5);

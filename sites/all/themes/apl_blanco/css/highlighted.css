@@ -6,19 +6,26 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 
 /* line 9, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom {
+  z-index: 13;
+  position: absolute;
   width: 100%;
   float: left;
 }
 /* line 12, ../sass/highlighted.scss */
+.views-slideshow-controls-bottom #widget_pager_bottom_highlighted_images-panel_pane_8 {
+  z-index: 12;
+}
+/* line 17, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-pause {
   display: none;
 }
-/* line 16, ../sass/highlighted.scss */
+/* line 21, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-previous,
 .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
   display: block;
   height: 0px;
   width: 0px;
+  z-index: 12;
   float: left;
   margin-left: 10px;
   overflow: hidden;
@@ -28,59 +35,107 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
   display: block;
   border-radius: 4px;
 }
-/* line 28, ../sass/highlighted.scss */
+/* line 34, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-previous:hover,
 .views-slideshow-controls-bottom .views-slideshow-controls-text-next:hover {
   border-color: transparent #0088dd;
 }
-/* line 32, ../sass/highlighted.scss */
+/* line 38, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
   border-width: 16px 0 16px 16px;
 }
-/* line 35, ../sass/highlighted.scss */
+/* line 41, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-pager-fields {
   float: left;
+  position: absolute;
+  bottom: 9px;
+  left: 5px;
 }
-/* line 38, ../sass/highlighted.scss */
+/* line 47, ../sass/highlighted.scss */
 .views-slideshow-controls-bottom .views-slideshow-controls-text {
-  float: right;
+  position: absolute;
+  bottom: 32px;
+  left: 528px;
 }
 
-/* line 43, ../sass/highlighted.scss */
-.views-slideshow-pager-field-item {
+/* line 55, ../sass/highlighted.scss */
+.views_slideshow_pager_field_item {
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
+  background-color: #0069aa;
+  min-width: 16px;
+  max-width: 16px;
+  min-height: 16px;
+  max-height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
 }
-/* line 46, ../sass/highlighted.scss */
-.views-slideshow-pager-field-item img {
-  border: 1px solid white;
-  border-radius: 17px;
-  opacity: 0.3;
-  max-width: 580px;
-  height: auto;
+/* line 65, ../sass/highlighted.scss */
+.views_slideshow_pager_field_item a {
+  font-size: 0;
 }
-/* line 54, ../sass/highlighted.scss */
-.views-slideshow-pager-field-item.active img, .views-slideshow-pager-field-item:hover img {
-  border: 1px solid #0069aa;
+/* line 69, ../sass/highlighted.scss */
+.views_slideshow_pager_field_item.active, .views_slideshow_pager_field_item:hover {
+  background-color: #fdb813;
   cursor: pointer;
-  opacity: 1;
 }
 
-/* line 61, ../sass/highlighted.scss */
+/* line 76, ../sass/highlighted.scss */
+.pane-highlighted-images-panel-pane-8 div.views-field-title,
+.pane-highlighted-images-panel-pane-8 div.views-field-body {
+  position: absolute;
+  width: 575px;
+}
+/* line 79, ../sass/highlighted.scss */
+.pane-highlighted-images-panel-pane-8 div.views-field-title .field-content,
+.pane-highlighted-images-panel-pane-8 div.views-field-body .field-content {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  max-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 38px 0 5px;
+}
+/* line 86, ../sass/highlighted.scss */
+.pane-highlighted-images-panel-pane-8 div.views-field-title .field-content a,
+.pane-highlighted-images-panel-pane-8 div.views-field-body .field-content a {
+  color: white;
+}
+/* line 91, ../sass/highlighted.scss */
+.pane-highlighted-images-panel-pane-8 div.views-field-title {
+  font-weight: bold;
+  font-size: 16px;
+  bottom: 48px;
+  z-index: 10;
+  padding-top: 3px;
+}
+/* line 98, ../sass/highlighted.scss */
+.pane-highlighted-images-panel-pane-8 div.views-field-body {
+  bottom: 27px;
+  z-index: 9;
+}
+/* line 102, ../sass/highlighted.scss */
+.pane-highlighted-images-panel-pane-8 div.views-field-field-highlighted-image {
+  z-index: 8;
+}
+
+/* line 107, ../sass/highlighted.scss */
 div.view-display-id-panel_pane_1 div.views-field-field-highlighted-image div.field-content img {
   border-top-left-radius: 10px;
   width: 940px;
 }
 
-/* line 66, ../sass/highlighted.scss */
+/* line 113, ../sass/highlighted.scss */
 body div.panel-col-last div.field-content img {
   width: 340px;
 }
-/* line 74, ../sass/highlighted.scss */
+/* line 119, ../sass/highlighted.scss */
 body div.jcarousel-skin-default ul.bookSlide {
   margin-left: -4px !important;
 }
-/* line 77, ../sass/highlighted.scss */
+/* line 122, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-next-horizontal {
   background: none;
   position: absolute;
@@ -93,12 +148,12 @@ body div.jcarousel-skin-default a.jcarousel-next-horizontal {
   width: 0;
   height: 0;
 }
-/* line 88, ../sass/highlighted.scss */
+/* line 133, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-next-horizontal:hover {
   border-color: transparent green transparent #0088dd;
   background: none;
 }
-/* line 93, ../sass/highlighted.scss */
+/* line 138, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-prev-horizontal {
   background-position: 0 0;
   left: 0;
@@ -115,19 +170,19 @@ body div.jcarousel-skin-default a.jcarousel-prev-horizontal {
   width: 0;
   height: 0;
 }
-/* line 109, ../sass/highlighted.scss */
+/* line 154, ../sass/highlighted.scss */
 body div.jcarousel-skin-default a.jcarousel-prev-horizontal:hover {
   border-color: transparent #0088dd transparent transparent;
   background: none;
 }
-/* line 114, ../sass/highlighted.scss */
+/* line 159, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-clip-horizontal {
   left: 19px;
   overflow: hidden;
   width: 550px;
   width: 542px;
 }
-/* line 120, ../sass/highlighted.scss */
+/* line 165, ../sass/highlighted.scss */
 body div.jcarousel-skin-default div.jcarousel-container-horizontal {
   height: 162px;
   margin: 0;

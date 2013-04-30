@@ -1,6 +1,9 @@
 @import "colors";
 @import "patterns";
 
+br.spacer {
+	clear: both;
+}
 .pane-block-13 {
 	background-color: #EEF2FA;
 	@include rhombus;
@@ -30,19 +33,14 @@
 		border: 1px solid $blue; 
 		-webkit-appearance: none;
 	&.email {
-		border: 1px solid $blue;
-		border-bottom-left-radius: 5px;
-		float: left;
-		margin: 0 0 10px 0;
-		min-height: 12px;
-		padding: 6px 0; 
-		text-indent: 6px; 
-		width: 268px; 
+		width: 258px; 
+		@include textbox;
 	}
 	&.button {
-		border-top-right-radius: 5px;
-		margin: 0 -4px 10px 0;
 		width: 50px; 
+		@include button;
+//		border-top-right-radius: 5px;
+//		margin: 0 -4px 10px 0;
 	}
 	}
 	input[type=checkbox] {
@@ -50,28 +48,6 @@
 	}
 	input[type=radio] {
 		-webkit-appearance: radio;
-	}
-	.button {
-		clear: both; 
-		background-color: $blue; 
-		border: 0 none; 
-		color: #FFFFFF; 
-		cursor: pointer; 
-		display: inline-block; 
-		font-size: 1em; 
-		font-weight: bold; 
-		height: 30px; 
-		line-height: 32px; 
-		margin: 0 5px 10px 0; 
-		padding: 0; 
-		text-align: center; 
-		text-decoration: none; 
-		vertical-align: top; 
-		white-space: nowrap; 
-		width: auto;
-	&:hover {
-		background-color: lighten($blue, 10%);
-	}
 	}
 	.small-meta {
 		font-size: 11px;

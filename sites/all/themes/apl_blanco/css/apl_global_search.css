@@ -1,51 +1,59 @@
-/* line 7, ../sass/apl_global_search.scss */
+/* line 8, ../sass/apl_global_search.scss */
 #header h2.block-title,
 #header #form_catalog,
 #header #form_site,
 #header #form_articles {
   display: none;
 }
-/* line 10, ../sass/apl_global_search.scss */
+/* line 11, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 {
   float: right;
   width: 340px;
   margin-right: 10px;
   margin-top: 10px;
 }
-/* line 15, ../sass/apl_global_search.scss */
+/* line 16, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 input {
   float: right;
 }
-/* line 18, ../sass/apl_global_search.scss */
+/* line 19, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 input#search_input {
   width: 258px;
   padding: 5px;
   border-bottom-left-radius: 5px;
   border: 1px solid #0069aa;
   height: 16px;
+  float: right;
 }
-/* line 25, ../sass/apl_global_search.scss */
+/* line 27, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 input.search_button {
+  width: 70px;
   background-color: #0069aa;
   border: 1px solid transparent;
   border-top-right-radius: 5px;
   color: white;
   font-weight: bold;
-  width: 70px;
   max-height: 30px;
   height: 28px;
+  margin: 0;
+  float: right;
 }
-/* line 35, ../sass/apl_global_search.scss */
+/* line 40, ../sass/_patterns.scss */
+#header #aplCustomSearchWrapper2 input.search_button:hover {
+  background-color: #0088dd;
+  cursor: pointer;
+}
+/* line 38, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 .searchOptions {
   float: left;
   clear: both;
   margin-top: 5px;
 }
-/* line 39, ../sass/apl_global_search.scss */
+/* line 42, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 .searchOptions input {
   float: left;
 }
-/* line 42, ../sass/apl_global_search.scss */
+/* line 45, ../sass/apl_global_search.scss */
 #header #aplCustomSearchWrapper2 .searchOptions label {
   font-weight: normal;
   float: left;

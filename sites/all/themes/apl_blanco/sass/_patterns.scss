@@ -19,3 +19,26 @@
         @include rhombus;
 }
 
+@mixin textbox {
+       padding: 5px;
+       border-bottom-left-radius: 5px;
+       border: 1px solid $blue;
+       height: 16px;	
+	float: right;
+}
+
+@mixin button {
+       background-color: $blue;
+       border: 1px solid transparent;
+       border-top-right-radius: 5px;
+       color: white;
+       font-weight: bold;
+       max-height: 30px;
+       height: 28px;
+	margin: 0;
+	float: right;
+	&:hover {
+		background-color: lighten($blue, 10%);
+		cursor: pointer;
+	}
+}

@@ -187,6 +187,7 @@ div.block {
 	background-color: white;
 	//width: $page_w;
 	width: $page_w + $page_pad*2;
+	overflow: hidden;
 }
 
 #content {

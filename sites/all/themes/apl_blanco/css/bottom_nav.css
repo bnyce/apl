@@ -17,7 +17,7 @@ div#footer ul ul {
   list-style: none !important;
   list-style-type: none !important;
   list-style-image: none !important;
-  margin-top: 4px;
+  margin-top: 15px;
   margin-right: 8px;
 }
 /* line 20, ../sass/bottom_nav.scss */
@@ -39,6 +39,7 @@ div#footer ul ul li li {
 /* line 35, ../sass/bottom_nav.scss */
 div#footer li {
   float: left;
+  font-weight: bold;
   list-style: none outside none !important;
   padding-bottom: 10px;
   list-style-type: none !important;
@@ -46,14 +47,14 @@ div#footer li {
   margin-right: 5px;
   width: 129px;
 }
-/* line 44, ../sass/bottom_nav.scss */
+/* line 45, ../sass/bottom_nav.scss */
 div#footer .region-footer {
   font-size: 14px;
   padding-top: 10px;
   padding-left: -10em;
 }
 
-/* line 51, ../sass/bottom_nav.scss */
+/* line 52, ../sass/bottom_nav.scss */
 #bottom {
   background-color: #004977;
   font-size: 12px;
@@ -63,38 +64,38 @@ div#footer .region-footer {
   width: 960px;
   padding-top: 10px;
 }
-/* line 52, ../sass/bottom_nav.scss */
+/* line 53, ../sass/bottom_nav.scss */
 #bottom tbody {
   border: none;
 }
-/* line 59, ../sass/bottom_nav.scss */
+/* line 60, ../sass/bottom_nav.scss */
 #bottom a {
   color: white;
 }
-/* line 69, ../sass/bottom_nav.scss */
+/* line 70, ../sass/bottom_nav.scss */
 #bottom p {
   margin-left: 19px;
   margin-top: 10px;
 }
 
-/* line 75, ../sass/bottom_nav.scss */
+/* line 76, ../sass/bottom_nav.scss */
 #bottom_links {
   margin: 0 0 10px 10px;
   width: 940px;
   height: 40px;
   padding-left: 0;
 }
-/* line 80, ../sass/bottom_nav.scss */
+/* line 81, ../sass/bottom_nav.scss */
 #bottom_links li {
   display: block;
   float: left;
   margin-right: 10px;
 }
-/* line 91, ../sass/bottom_nav.scss */
+/* line 92, ../sass/bottom_nav.scss */
 #bottom_links li:nth-child(3), #bottom_links li:nth-child(4), #bottom_links li:nth-child(5), #bottom_links li:nth-child(6), #bottom_links li:nth-child(7), #bottom_links li:nth-child(8), #bottom_links li:nth-child(9) {
   margin-top: 6px;
 }
-/* line 94, ../sass/bottom_nav.scss */
+/* line 95, ../sass/bottom_nav.scss */
 #bottom_links li:last-child {
   float: right;
   margin-right: 0;

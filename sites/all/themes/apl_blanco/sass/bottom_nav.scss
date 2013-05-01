@@ -15,7 +15,7 @@ div#footer {
 			list-style: none !important;
 			list-style-type: none !important;
 			list-style-image: none !important;
-			margin-top: 4px;
+			margin-top: 15px;
 			margin-right: 8px;
 			li {
 				a {
@@ -34,6 +34,7 @@ div#footer {
 	}
 	li {
 		float: left;
+		font-weight: bold;
 		list-style: none outside none !important;
 		padding-bottom: 10px;
 		list-style-type: none !important;

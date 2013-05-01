@@ -14,6 +14,13 @@
 }
 
 #highlight {
+	.views-field-field-slide-image {
+		height: 110px;
+	}
+	div.panel-separator {
+		height: 0;
+		display: none;
+	}
 	position: relative;
 &:before {
 	position: absolute;
@@ -21,7 +28,7 @@
 	border-style: solid;
 	border-width: 0 22px 22px 0;
 	content: "";
-	right: -22px;
+	right: -32px;
 	bottom: 0;
 	z-index: 10;
 }
@@ -34,11 +41,16 @@
 	height: 200px;
 //	bottom: 0;
 	content: "";
-	right: -22px;
+	right: -32px;
 }
 	line-height: 16px;
 	div.menu-block-wrapper {
 		background-color: darken($ahc_olive, 25%);
+		margin-left: -10px;
+		width: 960px;
+		> ul {
+			margin-left: 5px;
+		}
 //		border-bottom-right-radius: 5px;
 	}
 	ul {

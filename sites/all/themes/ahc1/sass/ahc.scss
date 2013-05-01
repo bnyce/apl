@@ -1,9 +1,18 @@
 @import "colors";
 
 body {
-	a,
-	a:hover,
-	a:link,
+div#footer {
+	background-color: darken($ahc_olive, 25%);
+}
+#bottom {
+	background-color: darken($ahc_olive, 40%);
+}
+
+
+
+//	a,
+//	a:hover,
+//	a:link,
 	h1 {
 		color: darken($ahc_olive, 25%);
 	}

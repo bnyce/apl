@@ -35,6 +35,7 @@ body {
 		}
 	}
 	background-color: $background_color;
+//	background-color: mix(white, $blue, 90%);
 
 	> div {
 		background-color: transparent;
@@ -386,7 +387,11 @@ div#footer,
 }
 
 div#footer {
-	background: $gray-medium;
+//	background: $gray-medium;
+	background-color: $blue;
+	a {
+		color: white;
+	}
 }
 
 #announcements {

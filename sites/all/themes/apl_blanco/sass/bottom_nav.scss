@@ -1,3 +1,4 @@
+@import "colors";
 @import "dimensions";
 
 div#footer {
@@ -48,9 +49,16 @@ div#footer {
 }
 
 #bottom {
+	tbody {
+		border: none;
+	}
 //	border-bottom-left-radius: 10px;
 //	border-bottom-right-radius: 10px;
-	background: #CCCCCC;
+//	background: #CCCCCC;
+	background-color: darken($blue, 10%);
+	a {
+		color: white;
+	}
 	font-size:12px;
 	color: #333;
 	float: none;
@@ -65,14 +73,27 @@ div#footer {
 }
 
 #bottom_links {
-	//margin: 5px auto;
 	margin: 0 0 10px 10px;
 	width: 940px;
-	td {
-	//	padding: 5px;
-		vertical-align: middle;
-		text-align: left;
-		a:hover {
-		}
+	height: 40px;
+	padding-left: 0;
+	li {
+		display: block;
+		float: left;
+		margin-right: 10px;
+	&:nth-child(3),
+	&:nth-child(4),
+	&:nth-child(5),
+	&:nth-child(6),
+	&:nth-child(7),
+	&:nth-child(8),
+	&:nth-child(9)
+ 	{
+		margin-top: 6px;
+	}
+	&:last-child {
+		float: right;
+		margin-right: 0;
+	}
 	}
 }

@@ -12,14 +12,14 @@
   border-color: transparent #004977;
   border-image: none;
   border-style: solid;
-  border-width: 26px 0 0 26px;
+  border-width: 24px 0 0 22px;
   content: "";
   display: block;
   float: right;
   height: 0;
   margin-top: 0;
   position: absolute;
-  right: -26px;
+  right: -22px;
   top: 0;
   width: 0;
 }
@@ -28,7 +28,7 @@
   border-color: #004977 #004977 transparent;
   border-image: none;
   border-style: solid;
-  border-width: 13px;
+  border-width: 11px;
   border-radius: 0 0 4px 4px;
   content: "";
   display: block;
@@ -36,8 +36,8 @@
   height: 250px;
   margin-top: 0;
   position: absolute;
-  right: -26px;
-  top: 26px;
+  right: -22px;
+  top: 24px;
   width: 0;
 }
 /* line 40, ../sass/nice-menus.scss */
@@ -92,7 +92,7 @@
 }
 /* line 86, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu a {
-  padding: 5px;
+  padding: 4px 5px;
 }
 /* line 89, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul.nice-menu-down {
@@ -101,7 +101,7 @@
   margin-left: 4px;
 }
 /* line 96, ../sass/nice-menus.scss */
-#block-nice-menus-1 ul.nice-menu-down > li.menuparent {
+#block-nice-menus-1 ul.nice-menu-down > li {
   padding-right: 10px;
 }
 /* line 100, ../sass/nice-menus.scss */
@@ -114,7 +114,7 @@
 }
 /* line 103, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent a {
-  padding: 5px;
+  padding: 4px 5px;
 }
 /* line 108, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a {

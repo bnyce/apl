@@ -1,7 +1,11 @@
 @import "colors";
 
+div.region-top-navigation {
+	margin-bottom: 10px;
+}
+
 #block-panels-mini-clone-of-messages {
-	margin: 10px 0 !important;
+	margin: 0 !important;
 	#mini-panel-clone_of_messages {
 		margin-bottom: 0;
 	}

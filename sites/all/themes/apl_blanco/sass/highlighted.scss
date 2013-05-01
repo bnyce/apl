@@ -4,8 +4,14 @@ div.pane-content div.view div.view-content div.skin-default div#views_slideshow_
 	max-width: 580px;
 	height: auto;
 }
-div.pane-highlighted-images-panel-pane-8 div.view-content {
-	position: relative;
+.view-clone-of-news.view-display-id-panel_pane_9.messages {
+	margin-bottom: 10px;
+}
+div.pane-highlighted-images-panel-pane-8 {
+	margin-top: 0px;
+	div.view-content {
+		position: relative;
+	}
 }
 .views-slideshow-controls-bottom {
 	z-index: 13;

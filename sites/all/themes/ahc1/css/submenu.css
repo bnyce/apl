@@ -1,40 +1,66 @@
-/* line 4, ../sass/submenu.scss */
+/* line 5, ../sass/submenu.scss */
+#block-nice-menus-1:after, #block-nice-menus-1:before {
+  display: none;
+}
+
+/* line 11, ../sass/submenu.scss */
 #highlight ul,
 #highlight ul ul {
   z-index: 5;
   position: relative;
 }
 
-/* line 9, ../sass/submenu.scss */
+/* line 16, ../sass/submenu.scss */
 #highlight {
+  position: relative;
   line-height: 16px;
 }
-/* line 11, ../sass/submenu.scss */
+/* line 18, ../sass/submenu.scss */
+#highlight:before {
+  position: absolute;
+  border-color: transparent transparent #383a23;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  content: "";
+  right: -22px;
+  bottom: 0;
+  z-index: 10;
+}
+/* line 28, ../sass/submenu.scss */
+#highlight:after {
+  position: absolute;
+  border-color: #383a23 #383a23 transparent;
+  border-style: solid;
+  border-width: 11px;
+  height: 200px;
+  content: "";
+  right: -22px;
+}
+/* line 40, ../sass/submenu.scss */
 #highlight div.menu-block-wrapper {
   background-color: #666a40;
-  border-bottom-right-radius: 5px;
 }
-/* line 15, ../sass/submenu.scss */
+/* line 44, ../sass/submenu.scss */
 #highlight ul {
   padding-left: 0;
 }
-/* line 17, ../sass/submenu.scss */
+/* line 46, ../sass/submenu.scss */
 #highlight ul li.active,
 #highlight ul a.active {
-  background-color: #aaaf7a;
   font-weight: bold;
+  color: #fdb813;
 }
-/* line 21, ../sass/submenu.scss */
+/* line 50, ../sass/submenu.scss */
 #highlight ul li.active:hover,
 #highlight ul a.active:hover {
-  background-color: #bec29a !important;
+  color: black;
 }
-/* line 24, ../sass/submenu.scss */
+/* line 54, ../sass/submenu.scss */
 #highlight ul li.active li a,
 #highlight ul a.active li a {
   font-weight: normal;
 }
-/* line 34, ../sass/submenu.scss */
+/* line 64, ../sass/submenu.scss */
 #highlight ul li ul,
 #highlight ul li a:hover ul,
 #highlight ul li li a:hover ul,
@@ -42,7 +68,7 @@
 #highlight ul li li li li a:hover ul {
   visibility: visible;
 }
-/* line 36, ../sass/submenu.scss */
+/* line 66, ../sass/submenu.scss */
 #highlight ul li ul li,
 #highlight ul li a:hover ul li,
 #highlight ul li li a:hover ul li,
@@ -51,7 +77,7 @@
   width: 200px;
   background-color: silver;
 }
-/* line 48, ../sass/submenu.scss */
+/* line 78, ../sass/submenu.scss */
 #highlight ul li ul ul,
 #highlight ul li a:hover ul ul,
 #highlight ul li a:hover ul ul ul,
@@ -61,7 +87,7 @@
 #highlight ul li a:hover li:hover li:hover ul ul ul {
   visibility: hidden;
 }
-/* line 52, ../sass/submenu.scss */
+/* line 82, ../sass/submenu.scss */
 #highlight ul:after {
   content: ".";
   display: block;
@@ -69,67 +95,67 @@
   clear: both;
   visibility: hidden;
 }
-/* line 59, ../sass/submenu.scss */
+/* line 89, ../sass/submenu.scss */
 #highlight ul ul {
   position: absolute;
   visibility: hidden;
 }
-/* line 63, ../sass/submenu.scss */
+/* line 93, ../sass/submenu.scss */
 #highlight ul li {
   display: block;
   float: left;
-  border-right: 1px solid white;
+  padding-right: 10px;
   position: relative;
 }
-/* line 64, ../sass/submenu.scss */
+/* line 94, ../sass/submenu.scss */
 #highlight ul li ul {
   border-left: 10px solid #aaaf7a;
   border-top-right-radius: 10px;
   border-top: 1px solid #e7e8da;
 }
-/* line 68, ../sass/submenu.scss */
+/* line 98, ../sass/submenu.scss */
 #highlight ul li ul li {
   margin-left: 0;
 }
-/* line 69, ../sass/submenu.scss */
+/* line 99, ../sass/submenu.scss */
 #highlight ul li ul li.first {
   border-top-right-radius: 10px;
 }
-/* line 72, ../sass/submenu.scss */
+/* line 102, ../sass/submenu.scss */
 #highlight ul li ul li.first a,
 #highlight ul li ul li.first a:hover {
   border-top-right-radius: 10px;
 }
-/* line 75, ../sass/submenu.scss */
+/* line 105, ../sass/submenu.scss */
 #highlight ul li ul li.first li a {
   border-top-right-radius: 0;
 }
-/* line 79, ../sass/submenu.scss */
+/* line 109, ../sass/submenu.scss */
 #highlight ul li ul li.first li.first,
 #highlight ul li ul li.first li.first a {
   border-top-right-radius: 10px;
 }
-/* line 84, ../sass/submenu.scss */
+/* line 114, ../sass/submenu.scss */
 #highlight ul li ul li ul {
   margin-left: 200px;
 }
-/* line 92, ../sass/submenu.scss */
+/* line 123, ../sass/submenu.scss */
 #highlight ul li ul {
   border-right: none;
 }
-/* line 95, ../sass/submenu.scss */
+/* line 126, ../sass/submenu.scss */
 #highlight ul li.over ul {
   visibility: visible;
 }
-/* line 99, ../sass/submenu.scss */
+/* line 130, ../sass/submenu.scss */
 #highlight ul li a {
   display: block;
   color: white;
   background-color: #666a40;
-  padding: 5px;
+  padding: 3px 5px;
   text-decoration: none;
 }
-/* line 106, ../sass/submenu.scss */
+/* line 137, ../sass/submenu.scss */
 #highlight ul li a:hover {
   background-color: #aaaf7a !important;
 }

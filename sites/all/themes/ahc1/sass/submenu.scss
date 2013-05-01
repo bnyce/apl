@@ -1,5 +1,12 @@
 @import "colors";
 
+#block-nice-menus-1 {
+&:after,
+&:before {
+	display: none;
+}
+}
+
 #highlight ul,
 #highlight ul ul {
   z-index: 5;
@@ -7,19 +14,42 @@
 }
 
 #highlight {
+	position: relative;
+&:before {
+	position: absolute;
+	border-color: transparent transparent darken($ahc_olive, 40%);
+	border-style: solid;
+	border-width: 0 22px 22px 0;
+	content: "";
+	right: -22px;
+	bottom: 0;
+	z-index: 10;
+}
+&:after {
+	position: absolute;
+	border-color: darken($ahc_olive, 40%) darken($ahc_olive, 40%) transparent;
+//	border: 11px solid red;
+	border-style: solid;
+	border-width: 11px;
+	height: 200px;
+//	bottom: 0;
+	content: "";
+	right: -22px;
+}
 	line-height: 16px;
 	div.menu-block-wrapper {
 		background-color: darken($ahc_olive, 25%);
-		border-bottom-right-radius: 5px;
+//		border-bottom-right-radius: 5px;
 	}
 	ul {
 	li.active,
 	a.active {
-		background-color: $ahc_olive;
+//		background-color: $ahc_olive;
 		font-weight: bold;
-//		color: $yellow;
+		color: $yellow;
 	&:hover {
-		background-color: lighten($ahc_olive, 10%) !important;
+//		background-color: lighten($ahc_olive, 10%) !important;
+		color: black;
 	}
 		li a {
 			font-weight: normal;
@@ -88,7 +118,8 @@
 		}
 		display: block;
 		float: left;
-		border-right: 1px solid white;
+		padding-right: 10px;
+		//border-right: 1px solid white;
 			ul {
 				border-right: none;
 			}
@@ -101,7 +132,7 @@
 
 			color: white;
 			background-color: darken($ahc_olive, 25%);
-			padding: 5px;
+			padding: 3px 5px;
 			text-decoration: none;
 		&:hover {
 			background-color: $ahc_olive !important;

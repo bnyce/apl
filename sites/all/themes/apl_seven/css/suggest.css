@@ -1,43 +1,49 @@
 /* line 2, ../sass/suggest.scss */
 body.page-node-edit #node_suggest_a_title_form_group_suggestion {
+  border: 0;
+}
+/* line 6, ../sass/suggest.scss */
+body.page-node-edit #node_suggest_a_title_form_group_suggestion .field-type-text-with-summary.field-name-body.field-widget-text-textarea-with-summary.form-wrapper,
+body.page-node-edit #node_suggest_a_title_form_group_suggestion .form-type-textfield.form-item-title,
+body.page-node-edit #node_suggest_a_title_form_group_suggestion legend {
   visibility: hidden;
   max-height: 0;
 }
-/* line 6, ../sass/suggest.scss */
+/* line 11, ../sass/suggest.scss */
 body #edit-uid-wrapper {
   width: 160px;
 }
-/* line 9, ../sass/suggest.scss */
+/* line 14, ../sass/suggest.scss */
 body #edit-uid {
   width: 154px;
 }
-/* line 13, ../sass/suggest.scss */
+/* line 18, ../sass/suggest.scss */
 body.logged-in.node-type-suggest-a-title div#suggest-thanks {
   display: none;
 }
-/* line 16, ../sass/suggest.scss */
+/* line 21, ../sass/suggest.scss */
 body.logged-in.node-type-suggest-a-title #edit-field-selector-s-comment {
   width: 550px;
   float: left;
   margin-right: 20px;
 }
-/* line 22, ../sass/suggest.scss */
+/* line 27, ../sass/suggest.scss */
 body.logged-in.node-type-suggest-a-title div.tabs,
 body.logged-in.node-type-suggest-a-title div.vertical-tabs {
   visibility: hidden;
   height: 0;
 }
-/* line 26, ../sass/suggest.scss */
+/* line 31, ../sass/suggest.scss */
 body.logged-in.node-type-suggest-a-title #field-austin-public-library-card-add-more-wrapper {
   clear: left;
 }
-/* line 29, ../sass/suggest.scss */
+/* line 34, ../sass/suggest.scss */
 body.logged-in.node-type-suggest-a-title #edit-actions {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 33, ../sass/suggest.scss */
+/* line 38, ../sass/suggest.scss */
 body.logged-in.node-type-suggest-a-title #edit-actions #edit-delete {
   margin-right: 0;
 }

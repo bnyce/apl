@@ -1,7 +1,12 @@
 body {
 	&.page-node-edit #node_suggest_a_title_form_group_suggestion {
-		visibility: hidden;
-		max-height: 0;
+			border: 0;
+			.field-type-text-with-summary.field-name-body.field-widget-text-textarea-with-summary.form-wrapper, 
+			.form-type-textfield.form-item-title, 
+			legend {
+				visibility: hidden;
+				max-height: 0;
+			}
 	}
 	#edit-uid-wrapper {
 		width: 160px;

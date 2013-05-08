@@ -12,7 +12,6 @@
 
 body {
        #content-area {
-//       #footer,
 //       #bottom {
                position: relative;
                z-index: -6;
@@ -163,7 +162,7 @@ div.block {
 	#content-bottom {
 		margin: 0 3px 3px;
 	}
-	div#footer {
+	div#apl_footer {
 		margin-top: 3px;
 		padding: 2px;
 		border: 1px solid #cccccc;
@@ -301,7 +300,7 @@ h2.pane-title {
 }
 
 #header, 
-div#footer, 
+div#apl_footer, 
 .mission, 
 .breadcrumb, 
 .node {
@@ -386,7 +385,7 @@ div#footer,
 	color: #777777;
 }
 
-div#footer {
+div#apl_footer {
 //	background: $gray-medium;
 	background-color: $blue;
 	a {

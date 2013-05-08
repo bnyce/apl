@@ -1,6 +1,11 @@
 @import "colors";
 @import "dimensions";
 
+#search_top, 
+#maincontent + #footer {
+    margin: 10px;
+}
+
 div#apl_footer {
 	margin: 0;
 	padding: 0 10px;

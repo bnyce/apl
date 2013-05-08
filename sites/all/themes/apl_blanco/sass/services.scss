@@ -21,31 +21,12 @@ div.pane-library-service-views-panel-pane-3 {
 	padding: $pad*2 $pad*2 $pad*3 $pad*2;
 	@include rhombus;
 }
-body.page-resources-for-you {
-	div.view-grouping {
-		div.view-grouping-header {
-			font-size: large;
-			padding: $pad $pad*2;
-		}
-		@include section-border;
-		margin-bottom: $pad*5;
-		div.view-grouping {
-			@include status;
-		}
-		img {
-			max-width: $img_w - $pad*9;
-			width: $img_w - $pad*4; 
-			@include rhombus;
-			margin-bottom: $pad*4;
-			height: auto !important;
-		}
-	}
-}
-
 body.section-library-service-category,
+body.section-resources-for-you,
 body.section-library-service-audience,
 body.section-services {
-	div.panel-col {
+	#content-area div.panel-col,
+	.panels-flexible-region-inside {
 		div.pane-custom.pane-1 {
 			background-color: #e8e8e8;
 			border-top-right-radius: 10px;		
@@ -101,6 +82,8 @@ body.section-services {
 				height: auto !important;
 			}
 			@include status;
+			position: absolute;
+			margin-left: 230px;
 
 			div {
 				margin: 0;
@@ -114,16 +97,22 @@ body.page-libraryservices {
 	h1.title {
 		margin-bottom: 1em;
 	}
-	div.view-grouping-content {
+	div.view-grouping-content,
+	.pane-library-service-feature-taxonomy-view-panel-pane-6.view-grouping div.view-content {
 		margin: 0 $pad*2 $pad*4;
 	}
-	div.services-grouping {
+	div.services-grouping,
+	.pane-library-service-feature-taxonomy-view-panel-pane-6.view-grouping div.views-row {
 		padding: $pad;
 	}
 	div.view-grouping {
-		div.view-grouping-header {
+		div.view-grouping-header,
+		h2 {
 			font-size: 1.5em;
-			margin: $pad*2 $pad*2 0;
+			margin: $pad*2 $pad*2 0 !important;
+			font-weight: normal;
+			border-bottom: none;
+			padding: 0;
 		}
 		width: $span_w - $border*2;
 		margin-bottom: $pad*5;

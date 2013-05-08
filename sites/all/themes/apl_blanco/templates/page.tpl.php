@@ -110,7 +110,7 @@
   <!-- ______________________ FOOTER _______________________ -->
 
   <?php if ($page['footer']): ?>
-    <div id="footer">
+    <div id="apl_footer">
       <?php print render($page['footer']); ?>
     </div> <!-- /footer -->
   <?php endif; ?>

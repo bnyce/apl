@@ -1,17 +1,1 @@
-/* line 3, ../sass/apl_blanco.scss */
-div.overlogodiv {
-  background: url("../images/apl_logo.png") no-repeat scroll 10px center transparent;
-}
-
-/* line 7, ../sass/apl_blanco.scss */
-#header-region {
-  background-color: #aaaf7a;
-  background-image: none;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-/* line 13, ../sass/apl_blanco.scss */
-li.apl-mnav-link.ahc > a {
-  font-weight: 800;
-}
+div.overlogodiv{background:url("../images/apl_logo.png") no-repeat scroll 10px center transparent}#header-region{background-color:#aaaf7a;background-image:none;border-top-left-radius:10px;border-top-right-radius:10px}li.apl-mnav-link.ahc>a{font-weight:800}

@@ -66,6 +66,13 @@ function library_services_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3><img width="199" height="199" src="http://library.austintexas.gov/sites/default/files/resources-for-you.png" typeof="foaf:Image"></h3>';
+  $handler->display->display_options['header']['area']['format'] = 'truly_unfiltered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -100,7 +107,7 @@ function library_services_views_default_views() {
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
   $handler->display->display_options['filters']['vid']['value'] = array(
-    17 => '17',
+    18 => '18',
   );
   $handler->display->display_options['filters']['vid']['group'] = 1;
 
@@ -209,7 +216,7 @@ function library_services_views_default_views() {
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
   $handler->display->display_options['filters']['vid']['value'] = array(
-    17 => '17',
+    18 => '18',
   );
   $handler->display->display_options['filters']['vid']['group'] = 1;
   $export['library_service_feature_taxonomy_view'] = $view;
@@ -366,6 +373,9 @@ function library_services_views_default_views() {
   /* Display: Library Services Grouped under Audience */
   $handler = $view->new_display('panel_pane', 'Library Services Grouped under Audience', 'panel_pane_3');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
@@ -389,6 +399,13 @@ function library_services_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3><img width="199" height="199" src="http://library.austintexas.gov/sites/default/files/resources-for-you.png" typeof="foaf:Image"></h3>';
+  $handler->display->display_options['header']['area']['format'] = 'truly_unfiltered_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Library Service Audience (field_library_service_audience) */
   $handler->display->display_options['relationships']['field_library_service_audience_tid']['id'] = 'field_library_service_audience_tid';

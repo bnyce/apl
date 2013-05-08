@@ -1,50 +1,32 @@
 @import "colors";
 @import "patterns";
-@import "dimensions";
 
+// dimensions
+
+$img_w: 220px;
+$border: 1px;
+$span_w: $img_w;
+$img_h: 175px;
+$pad: 5px;
 
 div.pane-library-service-views-panel-pane-3 {
 	width: $img_w;
 }
 
-body.page-resources-for-you {
-	div.view-grouping {
-		div.view-grouping-header {
-			font-size: large;
-			padding: $pad $pad*2;
-		}
-		@include section-border;
-		margin-bottom: $pad*5;
-		div.view-grouping {
-			@include status;
-		}
-		img {
-			max-width: $img_w - $pad*9;
-			width: $img_w - $pad*4; 
-			@include rhombus;
-			margin-bottom: $pad*4;
-			height: auto !important;
-		}
-	}
-}
-body.section-services {
-	div.panel-col {
-		width: 220px;
-		div.field-name-body {
-			position: absolute;
-			margin-left: 240px !important;
-			margin-top: 10px !important;
-			width: 678px;
-			float: left;	
-		}
-	}
-}
 
+@mixin status {
+	margin: 0 $pad*2 $pad*4;
+	background-color: $status_background;
+	border: 1px solid $status_border;
+	padding: $pad*2 $pad*2 $pad*3 $pad*2;
+	@include rhombus;
+}
 body.section-library-service-category,
+body.section-resources-for-you,
 body.section-library-service-audience,
-body.section-services,
-body.section-libraryservices {
-	div.panel-col {
+body.section-services {
+	#content-area div.panel-col,
+	.panels-flexible-region-inside {
 		div.pane-custom.pane-1 {
 			background-color: #e8e8e8;
 			border-top-right-radius: 10px;		
@@ -57,7 +39,10 @@ body.section-libraryservices {
 		div.content div.field {
 			margin-bottom: 0;
 		}
-		margin-left: 0;
+		width: $img_w;
+		margin-top: $pad*4;
+		margin-bottom: $pad*6;
+		padding-bottom: $pad*2;
 		div.field-item {
 			img {
 				max-width: 100%;
@@ -74,11 +59,16 @@ body.section-libraryservices {
 			}
 		}
 		div.view-content,
+		div.field-items
+		 {
+			padding: 0 $pad*2 0;
+		}
 		div.field-label {
-//			margin-left: $pad*2;
+			margin-left: $pad*2;
 		}
 		div.field-items {
 		}
+		@include section-border;
 		div.views-field-title {
 			padding: $pad;
 		}
@@ -92,6 +82,8 @@ body.section-libraryservices {
 				height: auto !important;
 			}
 			@include status;
+			position: absolute;
+			margin-left: 230px;
 
 			div {
 				margin: 0;
@@ -102,34 +94,25 @@ body.section-libraryservices {
 }
 
 body.page-libraryservices {
-	.pane-library-service-feature-taxonomy-view-panel-pane-6 {
-		div.views-field {
-			margin: $pad*3;
-			span.field-content {
-				padding: $pad;
-			}
-//			margin: 0 $pad*2;
-		}
-	}
 	h1.title {
 		margin-bottom: 1em;
 	}
-	div.view-grouping-content {
+	div.view-grouping-content,
+	.pane-library-service-feature-taxonomy-view-panel-pane-6.view-grouping div.view-content {
 		margin: 0 $pad*2 $pad*4;
 	}
-	div.services-grouping {
+	div.services-grouping,
+	.pane-library-service-feature-taxonomy-view-panel-pane-6.view-grouping div.views-row {
 		padding: $pad;
 	}
 	div.view-grouping {
 		div.view-grouping-header,
 		h2 {
 			font-size: 1.5em;
-			margin: $pad*2 $pad*2 0;
-		}
-		h2 {
-			border: none;
+			margin: $pad*2 $pad*2 0 !important;
 			font-weight: normal;
-			line-height: 1em;
+			border-bottom: none;
+			padding: 0;
 		}
 		width: $span_w - $border*2;
 		margin-bottom: $pad*5;

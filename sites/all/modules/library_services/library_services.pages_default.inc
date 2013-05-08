@@ -119,7 +119,7 @@ function library_services_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 7;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Library Service Category Panel',
     'no_blocks' => 0,
@@ -230,7 +230,7 @@ function library_services_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 8;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => 'Library Service Audience Category',
     'no_blocks' => 0,
@@ -435,7 +435,10 @@ function library_services_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'view-grouping',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();

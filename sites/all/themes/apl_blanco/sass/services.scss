@@ -94,6 +94,29 @@ body.section-services {
 }
 
 body.page-libraryservices {
+	div.view-grouping {
+	
+//		border: 1px dotted yellow !important;
+		height: 100%;
+	}
+	div.view-content > div.view-grouping + div.view-grouping + div.view-grouping + div.view-grouping {
+//		border: 1px dashed green !important;
+		margin-right: 0 !important;
+		+ div.view-grouping.research {
+//			border: 1px dotted purple !important;
+			margin-right: 20px !important;
+			clear: left;
+			+ div.view-grouping.community {
+//				border: 1px dashed green !important;
+				clear: none;
+				float: right;
+				margin-right: 240px !important;		
+			}
+			div.view-grouping.resources {
+//				border: 1px dotted green;
+			}
+		}
+	}
 	h1.title {
 		margin-bottom: 1em;
 	}
@@ -121,6 +144,7 @@ body.page-libraryservices {
 		float: left;
 		margin-right: 20px;
 		&:nth-child(4n) {
+//			border: 1px dotted red !important;
 			float: right;
 			margin-right: 0;
 		}

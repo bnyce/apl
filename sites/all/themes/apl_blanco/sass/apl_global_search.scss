@@ -36,6 +36,9 @@
 //		height: 28px;
 	}
 	.searchOptions {
+		width: 300px;
+		position: absolute;
+		top: 35px;
 		float: left;
 		clear: both;
 		margin-top: 5px;
@@ -46,6 +49,7 @@
 			font-weight: normal;
 			float: left;
 			margin: -2px 15px 0 2px;
+			*margin: 1px 15px 0 0;
 		}
 	}
 }

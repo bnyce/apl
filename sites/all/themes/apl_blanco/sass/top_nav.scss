@@ -7,6 +7,13 @@
 	padding: 1px 0 0;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	ul.menu {
+		background-color: gray;
+		list-style-type: none;
+		li {
+			display: inline;
+		}
+	}
 }
 div#header div.panel-col-bottom {
     clear: none;

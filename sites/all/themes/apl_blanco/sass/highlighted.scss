@@ -1,8 +1,8 @@
 @import "colors";
 
 div.pane-content div.view div.view-content div.skin-default div#views_slideshow_cycle_main_highlighted_images-panel_pane_8 div.views-slideshow-cycle-main-frame-row-item div.views-field div.field-content img {
-	max-width: 580px;
-	height: auto;
+	width: 580px;
+	height: 272px;
 }
 .view-clone-of-news.view-display-id-panel_pane_9.messages {
 	margin-bottom: 10px;
@@ -31,11 +31,13 @@ div.pane-highlighted-images-panel-pane-8 {
 	    width: 0px;
 		z-index: 12;
 		float: left;
-		margin-left: 10px;
+		//margin-left: 10px;
+		margin-left: 5px;
 		overflow: hidden;
 		border-color: transparent $blue;
 		border-style: solid;
-		border-width: 16px 16px 16px 0;
+		//border-width: 16px 16px 16px 0;
+		border-width: 12px 12px 12px 0;
 		display: block;
 		border-radius: 4px;
 	&:hover {
@@ -43,26 +45,30 @@ div.pane-highlighted-images-panel-pane-8 {
 	}
 	}	
 	.views-slideshow-controls-text-next {
-		border-width: 16px 0 16px 16px;
+		//border-width: 16px 0 16px 16px;
+		border-width: 12px 0 12px 12px;
 	}
 	.views-slideshow-pager-fields {
 	//	float: left;
 		position: absolute;
 		bottom: 9px;
-		right: -2px;
+		right: 4px;
 	}
 	.views-slideshow-controls-text {
 		position: absolute;
 		bottom: 32px;
 //		right: 0;
-		left: 528px;
+		//left: 528px;
+//		left: 541px;
+		right: 4px;
 	}
 }
 
 .views_slideshow_pager_field_item {
 	float: left;
-	margin-right: 5px;
-	background-color: $blue;
+	//margin-right: 5px;
+	margin-right: 2px;
+	background-color: white;
 /*
 	min-width: 16px;
 	max-width: 16px;
@@ -131,7 +137,7 @@ div.pane-highlighted-images-panel-pane-8 {
 			bottom: 5px;
 			content: "";
 			height: 64px;
-			opacity: 0.5;
+			opacity: 0.4;
 			width: 100%;
 			z-index: 6;
 		}
@@ -156,10 +162,11 @@ ul.bookSlide {
 		a.jcarousel-next-horizontal {
 			background: none;
 			position: absolute;
-			right: 0;
+			right: 4px;
 			top: 50px;
 			border-style: solid;
-                	border-width: 16px 0 16px 16px;
+                	//border-width: 16px 0 16px 16px;
+                	border-width: 12px 0 12px 12px;
 			border-color: transparent green transparent $blue;
 			border-radius: 4px;
 			width: 0;
@@ -171,7 +178,7 @@ ul.bookSlide {
 		}
 		a.jcarousel-prev-horizontal {
 			background-position: 0 0;
-			left: 0;
+			left: 4px;
 			position: absolute;
 			top: 50px;
 			border:20px solid green;
@@ -180,7 +187,8 @@ ul.bookSlide {
 			//right: 0;
 			top: 50px;
 			border-style: solid;
-                	border-width: 16px 16px 16px 0;
+                	//border-width: 16px 16px 16px 0;
+                	border-width: 12px 12px 12px 0;
 			border-color: transparent $blue transparent $blue;
 			border-radius: 4px;
 			width: 0;

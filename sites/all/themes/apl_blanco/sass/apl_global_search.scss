@@ -42,6 +42,8 @@
 		float: left;
 		clear: both;
 		margin-top: 5px;
+		width: 300px;
+		*margin-top: 27px;
 		input {
 			float: left;
 		}
@@ -49,7 +51,11 @@
 			font-weight: normal;
 			float: left;
 			margin: -2px 15px 0 2px;
+<<<<<<< HEAD
 			*margin: 1px 15px 0 0;
+=======
+			*margin-top: 0;
+>>>>>>> rr9
 		}
 	}
 }

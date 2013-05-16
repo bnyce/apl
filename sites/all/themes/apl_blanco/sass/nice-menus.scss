@@ -2,8 +2,9 @@
 
 #block-nice-menus-1 {
 	ul li a.active {
-		color: $yellow;
+		//color: $yellow;
 		font-weight: bold;
+		background-color: lighten($blue, 10%);
 	}
 	background-color: $blue;
 	clear: both;
@@ -65,13 +66,15 @@ ul {
 	&.active-trail {
                 > a,
 		a.active {
-                        color: $yellow;
+                       // color: $yellow;
+			background-color: lighten($blue, 10%);
+                	font-weight: bold;
                 }
 		ul li a:hover {
 			color: white;
 		}
 		ul li:active-trail a {
-			color: $yellow;
+			//color: $yellow;
 		}
                 font-weight: bold;
                 li a {

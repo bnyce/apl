@@ -212,11 +212,23 @@ fieldset.suggest.collapsed {
 
 
 body.page-node-2687 {
+	div.webform-component-checkboxes {
+		margin: 0 0 20px;
+	}
+	#webform-component-digital-signature {
+		div.description {
+			margin-top: 0;
+			clear: left;
+		}
+		input#edit-submitted-digital-signature {
+			margin-bottom: 0;
+		}
+	}
 	fieldset{
 		border: 1px solid #ccc;
 	//	padding: 2.5em 0 1.5em 0; /* LTR */
 		position: relative;
-		margin: 1em 0 2em;
+		margin: 1em 0 0;
 		clear: left;
 	//	border-radius: 10px;
 		legend {	
@@ -224,8 +236,13 @@ body.page-node-2687 {
 			border: 1px dashed #e8e8e8;
 			width: 240px;
 			display: block;
-			span {
-			//	display: block;
+			margin-bottom: 5px;
+			*min-height: 2em;
+			*position: relative;
+			
+			span a {
+				*position: absolute;
+				*bottom: 3px;
 			}
 		}
 	}

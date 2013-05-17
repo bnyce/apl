@@ -83,6 +83,7 @@ stylesheets[print][] = css/print-reset.css
 stylesheets[all][] = css/image_rotator.css
 stylesheets[all][] = css/messages2.css
 stylesheets[all][] = css/webform.css
+stylesheets[all][] = css/meeting-rooms.css
 ;stylesheets[all][] = css/coa-header.css
 ;stylesheets[all][] = css/top.css
 stylesheets[all][] = css/austin_city_header.css

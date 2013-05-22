@@ -1,13 +1,14 @@
-screenshot  = ahc1.png
-name        = ahc1
-description = Austin History Center subtheme of APL Blanco.
+screenshot  = screenshot.png
+name        = APL Spanish
+description = Child theme of APL Blanco, with Spanish modifications
+
 core        = 7.x
 base theme  = apl_blanco
 
-stylesheets[all][] = css/ahc.css
-stylesheets[all][] = css/submenu.css
-stylesheets[all][] = css/highlighted.css
-scripts[] = js/ahc_submenu.js
+stylesheets[all][] = css/ace.css
+stylesheets[all][] = css/apl_spanish.css
+
+scripts[] = js/aplcustom.js
 
 regions[top] = Top
 regions[top_navigation] = Top Navigation
@@ -33,6 +34,7 @@ features[] = favicon
 features[] = main_menu
 features[] = secondary_menu
 
+
 settings[zen_breadcrumb]           = yes
 settings[zen_breadcrumb_separator] = ' › '
 settings[zen_breadcrumb_home]      = 1
@@ -43,6 +45,6 @@ settings[zen_skip_link_text]       = Jump to navigation
 settings[zen_html5_respond_meta][] = respond
 settings[zen_html5_respond_meta][] = html5
 settings[zen_html5_respond_meta][] = meta
-settings[zen_rebuild_registry]     = 0
+settings[zen_rebuild_registry]     = 0 
 settings[zen_wireframes]           = 0
 

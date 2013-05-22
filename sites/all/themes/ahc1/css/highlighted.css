@@ -1,0 +1,130 @@
+/* line 4, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-bottom {
+  position: absolute;
+  right: 180px;
+  bottom: 80px;
+}
+/* line 10, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-pager-fields div.views-slideshow-pager-field-item {
+  float: right \9;
+  *float: left;
+}
+/* line 19, ../sass/highlighted.scss */
+body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-title .field-content,
+body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-body .field-content {
+  margin-left: 180px;
+  width: 540px;
+  max-width: 540px;
+  display: block;
+}
+/* line 28, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text {
+  position: absolute;
+  top: 13px;
+  right: 0px;
+  z-index: 13;
+}
+/* line 35, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text-previous,
+body.page-ahc-front .views-slideshow-controls-text-next {
+  display: block;
+  height: 0px;
+  width: 0px;
+  z-index: 12;
+  float: left;
+  margin-left: 5px;
+  overflow: hidden;
+  border-color: transparent #0069aa;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  display: block;
+  border-radius: 4px;
+}
+/* line 48, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text-previous:hover,
+body.page-ahc-front .views-slideshow-controls-text-next:hover {
+  border-color: transparent #0088dd;
+}
+/* line 52, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text-next {
+  border-width: 12px 0 12px 12px;
+}
+/* line 56, ../sass/highlighted.scss */
+body.page-ahc-front .views_slideshow_pager_field_item {
+  float: left;
+  margin-right: 2px;
+  background-color: #aaaf7a;
+  min-width: 8px;
+  max-width: 8px;
+  min-height: 8px;
+  max-height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: .85;
+}
+/* line 67, ../sass/highlighted.scss */
+body.page-ahc-front .views_slideshow_pager_field_item a {
+  font-size: 0;
+}
+/* line 71, ../sass/highlighted.scss */
+body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-front .views_slideshow_pager_field_item:hover {
+  background-color: #383a23;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* line 80, ../sass/highlighted.scss */
+.views-field-field-ahc-ad-image {
+  margin-left: 180px;
+}
+/* line 82, ../sass/highlighted.scss */
+.views-field-field-ahc-ad-image img {
+  width: 580px;
+  height: auto;
+}
+
+/* line 87, ../sass/highlighted.scss */
+.views-slideshow-controls-text-pause.views_slideshow_controls_text_pause.views-slideshow-controls-text-pause-processed {
+  display: none;
+}
+
+/* line 91, ../sass/highlighted.scss */
+.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a,
+.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
+  height: 32px;
+  width: 32px;
+  display: block;
+  overflow: hidden;
+  text-indent: -100px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+/* line 102, ../sass/highlighted.scss */
+#views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content {
+  margin: 0;
+}
+/* line 104, ../sass/highlighted.scss */
+#views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content p {
+  margin: 0;
+}
+
+/* line 110, ../sass/highlighted.scss */
+.view-slideshow-test .view-content {
+  position: relative;
+  height: 175px;
+}
+/* line 114, ../sass/highlighted.scss */
+.view-slideshow-test .view-content .views-field.views-field-body {
+  background-color: white;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+  height: 50px;
+  max-height: 50px;
+}
+/* line 122, ../sass/highlighted.scss */
+.view-slideshow-test .view-content .views-field.views-field-body div.field-content {
+  padding: 5px;
+}

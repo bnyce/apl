@@ -53,7 +53,7 @@ base theme  = apl_blanco
 stylesheets[all][] = css/ahc.css
 ;stylesheets[all][] = css/nice-menus.css
 stylesheets[all][] = css/submenu.css
-stylesheets[all][] = css/slideshow.css
+stylesheets[all][] = css/highlighted.css
 
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

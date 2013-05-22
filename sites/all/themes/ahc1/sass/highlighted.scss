@@ -1,12 +1,18 @@
 @import "colors";
 
 body.page-ahc-front {
-	.views-slideshow-controls-top {
+	.views-slideshow-controls-bottom {
 		position: absolute;
-		right: 180px;
-		top: 450px;
-		z-index: 9;
+		right: 180px;	
+		bottom: 80px;
 	}
+	.views-slideshow-pager-fields {
+		div.views-slideshow-pager-field-item {
+			float: right \9;
+			*float: left;
+		}
+	}
+
 	div.views-slideshow-cycle-main-frame-row-item {
 		.views-field-title,
 		.views-field-body {
@@ -19,56 +25,8 @@ body.page-ahc-front {
 		}
 	}
 
-/*
-.views-slideshow-controls-top {
-        z-index: 13;
-        position: absolute;
-        #widget_pager_bottom_highlighted_images-panel_pane_8 {
-                z-index: 12;
-        }
-        width: 100%;
-        float: left;
-        .views-slideshow-controls-text-pause {
-                display: none;
-        }
-        .views-slideshow-controls-text-previous,
-        .views-slideshow-controls-text-next {
-            display: block;
-            height: 0px;
-            width: 0px;
-                z-index: 12;
-                float: left;
-                margin-left: 5px;
-                overflow: hidden;
-                border-color: transparent $blue;
-                border-style: solid;
-                border-width: 12px 12px 12px 0;
-                display: block;
-                border-radius: 4px;
-        &:hover {
-                border-color: transparent lighten($blue, 10%);
-        }
-        }
-        .views-slideshow-controls-text-next {
-                border-width: 12px 0 12px 12px;
-        }
-        .views-slideshow-pager-fields {
-                position: absolute;
-                bottom: 9px;
-                right: 4px;
-        }
         .views-slideshow-controls-text {
                 position: absolute;
-//                bottom: 32px;
-		top: 13px;
-                right: 0px;
-        }
-}
-*/
-
-        .views-slideshow-controls-text {
-                position: absolute;
-//                bottom: 32px;
                 top: 13px;
                 right: 0px;
 		z-index: 13;
@@ -111,7 +69,6 @@ body.page-ahc-front {
         }
         &.active,
         &:hover {
-//                background-color: lighten($blue,10%);
                 background-color: darken($ahc_olive, 40%);
                 opacity: 1;
                 cursor: pointer;
@@ -123,7 +80,6 @@ body.page-ahc-front {
 .views-field-field-ahc-ad-image {
 	margin-left: 180px;
 	img {
-		//width: 940px;
 		width: 580px;
 		height: auto;
 	}
@@ -133,7 +89,6 @@ body.page-ahc-front {
 }
 .views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a,
 .views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
-//	border: 1px dotted purple;
 	height: 32px;
 	width: 32px;
 	display: block;
@@ -142,34 +97,6 @@ body.page-ahc-front {
 	float: left;
 	margin-bottom: 10px;
 }
-/*
-.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
-	background: url('images/arrows.png') -27px -32px transparent no-repeat;
-	&:hover {
-		background-position: 5px -32px;
-	}
-	&:active, 
-//	&:selected,
-	&:focus,
-	&:visited { 
-		border: none;
-		outline: none;
-	}
-}
-.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a {
-	background: url('images/arrows.png') -38px 0 transparent no-repeat;
-	&:hover {
-		background-position: -6px 0px;
-	}
-	&:active, 
-//	&:selected,
-	&:focus,
-	&:visited { 
-		border: none;
-		outline: none;
-	}
-}
-*/
 #views_slideshow_cycle_main_slideshow_test-page {
 	.views-slideshow-cycle-main-frame-row-item  {
 		.views-field-body div.field-content {
@@ -197,12 +124,4 @@ body.page-ahc-front {
 		}
 	}
 
-}
-.views_slideshow_controls_text.views_slideshow_controls_text {
-//	position: absolute;
-//	bottom: 0px;
-//	right: 0px;
-//	bottom: 10px;
-//	left: 720px;
-//	border: 1px dotted lime;
 }

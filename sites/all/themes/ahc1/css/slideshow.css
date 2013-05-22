@@ -1,14 +1,50 @@
-/* line 1, ../sass/slideshow.scss */
-.views-field-field-ahc-ad-image img {
-  width: 940px;
+/* line 4, ../sass/slideshow.scss */
+body.page-ahc-front .views-slideshow-controls-top {
+  position: absolute;
+  right: 180px;
+  top: 450px;
+  z-index: 9;
+}
+/* line 59, ../sass/slideshow.scss */
+body.page-ahc-front .views_slideshow_pager_field_item {
+  float: left;
+  margin-right: 2px;
+  background-color: #aaaf7a;
+  min-width: 8px;
+  max-width: 8px;
+  min-height: 8px;
+  max-height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: .85;
+}
+/* line 70, ../sass/slideshow.scss */
+body.page-ahc-front .views_slideshow_pager_field_item a {
+  font-size: 0;
+}
+/* line 74, ../sass/slideshow.scss */
+body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-front .views_slideshow_pager_field_item:hover {
+  background-color: #383a23;
+  opacity: 1;
+  cursor: pointer;
 }
 
-/* line 4, ../sass/slideshow.scss */
+/* line 84, ../sass/slideshow.scss */
+.views-field-field-ahc-ad-image {
+  margin-left: 180px;
+}
+/* line 86, ../sass/slideshow.scss */
+.views-field-field-ahc-ad-image img {
+  width: 580px;
+  height: auto;
+}
+
+/* line 92, ../sass/slideshow.scss */
 .views-slideshow-controls-text-pause.views_slideshow_controls_text_pause.views-slideshow-controls-text-pause-processed {
   display: none;
 }
 
-/* line 8, ../sass/slideshow.scss */
+/* line 96, ../sass/slideshow.scss */
 .views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a,
 .views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
   height: 32px;
@@ -20,49 +56,21 @@
   margin-bottom: 10px;
 }
 
-/* line 18, ../sass/slideshow.scss */
-.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
-  background: url("images/arrows.png") -27px -32px transparent no-repeat;
-}
-/* line 20, ../sass/slideshow.scss */
-.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a:hover {
-  background-position: 5px -32px;
-}
-/* line 26, ../sass/slideshow.scss */
-.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a:active, .views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a:focus, .views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a:visited {
-  border: none;
-  outline: none;
-}
-
-/* line 31, ../sass/slideshow.scss */
-.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a {
-  background: url("images/arrows.png") -38px 0 transparent no-repeat;
-}
-/* line 33, ../sass/slideshow.scss */
-.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a:hover {
-  background-position: -6px 0px;
-}
-/* line 39, ../sass/slideshow.scss */
-.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a:active, .views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a:focus, .views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a:visited {
-  border: none;
-  outline: none;
-}
-
-/* line 46, ../sass/slideshow.scss */
+/* line 136, ../sass/slideshow.scss */
 #views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content {
   margin: 0;
 }
-/* line 48, ../sass/slideshow.scss */
+/* line 138, ../sass/slideshow.scss */
 #views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content p {
   margin: 0;
 }
 
-/* line 54, ../sass/slideshow.scss */
+/* line 144, ../sass/slideshow.scss */
 .view-slideshow-test .view-content {
   position: relative;
   height: 175px;
 }
-/* line 58, ../sass/slideshow.scss */
+/* line 148, ../sass/slideshow.scss */
 .view-slideshow-test .view-content .views-field.views-field-body {
   background-color: white;
   opacity: 0.5;
@@ -72,14 +80,7 @@
   height: 50px;
   max-height: 50px;
 }
-/* line 66, ../sass/slideshow.scss */
+/* line 156, ../sass/slideshow.scss */
 .view-slideshow-test .view-content .views-field.views-field-body div.field-content {
   padding: 5px;
-}
-
-/* line 72, ../sass/slideshow.scss */
-.views_slideshow_controls_text.views_slideshow_controls_text {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
 }

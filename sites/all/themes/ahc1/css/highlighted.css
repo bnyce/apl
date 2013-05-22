@@ -1,11 +1,15 @@
 /* line 4, ../sass/highlighted.scss */
-body.page-ahc-front .views-slideshow-controls-top {
+body.page-ahc-front .views-slideshow-controls-bottom {
   position: absolute;
   right: 180px;
-  top: 450px;
-  z-index: 9;
+  bottom: 80px;
 }
-/* line 13, ../sass/highlighted.scss */
+/* line 10, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-pager-fields div.views-slideshow-pager-field-item {
+  float: right \9;
+  *float: left;
+}
+/* line 19, ../sass/highlighted.scss */
 body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-title .field-content,
 body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-body .field-content {
   margin-left: 180px;
@@ -13,14 +17,14 @@ body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-b
   max-width: 540px;
   display: block;
 }
-/* line 69, ../sass/highlighted.scss */
+/* line 28, ../sass/highlighted.scss */
 body.page-ahc-front .views-slideshow-controls-text {
   position: absolute;
   top: 13px;
   right: 0px;
   z-index: 13;
 }
-/* line 77, ../sass/highlighted.scss */
+/* line 35, ../sass/highlighted.scss */
 body.page-ahc-front .views-slideshow-controls-text-previous,
 body.page-ahc-front .views-slideshow-controls-text-next {
   display: block;
@@ -36,16 +40,16 @@ body.page-ahc-front .views-slideshow-controls-text-next {
   display: block;
   border-radius: 4px;
 }
-/* line 90, ../sass/highlighted.scss */
+/* line 48, ../sass/highlighted.scss */
 body.page-ahc-front .views-slideshow-controls-text-previous:hover,
 body.page-ahc-front .views-slideshow-controls-text-next:hover {
   border-color: transparent #0088dd;
 }
-/* line 94, ../sass/highlighted.scss */
+/* line 52, ../sass/highlighted.scss */
 body.page-ahc-front .views-slideshow-controls-text-next {
   border-width: 12px 0 12px 12px;
 }
-/* line 98, ../sass/highlighted.scss */
+/* line 56, ../sass/highlighted.scss */
 body.page-ahc-front .views_slideshow_pager_field_item {
   float: left;
   margin-right: 2px;
@@ -58,33 +62,33 @@ body.page-ahc-front .views_slideshow_pager_field_item {
   overflow: hidden;
   opacity: .85;
 }
-/* line 109, ../sass/highlighted.scss */
+/* line 67, ../sass/highlighted.scss */
 body.page-ahc-front .views_slideshow_pager_field_item a {
   font-size: 0;
 }
-/* line 113, ../sass/highlighted.scss */
+/* line 71, ../sass/highlighted.scss */
 body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-front .views_slideshow_pager_field_item:hover {
   background-color: #383a23;
   opacity: 1;
   cursor: pointer;
 }
 
-/* line 123, ../sass/highlighted.scss */
+/* line 80, ../sass/highlighted.scss */
 .views-field-field-ahc-ad-image {
   margin-left: 180px;
 }
-/* line 125, ../sass/highlighted.scss */
+/* line 82, ../sass/highlighted.scss */
 .views-field-field-ahc-ad-image img {
   width: 580px;
   height: auto;
 }
 
-/* line 131, ../sass/highlighted.scss */
+/* line 87, ../sass/highlighted.scss */
 .views-slideshow-controls-text-pause.views_slideshow_controls_text_pause.views-slideshow-controls-text-pause-processed {
   display: none;
 }
 
-/* line 135, ../sass/highlighted.scss */
+/* line 91, ../sass/highlighted.scss */
 .views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a,
 .views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
   height: 32px;
@@ -96,21 +100,21 @@ body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-fron
   margin-bottom: 10px;
 }
 
-/* line 175, ../sass/highlighted.scss */
+/* line 102, ../sass/highlighted.scss */
 #views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content {
   margin: 0;
 }
-/* line 177, ../sass/highlighted.scss */
+/* line 104, ../sass/highlighted.scss */
 #views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content p {
   margin: 0;
 }
 
-/* line 183, ../sass/highlighted.scss */
+/* line 110, ../sass/highlighted.scss */
 .view-slideshow-test .view-content {
   position: relative;
   height: 175px;
 }
-/* line 187, ../sass/highlighted.scss */
+/* line 114, ../sass/highlighted.scss */
 .view-slideshow-test .view-content .views-field.views-field-body {
   background-color: white;
   opacity: 0.5;
@@ -120,7 +124,7 @@ body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-fron
   height: 50px;
   max-height: 50px;
 }
-/* line 195, ../sass/highlighted.scss */
+/* line 122, ../sass/highlighted.scss */
 .view-slideshow-test .view-content .views-field.views-field-body div.field-content {
   padding: 5px;
 }

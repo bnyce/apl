@@ -3,10 +3,19 @@
 p#other-location-links {
 	float: left;
 }
+div#locations-links {
+	position: relative;
+	form {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+/*
 form#by-zip {
 	float: right;
 }
-
+*/
 .views-field-nothing.holiday-schedule {
 	margin-bottom: 1em;
 }

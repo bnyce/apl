@@ -1,5 +1,93 @@
-.views-field-field-ahc-ad-image img {
-	width: 940px;
+@import "colors";
+
+body.page-ahc-front {
+	.views-slideshow-controls-top {
+		position: absolute;
+		right: 180px;
+		top: 450px;
+		z-index: 9;
+//		border: 1px dashed red;
+	}
+
+/*
+.views-slideshow-controls-top {
+        z-index: 13;
+        position: absolute;
+        #widget_pager_bottom_highlighted_images-panel_pane_8 {
+                z-index: 12;
+        }
+        width: 100%;
+        float: left;
+        .views-slideshow-controls-text-pause {
+                display: none;
+        }
+        .views-slideshow-controls-text-previous,
+        .views-slideshow-controls-text-next {
+            display: block;
+            height: 0px;
+            width: 0px;
+                z-index: 12;
+                float: left;
+                margin-left: 5px;
+                overflow: hidden;
+                border-color: transparent $blue;
+                border-style: solid;
+                border-width: 12px 12px 12px 0;
+                display: block;
+                border-radius: 4px;
+        &:hover {
+                border-color: transparent lighten($blue, 10%);
+        }
+        }
+        .views-slideshow-controls-text-next {
+                border-width: 12px 0 12px 12px;
+        }
+        .views-slideshow-pager-fields {
+                position: absolute;
+                bottom: 9px;
+                right: 4px;
+        }
+        .views-slideshow-controls-text {
+                position: absolute;
+//                bottom: 32px;
+		top: 13px;
+                right: 0px;
+        }
+}
+*/
+
+.views_slideshow_pager_field_item {
+        float: left;
+        margin-right: 2px;
+        background-color: $ahc_olive;
+        min-width: 8px;
+        max-width: 8px;
+        min-height: 8px;
+        max-height: 8px;
+        border-radius: 8px;
+        overflow: hidden;
+        opacity: .85;
+        a {
+                font-size: 0;
+        }
+        &.active,
+        &:hover {
+//                background-color: lighten($blue,10%);
+                background-color: darken($ahc_olive, 40%);
+                opacity: 1;
+                cursor: pointer;
+        }
+}
+
+}
+
+.views-field-field-ahc-ad-image {
+	margin-left: 180px;
+	img {
+		//width: 940px;
+		width: 580px;
+		height: auto;
+	}
 }
 .views-slideshow-controls-text-pause.views_slideshow_controls_text_pause.views-slideshow-controls-text-pause-processed {
 	display: none;
@@ -15,6 +103,7 @@
 	float: left;
 	margin-bottom: 10px;
 }
+/*
 .views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
 	background: url('images/arrows.png') -27px -32px transparent no-repeat;
 	&:hover {
@@ -41,6 +130,7 @@
 		outline: none;
 	}
 }
+*/
 #views_slideshow_cycle_main_slideshow_test-page {
 	.views-slideshow-cycle-main-frame-row-item  {
 		.views-field-body div.field-content {
@@ -70,7 +160,10 @@
 
 }
 .views_slideshow_controls_text.views_slideshow_controls_text {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
+//	position: absolute;
+//	bottom: 0px;
+//	right: 0px;
+//	bottom: 10px;
+//	left: 720px;
+//	border: 1px dotted lime;
 }

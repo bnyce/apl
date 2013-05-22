@@ -1,0 +1,36 @@
+/* line 2, ../sass/apl_spanish.scss */
+body.page-spanish-home .view-display-id-panel_pane_7 .views-field-field-highlighted-image img {
+  width: 940px;
+}
+/* line 5, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-content {
+  padding-left: 0 !important;
+}
+/* line 8, ../sass/apl_spanish.scss */
+body.page-spanish-home div.aplCustomSearchContainer {
+  margin-left: -64px;
+}
+/* line 12, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-events-panel-pane-1 h2.pane-title:after {
+  content: "Eventos Destacados";
+}
+/* line 15, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-events-panel-pane-1 h2.pane-title span#featured-events {
+  display: none;
+}
+/* line 20, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-location-based-blogs-panel-pane-19 h2.pane-title:after {
+  content: "Blog en Espa\00f1ol";
+}
+/* line 23, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-location-based-blogs-panel-pane-19 h2.pane-title span {
+  display: none;
+}
+/* line 27, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-5 img {
+  width: 940px !important;
+}
+/* line 30, ../sass/apl_spanish.scss */
+body.page-spanish-home div.pane-3 img {
+  width: 340px !important;
+}

@@ -1,6 +1,46 @@
 (function ($) {
 $(document).ready(function() {
 
+var i = $('#gsearch-input');
+var searchString = '';
+var default_value_i = i.val();
+var f = $('#gsearch-form');
+
+
+i.css('color', 'silver');
+i.css('padding-left', '3px');
+
+
+i.focus(function() {
+        this.style.color="black";
+if(i.val() == default_value_i) {
+        this.value="";
+    };
+
+i.bind("keyup", function(event) {
+  searchString = i.val();
+});
+
+});
+
+
+i.bind("keydown", function(event) {
+      // track enter key
+      var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
+      if (keycode == 13) { // keycode for enter key
+
+          f.attr("action", "http://library.austintexas.gov/gsearch/" + i.val());
+ //	this.document.location.href = "http://library.austintexas.gov/gsearch/" + i.val();
+
+         f.submit();
+         return false;
+      } else  {
+         return true;
+      }
+}); // end of function
+
+
+
 var ii = $('#search_input');
 var ii_c = $('#search_input_catalog');
 var ii_s = $('#search_input_site');

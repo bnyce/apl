@@ -44,6 +44,12 @@ $info_border_title: 2px solid white;
 	border-bottom: $info_border_body;
 	border: 1px solid $blue_light !important;
 }
+body.info-guides {
+	.pane-token.pane-node-body {
+		clear: left;
+		padding-top: 5px;
+	}
+}
 body.page-new-information-guides,
 body.section-information-guide-subjects {
 	div#content-area {
@@ -122,7 +128,7 @@ div#info-guides {
 		margin-bottom: 20px;
 	}
 	div.panel-col-top ul {
-		margin: 0 auto !important;
+		margin: 10px auto !important;
 		padding: 0 !important;
 		li {
 			float: left;

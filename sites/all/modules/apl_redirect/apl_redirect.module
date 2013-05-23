@@ -1,0 +1,28 @@
+<?php
+
+function apl_redirect_init() {
+    if (isset($_GET['destination'])) {
+        $destination = $_GET['destination'];
+        unset($_GET['destination']);
+    }
+
+    $request_path = apl_redirect_request_path();
+
+    // If the request_path() matches an article, redirect to the new URL
+    // for articles.
+    if ($request_path) {
+        drupal_goto($request_path, array(), 301);
+    }
+}
+
+
+function apl_redirect_request_path() {
+    $path = ltrim(request_path(), '/');
+
+    if (preg_match('/^databases\/\w\/.*$/', $path)) {
+    $path_list = explode('/', $path);
+        return 'databases/' . $path_list[1];
+    } else {
+        return;
+    }
+}

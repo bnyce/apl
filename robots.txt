@@ -18,6 +18,10 @@
 
 User-agent: *
 Crawl-delay: 10
+
+Disallow: /databases/*/*
+Disallow: /node/*
+
 # Directories
 Disallow: /includes/
 Disallow: /misc/

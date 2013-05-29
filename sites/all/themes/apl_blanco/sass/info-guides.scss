@@ -66,13 +66,26 @@ body.section-information-guide-subjects {
 		margin: 0;
 	}
 	div.views-row {
-		&:nth-child(4n) {
-			margin-right: 0 !important;
+		&+ div.views-row + div.views-row + div.views-row {
+			margin-right: 0;
+			&+ div.views-row {
+				margin-right: 20px;
+				&+ div.views-row + div.views-row + div.views-row {
+					margin-right: 0;
+			&+ div.views-row {
+				margin-right: 20px;
+				&+ div.views-row + div.views-row + div.views-row {
+					margin-right: 0;
+				}
+			}
+				}
+			}
 		}
 		float: left;
 		display: block;
 		margin-right: 20px;
-		width: $info_guide_w;
+//		width: $info_guide_w;
+		width: 218px;
 		div a {
 			&:hover {
 				background-color: lighten($blue, 10%);

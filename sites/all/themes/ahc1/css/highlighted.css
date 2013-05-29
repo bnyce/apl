@@ -74,11 +74,11 @@ body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-fron
 }
 
 /* line 80, ../sass/highlighted.scss */
-.views-field-field-ahc-ad-image {
+#ahc-ad-large .views-field-field-ahc-ad-image {
   margin-left: 180px;
 }
 /* line 82, ../sass/highlighted.scss */
-.views-field-field-ahc-ad-image img {
+#ahc-ad-large .views-field-field-ahc-ad-image img {
   width: 580px;
   height: auto;
 }

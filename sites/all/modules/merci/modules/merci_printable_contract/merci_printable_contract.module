@@ -5,6 +5,10 @@
  * merci_printable_contract functions
  */
 
+/* Windows does not have the money_format function in php.*/
+if (!function_exists('money_format')) {
+  module_load_include('inc', 'merci_printable_contract', 'money_format');
+}
 /**
  * Implements hook_menu().
  */
@@ -161,7 +165,9 @@ function merci_preprocess_merci_printable_contract(&$variables) {
   $variables['hours'] = $hours;
   $variables['username'] = $username;
   $variables['email'] = $email;
-  $variables['phone'] = $phone;
+  if (isset($phone)) {
+    $variables['phone'] = $phone;
+  }
   $variables['items'] = $items;
 
 }

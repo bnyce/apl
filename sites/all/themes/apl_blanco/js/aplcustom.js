@@ -138,9 +138,12 @@ ii_form_s.submit(function() {
 
 	
 // Expand / Collapse
-$("div#virtual span.show-hide").click(function(){
-	var my_dt=$(this);
-	var my_dd=$(this).closest('.virtual-service').find('.description');
+//$("div#virtual span.show-hide").click(function(){
+$("div#virtual div.virtual-service").click(function(){
+	//var my_dt=$(this);
+	var my_dt=$(this).find('.show-hide');
+	//var my_dd=$(this).closest('.virtual-service').find('.description');
+	var my_dd=$(this).find('.description');
 
 	$(my_dt).toggleClass('expanded');
 	$(my_dd).toggleClass('more-info');

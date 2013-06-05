@@ -98,7 +98,8 @@ body.section-information-guide-subjects {
 			padding: 10px;
 			font-size: large;
 			width: $info_guide_w -$info_guide_pad*2;
-			min-height: $info_guide_w -$info_guide_pad*2;
+			//min-height: $info_guide_w -$info_guide_pad*2;
+			min-height: 60px;
 			margin: 0 20px 20px 0;
 			span.field-content {
 				background-color: #e8e8e8;

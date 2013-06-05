@@ -25,12 +25,15 @@ body.section-library-service-category,
 body.section-resources-for-you,
 body.section-library-service-audience,
 body.section-services {
-	#content-area div.panel-col-last {
-		float: left;
-		width: 676px;
-		@include status;
-		margin: 20px 0px 20px 20px;
-		padding: 10px 10px 15px;
+	#content-area {
+		overflow: visible;
+		div.panel-col-last {
+			float: left;
+			width: 676px;
+			@include status;
+			margin: 20px 0px 20px 20px;
+			padding: 10px 10px 15px;
+		}
 	}
 	#content-area div.panel-col,
 	#content-area div.panel-col-first,

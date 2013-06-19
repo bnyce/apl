@@ -34,6 +34,8 @@ stylesheets[all][] = css/apl_recommends.css
 stylesheets[all][] = css/admin.css
 stylesheets[all][] = css/highlighted.css
 stylesheets[all][] = css/suggest_a_title.css
+stylesheets[all][] = css/news.css
+stylesheets[all][] = css/apl-recommends.css
 
 
 scripts[] = js/aplcustom.js

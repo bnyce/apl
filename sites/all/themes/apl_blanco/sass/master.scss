@@ -182,7 +182,7 @@ div.block {
 #main {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
-	min-height: 715px;  /*issues with whitespace beneath #bottom */
+//	min-height: 715px;  /*issues with whitespace beneath #bottom */
 	height: auto !important; /*issues with whitespace beneath #bottom */
 	background-color: white;
 	//width: $page_w;
@@ -277,7 +277,7 @@ div.block {
 			//	padding-right:5px;
 //				width: 275px;
 				p {
-					margin-bottom:0px;
+			//		margin-bottom:0px;
 				}
 			}
 		}

@@ -20,7 +20,7 @@
 
 <?php if ($page['top_navigation']): ?>
 <div id="header-region">
- <div class="overlogodiv" onclick='window.location.href="<?php print $front_page; ?>/spanish";'></div>
+ <div class="overlogodiv" onclick='window.location.href="http://library.austintexas.gov/spanish";'></div>
 </div>
 <?php endif; ?>
 

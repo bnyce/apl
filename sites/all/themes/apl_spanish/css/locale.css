@@ -1,0 +1,14 @@
+/* line 4, ../sass/locale.scss */
+#block-locale-language ul.language-switcher-locale-session li {
+  display: block;
+  float: right;
+  margin: 0 10px 0 0;
+}
+/* line 5, ../sass/locale.scss */
+#block-locale-language ul.language-switcher-locale-session li.es {
+  display: none;
+}
+/* line 11, ../sass/locale.scss */
+#block-locale-language ul.language-switcher-locale-session li a {
+  color: #0069aa;
+}

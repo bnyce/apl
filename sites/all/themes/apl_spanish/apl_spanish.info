@@ -8,6 +8,7 @@ base theme  = apl_blanco
 stylesheets[all][] = css/ace.css
 stylesheets[all][] = css/apl_spanish.css
 stylesheets[all][] = css/mailchimp.css
+stylesheets[all][] = css/locale.css
 
 scripts[] = js/aplcustom.js
 

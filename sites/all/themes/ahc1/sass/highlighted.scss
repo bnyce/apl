@@ -1,14 +1,19 @@
 @import "colors";
 
+body #content-area {
+	min-height: 700px;
+}
+
 body.page-ahc-front {
 	.views-slideshow-controls-bottom {
 		position: absolute;
 		right: 180px;	
-		bottom: 90px;
+		//bottom: 90px;
+		bottom: 69px;
 	}
 	.views-slideshow-pager-fields {
 		div.views-slideshow-pager-field-item {
-			float: right \9;
+			float: left \9;
 			*float: left;
 		}
 	}
@@ -107,10 +112,16 @@ body.page-ahc-front {
 		}
 }
 }
-.view-slideshow-test .view-content {
+.view-ahc-ads .view-content {
 	position: relative;
-	height: 175px;
-
+//	height: 175px;
+	.views-field-body-1 {
+//		border: 1px dashed red;
+		margin-left: 180px;
+//		padding-right: 70px;
+		width: 510px;
+		min-height: 75px;
+	}
 	.views-field.views-field-body {
 		background-color: white;
 		opacity: 0.5;

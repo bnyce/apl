@@ -1,7 +1,11 @@
 @import "colors";
 
+.youth-banner {
+	height: 110px;
+}
+
 body.page-ahc-front h1 {
-	display: none;
+//	display: none;
 }
 
 p {
@@ -13,17 +17,8 @@ div#apl_footer {
 	background-color: darken($youth_purple, 20%);
 }
 #bottom {
-//	background-color: darken($ahc_olive, 40%);
-//	background-color: darken($ahc_olive, 40%);
 }
-
-
-
-//	a,
-//	a:hover,
-//	a:link,
 	h1 {
-		//color: darken($ahc_olive, 25%);
 		color: darken($youth_purple, 0%);
 	}
 }

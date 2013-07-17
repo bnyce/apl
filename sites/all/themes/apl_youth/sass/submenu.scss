@@ -1,6 +1,8 @@
 @import "colors";
 
-#block-nice-menus-1 {
+.block-nice-menus,
+#block-nice-menus-1,
+#block-nice-menus-2 {
 &:after,
 &:before {
 	display: none;

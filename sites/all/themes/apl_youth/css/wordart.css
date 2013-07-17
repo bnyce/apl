@@ -1,0 +1,10 @@
+/* line 16, ../sass/wordart.scss */
+#childrens-services-blog h2 {
+  background: url("http://library.austintexas.gov/sites/default/files/childrens-services-blog.png") no-repeat scroll left top transparent;
+  color: #8064a2;
+  height: 30px;
+  margin: 3px 0 5px;
+  padding: 0 0 5px;
+  text-indent: -9999px;
+  border-bottom: 1px solid #8064a2;
+}

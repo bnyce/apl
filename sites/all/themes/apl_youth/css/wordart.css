@@ -1,10 +1,12 @@
-/* line 16, ../sass/wordart.scss */
+@font-face {
+  font-family: Lim;
+  src: url(http://alis.dev/y20130725b/sites/default/files/fonts/DK%20Limoen.ttf);
+  font-weight: 400;
+}
+
+/* line 25, ../sass/wordart.scss */
 #childrens-services-blog h2 {
-  background: url("http://library.austintexas.gov/sites/default/files/childrens-services-blog.png") no-repeat scroll left top transparent;
-  color: #8064a2;
-  height: 30px;
-  margin: 3px 0 5px;
-  padding: 0 0 5px;
-  text-indent: -9999px;
-  border-bottom: 1px solid #8064a2;
+  font-family: Lim, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  color: green;
 }

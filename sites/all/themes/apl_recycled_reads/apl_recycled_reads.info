@@ -4,11 +4,13 @@ description = Recycled Reads subtheme of APL Blanco.
 core        = 7.x
 base theme  = apl_blanco
 
-stylesheets[all][] = css/recycled_reads.css
 stylesheets[all][] = css/submenu.css
 stylesheets[all][] = css/highlighted.css
 stylesheets[all][] = css/wordart.css
+;stylesheets[all][] = css/nice-menus.css
+stylesheets[all][] = css/arr_blogs.css
 ;scripts[] = js/youth_submenu.js
+stylesheets[all][] = css/recycled-reads.css
 
 regions[top] = Top
 regions[top_navigation] = Top Navigation

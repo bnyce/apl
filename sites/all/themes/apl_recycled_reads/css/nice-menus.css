@@ -32,7 +32,7 @@ body #mini-panel-ahc_banner ul li a {
 /* line 26, ../sass/nice-menus.scss */
 body #mini-panel-ahc_banner ul li a:hover {
   text-decoration: none;
-  background-color: #0088dd;
+  background-color: #6d9921;
 }
 
 /* line 40, ../sass/nice-menus.scss */
@@ -51,7 +51,7 @@ body #mini-panel-ahc_banner ul li a:hover {
 }
 /* line 52, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li {
-  background-color: #0069aa;
+  background-color: #4f6f18;
 }
 /* line 53, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li.menuparent {
@@ -67,6 +67,6 @@ body #mini-panel-ahc_banner ul li a:hover {
 }
 /* line 62, ../sass/nice-menus.scss */
 #block-nice-menus-1 ul li a:hover {
-  background-color: #0088dd;
+  background-color: #6d9921;
   color: #fdb813;
 }

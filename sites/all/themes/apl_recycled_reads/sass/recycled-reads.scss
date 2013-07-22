@@ -1,0 +1,85 @@
+@import "colors";
+@import "colors-arr";
+
+.menu-path-node-29150 > a {
+	background-color: lighten($arr_green, 20%);
+}
+
+#block-nice-menus-1,
+#block-nice-menus-2 {
+        ul li ul {
+                li {
+                        border-bottom: 1px dashed transparent;
+                &.over {
+                        border-color: rgba(lighten($arr_green, 20%),.8);
+                }
+                &.over > a {
+                        background-color: lighten($arr_green, 20%);
+                }
+                }
+        }
+}
+
+
+
+
+
+.block-nice-menus,
+#block-nice-menus-1,
+#block-nice-menus-2 {
+        background-color: $arr_green;
+        ul li {
+	&.over > a {
+		background-color: lighten($arr_green, 20%);
+	}
+		a {
+		&.active,
+		&.active-trail,
+		&:hover {
+			background-color: lighten($arr_green, 20%)
+		}
+		}
+                background-color: $arr_green;
+                ul {
+                        border-color: transparent transparent transparent lighten($arr_green, 20%);
+                }
+        }
+        &:before {
+		border-color: darken($arr_green, 10%) darken($arr_green, 10%) transparent !important;
+        }
+        &:after {
+		border-color: transparent darken($arr_green, 10%) !important;
+	}
+}
+
+
+.youth-banner {
+	height: 110px;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+body {
+div#apl_footer {
+	background-color: darken($arr_green, 0%);
+}
+#bottom {
+}
+	h1 {
+		color: darken($arr_green, 0%);
+	}
+}
+
+div.overlogodiv {
+	background: transparent url("../../apl_blanco/images/apl_logo_color.png") no-repeat 10px 10px;
+	width: 125px;
+	height: 85px;
+}
+li.apl-mnav-link.ahc > a {
+	font-weight: 800;
+}
+div#highlight {
+	margin-left: 0;
+}

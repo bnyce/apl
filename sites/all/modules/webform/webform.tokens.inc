@@ -41,7 +41,7 @@ function webform_token_info() {
   );
   $info['tokens']['submission']['values'] = array(
     'name' => t('Webform submission values'),
-    'description' => t('Webform tokens from submitted data. Includes the value and field label. Replace the "?" with the "Field Key". Append ":nolabel" for just the value.'),
+    'description' => t('Webform tokens from submitted data. Replace the "?" with the "field key", including any parent field keys separated by colons. Tokens include the field label and value. Append ":nolabel" for just the value.'),
     'dynamic' => TRUE,
   );
 
@@ -140,6 +140,9 @@ function webform_tokens($type, $tokens, array $data = array(), array $options = 
               if ($modifier === 'nolabel') {
                 $display_element['#theme_wrappers'] = array();
               }
+              // Individual tokens always have access granted even if they're
+              // not displayed when printing the whole renderable.
+              $display_element['#access'] = TRUE;
               $replacements[$original] = render($display_element);
               break;
             }

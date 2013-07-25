@@ -15,7 +15,7 @@ function _webform_defaults_date() {
     'pid' => 0,
     'weight' => 0,
     'value' => '',
-    'mandatory' => 0,
+    'required' => 0,
     'extra' => array(
       'timezone' => 'user',
       'start_date' => '-2 years',
@@ -125,7 +125,7 @@ function _webform_render_date($component, $value = NULL, $filter = TRUE) {
     '#title_display' => $component['extra']['title_display'] ? $component['extra']['title_display'] : 'before',
     '#weight' => $component['weight'],
     '#description' => $filter ? _webform_filter_descriptions($component['extra']['description'], $node) : $component['extra']['description'],
-    '#required' => $component['mandatory'],
+    '#required' => $component['required'],
     '#start_date' => trim($component['extra']['start_date']),
     '#end_date' => trim($component['extra']['end_date']),
     '#year_textfield' => $component['extra']['year_textfield'],
@@ -233,9 +233,9 @@ function webform_expand_date($element) {
 function theme_webform_date($variables) {
   $element = $variables['element'];
 
-  $element['year']['#attributes']['class'] = array('year');
-  $element['month']['#attributes']['class'] = array('month');
-  $element['day']['#attributes']['class'] = array('day');
+  $element['year']['#attributes']['class'][] = 'year';
+  $element['month']['#attributes']['class'][] = 'month';
+  $element['day']['#attributes']['class'][] = 'day';
 
   // Add error classes to all items within the element.
   if (form_get_error($element)) {
@@ -414,7 +414,7 @@ function _webform_csv_headers_date($component, $export_options) {
   $header = array();
   $header[0] = '';
   $header[1] = '';
-  $header[2] = $component['name'];
+  $header[2] = $export_options['header_keys'] ? $component['form_key'] : $component['name'];
   return $header;
 }
 

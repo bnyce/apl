@@ -99,9 +99,6 @@ table.webform-file-extensions input.form-text {
 .webform-container-inline div.form-item {
   display: inline;
 }
-.webform-default-value {
-  color: #999;
-}
 .webform-results-per-page a.selected {
   font-weight: bold;
 }
@@ -116,6 +113,14 @@ tr.webform-add-form .tabledrag-changed {
 }
 #webform-components tr.webform-add-form {
   background-color: inherit;
+}
+
+/* E-mail configuration */
+html.js .webform-email-mapping {
+  display: none;
+}
+td.webform-email-option {
+  text-align: right;
 }
 
 /* Conditionals */

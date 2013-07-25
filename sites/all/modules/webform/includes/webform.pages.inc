@@ -36,7 +36,7 @@ function webform_configure_form($form, &$form_state, $node) {
   $form['submission']['confirmation'] = array(
     '#type' => 'text_format',
     '#title' => t('Confirmation message'),
-    '#description' => t('Message to be shown upon successful submission. If the redirection location is set to <em>Confirmation page</em> it will be shown on its own page, otherwise this displays as a message. Supports Webform token replacements.'),
+    '#description' => t('Message to be shown upon successful submission. If the redirection location is set to <em>Confirmation page</em> it will be shown on its own page, otherwise this displays as a message. Supports Webform token replacements.') . ' ' . theme('webform_token_help', array('groups' => array('node', 'submission'))),
     '#default_value' => $node->webform['confirmation'],
     '#cols' => 40,
     '#rows' => 10,
@@ -64,10 +64,7 @@ function webform_configure_form($form, &$form_state, $node) {
     '#type' => 'item',
     '#title' => t('Redirection location'),
     '#theme' => 'webform_advanced_redirection_form',
-    '#description' => t('Choose where to redirect the user upon successful submission.') . ' ' . t('The <em>Custom URL</em> option supports Webform token replacements.'),
-  );
-  $form['submission']['tokens'] = array(
-    '#markup' => theme('webform_token_help', array('groups' => array('node', 'submission'))),
+    '#description' => t('Choose where to redirect the user upon successful submission.') . ' ' . t('The <em>Custom URL</em> option supports Webform token replacements.') . ' ' . theme('webform_token_help', array('groups' => array('node', 'submission'))),
   );
   $form['submission']['redirection']['redirect']= array(
     '#type' => 'radios',
@@ -77,13 +74,16 @@ function webform_configure_form($form, &$form_state, $node) {
       'url' => t('Custom URL'),
       'none' => t('No redirect (reload current page)'),
     ),
+    '#parents' => array('redirect'),
   );
   $form['submission']['redirection']['redirect_url'] = array(
     '#type' => 'textfield',
     '#title' => t('Redirect URL'),
     '#description' => t('URL to redirect the user to upon successful submission.'),
     '#default_value' => $redirect_url,
-    '#maxlength' => 255,
+    '#maxlength' => 2048,
+    '#parents' => array('redirect_url'),
+    '#attributes' => array('title' => t('Custom URL value')),
   );
 
   // Submission limit settings for all submissions.
@@ -358,17 +358,15 @@ function webform_configure_form_submit_save($form, &$form_state) {
 function theme_webform_advanced_redirection_form($variables) {
   $form = $variables['form'];
   // Add special class for setting the active radio button.
-  $form['redirect_url']['#attributes']['class'] = array('webform-set-active');
+  $form['redirect_url']['#attributes']['class'][] = 'webform-set-active';
 
-  // Remove title and description for Redirect URL field.
-  $form['redirect_url']['#title'] = NULL;
-  $form['redirect_url']['#description'] = NULL;
+  // Remove wrappers around the inline Redirect URL field.
+  $form['redirect_url']['#theme_wrappers'] = array();
 
   $form['redirect']['confirmation']['#theme_wrappers'] = array('webform_inline_radio');
   $form['redirect']['url']['#theme_wrappers'] = array('webform_inline_radio');
   $form['redirect']['none']['#theme_wrappers'] = array('webform_inline_radio');
-  $form['redirect']['url']['#inline_element'] = $form['redirect']['url']['#title'] . ': ' . drupal_render($form['redirect_url']);
-  $form['redirect']['url']['#title'] = NULL;
+  $form['redirect']['url']['#title'] = t('Custom URL: !redirect_url', array('!redirect_url' => drupal_render($form['redirect_url'])));
 
   return drupal_render_children($form);
 }
@@ -378,20 +376,15 @@ function theme_webform_advanced_redirection_form($variables) {
  */
 function theme_webform_advanced_submit_limit_form($variables) {
   $form = $variables['form'];
-  $form['submit_limit']['#attributes']['class'] = array('webform-set-active');
-  $form['submit_interval']['#attributes']['class'] = array('webform-set-active');
+  $form['submit_limit']['#attributes']['class'][] = 'webform-set-active';
+  $form['submit_interval']['#attributes']['class'][] = 'webform-set-active';
   // Remove div wrappers around limit options.
   $form['submit_limit']['#theme_wrappers'] = array();
   $form['submit_interval']['#theme_wrappers'] = array();
-  $replacements = array(
-    '!count' => drupal_render($form['submit_limit']),
-    '!timespan' => drupal_render($form['submit_interval']),
-  );
 
   $form['enforce_limit']['no']['#theme_wrappers'] = array('webform_inline_radio');
-  $form['enforce_limit']['yes']['#title'] = NULL;
-  $form['enforce_limit']['yes']['#inline_element'] = t('Limit each user to !count submission(s) !timespan', $replacements);
   $form['enforce_limit']['yes']['#theme_wrappers'] = array('webform_inline_radio');
+  $form['enforce_limit']['yes']['#title'] = t('Limit each user to !count submission(s) !timespan', array('!count' => drupal_render($form['submit_limit']), '!timespan' => drupal_render($form['submit_interval'])));
 
   return drupal_render_children($form);
 }
@@ -401,20 +394,15 @@ function theme_webform_advanced_submit_limit_form($variables) {
  */
 function theme_webform_advanced_total_submit_limit_form($variables) {
   $form = $variables['form'];
-  $form['total_submit_limit']['#attributes']['class'] = array('webform-set-active');
-  $form['total_submit_interval']['#attributes']['class'] = array('webform-set-active');
+  $form['total_submit_limit']['#attributes']['class'][] = 'webform-set-active';
+  $form['total_submit_interval']['#attributes']['class'][] = 'webform-set-active';
   // Remove div wrappers around limit options.
   $form['total_submit_limit']['#theme_wrappers'] = array();
   $form['total_submit_interval']['#theme_wrappers'] = array();
-  $replacements = array(
-    '!count' => drupal_render($form['total_submit_limit']),
-    '!timespan' => drupal_render($form['total_submit_interval']),
-  );
 
   $form['enforce_total_limit']['no']['#theme_wrappers'] = array('webform_inline_radio');
-  $form['enforce_total_limit']['yes']['#title'] = NULL;
-  $form['enforce_total_limit']['yes']['#inline_element'] = t('Limit to !count total submission(s) !timespan', $replacements);
   $form['enforce_total_limit']['yes']['#theme_wrappers'] = array('webform_inline_radio');
+  $form['enforce_total_limit']['yes']['#title'] = t('Limit to !count total submission(s) !timespan', array('!count' => drupal_render($form['total_submit_limit']), '!timespan' => drupal_render($form['total_submit_interval'])));
 
   return drupal_render_children($form);
 }

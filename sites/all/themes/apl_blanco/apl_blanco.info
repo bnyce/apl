@@ -39,6 +39,7 @@ stylesheets[all][] = css/apl-recommends.css
 stylesheets[all][] = css/gsa.css
 stylesheets[all][] = css/locale.css
 stylesheets[all][] = css/megamenus.css
+stylesheets[all][] = css/blogs2.css
 
 
 scripts[] = js/aplcustom.js

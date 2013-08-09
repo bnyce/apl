@@ -40,6 +40,7 @@ stylesheets[all][] = css/gsa.css
 stylesheets[all][] = css/locale.css
 stylesheets[all][] = css/megamenus.css
 stylesheets[all][] = css/blogs2.css
+stylesheets[all][] = css/calendars2.css
 
 
 scripts[] = js/aplcustom.js

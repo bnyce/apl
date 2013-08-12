@@ -2,61 +2,53 @@ $c_blue: #DAEAFA;
 $c_green: #D9E696;
 $c_pink: #F9E5DA;
 $c_text: #989898;
-/*
-
-.month.day > a {
-    background-color: black !important;
-    display: block;
-    height: 41px;
-    margin-bottom: 0 !important;
-    margin-left: -20px;
-    margin-right: 0 !important;
-    margin-top: -3px !important;
-    position: absolute;
-    width: 45px;
-}
-
-*/
+$rr_green: #4F7019;
+$rr_green_light: #8AC32C;
 .view .date-nav-wrapper {
-//	position: relative;
-	.date-prev {
-		left: 0;
-		right: auto;
-		margin-left: 0;
-		position: absolute;
-		border-color: white #0069AA white white;
-		border-radius: 0 4px 4px 0;
-		border-style: solid;
-		border-width: 12px 12px 12px 0px ;
-		padding: 0 !important;
-		height: 0;
+	margin: 0;
+	padding: 0;
+	div.date-nav {
+		padding: 0;
+	ul.pager li {
+		padding: 0;
+		background-color: white;
+		margin: 0;
 		width: 0;
-		overflow: hidden;
+		height: 0;
+		&.date-prev {
+			right: 30px;
+			a {
+			border-color: white $rr_green white white;
+			border-radius: 0 4px 4px 0;
+			border-width: 12px 12px 12px 0px ;
+			&:hover {
+				border-color: white $rr_green_light white white;
+			}
+			}
+		}
+		&.date-next {
+			right: 12px;
+			a {
+			border-color: white white white $rr_green;
+			border-radius: 4px;
+			border-width: 12px 0 12px 12px ;
+			&:hover {
+				border-color: white white white $rr_green_light;
+			}
+			}
+		}
 		a {
+			background-color: green;
+			border-style: solid;
+			overflow: hidden;
+			width: 0 !important;
+			height: 0 !important;
 			display: block;
-			width: 100%;
-			height: 100%;
-			background-color: red;
+			margin: 0;	
+			top: 3px;
+			position: absolute;
 		}
 	}
-	.date-next {
-		position: absolute;
-		border-color: white white white #0069AA;
-		border-radius: 4px 4px 4px 4px;
-		border-style: solid;
-		border-width: 12px 0 12px 12px ;
-		padding: 0;
-	//	display: block;
-	//	float: left;
-		height: 0;
-	//	margin-left: 5px;
-		overflow: hidden;
-		width: 0;
-	//	z-index: 12;
-	}
-	.date-nav {
-//		background-color: sienna;
-		padding-bottom: 0;
 	}
 }
 div.arr-calendar {

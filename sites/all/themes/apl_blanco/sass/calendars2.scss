@@ -76,6 +76,12 @@ tr {
 //&.multi-day td {
 	background-color: $c_green;
 	border-left: 0;
+	&.past {
+		background-color: silver !important;
+	}
+	&.past.empty {
+		background-color: white !important;
+	}
 }
 &.single-day .no-entry, 
 &.single-day .no-entry .inner {

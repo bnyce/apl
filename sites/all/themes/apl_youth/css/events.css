@@ -1,0 +1,16 @@
+/* line 6, ../sass/events.scss */
+body .view .date-nav-wrapper div.date-nav ul.pager li.date-prev a {
+  border-color: white #8064a2 white white;
+}
+/* line 8, ../sass/events.scss */
+body .view .date-nav-wrapper div.date-nav ul.pager li.date-prev a:hover {
+  border-color: white #b4a4c8 white white;
+}
+/* line 12, ../sass/events.scss */
+body .view .date-nav-wrapper div.date-nav ul.pager li.date-next a {
+  border-color: white white white #8064a2;
+}
+/* line 14, ../sass/events.scss */
+body .view .date-nav-wrapper div.date-nav ul.pager li.date-next a:hover {
+  border-color: white white white #b4a4c8;
+}

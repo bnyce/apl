@@ -8,6 +8,8 @@ stylesheets[all][] = css/youth.css
 stylesheets[all][] = css/submenu.css
 stylesheets[all][] = css/highlighted.css
 stylesheets[all][] = css/wordart.css
+stylesheets[all][] = css/nice-menus.css
+stylesheets[all][] = css/events.css
 scripts[] = js/youth_submenu.js
 
 regions[top] = Top

@@ -1,0 +1,20 @@
+@import "colors";
+
+body {
+	.view .date-nav-wrapper div.date-nav ul.pager {
+		li {
+		&.date-prev a {
+			border-color: white $youth_purple white white;
+			&:hover {
+				border-color: white lighten($youth_purple, 20%) white white;
+			}
+		}
+		&.date-next a {
+			border-color: white white white $youth_purple;
+			&:hover {
+				border-color: white white white lighten($youth_purple, 20%);
+			}
+		}
+		}
+}
+}

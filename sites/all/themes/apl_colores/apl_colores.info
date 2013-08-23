@@ -1,0 +1,86 @@
+screenshot  = apl_colores.png
+name        = APL Colores
+description = It continues.
+core        = 7.x
+base theme  = zen
+
+stylesheets[all][] = css/html.css
+stylesheets[all][] = css/master.css
+stylesheets[all][] = css/top_nav.css
+stylesheets[all][] = css/footer.css
+stylesheets[all][] = css/blogs.css
+stylesheets[all][] = css/search.css
+stylesheets[all][] = css/merci.css
+stylesheets[all][] = css/apl_faq.css
+stylesheets[all][] = css/events.css
+stylesheets[print][] = css/print-reset.css
+stylesheets[all][] = css/image_rotator.css
+stylesheets[all][] = css/messages2.css
+stylesheets[all][] = css/webform.css
+stylesheets[all][] = css/meeting-rooms.css
+stylesheets[all][] = css/austin_city_header.css
+stylesheets[all][] = css/swatch.css
+stylesheets[all][] = css/hotfix.css
+stylesheets[all][] = css/locations.css
+stylesheets[all][] = css/virtual.css
+stylesheets[all][] = css/austinmusic.css
+stylesheets[all][] = css/info-guides.css
+stylesheets[all][] = css/libraryservices.css
+stylesheets[all][] = css/nicer-menus.css
+stylesheets[all][] = css/mailchimp.css
+stylesheets[all][] = css/ace.css
+stylesheets[all][] = css/apl_global_search.css
+stylesheets[all][] = css/apl_recommends.css
+stylesheets[all][] = css/admin.css
+stylesheets[all][] = css/highlighted.css
+stylesheets[all][] = css/suggest_a_title.css
+stylesheets[all][] = css/news.css
+stylesheets[all][] = css/apl-recommends.css
+stylesheets[all][] = css/gsa.css
+stylesheets[all][] = css/locale.css
+stylesheets[all][] = css/megamenus.css
+stylesheets[all][] = css/blogs2.css
+stylesheets[all][] = css/calendars2.css
+stylesheets[all][] = css/events2.css
+
+
+scripts[] = js/aplcustom.js
+
+regions[top] = Top
+regions[top_navigation] = Top Navigation
+
+regions[highlight] = Highlighted (Banner)
+regions[secondary_navigation] = Secondary Navigation
+regions[help] = Help
+regions[announcements] = Announcements
+regions[content] = Content
+regions[footer] = Footer
+regions[bottom]	= Bottom
+
+regions[page_bottom] = Page Bottom
+regions[page_top] = Page Top
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+
+
+settings[zen_breadcrumb]           = yes
+settings[zen_breadcrumb_separator] = ' › '
+settings[zen_breadcrumb_home]      = 1
+settings[zen_breadcrumb_trailing]  = 1
+settings[zen_breadcrumb_title]     = 0
+settings[zen_skip_link_anchor]     = main-menu
+settings[zen_skip_link_text]       = Jump to navigation
+settings[zen_html5_respond_meta][] = respond
+settings[zen_html5_respond_meta][] = html5
+settings[zen_html5_respond_meta][] = meta
+settings[zen_rebuild_registry]     = 0 
+settings[zen_wireframes]           = 0
+

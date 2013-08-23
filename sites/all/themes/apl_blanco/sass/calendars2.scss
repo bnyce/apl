@@ -5,6 +5,10 @@ $c_text: #989898;
 $rr_green: #4F7019;
 $rr_green_light: #8AC32C;
 .view .date-nav-wrapper {
+
+div.ajax-progress {
+	display: block;
+}
 	margin: 0;
 	padding: 0;
 	div.date-nav {
@@ -16,6 +20,10 @@ $rr_green_light: #8AC32C;
 		width: 0;
 		height: 0;
 		&.date-prev {
+			div.ajax-progress {
+				margin-top: 25px !important;
+				margin-right: 25px !important;
+			}
 			right: 30px;
 			a {
 			border-color: white $rr_green white white;
@@ -27,6 +35,9 @@ $rr_green_light: #8AC32C;
 			}
 		}
 		&.date-next {
+			div.ajax-progress {
+				margin-top: 5px !important;
+			}
 			right: 12px;
 			a {
 			border-color: white white white $rr_green;
@@ -66,6 +77,9 @@ div.acys {
 	td.mini {
 	&.past div {
 		background-color: silver;
+		&.month.mini-day-on > a {
+			background-color: lighten(silver, 10%) !important;
+		}
 	} 
 	&.empty div {
 		background-color: white;
@@ -79,7 +93,7 @@ div.acys {
 		text-align: center;
 		font-weight: bold;
 	&.month.mini-day-on > a {
-	    background-color: $c_blue !important;
+	    background-color: $c_blue;
 	    display: block;
 	    height: 100%;
 	    width: 100%;
@@ -113,7 +127,7 @@ tr {
 	background-color: $c_green;
 	border-left: 0;
 	&.past {
-		background-color: silver !important;
+		background-color: red !important;
 	}
 	&.past.empty {
 		background-color: white !important;

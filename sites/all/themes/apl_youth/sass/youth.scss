@@ -1,6 +1,9 @@
 @import "colors";
 
 body {
+	&.page-y h1.title {
+		display: none;
+	}
 	h2.pane-title {
 		font-family: 'Limoen';
 		font-size: 30px;

@@ -1,16 +1,26 @@
 @import "colors";
 @import "typography";
+div.blog-post {
+	div.views-row div.views-field {
+	&.views-field-body {
+		padding-left: 0px;
+	}
+	&.views-field-created-1 {
+		margin-left: 19px;
+	}
+	}
+}
 
 div.blogs-list,
+div.events,
 div.blog-post {
 	div.views-row {	
 		overflow: hidden;
-		//width: 50%;
-		width: 580px;
 		min-height: 155px;
 		border: 1px solid silver;
 		margin-bottom: 15px;
-		box-shadow: 5px 5px 5px silver;
+		//box-shadow: 5px 5px 5px silver;
+		box-shadow: 0px 5px 3px silver;
 		div.views-field {
 			padding-right: 10px;
 		&.views-field-field-main-image {
@@ -29,6 +39,7 @@ div.blog-post {
 			margin-right: 10px;
 			margin-left: 165px;
 			margin-bottom: 5px;
+			min-height: 22px;
 			//font-size: 14px;
 			font-size: 20px;
 			padding-right: 10px;
@@ -54,6 +65,12 @@ div.blog-post {
 			}
 		}
 		&.views-field-body {
+			padding-left: 165px;
+			padding-bottom: 10px;
+			margin-top: 10px;
+		}
+		&.views-field-field-date-and-time,
+		&.views-field-field-event-loc {
 			padding-left: 165px;
 			padding-bottom: 10px;
 			margin-top: 10px;

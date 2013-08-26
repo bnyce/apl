@@ -553,8 +553,8 @@ function template_preprocess_calendar_datebox(&$vars) {
   $force_view_url = !empty($view->date_info->block) ? TRUE : FALSE;
   $month_path = calendar_granularity_path($view, 'month');
   $year_path = calendar_granularity_path($view, 'year');
- // $day_path = calendar_granularity_path($view, 'day');
-  $day_path = "recycled-reads/schedule/day";
+  $day_path = calendar_granularity_path($view, 'day');
+ // $day_path = "recycled-reads/schedule/day";
   $vars['url'] = str_replace(array($month_path, $year_path), $day_path, date_pager_url($view, NULL, $date, $force_view_url));
   $vars['link'] = !empty($day_path) ? l($vars['day'], $vars['url']) : $vars['day'];
   $vars['granularity'] = $view->date_info->granularity;

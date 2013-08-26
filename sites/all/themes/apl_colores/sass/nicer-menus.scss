@@ -16,6 +16,7 @@ ul.menu {
 		a.qtip-hover,
 		&.over > a {	
 			background-color: white;
+			color: $blue;
 			box-shadow: 5px 5px 5px darken(silver, 20%);
 		}
 		ul {
@@ -54,11 +55,14 @@ ul.menu {
 		&.active-trail {
         	        > a,
 			a.active {
-				background-color: lighten($blue, 10%);
+				//background-color: lighten($blue, 10%);
+				background-color: white;
+				color: $blue;
 	                	font-weight: bold;
         	        }
 			ul li a:hover {
-				color: white;
+				//color: white;
+				color: $blue;
 			}
 			ul li:active-trail a {
 			}

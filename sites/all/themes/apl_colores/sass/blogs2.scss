@@ -1,19 +1,9 @@
 @import "colors";
 @import "typography";
-div.blog-post {
-	div.views-row div.views-field {
-	&.views-field-body {
-		padding-left: 0px;
-	}
-	&.views-field-created-1 {
-		margin-left: 19px;
-	}
-	}
-}
 
 div.blogs-list,
-div.events,
-div.blog-post {
+div.events {
+//div.blog-post {
 	div.views-row {	
 		overflow: hidden;
 		min-height: 155px;
@@ -87,6 +77,7 @@ div.blog-post {
 div.blog-post {
 		span.views-label.views-label-field-blog-books {
 			margin-left: 18px;
+			
 		}
 .jcarousel-skin-default .jcarousel-item-placeholder {
 	background: none;
@@ -96,7 +87,56 @@ div.blog-post {
 		overflow: hidden;
 		width: 100%;
 		div.jcarousel-skin-default a.jcarousel-next-horizontal {
-			right: -6px;
+//			right: -6px;
 		}
+	}
+}
+
+div.blog-post {
+	div.views-row {
+		overflow: hidden;
+		min-height: 155px;
+		border: 1px solid silver;
+		margin-bottom: 15px;
+		box-shadow: 0px 5px 3px silver;
+	div.views-field {
+		&.views-field-field-main-image {
+			float: left;
+			margin: 0 10px 10px 0;
+
+			a {
+				display: block;
+				height: 155px;
+				img {
+					max-width: 155px;
+					max-height: 155px;
+				}
+			}
+		}
+	&.views-field-field-blog-books {
+		margin-top: 10px !important;
+//		border: 1px solid green;
+	}
+	&.views-field-title {
+		//margin-right: 10px !important;
+		margin: 10px !important;
+	}
+	&.views-field-body {
+		padding-left: 0px !important;
+//		border: 1px solid red;
+		margin: 0 10px 15px;
+		padding-top: 0;
+		div.field-content {
+			margin-top: 0;
+		}
+		p:first-child {
+			margin-top: 0px;
+//			background-color: yellow;
+		}
+	}
+	&.views-field-created-1 {
+		margin-left: 19px;
+	}
+	}
 	}
 }

@@ -42,6 +42,7 @@ stylesheets[all][] = css/megamenus.css
 stylesheets[all][] = css/blogs2.css
 stylesheets[all][] = css/calendars2.css
 stylesheets[all][] = css/events2.css
+stylesheets[all][] = css/ie8.css
 
 
 scripts[] = js/aplcustom.js

@@ -5,6 +5,10 @@ $c_text: #989898;
 $rr_green: #4F7019;
 $rr_green_light: #8AC32C;
 .view .date-nav-wrapper {
+
+div.ajax-progress {
+	display: block;
+}
 	margin: 0;
 	padding: 0;
 	div.date-nav {
@@ -16,6 +20,10 @@ $rr_green_light: #8AC32C;
 		width: 0;
 		height: 0;
 		&.date-prev {
+			div.ajax-progress {
+				margin-top: 25px !important;
+				margin-right: 25px !important;
+			}
 			right: 30px;
 			a {
 			border-color: white $rr_green white white;
@@ -27,6 +35,9 @@ $rr_green_light: #8AC32C;
 			}
 		}
 		&.date-next {
+			div.ajax-progress {
+				margin-top: 5px !important;
+			}
 			right: 12px;
 			a {
 			border-color: white white white $rr_green;
@@ -51,7 +62,7 @@ $rr_green_light: #8AC32C;
 	}
 	}
 }
-div.arr-calendar {
+div.acys {
 	div.view-header {
 		padding-right: 2px;
 		div.date-heading h3 {
@@ -61,7 +72,45 @@ div.arr-calendar {
 		}
 	}
 
+.calendar-calendar .month-view .mini,
 .calendar-calendar .month-view .full {
+	td.mini {
+	&.past div {
+		background-color: silver;
+		&.month.mini-day-on > a {
+			background-color: lighten(silver, 10%) !important;
+		}
+	} 
+	&.empty div {
+		background-color: white;
+	} 
+	&.today div {
+		background-color: green;
+	} 
+	div {
+		background-color: $c_green;
+		height: 45px;
+		text-align: center;
+		font-weight: bold;
+	&.month.mini-day-on > a {
+	    background-color: $c_blue;
+	    display: block;
+	    height: 100%;
+	    width: 100%;
+		text-decoration: none;
+		&:hover {
+//			text-decoration: underline;
+			background-color: $rr_green_light !important;
+			color: white;
+		}
+	}
+		+ div {
+			background-color: black;
+			display: none;
+		}
+	}
+	}
+/****/
 th.days {
 	background-color: white;
 	border: none;
@@ -71,13 +120,14 @@ tr {
 	display: none;
 }
 //&.date-box, 
+//td,
 &.date-box td {
 //&.multi-day, 
 //&.multi-day td {
 	background-color: $c_green;
 	border-left: 0;
 	&.past {
-		background-color: silver !important;
+		background-color: red !important;
 	}
 	&.past.empty {
 		background-color: white !important;
@@ -99,6 +149,7 @@ td {
 	    height: 100%;
 	    width: 100%;
 	}
+&.mini.today,
 &.date-box.today {
 	border: 4px solid white;
 	background-color: green;

@@ -3,7 +3,7 @@ name        = APL Spanish
 description = Child theme of APL Blanco, with Spanish modifications
 
 core        = 7.x
-base theme  = apl_blanco
+base theme  = apl_colores
 
 stylesheets[all][] = css/ace.css
 stylesheets[all][] = css/apl_spanish.css

@@ -1,35 +1,47 @@
-/* line 3, ../sass/youth.scss */
+/* line 4, ../sass/youth.scss */
+body.page-y h1.title {
+  display: none;
+}
+/* line 7, ../sass/youth.scss */
+body h2.pane-title {
+  font-family: 'Limoen';
+  font-size: 30px;
+  color: #8064a2;
+  border-bottom: 0 solid white !important;
+}
+
+/* line 16, ../sass/youth.scss */
 .youth-banner {
   height: 110px;
 }
 
-/* line 11, ../sass/youth.scss */
+/* line 24, ../sass/youth.scss */
 p {
   margin-bottom: 10px;
 }
 
-/* line 16, ../sass/youth.scss */
+/* line 29, ../sass/youth.scss */
 body div#apl_footer {
   background-color: #4e3c64;
 }
-/* line 21, ../sass/youth.scss */
+/* line 34, ../sass/youth.scss */
 body h1 {
   color: #8064a2;
 }
 
-/* line 26, ../sass/youth.scss */
+/* line 39, ../sass/youth.scss */
 div.overlogodiv {
   background: transparent url("../../apl_blanco/images/apl_logo_color.png") no-repeat 10px 10px;
   width: 125px;
   height: 85px;
 }
 
-/* line 31, ../sass/youth.scss */
+/* line 44, ../sass/youth.scss */
 li.apl-mnav-link.ahc > a {
   font-weight: 800;
 }
 
-/* line 34, ../sass/youth.scss */
+/* line 47, ../sass/youth.scss */
 div#highlight {
   margin-left: 0;
 }

@@ -26,8 +26,7 @@ stylesheets[all][] = css/virtual.css
 stylesheets[all][] = css/austinmusic.css
 stylesheets[all][] = css/info-guides.css
 stylesheets[all][] = css/libraryservices.css
-stylesheets[all][] = css/nice-menus.css
-;stylesheets[all][] = css/nicer-menus.css
+stylesheets[all][] = css/nicer-menus.css
 stylesheets[all][] = css/mailchimp.css
 stylesheets[all][] = css/ace.css
 stylesheets[all][] = css/apl_global_search.css
@@ -39,11 +38,9 @@ stylesheets[all][] = css/news.css
 stylesheets[all][] = css/apl-recommends.css
 stylesheets[all][] = css/gsa.css
 stylesheets[all][] = css/locale.css
-;stylesheets[all][] = css/megamenus.css
-;stylesheets[all][] = css/blogs2.css
-;stylesheets[all][] = css/calendars2.css
-;stylesheets[all][] = css/events2.css
-stylesheets[all][] = css/ie8.css
+stylesheets[all][] = css/megamenus.css
+stylesheets[all][] = css/blogs2.css
+stylesheets[all][] = css/calendars2.css
 
 
 scripts[] = js/aplcustom.js

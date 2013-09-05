@@ -1,18 +1,5 @@
 @import "colors";
 
-body {
-	&.page-y h1.title {
-		display: none;
-	}
-	h2.pane-title {
-		font-family: 'Limoen';
-		font-size: 30px;
-		color: $youth_purple;
-		border-bottom: 0 solid white !important;
-	}
-
-}
-
 .youth-banner {
 	height: 110px;
 }

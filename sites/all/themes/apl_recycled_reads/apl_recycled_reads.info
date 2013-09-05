@@ -2,7 +2,7 @@ screenshot  = apl_recycled_reads.png
 name        = APL Recycled Reads
 description = Recycled Reads subtheme of APL Blanco.
 core        = 7.x
-base theme  = apl_colores
+base theme  = apl_blanco
 
 stylesheets[all][] = css/submenu.css
 stylesheets[all][] = css/highlighted.css

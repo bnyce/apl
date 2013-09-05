@@ -2,14 +2,12 @@ screenshot  = apl_youth.png
 name        = APL Youth
 description = Youth subtheme of APL Blanco.
 core        = 7.x
-base theme  = apl_colores
+base theme  = apl_blanco
 
 stylesheets[all][] = css/youth.css
 stylesheets[all][] = css/submenu.css
 stylesheets[all][] = css/highlighted.css
 stylesheets[all][] = css/wordart.css
-stylesheets[all][] = css/nice-menus.css
-stylesheets[all][] = css/events.css
 scripts[] = js/youth_submenu.js
 
 regions[top] = Top

@@ -1,10 +1,13 @@
 <?php
 /**
  * @file
- * Returns the HTML for a single Drupal page while offline.
+ * Zen theme's implementation to display a single Drupal page while offline.
  *
- * Complete documentation for this file is available online.
- * @see https://drupal.org/node/1728174
+ * All the available variables are mirrored in html.tpl.php and page.tpl.php.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_maintenance_page()
  */
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->
@@ -47,7 +50,7 @@
     <?php endif; ?>
 
     <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan">
+      <hgroup id="name-and-slogan">
         <?php if ($site_name): ?>
           <h1 id="site-name">
             <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
@@ -57,7 +60,7 @@
         <?php if ($site_slogan): ?>
           <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
         <?php endif; ?>
-      </div>
+      </hgroup><!-- /#name-and-slogan -->
     <?php endif; ?>
 
     <?php print $header; ?>
@@ -74,24 +77,24 @@
       <?php endif; ?>
       <?php print $messages; ?>
       <?php print $content; ?>
-    </div>
+    </div><!-- /#content -->
 
     <div id="navigation">
       <?php print $navigation; ?>
-    </div>
+    </div><!-- /#navigation -->
 
     <?php if ($sidebar_first || $sidebar_second): ?>
       <aside class="sidebars">
         <?php print $sidebar_first; ?>
         <?php print $sidebar_second; ?>
-      </aside>
+      </aside><!-- /.sidebars -->
     <?php endif; ?>
 
-  </div>
+  </div><!-- /#main -->
 
   <?php print $footer; ?>
 
-</div>
+</div><!-- /#page -->
 
 <?php print $bottom; ?>
 

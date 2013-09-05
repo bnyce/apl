@@ -51,7 +51,7 @@ to delete all the generated CSS files.
 
 - Delete all CSS files by running: compass clean
 - Edit the config.rb file in your theme's directory and uncomment this line by
-  deleting the "#" from the beginning:
+  deleting the "#" from the beginnning:
     #environment = :production
 - Regenerate all the CSS files by running: compass compile
 

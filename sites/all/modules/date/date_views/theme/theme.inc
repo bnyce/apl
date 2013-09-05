@@ -171,7 +171,7 @@ function theme_date_nav_title($params) {
       $date_arg = $date_info->year;
       break;
     case 'month':
-      $format = !empty($format) ? $format : (empty($date_info->mini) ? 'F Y' : 'F Y');
+      $format = !empty($format) ? $format : (empty($date_info->mini) ? 'F Y' : 'F');
       $title = date_format_date($date_info->min_date, 'custom', $format);
       $date_arg = $date_info->year . '-' . date_pad($date_info->month);
       break;
@@ -190,8 +190,7 @@ function theme_date_nav_title($params) {
     // Month navigation titles are used as links in the mini view.
     $attributes = array('title' => t('View full page month'));
     $url = date_pager_url($view, $granularity, $date_arg, TRUE);
-    //return l($title, $url, array('attributes' => $attributes));
-    return $title;
+    return l($title, $url, array('attributes' => $attributes));
   }
   else {
     return $title;

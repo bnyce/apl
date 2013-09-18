@@ -19,6 +19,7 @@
 $link = str_replace('/y2/','/y/', $link);
 $link = str_replace('/recycled-reads2/','/recycled-reads/', $link);
 $link = str_replace('/events2/','/events/', $link);
+$link = str_replace('/rooms2/','/rooms/', $link);
 
 ?>
 <div class="<?php print $granularity ?> <?php print $class; ?>"> <?php print !empty($selected) ? $link : $day; ?> </div>

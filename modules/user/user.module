@@ -1039,6 +1039,9 @@ function user_account_form(&$form, &$form_state) {
     '#access' => ($register || ($user->uid == $account->uid && user_access('change own username')) || $admin),
     '#weight' => -10,
   );
+#        if($path == 'group/register'){
+          $form['account']['name']['#title'] = 'APL Group Representative Username';
+ #       }
 
   $form['account']['mail'] = array(
     '#type' => 'textfield',
@@ -3795,7 +3798,8 @@ function user_register_form($form, &$form_state) {
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Create new account'),
+    #'#value' => t('Create new account'),
+    '#value' => t('Register New Group'),
   );
 
   $form['#validate'][] = 'user_register_validate';

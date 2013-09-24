@@ -1,0 +1,20 @@
+body.page-group {
+	form#user-login {
+		display: none;
+	}
+}
+body.page-group-register {
+
+fieldset#edit-profile-main.form-wrapper {
+    background-color: #FF0000;
+    height: 0;
+    max-height: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+}
+
+.form-item.form-type-textfield.form-item-field-mr-date-and-time-und-0-value2-date {
+    visibility: hidden !important;
+}

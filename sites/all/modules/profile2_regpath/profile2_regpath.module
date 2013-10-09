@@ -47,9 +47,11 @@ function profile2_regpath_menu() {
             'file' => 'registration_form.inc',
             'type' => MENU_LOCAL_TASK,
           );
+/*
 	if($registration_path == 'group/register'){
           $items[$registration_path]['title'] = 'Register New Group';
 	}
+*/
           $items[$path] = array(
             'title' => 'Log in',
             'page callback' => '_profile2_regpath_user_login',

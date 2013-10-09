@@ -1,3 +1,4 @@
+/*
 body.page-group {
 	form#user-login {
 		display: none;
@@ -14,7 +15,12 @@ fieldset#edit-profile-main.form-wrapper {
 }
 
 }
-
+*/
 .form-item.form-type-textfield.form-item-field-mr-date-and-time-und-0-value2-date {
-    visibility: hidden !important;
+//    visibility: hidden !important;
+	input,
+	label,
+	div.description {
+		color: silver;
+	}
 }

@@ -44,6 +44,7 @@ stylesheets[all][] = css/locale.css
 ;stylesheets[all][] = css/calendars2.css
 ;stylesheets[all][] = css/events2.css
 stylesheets[all][] = css/ie8.css
+stylesheets[all][] = css/health.css
 
 
 scripts[] = js/aplcustom.js

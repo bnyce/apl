@@ -189,13 +189,3 @@ function adminimal_admin_block_content($variables) {
   }
   return $output;
 }
-
-/*
-function adminimal_node_reservation_room_form_alter(&$form, &$form_state) {
-	$form['field_room']['und']['#states'] = array(
-		
-		'visible' => FALSE,
-		),
-	);
-}
-*/

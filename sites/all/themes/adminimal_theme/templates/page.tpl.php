@@ -1,6 +1,6 @@
 
   <div id="branding" class="clearfix">
-    <?php print $breadcrumb; ?>
+<a id="apl_logo" href="http://library.austintexas.gov"><img src="http://alis.dev/mr2014q/sites/all/themes/adminimal_theme/images/apl_60.png" /></a>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
       <h1 class="page-title"><?php print $title; ?></h1>

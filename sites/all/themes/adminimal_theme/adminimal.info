@@ -5,6 +5,9 @@ stylesheets[screen][] = css/reset.css
 stylesheets[screen][] = css/style.css
 stylesheets[screen][] = css/custom.css
 stylesheets[screen][] = css/apl.css
+
+scripts[] = js/meeting-rooms.js
+
 settings[shortcut_module_link] = 1
 settings[display_icons_config] = 1
 regions[content] = Content

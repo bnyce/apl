@@ -5,14 +5,35 @@
 		color: silver;
 	}
 }
-div.clientside-error label.error {
-	color: white;
+body.page-node-add.page-node-add-room-reservation,
+body.page-node-edit.node-type-room-reservation {
+div.form-item.form-type-textfield.form-item-title {
+	display: none;
 }
-a#apl_logo {
-    float: left;
-    margin-right: 30px;
-    margin-top: -18px;
 }
-body.page-node-add-room-reservation .form-item.form-type-textfield.form-item-title {
-    display: none;
+div.messages {
+	li.this_step {
+		font-weight: bold;
+		font-size: 1.4em;
+	}
+	label.error {
+		color: white;
+	}
+}
+	a#apl_logo {
+	//	background-color: red;
+		height: 61px !important;
+		min-height: 61px;
+		width: 95px;
+		float: left !important;
+		margin: 0px 10px 10px -10px;
+	}
+body.page-account-register {
+	fieldset {
+		padding: 0;
+		border: 0;
+		legend {
+			display: none;
+		}
+	}
 }

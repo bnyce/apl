@@ -5,6 +5,21 @@
 		color: silver;
 	}
 }
+body.page-node-add.page-node-add-room-reservation,
+body.page-node-edit.node-type-room-reservation {
+div.form-item.form-type-textfield.form-item-title {
+	display: none;
+}
+}
+div.messages {
+	li.this_step {
+		font-weight: bold;
+		font-size: 1.4em;
+	}
+	label.error {
+		color: white;
+	}
+}
 	a#apl_logo {
 	//	background-color: red;
 		height: 61px !important;
@@ -13,7 +28,7 @@
 		float: left !important;
 		margin: 0px 10px 10px -10px;
 	}
-body.page-group-register {
+body.page-account-register {
 	fieldset {
 		padding: 0;
 		border: 0;

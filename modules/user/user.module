@@ -717,10 +717,14 @@ function user_password($length = 10) {
 
   // Loop the number of times specified by $length.
   for ($i = 0; $i < $length; $i++) {
+    do {
+      // Find a secure random number within the range needed.
+      $index = ord(drupal_random_bytes(1));
+    } while ($index > $len);
 
     // Each iteration, pick a random character from the
     // allowable string and append it to the password:
-    $pass .= $allowable_characters[mt_rand(0, $len)];
+    $pass .= $allowable_characters[$index];
   }
 
   return $pass;
@@ -1039,9 +1043,6 @@ function user_account_form(&$form, &$form_state) {
     '#access' => ($register || ($user->uid == $account->uid && user_access('change own username')) || $admin),
     '#weight' => -10,
   );
-#        if($path == 'group/register'){
-#          $form['account']['name']['#title'] = 'APL Group Representative Username';
- #       }
 
   $form['account']['mail'] = array(
     '#type' => 'textfield',
@@ -3799,7 +3800,6 @@ function user_register_form($form, &$form_state) {
   $form['actions']['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Create new account'),
-    #'#value' => t('Register New Group'),
   );
 
   $form['#validate'][] = 'user_register_validate';

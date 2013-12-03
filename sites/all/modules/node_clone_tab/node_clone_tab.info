@@ -4,9 +4,9 @@ core = "7.x"
 dependencies[] = clone
 
 files[] = node_clone_tab.module
-; Information added by drupal.org packaging script on 2012-02-28
-version = "7.x-1.0"
+; Information added by  packaging script on 2013-11-22
+version = "7.x-1.1"
 core = "7.x"
 project = "node_clone_tab"
-datestamp = "1330447248"
+datestamp = "1385113712"
 

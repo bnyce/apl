@@ -6,7 +6,7 @@ base theme  = zen
 
 stylesheets[all][] = css/html.css
 stylesheets[all][] = css/master.css
-stylesheets[all][] = css/top_nav.css
+;stylesheets[all][] = css/top_nav.css
 stylesheets[all][] = css/footer.css
 stylesheets[all][] = css/blogs.css
 stylesheets[all][] = css/search.css
@@ -43,6 +43,7 @@ stylesheets[all][] = css/blogs2.css
 stylesheets[all][] = css/calendars2.css
 stylesheets[all][] = css/events2.css
 stylesheets[all][] = css/ie8.css
+stylesheets[all][] = css/top.css
 
 
 scripts[] = js/aplcustom.js

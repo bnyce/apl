@@ -1,8 +1,61 @@
 @import "colors";
 $width: 100%;
 
+div#mini-panel-top {
+	background-color: white;
+	.panel-col-top {
+		background-color: $blue_black;
+		ul.menu {
+			height: 18px;
+			max-height: 18px;
+			li:nth-child(3) a {
+				color: $yellow;
+				font-weight:bold;
+			}
+			li:last-child a {
+				border-right: none;
+			}
+			li a {
+				text-transform: uppercase;
+				border-right: 1px solid fade-out(#BDBDBD, 0.2);
+				padding: 0 0.75em;
+				letter-spacing: 1px;
+				font-weight: bold;
+			}
+		}
+	}
+	.center-wrapper {
+		height: 72px;
+	}
+	.panel-col-first {
+		float: left;
+		position: relative;
+		.inside {
+			position: absolute;
+			left: 20px;
+			top: 2px;
+		}
+	}
+	.panel-col-last {
+		float: right;
+	}
+	.panel-col-bottom {
+		background-color: $blue;
+		ul.menu li a {
+			color: white;
+			font-size: 1.4em;
+			text-transform: none;
+			padding: 0 0.5em;
+			&:hover {
+				text-decoration: none;
+				background-color: white;
+				color: $blue;
+			}
+		}
+	}
+}
+
 #city-header {
-	background-color: $blue_black;
 	h2.pane-title {
 		display: none;
 	}
@@ -27,7 +80,6 @@ $width: 100%;
 	    text-align: center;
 		li:nth-child(3) a {
 			color: $yellow;
-			font-weight: bold;
 		}
 		li {
 			display: inline;

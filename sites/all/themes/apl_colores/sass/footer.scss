@@ -12,7 +12,7 @@ div#apl_footer {
 	float: left;
 	text-align: center;
 	clear: both;
-	width: 940px;
+//	width: 940px;
 	ul {
 	text-align: left;
 	padding: 0;
@@ -55,12 +55,88 @@ div#apl_footer {
 }
 
 #bottom {
+	border-bottom: 10px solid #00438E;
+#mini-panel-footer_container {
+    	padding: 10px;
+	background-image: url("/nav2014h/sites/all/themes/apl_colores/images/footer2.png");
+    	background-repeat: no-repeat;
+    	background-size: 500px auto;
+	background-position: 75px bottom;
+	.panel-col-last {
+		width: 385px;
+		border-left: 1px dotted #FFFFFF;
+		padding-left: 20px;
+		padding-top: 10px;
+	}
+}
+	div.panel-col-first {
+		h2.pane-title {
+			border-bottom: none;
+			padding-left: 15px;
+			font-weight: normal;
+			color: white;
+		}
+		ul li {
+			list-style-type: none;
+		}
+		div.panel-col-first {
+			h2.pane-title {
+    				color: $yellow;
+    				font-style: oblique;
+			}
+			ul li:nth-child(2) {
+				&:before {
+    					color: $yellow;
+					font-size: x-small;
+    					content: "New! ";
+				}
+			}
+		}
+		float: left;
+		width: 580px;
+		div.panel-col-first {
+			background-image: none;
+			width: 46%;
+		}
+		div.panel-col-last {
+			padding-right: 20px;
+			width: 160px !important;
+			float: right;
+			border-left: none !important;
+			padding-top: 0 !important;
+			cursor: pointer;
+			ul li {
+				float: left;
+				margin-right: 5px;
+				&:nth-child(1) {
+					background-image: url("/nav2014h/sites/all/themes/apl_colores/images/tw.png") !important;
+				}
+				&:nth-child(2) {
+					background-image: url("/nav2014h/sites/all/themes/apl_colores/images/fb.png") !important;
+				}
+				&:nth-child(3) {
+					background-image: url("/nav2014h/sites/all/themes/apl_colores/images/gp.png") !important;
+				}
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				background-size: 32px auto;
+				display: block;
+				height: 32px;
+				text-indent: -9999px;
+				width: 32px;
+}
+		}
+		float: left;
+		min-height: 85px;
+	}
+	
+	div.panel-col-last {
+		float: left;
+		margin-bottom: 0;
+	}
 	tbody {
 		border: none;
 	}
-//	border-bottom-left-radius: 10px;
-//	border-bottom-right-radius: 10px;
-//	background: #CCCCCC;
 	background-color: darken($blue, 10%);
 	a {
 		color: white;
@@ -69,9 +145,7 @@ div#apl_footer {
 	color: #333;
 	float: none;
 	clear: both;
-	width: $page_w + $page_pad*2;
-//	height: 7em;
-	padding-top: 10px;
+//	padding-top: 10px;
 	p {
 		margin-left:19px;
 		margin-top:10px;
@@ -80,7 +154,7 @@ div#apl_footer {
 
 #bottom_links {
 	margin: 0 0 10px 10px;
-	width: 940px;
+//	width: 940px;
 	height: 40px;
 	padding-left: 0;
 	li {

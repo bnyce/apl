@@ -21,6 +21,7 @@ Crawl-delay: 10
 
 Disallow: /databases/*/*
 Disallow: /node/*
+Disallow: /group/*
 
 # Directories
 Disallow: /includes/

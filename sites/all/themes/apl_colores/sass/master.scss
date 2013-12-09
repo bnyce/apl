@@ -6,7 +6,8 @@
 	@include page_alpha;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
-	width: $page_w + $page_pad*2;
+//	width: $page_w + $page_pad*2;
+	width: 100%;
 	background-color: white;
 }
 
@@ -33,7 +34,7 @@ body {
 			width: 340px;
 		}
 	}
-	background-color: $background_color;
+	//background-color: $background_color;
 //	background-color: mix(white, $blue, 90%);
 
 	> div {
@@ -187,7 +188,8 @@ div.block {
 	min-height: 490px;
 	background-color: white;
 	//width: $page_w;
-	width: $page_w + $page_pad*2;
+//	width: $page_w + $page_pad*2;
+	width: 100%;
 //	overflow: hidden;
 }
 #content-area {
@@ -196,10 +198,11 @@ div.block {
 
 #content {
 	float: left;
-	width: $page_w;
+	//width: $page_w;
+	width: 100%;
 //	margin-right: -100%;
 //	padding: 0 0 2em 0;
-	margin-left: $page_pad;
+	//margin-left: $page_pad;
 }
 
 #content-inner {

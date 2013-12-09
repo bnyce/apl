@@ -1,7 +1,40 @@
 @import "colors";
 $width: 100%;
-
+div#mini-panel-clone_of_messages {
+	text-align: center;
+	p {
+		margin-bottom: 0;
+	}
+span.field-content {
+	padding: 5px 20px;
+	display: block;
+}
+	div.warning {
+		background-color: $yellow;
+		background-image: none;
+		color: white;
+		border: none;
+		a {
+			color: $blue_black;
+		}
+	}
+}
 div#mini-panel-top {
+
+.panel-col-top,
+.panel-col-bottom {
+	width: 100%;
+	div.inside {
+		padding-top: 3px !important;
+	}
+}
+.panel-col-bottom {
+	margin-top: 10px;
+	height: 25px;
+}
+.center-wrapper {
+	margin-top: 10px;
+}
 	background-color: white;
 	.panel-col-top {
 		background-color: $blue_black;

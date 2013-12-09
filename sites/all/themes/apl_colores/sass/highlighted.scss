@@ -1,5 +1,45 @@
 @import "colors";
 
+#views_slideshow_cycle_main_clone_of_highlighted_images-panel_pane_8 {
+	position: relative;
+	//background-color: $black;
+	//opacity: .85;
+		.views-field.views-field-title {
+			position: absolute;
+			z-index: 10;
+	                font-weight: bold;
+        	        font-size: 16px;
+                	bottom: 43px;
+                	padding-top: 3px;
+			padding-left: 10px;
+			a {
+				color: white;
+			}
+
+		}
+		.views-field.views-field-body {
+			position: absolute;
+			bottom: 0;
+			z-index: 10;
+			color: white;
+			padding-left: 10px;
+		}
+        	div.views-field-field-highlighted-image {
+                z-index: 8;
+                position: relative;
+                &:after {
+                        background-color: $black;
+                        position: absolute;
+                        bottom: 5px;
+                        content: "";
+                        height: 64px;
+                        opacity: 0.4;
+                        width: 100%;
+                        z-index: 6;
+                }
+        	}
+
+}
 div.pane-content div.view div.view-content div.skin-default 
 div#apl-slideshow
 div.views-slideshow-cycle-main-frame-row-item div.views-field div.field-content img {
@@ -143,6 +183,7 @@ div#apl-slideshow {
 			content: "";
 			height: 64px;
 			opacity: 0.4;
+			background-color: white;
 			width: 100%;
 			z-index: 6;
 		}

@@ -1,0 +1,186 @@
+@import "colors";
+@import "patterns";
+
+// dimensions
+
+$col_first: 220px;
+$img_w: 220px;
+$border: 1px;
+$span_w: $img_w;
+$img_h: 175px;
+$pad: 5px;
+
+$blue_silver: lighten(mix($blue, silver), 20%);
+
+@mixin status {
+	margin: $pad*2 $pad*2 $pad*4;
+	border: 1px solid $blue;
+	padding: $pad*2 $pad*2 $pad*3 $pad*2;
+	@include rhombus;
+}
+/*
+div.pane-library-service-views-panel-pane-3 {
+	width: $img_w;
+}
+*/
+body.section-library-service-category,
+body.section-resources-for-you,
+body.section-library-service-audience,
+body.section-services {
+/*	div#content-area 
+	div.panel-col-first {
+		width: $col_first;
+	}
+*/
+	.views-field-body {
+		@include status;
+		border-color: $blue_silver;
+		div.field-content {
+			margin-top: 0;
+		}
+	}
+	div#content-area {
+		overflow: visible;
+		div.panel-col-first {
+			width: $col_first - 2px;
+			min-height: 218px;
+		}
+		div.panel-col-last {
+			float: left;
+			width: 678px;
+			min-height: 203px;
+			@include status;
+			margin: 20px 0px 20px 20px;
+			padding: 10px 10px 15px;
+		}
+	div.panel-col,
+	div.panel-col-first,
+	.panels-flexible-region-inside {
+		h2.pane-title {
+			font-size: 13px;
+			padding: 5px 5px 0 5px;
+		}
+		div.pane-custom.pane-1 {
+			background-color: #e8e8e8;
+			border-top-right-radius: 10px;		
+			border-bottom: 1px dashed white;
+			div.pane-content {
+				display: inline-block;
+				padding: $pad;
+			}
+		}
+		div.content div.field {
+			margin-bottom: 0;
+		}
+		margin-top: $pad*4;
+		margin-bottom: $pad*6;
+		padding-bottom: $pad*2;
+		div.field-item {
+			img {
+				max-width: 100%;
+				max-height: $img_h;
+				width: $img_w - $pad*2; 
+				@include rhombus;
+				margin: $pad*2 0 0;
+			}
+		}
+		div.field-name-field-library-service-category,
+		div.field-name-field-library-service-audience {
+			div.field-items {
+				padding: 0 $pad*2 0 $pad*4;
+			}
+		}
+		div.view-content,
+		div.field-items {
+			padding: 0 $pad*2 0;
+		}
+		div.field-label {
+			margin-left: $pad*2;
+		}
+		@include section-border;
+		border-color: $blue_silver;
+		div.views-field-title {
+			padding: $pad;
+		}
+		div.field-type-image div.field-label {
+			display: none;
+		}
+		div.taxonomy-term-description {
+			padding: 0 10px;
+		}
+		div.field-name-body {
+			img {
+				max-width: 100%;
+				height: auto !important;
+			}
+			@include status;
+			position: absolute;
+			margin-left: 230px;
+			div {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+	}
+}
+
+body.page-libraryservices {
+	div.view-grouping {
+	&.pane-library-service-feature-taxonomy-view-panel-pane-6 {
+		border-color: $yellow;
+		min-height: 350px;
+	}
+		height: 100%;
+		min-height: 300px;
+		&.computers,
+		&.community {
+			min-height: 350px;
+		}
+	}
+	div.view-content > div.view-grouping + div.view-grouping + div.view-grouping + div.view-grouping {
+		margin-right: 0;
+		+ div.view-grouping {
+			margin-right: 20px;
+			clear: left;
+			+ div.view-grouping {
+				clear: none;
+			}
+		}
+	}
+	h1.title {
+		margin-bottom: 1em;
+	}
+	div.view-grouping-content,
+	.pane-library-service-feature-taxonomy-view-panel-pane-6.view-grouping div.view-content {
+		margin: 0 $pad*2 $pad*4;
+	}
+	div.services-grouping,
+	.pane-library-service-feature-taxonomy-view-panel-pane-6.view-grouping div.views-row {
+	}
+	div.view-grouping {
+		div.view-grouping-header,
+		h2 {
+			font-size: 1.5em;
+			margin: $pad*2 $pad*2 0 !important;
+			font-weight: normal;
+			border-bottom: none;
+			padding: 0;
+			line-height: 1em;
+		}
+		width: $span_w - $border*2;
+		margin-bottom: $pad*5;
+		@include section-border;
+		border-color: $blue_silver;
+		float: left;
+		margin-right: 20px;
+		img {
+			max-width: 100%;
+			max-height: $img_h;
+			height: auto;
+			width: 100px; 
+			@include rhombus;
+			margin: 0 49px;
+		}
+	}
+}

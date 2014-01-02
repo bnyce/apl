@@ -1,0 +1,79 @@
+@import "colors";
+@import "dimensions";
+
+@mixin bookmark {
+	&:after {
+    border-color: transparent darken($blue,10%);
+    border-image: none;
+    border-style: solid;
+    border-width: 22px 0 0 22px;
+    content: "";
+    display: block;
+    float: right;
+    height: 0;
+    margin-top: 0;
+    position: absolute;
+    right: -22px;
+    top: 0;
+    width: 0;
+	}
+	&:before {
+    border-color: darken($blue,10%) darken($blue,10%) transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 11px;
+    border-radius: 0 0 4px 4px;
+    content: "";
+    display: block;
+    float: right;
+    height: 250px;
+    margin-top: 0;
+    position: absolute;
+    right: -22px;
+    top: 22px;
+    width: 0;
+	}
+
+}
+
+@mixin rhombus {
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+}
+
+@mixin section-border {
+        border: 1px solid $blue-light;
+        @include rhombus;
+}
+
+@mixin status {
+        margin: 0 $pad*2 $pad*4;
+        background-color: $status_background;
+        border: 1px solid $status_border;
+        padding: $pad*2 $pad*2 $pad*3 $pad*2;
+        @include rhombus;
+}
+
+@mixin textbox {
+       padding: 5px;
+       //border-bottom-left-radius: 5px;
+       border: 1px solid $blue;
+       height: 16px;	
+	float: right;
+}
+
+@mixin button {
+       background-color: $blue;
+       border: 1px solid transparent;
+       //border-top-right-radius: 5px;
+       color: white;
+       font-weight: bold;
+       max-height: 30px;
+       height: 28px;
+	margin: 0;
+	float: right;
+	&:hover {
+		background-color: lighten($blue, 10%);
+		cursor: pointer;
+	}
+}

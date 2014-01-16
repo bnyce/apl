@@ -17,7 +17,14 @@ span.field-content {
 	padding: 5px 20px;
 	display: block;
 }
-	div.warning {
+	div {
+	&.error {
+		background-color: #B73939;
+		background-image: none;
+		color: white;
+		padding: 5px 20px;
+	}
+	&.warning {
 		background-color: $yellow;
 		background-image: none;
 		color: white;
@@ -25,6 +32,7 @@ span.field-content {
 		a {
 			color: $blue_black;
 		}
+	}
 	}
 }
 div#mini-panel-apl_2014_top {
@@ -35,7 +43,7 @@ div#mini-panel-apl_2014_top {
 	div.inside {
 		padding-top: 3px !important;
 		margin: 0 auto;
-		width: 980px;
+		min-width: 980px;
 	}
 }
 .panel-col-bottom {
@@ -78,7 +86,7 @@ div#mini-panel-apl_2014_top {
 		}
 	}
 	.center-wrapper {
-		width: 980px;
+		min-width: 980px;
 		margin: 0 auto;
 		height: 72px;
 		margin-top: 5px;
@@ -108,14 +116,14 @@ div#mini-panel-apl_2014_top {
 			margin-top: -3px;
 			li {
 				display: inline-block;
-
+				margin-top: 1px;
 			}
 		li a {
 			color: white;
 			font-size: 1.4em;
 			text-transform: none;
 //			padding: 0 0.5em;
-			padding: 3px 9px 6px !important;
+			padding: 2px 9px 5px !important;
 			margin-left: -3px;
 			&:hover,
 			&.qtip-hover {

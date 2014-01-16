@@ -37,13 +37,20 @@ span.field-content {
 }
 div#mini-panel-apl_2014_top {
 
-.panel-col-top,
-.panel-col-bottom {
+.panel-col-top {
 	width: 100%;
 	div.inside {
 		padding-top: 3px !important;
 		margin: 0 auto;
 		min-width: 980px;
+	}
+}
+.panel-col-bottom {
+	width: 100%;
+	div.inside {
+		padding-top: 3px !important;
+		margin: 0 auto;
+		width: 980px;
 	}
 }
 .panel-col-bottom {
@@ -58,7 +65,7 @@ div#mini-panel-apl_2014_top {
 		float: left;
 	}
 	.panel-col-last {
-		float: left;
+		float: right;
 		margin-left: 20px;
 		width: 340px;
 	}
@@ -67,6 +74,7 @@ div#mini-panel-apl_2014_top {
 	.panel-col-top {
 		background-color: $blue_black;
 		ul.menu {
+			margin-left: 8px;
 			height: 18px;
 			max-height: 18px;
 			li:nth-child(3) a {
@@ -78,7 +86,7 @@ div#mini-panel-apl_2014_top {
 			}
 			li a {
 				text-transform: uppercase;
-				border-right: 1px solid fade-out(#BDBDBD, 0.2);
+				border-right: 1px solid fade-out(#BDBDBD, 0.6);
 				padding: 0 0.75em;
 				letter-spacing: 1px;
 				font-weight: bold;
@@ -86,7 +94,7 @@ div#mini-panel-apl_2014_top {
 		}
 	}
 	.center-wrapper {
-		min-width: 980px;
+		width: 980px;
 		margin: 0 auto;
 		height: 72px;
 		margin-top: 5px;

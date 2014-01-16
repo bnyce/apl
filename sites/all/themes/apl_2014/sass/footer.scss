@@ -1,6 +1,5 @@
 @import "colors";
 @import "dimensions";
-$domain: "10.91.28.149:8081/aplmenus4";
 
 #search_top, 
 #maincontent + #footer {
@@ -28,7 +27,7 @@ div.panel-col-first {
     			font-style: oblique;
 			padding: 0;
 
-    background-image: url("http://" + $domain + "/sites/all/themes/apl_2014/images/tagline_more_than_books2.png");
+    background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tagline_more_than_books2.png");
     background-repeat: no-repeat;
     font-style: oblique;
     text-indent: -9999px;
@@ -63,14 +62,14 @@ div.panel-col-first {
 				margin-right: 5px;
 		
 				&.menu-mlid-4536 {
-					background-image: url("http://" + $domain + "/sites/all/themes/apl_2014/images/tw.png") !important;
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tw.png") !important;
 					clear: both;
 				}
 				&.menu-mlid-4543 {
-					background-image: url("http://" + $domain + "/sites/all/themes/apl_2014/images/fb.png") !important;
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/fb.png") !important;
 				}
 				&.menu-mlid-4545 {
-					background-image: url("http://" + $domain + "/sites/all/themes/apl_2014/images/gp.png") !important;
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/gp.png") !important;
 					margin-right: 0;
 				}
 				background-position: center bottom;
@@ -99,7 +98,7 @@ div.panel-col-last {
 }
 
     	padding: 10px;
-	background-image: url("http://" + $domain + "/sites/all/themes/apl_2014/images/footer4.png");
+	background-image: url($domain_name + "/sites/all/themes/apl_2014/images/footer4.png");
 	background-image: none\9;
     	background-repeat: no-repeat;
     	background-size: 48% auto !important;

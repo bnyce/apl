@@ -42,14 +42,14 @@
 		padding-top: 8px !important;
 	}
 	input.search_button {
-		background-image:url('/aplmenus3/sites/all/themes/apl_2014/images/search_icon.png');
+		background-image:url($domain_name + '/sites/all/themes/apl_2014/images/search_icon.png');
 		background-color: white;
 		height:29px;
 		width:32px;
 		border: none;
 		position: absolute;
 		text-indent: -9999px;
-		top: 17px;
+		top: 19px;
 		left: 306px;
 		cursor: pointer;
 		&:hover {

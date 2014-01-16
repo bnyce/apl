@@ -4,8 +4,6 @@
 
 #page {
 	@include page_alpha;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
 //	width: $page_w + $page_pad*2;
 	width: 100%;
 	background-color: white;
@@ -181,8 +179,6 @@ div.block {
 
 
 #main {
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
 //	min-height: 715px;  /*issues with whitespace beneath #bottom */
 	height: auto !important; /*issues with whitespace beneath #bottom */
 	min-height: 490px;
@@ -197,12 +193,8 @@ div.block {
 }
 
 #content {
-	float: left;
-	//width: $page_w;
-	width: 100%;
-//	margin-right: -100%;
-//	padding: 0 0 2em 0;
-	//margin-left: $page_pad;
+	width: 980px;
+	margin: 0 auto;
 }
 
 #content-inner {

@@ -1,5 +1,13 @@
 @import "colors";
 $width: 100%;
+
+div#mini-panel-austin_history_center_bottom {
+	div.panel-col {
+		width: 33%;
+	}
+}
+
+
 div#mini-panel-clone_of_messages {
 	text-align: center;
 	p {
@@ -9,7 +17,14 @@ span.field-content {
 	padding: 5px 20px;
 	display: block;
 }
-	div.warning {
+	div {
+	&.error {
+		background-color: #B73939;
+		background-image: none;
+		color: white;
+		padding: 5px 20px;
+	}
+	&.warning {
 		background-color: $yellow;
 		background-image: none;
 		color: white;
@@ -18,14 +33,27 @@ span.field-content {
 			color: $blue_black;
 		}
 	}
+	}
 }
-div#mini-panel-top {
+div#mini-panel-apl_2014_top {
 
-.panel-col-top,
+.panel-col-top {
+	width: 100%;
+	div.inside {
+		padding-top: 3px !important;
+		margin: 0 auto;
+		min-width: 980px;
+	}
+}
 .panel-col-bottom {
 	width: 100%;
 	div.inside {
 		padding-top: 3px !important;
+		margin: 0 auto;
+		width: 980px;
+		a {
+			cursor:zoom-in;
+		}
 	}
 }
 .panel-col-bottom {
@@ -33,12 +61,23 @@ div#mini-panel-top {
 	height: 25px;
 }
 .center-wrapper {
-	margin-top: 10px;
+	.panel-col-first {
+		min-width: 580px;
+		width: 580px;
+		border: 1px dotted white;
+		float: left;
+	}
+	.panel-col-last {
+		float: right;
+		margin-left: 20px;
+		width: 340px;
+	}
 }
 	background-color: white;
 	.panel-col-top {
 		background-color: $blue_black;
 		ul.menu {
+			margin-left: 8px;
 			height: 18px;
 			max-height: 18px;
 			li:nth-child(3) a {
@@ -50,7 +89,7 @@ div#mini-panel-top {
 			}
 			li a {
 				text-transform: uppercase;
-				border-right: 1px solid fade-out(#BDBDBD, 0.2);
+				border-right: 1px solid fade-out(#BDBDBD, 0.6);
 				padding: 0 0.75em;
 				letter-spacing: 1px;
 				font-weight: bold;
@@ -58,7 +97,10 @@ div#mini-panel-top {
 		}
 	}
 	.center-wrapper {
+		width: 980px;
+		margin: 0 auto;
 		height: 72px;
+		margin-top: 5px;
 	}
 	.panel-col-first {
 		float: left;
@@ -71,19 +113,37 @@ div#mini-panel-top {
 	}
 	.panel-col-last {
 		float: right;
+		.inside {
+			float: right;
+		}
 	}
 	.panel-col-bottom {
 		background-color: $blue;
-		ul.menu li a {
+		border-top: 3px solid $blue;
+		ul.menu {
+			overflow: visible;
+			text-align: left;
+			margin-left: 15px;
+			margin-top: -3px;
+			li {
+				display: inline-block;
+				margin-top: 1px;
+			}
+		li a {
 			color: white;
 			font-size: 1.4em;
 			text-transform: none;
-			padding: 0 0.5em;
-			&:hover {
-				text-decoration: none;
+//			padding: 0 0.5em;
+			padding: 2px 9px 5px !important;
+			margin-left: -3px;
+			&:hover,
+			&.qtip-hover {
 				background-color: white;
+				text-decoration: none;
 				color: $blue;
 			}
+		
+		}
 		}
 	}
 }

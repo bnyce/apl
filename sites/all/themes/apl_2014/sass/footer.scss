@@ -6,83 +6,120 @@
     margin: 10px;
 }
 
-div#apl_footer {
-	margin: 0;
-	padding: 0 10px;
-	float: left;
-	text-align: center;
-	clear: both;
-//	width: 940px;
-	ul {
-	text-align: left;
-	padding: 0;
+#bottom {
+	border-bottom: 10px solid $blue;
+	border-top: 10px solid $blue;
+	background-color: #174478;
+#mini-panel-footer_container {
+	margin: 0 auto;
+	width: 980px;
+div.panel-col-first {
+//	border: 1px dotted lime;
+	margin-left: 5px;
+	width: 580px;
+	//border-right: 1px dotted white;
+	#more-than-books {
+		width: 220px;
+		float: left;
+		h2.pane-title {
+			border: none;
+			color: $yellow;
+    			font-style: oblique;
+			padding: 0;
+
+    background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tagline_more_than_books2.png");
+    background-repeat: no-repeat;
+    font-style: oblique;
+    text-indent: -9999px;
+	height: 26px;
+
+
+		}
 		ul {
-			list-style: none !important;
-			list-style-type: none !important;
-			list-style-image: none !important;
-			margin-top: 15px;
-			margin-right: 8px;
-			li {
-				a {
-					font-weight: normal;
-				}
-				clear: both;
-				font-size: 11px;
-				line-height: 11px;
-				li {
-					clear: both;
-					margin-top: 0px;
-					line-height: 0px;
-				} 
-			}
+			padding-left: 5px !important;
+		}
+		ul li {
+			list-style-type: none;
 		}
 	}
-	li {
-		float: left;
-		font-weight: bold;
-		list-style: none outside none !important;
-		padding-bottom: 10px;
-		list-style-type: none !important;
-		list-style-image: none !important;
-		margin-right: 5px;
-		width: 129px;
-	}
-	.region-footer {
-		font-size:14px;
-		padding-top:10px;
-		padding-left:-10em;
-	}
+	#connect-with-us {
+		float: right;
+		margin-right: 20px;
+		h2.pane-title {
+			float: left;
+			border: none;
+			font-size: small;
+			color: white;
+			font-weight: normal;
+			padding: 0;
+		}
+		ul {
+			padding-left: 5px !important;
+		}
+			ul li {
+				cursor: pointer;
+				float: left;
+				margin-right: 5px;
+		
+				&.menu-mlid-4536 {
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tw.png") !important;
+					clear: both;
+				}
+				&.menu-mlid-4543 {
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/fb.png") !important;
+				}
+				&.menu-mlid-4545 {
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/gp.png") !important;
+					margin-right: 0;
+				}
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				background-size: 32px auto;
+				display: block;
+				height: 32px;
+				text-indent: -9999px;
+				width: 32px;
+}
+}
+}
+div.panel-col {
+	border-left: 1px dotted white;
+	float: right;
+	margin-right: 18px;
+	padding: 10px 0 10px 10px;
+	width: 355px;
+}
+div.panel-col-last {
+	width: 340px;
+	margin-right: 20px;
+	padding-top: 0;
+	margin-top: 0;
+//	border: none;
 }
 
-#bottom {
-	border-bottom: 10px solid #00438E;
-#mini-panel-footer_container {
     	padding: 10px;
-	background-image: url("/nav2014h/sites/all/themes/apl_colores/images/footer2.png");
+	background-image: url($domain_name + "/sites/all/themes/apl_2014/images/footer4.png");
+	background-image: none\9;
     	background-repeat: no-repeat;
-    	background-size: 500px auto;
-	background-position: 75px bottom;
+    	background-size: 48% auto !important;
+	background-position: 100px bottom;
 	.panel-col-last {
-		width: 385px;
+//		width: 385px;
 		border-left: 1px dotted #FFFFFF;
 		padding-left: 20px;
-		padding-top: 10px;
+//		padding-top: 10px;
 	}
 }
-	div.panel-col-first {
+	div.panel-col {
 		h2.pane-title {
 			border-bottom: none;
 			padding-left: 15px;
 			font-weight: normal;
 			color: white;
 		}
-		ul li {
-			list-style-type: none;
-		}
 		div.panel-col-first {
 			h2.pane-title {
     				color: $yellow;
-    				font-style: oblique;
 			}
 			ul li:nth-child(2) {
 				&:before {
@@ -98,46 +135,28 @@ div#apl_footer {
 			background-image: none;
 			width: 46%;
 		}
-		div.panel-col-last {
+		div.panel-col {
 			padding-right: 20px;
 			width: 160px !important;
 			float: right;
 			border-left: none !important;
 			padding-top: 0 !important;
-			cursor: pointer;
-			ul li {
-				float: left;
-				margin-right: 5px;
-				&:nth-child(1) {
-					background-image: url("/nav2014h/sites/all/themes/apl_colores/images/tw.png") !important;
-				}
-				&:nth-child(2) {
-					background-image: url("/nav2014h/sites/all/themes/apl_colores/images/fb.png") !important;
-				}
-				&:nth-child(3) {
-					background-image: url("/nav2014h/sites/all/themes/apl_colores/images/gp.png") !important;
-				}
-				background-position: center bottom;
-				background-repeat: no-repeat;
-				background-size: 32px auto;
-				display: block;
-				height: 32px;
-				text-indent: -9999px;
-				width: 32px;
-}
+			h2.pane-title {
+				font-size: small;
+			}
 		}
 		float: left;
 		min-height: 85px;
 	}
 	
 	div.panel-col-last {
-		float: left;
+		float: right;
 		margin-bottom: 0;
 	}
 	tbody {
 		border: none;
 	}
-	background-color: darken($blue, 10%);
+	//background-color: darken($blue, 10%);
 	a {
 		color: white;
 	}

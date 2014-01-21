@@ -1,6 +1,20 @@
 @import "colors";
 $width: 100%;
 
+body {
+//	max-width: 768px;
+	margin: 0 auto;
+}
+html {
+	overflow-x: hidden;
+}
+
+div#austin_city_header {
+	margin: 0 auto;
+	width: 100%;
+	min-width: 345px;
+}
+
 div#mini-panel-austin_history_center_bottom {
 	div.panel-col {
 		width: 33%;
@@ -38,19 +52,21 @@ span.field-content {
 div#mini-panel-apl_2014_top {
 
 .panel-col-top {
-	width: 100%;
+	min-width: 100%;
+	//width: 980px;
 	div.inside {
 		padding-top: 3px !important;
 		margin: 0 auto;
-		min-width: 980px;
+	//	min-width: 980px;
 	}
 }
 .panel-col-bottom {
+//	width: 980px;
 	width: 100%;
 	div.inside {
 		padding-top: 3px !important;
 		margin: 0 auto;
-		width: 980px;
+//		width: 980px;
 		a {
 			cursor:zoom-in;
 		}
@@ -58,19 +74,25 @@ div#mini-panel-apl_2014_top {
 }
 .panel-col-bottom {
 	margin-top: 10px;
-	height: 25px;
+	min-height: 25px;
 }
 .center-wrapper {
+	min-width: 100%;
+//	width: 960px;
+	//background-color: yellow;
+//	max-width: 980px;
 	.panel-col-first {
-		min-width: 580px;
-		width: 580px;
-		border: 1px dotted white;
+		width: 144px;
+		height: 72px;
 		float: left;
 	}
 	.panel-col-last {
 		float: right;
+//		background-color: yellow;
 		margin-left: 20px;
+		margin-right: 20px;
 		width: 340px;
+		min-height: 67px;
 	}
 }
 	background-color: white;
@@ -78,8 +100,8 @@ div#mini-panel-apl_2014_top {
 		background-color: $blue_black;
 		ul.menu {
 			margin-left: 8px;
-			height: 18px;
-			max-height: 18px;
+		//	height: 18px;
+		//	max-height: 18px;
 			li:nth-child(3) a {
 				color: $yellow;
 				font-weight:bold;
@@ -97,7 +119,6 @@ div#mini-panel-apl_2014_top {
 		}
 	}
 	.center-wrapper {
-		width: 980px;
 		margin: 0 auto;
 		height: 72px;
 		margin-top: 5px;
@@ -112,7 +133,7 @@ div#mini-panel-apl_2014_top {
 		}
 	}
 	.panel-col-last {
-		float: right;
+		float: left;
 		.inside {
 			float: right;
 		}

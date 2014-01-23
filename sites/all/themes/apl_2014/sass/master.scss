@@ -294,6 +294,18 @@ h2.pane-title {
 	margin-top: 2px;
 	margin-left:0px;
 }
+div#content #content-inner {
+	max-width: 980px;
+	margin: 0 auto;
+	div.panel-col-first {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	div.panel-col-last {
+		float: left;
+		margin-left: 10px;
+	}
+}
 
 #header, 
 div#apl_footer, 

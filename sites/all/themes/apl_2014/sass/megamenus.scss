@@ -8,6 +8,7 @@ $mm_3col: ($mm_width - (3 - 1)*20) / 3 ; // width of each column, if there are 3
 $mm_2col: ($mm_width - (2 - 1)*20) / 2 ; // width of each column, if there are 2
 // 600 = 10+280+20+280+10 = 280
 
+/*
 li.menu-mlid-4435,
 li.menu-mlid-4454,
 li.menu-mlid-4464,
@@ -16,33 +17,15 @@ li.menu-mlid-4597,
 li.menu-mlid-4430 {
 	margin-top: 20px !important;
 }
-html body {
-#mini-panel-research {
-	div.panel-col-first {
-		width: 33%;
-	}
-	div.panel-col-last {
-		width: 67%;
-		#mini-panel-information_guides div.panel-panel {
-			width: 50%;
-		}
-	}
-}
-#mini-panel-research-1 {
-	div.panel-col-first {
-		width: 33%;
-	}
-	div.panel-col-last {
-		width: 67%;
-		#mini-panel-information_guides-1 div.panel-panel {
-			width: 50%;
-		}
-	}
-
+*/
+li.menu-mlid-4656,
+li.menu-mlid-4686,
+li.menu-mlid-4668,
+li.menu-mlid-4667,
+li.menu-mlid-4619 {
+	margin-top: 20px !important;
 }
 
-
-}
 #mini-panel-austin_history_center_all {
 	div.panel-col div.panel-col-first {
 		width: 67%;
@@ -59,18 +42,6 @@ html body {
 		}
 }
 
-
-#mini-panel-locations {
-	div.panel-col-first {
-		width: 33%;
-	}
-	div.panel-col-last {
-		width: 67%;
-		#mini-panel-library_locations div.panel-panel {
-			width: 50%;
-		}
-	}
-}
 
 .panel-pane.pane-custom.pane-4 > p {
     margin-left: 10px;

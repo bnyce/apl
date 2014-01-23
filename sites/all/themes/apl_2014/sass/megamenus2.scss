@@ -17,6 +17,16 @@ li.menu-mlid-4430 {
 	margin-top: 20px !important;
 }
 html body {
+div#mini-panel-apl_2014_my_apl,
+div#mini-panel-apl_2014_explore {
+	div.panel-col-first,
+	div.panel-col,
+	div.panel-col-last {
+		width: 33%;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
 #mini-panel-research {
 	div.panel-col-first {
 		width: 33%;
@@ -78,29 +88,34 @@ html body {
 
 
 
-div.qtip-light {
+div#mini-menus {
 	min-width: 320px;
 	margin: 0 auto;
 	border: 1px solid #efefef;
 }
-div.qtip-wrapper {
+div#mini-menus > div.panel-panel {
 	width: 100% !important;
 	background-color: white;
-	div.qtip-contentWrapper {
+	> div {
 		border: none !important;
 		max-width: 980px;
 		margin: 0 auto;
-	.panel-3col-33 .panel-col .inside {
-    		margin: 0;
-	}
-		div.qtip-content {
+		.panel-3col-33 .panel-col .inside {
+    			margin: 0;
+		}
+		> div.panel-pane {
 			div.panel-2col {
 				img {
 					max-width: 280px;
 					height: auto;
 				}
+				div.panel-col-first {
+					margin-left: 0px !important;
+					margin-right: 0px !important;
+				}
 				div.panel-col-last {
-					margin-right: 0px;
+					margin-left: 0px !important;
+					margin-right: 0px !important;
 				}
 			}
 			div.panel-1col {
@@ -129,7 +144,8 @@ div.qtip-wrapper {
 			}
 //			background-color: lighten($blue, 10%) !important;
 			padding: 0 !important;
-			div.menu-minipanels {
+			//div.menu-minipanels {
+			div.panel-display {
 				background-color: white;
 				padding: 10px !important;
 				li.menu-mlid-3973 {

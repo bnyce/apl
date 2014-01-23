@@ -35,6 +35,7 @@ stylesheets[all][] = css/apl-recommends.css
 stylesheets[all][] = css/gsa.css
 stylesheets[all][] = css/locale.css
 stylesheets[all][] = css/megamenus.css
+stylesheets[all][] = css/megamenus2.css
 stylesheets[all][] = css/blogs2.css
 stylesheets[all][] = css/calendars2.css
 stylesheets[all][] = css/events2.css

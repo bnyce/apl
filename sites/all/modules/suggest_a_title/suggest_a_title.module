@@ -114,30 +114,38 @@ function suggest_a_title_callback(&$form, &$form_state) {
 
 	switch($form['field_follow_up']['und']['#value']) {
 	case 'Denied':
-		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. Unfortunately, we are not able to purchase the title at this time. This item does not meet the Austin Public Library's Materials Selection policy (http://library.austintexas.gov/basic-page/materials-selection-policy).
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+		
+		Unfortunately, we are not able to purchase the title at this time. This item does not meet the Austin Public Library's Materials Selection policy (http://library.austintexas.gov/basic-page/materials-selection-policy).
 
-You may be able to borrow this title through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+You may be able to borrow this title through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 	case 'Not Available':
 		// Do we want to say WHY it's not available?
-		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. Unfortunately, we are not able to purchase the title at this time. The item is not available from our " . $format_v . " vendor.
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+		
+		Unfortunately, we are not able to purchase the title at this time. The item is not available from our " . $format_v . " vendor.
 
-Out-of-print and out-of stock titles may be available through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+Out-of-print and out-of stock titles may be available through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 
 	case 'In Catalog':
-		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. This title is listed in our catalog.  
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+		
+		This title is listed in our catalog.  
 
-For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically. For help in locating a copy, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically. For help in locating a copy, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 
 	case 'Resources':
 		// should Title be used for resources on ___ ?
-		$new_value = "The Austin Public Library offers many resources on " . $title . ". To find out more about what's available, please call the Reference Librarians at 512-974-7400 (select option 3) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+		$new_value = "The Austin Public Library offers many resources on " . $title . ". To find out more about what's available, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 
 	case 'To Be Ordered':
-		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. This title is available from our " . $format_v . " vendor and will be ordered promptly. It should arrive within 4-6 weeks.  
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+		
+		This title is available from our " . $format_v . " vendor and will be ordered promptly. It should arrive within 6-8 weeks.  
 
 For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically.";
 		break;
@@ -158,7 +166,7 @@ Ask a Librarian:
   http://library.austintexas.gov/ask
 
 Call a Librarian:
-  512-974-7400 (select option 3)
+  512-974-7400 (select option 1)
 
 ";
 	$response = '<textarea rows="50" name="field_selector_s_comment[und][0][value]" id="edit-field-selector-s-comment-und-0-value" class="text-full form-textarea">';

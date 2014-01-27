@@ -1,5 +1,28 @@
 @import "colors";
 
+div.inside div.pane-7 a#apl_logo_a {
+	background-image:url("/aplmenus10/sites/all/themes/apl_2014/images/apl_logo_color.png")\9;
+}
+body #bottom #mini-panel-footer_container div.panel-col-first #connect-with-us ul {
+	background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 32px auto;
+        display: block;
+        height: 32px;
+        text-indent: -9999px;
+        width: 32px;
+
+	li.menu-mlid-4543 {
+		background-image: url("http://alis.dev/aplmenus10/sites/all/themes/apl_2014/images/fb.png")\9;
+	}
+	li.menu-mlid-4536 {
+		background-image: url("http://alis.dev/aplmenus10/sites/all/themes/apl_2014/images/tw.png")\9;
+	}
+	li.menu-mlid-4545 {
+		background-image: url("http://alis.dev/aplmenus10/sites/all/themes/apl_2014/images/gplus-32.png")\9;
+	}
+
+
 body.page-apl-blanco {
 	div.pane-all-book-lists-panel-pane-6 {
 		margin-top: 50px\9;

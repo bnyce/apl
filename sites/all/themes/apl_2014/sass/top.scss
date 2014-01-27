@@ -1,6 +1,16 @@
 @import "colors";
 $width: 100%;
 
+a#apl_logo_a {
+ background-image: url('/aplmenus10/sites/all/themes/apl_2014/images/apl_logo_color.png'); 
+ background-image: url('/aplmenus10/sites/all/themes/apl_2014/images/apl_logo.svg');
+ display: block;
+ height: 71px;
+ width: 140px;
+ background-size: 105px auto;
+ background-repeat: no-repeat;
+}
+
 body {
 //	max-width: 768px;
 	margin: 0 auto;

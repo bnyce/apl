@@ -116,7 +116,7 @@ function suggest_a_title_callback(&$form, &$form_state) {
 	case 'Denied':
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
 		
-		Unfortunately, we are not able to purchase the title at this time. This item does not meet the Austin Public Library's Materials Selection policy (http://library.austintexas.gov/basic-page/materials-selection-policy).
+Unfortunately, we are not able to purchase the title at this time. This item does not meet the Austin Public Library's Materials Selection policy (http://library.austintexas.gov/basic-page/materials-selection-policy).
 
 You may be able to borrow this title through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
@@ -124,15 +124,15 @@ You may be able to borrow this title through Interlibrary Loan (http://library.a
 		// Do we want to say WHY it's not available?
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
 		
-		Unfortunately, we are not able to purchase the title at this time. The item is not available from our " . $format_v . " vendor.
+Unfortunately, we are not able to purchase the title at this time. The item is not available from our " . $format_v . " vendor.
 
 Out-of-print and out-of stock titles may be available through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
 
 	case 'In Catalog':
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
-		
-		This title is listed in our catalog.  
+
+This title is listed in our catalog.  
 
 For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically. For help in locating a copy, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
 		break;
@@ -144,8 +144,8 @@ For availability or to place a hold on this title, please check the catalog (htt
 
 	case 'To Be Ordered':
 		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
-		
-		This title is available from our " . $format_v . " vendor and will be ordered promptly. It should arrive within 6-8 weeks.  
+
+This title is available from our " . $format_v . " vendor and will be ordered promptly. It should arrive within 6-8 weeks.  
 
 For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically.";
 		break;

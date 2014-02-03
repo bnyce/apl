@@ -41,6 +41,7 @@ stylesheets[all][] = css/calendars2.css
 stylesheets[all][] = css/events2.css
 stylesheets[all][] = css/ie8.css
 stylesheets[all][] = css/top.css
+;stylesheets[all][] = css/breakpoint1.css
 
 
 scripts[] = js/aplcustom.js

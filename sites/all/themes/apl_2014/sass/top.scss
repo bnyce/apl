@@ -1,9 +1,12 @@
 @import "colors";
+@import "breakpoint";
+@import "hmm";
+
 $width: 100%;
 
 a#apl_logo_a {
- background-image: url('/aplmenus10/sites/all/themes/apl_2014/images/apl_logo_color.png'); 
- background-image: url('/aplmenus10/sites/all/themes/apl_2014/images/apl_logo.svg');
+ background-image: url($domain_name + '/sites/all/themes/apl_2014/images/apl_logo_color.png'); 
+ background-image: url($domain_name + '/sites/all/themes/apl_2014/images/apl_logo.svg');
  display: block;
  height: 71px;
  width: 140px;
@@ -33,14 +36,38 @@ div#mini-panel-austin_history_center_bottom {
 
 
 div#mini-panel-clone_of_messages {
+	background-color: $yellow;
 	text-align: center;
+	div.panel-col {
+			width: 100%;
+			div.pane-clone-of-news-panel-pane-9 {
+			@include breakpoint($high-tide) {
+				width: $first_col;
+				margin: 0 auto;
+			}
+			@include breakpoint($ipad) {
+				width: $ipad;
+			}
+			@include breakpoint($wide) {
+				width: $desktop;
+			}
+			}
 	p {
 		margin-bottom: 0;
 	}
-span.field-content {
-	padding: 5px 20px;
-	display: block;
-}
+	}
+		span.field-content {
+			padding: 5px 20px;
+			display: block;
+		color: $black;
+		a {
+			border-bottom: 1px dotted white;
+		&:hover {
+			border-bottom: 1px solid white;
+			text-decoration: none;
+		}
+		}
+		}
 	div {
 	&.error {
 		background-color: #B73939;
@@ -63,34 +90,109 @@ div#mini-panel-apl_2014_top {
 
 .panel-col-top {
 	min-width: 100%;
-	//width: 980px;
 	div.inside {
-		padding-top: 3px !important;
 		margin: 0 auto;
-	//	min-width: 980px;
-	}
-}
-.panel-col-bottom {
-//	width: 980px;
-	width: 100%;
-	div.inside {
-		padding-top: 3px !important;
-		margin: 0 auto;
-//		width: 980px;
-		a {
-			cursor:zoom-in;
+		width: $really_narrow;
+		@include breakpoint($high-tide) {
+			width: $narrow;
+		}
+/*
+		@include breakpoint($ipad) {
+			width: $ipad;
+		}
+*/
+		@include breakpoint($wide) {
+			//width: 960px;
+			width: 100%;
 		}
 	}
 }
-.panel-col-bottom {
-	margin-top: 10px;
-	min-height: 25px;
-}
+	.panel-col-bottom {
+		margin-top: 10px;
+		min-height: 25px;
+	//	width: 980px;
+		width: 100%;
+		background-color: $blue;
+		border-top: 3px solid $blue;
+		.inside {
+			padding-top: 3px !important;
+			margin: 0 auto;
+//			width: 980px;
+//			background-color: red;
+			width: $one_col;
+			@include breakpoint($high-tide) {
+				width: $first_col;
+			}
+			@include breakpoint($ipad) {
+				width: $ipad;
+			}
+			@include breakpoint($wide) {
+				width: $desktop;
+			}
+		ul.menu {
+			overflow: visible;
+			width: $one_col;
+			@include breakpoint($high-tide) {
+				width: $narrow;
+				margin-left: -5px;
+				text-align: left;
+				margin-top: -3px;
+			}
+			@include breakpoint($ipad) {
+				width: $narrow;
+			}
+			@include breakpoint($wide) {
+				width: $desktop;
+			}
+		li {
+			display: block;
+			border-bottom: 1px solid fade-out(#BDBDBD, 0.6);
+			@include breakpoint($high-tide) {
+			display: inline-block;
+			border-bottom: none;
+			}
+			margin-top: 1px;
+		a {
+			cursor:zoom-in;
+			color: white;
+			font-size: 1.4em;
+			text-transform: none;
+				width: $one_col;
+				padding: 5px 0 !important;
+				margin-top: 5px;
+			@include breakpoint($high-tide) {
+			width: auto;
+			padding: 2px 9px 5px !important;
+			margin-left: -4px;
+			margin-top: 0;
+			}
+			&:hover,
+			&.qtip-hover {
+				background-color: white;
+				text-decoration: none;
+				color: $blue;
+			}
+		
+		}
+		}
+		}
+		}
+	}
 .center-wrapper {
-	min-width: 100%;
-//	width: 960px;
-	//background-color: yellow;
+	position: relative;
+//	min-width: 100%;
 //	max-width: 980px;
+//	background-color: yellow;
+	width: $one_col;
+		@include breakpoint($high-tide) {
+			width: $first_col;
+		}
+		@include breakpoint($ipad) {
+			width: $ipad;
+		}
+		@include breakpoint($wide) {
+			width: $desktop;
+		}
 	.panel-col-first {
 		width: 144px;
 		height: 72px;
@@ -100,7 +202,7 @@ div#mini-panel-apl_2014_top {
 		float: right;
 //		background-color: yellow;
 		margin-left: 20px;
-		margin-right: 10px;
+		//margin-right: 10px;
 		margin-bottom: 10px;
 		width: 340px;
 		min-height: 67px;
@@ -109,13 +211,27 @@ div#mini-panel-apl_2014_top {
 	background-color: white;
 	.panel-col-top {
 		background-color: $blue_black;
+		
 		ul.menu {
-			margin-left: 8px;
-		//	height: 18px;
-		//	max-height: 18px;
 			li:nth-child(3) a {
 				color: $yellow;
 				font-weight:bold;
+				border-right: none;
+				@include breakpoint($high-tide) {
+					border-right: 1px solid fade-out(#BDBDBD, 0.6);
+				}
+			}
+			li:nth-child(5) a {
+				border-right: none;
+				@include breakpoint($wide) {
+					border-right: 1px solid fade-out(#BDBDBD, 0.6);
+				}
+			}
+			li:nth-child(6) a {
+				border-right: none;
+				@include breakpoint($high-tide) {
+					border-right: 1px solid fade-out(#BDBDBD, 0.6);
+				}
 			}
 			li:last-child a {
 				border-right: none;
@@ -139,7 +255,7 @@ div#mini-panel-apl_2014_top {
 		position: relative;
 		.inside {
 			position: absolute;
-			left: 20px;
+		//	left: 10px;
 			top: 2px;
 		}
 	}
@@ -147,35 +263,6 @@ div#mini-panel-apl_2014_top {
 		float: left;
 		.inside {
 			float: right;
-		}
-	}
-	.panel-col-bottom {
-		background-color: $blue;
-		border-top: 3px solid $blue;
-		ul.menu {
-			overflow: visible;
-			text-align: left;
-			margin-left: 15px;
-			margin-top: -3px;
-			li {
-				display: inline-block;
-				margin-top: 1px;
-			}
-		li a {
-			color: white;
-			font-size: 1.4em;
-			text-transform: none;
-//			padding: 0 0.5em;
-			padding: 2px 9px 5px !important;
-			margin-left: -3px;
-			&:hover,
-			&.qtip-hover {
-				background-color: white;
-				text-decoration: none;
-				color: $blue;
-			}
-		
-		}
 		}
 	}
 }

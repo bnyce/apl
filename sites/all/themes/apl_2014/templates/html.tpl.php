@@ -102,11 +102,6 @@ echo "Austin Public Library";
     <![endif]-->
   <?php endif; ?>
 
-<link media="only screen and (min-device-width: 768px)" href="<?php print $base_path; ?>/sites/all/themes/apl_2014/css/tablets.css" type="text/css" rel="stylesheet" />
-<link media="only screen and (max-device-width: 767px)" href="<?php print $base_path; ?>/sites/all/themes/apl_2014/css/phones.css" type="text/css" rel="stylesheet" />
-<link media="only screen and (max-device-width: 767px) and (orientation: portrait)" href="<?php print $base_path; ?>/sites/all/themes/apl_2014/css/phones-portrait.css" type="text/css" rel="stylesheet" />
-
-
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php if ($skip_link_text && $skip_link_anchor): ?>

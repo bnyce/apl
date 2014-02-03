@@ -1,5 +1,5 @@
-// $domain_name: "/aplmenus27"; // dev (/DOMAIN)
-$domain_name: ""; // prod (blank)
+ $domain_name: "/aplmenus31"; // dev (/DOMAIN)
+//$domain_name: ""; // prod (blank)
 
 
 // Austin Public Library brand colors //
@@ -157,7 +157,7 @@ $alert_color_darker: darken( $alert_color, 20% );
 
 @mixin headline2 {
 	padding: 5px 5px 0 0;
-	margin: 5px 0 !important;
+//	margin: 5px 0;
 	border-bottom: 1px solid $blue_medium;
 }
 

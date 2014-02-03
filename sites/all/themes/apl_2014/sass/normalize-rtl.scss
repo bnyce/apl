@@ -34,13 +34,6 @@ ul,
  * 3. Corrects alignment displayed oddly in IE6/7
  */
 
-legend {
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *margin-left: 0;
-    *margin-right: -7px; /* 3 */
-  }
-}
-
 /* =============================================================================
    Tables
    ========================================================================== */

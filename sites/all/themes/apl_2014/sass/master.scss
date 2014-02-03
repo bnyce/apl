@@ -1,6 +1,8 @@
 @import "colors";
 @import "dimensions";
 @import "patterns";
+@import "breakpoint";
+@import "hmm";
 
 #page {
 	@include page_alpha;
@@ -21,11 +23,6 @@ body {
 			margin-top: 0;
 //			border: 1px dotted red;
 			margin-bottom: 20px;
-		}
-		div.panel-col-first {
-			float: left;
-			width: 580px;
-			clear: both;
 		}
 		div.panel-col-last {
 			float: right;
@@ -194,7 +191,7 @@ div.block {
 
 #content {
 //	width: 980px;
-	margin: 0 auto;
+	margin: 0;
 }
 
 #content-inner {
@@ -205,8 +202,6 @@ div.block {
 }
 
 .panel-col-first {
-	float: left;
-//	width: 600px !important;
 	.views-field-title {
 		font-size: 12px;
 	}
@@ -295,12 +290,31 @@ h2.pane-title {
 	margin-left:0px;
 }
 div#content #content-inner {
-	max-width: 980px;
-	margin: 0 auto;
-	div.panel-col-first {
-		margin-left: 10px;
-		margin-right: 10px;
+//	background-color: green;
+	width: $one_col;
+	.panel-2col .panel-col-first {
+		width: 100%;
+        	@include breakpoint($first_col) {
+			width: $first_col;
+		}
 	}
+        @include breakpoint($one_col) {
+        	width: 100%;
+		#apl-slideshow img {
+			width: 100%;
+			height: auto;
+		}
+        }
+        @include breakpoint($high-tide) {
+        	width: $high-tide;
+        }
+        @include breakpoint($ipad) {
+        	width: $ipad;
+        }
+        @include breakpoint($wide) {
+        	width: $desktop;
+        }
+	margin: 0 auto;
 	div.panel-col-last {
 		float: left;
 		margin-left: 10px;
@@ -463,21 +477,6 @@ div#apl_footer {
 #content {
 	padding-top: 0px;
 }
-#content-area {
-//	margin-top: 20px;
-//	width: 902px;
-//	width: $page_w - $page_pad*2;
-}
-/*
-body.front {
-	.panel-col-last {
-		width: 300px !important;
-	}
-	.panel-col-first {
-		width: 600px !important;
-	}
-}
-*/
 #mini-panel-front_page_highlighted_area {
 	.panel-col-last {
 		width: 387px !important;

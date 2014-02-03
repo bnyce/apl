@@ -9,10 +9,19 @@ $mm_2col: ($mm_width - (2 - 1)*20) / 2 ; // width of each column, if there are 2
 // 600 = 10+280+20+280+10 = 280
 
 html body {
-	div.qtip p {
+	div.qtip {
+//		background-color: red;
+//		border: 3px solid fade-out(white, 0.6);
+//		border-top: none;
+		div.qtip-wrapper {
+			border: 2px solid $blue;
+//			border-top: none;
+		}
+ p {
 		margin-left: 10px;
 		padding-right: 10px;
 	}
+}
 div#mini-panel-apl_2014_my_apl,
 div#mini-panel-apl_2014_ask_us,
 div#mini-panel-apl_2014_explore {
@@ -27,6 +36,9 @@ div#mini-panel-apl_2014_explore {
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 	}
+}
+#mini-panel-apl_2014_using_the_library {
+	background-color: red;
 }
 #mini-panel-apl_2014_locations {
 	form {

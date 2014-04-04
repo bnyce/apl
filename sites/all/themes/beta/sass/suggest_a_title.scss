@@ -1,0 +1,33 @@
+@import "patterns";
+
+
+body.page-node-add-suggest-a-title {
+	#content-area {
+		margin-top: 20px;
+		.form-submit {
+			padding: 5px;
+		}
+		label.option {
+			display: inline;
+			font-weight: normal;
+			position: relative;
+			top: 2px;
+		}
+		.form-item {
+			margin-top: 0;
+			margin-bottom: 20px;
+			.description {	
+				font-size: 12px;
+				@include status;
+				margin: 5px 0 5px 5px;
+//		width: 300px;
+				line-height: 1.5em;
+				font-style: normal;
+				color: $status_color;
+			}
+		}
+		.form-item.form-type-radio.form-item-field-targeted-age-level-of-item-und {
+			margin-bottom: 5px;
+		}
+	}
+}

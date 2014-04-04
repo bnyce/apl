@@ -1,0 +1,274 @@
+// $domain_name: "/aplmenus27"; // dev (/DOMAIN)
+$domain_name: ""; // prod (blank)
+
+
+// Austin Public Library brand colors //
+$blue: #0069AA;
+$yellow: #fdb813;
+
+$apl_blue: #0069AA;
+$apl_blue_web: #0c7bbb;
+$apl_yellow: #fdb813;
+
+
+// Austin History Center
+
+// Experimental colors: February 20, 2013 //
+
+$ahc_brown: #ac6f29;
+$ahc_brick: #aa5025;
+$ahc_green: #ab9331;
+$ahc_olive: #aaaf7a;
+$ahc_patrick: #993f27;
+$ahc_mustard: #c2a93c;
+$ahc_paprika: #c0bc39;
+$ahc_moss: #a9aa89;
+
+
+// Recycled Reads //
+
+$arr_green: #4f6f18;
+$arr_lime: #7aa941;
+
+
+// Messages //
+
+// Important / Warning //
+
+//$warning_border: #ed5;
+//$warning_color: #840;
+//$warning_background: #fffce5;
+$warning_border: #fcb716;
+$warning_color: #da8c28;
+$warning_background: white;
+$warning_link: #f49d1e;
+
+
+// Help / Notice //
+
+//$status_border: #be7;
+//$status_color: #234600;
+//$status_background: #f8fff0;
+$status_border: #a6b839;
+$status_color: #345729;
+$status_background: #e7ea7f;
+$status_link: #8ca53c;
+
+@mixin status {
+	background-color: $status_background;
+	border: 1px solid $status_border;
+}
+
+// Error //
+
+$error_border: #ed541d;
+$error_color: #8c2e0b;
+$error_background: #fef5f1;
+$error_p_color: #333;
+
+
+
+// Standard radius size //
+
+$radius: 10px;
+
+
+// Colors //
+//$beige: #FFEAC4;
+$background_color: #e8e8e8;
+
+$white: white;
+$black: mix(black, $apl_blue, 80%);
+$apl_black: mix(black, $apl_blue, 80%);
+$blue_black: $apl_black;
+$silver: #CCCCCC;
+$purple: #800080;
+
+$gray_medium: #efefef;
+$purple_light: #edf0ff;
+
+$blue_medium_old: #CEDAEC;
+$blue_medium: lighten(mix($silver, $blue, 60%), 20%);
+$blue_purple: mix($purple, $blue, 60%);
+
+
+$blue_light_old: #EBEFF7;
+//$blue_light: lighten($blue_medium, 25%);
+$blue_light: #E1EAF0;
+
+$search_border: #B2B2B2;
+
+$blue_silver: mix($white, $blue, 25%);
+
+
+
+$title_color: $blue;
+
+$link_color: $blue;
+$visited_color: $blue;
+
+$hover_color: #999;
+$active_color: #999;
+
+
+$brand_color: $blue;
+$action_color: $status_border;
+$function_color: #f2f2f2;
+$alert_color: $warning_border;
+
+$brand_color_light: lighten( $brand_color, 10% );
+$brand_color_lighter: lighten( $brand_color, 20% );
+$brand_color_dark: darken( $brand_color, 10% );
+$brand_color_darker: darken( $brand_color, 20% );
+
+$action_color_light: lighten( $action_color, 10% );
+$action_color_lighter: lighten( $action_color, 20% );
+$action_color_dark: darken( $action_color, 10% );
+$action_color_darker: darken( $action_color, 20% );
+
+$function_color_light: lighten( $function_color, 10% );
+$function_color_lighter: lighten( $function_color, 20% );
+$function_color_dark: darken( $function_color, 10% );
+$function_color_darker: darken( $function_color, 20% );
+
+$alert_color_light: lighten( $alert_color, 10% );
+$alert_color_lighter: lighten( $alert_color, 20% );
+$alert_color_dark: darken( $alert_color, 10% );
+$alert_color_darker: darken( $alert_color, 20% );
+
+@mixin gradient($color1, $color2) {
+	background: -webkit-gradient(linear, left center, right center, from($color1), to($color2));
+	background: -moz-linear-gradient(left, $color1, $color2);
+	background: linear-gradient(270deg, $color2, $color1);
+	-pie-background: linear-gradient(270deg, $color2, $color1);
+	behavior: url(/sites/default/themes/beta/css/PIE.htc);
+}
+
+@mixin headline {
+	background: $blue;
+	border-top-left-radius: $radius;
+	border-top-right-radius: $radius;
+	color: white;
+	padding: .2em .5em 0.2em .5em;
+	@include gradient($blue, lighten($blue, 10%));
+	margin: .5em .5em .5em 0 !important;
+}
+
+
+@mixin headline2 {
+	padding: 5px 5px 0 0;
+	margin: 5px 0 !important;
+	border-bottom: 1px solid $blue_medium;
+}
+
+@mixin library_message {
+	border: 1px solid $alert_color;
+	background-color: $alert_color_lighter;
+	margin-top: 8px;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+@mixin header_alpha {
+//        height: 86px;
+        position: relative;
+        z-index: 1;
+//	background: url("../images/nav_head.jpg") no-repeat scroll 0 0 transparent;
+//	background-color: $apl_blue;
+	background-color: white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	//border: 1px solid $apl_blue;
+
+        div {
+              //  background-color: $blue;
+        &.overlogodiv {
+		border-bottom: 1px solid white;
+	&:hover {
+//		border-radius: 10px;
+		border-color: $blue;
+	}
+//                height: 86px;
+                height: 86px;
+                width: 124px;
+//                position: absolute;
+//                z-index: 10;
+//	background: url("../images/apl_logo_color.png") no-repeat scroll 10px 10px transparent;
+//	background: url("../images/apl_logo_color.png") no-repeat scroll 25px 10px transparent;
+//	padding: 10px 0 10px 25px;
+	margin: 0;
+        }
+        }
+}
+@mixin header_beta {
+        height: 486px;
+        position: relative;
+        /*background: url("../images/nav_head.jpg");*/
+        background-color: $blue;
+        @include gradient(lighten($blue, 10%), $blue);
+        background-repeat: no-repeat;
+        z-index: 0;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+        div {
+                background-color: transparent;
+        &.overlogodiv {
+                height: 86px;
+                width: 200px;
+                position: absolute;
+                z-index: 10;
+                background: url("../images/apl_logo_color.png") 10px 10px no-repeat;
+        }
+        }
+}
+
+@mixin page_alpha {
+        width: 950px;
+        margin: 0 auto;
+        line-height: 1.5em;
+}
+@mixin page_beta {
+        width: 950px;
+        margin: 0 auto;
+        line-height: 1.5em;
+        border-radius: 10px;
+}
+
+@mixin input_box_button {
+	min-height: 12px;
+	//margin: 0 0 10px 0;
+	padding: 6px 0;
+	text-indent: 6px;
+	width: 14em;
+	border: 1px solid $blue;
+	border-bottom-left-radius: 5px;
+	float: left;
+}
+
+@mixin input_button {
+	background-color: $blue;
+	color: white;
+	height: 30px;
+	padding: 4px 10px 5px;
+	vertical-align: middle;
+	float: left;
+	border-width: 0;
+	font-size: 1em;
+	font-weight: bold;
+	border-top-right-radius: 5px;
+	&:hover {
+		background-color: lighten($blue, 10%);
+	}
+}
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+@mixin divider {
+	border-bottom: 1px dotted $blue_light;
+	&.last,
+	&.views-row-last {
+		border-bottom: none;
+	}
+}

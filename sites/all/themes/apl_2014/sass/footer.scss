@@ -1,0 +1,216 @@
+@import "colors";
+@import "dimensions";
+@import "breakpoint";
+@import "hmm";
+
+#bottom {
+	border-bottom: 10px solid $blue;
+	border-top: 10px solid $blue;
+	background-color: #174478;
+
+#mini-panel-footer_container {
+	margin: 0 auto;
+//	max-width: 980px;
+//			background-color: green;
+			padding: 10px 0 0 0;
+                        //width: $one_col;
+                        width: 100%;
+                        @include breakpoint($high-tide) {
+                                width: $first_col;
+                        }
+                        @include breakpoint($ipad) {
+                                width: $ipad;
+                        }
+                        @include breakpoint($wide) {
+                                width: $desktop;
+                        }
+	
+	div.panel-col-first {
+			margin-bottom: 10px;
+                        width: 100%;
+                        @include breakpoint($high-tide) {
+                        	width: $first_col;
+                        }
+                        @include breakpoint($ipad) {
+                        	width: $ipad;
+                        }
+
+	#more-than-books {
+		width: 220px;
+		margin-bottom: 10px;
+		float: left;
+		h2.pane-title {
+			border: none;
+			color: $yellow;
+    			font-style: oblique;
+			padding: 0;
+			font-style: oblique;
+			text-indent: -9999px;
+			min-height: 29px;
+			
+			background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tagline_more_than_books2.png");
+			background-image: url($domain_name + "/sites/all/themes/apl_2014/images/more-than-books3.svg");
+			background-size: 200px auto;
+			background-position: left;
+			background-repeat: no-repeat;
+    
+		}
+		ul {
+			padding-left: 3px !important;
+			li {
+				list-style-type: none;
+			}
+		}
+	}
+
+	#connect-with-us {
+		margin: 0 0 10px 3px;
+		float: left;
+		clear: left;
+                        @include breakpoint($high-tide) {
+			float: right;
+			clear: none;
+                        }
+	//	margin-right: 20px;
+
+		h2.pane-title {
+			margin-bottom: 0 0 5px 0 !important;
+			float: left;
+			border: none;
+			font-size: small;
+			color: white;
+			font-weight: normal;
+			padding: 0;
+		}
+			ul {
+				padding-left: 5px !important;
+			li {
+				cursor: pointer;
+				float: left;
+				margin-right: 5px;
+		
+				&.menu-mlid-4536 {
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tw.png");
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tw.svg");
+					clear: both;
+				}
+				&.menu-mlid-4543 {
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/fb.png");
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/fb.svg");
+				}
+				&.menu-mlid-4545 {
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/gplus-32.png");
+					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/gplus-32.svg");
+					margin-right: 0;
+				}
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				background-size: 32px auto;
+				display: block;
+				height: 32px;
+				text-indent: -9999px;
+				width: 32px;
+				}
+				}
+}
+}
+div.panel-col-last {
+	width: 340px;
+	float: right;
+//	margin-right: 20px;
+	padding-top: 0;
+	margin-top: 0;
+//	border: none;
+}
+
+	background-image: url($domain_name + "/sites/all/themes/apl_2014/images/footer4.png"); 
+	background-image: none\9;
+    	background-repeat: no-repeat;
+    	background-size: 48% auto !important;
+	background-position: 100px bottom;
+}
+	div.panel-col {
+		h2.pane-title {
+			border-bottom: none;
+			padding-left: 15px;
+			font-weight: normal;
+			color: white;
+		}
+		div.panel-col-first {
+			h2.pane-title {
+    				color: $yellow;
+			}
+			ul li:nth-child(2) {
+				&:before {
+    					color: $yellow;
+					font-size: x-small;
+    					content: "New! ";
+				}
+			}
+		}
+		float: left;
+		width: 580px;
+		div.panel-col-first {
+			background-image: none;
+			width: 46%;
+		}
+		div.panel-col {
+			padding-right: 20px;
+			width: 160px !important;
+			float: right;
+			border-left: none !important;
+			padding-top: 0 !important;
+			h2.pane-title {
+				font-size: small;
+			}
+		}
+		float: left;
+		min-height: 85px;
+	}
+	
+	div.panel-col-last {
+		margin-bottom: 20px;
+	}
+	tbody {
+		border: none;
+	}
+	//background-color: darken($blue, 10%);
+	a {
+		color: white;
+	}
+	font-size:12px;
+	color: #333;
+	float: none;
+	clear: both;
+	p {
+		margin-left:19px;
+		margin-top:10px;
+	}
+}
+/*
+#bottom_links {
+	margin: 0 0 10px 10px;
+//	width: 940px;
+	height: 40px;
+	padding-left: 0;
+	li {
+		display: block;
+		float: left;
+		margin-right: 10px;
+	&:nth-child(3),
+	&:nth-child(4),
+	&:nth-child(5),
+	&:nth-child(6),
+	&:nth-child(7),
+	&:nth-child(8),
+	&:nth-child(9)
+ 	{
+		margin-top: 6px;
+	}
+	&:last-child {
+		float: right;
+		margin-right: 0;
+	}
+	}
+}
+*/

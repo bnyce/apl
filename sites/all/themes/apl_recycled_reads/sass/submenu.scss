@@ -1,0 +1,17 @@
+@import "colors-arr";
+
+.block-nice-menus,
+#block-nice-menus-1,
+#block-nice-menus-2 {
+	background-color: $arr_green;
+	ul li {
+		background-color: $arr_green;
+		ul {
+			border-color: transparent transparent transparent lighten($arr_green, 20%);
+		}
+	}
+	&:after,
+	&:before {
+//		display: none;
+	}
+}

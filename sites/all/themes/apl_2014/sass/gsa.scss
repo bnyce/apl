@@ -1,0 +1,9 @@
+@import "colors";
+
+li.keymatch {
+	border: 1px solid $blue;
+	background-color: white;
+	h3 {
+		font-size: 18px;
+	}
+}

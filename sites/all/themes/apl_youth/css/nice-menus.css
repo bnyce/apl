@@ -1,0 +1,16 @@
+/* line 3, ../sass/nice-menus.scss */
+#block-nice-menus-1 {
+  background-color: #8064a2;
+}
+/* line 5, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li {
+  background-color: #8064a2;
+}
+/* line 8, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.over > a, #block-nice-menus-1 ul li:hover > a {
+  color: #8064a2;
+}
+/* line 11, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li ul {
+  border-left: 11px solid #b4a4c8;
+}

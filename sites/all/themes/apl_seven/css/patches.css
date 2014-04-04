@@ -1,0 +1,4 @@
+/* line 3, ../sass/patches.scss */
+body.logged-in div#suggest-thanks {
+  display: none;
+}

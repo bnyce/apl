@@ -1,0 +1,75 @@
+@import "colors";
+
+.apl-blog-entry-wrapper {
+	padding-bottom: 1em;
+    	margin-bottom: 1em;	
+	.views-field-body {
+		margin-left: 1em;
+	}
+	.views-field-title {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	img {
+		margin: 0 .5em .5em 0;
+	}
+	p  {
+		padding-right: 1em;
+	}
+	.views-field-title {
+		font-size: 1.2em;
+	}
+	.views-field-title-1 {
+		text-align: right;
+		clear: both;
+		 span {
+			clear: both;
+			display: block;
+		}
+	}
+}
+
+.blEntryWrapper .blMEDImage {
+	width: auto !important;
+}
+
+.bTitleLink {
+	font-weight: bold;
+	color: $blue;	
+	font-size: 1.1em;
+	margin: 0;
+}
+
+.blEntryWrapper {
+	width: 100%;
+	clear: both;
+	padding: 8px 0px 8px 0px;
+}
+
+.blMEDImage {
+	width: 100px;
+	float: left;
+	margin-right: 8px;
+	height: auto;
+	clear: right;
+}
+
+.blAuthorName {
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 1em;
+}
+
+.basic_book_list_book_desc {
+	height: auto;
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+.views-field-body div.field-content {
+	margin-top: 1em;
+}
+
+.apl-blog-entry-wrapper {
+
+}

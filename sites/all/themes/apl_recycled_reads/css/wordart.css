@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Lim';
+  src: url("http://alis.dev/y20130725b/sites/default/files/fonts/DK%20Limoen.eot") format("eot");
+  src: url("http://alis.dev/y20130725b/sites/default/files/fonts/DK%20Limoen.eot?#iefix") format("embedded-opentype"), url("http://alis.dev/y20130725b/sites/default/files/fonts/DK%20Limoen.woff") format("woff"), url("http://alis.dev/y20130725b/sites/default/files/fonts/DK%20Limoen.ttf") format("truetype"), url("http://alis.dev/y20130725b/sites/default/files/fonts/DK%20Limoen.svg#Lim") format("svg");
+  font-weight: 400;
+}
+
+/* line 30, ../sass/wordart.scss */
+#childrens-services-blog h2 {
+  font-family: Lim, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  color: green;
+}

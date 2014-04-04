@@ -1,0 +1,22 @@
+#header input.search_button {
+	height: 32px;
+}
+
+select#t.hideMe {
+	padding-bottom: 6px;
+}
+
+/** Facets **/
+#popout-box-content .filterList {
+    width: 600px;
+}
+
+.filterList.facets .count, #popout-box-content .filterList ul .count {
+    position: static;
+    margin-left: 3px;
+    margin-right: 1px;
+}
+
+#popout-box-content .filterList .button.cancel {
+    margin-right: 8px;
+}

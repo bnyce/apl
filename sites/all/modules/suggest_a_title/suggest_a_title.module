@@ -1,0 +1,224 @@
+<?php
+/**
+ * @file
+ * Code for the Suggest a Title feature.
+ */
+
+include_once 'suggest_a_title.features.inc';
+
+/*
+function suggest_a_title_menu() {
+  $items = array();
+
+}
+*/
+
+function suggest_a_title_form_alter(&$form, &$form_state, $form_id) {
+//	dpm($form);
+if($form_id == 'suggest_a_title_node_form') {
+	drupal_set_title('Suggest a Title for Purchase');
+
+	// Note: It's better to get the language dynamically rather than hardcode it as 'und' //
+	// Note 2: It's good enough for now, though. See below... //
+
+	//$form['field_follow_up']['und']['#ajax'] = array(
+	$lang = $form['field_follow_up']['#language'];
+	$form['field_follow_up'][$lang]['#ajax'] = array(
+		'callback' => 'suggest_a_title_callback',
+		'wrapper' => 'edit-field-selector-s-comment-und-0-value'
+	);
+
+}
+}
+
+function suggest_a_title_callback(&$form, &$form_state) {
+	$new_value = '';
+
+
+	$title_v = $form['title']['#value'];
+
+	$author_v = $form['field_author_performer_band']['und'][0]['value']['#value'];
+		$author_l = $form['field_author_performer_band']['und']['#title'];
+		if($author_v) {
+			$title_by_author = $title_v . " by " . $author_v;
+		} else {
+			$title_by_author = $title_v;
+		}
+	$formats_a = array_filter($form_state['values']['field_format']['und']);
+		$format_l = $form['field_format']['und']['#title'];
+		$format_v = $formats_a[0]['value'];
+//		foreach ($formats_a as $id) {
+//			$id_i = $id['tid'];
+//			$format_v .= '  ' . $form['field_format']['und']['#options'][$id_i];
+	//		$format_v = trim($format_v);
+//		}
+	$languages_a = array_filter($form_state['values']['field_language']['und']);
+		$language_l = $form['field_language']['und']['#title'];
+		$language_v = '';
+		foreach ($languages_a as $id) {
+			$id_i = $id['tid'];
+			$language_v .= '  ' . $form['field_language']['und']['#options'][$id_i] . "\n";
+		}
+/*
+	$language_v = $form['field_language']['und']['#value'];
+		$language_l = $form['field_language']['und']['#title'];
+*/
+
+	$age_v = $form['field_targeted_age_level_of_item']['und']['#value'];
+		$age_l = $form['field_targeted_age_level_of_item']['und']['#title'];
+
+
+	$url_v = $form['field_url']['und'][0]['value']['#value'];
+		$url_l = $form['field_url']['und']['#title'];
+
+	$publisher_v = $form['field_publisher']['und'][0]['value']['#value'];
+		$publisher_l = $form['field_publisher']['und']['#title'];
+
+	$publication_year_v = $form['field_text_publication_year']['und'][0]['value']['#value'];
+		$publication_year_l = $form['field_text_publication_year']['und']['#title'];
+
+	$isbn_v = $form['field_isbn_issn_upc']['und'][0]['value']['#value'];
+		$isbn_l = $form['field_isbn_issn_upc']['und']['#title'];
+
+	$how_v = $form['field_how_did_you_learn_about_th']['und'][0]['value']['#value'];
+		$how_l = $form['field_how_did_you_learn_about_th']['und']['#title'];
+
+	$comments_v = $form['body']['und'][0]['value']['#value'];
+		$comments_l = $form['body']['und']['#title'];
+
+
+	$locations_a = array_filter($form_state['values']['field_which_library_locations_do']['und']);
+		$locations_l = $form['field_which_library_locations_do']['und']['#title'];
+		$locations_v = '';
+		foreach ($locations_a as $id) {
+			$id_i = $id['tid'];
+			$locations_v .= '  ' . $form['field_which_library_locations_do']['und']['#options'][$id_i] . "\n";
+		}
+
+
+	$all = "-- -- -- -- --";
+	$all .= "\n\nHere's what you suggested:\n\n";
+	if($title_v) {$all .= "Title:\n  " . $title_v . "\n\n";};
+	if($author_v) {$all .= $author_l . ":\n  " . $author_v . "\n\n";};
+	if($format_v) {$all .= $format_l . ":\n  " . $formats_a[0]['value'] . "\n\n";};
+	if($language_v) {$all .= $language_l . ":\n  " . $languages_a[0]['value'] . "\n\n";};
+//	if($language_v) {$all .= $language_l . ":\n  " . $language_v . "\n\n";};
+	if($age_v) {$all .= $age_l . ":\n  " . $age_v . "\n\n";};
+	if($url_v) {$all .= $url_l . ":\n  " . $url_v . "\n\n";};
+	if($publisher_v) {$all .= $publisher_l . ":\n  " . $publisher_v . "\n\n";};
+	if($publication_year_v) {$all .= $publication_year_l . ":\n  " . $publication_year_v . "\n\n";};
+	if($isbn_v) {$all .= $isbn_l . ":\n  " . $isbn_v . "\n\n";};
+	if($how_v) {$all .= $how_l . ":\n  " . $how_v . "\n\n";};
+	if($comments_v) {$all .= $comments_l . ":\n  " . $comments_v . "\n\n";};
+	if(trim($locations_v)) {$all .= $locations_l . "\n" . $locations_v;};
+
+	switch($form['field_follow_up']['und']['#value']) {
+	case 'Denied':
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+		
+Unfortunately, we are not able to purchase the title at this time. This item does not meet the Austin Public Library's Materials Selection policy (http://library.austintexas.gov/basic-page/materials-selection-policy).
+
+You may be able to borrow this title through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+		break;
+	case 'Not Available':
+		// Do we want to say WHY it's not available?
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+		
+Unfortunately, we are not able to purchase the title at this time. The item is not available from our " . $format_v . " vendor.
+
+Out-of-print and out-of stock titles may be available through Interlibrary Loan (http://library.austintexas.gov/basic-page/interlibrary-loan) or the TexShare Card Program (http://library.austintexas.gov/basic-page/texshare-card-program). For more information or to inquire about a title, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+		break;
+
+	case 'In Catalog':
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+
+This title is listed in our catalog.  
+
+For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically. For help in locating a copy, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+		break;
+
+	case 'Resources':
+		// should Title be used for resources on ___ ?
+		$new_value = "The Austin Public Library offers many resources on " . $title . ". To find out more about what's available, please call the Reference Librarians at 512-974-7400 (select option 1) or Ask a Librarian (http://library.austintexas.gov/ask) via chat, email, or text.";
+		break;
+
+	case 'To Be Ordered':
+		$new_value = "Thank you for taking the time to make a purchase suggestion to us for " . $title_by_author . ". Customer suggestions help us build a quality library collection. 
+
+This title is available from our " . $format_v . " vendor and will be ordered promptly. It should arrive within 6-8 weeks.  
+
+For availability or to place a hold on this title, please check the catalog (http://library.austintexas.gov/catalog) periodically.";
+		break;
+
+	default:
+		$new_value = "";
+	}
+
+	$new_value .= "
+
+Locations and hours of operation:
+  http://library.austintexas.gov/locations
+
+Library Catalog:
+  http://library.austintexas.gov/catalog
+  
+Ask a Librarian: 
+  http://library.austintexas.gov/ask
+
+Call a Librarian:
+  512-974-7400 (select option 1)
+
+";
+	$response = '<textarea rows="50" name="field_selector_s_comment[und][0][value]" id="edit-field-selector-s-comment-und-0-value" class="text-full form-textarea">';
+	$response .= $new_value;
+	$response .= trim($all);
+	$response .= '</textarea>';
+	return $response;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

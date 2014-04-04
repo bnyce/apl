@@ -1,0 +1,86 @@
+/* line 4, ../sass/slideshow.scss */
+body.page-ahc-front .views-slideshow-controls-top {
+  position: absolute;
+  right: 180px;
+  top: 450px;
+  z-index: 9;
+}
+/* line 59, ../sass/slideshow.scss */
+body.page-ahc-front .views_slideshow_pager_field_item {
+  float: left;
+  margin-right: 2px;
+  background-color: #aaaf7a;
+  min-width: 8px;
+  max-width: 8px;
+  min-height: 8px;
+  max-height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: .85;
+}
+/* line 70, ../sass/slideshow.scss */
+body.page-ahc-front .views_slideshow_pager_field_item a {
+  font-size: 0;
+}
+/* line 74, ../sass/slideshow.scss */
+body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-front .views_slideshow_pager_field_item:hover {
+  background-color: #383a23;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* line 84, ../sass/slideshow.scss */
+.views-field-field-ahc-ad-image {
+  margin-left: 180px;
+}
+/* line 86, ../sass/slideshow.scss */
+.views-field-field-ahc-ad-image img {
+  width: 580px;
+  height: auto;
+}
+
+/* line 92, ../sass/slideshow.scss */
+.views-slideshow-controls-text-pause.views_slideshow_controls_text_pause.views-slideshow-controls-text-pause-processed {
+  display: none;
+}
+
+/* line 96, ../sass/slideshow.scss */
+.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a,
+.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
+  height: 32px;
+  width: 32px;
+  display: block;
+  overflow: hidden;
+  text-indent: -100px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+/* line 136, ../sass/slideshow.scss */
+#views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content {
+  margin: 0;
+}
+/* line 138, ../sass/slideshow.scss */
+#views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content p {
+  margin: 0;
+}
+
+/* line 144, ../sass/slideshow.scss */
+.view-slideshow-test .view-content {
+  position: relative;
+  height: 175px;
+}
+/* line 148, ../sass/slideshow.scss */
+.view-slideshow-test .view-content .views-field.views-field-body {
+  background-color: white;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+  height: 50px;
+  max-height: 50px;
+}
+/* line 156, ../sass/slideshow.scss */
+.view-slideshow-test .view-content .views-field.views-field-body div.field-content {
+  padding: 5px;
+}

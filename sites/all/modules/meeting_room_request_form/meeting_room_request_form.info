@@ -1,0 +1,14 @@
+name = Meeting Room Request Form
+core = 7.x
+package = Features
+version = 7.x-0.01
+project = meeting_room_request_form
+dependencies[] = features
+dependencies[] = field_sql_storage
+dependencies[] = node_export_features
+dependencies[] = node
+dependencies[] = text
+features[features_api][] = api:1
+features[field][] = node-webform-body
+features[node][] = webform
+features[node_export_features][] = e5ff61c1-3310-2a54-1550-b30341ab9301

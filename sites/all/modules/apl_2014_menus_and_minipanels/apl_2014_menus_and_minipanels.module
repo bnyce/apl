@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the APL 2014 Menus and Minipanels feature.
+ */
+
+include_once 'apl_2014_menus_and_minipanels.features.inc';

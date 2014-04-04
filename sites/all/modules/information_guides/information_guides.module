@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Information Guides feature.
+ */
+
+include_once 'information_guides.features.inc';

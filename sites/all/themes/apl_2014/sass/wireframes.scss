@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Wireframes Styling
+ *
+ * Add wireframes to the basic layout elements.
+ */
+
+@import "base";
+
+
+.with-wireframes {
+  #header,
+  #main,
+  #content,
+  #navigation,
+  .region-sidebar-first,
+  .region-sidebar-second,
+  #apl_footer,
+  .region-bottom {
+    outline: 1px solid #ccc;
+/*
+    }
+*/
+
+
+  }
+}

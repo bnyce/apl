@@ -1,0 +1,110 @@
+@import "colors";
+
+p#other-location-links {
+	float: left;
+}
+form#by-zip {
+	float: right;
+}
+
+.views-field-nothing.holiday-schedule {
+	margin-bottom: 1em;
+}
+.views-field.views-field-description {
+	margin-bottom: 1em;
+}
+
+span.days {
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+    text-align: left;
+    width: 175px;
+}
+div.library-hours {
+	margin-left: -5px;
+	div {
+		border-bottom: 1px dotted $blue-light;
+		padding: 2px 5px;
+		width: 275px;
+		span.hours {
+			text-align: right;
+			display: block;
+		}
+	}
+	div.last {
+		border-bottom: none;
+	}
+}
+
+
+.views-field.views-field-field-library-image,
+.views-field.views-field-field-library-image-1 {
+	float: right;
+}
+div.street-block {
+	margin-left: 0 !important;
+}
+
+.views-field.views-field-field-address,
+.views-field-field-phone-num,
+.views-field.views-field-description,
+//.views-field.views-field-description-1,
+.views-field.holiday-schedule {
+	clear: left !important;
+	float: left !important;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
+}
+
+.views-field.holiday-schedule {
+	max-width: 200px;
+}
+.views-field-field-geofield,
+.views-field-field-phone-num {
+	margin-bottom: 1em;
+	clear: both;
+}
+//body.page-locations .views-field-field-geofield {
+body.page-locations .views-field-description-1 {
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid $blue-light;
+}
+div#block-panels_mini-library_locations {
+	div.center-wrapper {
+		clear: both;
+	}
+	div.panel-col-last,
+	div.panel-col-first {
+		width: 50% !important;
+		border: 1px solid $blue;
+	}
+	div.panel-col-first {
+		float: none;
+	}
+}
+div.panel-col-last,
+body.page-all-locations {
+	div.views-row {
+//		border-bottom: 1px solid $blue;
+//		margin-bottom: 2em;
+	}
+	div.views-field-name {
+//		@include headline2;
+//		font-size: 1.3em;
+//		margin-top: 1em;
+//		margin-bottom: .5em;
+//		border-bottom: 1px solid $blue;
+	}
+	div.thoroughfare {
+		float: none;	
+	}
+	span.locality,
+	span.state,
+	span.postal-code,
+	div.locality-block {
+		visibility: hidden;
+		max-height: 0;
+	}
+}

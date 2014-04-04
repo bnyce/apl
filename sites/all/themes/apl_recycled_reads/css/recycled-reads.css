@@ -1,0 +1,103 @@
+/* line 4, ../sass/recycled-reads.scss */
+.menu-path-node-29150 > a {
+  background-color: #8ac32c;
+}
+
+/* line 11, ../sass/recycled-reads.scss */
+#block-nice-menus-1 ul li ul li,
+#block-nice-menus-2 ul li ul li {
+  border-bottom: 1px dashed transparent;
+}
+/* line 13, ../sass/recycled-reads.scss */
+#block-nice-menus-1 ul li ul li.over,
+#block-nice-menus-2 ul li ul li.over {
+  border-color: rgba(138, 195, 44, 0.8);
+}
+/* line 16, ../sass/recycled-reads.scss */
+#block-nice-menus-1 ul li ul li.over > a,
+#block-nice-menus-2 ul li ul li.over > a {
+  background-color: #8ac32c;
+}
+
+/* line 29, ../sass/recycled-reads.scss */
+.block-nice-menus,
+#block-nice-menus-1,
+#block-nice-menus-2 {
+  background-color: #4f7019;
+}
+/* line 31, ../sass/recycled-reads.scss */
+.block-nice-menus ul li,
+#block-nice-menus-1 ul li,
+#block-nice-menus-2 ul li {
+  background-color: #4f7019;
+}
+/* line 32, ../sass/recycled-reads.scss */
+.block-nice-menus ul li.over > a,
+#block-nice-menus-1 ul li.over > a,
+#block-nice-menus-2 ul li.over > a {
+  background-color: #8ac32c;
+}
+/* line 38, ../sass/recycled-reads.scss */
+.block-nice-menus ul li a.active, .block-nice-menus ul li a.active-trail, .block-nice-menus ul li a:hover,
+#block-nice-menus-1 ul li a.active,
+#block-nice-menus-1 ul li a.active-trail,
+#block-nice-menus-1 ul li a:hover,
+#block-nice-menus-2 ul li a.active,
+#block-nice-menus-2 ul li a.active-trail,
+#block-nice-menus-2 ul li a:hover {
+  background-color: #8ac32c;
+}
+/* line 43, ../sass/recycled-reads.scss */
+.block-nice-menus ul li ul,
+#block-nice-menus-1 ul li ul,
+#block-nice-menus-2 ul li ul {
+  border-color: transparent transparent transparent #8ac32c;
+}
+/* line 47, ../sass/recycled-reads.scss */
+.block-nice-menus:before,
+#block-nice-menus-1:before,
+#block-nice-menus-2:before {
+  border-color: #324610 #324610 transparent !important;
+}
+/* line 50, ../sass/recycled-reads.scss */
+.block-nice-menus:after,
+#block-nice-menus-1:after,
+#block-nice-menus-2:after {
+  border-color: transparent #324610 !important;
+}
+
+/* line 56, ../sass/recycled-reads.scss */
+.youth-banner {
+  height: 110px;
+}
+
+/* line 60, ../sass/recycled-reads.scss */
+p {
+  margin-bottom: 10px;
+}
+
+/* line 65, ../sass/recycled-reads.scss */
+body div#apl_footer {
+  background-color: #4f7019;
+}
+/* line 70, ../sass/recycled-reads.scss */
+body h1 {
+  color: #4f7019;
+}
+
+/* line 75, ../sass/recycled-reads.scss */
+div.overlogodiv {
+  background: transparent url("../../apl_blanco/images/apl_logo_color.png") no-repeat 10px 10px;
+  width: 125px;
+  height: 85px;
+}
+
+/* line 80, ../sass/recycled-reads.scss */
+li.apl-mnav-link.ahc > a {
+  font-weight: 800;
+}
+
+/* line 83, ../sass/recycled-reads.scss */
+div#highlight {
+  margin-left: 0;
+}

@@ -1,0 +1,234 @@
+@import "colors";
+
+$mm_container: 600px;
+//$mm_width: 440px; // width of container - 10px each for left, right margins
+$mm_width: $mm_container - 20; // width of container - 10px each for left, right margins
+$mm_3col: ($mm_width - (3 - 1)*20) / 3 ; // width of each column, if there are 3
+// 600 = 10+180+20+180+20+180+10 = 180
+$mm_2col: ($mm_width - (2 - 1)*20) / 2 ; // width of each column, if there are 2
+// 600 = 10+280+20+280+10 = 280
+
+html body {
+	div.qtip {
+//		background-color: red;
+//		border: 3px solid fade-out(white, 0.6);
+//		border-top: none;
+		div.qtip-wrapper {
+			border: 2px solid $blue;
+//			border-top: none;
+		}
+ p {
+		margin-left: 10px;
+		padding-right: 10px;
+	}
+}
+div#mini-panel-apl_2014_my_apl,
+div#mini-panel-apl_2014_ask_us,
+div#mini-panel-apl_2014_explore {
+	p {
+		margin-left: 10px;
+		padding-right: 10px;
+	}
+	div.panel-col-first,
+	div.panel-col,
+	div.panel-col-last {
+		width: 33%;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+#mini-panel-apl_2014_using_the_library {
+	background-color: red;
+}
+#mini-panel-apl_2014_locations {
+	form {
+		padding: 10px;
+		input {
+			padding: 5px;
+		}
+	}
+	div.panel-col-first {
+		width: 33%;
+	}
+	div.panel-col-last {
+		width: 67%;
+		#mini-panel-library_locations div.panel-panel {
+			width: 50%;
+		}
+	}
+}
+#mini-panel-apl_2014_locations-1 {
+	form {
+		padding: 10px;
+		input {
+			padding: 5px;
+		}
+	}
+	div.panel-col-first {
+		width: 33%;
+	}
+	div.panel-col-last {
+		width: 67%;
+		#mini-panel-library_locations-1 div.panel-panel {
+			width: 50%;
+		}
+	}
+}
+#mini-panel-research {
+	div.panel-col-first {
+		width: 33%;
+	}
+	div.panel-col-last {
+		width: 67%;
+		#mini-panel-information_guides div.panel-panel {
+			width: 50%;
+		}
+	}
+}
+#mini-panel-research-1 {
+	div.panel-col-first {
+		width: 33%;
+	}
+	div.panel-col-last {
+		width: 67%;
+		#mini-panel-information_guides-1 div.panel-panel {
+			width: 50%;
+		}
+	}
+
+}
+
+
+}
+#mini-panel-austin_history_center_all {
+	div.panel-col div.panel-col-first {
+		width: 67%;
+		#mini-panel-ahc_about_us_address_hours div.panel-panel {
+			width: 50%;
+		}
+	}
+	div.panel-col-last {
+		width: 33%;
+	}
+	#mini-panel-austin_history_center_bottom 
+		div.panel-col-first {
+			width: 33% !important;
+		}
+}
+
+
+
+
+
+
+div#mini-menus {
+	min-width: 320px;
+	margin: 0 auto;
+	border: 1px solid #efefef;
+}
+div#mini-menus > div.panel-panel {
+	width: 100% !important;
+	background-color: white;
+	> div {
+		border: none !important;
+		max-width: 980px;
+		margin: 0 auto;
+		.panel-3col-33 .panel-col .inside {
+    			margin: 0;
+		}
+		> div.panel-pane {
+			div.panel-2col {
+				img {
+					max-width: 280px;
+					height: auto;
+				}
+				div.panel-col-first {
+					margin-left: 0px !important;
+					margin-right: 0px !important;
+				}
+				div.panel-col-last {
+					margin-left: 0px !important;
+					margin-right: 0px !important;
+				}
+			}
+			div.panel-1col {
+				ul.menu {
+					padding-left: 0 !important;
+				}
+				li {
+					padding-left: 0 !important;
+				}
+			}	
+			div.panel-3col-33-stacked {
+				div.panel-panel {
+					ul.menu {
+						padding: 0;
+						ul.menu {
+							padding-left: 0;
+						}
+					}
+					div.inside {
+						margin: 0;
+					}
+					&.panel-col-last {
+						margin-right: 0 !important;
+					}
+				}
+			}
+//			background-color: lighten($blue, 10%) !important;
+			padding: 0 !important;
+			//div.menu-minipanels {
+			div.panel-display {
+				background-color: white;
+				padding: 10px !important;
+				li.menu-mlid-3973 {
+					margin-bottom: 5px;
+				> a {
+					padding-bottom: 1px !important;
+				}
+				}
+				h2.pane-title {
+					padding-left: 5px;
+				}
+				h2.pane-title,
+				li.menu-mlid-3973 > a {
+					color: $blue_black;
+					margin-top: 0 !important;
+					padding-top: 0px !important;
+					padding-bottom: 0px;
+					padding-right: 0;
+					font-size: 16px !important;
+					border-bottom: 1px solid #BFD3DF;
+					font-weight: bold !important;
+					margin-bottom: 5px;
+				}
+				a {
+					color: $blue;
+				}
+				ul.menu {
+					padding-left: 5px !important;
+					ul.menu {
+						padding-left: 10px;
+						width: 100%;
+					}
+					li {
+						display: block;
+						padding: 0px;
+						ul.menu li {
+							padding-left: 5px;
+						}
+						a {
+							padding: 5px;
+							display: block;
+						&:hover {
+							background-color: $blue;
+							color: white;
+							text-decoration: none;
+						}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+@import "colors";
+
+h3 {
+	margin-top: 1em;
+}
+.views-field.views-field-field-time {
+    margin-left: 1em;
+}
+.views-label-field-event-loc a, 
+.views-field-field-event-loc span.field-content a {
+	font-style: normal;
+	text-decoration: none;
+	color: $blue_black;
+	&:link {
+		color: $blue_black;
+	}
+	&:hover {
+		text-decoration: underline;
+		color: $blue;
+	&:visited {
+		color: $visited_color;
+	}
+	}
+}

@@ -1,0 +1,11 @@
+.bookSlideCont ul{
+width:314px;
+}
+
+.bookSlideCont ul li{
+float:left;
+margin:0;
+width:314px;
+height:100px;
+}
+ 

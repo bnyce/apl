@@ -1,0 +1,18 @@
+/* line 5, ../sass/submenu.scss */
+.block-nice-menus,
+#block-nice-menus-1,
+#block-nice-menus-2 {
+  background-color: #4f7019;
+}
+/* line 7, ../sass/submenu.scss */
+.block-nice-menus ul li,
+#block-nice-menus-1 ul li,
+#block-nice-menus-2 ul li {
+  background-color: #4f7019;
+}
+/* line 9, ../sass/submenu.scss */
+.block-nice-menus ul li ul,
+#block-nice-menus-1 ul li ul,
+#block-nice-menus-2 ul li ul {
+  border-color: transparent transparent transparent #8ac32c;
+}

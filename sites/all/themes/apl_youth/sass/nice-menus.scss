@@ -1,0 +1,15 @@
+@import "colors";
+
+#block-nice-menus-1 {
+    background-color: $youth_purple;
+	ul li {
+		background-color: $youth_purple;
+		&.over > a, 
+		&:hover > a {
+			color: $youth_purple;
+		}
+		ul {
+    			border-left: 11px solid lighten($youth_purple, 20%);
+		}
+	}
+}

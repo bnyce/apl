@@ -1,0 +1,57 @@
+@import "typography";
+
+h3 {
+	margin-top: 1em;
+}
+.views-field.views-field-field-time {
+        margin-left: 5px;
+//        width: 2.6em;
+//      width: 5em;
+        width: 60px;
+        float: left;
+}
+body.page-locations
+span.views-field.views-field-field-time + .views-field.views-field-title {
+//        padding-left: 2em;
+	font-weight: normal;
+	display: block;
+//	margin-left: 5em;
+	margin: 1px 0 0 60px;
+//	font-size: 12px;
+}
+body.front .pane-events-panel-pane-1 .views-field.views-field-title {
+	padding-left: 2em;
+}
+ul.pager {
+        margin-top: 1em;
+}
+.views-label.views-label-field-date {
+	width: 100%;
+}
+body {
+	&.front,
+	&.page-locations,
+	&.page-adult-events,
+	&.page-youth-events,
+	&.page-events {
+		div.view-events div.views-row {
+//			border: 1px dotted red;
+			@include ellipsis;
+			margin-top: .5em;
+		}
+	}
+}
+body.node-type-event {
+	.views-field.views-field-field-time {
+		margin-left: 0;
+        	width: 100%;
+	}
+	div.views-field-field-date .field-content > br {
+		display: none;
+	}
+	span.date-display-single {
+		clear: both;
+		display: block;
+		margin-top: .5em;
+	}
+}

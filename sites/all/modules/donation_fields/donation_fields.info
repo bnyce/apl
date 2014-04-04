@@ -1,0 +1,17 @@
+name = Donation Fields
+description = Fields for Product Types
+core = 7.x
+package = Features
+php = 5.2.4
+version = 7.x-0.02
+project = donation_fields
+dependencies[] = commerce_price
+dependencies[] = features
+dependencies[] = number
+features[features_api][] = api:1
+features[field][] = commerce_product-donation-commerce_price
+features[field][] = commerce_product-donation-field_department
+features[field][] = commerce_product-donation-field_function
+features[field][] = commerce_product-donation-field_fund
+features[field][] = commerce_product-donation-field_revenue
+features[field][] = commerce_product-donation-field_unit

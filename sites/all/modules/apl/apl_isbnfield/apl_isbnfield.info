@@ -1,0 +1,12 @@
+; $Id: apl_isbnfields.info,v 0.09 2010/09/05 02:21:38 dries Exp $
+name = ISBN Fields
+description =Designate a set of fields either isbn 10 or 13 as well as a description field that will append to the books desc
+core = 7.x
+package = Austin Public Library
+version = 0.09 beta
+
+dependencies[] = ctools
+dependencies[] = jcarousel
+
+files[] = apl_isbnfield.module
+files[] = apl_isbnfield.install

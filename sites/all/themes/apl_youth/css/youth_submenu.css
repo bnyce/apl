@@ -1,0 +1,119 @@
+/* line 4, ../sass/ahc_submenu.scss */
+#header ul#nice-menu-1 li.active-trail {
+  font-weight: bold;
+}
+/* line 5, ../sass/ahc_submenu.scss */
+#header ul#nice-menu-1 li.active-trail a {
+  color: #fdb813;
+}
+/* line 9, ../sass/ahc_submenu.scss */
+#header ul#nice-menu-1 li.active-trail li a {
+  color: white;
+  font-weight: normal;
+}
+/* line 11, ../sass/ahc_submenu.scss */
+#header ul#nice-menu-1 li.active-trail li a:hover {
+  color: #fdb813;
+}
+
+/* line 20, ../sass/ahc_submenu.scss */
+#highlight ul,
+#highlight ul ul {
+  z-index: 5;
+  position: relative;
+}
+
+/* line 26, ../sass/ahc_submenu.scss */
+#highlight div.menu-block-wrapper {
+  background-color: #aaaf7a;
+  min-height: 30px;
+  border-bottom: 1px solid silver;
+}
+/* line 31, ../sass/ahc_submenu.scss */
+#highlight ul {
+  padding-left: 0;
+  /* Show submenus when over their parents. */
+  /* Hide sub-menus initially. */
+}
+/* line 33, ../sass/ahc_submenu.scss */
+#highlight ul li.active,
+#highlight ul a.active {
+  background-color: #aaaf7a;
+  font-weight: bold;
+}
+/* line 36, ../sass/ahc_submenu.scss */
+#highlight ul li.active:hover,
+#highlight ul a.active:hover {
+  background-color: #bec29a !important;
+}
+/* line 40, ../sass/ahc_submenu.scss */
+#highlight ul li.active li a,
+#highlight ul a.active li a {
+  font-weight: normal;
+}
+/* line 51, ../sass/ahc_submenu.scss */
+#highlight ul li ul,
+#highlight ul li a:hover ul,
+#highlight ul li li a:hover ul,
+#highlight ul li li li a:hover ul,
+#highlight ul li li li li a:hover ul {
+  visibility: visible;
+}
+/* line 54, ../sass/ahc_submenu.scss */
+#highlight ul li ul li,
+#highlight ul li a:hover ul li,
+#highlight ul li li a:hover ul li,
+#highlight ul li li li a:hover ul li,
+#highlight ul li li li li a:hover ul li {
+  width: 200px;
+  background-color: silver;
+  border: 1px solid silver;
+}
+/* line 68, ../sass/ahc_submenu.scss */
+#highlight ul li ul ul,
+#highlight ul li a:hover ul ul,
+#highlight ul li a:hover ul ul ul,
+#highlight ul li a:hover li:hover ul ul,
+#highlight ul li a:hover li:hover ul ul ul,
+#highlight ul li a:hover li:hover li:hover ul ul,
+#highlight ul li a:hover li:hover li:hover ul ul ul {
+  visibility: hidden;
+}
+/* line 72, ../sass/ahc_submenu.scss */
+#highlight ul:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 79, ../sass/ahc_submenu.scss */
+#highlight ul ul {
+  position: absolute;
+  visibility: hidden;
+}
+/* line 83, ../sass/ahc_submenu.scss */
+#highlight ul li {
+  display: block;
+  float: left;
+  margin-right: 0;
+  border: 1px solid silver;
+  position: relative;
+}
+/* line 88, ../sass/ahc_submenu.scss */
+#highlight ul li.over ul {
+  visibility: visible;
+}
+/* line 92, ../sass/ahc_submenu.scss */
+#highlight ul li a {
+  display: block;
+  /*Default to Blue, but override as necessary*/
+  color: white;
+  background-color: #666a40;
+  padding: 5px;
+  text-decoration: none;
+}
+/* line 100, ../sass/ahc_submenu.scss */
+#highlight ul li a:hover {
+  background-color: #aaaf7a !important;
+}

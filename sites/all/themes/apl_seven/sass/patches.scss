@@ -1,0 +1,7 @@
+body {
+	&.logged-in {
+		div#suggest-thanks {
+			display: none;
+		}
+	}
+}

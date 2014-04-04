@@ -1,0 +1,15 @@
+@import "colors";
+
+#block-locale-language ul.language-switcher-locale-session {
+	li {
+	&.es {
+		display: none;
+	}
+		display: block;
+		float: right;
+		margin: 0 10px 0 0;
+		a {
+			color: $blue;
+		}
+	}
+}

@@ -1,0 +1,76 @@
+;
+; The .info file is cached. Adding or removing any styles will not be detected until the cache is 
+; cleared and the revised .info is read. (Do not confuse this with the theme registry.) You must 
+; clear the cache to see the changes.
+;
+
+name = APL
+description = Austin Public Library theme for Drupal 7
+screenshot = images/screenshot.gif
+core = "7.x"
+engine = phptemplate
+; scripts[] = aplcustom/js/jquery-1.7.2.min.js
+scripts[] = aplcustom/js/jquery.hoverIntent.minified.js
+scripts[] = aplcustom/js/aplcustom.js
+
+regions[page_top] = Page Top
+regions[city_header] = City Header
+regions[header] = APL Header
+regions[highlight] = Highlighted (Banner)
+regions[help] = Help
+regions[content] = Content
+regions[announcements] = Announcements
+regions[secondary_navigation] = Secondary Navigation
+regions[footer] = Footer
+regions[bottom]	= Bottom
+regions[page_bottom] = Page Bottom
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+
+; CSS Media Type
+; 
+; all        - Suitable for all devices. 
+; braille    - Intended for braille tactile feedback devices. 
+; embossed   - Intended for paged braille printers. 
+; handheld   - Intended for handheld devices (typically small screen, limited bandwidth). 
+; print      - Intended for paged material and for documents viewed on screen in print  
+;              preview mode. Please consult the section on paged    -  media for information 
+;              about formatting issues that are specific to paged media. 
+; projection - Intended for projected presentations, for example projectors. Please consult 
+;              the section on paged media for  information about formatting issues that are 
+;              specific to paged media. 
+; screen     - Intended primarily for color computer screens. 
+; speech     - Intended for speech synthesizers. Note: CSS2 had a similar media type 
+;              called 'aural' for this purpose. See the appendix on aural style sheets for details. 
+; tty        - Intended for media using a fixed-pitch character grid (such as teletypes, terminals, 
+;              or portable devices with limited display capabilities). Authors should not use pixel 
+;              units with the "tty" media type. 
+; tv         - Intended for television-type devices (low resolution, color, limited-scrollability 
+;               screens, sound available). 
+
+stylesheets[all][] = css/master.css
+; stylesheets[all][] = css/default.css
+; stylesheets[all][] = css/layout.css
+; stylesheets[all][] = css/style.css
+stylesheets[print][] = css/print.css
+stylesheets[all][] = css/apl_faq.css
+stylesheets[all][] = css/top_nav.css
+stylesheets[all][] = css/merci.css
+stylesheets[all][] = css/image_rotator.css
+stylesheets[all][] = css/messages.css
+stylesheets[all][] = css/webform.css
+
+
+settings[basic_tabs] = 1
+settings[basic_breadcrumb_separator] = »
+settings[wireframe_mode] = 0
+settings[clear_registry] = 0

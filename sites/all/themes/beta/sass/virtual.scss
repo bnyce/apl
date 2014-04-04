@@ -1,0 +1,126 @@
+@import "colors";
+
+body.page-node-22112,
+body.page-node-22115 {
+	ul.primary {
+//		display: none; // delete this line after testing...
+	}
+//	h1.title {
+//		margin-bottom: 1em;
+//	}
+}
+div#virtual {
+	div.virtual-service {
+		p.title,	
+		a {
+		margin-left: 15px;
+		display: inline;
+	}
+	}
+	div.description {
+		border: 1px solid #bbee77;
+		background-color: #f8fff0;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		padding: 7px 10px 10px;
+//		margin-bottom: 1em;
+//		margin-top: 5px;
+		margin: 2px 0 1em 5px;
+	}
+	div.more-info {
+	    clip: rect(1px, 1px, 1px, 1px);
+	    height: 1px;
+	    overflow: hidden;
+	    position: absolute !important;
+	}
+	
+		span.show-hide {
+			&:hover {
+				cursor: hand;
+			}
+			display: block;
+			margin-top: -1.6em;
+			margin-left: -3px;
+			text-align: right;
+		background: url("../images/menu-collapsed.png") no-repeat scroll 5px 65% transparent;
+		z-index: 1000;
+//		padding-left: 15px;
+		//margin-left: -5px;
+	&.expanded {
+		background-image: url("../images/menu-expanded.png");
+	}
+		}
+			div.services-grouping {
+				padding: 5px;
+			}
+	div.grouping {
+		&.help {
+			border: 1px solid #BBEE77;
+			background-color: #F8FFF0;
+			h2 {
+				color: green;
+			}
+		}
+		h2 {
+			font-size: 1.5em;
+			margin: 10px 10px 0;
+		}
+		div.content {
+			div.popup-element a {
+				color: $blue;
+				&:visited {
+					color: $blue-purple;
+				}
+			}
+			span.coming-soon {
+				color: silver;
+			}
+			ul {
+				list-style-type: none;
+				margin-left: 0;
+				margin-bottom: 20px;
+				padding-left: 0;
+//				border-bottom: 1px dotted $blue-light;
+				li {
+					padding: 0 5px;
+				}
+			}
+			margin: 1em 10px 20px;
+			img {
+				max-width: 100%;
+				max-height: 175px;
+				border-bottom-left-radius: 10px;
+				border-top-right-radius: 10px;
+				margin-bottom: 10px;
+				margin-right: 5px;
+			}
+		}	
+		margin-bottom: 20px;
+		border: 1px solid $blue-light;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		float: left;
+		margin-right: 20px;
+		width: 298px;
+//		&:nth-child(4), 
+		&:nth-child(7),
+		&:nth-child(10),
+		&:nth-child(13),
+		&:nth-child(16),
+		&:nth-child(19) {
+			clear: both;
+		}
+		&.column-3 {
+//		&:nth-child(3), 
+//		&:nth-child(6),
+//		&:nth-child(9),
+//		&:nth-child(12),
+//		&:nth-child(15),
+//		&:nth-child(4) {
+			margin-right: 0;
+			clear: none;
+		//	float: right;
+			float: left;
+		}
+	}
+}

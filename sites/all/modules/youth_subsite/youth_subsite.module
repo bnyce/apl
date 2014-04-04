@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Youth subsite feature.
+ */
+
+include_once 'youth_subsite.features.inc';

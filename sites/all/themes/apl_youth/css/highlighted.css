@@ -1,0 +1,140 @@
+/* line 3, ../sass/highlighted.scss */
+body #content-area {
+  min-height: 700px;
+}
+
+/* line 8, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-bottom {
+  position: absolute;
+  right: 180px;
+  bottom: 69px;
+}
+/* line 15, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-pager-fields div.views-slideshow-pager-field-item {
+  float: left \9;
+  *float: left;
+}
+/* line 24, ../sass/highlighted.scss */
+body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-title .field-content,
+body.page-ahc-front div.views-slideshow-cycle-main-frame-row-item .views-field-body .field-content {
+  margin-left: 180px;
+  width: 540px;
+  max-width: 540px;
+  display: block;
+}
+/* line 33, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text {
+  position: absolute;
+  top: 13px;
+  right: 0px;
+  z-index: 13;
+}
+/* line 40, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text-previous,
+body.page-ahc-front .views-slideshow-controls-text-next {
+  display: block;
+  height: 0px;
+  width: 0px;
+  z-index: 12;
+  float: left;
+  margin-left: 5px;
+  overflow: hidden;
+  border-color: transparent #0069aa;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  display: block;
+  border-radius: 4px;
+}
+/* line 53, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text-previous:hover,
+body.page-ahc-front .views-slideshow-controls-text-next:hover {
+  border-color: transparent #0088dd;
+}
+/* line 57, ../sass/highlighted.scss */
+body.page-ahc-front .views-slideshow-controls-text-next {
+  border-width: 12px 0 12px 12px;
+}
+/* line 61, ../sass/highlighted.scss */
+body.page-ahc-front .views_slideshow_pager_field_item {
+  float: left;
+  margin-right: 2px;
+  background-color: #aaaf7a;
+  min-width: 8px;
+  max-width: 8px;
+  min-height: 8px;
+  max-height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: .85;
+}
+/* line 72, ../sass/highlighted.scss */
+body.page-ahc-front .views_slideshow_pager_field_item a {
+  font-size: 0;
+}
+/* line 76, ../sass/highlighted.scss */
+body.page-ahc-front .views_slideshow_pager_field_item.active, body.page-ahc-front .views_slideshow_pager_field_item:hover {
+  background-color: #383a23;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* line 85, ../sass/highlighted.scss */
+#ahc-ad-large .views-field-field-ahc-ad-image {
+  margin-left: 180px;
+}
+/* line 87, ../sass/highlighted.scss */
+#ahc-ad-large .views-field-field-ahc-ad-image img {
+  width: 580px;
+  height: auto;
+}
+
+/* line 92, ../sass/highlighted.scss */
+.views-slideshow-controls-text-pause.views_slideshow_controls_text_pause.views-slideshow-controls-text-pause-processed {
+  display: none;
+}
+
+/* line 96, ../sass/highlighted.scss */
+.views-slideshow-controls-text-previous.views_slideshow_controls_text_previous.views-slideshow-controls-text-previous-processed a,
+.views-slideshow-controls-text-next.views_slideshow_controls_text_next.views-slideshow-controls-text-next-processed a {
+  height: 32px;
+  width: 32px;
+  display: block;
+  overflow: hidden;
+  text-indent: -100px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+/* line 107, ../sass/highlighted.scss */
+#views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content {
+  margin: 0;
+}
+/* line 109, ../sass/highlighted.scss */
+#views_slideshow_cycle_main_slideshow_test-page .views-slideshow-cycle-main-frame-row-item .views-field-body div.field-content p {
+  margin: 0;
+}
+
+/* line 115, ../sass/highlighted.scss */
+.view-ahc-ads .view-content {
+  position: relative;
+}
+/* line 118, ../sass/highlighted.scss */
+.view-ahc-ads .view-content .views-field-body-1 {
+  margin-left: 180px;
+  width: 510px;
+  min-height: 75px;
+}
+/* line 125, ../sass/highlighted.scss */
+.view-ahc-ads .view-content .views-field.views-field-body {
+  background-color: white;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+  height: 50px;
+  max-height: 50px;
+}
+/* line 133, ../sass/highlighted.scss */
+.view-ahc-ads .view-content .views-field.views-field-body div.field-content {
+  padding: 5px;
+}

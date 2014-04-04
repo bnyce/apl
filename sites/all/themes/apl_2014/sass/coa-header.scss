@@ -1,0 +1,50 @@
+@import "colors";
+
+#skip-link {
+	margin: 0;
+	max-height: 0;
+}
+
+#block-menu-menu-coa-header li a {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.center-coa-brandbar {
+	width: 990px;
+	margin:0 auto;
+}
+
+#block-menu-menu-coa-header {
+	background: $blue_black;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 30px;
+	ul {
+		li {
+			list-style: none outside none;
+			float: left;
+			margin-top: 4px;
+			a {
+				border-right: 1px solid #BDBDBD;
+				color: #BDBDBD;
+				font-size: 11px;
+				letter-spacing: 1px;
+				padding-right: 8px;
+				text-decoration: none;
+				text-transform: uppercase;
+				vertical-align:middle;
+			}
+			&:hover {
+				text-decoration: underline !important;
+			}
+		&.last a {
+			border: medium none;
+		}
+		}
+	}
+}
+
+#city-header {
+	width:100%;
+	background:$blue_black;
+}

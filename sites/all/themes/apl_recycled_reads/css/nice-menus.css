@@ -1,0 +1,72 @@
+/* line 6, ../sass/nice-menus.scss */
+body #content-area,
+body #footer,
+body #bottom {
+  position: relative;
+  z-index: -6;
+}
+/* line 10, ../sass/nice-menus.scss */
+body #mini-panel-ahc_banner ul {
+  z-index: 1000;
+  float: left;
+  margin-left: 0;
+  margin-top: 0;
+}
+/* line 15, ../sass/nice-menus.scss */
+body #mini-panel-ahc_banner ul li {
+  margin-left: 0;
+  background-color: #666a40;
+}
+/* line 16, ../sass/nice-menus.scss */
+body #mini-panel-ahc_banner ul li ul {
+  top: 28px;
+}
+/* line 19, ../sass/nice-menus.scss */
+body #mini-panel-ahc_banner ul li ul ul {
+  top: -1px;
+}
+/* line 24, ../sass/nice-menus.scss */
+body #mini-panel-ahc_banner ul li a {
+  color: white;
+}
+/* line 26, ../sass/nice-menus.scss */
+body #mini-panel-ahc_banner ul li a:hover {
+  text-decoration: none;
+  background-color: #6d9921;
+}
+
+/* line 40, ../sass/nice-menus.scss */
+#block-nice-menus-1 h2 {
+  display: none;
+}
+/* line 44, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul.nice-menu a {
+  padding: 5px;
+}
+/* line 47, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul.nice-menu-down {
+  clear: right;
+  float: right;
+  margin: 5px 10px;
+}
+/* line 52, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li {
+  background-color: #4f6f18;
+}
+/* line 53, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.menuparent {
+  background-image: none;
+}
+/* line 55, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li.menuparent a {
+  padding: 5px;
+}
+/* line 60, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li a {
+  color: white;
+}
+/* line 62, ../sass/nice-menus.scss */
+#block-nice-menus-1 ul li a:hover {
+  background-color: #6d9921;
+  color: #fdb813;
+}

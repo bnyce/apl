@@ -1,0 +1,21 @@
+/* line 7, ../sass/ie6.scss */
+ul.menu li,
+ul.menu li a,
+ul.links li,
+ul.links li a,
+.action-links,
+#page {
+  height: 1%;
+}
+
+/* line 10, ../sass/ie6.scss */
+#block-system-main ul.admin-list li a {
+  height: 1px;
+  position: relative;
+  display: block;
+}
+
+/* line 15, ../sass/ie6.scss */
+#block-system-main ul.admin-list li div.description a {
+  display: inline;
+}

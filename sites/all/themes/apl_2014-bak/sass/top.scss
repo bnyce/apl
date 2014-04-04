@@ -1,0 +1,244 @@
+@import "colors";
+$width: 100%;
+
+a#apl_logo_a {
+ background-image: url('/aplmenus10/sites/all/themes/apl_2014/images/apl_logo_color.png'); 
+ background-image: url('/aplmenus10/sites/all/themes/apl_2014/images/apl_logo.svg');
+ display: block;
+ height: 71px;
+ width: 140px;
+ background-size: 105px auto;
+ background-repeat: no-repeat;
+}
+
+body {
+//	max-width: 768px;
+	margin: 0 auto;
+}
+html {
+	overflow-x: hidden;
+}
+
+div#austin_city_header {
+	margin: 0 auto;
+	width: 100%;
+	min-width: 345px;
+}
+
+div#mini-panel-austin_history_center_bottom {
+	div.panel-col {
+		width: 33%;
+	}
+}
+
+
+div#mini-panel-clone_of_messages {
+	text-align: center;
+	p {
+		margin-bottom: 0;
+	}
+span.field-content {
+	padding: 5px 20px;
+	display: block;
+}
+	div {
+	&.error {
+		background-color: #B73939;
+		background-image: none;
+		color: white;
+		padding: 5px 20px;
+	}
+	&.warning {
+		background-color: $yellow;
+		background-image: none;
+		color: white;
+		border: none;
+		a {
+			color: $blue_black;
+		}
+	}
+	}
+}
+div#mini-panel-apl_2014_top {
+
+.panel-col-top {
+	min-width: 100%;
+	//width: 980px;
+	div.inside {
+		padding-top: 3px !important;
+		margin: 0 auto;
+	//	min-width: 980px;
+	}
+}
+.panel-col-bottom {
+//	width: 980px;
+	width: 100%;
+	div.inside {
+		padding-top: 3px !important;
+		margin: 0 auto;
+//		width: 980px;
+		a {
+			cursor:zoom-in;
+		}
+	}
+}
+.panel-col-bottom {
+	margin-top: 10px;
+	min-height: 25px;
+}
+.center-wrapper {
+	min-width: 100%;
+//	width: 960px;
+	//background-color: yellow;
+//	max-width: 980px;
+	.panel-col-first {
+		width: 144px;
+		height: 72px;
+		float: left;
+	}
+	.panel-col-last {
+		float: right;
+//		background-color: yellow;
+		margin-left: 20px;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		width: 340px;
+		min-height: 67px;
+	}
+}
+	background-color: white;
+	.panel-col-top {
+		background-color: $blue_black;
+		ul.menu {
+			margin-left: 8px;
+		//	height: 18px;
+		//	max-height: 18px;
+			li:nth-child(3) a {
+				color: $yellow;
+				font-weight:bold;
+			}
+			li:last-child a {
+				border-right: none;
+			}
+			li a {
+				text-transform: uppercase;
+				border-right: 1px solid fade-out(#BDBDBD, 0.6);
+				padding: 0 0.75em;
+				letter-spacing: 1px;
+				font-weight: bold;
+			}
+		}
+	}
+	.center-wrapper {
+		margin: 0 auto;
+		height: 72px;
+		margin-top: 5px;
+	}
+	.panel-col-first {
+		float: left;
+		position: relative;
+		.inside {
+			position: absolute;
+			left: 20px;
+			top: 2px;
+		}
+	}
+	.panel-col-last {
+		float: left;
+		.inside {
+			float: right;
+		}
+	}
+	.panel-col-bottom {
+		background-color: $blue;
+		border-top: 3px solid $blue;
+		ul.menu {
+			overflow: visible;
+			text-align: left;
+			margin-left: 15px;
+			margin-top: -3px;
+			li {
+				display: inline-block;
+				margin-top: 1px;
+			}
+		li a {
+			color: white;
+			font-size: 1.4em;
+			text-transform: none;
+//			padding: 0 0.5em;
+			padding: 2px 9px 5px !important;
+			margin-left: -3px;
+			&:hover,
+			&.qtip-hover {
+				background-color: white;
+				text-decoration: none;
+				color: $blue;
+			}
+		
+		}
+		}
+	}
+}
+
+#city-header {
+	h2.pane-title {
+		display: none;
+	}
+	div {
+		margin: 0;
+		padding: 0;
+	}
+	
+	
+	ul.menu {
+		width: $width;    
+		height: 30px;
+		line-height: 30px;
+		margin: 0 auto;
+		padding: 0;
+		text-align: center;    
+		border: medium none;
+		list-style: none outside none;
+		font-family: Arial,Helvetica,sans-serif;
+		font-size: 62.5%;
+	    font-weight: normal;
+	    text-align: center;
+		li:nth-child(3) a {
+			color: $yellow;
+		}
+		li {
+			display: inline;
+			float: none;
+			margin: 0;
+			margin: 0 0 0 0.5em;
+			list-style: none outside none;
+			font-size: 1.2em;	
+			a {
+				letter-spacing: 1px;
+				border-right: 1px solid fade-out(#BDBDBD, 0.2);
+				color: #BDBDBD;
+				font-size: 1.1em;
+				padding: 0 0.75em;
+				text-decoration: none;
+				text-transform: uppercase;
+			&:hover {
+				text-decoration: underline;
+			}
+			&.active {
+				color: $yellow;
+				font-weight: bold;
+			}
+			}	    
+		&.first {
+			padding-left: 0;
+		}
+		&.last a {
+			border-right: none;
+		}
+		}
+		li.expanded, li.collapsed, li.leaf {
+		    margin: 0;
+		    padding: 0.2em 0 0 0;
+		}
+	}
+}

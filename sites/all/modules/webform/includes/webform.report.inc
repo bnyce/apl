@@ -44,7 +44,7 @@ function webform_results_submissions($node, $user_filter, $pager_count) {
   $rows = array();
   foreach ($submissions as $sid => $submission) {
     $row = array(
-      $submission->is_draft ? t('@sid (draft)', array('@sid' => $sid)) : $sid,
+      $submission->is_draft ? t('@serial (draft)', array('@serial' => $submission->serial)) : $submission->serial,
       format_date($submission->submitted, 'short'),
     );
     if (webform_results_access($node, $user)) {
@@ -230,7 +230,8 @@ function theme_webform_results_table($variables) {
 
   // Generate a row for each submission.
   foreach ($submissions as $sid => $submission) {
-    $cell[] = l($sid, 'node/' . $node->nid . '/submission/' . $sid);
+    $link_text = $submission->is_draft ? t('@serial (draft)', array('@serial' => $submission->serial)) : $submission->serial;
+    $cell[] = l($link_text, 'node/' . $node->nid . '/submission/' . $sid);
     $cell[] = format_date($submission->submitted, 'short');
     $cell[] = theme('username', array('account' => $submission));
     $cell[] = $submission->remote_addr;
@@ -241,7 +242,7 @@ function theme_webform_results_table($variables) {
       $data = isset($submission->data[$component['cid']]) ? $submission->data[$component['cid']] : NULL;
       $submission_output = webform_component_invoke($component['type'], 'table', $component, $data);
       if ($submission_output !== NULL) {
-        $component_headers[] = check_plain($component['name']);
+        $component_headers[] = array('data' => check_plain($component['name']), 'field' => $component['cid']);
         $cell[] = $submission_output;
       }
     }
@@ -329,14 +330,14 @@ function webform_results_download_form($form, &$form_state, $node) {
     '#type' => 'radios',
     '#title' => t('Export format'),
     '#options' => webform_export_list(),
-    '#default_value' => isset($form_state['values']['format']) ? $form_state['values']['format'] : variable_get('webform_export_format', 'delimited'),
+    '#default_value' => webform_variable_get('webform_export_format'),
   );
 
   $form['delimiter'] = array(
     '#type' => 'select',
     '#title' => t('Delimited text format'),
     '#description' => t('This is the delimiter used in the CSV/TSV file when downloading Webform results. Using tabs in the export is the most reliable method for preserving non-latin characters. You may want to change this to another character depending on the program with which you anticipate importing results.'),
-    '#default_value' => isset($form_state['values']['delimiter']) ? $form_state['values']['delimiter'] : variable_get('webform_csv_delimiter', '\t'),
+    '#default_value' => variable_get('webform_csv_delimiter', '\t'),
     '#options' => array(
       ','  => t('Comma (,)'),
       '\t' => t('Tab (\t)'),
@@ -360,7 +361,7 @@ function webform_results_download_form($form, &$form_state, $node) {
       0 => t('Label'),
       1 => t('Field Key'),
     ),
-    '#default_value' => isset($form_state['values']['header_keys']) ? $form_state['values']['header_keys'] : 0,
+    '#default_value' => 0,
     '#description' => t('Choose whether to show the label or field key in each column header.'),
   );
 
@@ -378,7 +379,7 @@ function webform_results_download_form($form, &$form_state, $node) {
       0 => t('Full, human-readable options (values)'),
       1 => t('Short, raw options (keys)'),
     ),
-    '#default_value' => isset($form_state['values']['select_options']['select_keys']) ? $form_state['values']['select_options']['select_keys'] : 0,
+    '#default_value' => 0,
     '#description' => t('Choose which part of options should be displayed from key|value pairs.'),
   );
 
@@ -389,28 +390,24 @@ function webform_results_download_form($form, &$form_state, $node) {
       'separate' => t('Separate'),
       'compact' => t('Compact'),
     ),
-    '#default_value' => isset($form_state['values']['select_options']['select_format']) ? $form_state['values']['select_options']['select_format'] : 'separate',
+    '#default_value' => 'separate',
     '#attributes' => array('class' => array('webform-select-list-format')),
     '#theme' => 'webform_results_download_select_format',
   );
 
-  $csv_components = array(
-    'info' => t('Submission information'),
-    'serial' => '-' . t('Submission Number'),
-    'sid' => '-' . t('Submission ID'),
-    'time' => '-' . t('Time'),
-    'draft' => '-' . t('Draft'),
-    'ip_address' => '-' . t('IP Address'),
-    'uid' => '-' . t('User ID'),
-    'username' => '-' . t('Username'),
-  );
+  $csv_components = array('info' => t('Submission information'));
+  // Prepend information fields with "-" to indent.
+  foreach (webform_results_download_submission_information($node) as $key => $title) {
+    $csv_components[$key] = '-' . $title;
+  }
+
   $csv_components += webform_component_list($node, 'csv', TRUE);
 
   $form['components'] = array(
     '#type' => 'select',
     '#title' => t('Included export components'),
     '#options' => $csv_components,
-    '#default_value' => isset($form_state['values']['components']) ? $form_state['values']['components'] : array_keys($csv_components),
+    '#default_value' => array_keys($csv_components),
     '#multiple' => TRUE,
     '#size' => 10,
     '#description' => t('The selected components will be included in the export.'),
@@ -434,7 +431,7 @@ function webform_results_download_form($form, &$form_state, $node) {
       'all' => t('All submissions'),
       'new' => t('Only new submissions since your last download'),
       'latest' => t('Only the latest'),
-      'range' => t('All submissions starting from'),
+      'range_serial' => t('All submissions starting from'),
     ),
     '#default_value' => 'all',
   );
@@ -442,21 +439,31 @@ function webform_results_download_form($form, &$form_state, $node) {
     '#type' => 'textfield',
     '#size' => 5,
     '#maxlength' => 8,
-    '#default_value' => isset($form_state['values']['latest']) ? $form_state['values']['latest'] : '',
   );
   $form['range']['start'] = array(
     '#type' => 'textfield',
     '#size' => 5,
     '#maxlength' => 8,
-    '#default_value' => '',
   );
   $form['range']['end'] = array(
     '#type' => 'textfield',
     '#size' => 5,
     '#maxlength' => 8,
-    '#default_value' => '',
-    '#description' => '',
   );
+
+  // If drafts are allowed, provide options to filter download based on draft status.
+  if ($node->webform['allow_draft']) {
+    $form['range']['completion_type'] = array(
+      '#type' => 'radios',
+      '#title' => t('Included submissions'),
+      '#default_value' => 'all',
+      '#options' => array(
+        'all' => t('Finished and draft submissions'),
+        'finished' => t('Finished submissions only'),
+        'draft' => t('Drafts only'),
+      ),
+    );
+  }
 
   // By default results are downloaded. User can override this value if
   // programmatically submitting this form.
@@ -495,7 +502,7 @@ function webform_results_download_range_validate($element, $form_state) {
         }
       }
       break;
-    case 'range':
+    case 'range_serial':
       // Download Start-End range of submissions.
       // Start submission number.
       if ($element['start']['#value'] == '') {
@@ -550,6 +557,7 @@ function webform_results_download_range_after_build($element, &$form_state) {
   $last_download = webform_download_last_download_info($node->nid);
 
   $element['#webform_download_info']['sid'] = $last_download ? $last_download['sid'] : 0;
+  $element['#webform_download_info']['serial'] = $last_download ? $last_download['serial'] : NULL;
   $element['#webform_download_info']['requested'] = $last_download ? $last_download['requested'] : $node->created;
   $element['#webform_download_info']['total'] = $count;
   $element['#webform_download_info']['new'] = count($sids);
@@ -593,11 +601,11 @@ function theme_webform_results_download_range($variables) {
   $element['end']['#attributes']['class'][] = 'webform-set-active';
   $element['start']['#theme_wrappers'] = array();
   $element['end']['#theme_wrappers'] = array();
-  $element['range_type']['range']['#theme_wrappers'] = array('webform_inline_radio');
-  $element['range_type']['range']['#title'] = t('All submissions starting from: !start and optionally to: !end', array('!start' => drupal_render($element['start']), '!end' => drupal_render($element['end'])));
+  $element['range_type']['range_serial']['#theme_wrappers'] = array('webform_inline_radio');
+  $element['range_type']['range_serial']['#title'] = t('All submissions starting from: !start and optionally to: !end', array('!start' => drupal_render($element['start']), '!end' => drupal_render($element['end'])));
 
-  $last_sid = $download_info['sid'] ? $download_info['sid'] : drupal_placeholder(t('none'));
-  $element['range_type']['range']['#description'] = '(' . t('Use submission IDs for the range. Last downloaded end SID: !sid.', array('!sid' => $last_sid)) . ')';
+  $last_serial = $download_info['serial'] ? $download_info['serial'] : drupal_placeholder(t('none'));
+  $element['range_type']['range_serial']['#description'] = '(' . t('Last downloaded end submission number: !serial.', array('!serial' => $last_serial)) . ')';
 
   return drupal_render_children($element);
 }
@@ -644,23 +652,30 @@ function theme_webform_results_download_select_format($variables) {
  * Submit handler for webform_results_download_form().
  */
 function webform_results_download_form_submit(&$form, &$form_state) {
+  $node = $form_state['values']['node'];
+  $format = $form_state['values']['format'];
+
   $options = array(
     'delimiter' => $form_state['values']['delimiter'],
     'components' => array_keys(array_filter($form_state['values']['components'])),
     'header_keys' => $form_state['values']['header_keys'],
     'select_keys' => $form_state['values']['select_keys'],
     'select_format' => $form_state['values']['select_format'],
-    'range_type' => $form_state['values']['range']['range_type'],
+    'range' => $form_state['values']['range'],
     'download' => $form_state['values']['download'],
   );
+
+  $defaults = webform_results_download_default_options($node, $format);
+  $options += $defaults;
+  $options['range'] += $defaults['range'];
 
   // Use a pre-built list of SIDs provided by validate handlers (if any).
   if (isset($form_state['values']['sids'])) {
     $options['sids'] = $form_state['values']['sids'];
   }
   // Retrieve the list of required SIDs.
-  elseif ($options['range_type'] != 'all') {
-    $options['sids'] = webform_download_sids($form_state['values']['node']->nid, $form_state['values']['range']);
+  elseif ($options['range']['range_type'] != 'all') {
+    $options['sids'] = webform_download_sids($node->nid, $options['range']);
   }
 
   // Determine an appropriate batch size based on the form and server specs.
@@ -668,7 +683,7 @@ function webform_results_download_form_submit(&$form, &$form_state) {
     // Start the batch size at 50,000 per batch, but divide by number of
     // components in the form. e.g. If a form had 10 components, it would
     // export 5,000 submissions at a time.
-    $batch_size = ceil(50000 / count($form_state['values']['node']->webform['components']));
+    $batch_size = ceil(50000 / max(1, count($form_state['values']['node']->webform['components'])));
 
     // Every 32MB of additional memory after 64MB adds a multiplier in size.
     $memory_limit = parse_size(ini_get('memory_limit'));
@@ -681,7 +696,7 @@ function webform_results_download_form_submit(&$form, &$form_state) {
   $options['file_name'] = drupal_tempnam('temporary://', 'webform_');
 
   // Set up a batch to export the results.
-  $batch = webform_results_export_batch($form_state['values']['node'], $form_state['values']['format'], $options);
+  $batch = webform_results_export_batch($node, $format, $options);
   batch_set($batch);
 }
 
@@ -698,31 +713,38 @@ function webform_results_export($node, $format = 'delimited', $options = array()
   module_load_include('inc', 'webform', 'includes/webform.export');
   module_load_include('inc', 'webform', 'includes/webform.components');
 
-  $options += webform_results_download_default_options($node);
+  $defaults = webform_results_download_default_options($node, $format);
+  $options += $defaults;
+  $options['range'] += $defaults['range'];
 
   // Open a new Webform exporter object.
   $exporter = webform_export_create_handler($format, $options);
 
   $file_name = drupal_tempnam('temporary://', 'webform_');
-  $handle = @fopen($file_name, 'w'); // The @ suppresses errors.
+  $handle = fopen($file_name, 'w');
 
   // Add the beginning of file marker (little-endian usually for MS Excel).
   $exporter->bof($handle);
 
   // Add headers to the file.
+  $row_count = 0;
+  $col_count = 0;
   $headers = webform_results_download_headers($node, $options);
   foreach ($headers as $row) {
-    $exporter->add_row($handle, $row);
+    $exporter->add_row($handle, $row, $row_count);
+    $row_count++;
+    $col_count = count($row) > $col_count ? count($row) : $col_count;
   }
 
   // Write data from submissions.
   $rows = webform_results_download_rows($node, $options);
   foreach ($rows as $row) {
-    $exporter->add_row($handle, $row);
+    $exporter->add_row($handle, $row, $row_count);
+    $row_count++;
   }
 
   // Add the closing bytes.
-  $exporter->eof($handle);
+  $exporter->eof($handle, $row_count, $col_count);
 
   // Close the file.
   @fclose($handle);
@@ -731,6 +753,7 @@ function webform_results_export($node, $format = 'delimited', $options = array()
   $export_info['options'] = $options;
   $export_info['file_name'] = $file_name;
   $export_info['row_count'] = $row_count;
+  $export_info['col_count'] = $col_count;
   $export_info['last_sid'] = $sid;
 
   return $export_info;
@@ -739,17 +762,33 @@ function webform_results_export($node, $format = 'delimited', $options = array()
 /**
  * Return a Batch API array of commands that will generate an export.
  *
+ * @param $node
+ *   The webform node on which to generate the analysis.
+ * @param string $format
+ *   (optional) Delimiter of the exported file.
+ * @param array $options
+ *   (optional) An associative array of options that define the output format.
+ *   These are generally passed through from the GUI interface. Possible options
+ *   include:
+ *   - sids: An array of submission IDs to which this export may be filtered.
+ *     May be used to generate exports that are per-user or other groups of
+ *     submissions.
+ *
  * @return array
  *   A Batch API array suitable to pass to batch_set().
  */
 function webform_results_export_batch($node, $format = 'delimited', $options = array()) {
-  $options += webform_results_download_default_options($node);
+  $defaults = webform_results_download_default_options($node, $format);
+  $options += $defaults;
+  $options['range'] += $defaults['range'];
+
   return array(
     'operations' => array(
       array('webform_results_batch_bof', array($node, $format, $options)),
       array('webform_results_batch_headers', array($node, $format, $options)),
       array('webform_results_batch_rows', array($node, $format, $options)),
       array('webform_results_batch_eof', array($node, $format, $options)),
+      array('webform_results_batch_post_process', array($node, $format, $options)),
       array('webform_results_batch_results', array($node, $format, $options)),
     ),
     'finished' => 'webform_results_batch_finished',
@@ -799,12 +838,13 @@ function webform_results_download_headers($node, $options) {
       // Let each component determine its headers.
       if (webform_component_feature($component['type'], 'csv')) {
         $component_header = (array) webform_component_invoke($component['type'], 'csv_headers', $component, $options);
+        // Allow modules to modify the component CSV header.
+        drupal_alter('webform_csv_header', $component_header, $component);
+
+        // Merge component CSV header to overall CSV header
         $header[0] = array_merge($header[0], (array) $component_header[0]);
         $header[1] = array_merge($header[1], (array) $component_header[1]);
         $header[2] = array_merge($header[2], (array) $component_header[2]);
-
-        // Allow modules to modify the CSV header.
-        drupal_alter('webform_csv_header', $component_header, $component);
       }
     }
   }
@@ -821,7 +861,7 @@ function webform_results_download_headers($node, $options) {
  *   A list of options that define the output format. These are generally passed
  *   through from the GUI interface.
  * @param $serial_start
- *   The starting position for for the Serial column in the output.
+ *   The starting position for the Serial column in the output.
  *
  * @return $rows
  *   An array of rows built according to the provided $serial_start and
@@ -836,6 +876,9 @@ function webform_results_download_rows($node, $options, $serial_start = 0) {
   if (!empty($options['sids'])){
     $filters['sid'] = $options['sids'];
   }
+  elseif (!empty($options['completion_type']) && $options['completion_type'] !== 'all') {
+    $filters['is_draft'] = (int) ($options['completion_type'] === 'draft');
+  }
 
   $submissions = webform_get_submissions($filters, NULL);
   $submission_information = webform_results_download_submission_information($node, $options);
@@ -848,26 +891,13 @@ function webform_results_download_rows($node, $options, $serial_start = 0) {
     $row_count++;
 
     $row = array();
-    if (isset($submission_information['serial'])) {
-      $row[] = $serial_start + $row_count;
-    }
-    if (isset($submission_information['sid'])) {
-      $row[] = $sid;
-    }
-    if (isset($submission_information['time'])) {
-      $row[] = format_date($submission->submitted, 'short');
-    }
-    if (isset($submission_information['draft'])) {
-      $row[] = $submission->is_draft;
-    }
-    if (isset($submission_information['ip_address'])) {
-      $row[] =  $submission->remote_addr;
-    }
-    if (isset($submission_information['uid'])) {
-      $row[] = $submission->uid;
-    }
-    if (isset($submission_information['username'])) {
-      $row[] = $submission->name;
+    // Add submission information.
+    foreach (array_keys($submission_information) as $token) {
+      $cell = module_invoke_all('webform_results_download_submission_information_data', $token, $submission, $options, $serial_start, $row_count);
+      $context = array('token' => $token, 'submission' => $submission, 'options' => $options, 'serial_start' => $serial_start, 'row_count' => $row_count);
+      drupal_alter('webform_results_download_submission_information_data', $cell, $context);
+      // implode() to ensure everything from a single value goes into one column, even if more than one module responds to this item.
+      $row[] = implode(', ', $cell);
     }
 
     foreach ($options['components'] as $cid) {
@@ -901,22 +931,15 @@ function webform_results_download_rows($node, $options, $serial_start = 0) {
  * Default columns for submission information.
  *
  * By default all exports have several columns of generic information that
- * applies to all submissions. This function simply returns this list of generic
- * columns that can be included in all exports.
+ * applies to all submissions. This function returns the list of generic columns
+ * plus columns added by other modules.
  *
  * @param $options
  *   Filter down the list of columns based on a provided column list.
  */
 function webform_results_download_submission_information($node, $options = array()) {
-  $submission_information = array(
-    'serial' => t('Serial'),
-    'sid' => t('SID'),
-    'time' => t('Time'),
-    'draft' => t('Draft'),
-    'ip_address' => t('IP Address'),
-    'uid' => t('UID'),
-    'username' => t('Username'),
-  );
+  $submission_information = module_invoke_all('webform_results_download_submission_information_info');
+  drupal_alter('webform_results_download_submission_information_info', $submission_information);
 
   if (isset($options['components'])) {
     foreach ($submission_information as $key => $label) {
@@ -928,16 +951,61 @@ function webform_results_download_submission_information($node, $options = array
 
   return $submission_information;
 }
+
+/**
+ * Implements hook_webform_results_download_submission_information_info().
+ */
+function webform_webform_results_download_submission_information_info() {
+  return array(
+    'webform_serial' => t('Serial'),
+    'webform_sid' => t('SID'),
+    'webform_time' => t('Time'),
+    'webform_draft' => t('Draft'),
+    'webform_ip_address' => t('IP Address'),
+    'webform_uid' => t('UID'),
+    'webform_username' => t('Username'),
+  );
+}
+
+/**
+ * Implements hook_webform_results_download_submission_information_data().
+ */
+function webform_webform_results_download_submission_information_data($token, $submission, array $options, $serial_start, $row_count) {
+  switch ($token) {
+    case 'webform_serial':
+      return $submission->serial;
+    case 'webform_sid':
+      return $submission->sid;
+    case 'webform_time':
+      if (!empty($options['iso8601_date'])) {
+        return format_date($submission->submitted, 'custom', 'Y-m-d\TH:i:s', 'UTC');
+      }
+      else {
+        return format_date($submission->submitted, 'short');
+      }
+    case 'webform_draft':
+      return $submission->is_draft;
+    case 'webform_ip_address':
+      return $submission->remote_addr;
+    case 'webform_uid':
+      return $submission->uid;
+    case 'webform_username':
+      return $submission->name;
+  }
+}
+
 /**
  * Get options for creating downloadable versions of the webform data.
  *
  * @param $node
  *   The webform node on which to generate the analysis.
+ * @param string $format
+ *   The export format being used.
  * @param array $options
  *   A list of options that define the output format. These are generally passed
  *   through from the GUI interface.
  */
-function webform_results_download_default_options($node) {
+function webform_results_download_default_options($node, $format) {
   $submission_information = webform_results_download_submission_information($node);
 
   $options = array(
@@ -946,8 +1014,17 @@ function webform_results_download_default_options($node) {
     'header_keys' => 0,
     'select_keys' => 0,
     'select_format' => 'separate',
-    'range_type' => 'all',
+    'range' => array(
+      'range_type' => 'all',
+      'completion_type' => 'all',
+    ),
   );
+
+  // Allow exporters to merge in additional options.
+  $exporter_information = webform_export_fetch_definition($format);
+  if (isset($exporter_information['options'])) {
+    $options = array_merge($options, $exporter_information['options']);
+  }
 
   return $options;
 }
@@ -977,7 +1054,7 @@ function webform_results_download($node, $export_info) {
   }
 
   // Update user last downloaded sid if required.
-  if ($export_info['options']['range_type'] != 'range' && $export_info['row_count'] > 0) {
+  if ((isset($export_info['options']['sids']) || $export_info['options']['range']['range_type'] != 'range') && $export_info['row_count'] > 0) {
     // Delete existing record.
     db_delete('webform_last_download')
       ->condition('nid', $node->nid)
@@ -1039,7 +1116,7 @@ function webform_results_batch_bof($node, $format = 'delimited', $options = arra
   module_load_include('inc', 'webform', 'includes/webform.export');
 
   $exporter = webform_export_create_handler($format, $options);
-  $handle = @fopen($options['file_name'], 'w'); // The @ suppresses errors.
+  $handle = fopen($options['file_name'], 'w');
   $exporter->bof($handle);
   @fclose($handle);
 }
@@ -1051,11 +1128,17 @@ function webform_results_batch_headers($node, $format = 'delimited', $options = 
   module_load_include('inc', 'webform', 'includes/webform.export');
 
   $exporter = webform_export_create_handler($format, $options);
-  $handle = @fopen($options['file_name'], 'a'); // The @ suppresses errors.
+  $handle = fopen($options['file_name'], 'a');
   $headers = webform_results_download_headers($node, $options);
+  $row_count = 0;
+  $col_count = 0;
   foreach ($headers as $row) {
-    $exporter->add_row($handle, $row);
+    $exporter->add_row($handle, $row, $row_count);
+    $row_count++;
+    $col_count = count($row) > $col_count ? count($row) : $col_count;
   }
+  $context['results']['row_count'] = $row_count;
+  $context['results']['col_count'] = $col_count;
   @fclose($handle);
 }
 
@@ -1067,22 +1150,24 @@ function webform_results_batch_rows($node, $format = 'delimited', $options = arr
 
   if (!isset($context['sandbox']['batch_number'])) {
     $context['sandbox']['batch_number'] = 0;
-    $context['sandbox']['sid_count'] = count(webform_download_sids($node->nid, $options['range']));
+    $sids = isset($options['sids']) ? $options['sids'] : webform_download_sids($node->nid, $options['range']);
+    $context['sandbox']['sid_count'] = count($sids);
     $context['sandbox']['batch_max'] = ceil($context['sandbox']['sid_count'] / $options['range']['batch_size']);
     $context['sandbox']['serial'] = 0;
     $context['sandbox']['last_sid'] = 0;
   }
   // Retrieve the submissions for this batch process.
   $options['range']['batch_number'] = $context['sandbox']['batch_number'];
-  $sids = webform_download_sids($node->nid, $options['range']);
+  $sids = isset($options['sids']) ? $options['sids'] : webform_download_sids($node->nid, $options['range']);
   $options['sids'] = $sids;
   $rows = webform_results_download_rows($node, $options, $context['sandbox']['serial']);
 
   // Write these submissions to the file.
   $exporter = webform_export_create_handler($format, $options);
-  $handle = @fopen($options['file_name'], 'a'); // The @ suppresses errors.
+  $handle = fopen($options['file_name'], 'a');
   foreach ($rows as $row) {
-    $exporter->add_row($handle, $row);
+    $exporter->add_row($handle, $row, $context['results']['row_count']);
+    $context['results']['row_count']++;
   }
   $context['sandbox']['serial'] += count($sids);
   $context['sandbox']['last_sid'] = end($sids);
@@ -1093,25 +1178,44 @@ function webform_results_batch_rows($node, $format = 'delimited', $options = arr
   // Display status message if not yet finished.
   if ($context['sandbox']['batch_number'] != $context['sandbox']['batch_max']) {
     $context['message'] = t('Exported @count of @total submissions...', array('@count' => $context['sandbox']['serial'], '@total' => $context['sandbox']['sid_count']));
-    $context['finished'] = $context['sandbox']['batch_number'] / $context['sandbox']['batch_max'];
+    $context['finished'] = $context['sandbox']['batch_number'] < $context['sandbox']['batch_max']
+                              ? $context['sandbox']['batch_number'] / $context['sandbox']['batch_max']
+                              : 1.0;
   }
   // If finished, save the results.
   else {
-    $context['results']['row_count'] = $context['sandbox']['serial'];
     $context['results']['last_sid'] = $context['sandbox']['last_sid'];
   }
 }
 
 /**
- * Batch API callback; Write the opening byte in the export file.
+ * Batch API callback; Write the closing bytes in the export file.
  */
 function webform_results_batch_eof($node, $format = 'delimited', $options = array(), &$context) {
   module_load_include('inc', 'webform', 'includes/webform.export');
 
   $exporter = webform_export_create_handler($format, $options);
-  $handle = @fopen($options['file_name'], 'a'); // The @ suppresses errors.
-  $exporter->eof($handle);
+
+  // We open the file for reading and writing, rather than just appending for
+  // exporters that need to adjust the beginning of the files as well as the
+  // end, i.e. webform_exporter_excel_xlsx::eof().
+  $handle = fopen($options['file_name'], 'r+');
+  fseek($handle, 0, SEEK_END); // Move pointer to the end of the file.
+  $exporter->eof($handle, $context['results']['row_count'], $context['results']['col_count']);
   @fclose($handle);
+}
+
+/**
+ * Batch API callback; Do any last processing on the finished export.
+ */
+function webform_results_batch_post_process($node, $format = 'delimited', $options = array(), &$context) {
+  module_load_include('inc', 'webform', 'includes/webform.export');
+
+  $context['results']['node'] = $node;
+  $context['results']['file_name'] = $options['file_name'];
+
+  $exporter = webform_export_create_handler($format, $options);
+  $exporter->post_process($context['results']);
 }
 
 /**
@@ -1123,13 +1227,11 @@ function webform_results_batch_eof($node, $format = 'delimited', $options = arra
  * which will execute webform_results_download_file().
  */
 function webform_results_batch_results($node, $format, $options, &$context) {
-  $context['results']['node'] = $node;
-  $context['results']['file_name'] = $options['file_name'];
 
   $export_info = array(
     'format' => $format,
     'options' => $options,
-    'file_name' => $options['file_name'],
+    'file_name' => $context['results']['file_name'],
     'row_count' => $context['results']['row_count'],
     'last_sid' => $context['results']['last_sid'],
   );
@@ -1176,22 +1278,196 @@ function webform_results_analysis($node, $sids = array(), $analysis_component = 
     $sids = array();
   }
 
-  // If showing a component's details, we don't want to loose the menu tabs.
-  if ($analysis_component) {
-    $item = menu_get_item('node/' . $node->nid . '/webform-results/analysis');
-    menu_set_item(NULL, $item);
+  // Build a renderable for the content of this page.
+  $analysis = array(
+    '#theme' => array('webform_analysis__' . $node->nid, 'webform_analysis'),
+    '#node' => $node,
+    '#component' => $analysis_component,
+  );
+
+  // If showing all components, display selection form.
+  if (!$analysis_component) {
+    $analysis['form'] = drupal_get_form('webform_analysis_components_form', $node);
   }
 
-  $components = isset($analysis_component) ? array($analysis_component['cid'] => $analysis_component) : $node->webform['components'];
-  $data = array();
-  foreach ($components as $cid => $component) {
+  // Add all the components to the analysis renderable array.
+  $components = isset($analysis_component) ? array($analysis_component['cid']) : webform_analysis_enabled_components($node);
+  foreach ($components as $cid) {
     // Do component specific call.
-    if ($row_data = webform_component_invoke($component['type'], 'analysis', $component, $sids, isset($analysis_component))) {
-      $data[$cid] = $row_data;
+    $component = $node->webform['components'][$cid];
+    if ($data = webform_component_invoke($component['type'], 'analysis', $component, $sids, isset($analysis_component))) {
+      drupal_alter('webform_analysis_component_data', $data, $node, $component);
+      $analysis['data'][$cid] = array(
+        '#theme' => array('webform_analysis_component__' . $node->nid . '__' . $cid, 'webform_analysis_component__' . $node->nid, 'webform_analysis_component'),
+        '#node' => $node,
+        '#component' => $component,
+        '#data' => $data,
+      );
+      $analysis['data'][$cid]['basic'] = array(
+        '#theme' => array('webform_analysis_component_basic__' . $node->nid . '__' . $cid, 'webform_analysis_component_basic__' . $node->nid, 'webform_analysis_component_basic'),
+        '#component' => $component,
+        '#data' => $data,
+      );
     }
   }
 
-  return theme('webform_results_analysis', array('node' => $node, 'data' => $data, 'sids' => $sids, 'component' => $analysis_component));
+  drupal_alter('webform_analysis', $analysis);
+  return drupal_render($analysis);
+}
+
+/**
+ * Prerender function for webform-analysis.tpl.php.
+ */
+function template_preprocess_webform_analysis(&$variables) {
+  $analysis = $variables['analysis'];
+  $variables['node'] = $analysis['#node'];
+  $variables['component'] = $analysis['#component'];
+}
+
+/**
+ * Prerender function for webform-analysis-component.tpl.php.
+ */
+function template_preprocess_webform_analysis_component(&$variables) {
+  $component_analysis = $variables['component_analysis'];
+  $variables['node'] = $component_analysis['#node'];
+  $variables['component'] = $component_analysis['#component'];
+
+  // Ensure defaults.
+  $variables['component_analysis']['#data'] += array(
+    'table_header' => NULL,
+    'table_rows' => array(),
+    'other_data' => array(),
+  );
+  $variables['classes_array'][] = 'webform-analysis-component-' . $variables['component']['type'];
+  $variables['classes_array'][] = 'webform-analysis-component--' . str_replace('_', '-', implode('--', webform_component_parent_keys($variables['node'], $variables['component'])));
+}
+
+/**
+ * Render an individual component's analysis data in a table.
+ *
+ * @param $variables
+ *   An array of theming variables for this theme function. Included keys:
+ *   - $component: The component whose analysis is being rendered.
+ *   - $data: An array of array containing the analysis data. Contains the keys:
+ *     - table_header: If this table has more than a single column, an array
+ *       of header labels.
+ *     - table_rows: If this component has a table that should be rendered, an
+ *       array of values
+ */
+function theme_webform_analysis_component_basic($variables) {
+  $data = $variables['data'];
+
+  // Ensure defaults.
+  $data += array(
+    'table_header' => NULL,
+    'table_rows' => array(),
+    'other_data' => array(),
+  );
+
+  // Combine the "other data" into the table rows by default.
+  if (is_array($data['other_data'])) {
+    foreach ($data['other_data'] as $other_data) {
+      if (is_array($other_data)) {
+        $data['table_rows'][] = $other_data;
+      }
+      else {
+        $data['table_rows'][] = array(array(
+          'colspan' => 2,
+          'data' => $other_data,
+        ));
+      }
+    }
+  }
+  elseif (strlen($data['other_data'])) {
+    $data['table_rows'][] = array(
+      'colspan' => 2,
+      'data' => $data['other_data'],
+    );
+  }
+
+  return theme('table', array(
+    'header' => $data['table_header'],
+    'rows' => $data['table_rows'],
+    'class' => array('webform-analysis-table'),
+  ));
+}
+
+/**
+ * Return a list of components that should be displayed for analysis.
+ *
+ * @param $node
+ *   The node whose components' data is being analyzed.
+ * @return array
+ *   An array of component IDs.
+ */
+function webform_analysis_enabled_components($node) {
+  $cids = array();
+  foreach ($node->webform['components'] as $cid => $component) {
+    if (!empty($component['extra']['analysis'])) {
+      $cids[] = $cid;
+    }
+  }
+  return $cids;
+}
+
+/**
+ * Form for selecting which components should be shown on the analysis page.
+ */
+function webform_analysis_components_form($form, &$form_state, $node) {
+  form_load_include($form_state, 'inc', 'webform', 'includes/webform.components');
+  $form['#node'] = $node;
+
+  $component_list = webform_component_list($node, 'analysis', TRUE);
+  $enabled_components = webform_analysis_enabled_components($node);
+  if (empty($component_list)) {
+    $help = t('No components have added that support analysis. <a href="!url">Add components to your form</a> to see calculated data.', array('!url' => url('node/' . $node->nid . '/webform')));
+  }
+  elseif (empty($enabled_components)) {
+    $help = t('No components have analysis enabled in this form. Enable analysis under the "Add analysis components" fieldset.');
+  }
+  else {
+    $help = t('This page shows analysis of submitted data, such as the number of submissions per component value, calculations, and averages. Additional components may be added under the "Add analysis components" fieldset.');
+  }
+
+  $form['help'] = array(
+    '#markup' => '<p>' . $help . '</p>',
+    '#access' => !empty($help),
+    '#weight' => -100,
+  );
+
+  $form['components'] = array(
+    '#type' => 'select',
+    '#title' => t('Add analysis components'),
+    '#options' => $component_list,
+    '#default_value' => $enabled_components,
+    '#multiple' => TRUE,
+    '#size' => 10,
+    '#description' => t('The selected components will be included on the analysis page.'),
+    '#process' => array('webform_component_select'),
+    '#access' => count($component_list),
+  );
+
+  $form['actions'] = array(
+    '#type' => 'actions',
+    '#access' => count($component_list),
+  );
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Update analysis display'),
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler for webform_analysis_components_form().
+ */
+function webform_analysis_components_form_submit($form, $form_state) {
+  $node = $form['#node'];
+  foreach ($form_state['values']['components'] as $cid => $enabled) {
+    $node->webform['components'][$cid]['extra']['analysis'] = (bool) $enabled;
+  }
+  node_save($node);
 }
 
 /**
@@ -1259,7 +1535,7 @@ function webform_download_sids($nid, $range_options, $uid = NULL) {
       break;
     case 'latest':
       // Last x Submissions.
-      $start_sid = webform_download_latest_start_sid($nid, $range_options['latest']);
+      $start_sid = webform_download_latest_start_sid($nid, $range_options['latest'], $range_options['completion_type']);
       $query->condition('sid', $start_sid, '>=');
       break;
     case 'range':
@@ -1270,6 +1546,19 @@ function webform_download_sids($nid, $range_options, $uid = NULL) {
       }
       $query->orderBy('sid', 'ASC');
       break;
+    case 'range_serial':
+      // Submissions Start-End, using serial numbers.
+      $query->condition('serial', $range_options['start'], '>=');
+      if ($range_options['end']){
+        $query->condition('serial', $range_options['end'], '<=');
+      }
+      $query->orderBy('serial', 'ASC');
+      break;
+  }
+
+  // Filter down to draft or finished submissions.
+  if (!empty($range_options['completion_type']) && $range_options['completion_type'] !== 'all') {
+    $query->condition('is_draft', (int) ($range_options['completion_type'] === 'draft'));
   }
 
   // Set batch properties. Unfortunately the pager query class reads directly
@@ -1315,10 +1604,13 @@ function webform_download_sids($nid, $range_options, $uid = NULL) {
 function webform_download_last_download_info($nid, $uid = NULL) {
   $uid = isset($uid) ? $uid : $GLOBALS['user']->uid;
 
-  $info = db_select('webform_last_download', 'wld')
+  $query = db_select('webform_last_download', 'wld');
+  $query->leftJoin('webform_submissions', 'wfs', 'wld.sid = wfs.sid');
+  $info = $query
     ->fields('wld')
-    ->condition('nid', $nid)
-    ->condition('uid', $uid)
+    ->fields('wfs', array('serial'))
+    ->condition('wld.nid', $nid)
+    ->condition('wld.uid', $uid)
     ->execute()
     ->fetchAssoc();
 
@@ -1332,18 +1624,24 @@ function webform_download_last_download_info($nid, $uid = NULL) {
  *   The webform NID.
  * @param int $latest_count
  *   The latest count on which the SID will be retrieved.
+ * @param string $completion_type
+ *   The completion type, either "finished", "draft", or "all".
  * @return
  *   The submission ID that starts the latest sequence of submissions.
  */
-function webform_download_latest_start_sid($nid, $latest_count) {
+function webform_download_latest_start_sid($nid, $latest_count, $completion_type = 'all') {
   // TODO: Find a more efficient DBTNG query to retrieve this number.
-  $latest_sids = db_select('webform_submissions', 'ws')
+  $query = db_select('webform_submissions', 'ws')
     ->fields('ws', array('sid'))
     ->condition('nid', $nid)
     ->orderBy('ws.sid', 'DESC')
     ->range(0, $latest_count)
-    ->addTag('webform_download_latest_start_sid')
-    ->execute()
-    ->fetchCol();
+    ->addTag('webform_download_latest_start_sid');
+
+  if ($completion_type !== 'all') {
+    $query->condition('is_draft', (int) ($completion_type === 'draft'));
+  }
+
+  $latest_sids = $query->execute()->fetchCol();
   return min($latest_sids);
 }

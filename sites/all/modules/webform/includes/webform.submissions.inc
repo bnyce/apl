@@ -39,6 +39,24 @@ function webform_submission_data($node, $submitted) {
 }
 
 /**
+ * Given set of $form_state values, prepare a psuedo-submission.
+ */
+function webform_submission_create($node, $account, $form_state) {
+  $submission = (object) array(
+    'nid' => $node->nid,
+    'uid' => $account->uid,
+    'submitted' => REQUEST_TIME,
+    'remote_addr' => ip_address(),
+    'is_draft' => TRUE,
+    'preview' => FALSE,
+    'serial' => _webform_submission_serial_next_value($node->nid),
+    'data' => webform_submission_data($node, $form_state['values']['submitted']),
+  );
+  drupal_alter('webform_submission_create', $submission, $node, $account, $form_state);
+  return $submission;
+}
+
+/**
  * Update a webform submission entry in the database.
  *
  * @param $node
@@ -131,10 +149,10 @@ function webform_submission_insert($node, $submission) {
 /**
  * Delete a single submission.
  *
- * @param $nid
- *   ID of node for which this webform was submitted.
- * @param $sid
- *   ID of submission to be deleted (from webform_submitted_data).
+ * @param $node
+ *   The node object containing the current webform.
+ * @param $submission
+ *   The webform submission object to be deleted from the database.
  */
 function webform_submission_delete($node, $submission) {
   // Iterate through all components and let each do cleanup if necessary.
@@ -196,7 +214,7 @@ function webform_submission_send_mail($node, $submission, $emails = NULL) {
     }
 
     // Replace tokens in the message.
-    $email['message'] = _webform_filter_values($email['message'], $node, $submission, $email, FALSE);
+    $email['message'] = webform_replace_tokens($email['message'], $node, $submission, $email, $email['html'] ? TRUE : FALSE);
 
     // Build the e-mail headers.
     $email['headers'] = theme(array('webform_mail_headers_' . $node->nid, 'webform_mail_headers'), array('node' => $node, 'submission' => $submission, 'email' => $email));
@@ -231,7 +249,7 @@ function webform_submission_send_mail($node, $submission, $emails = NULL) {
     }
 
     // Replace the "email" field content with chosen email mapping.
-    if (isset($email['extra']['email_mapping'])) {
+    if (isset($email['extra']['email_mapping']) && !empty($submission->data[$email['email']])) {
       $component_emails = array();
       foreach ($submission->data[$email['email']] as $email_value) {
         if (isset($email['extra']['email_mapping'][$email_value])) {
@@ -388,7 +406,7 @@ function webform_submission_delete_form_submit($form, &$form_state) {
  * Menu title callback; Return the submission number as a title.
  */
 function webform_submission_title($node, $submission) {
-  return t('Submission #@sid', array('@sid' => $submission->sid));
+  return t('Submission #@serial', array('@serial' => $submission->serial));
 }
 
 /**
@@ -485,7 +503,7 @@ function webform_submission_resend($form, $form_state, $node, $submission) {
     );
 
     $form['actions'] = array('#type' => 'actions');
-    $form['actions']['resend'] = array(
+    $form['actions']['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Resend e-mails'),
     );
@@ -567,11 +585,10 @@ function theme_webform_submission_resend($variables) {
 /**
  * Print a Webform submission for display on a page or in an e-mail.
  */
-function webform_submission_render($node, $submission, $email, $format) {
+function webform_submission_render($node, $submission, $email, $format, $excluded_components = array()) {
   $component_tree = array();
   $renderable = array();
   $page_count = 1;
-  $excluded_components = isset($email) ? $email['excluded_components'] : array();
 
   // Meta data that may be useful for modules implementing
   // hook_webform_submission_render_alter().
@@ -624,7 +641,7 @@ function webform_get_submissions($filters = array(), $header = NULL, $pager_coun
   $submissions = array();
 
   if (!is_array($filters)) {
-    $filters = array('nid' => $filters);
+    $filters = array('ws.nid' => $filters);
   }
 
   // UID filters need to be against a specific table.
@@ -633,55 +650,79 @@ function webform_get_submissions($filters = array(), $header = NULL, $pager_coun
     unset($filters['uid']);
   }
 
-  // No need to find SIDs if it was given to us.
-  if (isset($filters['sid'])) {
-    $sids = array($filters['sid']);
+  // Build the list of submissions and load their basic information.
+  $pager_query = db_select('webform_submissions', 'ws')
+    // Ensure only one row per submission is returned. Could be more than one if
+    // sorting on a column that uses multiple rows for its data.
+    ->distinct()
+    ->addTag('webform_get_submissions_sids')
+    ->fields('ws', array('sid', 'nid', 'serial', 'submitted', 'remote_addr', 'uid', 'is_draft'));
+  foreach ($filters as $column => $value) {
+    $pager_query->condition($column, $value);
   }
-  // Build the list of SIDs that need to be retrieved.
-  else {
-    $pager_query = db_select('webform_submissions', 'ws')
-      ->addTag('webform_get_submissions_sids')
-      ->fields('ws', array('sid'));
-    foreach ($filters as $column => $value) {
-      $pager_query->condition($column, $value);
-    }
 
-    if (isset($filters['u.uid']) || !empty($header)) {
-      // Join to the users table for sorting by user name.
-      $pager_query->leftJoin('users', 'u', 'u.uid = ws.uid');
+  // Join to the users table to include user name in results.
+  $pager_query->leftJoin('users', 'u', 'u.uid = ws.uid');
+  $pager_query->fields('u', array('name'));
+  if (isset($filters['u.uid']) && $filters['u.uid'] === 0) {
+    if (!empty($_SESSION['webform_submission'])) {
+      $anonymous_sids = array_keys($_SESSION['webform_submission']);
+      $pager_query->condition('sid', $anonymous_sids, 'IN');
     }
+    else {
+      $pager_query->condition('sid', 0);
+    }
+  }
 
-    if (isset($filters['u.uid']) && $filters['u.uid'] === 0) {
-      if (!empty($_SESSION['webform_submission'])) {
-        $anonymous_sids = array_keys($_SESSION['webform_submission']);
-        $pager_query->condition('sid', $anonymous_sids, 'IN');
+  if (is_array($header)) {
+    $metadata_columns = array();
+    foreach ($header as $header_item) {
+      $metadata_columns[] = $header_item['data'];
+    }
+    $sort = drupal_get_query_parameters();
+    // Sort by submitted data column if order is set but not in $metadata_columns.
+    if (isset($sort['order']) && !in_array($sort['order'], $metadata_columns, TRUE)) {
+      // Default if sort is unset or invalid.
+      if (!isset($sort['sort']) || !in_array($sort['sort'], array('asc', 'desc'), TRUE)) {
+        $sort['sort'] = '';
       }
-      else {
-        $pager_query->condition('sid', 0);
-      }
+      $pager_query->leftJoin('webform_component', 'wc', 'ws.nid = wc.nid AND wc.name = :form_key', array('form_key' => $sort['order']));
+      $pager_query->leftJoin('webform_submitted_data', 'wsd', 'wc.nid = wsd.nid AND ws.sid = wsd.sid AND wc.cid = wsd.cid');
+      $pager_query->orderBy('wsd.data', $sort['sort']);
+      $pager_query->orderBy('sid', 'ASC');
     }
-
-    if (is_array($header)) {
-      // Extending the query instatiates a new query object.
+    // Sort by metadata column.
+    else {
+      // Extending the query instantiates a new query object.
       $pager_query = $pager_query->extend('TableSort');
       $pager_query->orderByHeader($header);
     }
-    else {
-      $pager_query->orderBy('sid', 'ASC');
-    }
+  }
+  else {
+    $pager_query->orderBy('sid', 'ASC');
+  }
 
-    if ($pager_count) {
-      // Extending the query instatiates a new query object.
-      $pager_query = $pager_query->extend('PagerDefault');
-      $pager_query->limit($pager_count);
-    }
-    $result = $pager_query->execute();
+  if ($pager_count) {
+    // Extending the query instantiates a new query object.
+    $pager_query = $pager_query->extend('PagerDefault');
+    $pager_query->limit($pager_count);
+  }
+  $result = $pager_query->execute();
 
-    $sids = array();
-    foreach ($result as $row) {
-      $sids[] = $row->sid;
-      $submissions[$row->sid] = FALSE;
-    }
+  $sids = array();
+  foreach ($result as $row) {
+    $sids[] = $row->sid;
+    $submissions[$row->sid] = new stdClass();
+    $submissions[$row->sid]->sid = $row->sid;
+    $submissions[$row->sid]->nid = $row->nid;
+    $submissions[$row->sid]->serial = $row->serial;
+    $submissions[$row->sid]->submitted = $row->submitted;
+    $submissions[$row->sid]->remote_addr = $row->remote_addr;
+    $submissions[$row->sid]->uid = $row->uid;
+    $submissions[$row->sid]->name = $row->name;
+    $submissions[$row->sid]->is_draft = $row->is_draft;
+    $submissions[$row->sid]->preview = FALSE;
+    $submissions[$row->sid]->data = array();
   }
 
   // If there are no submissions being retrieved, return an empty array.
@@ -691,13 +732,9 @@ function webform_get_submissions($filters = array(), $header = NULL, $pager_coun
 
   // Query the required submission data.
   $query = db_select('webform_submitted_data', 'sd');
-  $query->leftJoin('webform_submissions', 's', 's.sid = sd.sid');
-  $query->leftJoin('users', 'u', 'u.uid = s.uid');
   $query
     ->addTag('webform_get_submissions_data')
-    ->fields('s')
-    ->fields('sd', array('cid', 'no', 'data'))
-    ->fields('u', array('name'))
+    ->fields('sd', array('sid', 'cid', 'no', 'data'))
     ->condition('sd.sid', $sids, 'IN')
     ->orderBy('sd.sid', 'ASC')
     ->orderBy('sd.cid', 'ASC')
@@ -711,25 +748,9 @@ function webform_get_submissions($filters = array(), $header = NULL, $pager_coun
 
   $result = $query->execute();
 
-  // Convert the queried rows into submissions.
-  $previous = 0;
+  // Convert the queried rows into submission data.
   foreach ($result as $row) {
-    if ($row->sid != $previous) {
-      $submissions[$row->sid] = new stdClass();
-      $submissions[$row->sid]->sid = $row->sid;
-      $submissions[$row->sid]->nid = $row->nid;
-      $submissions[$row->sid]->submitted = $row->submitted;
-      $submissions[$row->sid]->remote_addr = $row->remote_addr;
-      $submissions[$row->sid]->uid = $row->uid;
-      $submissions[$row->sid]->name = $row->name;
-      $submissions[$row->sid]->is_draft = $row->is_draft;
-      $submissions[$row->sid]->data = array();
-    }
-    // CID may be NULL if this submission does not actually contain any data.
-    if ($row->cid) {
-      $submissions[$row->sid]->data[$row->cid][$row->no] = $row->data;
-    }
-    $previous = $row->sid;
+    $submissions[$row->sid]->data[$row->cid][$row->no] = $row->data;
   }
 
   foreach (module_implements('webform_submission_load') as $module) {

@@ -1,5 +1,1 @@
-/* line 2, ../sass/press-release.scss */
-body.section-press-release nav.breadcrumb,
-body.section-press-release h1#page-title {
-  display: none;
-}
+body.section-press-release nav.breadcrumb,body.section-press-release h1#page-title{display:none}

@@ -1,50 +1,60 @@
 @import "colors";
 
-#skip-link {
-	margin: 0;
-	max-height: 0;
-}
+.pane-menu-menu-coa-header {
+	background-color: $black;
+	ul.menu {
+		width: $coa-break;
+		margin: 0 auto !important;
+		li:nth-child(5) a {
+			border-right-width: 0;
+		}
+		
+		@include breakpoint($coa-one) {
+			width: 100%;
+			li:nth-child(5) a {
+				border-right-width: 1px;
+			}
+		}
 
-#block-menu-menu-coa-header li a {
-    padding-left: 8px;
-    padding-right: 8px;
-}
+		overflow: hidden;
+		line-height: 18px;
+		margin: 0;
+		padding: 0;
+		border: medium none;
+		list-style: none outside none;
+		font-family: Arial,Helvetica,sans-serif;
+		font-size: 10px;
+		font-weight: normal;
 
-.center-coa-brandbar {
-	width: 990px;
-	margin:0 auto;
-}
-
-#block-menu-menu-coa-header {
-	background: $blue_black;
-	font-family: Arial, Helvetica, sans-serif;
-	height: 30px;
-	ul {
+		text-align: center;
+		
 		li {
-			list-style: none outside none;
-			float: left;
-			margin-top: 4px;
+			display: inline;
 			a {
-				border-right: 1px solid #BDBDBD;
 				color: #BDBDBD;
-				font-size: 11px;
-				letter-spacing: 1px;
-				padding-right: 8px;
 				text-decoration: none;
 				text-transform: uppercase;
-				vertical-align:middle;
-			}
-			&:hover {
-				text-decoration: underline !important;
-			}
-		&.last a {
-			border: medium none;
-		}
-		}
-	}
-}
+                border-right: 1px solid fade-out(#BDBDBD, 0.2);
+                padding: 0 5px;
+				letter-spacing: 1px;
+				font-weight: bold;
 
-#city-header {
-	width:100%;
-	background:$blue_black;
+			&:hover {
+				text-decoration: underline;
+			}
+			&.active {
+				color: $yellow;
+				font-weight: bold;
+			}
+			}	    
+			
+			&.first {
+			}
+			
+			&.last a {
+				border-right: none;
+			}
+			}
+		}
+	
 }

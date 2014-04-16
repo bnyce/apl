@@ -1,1 +1,79 @@
-.customSearch_formContainer{height:120px;background-image:url("../images/apl_bannerhead_searchbox_bg.png");background-repeat:repeat-y;background-position:left;border-top:1px solid #b2b2b2;margin:0;margin-top:26px}.customSearch_formContainer>form>label{font-size:.85em}.CustomSearchLbl{visibility:hidden}.customSearch_formContainer>form>a{display:block;font-size:.8em}.customSearch_lgTxtFld{margin-left:0}.customSearchTab{position:relative;float:left;width:100%;padding:0;margin:0;list-style:none;line-height:1em;margin-right:2px}.customSearchTab li{float:left;margin:0 0;padding:0 .5em;height:26px;clear:right;margin-right:3px}.customSearchTab a{display:block;text-decoration:none;font-weight:bold;margin:0;padding:0.25em 0em;height:26px;margin-top:3px}.aplCustomSearchContainer{width:390px;height:124px;font-size:12px;float:left;padding:0px;margin-left:-18px;margin-top:8px;background-image:none;z-index:500}.aplCustomSearchContainer form{width:360px;font-size:14px;margin-left:15px;margin-top:12px}.aplCustomSearchContainer_bottom{width:390px;height:12px;float:left;background-image:url("../images/apl_bannerhead_searchbox_bottom.png");background-repeat:no-repeat;background-position:left;margin-top:-1px}.cst{background:#cccccc;margin:0;padding:0;border-left:1px solid #b2b2b2;border-top:1px solid #b2b2b2;border-right:1px solid #b2b2b2;-webkit-border-top-left-radius:10px;-moz-border-top-left-radius:10px;border-top-left-radius:8px;-webkit-border-top-right-radius:10px;-moz-border-top-right-radius:10px;border-top-right-radius:8px}.cst:hover{background:white}.customSearchTab_active{display:block;color:#fff;text-decoration:none;font-weight:bold;background:#fff;margin:0;border-left:1px solid #b2b2b2;border-top:1px solid #b2b2b2;border-right:1px solid #b2b2b2;-webkit-border-top-left-radius:10px;-moz-border-top-left-radius:10px;border-top-left-radius:8px;-webkit-border-top-right-radius:10px;-moz-border-top-right-radius:10px;border-top-right-radius:8px}#BookAndMore_formContainer form{margin-left:16px}.SSCentralSearchSearchCriteria,#BookAndMore_search{margin-bottom:5px !important}.initialHidden{display:none;background:white;border-left:1px solid #b2b2b2;border-right:1px solid #b2b2b2}
+/* line 4, ../sass/search.scss */
+#form_articles, #form_site, #form_catalog {
+  display: none;
+}
+
+/* line 8, ../sass/search.scss */
+.alt_language {
+  float: right;
+}
+
+/* line 13, ../sass/search.scss */
+#header h2.block-title,
+#header #form_catalog,
+#header #form_site,
+#header #form_articles {
+  display: none;
+}
+
+/* line 20, ../sass/search.scss */
+#aplCustomSearchWrapper2 {
+  float: right;
+  clear: right;
+  margin-bottom: 10px;
+}
+/* line 25, ../sass/search.scss */
+#aplCustomSearchWrapper2 form#globalSearch {
+  position: relative;
+}
+/* line 28, ../sass/search.scss */
+#aplCustomSearchWrapper2 input {
+  float: right;
+}
+/* line 31, ../sass/search.scss */
+#aplCustomSearchWrapper2 input#search_input {
+  width: 320px;
+  float: none !important;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 24px !important;
+  padding-top: 8px !important;
+}
+/* line 39, ../sass/search.scss */
+#aplCustomSearchWrapper2 input.search_button {
+  background-image: url("http://austinlibrary.com/images/apl_2014/search_icon.png");
+  background-color: white;
+  height: 29px;
+  width: 32px;
+  border: none;
+  position: absolute;
+  text-indent: -9999px;
+  top: 3px;
+  left: 100%;
+  cursor: pointer;
+}
+/* line 51, ../sass/search.scss */
+#aplCustomSearchWrapper2 input.search_button:hover {
+  background-position: 33px 0;
+}
+/* line 54, ../sass/search.scss */
+#aplCustomSearchWrapper2 input.search_button:active {
+  background-position: 38px 1px;
+}
+/* line 58, ../sass/search.scss */
+#aplCustomSearchWrapper2 .searchOptions {
+  clear: both;
+  margin-top: 5px;
+  *margin-top: 27px;
+}
+/* line 62, ../sass/search.scss */
+#aplCustomSearchWrapper2 .searchOptions input {
+  float: left;
+}
+/* line 65, ../sass/search.scss */
+#aplCustomSearchWrapper2 .searchOptions label {
+  font-weight: normal;
+  float: left;
+  margin: 0 10px 0 5px;
+  *margin-top: 0;
+}

@@ -1,0 +1,68 @@
+@import "colors";
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+	font: 13px Arial,Helvetica,sans-serif;
+	margin: 0 auto;
+	padding: 0;
+
+	#header {
+		margin: 0 auto;
+		padding: 0 !important;
+	}
+}
+
+#header {
+	h2.pane-title {
+		display: none;
+	}
+}
+
+#page, .region-bottom {
+    max-width: none !important;
+}
+
+div#mini-panel-apl_2014_top {
+	background-color: white;
+	.panel-col-top,
+	.center-wrapper,
+	.panel-col-bottom {
+		margin: 0;
+	}	
+	.panel-col-top,
+	.panel-col-bottom {
+		width: 100%;
+	}
+	
+	.center-wrapper {
+		@include responsive_container;
+		
+		//min-height: 100px;
+		position: relative;
+
+			.panel-col-first {
+//				width: $big_column;
+				width: 120px;
+				//min-height: 100px;
+				float: left;
+			}
+
+			.panel-col-last {
+				width: 360px;
+				margin-left: 20px;
+				float: right;
+			}
+		
+		.inside {
+		}
+		a#apl_logo_a {
+	/*		display: block;
+			height: 100px;
+			width: 100px;
+	*/
+		}
+	}
+		
+	
+}

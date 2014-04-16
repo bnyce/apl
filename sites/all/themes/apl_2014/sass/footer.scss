@@ -1,80 +1,62 @@
 @import "colors";
 @import "dimensions";
-@import "breakpoint";
-@import "hmm";
 
-#bottom {
+#search_top, 
+#maincontent + #footer {
+ //   margin: 10px;
+}
+
+
+
+#footer {
 	border-bottom: 10px solid $blue;
 	border-top: 10px solid $blue;
 	background-color: #174478;
+	padding-top: 10px;
 
 #mini-panel-footer_container {
-	margin: 0 auto;
-//	max-width: 980px;
-//			background-color: green;
-			padding: 10px 0 0 0;
-                        //width: $one_col;
-                        width: 100%;
-                        @include breakpoint($high-tide) {
-                                width: $first_col;
-                        }
-                        @include breakpoint($ipad) {
-                                width: $ipad;
-                        }
-                        @include breakpoint($wide) {
-                                width: $desktop;
-                        }
+	@include responsive_container;
 	
-	div.panel-col-first {
-			margin-bottom: 10px;
-                        width: 100%;
-                        @include breakpoint($high-tide) {
-                        	width: $first_col;
-                        }
-                        @include breakpoint($ipad) {
-                        	width: $ipad;
-                        }
+	.inside {
+		margin-right: 0;
+	}
+	
+div.panel-col-first {
+//	margin-left: 5px;
+	width: 580px;
 
 	#more-than-books {
 		width: 220px;
-		margin-bottom: 10px;
 		float: left;
+		line-height: 20px;
+		
 		h2.pane-title {
 			border: none;
 			color: $yellow;
-    			font-style: oblique;
+    		font-style: oblique;
 			padding: 0;
-			font-style: oblique;
-			text-indent: -9999px;
-			min-height: 29px;
-			
-			background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tagline_more_than_books2.png");
-			background-image: url($domain_name + "/sites/all/themes/apl_2014/images/more-than-books3.svg");
-			background-size: 200px auto;
-			background-position: left;
-			background-repeat: no-repeat;
-    
+    		background-image: url("http://austinlibrary.com/images/apl_2014/tagline_more_than_books2.png");
+    		background-repeat: no-repeat;
+    		font-style: oblique;
+    		text-indent: -9999px;
+			height: 26px;
+
 		}
+
 		ul {
-			padding-left: 3px !important;
-			li {
-				list-style-type: none;
-			}
+			padding-left: 5px !important;
+		}
+
+		ul li {
+			list-style-type: none;
 		}
 	}
 
 	#connect-with-us {
-		margin: 0 0 10px 3px;
-		float: left;
-		clear: left;
-                        @include breakpoint($high-tide) {
-			float: right;
-			clear: none;
-                        }
-	//	margin-right: 20px;
+		float: right;
+//		margin-right: 20px;
 
 		h2.pane-title {
-			margin-bottom: 0 0 5px 0 !important;
 			float: left;
 			border: none;
 			font-size: small;
@@ -82,27 +64,28 @@
 			font-weight: normal;
 			padding: 0;
 		}
-			ul {
-				padding-left: 5px !important;
-			li {
+
+		ul {
+			padding-left: 5px !important;
+		}
+
+			ul li {
 				cursor: pointer;
 				float: left;
 				margin-right: 5px;
 		
 				&.menu-mlid-4536 {
-					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tw.png");
-					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/tw.svg");
+					background-image: url("http://austinlibrary.com/images/apl_2014/twitter512.png") !important;
 					clear: both;
 				}
 				&.menu-mlid-4543 {
-					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/fb.png");
-					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/fb.svg");
+					background-image: url("http://austinlibrary.com/images/apl_2014/facebook512.png") !important;
 				}
 				&.menu-mlid-4545 {
-					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/gplus-32.png");
-					background-image: url($domain_name + "/sites/all/themes/apl_2014/images/gplus-32.svg");
+					background-image: url("http://www.austinlibrary.com/images/apl_2014/plus2.png") !important;
 					margin-right: 0;
 				}
+
 				background-position: center bottom;
 				background-repeat: no-repeat;
 				background-size: 32px auto;
@@ -110,25 +93,35 @@
 				height: 32px;
 				text-indent: -9999px;
 				width: 32px;
-				}
-				}
 }
 }
-div.panel-col-last {
-	width: 340px;
+}
+div.panel-col {
+//	border-left: 1px dotted white;
 	float: right;
-//	margin-right: 20px;
-	padding-top: 0;
-	margin-top: 0;
-//	border: none;
+	margin-right: 18px;
+//	padding: 10px 0 10px 10px;
+	width: 355px;
 }
 
-	background-image: url($domain_name + "/sites/all/themes/apl_2014/images/footer4.png"); 
+div.panel-col-last {
+	width: 340px;
+	padding-top: 0;
+	margin-top: 0;
+	.inside {
+		margin: 0;
+	}
+}
+
+	background-image: url("http://austinlibrary.com/images/apl_2014/footer.png?b");
 	background-image: none\9;
     	background-repeat: no-repeat;
     	background-size: 48% auto !important;
 	background-position: 100px bottom;
+	.panel-col-last {
+	}
 }
+
 	div.panel-col {
 		h2.pane-title {
 			border-bottom: none;
@@ -169,12 +162,12 @@ div.panel-col-last {
 	}
 	
 	div.panel-col-last {
-		margin-bottom: 20px;
+		float: right;
+		margin-bottom: 0;
 	}
 	tbody {
 		border: none;
 	}
-	//background-color: darken($blue, 10%);
 	a {
 		color: white;
 	}
@@ -187,10 +180,9 @@ div.panel-col-last {
 		margin-top:10px;
 	}
 }
-/*
+
 #bottom_links {
 	margin: 0 0 10px 10px;
-//	width: 940px;
 	height: 40px;
 	padding-left: 0;
 	li {
@@ -213,4 +205,3 @@ div.panel-col-last {
 	}
 	}
 }
-*/

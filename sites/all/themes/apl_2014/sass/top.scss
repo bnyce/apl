@@ -1,331 +1,91 @@
 @import "colors";
-@import "breakpoint";
-@import "hmm";
 
 $width: 100%;
 
-a#apl_logo_a {
- background-image: url($domain_name + '/sites/all/themes/apl_2014/images/apl_logo_color.png'); 
- background-image: url($domain_name + '/sites/all/themes/apl_2014/images/apl_logo.svg');
- display: block;
- height: 71px;
- width: 140px;
- background-size: 105px auto;
- background-repeat: no-repeat;
+.panel-pane.pane-custom.pane-4 > img {
+    height: auto;
+    max-width: 100%;
+}
+#mini-panel-ahc_about_us_address_hours p + p{
+	padding-top: 10px;
+}
+#mini-panel-austin_history_center_all {
+.panel-pane.pane-custom.pane-3 > p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+	span.mon, span.tues, span.sun {
+		display: block;
+	span, span span {
+	    display: inline-block;
+	}
+}
 }
 
-body {
-//	max-width: 768px;
-	margin: 0 auto;
-}
-html {
-	overflow-x: hidden;
-}
-
-div#austin_city_header {
-	margin: 0 auto;
-	width: 100%;
-	min-width: 345px;
-}
-
-div#mini-panel-austin_history_center_bottom {
-	div.panel-col {
-		width: 33%;
+#mini-panel-ask_us {
+//    border: 1px dotted #D2B48C;
+//    width: 700px;
+	p {
+		margin: 0 5px 5px 10px;
+		span {
+			display: inline-block;
+		&.mon,
+		&.fri,
+		&.sun {
+			margin-top: 10px;
+		}
+		}
+	}
+	div.panel-panel {
+	
 	}
 }
 
+.panel-2col .panel-col-first .inside,
+.panel-2col .panel-col-first .inside p {
+    margin: 0 0 0 0 !important;
+}
 
+#mini-panel-austin_history_center_all,
+div#mini-panel-using_the_library {
+	div.panel-col div.panel-col {
+		width: 33%;
+//		border: 1px solid red;
+	}
+}
 div#mini-panel-clone_of_messages {
-	background-color: $yellow;
+	//min-height: 30px;
 	text-align: center;
-	div.panel-col {
-			width: 100%;
-			div.pane-clone-of-news-panel-pane-9 {
-			@include breakpoint($high-tide) {
-				width: $first_col;
-				margin: 0 auto;
-			}
-			@include breakpoint($ipad) {
-				width: $ipad;
-			}
-			@include breakpoint($wide) {
-				width: $desktop;
-			}
-			}
 	p {
 		margin-bottom: 0;
 	}
-	}
-		span.field-content {
-			padding: 5px 20px;
-			display: block;
-		color: $black;
-		a {
-			border-bottom: 1px dotted white;
-		&:hover {
-			border-bottom: 1px solid white;
-			text-decoration: none;
-		}
-		}
-		}
-	div {
-	&.error {
-		background-color: #B73939;
+span.field-content {
+	display: block;
+}
+	div.messages {
 		background-image: none;
+		border: none;
+		padding: 6px 20px !important;
+	&.status {
+		background-color: green;
 		color: white;
-		padding: 5px 20px;
 	}
 	&.warning {
 		background-color: $yellow;
-		background-image: none;
 		color: white;
-		border: none;
-		a {
+		p {
 			color: $blue_black;
-		}
-	}
-	}
-}
-div#mini-panel-apl_2014_top {
-
-.panel-col-top {
-	min-width: 100%;
-	div.inside {
-		margin: 0 auto;
-		width: $really_narrow;
-		@include breakpoint($high-tide) {
-			width: $narrow;
-		}
-/*
-		@include breakpoint($ipad) {
-			width: $ipad;
-		}
-*/
-		@include breakpoint($wide) {
-			//width: 960px;
-			width: 100%;
-		}
-	}
-}
-	.panel-col-bottom {
-		margin-top: 10px;
-		min-height: 25px;
-	//	width: 980px;
-		width: 100%;
-		background-color: $blue;
-		border-top: 3px solid $blue;
-		.inside {
-			padding-top: 3px !important;
-			margin: 0 auto;
-//			width: 980px;
-//			background-color: red;
-			width: $one_col;
-			@include breakpoint($high-tide) {
-				width: $first_col;
-			}
-			@include breakpoint($ipad) {
-				width: $ipad;
-			}
-			@include breakpoint($wide) {
-				width: $desktop;
-			}
-		ul.menu {
-			overflow: visible;
-			width: $one_col;
-			@include breakpoint($high-tide) {
-				width: $narrow;
-				margin-left: -5px;
-				text-align: left;
-				margin-top: -3px;
-			}
-			@include breakpoint($ipad) {
-				width: $narrow;
-			}
-			@include breakpoint($wide) {
-				width: $desktop;
-			}
-		li {
-			display: block;
-			border-bottom: 1px solid fade-out(#BDBDBD, 0.6);
-			@include breakpoint($high-tide) {
-			display: inline-block;
-			border-bottom: none;
-			}
-			margin-top: 1px;
-		a {
-			cursor:zoom-in;
-			color: white;
-			font-size: 1.4em;
-			text-transform: none;
-				width: $one_col;
-				padding: 5px 0 !important;
-				margin-top: 5px;
-			@include breakpoint($high-tide) {
-			width: auto;
-			padding: 2px 9px 5px !important;
-			margin-left: -4px;
-			margin-top: 0;
-			}
-			&:hover,
-			&.qtip-hover {
-				background-color: white;
-				text-decoration: none;
-				color: $blue;
-			}
-		
-		}
-		}
-		}
-		}
-	}
-.center-wrapper {
-	position: relative;
-//	min-width: 100%;
-//	max-width: 980px;
-//	background-color: yellow;
-	width: $one_col;
-		@include breakpoint($high-tide) {
-			width: $first_col;
-		}
-		@include breakpoint($ipad) {
-			width: $ipad;
-		}
-		@include breakpoint($wide) {
-			width: $desktop;
-		}
-	.panel-col-first {
-		width: 144px;
-		height: 72px;
-		float: left;
-	}
-	.panel-col-last {
-		float: right;
-//		background-color: yellow;
-		margin-left: 20px;
-		//margin-right: 10px;
-		margin-bottom: 10px;
-		width: 340px;
-		min-height: 67px;
-	}
-}
-	background-color: white;
-	.panel-col-top {
-		background-color: $blue_black;
-		
-		ul.menu {
-			li:nth-child(3) a {
-				color: $yellow;
-				font-weight:bold;
-				border-right: none;
-				@include breakpoint($high-tide) {
-					border-right: 1px solid fade-out(#BDBDBD, 0.6);
-				}
-			}
-			li:nth-child(5) a {
-				border-right: none;
-				@include breakpoint($wide) {
-					border-right: 1px solid fade-out(#BDBDBD, 0.6);
-				}
-			}
-			li:nth-child(6) a {
-				border-right: none;
-				@include breakpoint($high-tide) {
-					border-right: 1px solid fade-out(#BDBDBD, 0.6);
-				}
-			}
-			li:last-child a {
-				border-right: none;
-			}
-			li a {
-				text-transform: uppercase;
-				border-right: 1px solid fade-out(#BDBDBD, 0.6);
-				padding: 0 0.75em;
-				letter-spacing: 1px;
-				font-weight: bold;
-			}
-		}
-	}
-	.center-wrapper {
-		margin: 0 auto;
-		height: 72px;
-		margin-top: 5px;
-	}
-	.panel-col-first {
-		float: left;
-		position: relative;
-		.inside {
-			position: absolute;
-		//	left: 10px;
-			top: 2px;
-		}
-	}
-	.panel-col-last {
-		float: left;
-		.inside {
-			float: right;
-		}
-	}
-}
-
-#city-header {
-	h2.pane-title {
-		display: none;
-	}
-	div {
-		margin: 0;
-		padding: 0;
-	}
-	
-	
-	ul.menu {
-		width: $width;    
-		height: 30px;
-		line-height: 30px;
-		margin: 0 auto;
-		padding: 0;
-		text-align: center;    
-		border: medium none;
-		list-style: none outside none;
-		font-family: Arial,Helvetica,sans-serif;
-		font-size: 62.5%;
-	    font-weight: normal;
-	    text-align: center;
-		li:nth-child(3) a {
-			color: $yellow;
-		}
-		li {
-			display: inline;
-			float: none;
-			margin: 0;
-			margin: 0 0 0 0.5em;
-			list-style: none outside none;
-			font-size: 1.2em;	
 			a {
-				letter-spacing: 1px;
-				border-right: 1px solid fade-out(#BDBDBD, 0.2);
-				color: #BDBDBD;
-				font-size: 1.1em;
-				padding: 0 0.75em;
-				text-decoration: none;
-				text-transform: uppercase;
+				border-bottom: 1px dotted white;
+				color: $blue_black;
 			&:hover {
-				text-decoration: underline;
+				border-bottom: 1px solid $blue_black;
+				text-decoration: none;
 			}
-			&.active {
-				color: $yellow;
-				font-weight: bold;
 			}
-			}	    
-		&.first {
-			padding-left: 0;
-		}
-		&.last a {
-			border-right: none;
-		}
-		}
-		li.expanded, li.collapsed, li.leaf {
-		    margin: 0;
-		    padding: 0.2em 0 0 0;
 		}
 	}
+	}
 }
+
+

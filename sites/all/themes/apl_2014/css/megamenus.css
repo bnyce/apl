@@ -1,1 +1,190 @@
-li.menu-mlid-4656,li.menu-mlid-4686,li.menu-mlid-4668,li.menu-mlid-4667,li.menu-mlid-4619{margin-top:20px !important}#mini-panel-austin_history_center_all div.panel-col div.panel-col-first{width:67%}#mini-panel-austin_history_center_all div.panel-col div.panel-col-first #mini-panel-ahc_about_us_address_hours div.panel-panel{width:50%}#mini-panel-austin_history_center_all div.panel-col-last{width:33%}#mini-panel-austin_history_center_all #mini-panel-austin_history_center_bottom div.panel-col-first{width:33% !important}.panel-pane.pane-custom.pane-4>p{margin-left:10px}div.qtip-light{min-width:320px;margin:0 auto;border:1px solid #efefef}div.qtip-wrapper{width:100% !important;background-color:white}div.qtip-wrapper div.qtip-contentWrapper{border:none !important;max-width:980px;margin:0 auto}div.qtip-wrapper div.qtip-contentWrapper .panel-3col-33 .panel-col .inside{margin:0}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content{padding:0 !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-2col img{max-width:280px;height:auto}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-2col div.panel-col-last{margin-right:0px}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-1col ul.menu{padding-left:0 !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-1col li{padding-left:0 !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel ul.menu{padding:0}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel ul.menu ul.menu{padding-left:0}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel div.inside{margin:0}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel.panel-col-last{margin-right:0 !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels{background-color:white;padding:10px !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels li.menu-mlid-3973{margin-bottom:5px}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels li.menu-mlid-3973>a{padding-bottom:1px !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels h2.pane-title{padding-left:5px}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels h2.pane-title,div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels li.menu-mlid-3973>a{color:#001421;margin-top:0 !important;padding-top:0px !important;padding-bottom:0px;padding-right:0;font-size:16px !important;border-bottom:1px solid #BFD3DF;font-weight:bold !important;margin-bottom:5px}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels a{color:#0069aa}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu{padding-left:5px !important}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu ul.menu{padding-left:10px;width:100%}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li{display:block;padding:0px}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li ul.menu li{padding-left:5px}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li a{padding:5px;display:block}div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li a:hover{background-color:#0069aa;color:white;text-decoration:none}
+/* line 3, ../sass/megamenus.scss */
+#header ul.menu ul.menu {
+  display: none;
+}
+
+/* line 10, ../sass/megamenus.scss */
+#mini-panel-ahc_about_us_address_hours span:last-child,
+#mini-panel-apl_2014_recycled_reads_3 span:last-child {
+  display: block;
+}
+
+/* line 23, ../sass/megamenus.scss */
+li.menu-mlid-4435,
+li.menu-mlid-4454,
+li.menu-mlid-4464,
+li.menu-mlid-4509,
+li.menu-mlid-4597,
+li.menu-mlid-4430 {
+  margin-top: 20px !important;
+}
+
+/* line 32, ../sass/megamenus.scss */
+#mini-panel-research div.panel-col-first {
+  width: 33%;
+}
+/* line 35, ../sass/megamenus.scss */
+#mini-panel-research div.panel-col-last {
+  width: 67%;
+}
+/* line 37, ../sass/megamenus.scss */
+#mini-panel-research div.panel-col-last #mini-panel-information_guides div.panel-panel {
+  width: 50%;
+}
+
+/* line 44, ../sass/megamenus.scss */
+#mini-panel-austin_history_center_all div.panel-col div.panel-col-first {
+  width: 67%;
+}
+/* line 46, ../sass/megamenus.scss */
+#mini-panel-austin_history_center_all div.panel-col div.panel-col-first #mini-panel-ahc_about_us_address_hours div.panel-panel {
+  width: 50%;
+}
+/* line 50, ../sass/megamenus.scss */
+#mini-panel-austin_history_center_all div.panel-col-last {
+  width: 33%;
+}
+/* line 53, ../sass/megamenus.scss */
+#mini-panel-austin_history_center_all #mini-panel-austin_history_center_bottom
+div.panel-col-first {
+  width: 33% !important;
+}
+
+/* line 61, ../sass/megamenus.scss */
+#mini-panel-locations div.panel-col-first {
+  width: 33%;
+}
+/* line 64, ../sass/megamenus.scss */
+#mini-panel-locations div.panel-col-last {
+  width: 67%;
+}
+/* line 66, ../sass/megamenus.scss */
+#mini-panel-locations div.panel-col-last #mini-panel-library_locations div.panel-panel {
+  width: 50%;
+}
+
+/* line 72, ../sass/megamenus.scss */
+.panel-pane.pane-custom.pane-4 > p {
+  margin-left: 10px;
+}
+
+/* line 78, ../sass/megamenus.scss */
+div.qtip-light {
+  border: 1px solid #efefef;
+}
+
+/* line 81, ../sass/megamenus.scss */
+div.qtip-wrapper {
+  width: 100% !important;
+  background-color: white;
+}
+/* line 84, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper {
+  max-width: 980px;
+  margin: 0 auto;
+}
+/* line 87, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper .panel-3col-33 .panel-col .inside {
+  margin: 0;
+}
+/* line 90, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content {
+  background-color: #0088dd !important;
+  padding: 0 !important;
+}
+/* line 92, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-2col img {
+  max-width: 280px;
+  height: auto;
+}
+/* line 96, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-2col div.panel-col-last {
+  margin-right: 0px;
+}
+/* line 101, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-1col ul.menu {
+  padding-left: 0 !important;
+}
+/* line 104, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-1col li {
+  padding-left: 0 !important;
+}
+/* line 110, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel ul.menu {
+  padding: 0;
+}
+/* line 112, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel ul.menu ul.menu {
+  padding-left: 0;
+}
+/* line 116, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel div.inside {
+  margin: 0;
+}
+/* line 124, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.panel-3col-33-stacked div.panel-panel.panel-col-last {
+  margin-right: 0 !important;
+}
+/* line 131, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels {
+  background-color: white;
+  padding: 10px !important;
+}
+/* line 134, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels li.menu-mlid-3973 {
+  margin-bottom: 5px;
+}
+/* line 136, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels li.menu-mlid-3973 > a {
+  padding-bottom: 1px !important;
+}
+/* line 140, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels h2.pane-title {
+  padding-left: 5px;
+}
+/* line 143, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels h2.pane-title,
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels li.menu-mlid-3973 > a {
+  color: #001421;
+  margin-top: 0 !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px;
+  padding-right: 0;
+  font-size: 16px !important;
+  border-bottom: 1px solid #BFD3DF;
+  font-weight: bold !important;
+  margin-bottom: 5px;
+}
+/* line 155, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels a {
+  color: #0069aa;
+}
+/* line 158, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu {
+  padding-left: 5px !important;
+}
+/* line 160, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu ul.menu {
+  padding-left: 10px;
+  width: 100%;
+}
+/* line 164, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li {
+  display: block;
+  padding: 0px;
+}
+/* line 167, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li ul.menu li {
+  padding-left: 5px;
+}
+/* line 170, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li a {
+  padding: 5px;
+  display: block;
+}
+/* line 173, ../sass/megamenus.scss */
+div.qtip-wrapper div.qtip-contentWrapper div.qtip-content div.menu-minipanels ul.menu li a:hover {
+  background-color: #0069aa;
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,89 @@
+/* line 7, ../sass/health.scss */
+body.page-health div.panel-2col div.panel-col-first {
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  float: left;
+  margin-bottom: 20px;
+  width: 620px !important;
+}
+/* line 14, ../sass/health.scss */
+body.page-health div.panel-2col div.panel-col-last {
+  border: 1px solid #E1EAF0;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  float: left;
+  margin-bottom: 20px;
+  width: 298px !important;
+  min-height: 27em;
+}
+/* line 22, ../sass/health.scss */
+body.page-health div.panel-2col div.panel-col-last div.view-content {
+  padding: 10px;
+}
+/* line 26, ../sass/health.scss */
+body.page-health div.panel-2col div.panel-col-last div.inside {
+  margin: 0;
+}
+/* line 29, ../sass/health.scss */
+body.page-health div.panel-2col div.panel-col-last div.views-field-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 33, ../sass/health.scss */
+body.page-health div.panel-2col div.panel-col-last div.field-content img {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 122px;
+  max-height: 122px;
+  max-width: 280px;
+  padding: 0;
+  width: 280px;
+}
+/* line 45, ../sass/health.scss */
+body.page-health div.panel-3col-33 div.panel-col-first,
+body.page-health div.panel-3col-33 div.panel-col,
+body.page-health div.panel-3col-33 div.panel-col-last {
+  border: 1px solid #E1EAF0;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  float: left;
+  margin-bottom: 20px;
+  width: 298px !important;
+  min-height: 27em;
+}
+/* line 55, ../sass/health.scss */
+body.page-health div.panel-3col-33 div.panel-col-first div.views-field-title,
+body.page-health div.panel-3col-33 div.panel-col div.views-field-title,
+body.page-health div.panel-3col-33 div.panel-col-last div.views-field-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 60, ../sass/health.scss */
+body.page-health div.panel-3col-33 div.panel-col-first div.view-content,
+body.page-health div.panel-3col-33 div.panel-col div.view-content,
+body.page-health div.panel-3col-33 div.panel-col-last div.view-content {
+  padding: 10px;
+}
+/* line 64, ../sass/health.scss */
+body.page-health div.panel-3col-33 div.panel-col-first div.inside,
+body.page-health div.panel-3col-33 div.panel-col div.inside,
+body.page-health div.panel-3col-33 div.panel-col-last div.inside {
+  margin: 0;
+}
+/* line 68, ../sass/health.scss */
+body.page-health div.panel-3col-33 div.panel-col-first div.field-content img,
+body.page-health div.panel-3col-33 div.panel-col div.field-content img,
+body.page-health div.panel-3col-33 div.panel-col-last div.field-content img {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 122px;
+  max-height: 122px;
+  max-width: 280px;
+  padding: 0;
+  width: 280px;
+}
+/* line 78, ../sass/health.scss */
+body.page-health div.panel-3col-33 div.panel-col-first,
+body.page-health div.panel-3col-33 div.panel-col {
+  margin-right: 20px;
+}

@@ -8,12 +8,33 @@
 
 // JavaScript should be made compatible with libraries other than jQuery by
 // wrapping it with an "anonymous closure". See:
-// - http://drupal.org/node/1446420
+// - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
 
-// Place your code here.
+// To understand behaviors, see https://drupal.org/node/756722#behaviors
+Drupal.behaviors.my_custom_behavior = {
+  attach: function(context, settings) {
+
+$('#my-apl, #explore, #using-the-library, #events, #locations, #research, #ask-us, #austin-history-center, #recycled-reads, #youth-services').click(function(e) { e.preventDefault(); });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+};
 
 
 })(jQuery, Drupal, this, this.document);

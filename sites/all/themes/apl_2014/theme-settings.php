@@ -7,7 +7,7 @@
  * @param $form_state
  *   A keyed array containing the current state of the form.
  */
-function ahc_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL)  {
+function apl_2014_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL)  {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
@@ -16,10 +16,10 @@ function ahc_form_system_theme_settings_alter(&$form, &$form_state, $form_id = N
   // Create the form using Forms API: http://api.drupal.org/api/7
 
   /* -- Delete this line if you want to use this setting
-  $form['ahc_example'] = array(
+  $form['apl_2014_example'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('ahc sample setting'),
-    '#default_value' => theme_get_setting('ahc_example'),
+    '#title'         => t('apl_2014 sample setting'),
+    '#default_value' => theme_get_setting('apl_2014_example'),
     '#description'   => t("This option doesn't do anything; it's just an example."),
   );
   // */

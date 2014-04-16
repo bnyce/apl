@@ -1,0 +1,117 @@
+/* line 4, ../sass/apl-slideshow.scss */
+div.apl-slideshow {
+  width: 580px;
+}
+/* line 6, ../sass/apl-slideshow.scss */
+div.apl-slideshow .field-content, div.apl-slideshow a {
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 10, ../sass/apl-slideshow.scss */
+div.apl-slideshow p {
+  margin-bottom: 0;
+}
+/* line 17, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top,
+div.apl-slideshow .views-slideshow-controls-bottom {
+  z-index: 13;
+  position: relative;
+  width: 100%;
+  float: left;
+}
+/* line 21, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top #widget_pager_bottom_highlighted_images-panel_pane_8,
+div.apl-slideshow .views-slideshow-controls-bottom #widget_pager_bottom_highlighted_images-panel_pane_8 {
+  z-index: 12;
+}
+/* line 26, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-pause,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-pause {
+  display: none;
+}
+/* line 29, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-next,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
+  margin-right: -3px;
+}
+/* line 32, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-previous,
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-next,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-previous,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
+  display: block;
+  height: 0px;
+  width: 0px;
+  z-index: 12;
+  float: left;
+  margin-left: 5px;
+  overflow: hidden;
+  border-color: transparent #0069aa;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  display: block;
+}
+/* line 45, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-previous:hover,
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-next:hover,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-previous:hover,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-next:hover {
+  border-color: transparent #0088dd;
+}
+/* line 49, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text-next,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text-next {
+  border-width: 12px 0 12px 12px;
+}
+/* line 52, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-pager-fields,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-pager-fields {
+  position: absolute;
+  bottom: 5px;
+  bottom: 27px\9;
+  right: 0;
+}
+/* line 58, ../sass/apl-slideshow.scss */
+div.apl-slideshow .views-slideshow-controls-top .views-slideshow-controls-text,
+div.apl-slideshow .views-slideshow-controls-bottom .views-slideshow-controls-text {
+  position: absolute;
+  bottom: 32px;
+  right: 4px;
+}
+/* line 66, ../sass/apl-slideshow.scss */
+div.apl-slideshow div.views-field-field-highlighted-image {
+  z-index: 8;
+  position: relative;
+}
+/* line 69, ../sass/apl-slideshow.scss */
+div.apl-slideshow div.views-field-field-highlighted-image:after {
+  position: absolute;
+  bottom: 6px;
+  bottom: -64px\9;
+  content: "";
+  height: 64px;
+  opacity: 0.4;
+  opacity: 1\9;
+  background-color: #001421;
+  width: 100%;
+  z-index: 6;
+}
+/* line 83, ../sass/apl-slideshow.scss */
+div.apl-slideshow div.views-field-title {
+  position: absolute;
+  font-weight: bold;
+  font-size: 16px;
+  bottom: 37px;
+  left: 10px;
+  z-index: 10;
+  padding-top: 3px;
+}
+/* line 93, ../sass/apl-slideshow.scss */
+div.apl-slideshow div.views-field-body {
+  position: absolute;
+  bottom: 17px;
+  left: 10px;
+  z-index: 9;
+}

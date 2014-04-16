@@ -1,7 +1,3 @@
- $domain_name: "/aplmenus31"; // dev (/DOMAIN)
-//$domain_name: ""; // prod (blank)
-
-
 // Austin Public Library brand colors //
 $blue: #0069AA;
 $yellow: #fdb813;
@@ -9,6 +5,46 @@ $yellow: #fdb813;
 $apl_blue: #0069AA;
 $apl_blue_web: #0c7bbb;
 $apl_yellow: #fdb813;
+
+// calendar colors
+
+$c_blue: #DAEAFA;
+$c_green: #D9E696;
+$c_pink: #F9E5DA;
+$c_text: #989898;
+$rr_green: #4F7019;
+$rr_green_light: #8AC32C;
+
+
+
+
+
+@import "breakpoint";
+
+$high-tide: 980px;
+$two_columns: 962px;
+
+$big_column: 580px;
+
+
+$coa-break: 470px;
+$coa-one: 880px;
+
+$menu-break: 720px;
+$menu-one: 1220px;
+
+
+@mixin responsive_container {
+	margin: 0 auto !important;
+	width: $big_column;
+
+	
+	@include breakpoint($high-tide) {
+		width: $two_columns;
+	}
+}
+
+
 
 
 // Austin History Center
@@ -95,6 +131,7 @@ $blue_purple: mix($purple, $blue, 60%);
 $blue_light_old: #EBEFF7;
 //$blue_light: lighten($blue_medium, 25%);
 $blue_light: #E1EAF0;
+$light_blue: #E1EAF0;
 
 $search_border: #B2B2B2;
 
@@ -157,7 +194,7 @@ $alert_color_darker: darken( $alert_color, 20% );
 
 @mixin headline2 {
 	padding: 5px 5px 0 0;
-//	margin: 5px 0;
+	margin: 5px 0 !important;
 	border-bottom: 1px solid $blue_medium;
 }
 

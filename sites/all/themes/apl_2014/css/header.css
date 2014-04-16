@@ -1,0 +1,69 @@
+/* line 3, ../sass/header.scss */
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font: 13px Arial,Helvetica,sans-serif;
+  margin: 0 auto;
+  padding: 0;
+}
+/* line 10, ../sass/header.scss */
+body #header {
+  margin: 0 auto;
+  padding: 0 !important;
+}
+
+/* line 17, ../sass/header.scss */
+#header h2.pane-title {
+  display: none;
+}
+
+/* line 22, ../sass/header.scss */
+#page, .region-bottom {
+  max-width: none !important;
+}
+
+/* line 26, ../sass/header.scss */
+div#mini-panel-apl_2014_top {
+  background-color: white;
+}
+/* line 28, ../sass/header.scss */
+div#mini-panel-apl_2014_top .panel-col-top,
+div#mini-panel-apl_2014_top .center-wrapper,
+div#mini-panel-apl_2014_top .panel-col-bottom {
+  margin: 0;
+}
+/* line 33, ../sass/header.scss */
+div#mini-panel-apl_2014_top .panel-col-top,
+div#mini-panel-apl_2014_top .panel-col-bottom {
+  width: 100%;
+}
+/* line 38, ../sass/header.scss */
+div#mini-panel-apl_2014_top .center-wrapper {
+  margin: 0 auto !important;
+  width: 580px;
+  position: relative;
+}
+@media (min-width: 980px) {
+  /* line 38, ../sass/header.scss */
+  div#mini-panel-apl_2014_top .center-wrapper {
+    width: 962px;
+  }
+}
+/* line 44, ../sass/header.scss */
+div#mini-panel-apl_2014_top .center-wrapper .panel-col-first {
+  width: 120px;
+  float: left;
+}
+/* line 51, ../sass/header.scss */
+div#mini-panel-apl_2014_top .center-wrapper .panel-col-last {
+  width: 360px;
+  margin-left: 20px;
+  float: right;
+}
+/* line 59, ../sass/header.scss */
+div#mini-panel-apl_2014_top .center-wrapper a#apl_logo_a {
+  /*		display: block;
+  		height: 100px;
+  		width: 100px;
+  */
+}

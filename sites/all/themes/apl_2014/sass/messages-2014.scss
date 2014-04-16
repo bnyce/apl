@@ -1,0 +1,110 @@
+@import "colors";
+
+div.messages {
+	&.warning {
+		color: $black;
+	}
+	&.status {
+		border: none;
+	}
+}
+
+div#block-block-26 {
+        h2 {
+                display: none;
+        }
+}
+
+div.region-top-navigation {
+	margin-bottom: 10px;
+}
+
+#block-panels-mini-clone-of-messages {
+	margin: 0 0 10px 0 !important;
+	#mini-panel-clone_of_messages {
+		margin-bottom: 0;
+	}
+}
+div.error, label.error {
+	color: $black !important;
+}
+div.messages  {
+//	padding-left: 3em !important;
+	margin: 5px 0;
+}
+
+.region-help {
+	margin: 0;
+	padding: 0;
+	div {
+		padding: 0;
+		margin: 0;
+	}
+	h2 {
+		margin-bottom:.3em;
+	}
+}
+
+
+
+div.messages {
+  background-position: 5px 1px;
+  background-repeat: no-repeat;
+  padding: 5px 10px 5px 35px;
+}
+
+div.status {
+	background-image: url(../../../../../misc/message-24-ok.png);
+	border-color: $status_border;
+	@include status;
+}
+div.status,
+.ok {
+  color: $status_color;
+}
+div.status,
+table tr.ok {
+  background-color: $status_background;
+}
+
+div.warning {
+  background-image: url(../../../../../misc/message-24-warning.png);
+  border: none !important;
+
+}
+div.warning,
+.warning {
+  color: $warning_color;
+}
+div#mini-panel-clone_of_messages {
+	background-color: $yellow;
+}
+div.warning,
+table tr.warning {
+  background-color: $yellow;
+	border-bottom-left-radius: 0 !important;
+}
+
+div.error {
+  background-image: url(../../../../../misc/message-24-error.png);
+  border-color: $error_border;
+}
+div.error,
+.error {
+  color: $error_color;
+}
+div.error,
+table tr.error {
+  background-color: $error_background;
+}
+div.error p.error {
+  color: $error_p_color;
+}
+
+div.messages ul {
+  margin: 0 0 0 1em; /* LTR */
+  padding: 0;
+}
+div.messages ul li {
+  list-style-image: none;
+}

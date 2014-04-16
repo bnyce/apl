@@ -1,0 +1,128 @@
+$mini = new stdClass();
+$mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+$mini->api_version = 1;
+$mini->name = 'apl_2014_top';
+$mini->category = 'APL 2014';
+$mini->admin_title = 'APL 2014 - Header';
+$mini->admin_description = 'City of Austin banner and potentially other elements to appear at the top of every page.';
+$mini->requiredcontexts = array();
+$mini->contexts = array();
+$mini->relationships = array();
+$display = new panels_display();
+$display->layout = 'twocol_stacked';
+$display->layout_settings = array();
+$display->panel_settings = array(
+  'style_settings' => array(
+    'default' => NULL,
+    'top' => NULL,
+    'left' => NULL,
+    'right' => NULL,
+    'bottom' => NULL,
+  ),
+);
+$display->cache = array();
+$display->title = '';
+$display->content = array();
+$display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-1';
+  $pane->panel = 'bottom';
+  $pane->type = 'block';
+  $pane->subtype = 'menu-menu-apl-menu-2014';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => '',
+  );
+  $pane->cache = array(
+    'method' => 'simple',
+    'settings' => array(
+      'lifetime' => '604800',
+      'granularity' => 'none',
+    ),
+  );
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $display->content['new-1'] = $pane;
+  $display->panels['bottom'][0] = 'new-1';
+  $pane = new stdClass();
+  $pane->pid = 'new-2';
+  $pane->panel = 'left';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => '',
+    'title' => '',
+    'body' => '<a id="apl_logo_a" href="http://library.austintexas.gov" style="background-image: url(\'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0aD0iMzY2LjY2N3B4IiBoZWlnaHQ9IjIzNnB4IiB2aWV3Qm94PSIwIDAgMzY2LjY2NyAyMzYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDM2Ni42NjcgMjM2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8Zz4KCQk8cGF0aCBmaWxsPSIjRkRCOTEzIiBkPSJNNzcuNjUyLDU2LjIwMWw0My42MTMsNi45NzdMNjQuNDU5LDQ2Ljg1NmMtMy4wOTcsNC43NzEtOC41MzksNy41NTktMTQuMjQ5LDcuMjYzbC0xOS43MzEsNTUuMTI3CgkJCWwyMC4xMTctMzkuMzI5bC01LjA3Miw0Ny4zODhsMTAuNTYyLTQ2LjUwN2w2LjY5Myw1My44MjZsLTEuMTY3LTU0LjMzM2wyMy45OTQsNTguMTU2bC0xOC43Ny02MC4wMzJsMzQuNjQ2LDQ1Ljc1MUw3MS40NDcsNjUuMzAyCgkJCWwzOS4zMTYsMzEuNzM2TDc1LjEyMiw2MS4xNDVsNDAuNTA5LDE3LjYwM0w3Ny42NTIsNTYuMjAxeiIvPgoJCTxwYXRoIGZpbGw9IiMwMDY5QUEiIGQ9Ik0xMDIuNzYxLDIxLjc4NUw0NS41ODYsNC4wMzNjLTAuMDM0LTAuMDAzLTAuMDY4LTAuMDI4LTAuMDkzLTAuMDMxYy0wLjAzNS0wLjAwOS0wLjA2My0wLjAxNS0wLjA4OC0wLjAyMQoJCQlsLTAuMDc3LTAuMDIxdjAuMDAzYy04LjM3NC0yLjUwMi0xNy4yMzMsMi4xNzgtMTkuODU5LDEwLjUyN2wtMC4wMTYtMC4wMDZMNy42MjYsNzEuOTE1bDE4LjkxMywzOC41NDJsMTguMzk0LTU5LjI0MQoJCQljMi43MTQtOC4yODcsMTEuNTkxLTEyLjg5NSwxOS45NDMtMTAuMjkzYzAuMDEyLDAsMC4wMDktMC4wMTYsMC4wMDktMC4wMTZsNTguOTM2LDE4LjNMMTAyLjc2MSwyMS43ODV6Ii8+Cgk8L2c+Cgk8Zz4KCQk8Zz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTIxLjM4NywxNjIuMTI2bC0yLjIxMy02LjU1OUg4LjUzMmwtMi4yNTMsNi41NTlIMy4zMzVsOC45NDktMjUuODAxaDMuMTcxbDguOTU2LDI1LjgwMUgyMS4zODd6CgkJCQkgTTE1LjQ1NSwxNDQuNDc4Yy0wLjU4OC0xLjY5My0xLjMzNS00LjAyMS0xLjU4Ny01LjA5MmMtMC4yNDksMS4wMzMtMC45ODYsMy4zNjEtMS42MjEsNS4xNmwtMi44MzEsOC40MDhoOC44OEwxNS40NTUsMTQ0LjQ3OHoiCgkJCQkvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNNDcuNDU2LDE2Mi41M2MtNi4xNTgsMC05LjMzNS0zLjcxNS05LjMzNS0xMC44NzF2LTE1LjMzNGgyLjg4MnYxNS4yNmMwLDUuNTc2LDIuMTQ0LDguMzI2LDYuNTk3LDguMzI2CgkJCQljNC40NjgsMCw2LjIyOS0yLjY4OSw2LjIyOS04LjI1MnYtMTUuMzM0aDIuODgxdjE1LjI2QzU2LjcxLDE1OC43NDEsNTMuNjQzLDE2Mi41Myw0Ny40NTYsMTYyLjUzeiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNNzkuOTI0LDE2Mi41M2MtMy40OTgsMC02LjYyOC0xLjUxMi04LjY1My0zLjU3MmwxLjkyLTIuMTQxYzEuOTQ3LDEuODg3LDQuMTk3LDMuMDk0LDYuODU0LDMuMDk0CgkJCQljMy40MTcsMCw1LjU2Ny0xLjY5Myw1LjU2Ny00LjQxOGMwLTIuMzkxLTEuNDQ3LTMuNzYtNi4xNjEtNS40NTNjLTUuNTY0LTEuOTktNy40MzUtMy43OTUtNy40MzUtNy41MjkKCQkJCWMwLTQuMTIxLDMuMjMzLTYuNTg0LDguMDU3LTYuNTg0YzMuNDczLDAsNS42ODUsMS4wMzMsNy44NjMsMi43NjJsLTEuODQyLDIuMjQ4Yy0xLjg5LTEuNTUxLTMuNjEzLTIuMzk2LTYuMjAyLTIuMzk2CgkJCQljLTMuNTM1LDAtNS4wMDQsMS43NjgtNS4wMDQsMy43OTdjMCwyLjE0MSwwLjk0NiwzLjM1OSw2LjEwMyw1LjIwMWM1LjcyNiwyLjA2MSw3LjQ5MywzLjk3MSw3LjQ5Myw3LjgwNQoJCQkJQzg4LjQ4NCwxNTkuNDAxLDg1LjMxMywxNjIuNTMsNzkuOTI0LDE2Mi41M3oiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTExMS44OTksMTM4LjkzOHYyMy4xODhoLTIuODY5di0yMy4xODhoLTcuNTkydi0yLjYxM2gxOC4wNTF2Mi42MTNIMTExLjg5OXoiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTEzNC4yMTEsMTYyLjEyNnYtMjUuODAxaDIuODY1djI1LjgwMUgxMzQuMjExeiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNMTY5LjI4LDE2Mi4xMjZsLTExLjI4My0xNy42NDhjLTAuNTQ4LTAuODg1LTEuNTA3LTIuNTc2LTEuODM2LTMuMjQydjEuNzZ2MTkuMTMxaC0yLjc3NnYtMjUuODAxaDIuODEzCgkJCQlsMTEuMTcxLDE3Ljk5OGMwLjUzNSwwLjg4MywxLjQ5MywyLjU3LDEuODIzLDMuMjM0di0xLjc2NnYtMTkuNDY3aDIuNzd2MjUuODAxSDE2OS4yOHoiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTIwNC44MSwxNTEuOTk1aC02LjI2MXYxMC4xMzFoLTIuODc1di0yNS44MDFoOS42NThjNC42OTIsMCw4LjIxNSwyLjQ3Nyw4LjIxNSw3LjcxNwoJCQkJQzIxMy41NDcsMTQ5LjE1NywyMDkuOTg3LDE1MS45OTUsMjA0LjgxLDE1MS45OTV6IE0yMDUuMjIsMTM4LjkzOGgtNi42NzF2MTAuNDNoNi4zMTFjMy45MzMsMCw1LjgxMy0xLjc5OSw1LjgxMy01LjIyNwoJCQkJQzIxMC42NzIsMTQwLjgyOSwyMDguNzU1LDEzOC45MzgsMjA1LjIyLDEzOC45Mzh6Ii8+CgkJCTxwYXRoIGZpbGw9IiMwMDY5QUEiIGQ9Ik0yMzYuOTIxLDE2Mi41M2MtNi4xNDgsMC05LjMyMi0zLjcxNS05LjMyMi0xMC44NzF2LTE1LjMzNGgyLjg3NXYxNS4yNmMwLDUuNTc2LDIuMTQxLDguMzI2LDYuNjA5LDguMzI2CgkJCQljNC40NTcsMCw2LjIyNS0yLjY4OSw2LjIyNS04LjI1MnYtMTUuMzM0aDIuODc1djE1LjI2QzI0Ni4xODMsMTU4Ljc0MSwyNDMuMTIsMTYyLjUzLDIzNi45MjEsMTYyLjUzeiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNMjcxLjM2MiwxNjIuMTI2aC05LjI0OHYtMjUuODAxaDkuNDM0YzQuMDg0LDAsNi45OTYsMi4wMjcsNi45OTYsNi40NTljMCwyLjgzOC0xLjU0Myw0LjQ5NC0zLjcyMSw1LjI2NgoJCQkJYzIuMzUyLDAuNjIxLDQuOTQxLDIuMjgzLDQuOTQxLDYuNDQ3QzI3OS43NjUsMTU5LjU3NSwyNzYuNzc2LDE2Mi4xMjYsMjcxLjM2MiwxNjIuMTI2eiBNMjcxLjQzNywxMzguOTM4aC02LjQ1OXY4LjA0MWg2LjIzNAoJCQkJYzMuMTk5LDAsNC40NTctMS44NDQsNC40NTctNC4wOTZDMjc1LjY2OSwxNDAuNTMyLDI3NC4zMTIsMTM4LjkzOCwyNzEuNDM3LDEzOC45Mzh6IE0yNzEuMzk5LDE0OS41NTZoLTYuNDIydjkuOTU3aDYuNTcKCQkJCWMzLjg3MSwwLDUuMzQtMS45MTYsNS4zNC00Ljg2N0MyNzYuODg4LDE1MS4zOTcsMjc0Ljc0NywxNDkuNTU2LDI3MS4zOTksMTQ5LjU1NnoiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTI5NC41MTMsMTYyLjEyNnYtMjUuODAxaDIuODc1djIzLjE4OGgxMi43NDZ2Mi42MTNIMjk0LjUxM3oiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTMyNS4yMzEsMTYyLjEyNnYtMjUuODAxaDIuODc1djI1LjgwMUgzMjUuMjMxeiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNMzUzLjczNSwxNjIuNTNjLTYuMjk5LDAtMTAuNDE4LTUuNzEzLTEwLjQxOC0xMy4yNjJjMC03LjY2Niw0LjMwNy0xMy4zNDIsMTAuNTI5LTEzLjM0MgoJCQkJYzMuNTM1LDAsNi4xODgsMS4zMyw4LjIxNSw0LjEyNWwtMi4yODksMS43MzZjLTEuNjQzLTIuMjQtMy4xOTktMy4yNDgtNi0zLjI0OGMtNC40MzIsMC03LjU5Miw0LjM4MS03LjU5MiwxMC42NTQKCQkJCWMwLDYuMjk5LDMuMjczLDEwLjcxNyw3LjYyOSwxMC43MTdjMi44MDEsMCw0LjcwNS0xLjI0NCw2LjM2MS0zLjM4NWwyLjAwNCwxLjcyOUMzNjAuMjk0LDE2MC44MDgsMzU3LjQ5NSwxNjIuNTMsMzUzLjczNSwxNjIuNTMKCQkJCXoiLz4KCQk8L2c+CgkJPGc+CgkJCTxwYXRoIGZpbGw9IiMwMDY5QUEiIGQ9Ik00LjA0OCwyMzIuNzEyVjE3OC44OGg1Ljk5M3Y0OC4zNzVoMjYuNjExdjUuNDU3SDQuMDQ4eiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNNTQuMzgsMjMyLjcxMlYxNzguODhoNS45OTZ2NTMuODMySDU0LjM4eiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNMTA1Ljk0NCwyMzIuNzEySDg2LjY0MlYxNzguODhoMTkuNjk0YzguNTI5LDAsMTQuNjA5LDQuMjMyLDE0LjYwOSwxMy40NjEKCQkJCWMwLDUuOTE4LTMuMjMzLDkuMzc5LTcuNzc2LDEwLjk5OGM0LjkyMywxLjMwNywxMC4zMDMsNC43NjYsMTAuMzAzLDEzLjQ1NUMxMjMuNDcyLDIyNy4zOTcsMTE3LjI0OSwyMzIuNzEyLDEwNS45NDQsMjMyLjcxMnoKCQkJCSBNMTA2LjA5NywxODQuMzM5SDkyLjYzOXYxNi43NzFoMTMuMDAzYzYuNjksMCw5LjMwOC0zLjg0Niw5LjMwOC04LjUzOUMxMTQuOTQ5LDE4Ny42NDksMTEyLjA5NiwxODQuMzM5LDEwNi4wOTcsMTg0LjMzOXoKCQkJCSBNMTA2LjAyMSwyMDYuNDg3SDkyLjYzOXYyMC43NjhoMTMuNjk3YzguMDY1LDAsMTEuMTM3LTQuMDAyLDExLjEzNy0xMC4xNUMxMTcuNDczLDIxMC4zMzMsMTEzLjAxNCwyMDYuNDg3LDEwNi4wMjEsMjA2LjQ4N3oiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTE3MC45MzYsMjA5LjMzN2wxMS44NDMsMjMuMzc1aC02LjkyN2wtMTEuNTMyLTIyLjkxNGgtMTIuNzY0djIyLjkxNGgtNS45OVYxNzguODhoMjEuMjkzCgkJCQljOS40NiwwLDE2Ljc2Nyw0Ljg0OCwxNi43NjcsMTUuMjM0QzE4My42MjUsMjAyLjQ5MSwxNzguNjI4LDIwNy43MiwxNzAuOTM2LDIwOS4zMzd6IE0xNjYuNjIyLDE4NC4zMzloLTE1LjA2NnYyMC4wODJoMTQuMzIKCQkJCWM3Ljk4NCwwLDExLjc1LTMuMzExLDExLjc1LTEwLjA4MkMxNzcuNjI2LDE4Ny43MjksMTczLjc3OSwxODQuMzM5LDE2Ni42MjIsMTg0LjMzOXoiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTIzOC43ODgsMjMyLjcxMmwtNC42MTctMTMuNjkxaC0yMi4yMTdsLTQuNjkyLDEzLjY5MWgtNi4xNDlsMTguNjgyLTUzLjgzMmg2LjYyM2wxOC42Nyw1My44MzJIMjM4Ljc4OHoKCQkJCSBNMjI2LjQxNywxOTUuODc2Yy0xLjI0Ni0zLjUzNS0yLjc4OS04LjM4My0zLjMxMS0xMC42MTFjLTAuNTQ5LDIuMTU0LTIuMDgsNi45OTYtMy4zODcsMTAuNzY4bC01LjkyNCwxNy41MjVoMTguNTMzCgkJCQlMMjI2LjQxNywxOTUuODc2eiIvPgoJCQk8cGF0aCBmaWxsPSIjMDA2OUFBIiBkPSJNMjkyLjQwOSwyMDkuMzM3bDExLjgzOCwyMy4zNzVoLTYuOTJsLTExLjUzOS0yMi45MTRoLTEyLjc3MXYyMi45MTRoLTUuOTk4VjE3OC44OGgyMS4yOTcKCQkJCWM5LjQ1OSwwLDE2Ljc2Niw0Ljg0OCwxNi43NjYsMTUuMjM0QzMwNS4wODEsMjAyLjQ5MSwzMDAuMDg5LDIwNy43MiwyOTIuNDA5LDIwOS4zMzd6IE0yODguMDkxLDE4NC4zMzloLTE1LjA3NHYyMC4wODJoMTQuMzAzCgkJCQljOC4wMDQsMCwxMS43NzMtMy4zMTEsMTEuNzczLTEwLjA4MkMyOTkuMDkzLDE4Ny43MjksMjk1LjIzNSwxODQuMzM5LDI4OC4wOTEsMTg0LjMzOXoiLz4KCQkJPHBhdGggZmlsbD0iIzAwNjlBQSIgZD0iTTM0NC44NzQsMjExLjM0MXYyMS4zNzFoLTUuOTg4di0yMS4zMDlsLTE4LjQ1OS0zMi41MjNoNi44NTlsOC42LDE1LjQ1OQoJCQkJYzIuMTU0LDMuOTIsNC41NDMsOC4zODMsNi4wNjMsMTEuNTM5YzEuNTQzLTMuMTU2LDMuOTM0LTcuNjkzLDYuMDg2LTExLjUzOWw4LjYxMy0xNS40NTloNi42ODRMMzQ0Ljg3NCwyMTEuMzQxeiIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8L3N2Zz4=\') !important;"></a>',
+    'format' => 'truly_unfiltered_html',
+    'substitute' => TRUE,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $display->content['new-2'] = $pane;
+  $display->panels['left'][0] = 'new-2';
+  $pane = new stdClass();
+  $pane->pid = 'new-3';
+  $pane->panel = 'right';
+  $pane->type = 'block';
+  $pane->subtype = 'block-33';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $display->content['new-3'] = $pane;
+  $display->panels['right'][0] = 'new-3';
+  $pane = new stdClass();
+  $pane->pid = 'new-4';
+  $pane->panel = 'top';
+  $pane->type = 'block';
+  $pane->subtype = 'menu-menu-coa-header';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array(
+    'method' => 'simple',
+    'settings' => array(
+      'lifetime' => '604800',
+      'granularity' => 'none',
+    ),
+  );
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $display->content['new-4'] = $pane;
+  $display->panels['top'][0] = 'new-4';
+$display->hide_title = PANELS_TITLE_NONE;
+$display->title_pane = 'new-4';
+$mini->display = $display;

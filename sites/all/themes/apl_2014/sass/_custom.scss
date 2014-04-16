@@ -14,6 +14,9 @@
   height: 1px;
   width: 1px;
   overflow: hidden;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax.
+  }
   clip: rect(1px, 1px, 1px, 1px);
 }
 
@@ -48,4 +51,9 @@
   text-align: center;
   word-wrap: break-word; // A very nice CSS3 property
 
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    .lt-ie8 &>* {
+      position: relative; // Otherwise these elements will appear below the "Unpublished" text.
+    }
+  }
 }

@@ -1,42 +1,39 @@
 @import "colors";
 
+/*
+#mini-panel-highlighted_images_calendar {
+    min-height: 320px;
+	margin: 0 auto !important;
+	max-width: 980px;
+}
+*/
+
+
+
+
 #views_slideshow_cycle_main_clone_of_highlighted_images-panel_pane_8 {
 	position: relative;
-	//background-color: $black;
-	//opacity: .85;
 		.views-field.views-field-title {
-			position: absolute;
 			z-index: 10;
 	                font-weight: bold;
         	        font-size: 16px;
-                	bottom: 43px;
+                	bottom: 40px;
                 	padding-top: 3px;
 			padding-left: 10px;
-			a {
-				color: white;
-			}
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			width: 485px;
 
 		}
 		.views-field.views-field-body {
-			position: absolute;
-			bottom: 0;
+			bottom: 19px;
 			z-index: 10;
-			color: white;
 			padding-left: 10px;
 		}
         	div.views-field-field-highlighted-image {
                 z-index: 8;
                 position: relative;
-                &:after {
-                        background-color: $black;
-                        position: absolute;
-                        bottom: 5px;
-                        content: "";
-                        height: 64px;
-                        opacity: 0.4;
-                        width: 100%;
-                        z-index: 6;
-                }
         	}
 
 }
@@ -49,144 +46,32 @@ div.views-slideshow-cycle-main-frame-row-item div.views-field div.field-content 
 .view-clone-of-news.view-display-id-panel_pane_9.messages {
 	margin-bottom: 10px;
 }
-//div.pane-highlighted-images-panel-pane-8 {
-div#apl-slideshow {
-	margin-top: 0px;
-	div.view-content {
-		position: relative;
-	}
-}
-.views-slideshow-controls-top, 
-.views-slideshow-controls-bottom {
-	z-index: 13;
-	position: absolute;
-	#widget_pager_bottom_highlighted_images-panel_pane_8 {
-		z-index: 12;
-	}
-	width: 100%;
-	float: left;
-	.views-slideshow-controls-text-pause {
-		display: none;
-	}
-	.views-slideshow-controls-text-previous, 
-	.views-slideshow-controls-text-next {
-	    display: block;
-	    height: 0px;
-	    width: 0px;
-		z-index: 12;
-		float: left;
-		//margin-left: 10px;
-		margin-left: 5px;
-		overflow: hidden;
-		border-color: transparent $blue;
-		border-style: solid;
-		//border-width: 16px 16px 16px 0;
-		border-width: 12px 12px 12px 0;
-		display: block;
-		border-radius: 4px;
-	&:hover {
-		border-color: transparent lighten($blue, 10%);
-	}
-	}	
-	.views-slideshow-controls-text-next {
-		//border-width: 16px 0 16px 16px;
-		border-width: 12px 0 12px 12px;
-	}
-	.views-slideshow-pager-fields {
-	//	float: left;
-		position: absolute;
-		bottom: 9px;
-		right: 4px;
-	}
-	.views-slideshow-controls-text {
-		position: absolute;
-		bottom: 32px;
-//		right: 0;
-		//left: 528px;
-//		left: 541px;
-		right: 4px;
-	}
-}
 
 .views_slideshow_pager_field_item {
 	float: left;
-	//margin-right: 5px;
-	margin-right: 2px;
-	background-color: white;
-/*
-	min-width: 16px;
-	max-width: 16px;
-	min-height: 16px;
-	max-height: 16px;
-*/
+	margin-right: 2px !important;
+	margin-bottom: 2px !important;
+	background-color: silver;
 	min-width: 8px;
 	max-width: 8px;
 	min-height: 8px;
 	max-height: 8px;
 	border-radius: 8px;
 	overflow: hidden;
-//	border: 1px solid transparent;
 	opacity: .85;
 	a {
 		font-size: 0;
 	}
 	&.active,
 	&:hover {
-		//background-color: $yellow;
 		background-color: lighten($blue,10%);
 		opacity: 1;
 		cursor: pointer;
-//		border-color: rgba(255,255,255,.5);
 	}
 }	
-//.pane-highlighted-images-panel-pane-8 {
 div#apl-slideshow {
 	.views-content-title {
 		font-size: 0;
-	}
-	margin-top: 10px;
-	div.views-field-title,
-	div.views-field-body {
-		position: absolute;
-		//width: 575px;
-		width: 580px;
-		.field-content {
-			display: block;
-		//	background-color: rgba(0,0,0,0.5);
-			color: white;
-			max-height: 20px;	
-			@include ellipsis;
-			padding: 2px 38px 0 5px;
-			a {
-				color: white;
-			}
-		}
-	}
-	div.views-field-title {
-		font-weight: bold;
-		font-size: 16px;
-		bottom: 48px;
-		z-index: 10;
-		padding-top: 3px;
-	}
-	div.views-field-body {
-		bottom: 27px;
-		z-index: 9;
-	}
-	div.views-field-field-highlighted-image {
-		z-index: 8;
-		position: relative;
-		&:after {
-			background-color: $black;
-			position: absolute;
-			bottom: 5px;
-			content: "";
-			height: 64px;
-			opacity: 0.4;
-			background-color: white;
-			width: 100%;
-			z-index: 6;
-		}
 	}
 }
 div.view-display-id-panel_pane_1 {
@@ -196,8 +81,11 @@ div.view-display-id-panel_pane_1 {
 	}
 }
 body {
-	div.panel-col-last div.field-content img {
-		width: 340px;
+	#mini-panel-news  div.views-field-field-main-image img {
+		width:inherit;
+		max-width: 100%;
+		height: auto;
+		margin-bottom: 5px;
 	}
 
 
@@ -208,13 +96,11 @@ ul.bookSlide {
 		a.jcarousel-next-horizontal {
 			background: none;
 			position: absolute;
-			right: 4px;
+			right: -15px;
 			top: 50px;
 			border-style: solid;
-                	//border-width: 16px 0 16px 16px;
                 	border-width: 12px 0 12px 12px;
 			border-color: transparent green transparent $blue;
-			border-radius: 4px;
 			width: 0;
 			height: 0;
 			&:hover {
@@ -224,19 +110,16 @@ ul.bookSlide {
 		}
 		a.jcarousel-prev-horizontal {
 			background-position: 0 0;
-			left: 4px;
+			left: -15px;
 			position: absolute;
 			top: 50px;
 			border:20px solid green;
 			background: none;
 			position: absolute;
-			//right: 0;
 			top: 50px;
 			border-style: solid;
-                	//border-width: 16px 16px 16px 0;
                 	border-width: 12px 12px 12px 0;
 			border-color: transparent $blue transparent $blue;
-			border-radius: 4px;
 			width: 0;
 			height: 0;
 			&:hover {
@@ -245,10 +128,9 @@ ul.bookSlide {
 			}
 		}
 		div.jcarousel-clip-horizontal {
-			left: 19px;
 			overflow: hidden;
-			width: 550px;
-			width: 542px;
+			width: 100%;
+			margin: 0 auto;
 		}
 		div.jcarousel-container-horizontal {
 			height: 162px;

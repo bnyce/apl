@@ -1,0 +1,77 @@
+@import "colors";
+
+#page {
+#main {
+
+.breadcrumb ol {
+	padding-left: 0;
+	li {
+	    display: inline;
+	    list-style: none outside none;
+	}
+}
+
+
+.item-list .pager {
+    clear: both;
+    text-align: center;
+	li {
+	    background-image: none;
+	    display: inline;
+	    list-style-type: none;
+	    padding: 5px;
+	}
+}
+
+	@include responsive_container;
+
+
+	margin-bottom: 20px !important;
+	line-height: 1.5em;
+	
+	.panel-2col, 
+	.center-wrapper {
+	
+		.panel-col-first {
+			width: $big_column;
+			min-height: 100px;
+			float: none;
+			margin: 10px auto;
+			
+			.inside {
+				margin: 0;
+			}
+			
+			@include breakpoint($high-tide) {
+				float: left;
+				margin: 10px 0;
+			}
+		}
+	
+		.panel-col-last {
+//			margin-left: 20px;
+			float: none;
+			margin: 30px auto;
+			width: $big_column;
+			
+			.inside {
+				margin: 0;
+			}
+			
+			@include breakpoint($high-tide) {
+				float: right;
+				width: 360px;
+				margin: 10px 0;
+			}
+		}
+	}
+	.more-link {
+	    text-align: right;
+	}
+	h2.pane-title {
+		border-bottom: 1px solid $yellow;
+		margin: 5px 0 !important;
+		padding: 5px 5px 0 0;
+	}
+}
+}

@@ -1,1 +1,129 @@
-div#virtual div.virtual-service p{margin-bottom:0}div#virtual div.virtual-service p.title,div#virtual div.virtual-service span.title,div#virtual div.virtual-service a{margin-left:15px;display:inline;margin-bottom:5px}div#virtual div.description{margin:0 10px 20px;background-color:#e7ea7f;border:1px solid #a6b839;padding:10px 10px 15px 10px;border-top-right-radius:10px;border-bottom-left-radius:10px;margin:2px 0 1em 5px}div#virtual div.more-info{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important}div#virtual div.virtual-service{display:block;margin-left:-3px;text-align:left}div#virtual div.virtual-service:hover{cursor:help}div#virtual div.virtual-service span.show-hide{background:url("../images/menu-collapsed.png") no-repeat scroll 0 4px transparent;z-index:1000}div#virtual div.virtual-service span.show-hide.expanded{background-image:url("../images/menu-expanded.png")}div#virtual div.services-grouping{padding:5px}div#virtual div.grouping{margin-bottom:20px;border:1px solid #e1eaf0;border-top-right-radius:10px;border-bottom-left-radius:10px;float:left;margin-right:20px;width:298px}div#virtual div.grouping.help{margin:0 10px 20px;background-color:#e7ea7f;border:1px solid #a6b839;padding:10px 10px 15px 10px;border-top-right-radius:10px;border-bottom-left-radius:10px;width:298px;padding:0;margin:0}div#virtual div.grouping.help h2{color:green}div#virtual div.grouping h2{font-size:1.5em;margin:10px 10px 0}div#virtual div.grouping div.content{margin:1em 10px 20px}div#virtual div.grouping div.content div.popup-element a{color:#0069aa}div#virtual div.grouping div.content div.popup-element a:visited{color:#4c2a90}div#virtual div.grouping div.content span.coming-soon{color:silver}div#virtual div.grouping div.content ul{list-style-type:none;margin-left:0;margin-bottom:20px;padding-left:0}div#virtual div.grouping div.content ul li{padding:0 5px}div#virtual div.grouping div.content img{max-width:100%;max-height:175px;border-bottom-left-radius:10px;border-top-right-radius:10px;margin-bottom:10px;margin-right:5px}div#virtual div.grouping:nth-child(7),div#virtual div.grouping:nth-child(10),div#virtual div.grouping:nth-child(13),div#virtual div.grouping:nth-child(16),div#virtual div.grouping:nth-child(19){clear:both}div#virtual div.grouping.column-3{margin-right:0;clear:none;float:left}
+/* line 16, ../sass/virtual.scss */
+div#virtual div.virtual-service p {
+  margin-bottom: 0;
+}
+/* line 19, ../sass/virtual.scss */
+div#virtual div.virtual-service p.title,
+div#virtual div.virtual-service span.title,
+div#virtual div.virtual-service a {
+  margin-left: 15px;
+  display: inline;
+  margin-bottom: 5px;
+}
+/* line 27, ../sass/virtual.scss */
+div#virtual div.description {
+  margin: 0 10px 20px;
+  background-color: #e7ea7f;
+  border: 1px solid #a6b839;
+  padding: 10px 10px 15px 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 2px 0 1em 5px;
+}
+/* line 31, ../sass/virtual.scss */
+div#virtual div.more-info {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+/* line 39, ../sass/virtual.scss */
+div#virtual div.virtual-service {
+  display: block;
+  margin-left: -3px;
+  text-align: left;
+}
+/* line 40, ../sass/virtual.scss */
+div#virtual div.virtual-service:hover {
+  cursor: help;
+}
+/* line 47, ../sass/virtual.scss */
+div#virtual div.virtual-service span.show-hide {
+  background: url("../images/menu-collapsed.png") no-repeat scroll 0 4px transparent;
+  z-index: 1000;
+}
+/* line 52, ../sass/virtual.scss */
+div#virtual div.virtual-service span.show-hide.expanded {
+  background-image: url("../images/menu-expanded.png");
+}
+/* line 57, ../sass/virtual.scss */
+div#virtual div.services-grouping {
+  padding: 5px;
+}
+/* line 60, ../sass/virtual.scss */
+div#virtual div.grouping {
+  margin-bottom: 20px;
+  border: 1px solid #e1eaf0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  float: left;
+  margin-right: 20px;
+  width: 298px;
+}
+/* line 61, ../sass/virtual.scss */
+div#virtual div.grouping.help {
+  margin: 0 10px 20px;
+  background-color: #e7ea7f;
+  border: 1px solid #a6b839;
+  padding: 10px 10px 15px 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 298px;
+  padding: 0;
+  margin: 0;
+}
+/* line 68, ../sass/virtual.scss */
+div#virtual div.grouping.help h2 {
+  color: green;
+}
+/* line 72, ../sass/virtual.scss */
+div#virtual div.grouping h2 {
+  font-size: 1.5em;
+  margin: 10px 10px 0;
+}
+/* line 76, ../sass/virtual.scss */
+div#virtual div.grouping div.content {
+  margin: 1em 10px 20px;
+}
+/* line 77, ../sass/virtual.scss */
+div#virtual div.grouping div.content div.popup-element a {
+  color: #0069aa;
+}
+/* line 79, ../sass/virtual.scss */
+div#virtual div.grouping div.content div.popup-element a:visited {
+  color: #4c2a90;
+}
+/* line 83, ../sass/virtual.scss */
+div#virtual div.grouping div.content span.coming-soon {
+  color: silver;
+}
+/* line 86, ../sass/virtual.scss */
+div#virtual div.grouping div.content ul {
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+/* line 92, ../sass/virtual.scss */
+div#virtual div.grouping div.content ul li {
+  padding: 0 5px;
+}
+/* line 97, ../sass/virtual.scss */
+div#virtual div.grouping div.content img {
+  max-width: 100%;
+  max-height: 175px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+/* line 114, ../sass/virtual.scss */
+div#virtual div.grouping:nth-child(7), div#virtual div.grouping:nth-child(10), div#virtual div.grouping:nth-child(13), div#virtual div.grouping:nth-child(16), div#virtual div.grouping:nth-child(19) {
+  clear: both;
+}
+/* line 121, ../sass/virtual.scss */
+div#virtual div.grouping.column-3 {
+  margin-right: 0;
+  clear: none;
+  float: left;
+}
